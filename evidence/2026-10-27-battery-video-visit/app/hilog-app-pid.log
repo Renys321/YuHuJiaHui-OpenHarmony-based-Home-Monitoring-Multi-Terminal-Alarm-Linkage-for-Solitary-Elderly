@@ -1,0 +1,100 @@
+﻿10-27 20:38:26.623 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:26.623 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:26.623 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:26.623 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:26.623 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:26.623 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:26.623 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:26.629 14067 15067 I C02b61/ImageSource: CreatePixelMap success, id:1793104706624768,dSize:(0,0),srcSize: (640,480),hard:0,dHdr:1,sHdr:1,memType: 2,cost 3921 us
+10-27 20:38:26.629 14067 15067 E C02b61/PixelMap: set ashmem name failed
+10-27 20:38:26.877 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:26.877 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:26.877 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:26.877 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:26.877 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:26.877 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:26.877 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:26.881 14067 15067 I C02b61/ImageSource: CreatePixelMap success, id:1793104706878540,dSize:(0,0),srcSize: (640,480),hard:0,dHdr:1,sHdr:1,memType: 2,cost 3079 us
+10-27 20:38:26.882 14067 15067 E C02b61/PixelMap: set ashmem name failed
+10-27 20:38:26.953 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:27.239 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:27.239 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:27.239 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:27.239 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:27.239 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:27.239 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:27.239 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:27.245 14067 16597 I C02b61/ImageSource: CreatePixelMap success, id:1793104707241092,dSize:(0,0),srcSize: (640,480),hard:0,dHdr:1,sHdr:1,memType: 2,cost 4503 us
+10-27 20:38:27.246 14067 16597 E C02b61/PixelMap: set ashmem name failed
+10-27 20:38:27.731 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:27.732 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:27.732 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:27.732 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:27.732 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:27.732 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:27.732 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:27.738 14067 16597 I C02b61/ImageSource: CreatePixelMap success, id:1793104707733458,dSize:(0,0),srcSize: (640,480),hard:0,dHdr:1,sHdr:1,memType: 2,cost 4487 us
+10-27 20:38:27.738 14067 16597 E C02b61/PixelMap: set ashmem name failed
+10-27 20:38:28.075 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:28.075 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:28.075 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:28.075 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:28.075 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:28.075 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:28.075 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:28.080 14067 15067 I C02b61/ImageSource: CreatePixelMap success, id:1793104708076985,dSize:(0,0),srcSize: (640,480),hard:0,dHdr:1,sHdr:1,memType: 2,cost 2815 us
+10-27 20:38:28.080 14067 15067 E C02b61/PixelMap: set ashmem name failed
+10-27 20:38:28.288 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:28.288 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:28.288 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:28.288 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:28.288 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:28.288 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:28.288 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:28.294 14067 15067 I C02b61/ImageSource: CreatePixelMap success, id:1793104708290179,dSize:(0,0),srcSize: (640,480),hard:0,dHdr:1,sHdr:1,memType: 2,cost 3444 us
+10-27 20:38:28.294 14067 15067 E C02b61/PixelMap: set ashmem name failed
+10-27 20:38:28.643 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:28.643 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:28.643 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:28.643 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:28.643 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:28.643 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:28.643 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:28.655 14067 15067 I C02b61/ImageSource: CreatePixelMap success, id:1793104708649223,dSize:(0,0),srcSize: (640,480),hard:0,dHdr:1,sHdr:1,memType: 2,cost 4985 us
+10-27 20:38:28.655 14067 15067 E C02b61/PixelMap: set ashmem name failed
+10-27 20:38:28.887 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:28.887 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:28.887 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:28.887 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:28.887 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:28.887 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:28.887 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:28.892 14067 16597 I C02b61/ImageSource: CreatePixelMap success, id:1793104708888949,dSize:(0,0),srcSize: (640,480),hard:0,dHdr:1,sHdr:1,memType: 2,cost 3058 us
+10-27 20:38:28.892 14067 16597 E C02b61/PixelMap: set ashmem name failed
+10-27 20:38:29.156 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:29.157 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:29.157 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:29.157 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:29.157 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:29.157 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:29.157 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:29.167 14067 16596 I C02b61/ImageSource: CreatePixelMap success, id:1793104709158750,dSize:(0,0),srcSize: (640,480),hard:0,dHdr:1,sHdr:1,memType: 2,cost 3879 us
+10-27 20:38:29.168 14067 16596 E C02b61/PixelMap: set ashmem name failed
+10-27 20:38:29.427 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:29.428 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:29.428 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:29.428 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:29.428 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:29.428 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:29.428 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:29.434 14067 15067 I C02b61/ImageSource: CreatePixelMap success, id:1793104709429119,dSize:(0,0),srcSize: (640,480),hard:0,dHdr:1,sHdr:1,memType: 2,cost 4895 us
+10-27 20:38:29.434 14067 15067 E C02b61/PixelMap: set ashmem name failed
+10-27 20:38:29.805 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:29.806 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:29.806 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:29.806 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:29.806 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:29.806 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:29.806 14067 16565 I C015b0/NETSTACK: [websocket_exec.cpp:498] lws callback reason is 8
+10-27 20:38:29.812 14067 16596 I C02b61/ImageSource: CreatePixelMap success, id:1793104709807152,dSize:(0,0),srcSize: (640,480),hard:0,dHdr:1,sHdr:1,memType: 2,cost 4557 us
+10-27 20:38:29.812 14067 16596 E C02b61/PixelMap: set ashmem name failed

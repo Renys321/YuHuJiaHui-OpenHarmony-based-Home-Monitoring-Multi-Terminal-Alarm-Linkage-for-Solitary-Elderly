@@ -1,0 +1,32 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/rooms/index",
+    "pages/alarms/index",
+    "pages/devices/index",
+    "pages/contacts/index",
+    "pages/communications/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "安心居家",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F4F6F8",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#6B7280",
+    "selectedColor": "#0F766E",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      { "pagePath": "pages/home/index", "text": "总览" },
+      { "pagePath": "pages/rooms/index", "text": "房间" },
+      { "pagePath": "pages/alarms/index", "text": "告警" },
+      { "pagePath": "pages/devices/index", "text": "设备" },
+      { "pagePath": "pages/contacts/index", "text": "联系人" }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

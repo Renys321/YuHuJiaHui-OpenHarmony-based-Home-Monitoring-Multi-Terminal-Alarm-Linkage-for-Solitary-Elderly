@@ -1,0 +1,38 @@
+# lib/fixtures/at-standard.fixture
+#
+# 用途：验证 **通用 3GPP AT 解析框架**（lib/at-parser.js）。
+#
+# ⚠ 重要：本夹具**不代表** YED-M100MG-B1 的真实链路。
+#   本项目全部本地资料（hardware/yed-m100mg-b1/README.md、厂家命令文档核对记录、
+#   2026-10-12 进度 docx 与硬件清单 docx）中都没有 AT 指令或 NMEA 证据；
+#   该模块真机表现为 DTU `config,get,<key>` 文本协议。
+#   因此这里只按 3GPP TS 27.007 公开格式构造回包，用于测试解析框架本身；
+#   在未取得厂商 AT 手册前，**不得**据此向设备发送任何 AT 命令。
+
+>>> AT+CPIN?
+AT+CPIN?
++CPIN: READY
+OK
+
+>>> AT+CSQ
+AT+CSQ
++CSQ: 22,99
+OK
+
+>>> AT+CREG?
+AT+CREG?
++CREG: 0,1
+OK
+
+>>> AT+CEREG?
+AT+CEREG?
++CEREG: 0,5
+OK
+
+>>> AT+COPS?
+AT+COPS?
++COPS: 0,0,"TEST-OPERATOR",7
+OK
+
+>>> AT+CGMR
+ERROR

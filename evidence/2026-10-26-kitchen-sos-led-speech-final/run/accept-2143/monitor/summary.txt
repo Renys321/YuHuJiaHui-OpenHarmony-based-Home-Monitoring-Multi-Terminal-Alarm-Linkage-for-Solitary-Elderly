@@ -1,0 +1,2 @@
+# field-monitor start 2026-10-26T13:41:29.049+00:00
+stop=2026-10-26T13:47:19.092+00:00 reason=duration mqttStatusMsgs=195 ackedObserved=0 snapshots=70 markerLines=0 packetsSentTypes=[1,8,12] (1=CONNECT,8=SUBSCRIBE,12=PINGREQ; 3=PUBLISH 绝不应出现) out=<WORKSPACE>\competition\evidence\2026-10-26-kitchen-sos-led-speech-final\run\accept-2143\monitor

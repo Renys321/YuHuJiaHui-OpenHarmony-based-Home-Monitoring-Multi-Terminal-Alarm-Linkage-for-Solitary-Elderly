@@ -1,0 +1,6 @@
+WAV: sim-im-fine.wav 1.51s
+已上传 1.51s PCM -> 127.0.0.1:19303
+<- {"type":"ready","protocol":1}
+<- {"type":"asr","text":"我没事"}
+<- {"type":"elder_safe","text":"老人自述安全：我没事","speakers":0}
+结束: 收到终止回执

@@ -1,0 +1,117 @@
+# 活动报告 APP 测试日志（app-activity）
+
+- 日期：2026-10-26（Asia/Shanghai）
+- 环境：Windows / Node v24.19.0 / DevEco Studio 自带 TypeScript 4.9.5
+- 工作区并行说明：另一外部并行会话同时修改 `APP/ElderlyCareGuardian` 的“ACK 处置结果 + 安全日志”功能。
+  本日志只对**活动报告新增用例**负责；全量计数包含对方新增用例，数量可能随对方提交变化。
+- 测试边界：全部响应均为 `tests/fake-transport.mjs` 手写的 SIMULATED 模拟响应，不是真实后端/公网/真机证据。
+
+## 1. 编译 core（实际源码，不走 hvigor）
+
+```powershell
+node "D:\DevEcoStudio\DevEco Studio\tools\hvigor\hvigor\node_modules\typescript\bin\tsc" `
+  -p "D:\OpenHarmony\APP\ElderlyCareGuardian\tests\tsconfig.json"
+```
+
+结果：[tsc exit: 0]（无错误；rootDir=core，覆盖新增 core/activity/*.ts、Contracts/ApiClient 改动）
+
+## 2. 活动报告新增测试
+
+```powershell
+Set-Location "D:\OpenHarmony\APP\ElderlyCareGuardian\tests"
+node --test --test-isolation=none activity-report.test.mjs
+```
+
+结果：tests 43 / pass 43 / fail 0 / cancelled 0
+
+覆盖：
+- count 缺失/类型错误/负数 → DTO 为 null，视图显示“无数据”，不出现“0 次”
+- status：ok / partial / insufficient / no_data（未知状态降级 insufficient）
+- comparison：comparable（本地计算百分比、服务端 pct 优先、delta=0 持平）、
+  previous_zero、previous_missing、selected_missing、insufficient/未知降级
+- trend：insufficient / stable / up / down 文案齐全，未知降级 insufficient，无诊断类词汇
+- hourly：缺失→24 项全 null、长度不足补 null、超出截断、非法值→null、顶层空但 selected.hourly 有数据回退
+- 6 时段汇总（夜间/早晨/上午/下午/晚间/深夜）与“部分小时无数据”标注
+- 日期 ±1、跨月、跨年、闰年 2 月；非法日期校验；isIsoDateAfter 未来日期判定
+- scope 校验（day/week/month，非法归一 day）
+- 未知字段忽略、非法 JSON/非对象不崩、合法空对象按无数据展示
+- 覆盖比例格式化、KPI 口径、每日趋势无数据≠0、分房间设备口径（PIR≠人数）、免责声明
+- 全量视图文案扫描：无 ppm/燃气正常、无诊断类词、“0 次活动”伪表述
+
+## 3. ApiClient 活动报告测试（api-client.test.mjs 追加）
+
+```powershell
+node --test --test-isolation=none api-client.test.mjs
+```
+
+结果：tests 23 / pass 23 / fail 0（其中新增 6 项：200 解析 + Bearer + 12s 超时、401、400、
+网络失败/超时、非法 JSON→malformed、非法 scope/date 本地 400 不发请求 + 空 token unauthorized）
+
+## 4. 全量回归
+
+```powershell
+node --test --test-isolation=none
+```
+
+结果（本次运行）：
+
+```
+ℹ tests 284
+ℹ pass 284
+ℹ fail 0
+ℹ cancelled 0
+ℹ duration_ms 2043.6365
+```
+
+拆分说明：
+- 本任务开始前基线：213 项全过（已在本会话开始时实测确认）；
+- 本任务新增：activity-report 43 项 + api-client 6 项 = 49 项；
+- 其余为外部并行会话的 disposition / safety-log 用例（数量可能变化）；
+- 未发现由本任务引入的回归；`static-guard.test.mjs` 30 项单独复跑全过（页面不直连 ApiClient、
+  域名限制、日志不打印凭据等硬约束未被破坏）。
+
+## 5. NOT TESTED（本地无法验证）
+
+- `pages/ActivityReportPage.ets`、`GuardianService.loadActivityReport` 的 ArkTS 编译/HAP 构建
+  （按分工由 Lead 统一执行 hvigor，本会话未运行构建，避免与并行会话的构建冲突）；
+- 真机/模拟器 UI（DatePickerDialog、日/周/月切换、演示模式文案展示、滚动布局）；
+- 真实 `GET /api/v1/activity/report` 公网响应与后端聚合正确性；
+- 真实 PIR 数据链路与设备侧计数准确性。
+
+## 6. 契约修正（dataSince 类型对齐后端真身，2026-10-26 追加）
+
+背景：后端 `competition/cloud/backend/src/activity.js` 的 `buildActivityReport()` 实际返回
+`dataSince` = **epoch 毫秒 number**（并新增 `dataSinceText` 家庭时区 `YYYY-MM-DD HH:mm`）；
+APP 解析原先只接受 string，真实响应会导致 `dataSincePresent=false`、页面显示“数据起始时间未知”。
+
+本轮最小改动：
+- `Contracts.ActivityReportDto` 新增 `dataSinceMs`/`dataSinceText`（不改既有字段名）；
+  `parseActivityReport` 同时接受 number（>0 的有限整数）与旧 string，`dataSinceText` 优先；
+- `ActivityReport.mapActivityReport`：historyText 优先级
+  `dataSinceText` > `dataSinceMs`（`new Date(ms)` 按设备本地时区格式化 `YYYY-MM-DD HH:mm`）> 旧 string；
+  `view.dataSince` 保持 string，非法/0 不显示 1970；
+- 顺带修正 week/month 对比口径：后端 `previous` 是“上一等长周期（7/30 天，结束日为 previous.date）”，
+  不是前一日；`stateText`/本地兜底文案改为“上一周期 / 所选周期”（day 口径仍为“前一日”），
+  页面 compare 卡标题、左标签、日期显示（“截至 X”）同步；
+- 新增 7 项测试：number+text、仅 number 本地格式化、dataSince=0/非法值、旧 string 兼容、
+  仅 dataSinceText、格式化/解析边界、week/month 对比口径。
+
+命令与结果（本次运行）：
+
+```powershell
+node "D:\DevEcoStudio\DevEco Studio\tools\hvigor\hvigor\node_modules\typescript\bin\tsc" `
+  -p "D:\OpenHarmony\APP\ElderlyCareGuardian\tests\tsconfig.json"
+# [tsc exit: 0]
+
+Set-Location "D:\OpenHarmony\APP\ElderlyCareGuardian\tests"
+node --test --test-isolation=none activity-report.test.mjs
+# tests 50 / pass 50 / fail 0
+
+node --test --test-isolation=none
+# tests 291 / pass 291 / fail 0 / cancelled 0 / duration_ms 1914.2254
+```
+
+说明：全量从 284 增至 291（+7 项本轮新增）；其余计数仍受外部并行会话影响。
+`dataSince` 类型不匹配属于真实接口契约问题，本轮测试仍为 SIMULATED JSON，只证明 APP 解析健壮性，
+不代表真实公网响应已验证。
+

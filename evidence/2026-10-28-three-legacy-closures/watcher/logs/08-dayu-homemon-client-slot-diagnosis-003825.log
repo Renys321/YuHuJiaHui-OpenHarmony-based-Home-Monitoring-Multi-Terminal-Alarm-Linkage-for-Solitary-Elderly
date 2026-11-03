@@ -1,0 +1,96 @@
+﻿# DAYU homemon client-slot 诊断（2026-10-28 00:38:25，只读）
+
+## 现象
+
+- supervisor 最后一条 dayu200-living 202：2026-10-27T16:28:11.425Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1793118491005 deviceTs=1793118484542 path=/internal/v1/device-status status=202 at=2026-10-27T16:28:11.424Z
+
+- mirror relay：{"kind":"relay","target":"10.127.130.131:9000","connected":true,"linesSent":93,"lastSentAt":1793119104842,"lastConnectedAt":1793119100294,"connects":23,"disconnects":30,"lastError":"ECONNRESET"}
+
+## DAYU homemon 源码客户端上限
+
+homemon.c:675: #define MAX_CLIENTS 4
+homemon.c:683: static tcp_client_t g_cli[MAX_CLIENTS];
+homemon.c:688: for (int i = 0; i < MAX_CLIENTS; i++) {
+
+## 板端 netstat（来自 PC .179 的连接；Send-Q 为板端未确认发送队列）
+
+tcp        0 116623 10.127.130.131:9000     10.127.130.179:55852    ESTABLISHED 23450/homemon
+tcp        0  94881 10.127.130.131:9000     10.127.130.179:55853    ESTABLISHED 23450/homemon
+tcp        0  90214 10.127.130.131:9000     10.127.130.179:57067    ESTABLISHED 23450/homemon
+tcp        0      1 10.127.130.131:9000     10.127.130.179:64023    FIN_WAIT1   -
+tcp        0      0 10.127.130.131:9000     10.127.130.179:56534    SYN_RECV    -
+
+## PC 侧 bridge 46292 连接
+
+
+LocalAddress   LocalPort RemoteAddress  RemotePort       State
+------------   --------- -------------  ----------       -----
+::                  9101 ::                      0      Listen
+0.0.0.0            55851 0.0.0.0                 0       Bound
+0.0.0.0            55538 0.0.0.0                 0       Bound
+127.0.0.1          55851 127.0.0.1            1883 Established
+10.127.130.179     55538 10.127.130.131       9000 Established
+10.127.130.179      9101 10.127.130.168      60482 Established
+
+
+
+
+## PC 侧 mirror 59300 连接
+
+
+LocalAddress   LocalPort RemoteAddress  RemotePort       State
+------------   --------- -------------  ----------       -----
+0.0.0.0            65345 0.0.0.0                 0       Bound
+0.0.0.0            57069 0.0.0.0                 0       Bound
+10.127.130.179     65345 10.127.130.131       9000 Established
+10.127.130.179     57069 47.76.70.118          443 Established
+
+
+
+
+## mirror log tail 12
+
+[2026-10-28 00:36:48.242] [mirror] emit(change) state=ALARM online=true alarm=sos-12-1a1003dc gps=none eventTs=1793118945905 ackTs=-
+[2026-10-28 00:36:50.455] [relay] connected 10.127.130.131:9000
+[2026-10-28 00:37:15.563] [relay] disconnected 10.127.130.131:9000, reconnect in backoff
+[2026-10-28 00:37:16.850] [relay] connected 10.127.130.131:9000
+[2026-10-28 00:37:28.011] [relay] disconnected 10.127.130.131:9000, reconnect in backoff
+[2026-10-28 00:37:32.325] [mirror] emit(change) state=ALARM online=false alarm=sos-12-1a1003dc gps=none eventTs=1793118945905 ackTs=-
+[2026-10-28 00:37:32.801] [relay] connected 10.127.130.131:9000
+[2026-10-28 00:37:34.062] [mirror] emit(change) state=ALARM online=false alarm=sos-12-1a1003dc gps=none eventTs=1793118945905 ackTs=-
+[2026-10-28 00:37:57.917] [relay] disconnected 10.127.130.131:9000, reconnect in backoff
+[2026-10-28 00:38:14.603] [relay] connected 10.127.130.131:9000
+[2026-10-28 00:38:18.722] [relay] disconnected 10.127.130.131:9000, reconnect in backoff
+[2026-10-28 00:38:20.294] [relay] connected 10.127.130.131:9000
+
+## bridge log tail（relay 目标断开/重连）
+
+[2026-10-27T16:37:13.132Z] [bridge] 鈫?home/esp32-kitchen/status  state=NORMAL room=鍘ㄦ埧 countToday=1
+[2026-10-27T16:37:18.631Z] [bridge] 鈫?home/esp32-kitchen/status  state=NORMAL room=鍘ㄦ埧 countToday=1
+[2026-10-27T16:37:24.033Z] [bridge] 鈫?home/esp32-kitchen/status  state=NORMAL room=鍘ㄦ埧 countToday=1
+[2026-10-27T16:37:26.526Z] [bridge] 宸茶繛鎺ヨ浆鍙戠洰鏍?10.127.130.131:9000
+[2026-10-27T16:37:26.526Z] [bridge] relay 閫氶亾宸叉仮澶嶏細琛ュ彂 1 鍙板叆绔欒澶囩殑鏈€鍚庣姸鎬侊紙鍙ˉ鏈€鏂颁竴鏉★紝涓嶉噸澶嶅憡璀︼級
+[2026-10-27T16:37:28.012Z] [bridge] 杞彂鐩爣鏂紑锛堣繛缁け璐?1 娆★級锛?000 姣鍚庨噸杩?[2026-10-27T16:37:29.550Z] [bridge] 鈫?home/esp32-kitchen/status  state=NORMAL room=鍘ㄦ埧 countToday=1
+[2026-10-27T16:37:32.801Z] [bridge] 宸茶繛鎺ヨ浆鍙戠洰鏍?10.127.130.131:9000
+[2026-10-27T16:37:32.801Z] [bridge] relay 閫氶亾宸叉仮澶嶏細琛ュ彂 1 鍙板叆绔欒澶囩殑鏈€鍚庣姸鎬侊紙鍙ˉ鏈€鏂颁竴鏉★紝涓嶉噸澶嶅憡璀︼級
+[2026-10-27T16:37:35.069Z] [bridge] 鈫?home/esp32-kitchen/status  state=NORMAL room=鍘ㄦ埧 countToday=1
+[2026-10-27T16:37:40.552Z] [bridge] 鈫?home/esp32-kitchen/status  state=NORMAL room=鍘ㄦ埧 countToday=1
+[2026-10-27T16:37:42.254Z] [bridge] 杞彂鐩爣鏂紑锛堣繛缁け璐?1 娆★級锛?000 姣鍚庨噸杩?[2026-10-27T16:37:42.257Z] [bridge] 宸叉帴鍏ヨ妭鐐?10.127.130.131:9000
+[2026-10-27T16:37:46.053Z] [bridge] 鈫?home/esp32-kitchen/status  state=NORMAL room=鍘ㄦ埧 countToday=1
+[2026-10-27T16:37:51.450Z] [bridge] 鈫?home/esp32-kitchen/status  state=NORMAL room=鍘ㄦ埧 countToday=1
+[2026-10-27T16:37:56.973Z] [bridge] 鈫?home/esp32-kitchen/status  state=NORMAL room=鍘ㄦ埧 countToday=1
+[2026-10-27T16:38:02.385Z] [bridge] 鑺傜偣 10.127.130.131:9000 30000 姣鍚庨噸杩烇紙杩炵画澶辫触 13 娆★級
+[2026-10-27T16:38:02.472Z] [bridge] 鈫?home/esp32-kitchen/status  state=NORMAL room=鍘ㄦ埧 countToday=1
+[2026-10-27T16:38:06.315Z] [bridge] 杞彂鐩爣鏂紑锛堣繛缁け璐?2 娆★級锛?000 姣鍚庨噸杩?[2026-10-27T16:38:07.972Z] [bridge] 鈫?home/esp32-kitchen/status  state=NORMAL room=鍘ㄦ埧 countToday=1
+[2026-10-27T16:38:13.471Z] [bridge] 鈫?home/esp32-kitchen/status  state=NORMAL room=鍘ㄦ埧 countToday=1
+[2026-10-27T16:38:14.602Z] [bridge] 宸茶繛鎺ヨ浆鍙戠洰鏍?10.127.130.131:9000
+[2026-10-27T16:38:14.602Z] [bridge] relay 閫氶亾宸叉仮澶嶏細琛ュ彂 1 鍙板叆绔欒澶囩殑鏈€鍚庣姸鎬侊紙鍙ˉ鏈€鏂颁竴鏉★紝涓嶉噸澶嶅憡璀︼級
+[2026-10-27T16:38:18.721Z] [bridge] 杞彂鐩爣鏂紑锛堣繛缁け璐?1 娆★級锛?000 姣鍚庨噸杩?[2026-10-27T16:38:18.971Z] [bridge] 鈫?home/esp32-kitchen/status  state=NORMAL room=鍘ㄦ埧 countToday=1
+[2026-10-27T16:38:22.785Z] [bridge] 宸茶繛鎺ヨ浆鍙戠洰鏍?10.127.130.131:9000
+[2026-10-27T16:38:22.785Z] [bridge] relay 閫氶亾宸叉仮澶嶏細琛ュ彂 1 鍙板叆绔欒澶囩殑鏈€鍚庣姸鎬侊紙鍙ˉ鏈€鏂颁竴鏉★紝涓嶉噸澶嶅憡璀︼級
+[2026-10-27T16:38:24.374Z] [bridge] 鈫?home/esp32-kitchen/status  state=NORMAL room=鍘ㄦ埧 countToday=1
+[2026-10-27T16:38:29.893Z] [bridge] 鈫?home/esp32-kitchen/status  state=NORMAL room=鍘ㄦ埧 countToday=1
+
+## PC 侧不存在 board 所记的 55852/55853/57067 本地端口（老进程已退出，板端仍认为 ESTABLISHED）
+
+

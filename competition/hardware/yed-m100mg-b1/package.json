@@ -1,0 +1,24 @@
+{
+  "name": "eldercare-yed-m100mg-b1-tools",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Bounded, redacting serial probe for the YED-M100MG-B1 DTU",
+  "type": "commonjs",
+  "scripts": {
+    "check": "node --check probe-core.js && node --check probe-dtu.js && node --check gnss-probe-core.js && node --check probe-gnss.js && node --check probe-device.js && node --check lib/privacy.js && node --check lib/transport.js && node --check lib/dtu-protocol.js && node --check lib/at-parser.js && node --check lib/device.js && node --check lib/failover.js && node --check lib/fake-serial.js && node --check lib/fixture-transport.js && node --check lib/probe-device-core.js && node --check lib/test-helpers.js && node --check lib/location-status.js && node --check lib/location-agent-core.js && node --check yed-location-agent.js",
+    "test": "node --test",
+    "test:isolated": "node tools/run-tests-isolated.js",
+    "probe": "node probe-device.js --fixture",
+    "probe:gnss": "node probe-device.js --fixture --profile gnss-fixed",
+    "probe:at": "node probe-device.js --fixture --profile at --at",
+    "failover-demo": "node probe-device.js --failover-demo",
+    "list": "node probe-dtu.js --list",
+    "gnss": "node probe-gnss.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "serialport": "13.0.0"
+  }
+}

@@ -1,0 +1,27 @@
+﻿== 步骤 06b：本轮最终状态 ==
+时间: 2026-10-09 22:49:56
+
+--- 板端 DAYU ---
+state":"ALARM"
+root         30278     1 0 22:45:32 ?     00:00:00 homemon /data/local/tmp/demo.conf
+
+--- /data/homemon 保留情况（不删除）---
+total 14336
+-rw-r--r-- 1 root root    0 2026-10-09 22:49 control
+-rw-r--r-- 1 root root   33 2026-10-09 22:49 daily.txt
+-rw-r--r-- 1 root root 4326 2026-10-09 22:49 homemon.log
+-rw-r--r-- 1 root root   48 2026-10-10 06:47 safety.log
+-rw-r--r-- 1 root root  478 2026-10-10 06:47 say.log
+-rwxr-xr-x 1 root root 1521 2026-10-10 06:45 say.sh
+-rw-r--r-- 1 root root  400 2026-10-10 06:48 status.json
+
+--- 板端 safety.log ---
+1791586036,a-1791586031-2,本机正确ID处置
+
+--- PC 侧端口 ---
+  1883 : 可连接=False
+  9100 : 可连接=False
+  9000 : 可连接=False
+
+--- 我本轮启动的 Node（broker/bridge）---
+

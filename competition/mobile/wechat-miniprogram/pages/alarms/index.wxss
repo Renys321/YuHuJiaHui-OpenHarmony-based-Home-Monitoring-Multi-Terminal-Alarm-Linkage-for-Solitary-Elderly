@@ -1,0 +1,22 @@
+.alarm-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16rpx; }
+.alarm-header > view { min-width: 0; overflow-wrap: anywhere; }
+.alarm-type { color: #b42318; font-size: 24rpx; font-weight: 700; }
+.alarm-message { margin: 16rpx 0 10rpx; font-size: 31rpx; font-weight: 700; line-height: 1.45; overflow-wrap: anywhere; }
+.alarm-meta { margin-top: 5rpx; font-size: 22rpx; line-height: 1.45; overflow-wrap: anywhere; }
+.note-input { box-sizing: border-box; width: 100%; height: 132rpx; margin-top: 20rpx; padding: 16rpx; border: 2rpx solid #d0d5dd; border-radius: 6rpx; background: #fff; }
+.ack-warning { margin-top: 12rpx; color: #b54708; font-size: 22rpx; }
+.ack-result { margin-top: 18rpx; padding-top: 16rpx; border-top: 1rpx solid #eaecf0; color: #175cd3; }
+.ack-pending { margin-top: 20rpx; padding: 18rpx; border-left: 8rpx solid #175cd3; background: #eff8ff; }
+.ack-pending.timeout { border-left-color: #b54708; background: #fffaeb; }
+.ack-pending-title { color: #1849a9; font-weight: 700; }
+.ack-pending.timeout .ack-pending-title { color: #934f00; }
+.ack-pending-detail { margin-top: 6rpx; color: #475467; font-size: 23rpx; line-height: 1.55; overflow-wrap: anywhere; }
+.evidence-box { margin-top: 18rpx; padding: 18rpx; border: 2rpx solid #b2ddff; border-radius: 8rpx; background: #eff8ff; }
+.evidence-title { color: #175cd3; font-size: 25rpx; font-weight: 700; }
+.evidence-privacy { margin-top: 6rpx; color: #475467; font-size: 21rpx; line-height: 1.5; }
+.evidence-button { margin-top: 14rpx; color: #fff; background: #175cd3; font-size: 25rpx; }
+.subscribe-panel { margin-bottom: 16rpx; }
+.subscribe-title { font-size: 27rpx; font-weight: 700; }
+.subscribe-detail { margin-top: 8rpx; color: #475467; font-size: 22rpx; line-height: 1.55; overflow-wrap: anywhere; }
+.subscribe-button { margin-top: 16rpx; color: #fff; background: #175cd3; font-size: 26rpx; }
+.subscribe-note { margin-top: 10rpx; color: #b54708; font-size: 22rpx; line-height: 1.5; overflow-wrap: anywhere; }

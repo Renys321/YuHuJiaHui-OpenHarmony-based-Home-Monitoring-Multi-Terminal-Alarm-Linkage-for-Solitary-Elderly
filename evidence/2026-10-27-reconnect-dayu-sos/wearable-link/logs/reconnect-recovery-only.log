@@ -1,0 +1,16 @@
+﻿✔ ① 设备链路恢复（clientConnect）后 PENDING ACK 立即重投：<10s，无需重启容器 (561.5786ms)
+✔ ①b 设备重启（boot 上行）后 parked ACK 自动重投，无需人工重启容器 (775.6442ms)
+✔ ② 同一 alarmId 跨断连重连不重复告警；只有新 alarmId 才新告警 (513.7936ms)
+✔ ③ 业务上行静默 > 阈值才 online=false（去抖），恢复首个上行立即 true；不伪造设备时间/坐标 (1802.9178ms)
+✔ ③b 离线判定去抖：阈值内的心跳只刷新、绝不让 APP 闪“离线” (2196.841ms)
+✔ ④ 容器重启（内存态丢失）：持久化最后已知状态不含坐标，不丢未确认求助、不代报 ACKED (1307.0279ms)
+✔ ④b 容器重启不回退 ACKED：不重复 result、不重复告警 (1805.9057ms)
+✔ ⑤ 后端响应暂时缺少 parked 命令：不得静默丢弃 ACK，恢复后继续重投 (2556.8248ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11660.7955

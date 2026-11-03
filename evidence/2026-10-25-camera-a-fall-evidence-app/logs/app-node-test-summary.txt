@@ -1,0 +1,9 @@
+CAMERA-A APP Node behavior/static tests
+TypeScript compile: PASS
+tests 198
+pass 198
+fail 0
+cancelled 0
+skipped 0
+todo 0
+All HTTP responses in these tests are SIMULATED.

@@ -1,0 +1,4 @@
+2026-10-27T09:04:38.352Z SERIAL opened COM8
+2026-10-27T09:04:39.351Z MQTT connected & subscribed eldercare/wearable/sos-001/up
+2026-10-27T09:04:41.293Z MQTT<< eldercare/wearable/sos-001/up "112.55325317400_32.966842651000"
+2026-10-27T09:04:48.558Z UART| [0;32mI (30429) wearable: UART TX -> {"v":1,"dev":"esp32-sos","t":"hb","state":"IDLE","alarm":"","uptimeMs":30424}[0m

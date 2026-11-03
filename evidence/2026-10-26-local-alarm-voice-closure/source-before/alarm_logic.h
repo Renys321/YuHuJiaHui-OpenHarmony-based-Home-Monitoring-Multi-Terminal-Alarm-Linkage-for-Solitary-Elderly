@@ -1,0 +1,263 @@
+/* alarm_logic.h —— 与 ESP 硬件无关的纯逻辑（主机侧可直接编译测试）
+ *
+ * 收口四类判定，node_main.c 只做 I/O（I2C/ADC/GPIO/MQTT），判定逻辑全部在这里：
+ *   1) MQ 连续确认 + 回差（独立计数、失败不参与、阈值>=4096 完全禁用）
+ *   2) 告警状态机：何时允许新建告警 / ACK 是否接受 / ACK 后重新武装
+ *   3) NTP 首次同步只允许重置"无活动计时"（仅 PIR 启用时）
+ *   4) JSON valid 语义（本次读取成功才为 true）
+ */
+#ifndef ALARM_LOGIC_H
+#define ALARM_LOGIC_H
+
+#include <string.h>
+
+/* ---------------- MQ 连续确认 + 回差 ---------------- */
+typedef struct {
+    int danger;   /* 1=已确认危险 */
+    int streak;   /* 连续满足条件的次数 */
+} mq_stab_t;
+
+static inline void mq_stab_reset(mq_stab_t *s)
+{
+    s->danger = 0;
+    s->streak = 0;
+}
+
+/* 返回更新后的 danger（1=危险）。
+ * 语义：
+ *   无效读数(valid=0)：既不判危险，也不判危险消失（直接返回当前状态）
+ *   阈值>=4096：告警禁用，danger 恒为 0
+ *   未危险：连续 confirm 次 raw>=threshold 才置危险；任一有效安全值清零计数
+ *   已危险：连续 confirm 次 raw< threshold-hysteresis 才解除；灰色区维持危险
+ */
+static inline int mq_stab_update(mq_stab_t *s, int valid, int raw, int threshold, int hysteresis, int confirm)
+{
+    int clear_level;
+
+    if (!valid) return s->danger;
+    if (threshold >= 4096) { s->danger = 0; s->streak = 0; return 0; }
+    if (confirm < 1) confirm = 1;
+    clear_level = threshold - hysteresis;
+    if (clear_level < 0) clear_level = 0;
+
+    if (!s->danger) {
+        if (raw >= threshold) {
+            if (++s->streak >= confirm) { s->danger = 1; s->streak = 0; }
+        } else {
+            s->streak = 0;
+        }
+    } else {
+        if (raw < clear_level) {
+            if (++s->streak >= confirm) { s->danger = 0; s->streak = 0; }
+        } else {
+            s->streak = 0;   /* 灰色区：维持原状态 */
+        }
+    }
+    return s->danger;
+}
+
+/* ---------------- 告警状态机 ---------------- */
+#define ALARM_STATE_NORMAL 0
+#define ALARM_STATE_WARN   1
+#define ALARM_STATE_ALARM  2
+#define ALARM_STATE_ACKED  3
+
+typedef struct {
+    int  state;
+    char type[24];
+    char id[40];
+    int  acked_armed;   /* ACKED 后该危险是否已确认消失（重新武装） */
+    int  buzzer;        /* 1=响 0=静音（仅反映决定，不操作硬件） */
+} alarm_sm_t;
+
+static inline void alarm_sm_init(alarm_sm_t *sm)
+{
+    sm->state = ALARM_STATE_NORMAL;
+    sm->type[0] = '\0';
+    sm->id[0] = '\0';
+    sm->acked_armed = 0;
+    sm->buzzer = 0;
+}
+
+/* 是否允许为该类型新建告警（含 1 秒内同类型去重由调用方负责） */
+static inline int alarm_raise_allowed(int state, const char *cur_type, int acked_armed, const char *new_type)
+{
+    if (state == ALARM_STATE_ALARM && cur_type && strcmp(cur_type, new_type) == 0) return 0;
+    if (state == ALARM_STATE_ACKED && cur_type && strcmp(cur_type, new_type) == 0 && !acked_armed) return 0;
+    return 1;
+}
+
+/* 新建告警：返回 1 表示需要生成新 ID、响铃 */
+static inline int alarm_sm_raise(alarm_sm_t *sm, const char *type, const char *new_id)
+{
+    if (!alarm_raise_allowed(sm->state, sm->type, sm->acked_armed, type)) return 0;
+    sm->state = ALARM_STATE_ALARM;
+    strncpy(sm->type, type, sizeof(sm->type) - 1);
+    sm->type[sizeof(sm->type) - 1] = '\0';
+    strncpy(sm->id, new_id, sizeof(sm->id) - 1);
+    sm->id[sizeof(sm->id) - 1] = '\0';
+    sm->acked_armed = 0;
+    sm->buzzer = 1;
+    return 1;
+}
+
+/* ACK：仅 ALARM 且 ID 精确匹配才接受；接受后立即静音并保留 type/id */
+static inline int alarm_sm_ack(alarm_sm_t *sm, const char *req_id)
+{
+    if (sm->state != ALARM_STATE_ALARM) return 0;
+    if (sm->id[0] == '\0' || !req_id || strcmp(sm->id, req_id) != 0) return 0;
+    sm->state = ALARM_STATE_ACKED;
+    sm->acked_armed = 0;
+    sm->buzzer = 0;   /* ACK 立即静音，保留 alarmId/type */
+    return 1;
+}
+
+/* reset：回 NORMAL 并静音 */
+static inline int alarm_sm_reset(alarm_sm_t *sm)
+{
+    sm->state = ALARM_STATE_NORMAL;
+    sm->acked_armed = 0;
+    sm->buzzer = 0;
+    sm->type[0] = '\0';
+    sm->id[0] = '\0';
+    return 1;
+}
+
+/* ACKED 期间：已确认的危险是否真正消失 -> 重新武装 */
+static inline int alarm_sm_rearm(alarm_sm_t *sm, int danger_present)
+{
+    if (sm->state != ALARM_STATE_ACKED) return 0;
+    if (danger_present) return 0;
+    sm->acked_armed = 1;
+    return 1;
+}
+
+/* 危险优先级：MANUAL_SOS(6) > WATER_LEAK(5) > GAS(4) > SMOKE(3) > CLIMATE(2) > NO_MOTION(1)
+ * 厨房只用 GAS/SMOKE/CLIMATE/NO_MOTION；卫生间只用 MANUAL_SOS/WATER_LEAK/CLIMATE/NO_MOTION。 */
+static inline int danger_priority(const char *type)
+{
+    if (!type) return 0;
+    if (strcmp(type, "MANUAL_SOS") == 0) return 6;
+    if (strcmp(type, "WATER_LEAK") == 0) return 5;
+    if (strcmp(type, "GAS") == 0)        return 4;
+    if (strcmp(type, "SMOKE") == 0)      return 3;
+    if (strcmp(type, "CLIMATE") == 0)    return 2;
+    if (strcmp(type, "NO_MOTION") == 0)  return 1;
+    return 0;
+}
+
+/* ---------------- PIR 消抖（连续确认后只在上升沿报告一次活动） ---------------- */
+typedef struct {
+    int stable;   /* 1=已确认有活动 */
+    int streak;   /* 连续有效采样次数 */
+} pir_debounce_t;
+
+static inline void pir_reset(pir_debounce_t *p)
+{
+    p->stable = 0;
+    p->streak = 0;
+}
+
+/* 返回 1 表示"确认到一次新的活动"（上升沿）；连续 confirm 次高电平才确认。 */
+static inline int pir_update(pir_debounce_t *p, int raw_active, int confirm)
+{
+    int was = p->stable;
+
+    if (confirm < 1) confirm = 1;
+    if (raw_active) {
+        if (p->streak < confirm) p->streak += 1;
+    } else {
+        p->streak = 0;
+    }
+    p->stable = (p->streak >= confirm) ? 1 : 0;
+    return (!was && p->stable) ? 1 : 0;
+}
+
+/* ---------------- SOS 按键（内部上拉，低电平按下；边沿触发，松开重新武装） ---------------- */
+typedef struct {
+    int pressed_stable;
+    int streak;
+    int released_seen;   /* 上电后必须先观察到"松开"才允许触发，防止悬空/常闭触点误报 */
+} sos_button_t;
+
+static inline void sos_reset(sos_button_t *b)
+{
+    b->pressed_stable = 0;
+    b->streak = 0;
+    b->released_seen = 0;
+}
+
+/* 返回 1 表示"需要生成一次 MANUAL_SOS"（按下沿）；长按不会重复；
+ * 松开（raw_pressed=0）立即复位计数并允许下一次按下产生新事件。 */
+static inline int sos_update(sos_button_t *b, int raw_pressed, int confirm)
+{
+    if (confirm < 1) confirm = 1;
+    if (!raw_pressed) {
+        b->streak = 0;             /* 松开 -> 重新武装（含 ACK 后再次触发） */
+        b->pressed_stable = 0;
+        b->released_seen = 1;
+        return 0;
+    }
+    if (!b->released_seen) return 0;   /* 没松开过（悬空/常闭/上电即低）-> 不触发 */
+    if (b->streak < confirm) b->streak += 1;
+    if (!b->pressed_stable && b->streak >= confirm) {
+        b->pressed_stable = 1;
+        return 1;
+    }
+    return 0;
+}
+
+/* ---------------- 水漏（连续湿润确认 + 锁存 + 连续干燥重新武装） ---------------- */
+typedef struct {
+    int danger;   /* 1=已确认漏水 */
+    int streak;   /* 连续满足条件的次数 */
+} water_stab_t;
+
+static inline void water_reset(water_stab_t *w)
+{
+    w->danger = 0;
+    w->streak = 0;
+}
+
+/* 返回更新后的 danger。
+ * valid=0（读数无效）：既不判危险，也不判"已干燥"，不重新武装；
+ * 未危险：连续 confirm 次 wet 才置危险；短毛刺（<confirm）不报警；
+ * 已危险：连续 clear 次干爽才解除（重新武装）；
+ * 持续湿润：streak 清零并维持危险（ACK 只静音，不产生新 ID）。 */
+static inline int water_update(water_stab_t *w, int valid, int wet, int confirm, int clear)
+{
+    if (!valid) return w->danger;
+    if (confirm < 1) confirm = 1;
+    if (clear < 1) clear = 1;
+
+    if (!w->danger) {
+        if (wet) {
+            if (++w->streak >= confirm) { w->danger = 1; w->streak = 0; }
+        } else {
+            w->streak = 0;
+        }
+    } else {
+        if (!wet) {
+            if (++w->streak >= clear) { w->danger = 0; w->streak = 0; }
+        } else {
+            w->streak = 0;
+        }
+    }
+    return w->danger;
+}
+
+/* ---------------- NTP ---------------- */
+/* 首次同步后是否允许重置"最近活动"基准：仅 PIR 启用时（厨房 PIR=-1，故不重置） */
+static inline int ntp_reset_motion_baseline(int pir_enabled)
+{
+    return pir_enabled ? 1 : 0;
+}
+
+/* ---------------- JSON valid ---------------- */
+/* 只有本次读取成功才 valid=true；失败时报告 false，且不把旧值当成本次有效值 */
+static inline const char *json_valid_str(int sensor_valid)
+{
+    return sensor_valid ? "true" : "false";
+}
+
+#endif /* ALARM_LOGIC_H */

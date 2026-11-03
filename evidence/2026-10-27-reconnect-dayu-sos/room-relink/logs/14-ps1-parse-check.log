@@ -1,0 +1,5 @@
+﻿capturedAt=2026-10-27 22:43:45 === PowerShell 解析检查（UTF-8 BOM 编码 + AST 解析）===
+demo-autostart.ps1 bom=True PARSE_OK
+start-demo-supervisor.ps1 bom=True PARSE_OK
+public-sync-health.ps1 bom=True PARSE_OK
+verify-p0-health.ps1 bom=True PARSE_OK

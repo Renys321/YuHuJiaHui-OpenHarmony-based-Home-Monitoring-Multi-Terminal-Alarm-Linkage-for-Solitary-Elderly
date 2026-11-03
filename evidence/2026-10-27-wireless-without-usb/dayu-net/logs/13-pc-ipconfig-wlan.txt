@@ -1,0 +1,116 @@
+﻿# cmd: ipconfig /all
+# captured: 2026-10-27 22:32:14 +08:00
+----------------------------------------------------------------------
+
+Windows IP Configuration
+
+   Host Name . . . . . . . . . . . . : LAPTOP-A26I9CK4
+   Primary Dns Suffix  . . . . . . . : 
+   Node Type . . . . . . . . . . . . : Hybrid
+   IP Routing Enabled. . . . . . . . : No
+   WINS Proxy Enabled. . . . . . . . : No
+
+Unknown adapter ��������:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : 
+   Description . . . . . . . . . . . : QMTAP Adapter V9
+   Physical Address. . . . . . . . . : 00-FF-24-F2-F2-93
+   DHCP Enabled. . . . . . . . . . . : No
+   Autoconfiguration Enabled . . . . : Yes
+
+Wireless LAN adapter ��������* 1:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : 
+   Description . . . . . . . . . . . : Microsoft Wi-Fi Direct Virtual Adapter
+   Physical Address. . . . . . . . . : EE-91-61-6F-49-DD
+   DHCP Enabled. . . . . . . . . . . : Yes
+   Autoconfiguration Enabled . . . . : Yes
+
+Wireless LAN adapter ��������* 2:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : 
+   Description . . . . . . . . . . . : Microsoft Wi-Fi Direct Virtual Adapter #2
+   Physical Address. . . . . . . . . : EE-91-61-6F-59-CD
+   DHCP Enabled. . . . . . . . . . . : Yes
+   Autoconfiguration Enabled . . . . : Yes
+
+Ethernet adapter VMware Network Adapter VMnet1:
+
+   Connection-specific DNS Suffix  . : 
+   Description . . . . . . . . . . . : VMware Virtual Ethernet Adapter for VMnet1
+   Physical Address. . . . . . . . . : 00-50-56-C0-00-01
+   DHCP Enabled. . . . . . . . . . . : Yes
+   Autoconfiguration Enabled . . . . : Yes
+   Link-local IPv6 Address . . . . . : fe80::ed6c:dea7:f2eb:6361%5(Preferred) 
+   IPv4 Address. . . . . . . . . . . : 192.168.201.1(Preferred) 
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Lease Obtained. . . . . . . . . . : 2026��10��27�� 11:55:24
+   Lease Expires . . . . . . . . . . : 2026��10��27�� 22:49:13
+   Default Gateway . . . . . . . . . : 
+   DHCP Server . . . . . . . . . . . : 192.168.201.254
+   DHCPv6 IAID . . . . . . . . . . . : 318787670
+   DHCPv6 Client DUID. . . . . . . . : 00-01-00-01-2F-A8-71-03-EC-91-61-6F-69-FD
+   NetBIOS over Tcpip. . . . . . . . : Enabled
+
+Ethernet adapter VMware Network Adapter VMnet8:
+
+   Connection-specific DNS Suffix  . : 
+   Description . . . . . . . . . . . : VMware Virtual Ethernet Adapter for VMnet8
+   Physical Address. . . . . . . . . : 00-50-56-C0-00-08
+   DHCP Enabled. . . . . . . . . . . : Yes
+   Autoconfiguration Enabled . . . . : Yes
+   Link-local IPv6 Address . . . . . : fe80::7986:6f53:884a:139%13(Preferred) 
+   IPv4 Address. . . . . . . . . . . : 192.168.80.1(Preferred) 
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Lease Obtained. . . . . . . . . . : 2026��10��27�� 11:55:24
+   Lease Expires . . . . . . . . . . : 2026��10��27�� 22:49:13
+   Default Gateway . . . . . . . . . : 
+   DHCP Server . . . . . . . . . . . : 192.168.80.254
+   DHCPv6 IAID . . . . . . . . . . . : 335564886
+   DHCPv6 Client DUID. . . . . . . . : 00-01-00-01-2F-A8-71-03-EC-91-61-6F-69-FD
+   Primary WINS Server . . . . . . . : 192.168.80.2
+   NetBIOS over Tcpip. . . . . . . . : Enabled
+
+Wireless LAN adapter WLAN:
+
+   Connection-specific DNS Suffix  . : 
+   Description . . . . . . . . . . . : MediaTek Wi-Fi 6 MT7921 Wireless LAN Card
+   Physical Address. . . . . . . . . : EC-91-61-6F-69-FD
+   DHCP Enabled. . . . . . . . . . . : Yes
+   Autoconfiguration Enabled . . . . : Yes
+   IPv4 Address. . . . . . . . . . . : 10.127.130.179(Preferred) 
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Lease Obtained. . . . . . . . . . : 2026��10��27�� 22:18:36
+   Lease Expires . . . . . . . . . . : 2026��10��27�� 23:18:35
+   Default Gateway . . . . . . . . . : 10.127.130.217
+   DHCP Server . . . . . . . . . . . : 10.127.130.217
+   DNS Servers . . . . . . . . . . . : 10.127.130.217
+   NetBIOS over Tcpip. . . . . . . . : Enabled
+
+Ethernet adapter ������������:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : 
+   Description . . . . . . . . . . . : Bluetooth Device (Personal Area Network)
+   Physical Address. . . . . . . . . : EC-91-61-6F-69-FE
+   DHCP Enabled. . . . . . . . . . . : Yes
+   Autoconfiguration Enabled . . . . : Yes
+
+Ethernet adapter vEthernet (WSL (Hyper-V firewall)):
+
+   Connection-specific DNS Suffix  . : 
+   Description . . . . . . . . . . . : Hyper-V Virtual Ethernet Adapter
+   Physical Address. . . . . . . . . : 00-15-5D-00-CE-27
+   DHCP Enabled. . . . . . . . . . . : No
+   Autoconfiguration Enabled . . . . : Yes
+   Link-local IPv6 Address . . . . . : fe80::85e7:5e4f:2905:b178%46(Preferred) 
+   IPv4 Address. . . . . . . . . . . : 172.25.64.1(Preferred) 
+   Subnet Mask . . . . . . . . . . . : 255.255.240.0
+   Default Gateway . . . . . . . . . : 
+   DHCPv6 IAID . . . . . . . . . . . : 771757405
+   DHCPv6 Client DUID. . . . . . . . : 00-01-00-01-2F-A8-71-03-EC-91-61-6F-69-FD
+   NetBIOS over Tcpip. . . . . . . . : Enabled
+

@@ -1,0 +1,20 @@
+﻿# cmd: Test-NetConnection 10.127.130.131 -Port 9000 -InformationLevel Detailed
+# captured: 2026-10-27 22:32:31 +08:00
+----------------------------------------------------------------------
+
+
+ComputerName            : 10.127.130.131
+RemoteAddress           : 10.127.130.131
+RemotePort              : 9000
+NameResolutionResults   : 10.127.130.131
+MatchingIPsecRules      : 
+NetworkIsolationContext : Internet
+IsAdmin                 : False
+InterfaceAlias          : WLAN
+SourceAddress           : 10.127.130.179
+NetRoute (NextHop)      : 0.0.0.0
+TcpTestSucceeded        : True
+
+
+
+

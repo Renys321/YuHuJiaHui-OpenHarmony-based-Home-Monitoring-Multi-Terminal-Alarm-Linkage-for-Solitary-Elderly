@@ -1,0 +1,53 @@
+{
+    "durationSec":  50,
+    "steps":  [
+                  {
+                      "atSec":  1,
+                      "send":  "resume"
+                  },
+                  {
+                      "atSec":  2,
+                      "send":  "inj reboot"
+                  },
+                  {
+                      "atSec":  8,
+                      "send":  "inj sos"
+                  },
+                  {
+                      "atSec":  12,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  13,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  20,
+                      "send":  "ack {lastAlarm}"
+                  },
+                  {
+                      "atSec":  26,
+                      "send":  "stop"
+                  },
+                  {
+                      "atSec":  30,
+                      "send":  "inj climate 25.0 50.0"
+                  },
+                  {
+                      "atSec":  31,
+                      "send":  "inj climate 25.0 50.0"
+                  },
+                  {
+                      "atSec":  36,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  37,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  43,
+                      "send":  "ack {lastAlarm}"
+                  }
+              ]
+}

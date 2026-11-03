@@ -1,0 +1,14 @@
+﻿[
+    {
+        "Class":  "Ports",
+        "FriendlyName":  "USB Serial Port (COM11)",
+        "InstanceId":  "FTDIBUS\\VID_0403+PID_6001+AG0KX1CXA\\0000",
+        "Status":  "OK"
+    },
+    {
+        "Class":  "USB",
+        "FriendlyName":  "USB Serial Converter",
+        "InstanceId":  "USB\\VID_0403\u0026PID_6001\\AG0KX1CX",
+        "Status":  "OK"
+    }
+]

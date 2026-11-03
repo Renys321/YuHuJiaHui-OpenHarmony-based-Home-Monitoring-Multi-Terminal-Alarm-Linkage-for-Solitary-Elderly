@@ -1,0 +1,17 @@
+{"event":"server_start","ts":"2026-10-26T08:26:01.514Z","epochMs":1793003161516,"host":"127.0.0.1","port":19102,"statusLog":"D:\\OpenHarmony\\competition\\evidence\\2026-10-26-local-alarm-voice-closure\\verify\\bench-status.jsonl","controlFile":true}
+{"event":"node_connected","ts":"2026-10-26T08:26:01.559Z","epochMs":1793003161559,"deviceId":"esp32-selftest","remote":"127.0.0.1:56817"}
+{"event":"sent","ts":"2026-10-26T08:26:01.729Z","epochMs":1793003161729,"deviceId":"esp32-selftest","cmd":"inj climate 35.0 80","source":"control-file"}
+{"event":"delivered","ts":"2026-10-26T08:26:01.730Z","epochMs":1793003161730,"deviceId":"esp32-selftest","remote":"127.0.0.1:56817","cmd":"inj climate 35.0 80","source":"control-file","queued":false,"bytes":20}
+{"event":"sent","ts":"2026-10-26T08:26:01.732Z","epochMs":1793003161732,"deviceId":"esp32-selftest","cmd":"ack alarm-selftest-1","source":"stdin"}
+{"event":"delivered","ts":"2026-10-26T08:26:01.733Z","epochMs":1793003161733,"deviceId":"esp32-selftest","remote":"127.0.0.1:56817","cmd":"ack alarm-selftest-1","source":"stdin","queued":false,"bytes":21}
+{"event":"node_disconnected","ts":"2026-10-26T08:26:01.915Z","epochMs":1793003161915,"deviceId":"esp32-selftest","remote":"127.0.0.1:56817","reason":"socket-closed"}
+{"event":"sent","ts":"2026-10-26T08:26:01.974Z","epochMs":1793003161974,"deviceId":"esp32-selftest","cmd":"reset","source":"stdin"}
+{"event":"queued","ts":"2026-10-26T08:26:01.975Z","epochMs":1793003161975,"deviceId":"esp32-selftest","cmd":"reset","source":"stdin","reason":"device-offline","queueDepth":1}
+{"event":"node_connected","ts":"2026-10-26T08:26:02.038Z","epochMs":1793003162038,"deviceId":"esp32-selftest","remote":"127.0.0.1:56822"}
+{"event":"delivered","ts":"2026-10-26T08:26:02.038Z","epochMs":1793003162039,"deviceId":"esp32-selftest","remote":"127.0.0.1:56822","cmd":"reset","source":"stdin","queued":true,"bytes":6}
+{"event":"sent","ts":"2026-10-26T08:26:02.147Z","epochMs":1793003162147,"deviceId":"esp32-selftest","cmd":"stop","source":"control-file"}
+{"event":"delivered","ts":"2026-10-26T08:26:02.148Z","epochMs":1793003162148,"deviceId":"esp32-selftest","remote":"127.0.0.1:56822","cmd":"stop","source":"control-file","queued":false,"bytes":5}
+{"event":"server_stop","ts":"2026-10-26T08:26:02.148Z","epochMs":1793003162148,"statusLines":4,"commandsReceived":4}
+{"event":"server_start","ts":"2026-10-26T08:26:02.259Z","epochMs":1793003162261,"host":"0.0.0.0","port":19102,"statusLog":"D:\\OpenHarmony\\competition\\evidence\\2026-10-26-local-alarm-voice-closure\\verify\\bench-status.jsonl","controlFile":false}
+{"event":"node_connected","ts":"2026-10-26T08:26:02.294Z","epochMs":1793003162294,"deviceId":"esp32-selftest","remote":"192.168.201.1:56824"}
+{"event":"server_stop","ts":"2026-10-26T08:26:02.403Z","epochMs":1793003162403,"statusLines":1,"commandsReceived":0}

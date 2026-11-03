@@ -1,0 +1,199 @@
+# SOURCE-REFS — 关键源码:行号清单（CORE-REQUIREMENTS-GAP-FREEZE，只读审计 2026-10-26）
+#
+# 格式：路径:行号  →  证明的事实
+# 说明：行号为本轮实际读取到的位置；若后续有人改动业务代码，行号可能漂移，应以证据文件为准。
+# 本文件不含任何密码/Token/INGEST_KEY/私钥/签名口令。
+# 重要：第 5 节（cloud/backend）与第 8 节部分证据属于“外部并行会话进行中（未验收）”
+#       （2026-10-26 01:46–01:51 仍在写入）；这些行号只证明“代码存在”，不证明已实现/已验收。
+
+## 1. 南向 DAYU homemon（原始要求 ①②④⑤的设备侧）
+
+competition/southbound/src/homemon.c:39-41                 门磁/随身按钮/蜂鸣器均为可配置 GPIO，-1=禁用
+competition/southbound/src/homemon.c:66-97                 状态枚举 NORMAL/WARN/ALARM/ACKED；alarm_acked 防重复确认
+competition/southbound/src/homemon.c:246-264               LED(/sys/class/leds/brightness) 与蜂鸣器(GPIO) 执行器
+competition/southbound/src/homemon.c:266-274               say()：say_cmd 模板 → system(say.sh)，语音播报入口
+competition/southbound/src/homemon.c:277-296               alarm_raise()：所有来源的 MANUAL_SOS/FALL 都播报语音
+competition/southbound/src/homemon.c:315-325               state_tick()：NORMAL 绿/WARN 黄闪/ALARM 红闪+鸣/ACKED 蓝
+competition/southbound/src/homemon.c:327-353               daily.txt 格式与 hist_save()（7 日 + 4 时段持久化）
+competition/southbound/src/homemon.c:355-384               hist_load()/hist_roll()：开机载入、跨天左移、最多补 7 天
+competition/southbound/src/homemon.c:386-402               hist_bump()：活动计数 + 4 时段归类(6-9/9-12/12-18/18-22)
+competition/southbound/src/homemon.c:503-547               ACK 校验(ID/状态/重复) → ACKED → 追加 /data/homemon/safety.log
+competition/southbound/src/homemon.c:542-547               safety.log 写入格式：时间,alarmId,处置文本（只写不读）
+competition/southbound/src/homemon.c:551-557               "sos"/"motion" 调试命令走同一条判定/日统计路径
+competition/southbound/src/homemon.c:560-600               FALL 命令：证据 ID 严格校验 → alarm_raise("FALL") → 关联 evidenceId
+competition/southbound/src/homemon.c:781-838               report_status()：status.json + stdout + TCP 广播
+competition/southbound/src/homemon.c:807-830               状态 JSON 字段：motion/door/climate/gas/smoke/history[7]/slots[4]/alarm；无 battery
+competition/southbound/src/homemon.c:822                   door.lastOpenTs = last_door_ms>0 ? ... : 0（未启用门磁时恒 0）
+competition/southbound/src/homemon.c:844-866               cfg_default：door/button/buzzer=-1、motion_cnt=0、gas/smoke_adc_ch=-1
+competition/southbound/src/homemon.c:868-911               cfg_load：motion_gpio(逗号多路)/door_gpio/button_gpio/buzzer_gpio 等
+competition/southbound/src/homemon.c:972-974               仅在 door_gpio/button_gpio>=0 时 gpio_prepare（未配置=不读浮空脚）
+competition/southbound/src/homemon.c:976-998               启动初始化：last_motion_ms=现在、climate_valid=0、载入日统计、首帧上报
+competition/southbound/src/homemon.c:1021-1037             PIR 多路采集 + 消抖 + 每个上升沿 hist_bump + countToday
+competition/southbound/src/homemon.c:1039-1050             门磁消抖，open 上升沿更新 last_door_ms（door_gpio<0 时整段不执行）
+competition/southbound/src/homemon.c:1052-1060             随身 SOS 按钮消抖（button_gpio<0 时不执行）
+competition/southbound/src/homemon.c:1062-1075             温湿度采样 → climate_ok 阈值判断（valid 与 ok 语义分离）
+competition/southbound/src/homemon.c:1077-1085             SARADC 燃气/烟雾原始值（通道 -1 时读取失败 → 不判危险）
+competition/southbound/src/homemon.c:1087-1111             阈值判定优先级：GAS>SMOKE>SOS>NO_MOTION>CLIMATE>WARN 比率
+competition/southbound/src/homemon.c:1103-1105             NO_MOTION：idle>=no_motion_sec(1800s) 即告警（未校验 motion_cnt）
+competition/southbound/src/homemon.c:1117-1118             每 tick 跨天滚动 + hist_save（daily.txt 落盘）
+competition/southbound/src/climate_valid.h:19-41           valid 语义：本次读取成功且数值合法；失败保留旧值但 valid=0
+
+competition/southbound/homemon.conf:16-24                 仓库样例串口配置（door_gpio=29/button_gpio=106/buzzer_gpio=105）
+competition/southbound/homemon-nosensor.conf:2-4           无传感器变体全部 -1
+competition/evidence/2026-10-24-demo-backup/artifacts/homemon/homemon-conf-board-pre-8871C632.conf:1-18
+                                                           现场板实际配置：door/button/buzzer=-1，无 motion_gpio（关键默认值证据）
+competition/materials/demo_start.ps1:176-180               一键启动默认只写 "door_gpio=-1"，-UsePhysicalSensors 才写 motion_gpio/door_gpio
+competition/materials/demo_start.ps1:181-199               homemon 配置模板（无 led_*、无 button_gpio、无 buzzer_gpio）
+
+## 2. 南向 ESP32 节点（原始要求 ①②）
+
+competition/esp32-node/main/node_main.c:498-503            SOS 按键 GPIO：内部上拉、低电平按下
+competition/esp32-node/main/node_main.c:713-721            PIR 连续确认后才计活动次数（不产生告警）
+competition/esp32-node/main/node_main.c:722-734            水漏 DO 采集 + 连续确认/回差
+competition/esp32-node/main/node_main.c:736-738            门磁 GPIO 采集（CONFIG_NODE_DOOR_GPIO>=0 时）
+competition/esp32-node/main/node_main.c:741-757            AHT20/DHT11 温湿度；读取失败置 valid=false 且不伪装成环境告警
+competition/esp32-node/main/node_main.c:759-791            MQ-2/MQ-5 原始 ADC + 连续确认/回差；失败不判危险
+competition/esp32-node/main/node_main.c:797-808            raise_alarm：同种危险不重复建 ID；新告警触发 buzzer + local_voice
+competition/esp32-node/main/node_main.c:890-934            状态 JSON：sensors{motion/door/climate/gas/smoke/water}
+competition/esp32-node/main/node_main.c:904               "door":{"open":%,...} + lastOpenTs 硬编码 0（门磁记录缺口）
+competition/esp32-node/main/node_main.c:908               "history":[0,0,0,0,0,0,N]、"slots":[0,0,0,0]（节点无 7 日/时段历史）
+competition/esp32-node/main/node_main.c:936-950           SOS 快路径：100ms 轮询、连续 2 次≈200ms 触发并上报
+competition/esp32-node/main/node_main.c:539-546           buzzer()：XL9555 P0_3 板载蜂鸣器 / 外接 GPIO 两种模式
+competition/esp32-node/main/node_main.c:806-808           新告警必响 + 限时（CONFIG_NODE_ALARM_BEEP_SEC）
+competition/esp32-node/main/node_main.c:623-632           设备收到 ACK/reset 时立即静音（buzzer(0)）
+competition/esp32-node/main/alarm_logic.h:33-57           MQ 连续确认+回差；valid=0 不参与；阈值>=4096 完全禁用
+competition/esp32-node/main/local_voice.c:15-27           复用厂商 ES8388/I2S BSP，仅播放预置 PCM（不录音/不做网络 TTS）
+competition/esp32-node/main/local_voice.c:69-70           音量寄存器 0x30/0x31 = CONFIG_NODE_VOICE_VOLUME（厨房=20）
+competition/esp32-node/main/Kconfig.projbuild:59-127      MOTION/SOS/WATER 默认 -1、DOOR 默认 5、蜂鸣器 GPIO 默认 6（Kconfig 默认 ≠ 部署值）
+competition/esp32-node/main/Kconfig.projbuild:156-193     MQ-2/MQ-5 通道默认 -1、报警阈值默认 4096=禁用、回差 20
+competition/esp32-node/main/Kconfig.projbuild:207-230     温湿度阈值 10/30℃ 25/75%RH；无活动 1800s；上报 5s
+
+competition/esp32-node/build-voice-kitchenvoice-private-v20/config/sdkconfig.h:398-407
+                                                          厨房 v20 部署构建：MOTION=-1、SOS=-1、DOOR=-1（音量20 见 Kconfig 覆盖）
+competition/esp32-node/build-voice-kitchenvoice-private-v20/config/sdkconfig.h:406  DOOR=-1（厨房门磁未安装）
+competition/esp32-node/build-bathroom/config/sdkconfig.h:396-404 卫生间：MOTION=36、SOS=15、DOOR=-1
+
+## 3. 北向 DAYU APP（原始要求 ③④⑤）
+
+competition/northbound/entry/src/main/ets/pages/Index.ets:129-130   三个页签：实时状态 / 预警处置 / 统计报告
+competition/northbound/entry/src/main/ets/pages/Index.ets:635        hasMotionCapability()：按设备能力决定是否展示活动统计
+competition/northbound/entry/src/main/ets/pages/Index.ets:759-785    解析 homemon 状态的 history/slots（缺省补 0）
+competition/northbound/entry/src/main/ets/pages/Index.ets:893-909    真实数据写入 liveDoorOpen/liveHistory/liveSlots
+competition/northbound/entry/src/main/ets/pages/Index.ets:916-978    doAck()：读 ackText → DeviceStore.ack()，仅设备回执才算闭环
+competition/northbound/entry/src/main/ets/pages/Index.ets:1037-1043  trendText()：今日 vs yesterdayCount（基准为演示值，见 DeviceModel:80）
+competition/northbound/entry/src/main/ets/pages/Index.ets:1408-1423  预警处置页 ACK 输入（自由文本处置结果）
+competition/northbound/entry/src/main/ets/pages/Index.ets:1441-1465  活动规律报告 + 近 7 日柱状图（真实 liveHistory）
+competition/northbound/entry/src/main/ets/pages/Index.ets:1467-1501  今日活动时段分布（真实 liveSlots，4 时段）
+competition/northbound/entry/src/main/ets/pages/Index.ets:1513-1530  预警统计（今日预警/待处理/已闭环，来自真实 alarms）
+competition/northbound/entry/src/main/ets/pages/Index.ets:1532       页脚自述：日统计由各房间节点累计并持久化
+competition/northbound/entry/src/main/ets/model/DeviceModel.ets:79   static weekly = [142,156,131,160,148,155,168]（演示假值，从未被更新）
+competition/northbound/entry/src/main/ets/model/DeviceModel.ets:80   yesterdayCount = 160（假基准，驱动 trendText）
+competition/northbound/entry/src/main/ets/model/DeviceModel.ets:96-134 applyStatus()：真实状态入口；只写 history/slots，不写 weekly
+competition/northbound/entry/src/main/ets/model/DeviceModel.ets:195-214 ack()：更新本地 alarms 并 DeviceLink.send("ack <id> <action>")
+competition/northbound/entry/src/main/ets/model/DeviceCapabilities.ts:25-33
+                                                                   dayu200-living 的能力表把 motion/door/climate 标 true（默认值风险来源）
+competition/northbound/entry/src/main/ets/model/DeviceCapabilities.ts:34-52
+                                                                   厨房 climate/gas/smoke；卫生间 climate/motion/sos；厨房无 PIR/门磁，卫生间无 MQ/门磁
+competition/northbound/entry/src/main/ets/view/ReportView.ets:1-136  未被 Index.ets 引用的死代码；“统计报告页”旧实现
+competition/northbound/entry/src/main/ets/view/ReportView.ets:54-57  用演示数组 DeviceStore.weekly 画柱状图（假）
+competition/northbound/entry/src/main/ets/view/ReportView.ets:75-78  时段分布硬编码 32/46/38/12（假）
+competition/northbound/entry/src/main/ets/view/ReportView.ets:89      设备在线率硬编码 99.2%（假）
+competition/northbound/entry/src/main/ets/view/ReportView.ets:94      "周/月报告由设备端与云端汇总"——仅文案，无实现
+competition/northbound/entry/src/main/ets/view/StatusView.ets:18-42  门磁卡片“当前：开启/关闭 / 最近开启”展示
+competition/northbound/entry/src/main/ets/view/AlarmView.ets:71-82   已处置告警展示“处置结果：<自由文本>”
+competition/northbound/entry/src/main/ets/view/AlarmView.ets:84-112  未处置告警的自由文本 ACK 输入
+competition/northbound/entry/src/main/ets/model/VisionFrameStreamer.ets:139-191
+                                                                    lastLatencyMs = 抓帧+JPEG+HTTP 往返（不是推理耗时）
+
+## 4. 手机 APP APP/ElderlyCareGuardian（原始要求 ③④⑤）
+
+APP/ElderlyCareGuardian/entry/src/main/ets/core/capability/DeviceCapabilities.ts:126-136
+                                                                   厨房：climate/gas/smoke 已安装；motion/door/water/camera/sos 未安装
+APP/ElderlyCareGuardian/entry/src/main/ets/core/capability/DeviceCapabilities.ts:145-155
+                                                                   卫生间：climate/motion/sos 已安装；door 未安装、MQ 未安装
+APP/ElderlyCareGuardian/entry/src/main/ets/core/capability/DeviceCapabilities.ts:164-175
+                                                                   客厅主控：相机/跌倒已核实；climate/motion/door 等“待确认”
+APP/ElderlyCareGuardian/entry/src/main/ets/core/view/ViewMapper.ts:229-246
+                                                                   门磁视图：原值缺失不伪造；lastOpenTs=0 显示“暂无开启记录”
+APP/ElderlyCareGuardian/entry/src/main/ets/core/view/ViewMapper.ts:161-177
+                                                                   今日活动次数：countToday 缺失显示“今日次数未知”
+APP/ElderlyCareGuardian/entry/src/main/ets/pages/DevicePage.ets:5   设计原则：不显示虚构的网关性能/电量/信号百分比
+APP/ElderlyCareGuardian/entry/src/main/ets/pages/MonitorPage.ets:50  传感器 kind→中文（含“门窗”）
+APP/ElderlyCareGuardian/entry/src/main/ets/pages/AlertListPage.ets:10、24-28
+                                                                   历史告警页签：全部/待处理/等待设备确认/设备已确认
+APP/ElderlyCareGuardian/entry/src/main/ets/pages/StatsPage.ets:241-285
+                                                                   仅“近 7 天告警趋势”（真实 alerts 统计）
+APP/ElderlyCareGuardian/entry/src/main/ets/pages/StatsPage.ets:308  “活动分布、睡眠时长、AI 洞察：后端未提供对应接口，暂无数据”
+APP/ElderlyCareGuardian/entry/src/main/ets/pages/StatsPage.ets:314  “报告导出：本轮未开放”
+APP/ElderlyCareGuardian/entry/src/main/ets/pages/LogPage.ets:3-4     告警记录按本地日期分组；安全日志来自 GET /api/v1/safety-logs
+APP/ElderlyCareGuardian/entry/src/main/ets/pages/LogPage.ets:185-202 安全日志加载：真实接口，失败显真实错误，不回退演示数据
+APP/ElderlyCareGuardian/entry/src/main/ets/service/GuardianService.ets:808-870
+                                                                   ackAlert：202 只代表入队，只有服务端 ACKED 才算闭环
+APP/ElderlyCareGuardian/entry/src/main/ets/service/GuardianService.ets:961-1055
+                                                                   createDisposition：5 枚举 + note≤200 + 幂等，不调用 ack
+APP/ElderlyCareGuardian/entry/src/main/ets/service/GuardianService.ets:1063-1115
+                                                                   loadSafetyLogs：真实安全日志查询
+APP/ElderlyCareGuardian/entry/src/main/ets/core/api/ApiClient.ts:225-331
+                                                                   dispositions/safety-logs 客户端（路径、鉴权、MALFORMED 处理）
+APP/ElderlyCareGuardian/entry/src/main/ets/core/api/Contracts.ts:415-548
+                                                                   DispositionDto/SafetyLogDto/解析与校验（防御式）
+APP/ElderlyCareGuardian/entry/src/main/ets/pages/AlertDetailPage.ets:79、265-311
+                                                                   “处置结果”面板（独立于 ACK）+ ACK 状态机
+
+## 5. 后端 cloud/backend（原始要求 ③④⑤，注意：以下文件 2026-10-26 01:46-01:49 刚被改动）
+
+competition/cloud/backend/src/server.js:205-209            dispositionsSupported：store 必须具备四个合同方法，否则 503
+competition/cloud/backend/src/server.js:377-392            POST /internal/v1/device-status（INGEST_KEY 鉴权）→ store.ingest → 202
+competition/cloud/backend/src/server.js:499-500            GET /api/v1/overview
+competition/cloud/backend/src/server.js:505-521            GET /api/v1/alerts（对外字段，不含 alert.action）
+competition/cloud/backend/src/server.js:522-524            GET /api/v1/devices（含 sensors）→ 手机实时数据入口
+competition/cloud/backend/src/server.js:667-700            POST /api/v1/alerts/{id}/dispositions（201/200/409/404/400，独立于 ACK）
+competition/cloud/backend/src/server.js:702-711            GET /api/v1/alerts/{id}/dispositions
+competition/cloud/backend/src/server.js:713-728            GET /api/v1/safety-logs（limit 1-200、可选 alarmId）
+competition/cloud/backend/src/server.js:730-736            POST /api/v1/alerts/{id}/ack → 202 PENDING（既有语义，未改）
+competition/cloud/backend/src/store.js:52-65               ingest：保留 sensors；告警 countToday 归一化
+competition/cloud/backend/src/store.js:175-191             listAlerts() 对外字段：无 action（ACK 文本对外不可查的关键证据）
+competition/cloud/backend/src/store.js:275-316             createDisposition：幂等/冲突/单调 dispositionId
+competition/cloud/backend/src/store.js:317-346             listDispositions/listSafetyLogs/getDisposition
+competition/cloud/backend/src/store.js:374-400             requestAck：alert.action = 处置文本上限 120，ackPending=true
+competition/cloud/backend/src/store.js:402-451             completeCommand：设备回执 → ACKED / 失败保留
+competition/cloud/backend/src/persistent-store.js:752-756  safetyLogs 键加载（v1-v5 空台账，写 v6）
+competition/cloud/backend/src/persistent-store.js:850-889  安全日志加载校验：alarmId 存在、deviceId 绑定、ID 唯一递增
+competition/cloud/backend/src/persistent-store.js:1030-1058 createDisposition 覆盖 + 2000 条淘汰
+competition/cloud/backend/src/safety-log.js               处置结果纯逻辑（枚举/校验/PublicDisposition）
+
+## 6. 云端网关与公网同步（原始要求 ③⑤的关键断点）
+
+competition/cloud/onenet/gateway.js:536-540               聚合 status：只带 sensors + alarm（无 history/slots）
+competition/cloud/onenet/gateway.js:810-826               OneJSON 解析：sensors 仅 motion/door/gas/smoke/climate（无 history/slots、无 battery）
+competition/cloud/onenet/cloud-sync.js:75-97              /internal/v1/device-status payload：无 history/slots/battery
+competition/cloud/onenet/adapter.js:138-156               motion(lastActiveTs,countToday)/door(open,lastOpenTs) 校验
+competition/cloud/onenet/public-sync.js:1-20              公网入口：本地 MQTT → 公网 HTTPS；密钥交互式隐藏输入
+competition/cloud/onenet/public-sync-supervisor.js        supervisor（P0-A）真实运行入口
+
+## 7. 启动入口（特别核实 §4.1）
+
+competition/materials/start-demo-all.cmd:1-10             正式双击入口 → materials/demo-autostart/demo-autostart.ps1
+competition/materials/demo-autostart/demo-autostart.ps1   单实例看护器（无 ScheduledTask/Service/RunOnce：OS 自启未实现）
+competition/materials/start-demo-supervisor.cmd:1-6       P0 supervisor 既有入口（冷启动时由看护器打开、用户输入密钥）
+competition/evidence/2026-10-26-demo-autostart-followup/COLD-START-HANDOFF.md:27-53
+                                                          冷启动操作与判定口径（本轮未执行）
+competition/materials/demo_start.ps1:160-209              P0 部署/配置写入流程（含 homemon 配置模板）
+
+## 8. 证据文件（判定依据，全部只读）
+
+competition/evidence/2026-10-26-demo-autostart/REPORT.md:58-117                  自动启动真实结果 + 已知限制
+competition/evidence/2026-10-26-demo-autostart/CURRENT-STATE.md:7-23             最终进程/HAP 1.0.2 SHA A696…DAFFE
+competition/evidence/2026-10-26-demo-autostart-followup/REPORT.md:33-52          冷启动 NOT TESTED、USB 拔插实为断电重启
+competition/evidence/2026-10-26-local-speaker-candidate/KITCHEN-V20-NORMAL-DEPLOYMENT.json:1-59
+                                                                                  厨房 v20 部署事实（939936B/A76224A4/COM5/GPIO7/音量20/短时观察）
+competition/evidence/2026-10-26-local-speaker-candidate/KITCHEN-VOLUME20-TRIAL.md:50-78
+                                                                                  真实播放/短时观察/正常版切换
+competition/evidence/2026-10-26-local-speaker-candidate/REPORT.md:3-9、62-71       当前部署状态、卫生间未烧录、未验收边界
+competition/evidence/2026-10-26-bathroom-local-voice/BACKUP-AND-IDENTITY.md:1-41  卫生间 COM4 仅身份+备份，无烧录
+competition/evidence/2026-10-26-alert-disposition-safety-log/CONTRACT.md:1-145     处置/安全日志 v1 合同（本轮实施，未验收）
+competition/evidence/2026-10-24-app-p0-sensors-local/FINAL-2026-10-24.md:70-102    手机 APP 真实验收（实时刷新/离线/恢复/PIR 计数）
+competition/docs/evidence/2026-10-24-p0-final-freeze.md:102-158                     P0-B REAL PASS、未发送 ACK 的边界
+competition/docs/VALIDATION-MATRIX.md:27-33、95-99、107-113、141-207             历史验收矩阵（含 NOT TESTED 项与边界）
+competition/docs/ARTIFACTS.md:23-44、62-122                              权威制品与源码哈希基线（2026-10-15）
+DAYU200-完整知识交接.md:204                                                        赛题四五项必做原文（①-⑤）

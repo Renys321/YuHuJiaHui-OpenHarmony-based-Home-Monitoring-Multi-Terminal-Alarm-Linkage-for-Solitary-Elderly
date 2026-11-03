@@ -1,0 +1,589 @@
+{
+    "durationSec":  900,
+    "steps":  [
+                  {
+                      "atSec":  2,
+                      "send":  "resume"
+                  },
+                  {
+                      "atSec":  3,
+                      "send":  "inj reboot"
+                  },
+                  {
+                      "atSec":  5,
+                      "send":  "pause"
+                  },
+                  {
+                      "atSec":  6,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  7,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  14,
+                      "send":  "stop"
+                  },
+                  {
+                      "atSec":  22,
+                      "send":  "ack {lastAlarm}"
+                  },
+                  {
+                      "atSec":  30,
+                      "send":  "inj climate 25.0 50.0"
+                  },
+                  {
+                      "atSec":  31,
+                      "send":  "inj climate 25.0 50.0"
+                  },
+                  {
+                      "atSec":  38,
+                      "send":  "inj sos"
+                  },
+                  {
+                      "atSec":  46,
+                      "send":  "stop"
+                  },
+                  {
+                      "atSec":  54,
+                      "send":  "ack {lastAlarm}"
+                  },
+                  {
+                      "atSec":  62,
+                      "send":  "reset"
+                  },
+                  {
+                      "atSec":  79,
+                      "send":  "inj reboot"
+                  },
+                  {
+                      "atSec":  81,
+                      "send":  "pause"
+                  },
+                  {
+                      "atSec":  82,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  83,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  90,
+                      "send":  "stop"
+                  },
+                  {
+                      "atSec":  98,
+                      "send":  "ack {lastAlarm}"
+                  },
+                  {
+                      "atSec":  106,
+                      "send":  "inj climate 25.0 50.0"
+                  },
+                  {
+                      "atSec":  107,
+                      "send":  "inj climate 25.0 50.0"
+                  },
+                  {
+                      "atSec":  114,
+                      "send":  "inj sos"
+                  },
+                  {
+                      "atSec":  122,
+                      "send":  "stop"
+                  },
+                  {
+                      "atSec":  130,
+                      "send":  "ack {lastAlarm}"
+                  },
+                  {
+                      "atSec":  138,
+                      "send":  "reset"
+                  },
+                  {
+                      "atSec":  155,
+                      "send":  "inj reboot"
+                  },
+                  {
+                      "atSec":  157,
+                      "send":  "pause"
+                  },
+                  {
+                      "atSec":  158,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  159,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  166,
+                      "send":  "stop"
+                  },
+                  {
+                      "atSec":  174,
+                      "send":  "ack {lastAlarm}"
+                  },
+                  {
+                      "atSec":  182,
+                      "send":  "inj climate 25.0 50.0"
+                  },
+                  {
+                      "atSec":  183,
+                      "send":  "inj climate 25.0 50.0"
+                  },
+                  {
+                      "atSec":  190,
+                      "send":  "inj sos"
+                  },
+                  {
+                      "atSec":  198,
+                      "send":  "stop"
+                  },
+                  {
+                      "atSec":  206,
+                      "send":  "ack {lastAlarm}"
+                  },
+                  {
+                      "atSec":  214,
+                      "send":  "reset"
+                  },
+                  {
+                      "atSec":  231,
+                      "send":  "inj reboot"
+                  },
+                  {
+                      "atSec":  233,
+                      "send":  "pause"
+                  },
+                  {
+                      "atSec":  234,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  235,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  242,
+                      "send":  "stop"
+                  },
+                  {
+                      "atSec":  250,
+                      "send":  "ack {lastAlarm}"
+                  },
+                  {
+                      "atSec":  258,
+                      "send":  "inj climate 25.0 50.0"
+                  },
+                  {
+                      "atSec":  259,
+                      "send":  "inj climate 25.0 50.0"
+                  },
+                  {
+                      "atSec":  266,
+                      "send":  "inj sos"
+                  },
+                  {
+                      "atSec":  274,
+                      "send":  "stop"
+                  },
+                  {
+                      "atSec":  282,
+                      "send":  "ack {lastAlarm}"
+                  },
+                  {
+                      "atSec":  290,
+                      "send":  "reset"
+                  },
+                  {
+                      "atSec":  307,
+                      "send":  "inj reboot"
+                  },
+                  {
+                      "atSec":  309,
+                      "send":  "pause"
+                  },
+                  {
+                      "atSec":  310,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  311,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  318,
+                      "send":  "stop"
+                  },
+                  {
+                      "atSec":  326,
+                      "send":  "ack {lastAlarm}"
+                  },
+                  {
+                      "atSec":  334,
+                      "send":  "inj climate 25.0 50.0"
+                  },
+                  {
+                      "atSec":  335,
+                      "send":  "inj climate 25.0 50.0"
+                  },
+                  {
+                      "atSec":  342,
+                      "send":  "inj sos"
+                  },
+                  {
+                      "atSec":  350,
+                      "send":  "stop"
+                  },
+                  {
+                      "atSec":  358,
+                      "send":  "ack {lastAlarm}"
+                  },
+                  {
+                      "atSec":  366,
+                      "send":  "reset"
+                  },
+                  {
+                      "atSec":  383,
+                      "send":  "inj reboot"
+                  },
+                  {
+                      "atSec":  385,
+                      "send":  "pause"
+                  },
+                  {
+                      "atSec":  386,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  387,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  394,
+                      "send":  "stop"
+                  },
+                  {
+                      "atSec":  402,
+                      "send":  "ack {lastAlarm}"
+                  },
+                  {
+                      "atSec":  410,
+                      "send":  "inj climate 25.0 50.0"
+                  },
+                  {
+                      "atSec":  411,
+                      "send":  "inj climate 25.0 50.0"
+                  },
+                  {
+                      "atSec":  418,
+                      "send":  "inj sos"
+                  },
+                  {
+                      "atSec":  426,
+                      "send":  "stop"
+                  },
+                  {
+                      "atSec":  434,
+                      "send":  "ack {lastAlarm}"
+                  },
+                  {
+                      "atSec":  442,
+                      "send":  "reset"
+                  },
+                  {
+                      "atSec":  459,
+                      "send":  "inj reboot"
+                  },
+                  {
+                      "atSec":  461,
+                      "send":  "pause"
+                  },
+                  {
+                      "atSec":  462,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  463,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  470,
+                      "send":  "stop"
+                  },
+                  {
+                      "atSec":  478,
+                      "send":  "ack {lastAlarm}"
+                  },
+                  {
+                      "atSec":  486,
+                      "send":  "inj climate 25.0 50.0"
+                  },
+                  {
+                      "atSec":  487,
+                      "send":  "inj climate 25.0 50.0"
+                  },
+                  {
+                      "atSec":  494,
+                      "send":  "inj sos"
+                  },
+                  {
+                      "atSec":  502,
+                      "send":  "stop"
+                  },
+                  {
+                      "atSec":  510,
+                      "send":  "ack {lastAlarm}"
+                  },
+                  {
+                      "atSec":  518,
+                      "send":  "reset"
+                  },
+                  {
+                      "atSec":  535,
+                      "send":  "inj reboot"
+                  },
+                  {
+                      "atSec":  537,
+                      "send":  "pause"
+                  },
+                  {
+                      "atSec":  538,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  539,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  546,
+                      "send":  "stop"
+                  },
+                  {
+                      "atSec":  554,
+                      "send":  "ack {lastAlarm}"
+                  },
+                  {
+                      "atSec":  562,
+                      "send":  "inj climate 25.0 50.0"
+                  },
+                  {
+                      "atSec":  563,
+                      "send":  "inj climate 25.0 50.0"
+                  },
+                  {
+                      "atSec":  570,
+                      "send":  "inj sos"
+                  },
+                  {
+                      "atSec":  578,
+                      "send":  "stop"
+                  },
+                  {
+                      "atSec":  586,
+                      "send":  "ack {lastAlarm}"
+                  },
+                  {
+                      "atSec":  594,
+                      "send":  "reset"
+                  },
+                  {
+                      "atSec":  611,
+                      "send":  "inj reboot"
+                  },
+                  {
+                      "atSec":  613,
+                      "send":  "pause"
+                  },
+                  {
+                      "atSec":  614,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  615,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  622,
+                      "send":  "stop"
+                  },
+                  {
+                      "atSec":  630,
+                      "send":  "ack {lastAlarm}"
+                  },
+                  {
+                      "atSec":  638,
+                      "send":  "inj climate 25.0 50.0"
+                  },
+                  {
+                      "atSec":  639,
+                      "send":  "inj climate 25.0 50.0"
+                  },
+                  {
+                      "atSec":  646,
+                      "send":  "inj sos"
+                  },
+                  {
+                      "atSec":  654,
+                      "send":  "stop"
+                  },
+                  {
+                      "atSec":  662,
+                      "send":  "ack {lastAlarm}"
+                  },
+                  {
+                      "atSec":  670,
+                      "send":  "reset"
+                  },
+                  {
+                      "atSec":  687,
+                      "send":  "inj reboot"
+                  },
+                  {
+                      "atSec":  689,
+                      "send":  "pause"
+                  },
+                  {
+                      "atSec":  690,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  691,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  698,
+                      "send":  "stop"
+                  },
+                  {
+                      "atSec":  706,
+                      "send":  "ack {lastAlarm}"
+                  },
+                  {
+                      "atSec":  714,
+                      "send":  "inj climate 25.0 50.0"
+                  },
+                  {
+                      "atSec":  715,
+                      "send":  "inj climate 25.0 50.0"
+                  },
+                  {
+                      "atSec":  722,
+                      "send":  "inj sos"
+                  },
+                  {
+                      "atSec":  730,
+                      "send":  "stop"
+                  },
+                  {
+                      "atSec":  738,
+                      "send":  "ack {lastAlarm}"
+                  },
+                  {
+                      "atSec":  746,
+                      "send":  "reset"
+                  },
+                  {
+                      "atSec":  763,
+                      "send":  "inj reboot"
+                  },
+                  {
+                      "atSec":  765,
+                      "send":  "pause"
+                  },
+                  {
+                      "atSec":  766,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  767,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  774,
+                      "send":  "stop"
+                  },
+                  {
+                      "atSec":  782,
+                      "send":  "ack {lastAlarm}"
+                  },
+                  {
+                      "atSec":  790,
+                      "send":  "inj climate 25.0 50.0"
+                  },
+                  {
+                      "atSec":  791,
+                      "send":  "inj climate 25.0 50.0"
+                  },
+                  {
+                      "atSec":  798,
+                      "send":  "inj sos"
+                  },
+                  {
+                      "atSec":  806,
+                      "send":  "stop"
+                  },
+                  {
+                      "atSec":  814,
+                      "send":  "ack {lastAlarm}"
+                  },
+                  {
+                      "atSec":  822,
+                      "send":  "reset"
+                  },
+                  {
+                      "atSec":  839,
+                      "send":  "inj reboot"
+                  },
+                  {
+                      "atSec":  841,
+                      "send":  "pause"
+                  },
+                  {
+                      "atSec":  842,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  843,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  850,
+                      "send":  "stop"
+                  },
+                  {
+                      "atSec":  858,
+                      "send":  "ack {lastAlarm}"
+                  },
+                  {
+                      "atSec":  866,
+                      "send":  "inj climate 25.0 50.0"
+                  },
+                  {
+                      "atSec":  867,
+                      "send":  "inj climate 25.0 50.0"
+                  },
+                  {
+                      "atSec":  874,
+                      "send":  "inj sos"
+                  },
+                  {
+                      "atSec":  882,
+                      "send":  "stop"
+                  },
+                  {
+                      "atSec":  890,
+                      "send":  "ack {lastAlarm}"
+                  },
+                  {
+                      "atSec":  898,
+                      "send":  "reset"
+                  },
+                  {
+                      "atSec":  890,
+                      "send":  "resume"
+                  }
+              ]
+}

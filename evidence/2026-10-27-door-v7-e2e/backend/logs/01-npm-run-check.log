@@ -1,0 +1,4 @@
+﻿
+> eldercare-cloud-backend@0.1.0 check
+> node --check src/auth.js && node --check src/household-auth.js && node --check src/store.js && node --check src/persistent-store.js && node --check src/safety-log.js && node --check src/activity.js && node --check src/activity-store.js && node --check src/evidence-store.js && node --check src/server.js && node --check src/main.js && node --check src/notify-privacy.js && node --check src/notify-provider.js && node --check src/notify-delivery.js && node --check src/comms-core.js
+

@@ -1,0 +1,105 @@
+﻿[2026-10-28 00:42:59] [INFO] === STEP 1 clean（干净重建，消除旧 hvigor 缓存影响） ===
+[2026-10-28 00:42:59] [INFO] run: D:\DevEcoStudio\DevEco Studio\tools\hvigor\bin\hvigorw.bat clean --no-daemon
+[2026-10-28 00:43:20] [INFO] === STEP 1 clean（干净重建，消除旧 hvigor 缓存影响） ===
+[2026-10-28 00:43:21] [INFO] run: D:\DevEcoStudio\DevEco Studio\tools\hvigor\bin\hvigorw.bat clean --no-daemon
+[2026-10-28 00:43:26] [INFO] clean exit=0
+[2026-10-28 00:43:26] [INFO] === STEP 2 assembleHap --mode module -p product=default -p buildMode=debug ===
+[2026-10-28 00:43:26] [INFO] run: D:\DevEcoStudio\DevEco Studio\tools\hvigor\bin\hvigorw.bat assembleHap --mode module -p product=default -p buildMode=debug --no-daemon
+[2026-10-28 00:43:56] [INFO] === STEP 1 clean（干净重建，消除旧 hvigor 缓存影响） ===
+[2026-10-28 00:43:56] [INFO] run: D:\DevEcoStudio\DevEco Studio\tools\hvigor\bin\hvigorw.bat clean --no-daemon
+[2026-10-28 00:43:59] [INFO] clean exit=0
+[2026-10-28 00:43:59] [INFO] === STEP 2 assembleHap --mode module -p product=default -p buildMode=debug ===
+[2026-10-28 00:43:59] [INFO] run: D:\DevEcoStudio\DevEco Studio\tools\hvigor\bin\hvigorw.bat assembleHap --mode module -p product=default -p buildMode=debug --no-daemon
+[2026-10-28 00:44:15] [INFO] BUILD SUCCESSFUL
+[2026-10-28 00:44:15] [INFO] unsigned HAP: 2024688 bytes sha256=CCEA9DB22239701F6DA291B12074ED106DFC0BC003EE0E4CF5BFC947CEFD8677
+[2026-10-28 00:44:15] [INFO] === STEP 3 剔除 rpcid.sc（可安装变体） ===
+[2026-10-28 00:44:15] [INFO] run: python D:\OpenHarmony\competition\northbound\signing\strip_rpcid.py D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\build\dayu-eldercare-1.0.10-from-northbound-unsigned.hap D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\build\dayu-eldercare-1.0.10-from-northbound-norpc.hap
+[2026-10-28 00:44:16] [INFO] norpc HAP: 1368270 bytes sha256=407F8BE7A963F9EAE955CCF47829675D5806D279F736F205E3857F6DEC9D9F1B
+[2026-10-28 00:44:16] [INFO] === STEP 4 sign-app（同签名身份/同 debug profile） ===
+[2026-10-28 00:44:16] [INFO] run: java -jar D:\DevEcoStudio\DevEco Studio\sdk\default\openharmony\toolchains\lib\hap-sign-tool.jar sign-app -mode localSign -keyAlias "openharmony application release" -keyPwd ****** -keystoreFile D:\DevEcoStudio\DevEco Studio\sdk\default\openharmony\toolchains\lib\OpenHarmony.p12 -keystorePwd ****** -appCertFile D:\OpenHarmony\competition\northbound\signing\app-chain.pem -profileFile D:\OpenHarmony\competition\northbound\signing\final-profile.p7b -inFile D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\build\dayu-eldercare-1.0.10-from-northbound-norpc.hap -outFile D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\build\dayu-eldercare-1.0.10-from-northbound-signed.hap -signAlg SHA256withECDSA -compatibleVersion 12 -signCode 1
+[2026-10-28 00:44:18] [INFO] signed HAP: 1385966 bytes sha256=7C38C95D1296DB8B14ED1DC83C8D0F72036C5E57ED15951131D9EC168FAD5372
+[2026-10-28 00:44:18] [INFO] === STEP 5 verify-app ===
+[2026-10-28 00:44:18] [INFO] run: D:\DevEcoStudio\DevEco Studio\jbr\bin\java.exe -jar D:\DevEcoStudio\DevEco Studio\sdk\default\openharmony\toolchains\lib\hap-sign-tool.jar verify-app -inFile D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\build\dayu-eldercare-1.0.10-from-northbound-signed.hap -outCertChain D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\build\verify-app-chain.cer -outProfile D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\build\verify-app-profile.p7b
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.335  INFO - Start verify-app
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.371  WARN - Missing parameter: outproof
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.376  INFO - Find Hap Signing Block success, version: 3, block count: 3
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.380  INFO - trying verify codesign block
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.526  INFO - profile type is: debug
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.544  INFO - verify codesign success
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.560  INFO - +++++++++++++++++++++++++++certificate #0 +++++++++++++++++++++++++++++++
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.563  INFO - Subject: CN=OpenHarmony Application Release, OU=OpenHarmony Team, O=OpenHarmony, C=CN
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.563  INFO - Issuer: CN=OpenHarmony Application CA, OU=OpenHarmony Team, O=OpenHarmony, C=CN
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.563  INFO - SerialNumber: 68e0bfcc
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.563  INFO - Validity: 2021-02-02 20:19:31 ~ 2049-12-31 20:19:31
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.565  INFO - SHA256: 8E:93:86:3F:C3:2E:E2:38:06:0B:F6:9A:9B:37:E2:60:8F:FF:B2:1F:93:C8:62:DD:51:1C:BA:C9:F3:00:24:B5
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.566  INFO - Signature Algorithm: SHA384withECDSA
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.566  INFO - Key: EC, key length: 256 bits
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.566  INFO - Cert Version: V3
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.566  INFO - +++++++++++++++++++++++++++certificate #1 +++++++++++++++++++++++++++++++
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.566  INFO - Subject: CN=OpenHarmony Application Root CA, OU=OpenHarmony Team, O=OpenHarmony, C=CN
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.566  INFO - Issuer: CN=OpenHarmony Application Root CA, OU=OpenHarmony Team, O=OpenHarmony, C=CN
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.567  INFO - SerialNumber: fe1388b
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.567  INFO - Validity: 2021-02-02 20:14:18 ~ 2049-12-31 20:14:18
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.567  INFO - SHA256: 9A:ED:2A:79:92:5E:CA:05:0C:D2:BB:9D:2A:7F:69:4E:49:E5:E1:35:D2:8E:BD:CE:53:83:6D:E7:6B:50:80:ED
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.567  INFO - Signature Algorithm: SHA384withECDSA
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.567  INFO - Key: EC, key length: 384 bits
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.567  INFO - Cert Version: V3
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.567  INFO - +++++++++++++++++++++++++++certificate #2 +++++++++++++++++++++++++++++++
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.568  INFO - Subject: CN=OpenHarmony Application CA, OU=OpenHarmony Team, O=OpenHarmony, C=CN
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.568  INFO - Issuer: CN=OpenHarmony Application Root CA, OU=OpenHarmony Team, O=OpenHarmony, C=CN
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.568  INFO - SerialNumber: 1e65c03d
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.568  INFO - Validity: 2021-02-02 20:15:32 ~ 2049-12-31 20:15:32
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.569  INFO - SHA256: EE:B0:0E:63:40:1C:85:85:3F:67:7A:73:C6:F1:2C:CB:7C:53:69:2D:44:CA:F4:59:99:4B:B2:CE:5A:47:A9:4D
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.569  INFO - Signature Algorithm: SHA384withECDSA
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.569  INFO - Key: EC, key length: 384 bits
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.569  INFO - Cert Version: V3
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.570  INFO - version is: 2, number of block is: 1
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.589  INFO - Digest verify result: true, DigestAlgorithm: SHA-256
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.660  INFO - verify permission sign success.
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.667  INFO - Write certificate chain success!
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.670  INFO - verify: Verify success
+[2026-10-28 00:44:19] [INFO] verify: 10-28 00:44:19.670  INFO - verify-app success
+[2026-10-28 00:44:19] [INFO] verify-app success（Digest verify result: true）
+[2026-10-28 00:44:19] [INFO] === STEP 6 静态核对 ===
+[2026-10-28 00:44:19] [INFO] run: python D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\scripts\01b-static-checks.py D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\build\dayu-eldercare-1.0.10-from-northbound-signed.hap D:\OpenHarmony\competition\evidence\2026-10-27-video-fps\dayu-video-fps-1.0.10-signed.hap D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\build\static-checks.txt D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\build\static-checks.json
+[2026-10-28 00:44:20] [INFO] ## 新构建 HAP: dayu-eldercare-1.0.10-from-northbound-signed.hap (1385966 bytes)
+[2026-10-28 00:44:20] [INFO] bundleName=com.dsh.eldercare versionName=1.0.10 versionCode=1000010 debug=True
+[2026-10-28 00:44:20] [INFO] deviceTypes=['default'] minAPIVersion=12 targetAPIVersion=26
+[2026-10-28 00:44:20] [INFO] entry 数量=18
+[2026-10-28 00:44:20] [INFO] entry 列表: ets/modules.abc, ets/sourceMaps.map, module.json, pack.info, pkgSdkInfo.json, resources.index, resources/base/media/background.png, resources/base/media/foreground.png, resources/base/media/layered_image.json, resources/base/media/startIcon.png, resources/base/profile/backup_config.json, resources/base/profile/main_pages.json, resources/rawfile/check_in.wav, resources/rawfile/emergency_contacting.wav, resources/rawfile/family_message.wav, resources/rawfile/medicine_reminder.wav, resources/rawfile/please_respond.wav, resources/rawfile/sos.wav
+[2026-10-28 00:44:20] [INFO] 临时/备份文件: 无
+[2026-10-28 00:44:20] [INFO] 
+[2026-10-28 00:44:20] [INFO] ## baseline: dayu-video-fps-1.0.10-signed.hap (1385966 bytes) bundle=com.dsh.eldercare version=1.0.10/1000010 entries=18
+[2026-10-28 00:44:20] [INFO] 仅新包 entry: 无
+[2026-10-28 00:44:20] [INFO] 仅 baseline entry: 无
+[2026-10-28 00:44:20] [INFO] 逐 entry 内容不同的: ['ets/sourceMaps.map']
+[2026-10-28 00:44:20] [INFO] 
+[2026-10-28 00:44:20] [INFO] ## 关键能力标记（ets/modules.abc 字节搜索）
+[2026-10-28 00:44:20] [INFO] - VideoStreamServer 绑定 0.0.0.0       new=True  baseline=True
+[2026-10-28 00:44:20] [INFO] - LAN_ONLY 私网白名单错误码                  new=True  baseline=True
+[2026-10-28 00:44:20] [INFO] - 视频端口 9301                          new=False baseline=False
+[2026-10-28 00:44:20] [INFO] - WearableBannerStore 类              new=True  baseline=True
+[2026-10-28 00:44:20] [INFO] - 横幅偏好键前缀 wb_acked_                  new=True  baseline=True
+[2026-10-28 00:44:20] [INFO] - 横幅偏好键前缀 wb_alarm_                  new=True  baseline=True
+[2026-10-28 00:44:20] [INFO] - 横幅 preferences 名                   new=True  baseline=True
+[2026-10-28 00:44:20] [INFO] - 预览调参 PreviewTuning                 new=True  baseline=True
+[2026-10-28 00:44:20] [INFO] - 随身求助文案                             new=True  baseline=True
+[2026-10-28 00:44:20] [INFO] - 未配置 PIR 文案                         new=True  baseline=True
+[2026-10-28 00:44:20] [INFO] - 暂无定位 文案                            new=True  baseline=True
+[2026-10-28 00:44:20] [INFO] - 设备已确认 文案                           new=True  baseline=True
+[2026-10-28 00:44:20] [INFO] - 告警自身归属 room 字段                     new=True  baseline=True
+[2026-10-28 00:44:20] [INFO] - 随身 SOS 告警标识                        new=True  baseline=True
+[2026-10-28 00:44:20] [INFO] 
+[2026-10-28 00:44:20] [INFO] ## 负向标记（旧线缺陷不得回退）
+[2026-10-28 00:44:20] [INFO] - 旧线相机旋转候选调用（应不存在）                         new=False baseline=False（期望 new=False）
+[2026-10-28 00:44:20] [INFO] 
+[2026-10-28 00:44:20] [INFO] ## 结论
+[2026-10-28 00:44:20] [INFO] 版本/bundle: OK
+[2026-10-28 00:44:20] [INFO] 能力标记: 缺少: 视频端口 9301
+[2026-10-28 00:44:20] [INFO] 无回退标记: OK
+
+[2026-10-28 00:47] 说明：STEP 6 初次运行包含无效标记（'9301' 为数值常量，不会以 ASCII 出现在 modules.abc），
+已把标记改为 VIDEO_STREAM_PORT / VIDEO_STREAM_PROTO / frameIntervalMs 后重跑，static-checks 通过（exit 0）。
+另：northbound/tests/device-capabilities.test.mjs 有 4 条断言仍是 1.0.0 旧能力契约（客厅有 PIR/门磁/温湿度、
+厨房无 PIR/门磁、卫生间无门磁），在 canonical experiments 树同样失败（已实测），属合并前既有 stale 测试，
+不是本次合并引入；测试输出见 northbound-tests.log，建议下一轮按 1.0.10 契约更新断言。

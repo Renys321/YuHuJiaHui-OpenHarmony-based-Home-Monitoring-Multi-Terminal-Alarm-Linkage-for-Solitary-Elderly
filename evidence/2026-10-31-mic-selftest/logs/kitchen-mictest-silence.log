@@ -1,0 +1,5 @@
+[0;32mI (14042) elder-node: CMD 收到: mictest 3[0m
+[0;33mW (14042) elder-node: MIC_TEST 开始：3 秒（安静/说话各测一次，比较 RMS 与峰值）[0m
+[0;32mI (14082) local-voice: MIC begin 16000Hz mono s16 (ES8388 ADC, DIN=GPIO14)[0m
+[0;32mI (17142) local-voice: MIC end playback_restored=1[0m
+[0;32mI (17152) local-voice: MIC_TEST rms=115 peak=1127 samples=47360 seconds=3 min=-1127 max=1052[0m

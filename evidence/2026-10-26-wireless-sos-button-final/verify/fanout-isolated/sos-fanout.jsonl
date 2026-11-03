@@ -1,0 +1,5 @@
+{"at":"2026-10-26T15:57:35.104Z","event":"dispatch","alarmId":"e-1-1793030255102","source":"esp32-sos","targets":{"esp32-kitchen":"delivered","esp32-bath":"delivered"}}
+{"at":"2026-10-26T15:57:36.548Z","event":"ack","alarmId":"e-1-1793030255102","source":"esp32-sos","targets":{"esp32-kitchen":"delivered","esp32-bath":"delivered"}}
+{"at":"2026-10-26T15:57:38.595Z","event":"dispatch","alarmId":"e-2-1793030258593","source":"esp32-sos","targets":{"esp32-kitchen":"failed_offline","esp32-bath":"delivered"}}
+{"at":"2026-10-26T15:57:39.730Z","event":"ack","alarmId":"e-2-1793030258593","source":"esp32-sos","targets":{"esp32-kitchen":"skipped_not_playing","esp32-bath":"delivered"}}
+{"at":"2026-10-26T15:57:40.853Z","event":"dispatch","alarmId":"e-3-1793030260851","source":"esp32-sos","targets":{"esp32-kitchen":"delivered","esp32-bath":"delivered"}}

@@ -1,0 +1,28 @@
+PC_STOP_REQUEST=2026-10-10 10:12:32.089 +08:00
+PID=15068
+PROCESS=node.exe
+COMMAND_LINE="<USER_HOME>\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\node\bin\node.exe" <WORKSPACE>\competition\bridge\sim_node.js --gw 127.0.0.1:9100 --id esp32-bath --room 卫生间 
+PC_STOPPED=2026-10-10 10:12:32.126 +08:00
+PROCESS_EXISTS_AFTER_STOP=False
+PC_AFTER_WAIT=2026-10-10 10:12:50.141 +08:00
+--- BRIDGE TAIL ---
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[MQTT] ← home/esp32-bath/cmd: {"cmd":"gas"}
+[bridge] 命令已发往节点 esp32-bath: gas
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] 无线节点 esp32-bath 断开

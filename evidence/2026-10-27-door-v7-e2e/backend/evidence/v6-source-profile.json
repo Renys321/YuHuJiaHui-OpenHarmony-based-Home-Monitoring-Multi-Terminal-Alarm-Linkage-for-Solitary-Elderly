@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 6,
+  "devices": 1,
+  "alerts": 1,
+  "commands": 0,
+  "contacts": 0,
+  "safetyLogs": 1,
+  "hasDoorEventsKey": false,
+  "sha256": "70974a3b289a0e13aac1bb795adb1d526cc2cc59057efa5dbefd42ba249bc4a6",
+  "workCopySha256": "70974a3b289a0e13aac1bb795adb1d526cc2cc59057efa5dbefd42ba249bc4a6"
+}

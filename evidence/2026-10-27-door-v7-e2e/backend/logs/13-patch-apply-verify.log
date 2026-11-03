@@ -1,0 +1,10 @@
+﻿# adapter-door-v7.patch apply verification (original copy only; workspace untouched)
+# patch sha256: 162467457680C0B260FA7F1667498DC495B9A4A1121D774416B0397978B55A45
+# original adapter sha256: 8F03E56F7AA02BAC8A9B43C29A8873296AC2C1958C44E76BDE2CB69AC21B5AF8
+git apply --check exit=0 (0 expected)
+git apply exit=0 (0 expected)
+applied sha256 = 9453A47DBEBA0E096F625AEAD134550E4EA08997FE1F117269499E0DE5CA64E5
+expected sha256= 9453A47DBEBA0E096F625AEAD134550E4EA08997FE1F117269499E0DE5CA64E5
+identical=True
+diff(original, applied) exit=1 (1 expected = has differences)
+hunks: 2

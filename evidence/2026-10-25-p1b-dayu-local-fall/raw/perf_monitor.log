@@ -1,0 +1,15 @@
+﻿perf monitor start 2026-10-25T01:59:34.5138478+08:00
+t=01:59:34 i=1 server=UP app=UP events=[496 /data/local/tmp/p1b-fall-2026-10-25/evidence/perf_events.jsonl] person=1 posture=UNKNOWN k=6 infer=495.00 drop=96 rss=63172 temp=57.8
+t=02:00:35 i=2 server=UP app=UP events=[620 /data/local/tmp/p1b-fall-2026-10-25/evidence/perf_events.jsonl] person=1 posture=UNKNOWN k=7 infer=468.00 drop=120 rss=63180 temp=57.2
+t=02:01:36 i=3 server=UP app=UP events=[745 /data/local/tmp/p1b-fall-2026-10-25/evidence/perf_events.jsonl] person=1 posture=UNKNOWN k=6 infer=479.00 drop=144 rss=63204 temp=57.2
+t=02:02:36 i=4 server=UP app=UP events=[869 /data/local/tmp/p1b-fall-2026-10-25/evidence/perf_events.jsonl] person=1 posture=UNKNOWN k=7 infer=493.00 drop=169 rss=63200 temp=57.8
+t=02:03:37 i=5 server=UP app=UP events=[993 /data/local/tmp/p1b-fall-2026-10-25/evidence/perf_events.jsonl] person=1 posture=UNKNOWN k=7 infer=471.00 drop=193 rss=63196 temp=58.3
+t=02:04:38 i=6 server=UP app=UP events=[1118 /data/local/tmp/p1b-fall-2026-10-25/evidence/perf_events.jsonl] person=1 posture=UNKNOWN k=7 infer=455.00 drop=217 rss=63192 temp=57.2
+t=02:05:38 i=7 server=UP app=UP events=[1242 /data/local/tmp/p1b-fall-2026-10-25/evidence/perf_events.jsonl] person=1 posture=UNKNOWN k=6 infer=502.00 drop=242 rss=63224 temp=57.8
+t=02:06:39 i=8 server=UP app=UP events=[1367 /data/local/tmp/p1b-fall-2026-10-25/evidence/perf_events.jsonl] person=1 posture=UNKNOWN k=7 infer=470.00 drop=266 rss=63208 temp=58.3
+t=02:07:40 i=9 server=UP app=UP events=[1491 /data/local/tmp/p1b-fall-2026-10-25/evidence/perf_events.jsonl] person=1 posture=UNKNOWN k=7 infer=457.00 drop=290 rss=63224 temp=57.8
+t=02:08:40 i=10 server=UP app=UP events=[1616 /data/local/tmp/p1b-fall-2026-10-25/evidence/perf_events.jsonl] person=1 posture=UNKNOWN k=7 infer=470.00 drop=315 rss=63220 temp=57.8
+t=02:09:41 i=11 server=UP app=UP events=[1740 /data/local/tmp/p1b-fall-2026-10-25/evidence/perf_events.jsonl] person=1 posture=UNKNOWN k=6 infer=501.00 drop=339 rss=63220 temp=58.3
+t=02:10:42 i=12 server=UP app=UP events=[1865 /data/local/tmp/p1b-fall-2026-10-25/evidence/perf_events.jsonl] person=1 posture=UNKNOWN k=6 infer=465.00 drop=364 rss=63220 temp=57.8
+t=02:11:42 i=13 server=UP app=UP events=[1990 /data/local/tmp/p1b-fall-2026-10-25/evidence/perf_events.jsonl] person=1 posture=UNKNOWN k=7 infer=469.00 drop=388 rss=63224 temp=58.3
+perf monitor end 2026-10-25T02:12:43.3452561+08:00

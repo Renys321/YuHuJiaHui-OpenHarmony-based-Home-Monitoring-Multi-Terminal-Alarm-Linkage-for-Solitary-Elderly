@@ -1,0 +1,3 @@
+[run-public-sync] start 2026-10-15T11:57:13.791Z pid=62044 backend=https://api.luxunacc.xyz log=D:\OpenHarmony\competition\evidence\2026-10-15-public-sync-dual-device\public-sync.out.log
+[public-sync] FATAL code=TTY_REQUIRED
+[run-public-sync] public-sync exited code=1 signal=null

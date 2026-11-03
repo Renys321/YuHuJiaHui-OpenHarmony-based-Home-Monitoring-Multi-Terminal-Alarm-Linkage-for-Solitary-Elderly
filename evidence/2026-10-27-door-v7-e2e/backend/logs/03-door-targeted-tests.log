@@ -1,0 +1,34 @@
+﻿✔ door-events endpoint requires bearer auth (69.8442ms)
+✔ state-change ingests produce door events via the public API (99.457ms)
+✔ duplicate upload of the same state adds no events (13.6697ms)
+✔ device-cache events are exposed and deduped through the API (48.203ms)
+✔ deviceId filter and limit bounds are honored (89.8886ms)
+✔ unknown device returns an empty array, never fake records (9.7489ms)
+✔ current door state is still readable through /api/v1/devices sensors (28.5448ms)
+✔ first ingest only establishes the baseline: no event is created (3.5607ms)
+✔ door absent in payload: no event, previous events are untouched (0.6705ms)
+✔ device with no prior door data: first door reading is baseline, not an event (0.226ms)
+✔ confirmed state change generates exactly one event with server time semantics (0.4516ms)
+✔ device-trusted timestamp is used and labelled as device source (0.3154ms)
+✔ duplicate upload of the same state does not create another event (0.2535ms)
+✔ multiple changes keep write order and strictly increasing ids (0.3229ms)
+✔ device-cache events are appended and deduped by (deviceId, seq) (0.3241ms)
+✔ same seq from different devices is not confused (0.2705ms)
+✔ device-cache events cover the state change: no duplicate state-change event (1.0088ms)
+✔ events array last state differs from current open: state-change fallback still fires (0.4106ms)
+✔ events without a positive seq are discarded (cannot be deduped) (0.8578ms)
+✔ list filters by device and honors limit (0.2895ms)
+✔ ledger respects the capacity cap by dropping the oldest writes (142.5967ms)
+✔ PersistentStore keeps door events across restart and never reuses ids (133.7242ms)
+✔ PersistentStore refuses a snapshot with duplicate door event ids (17.5112ms)
+✔ PersistentStore refuses a snapshot whose door event references an unknown device (16.0907ms)
+✔ PersistentStore refuses a snapshot with out-of-order door event ids (23.2314ms)
+✔ v6 snapshot without doorEvents key loads as an empty ledger (backward compatible) (30.083ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 761.9922

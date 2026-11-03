@@ -1,0 +1,2 @@
+{"at":"2026-10-27T16:38:31.658Z","tOffSinceStart":0,"online":true,"lastSeen":1793119006984,"state":"ALARM","alarmState":"ALARM","ackPending":true,"ackAt":0}
+{"at":"2026-10-27T16:38:36.713Z","tOffSinceStart":4,"online":true,"lastSeen":1793119112769,"state":"ACKED","alarmState":"ACKED","ackPending":false,"ackAt":1793119112754}

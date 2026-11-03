@@ -1,0 +1,1047 @@
+[broker] 监听 0.0.0.0:1883（自包含 MQTT broker，Ctrl+C 退出）
+[broker] + 连接来自 ::ffff:127.0.0.1:58795（当前 1 个）
+[broker] CONNACK → mqttjs_e7419e9a
+[broker] SUBSCRIBE mqttjs_e7419e9a → home/dayu200-living/#
+[broker] + 连接来自 ::ffff:127.0.0.1:51405（当前 2 个）
+[broker] CONNACK → bridge-dayu200-01-4782
+[broker] SUBSCRIBE bridge-dayu200-01-4782 → home/+/cmd
+[broker] PUBLISH home/dayu200-living/status (437B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 0 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 0 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 0 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 0 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 0 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:58555（当前 3 个）
+[broker] CONNACK → tool-pub-31404
+[broker] PUBLISH home/dayu200-living/cmd (78B) → 转发给 2 个订阅者
+[broker] - 断开 tool-pub-31404（当前 2 个）
+[broker] - 断开 tool-pub-31404（当前 2 个）
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 0 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 0 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 0 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 0 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 0 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 0 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 1 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:55023（当前 3 个）
+[broker] CONNACK → home-cloud-gateway-62320
+[broker] SUBSCRIBE home-cloud-gateway-62320 → home/+/status
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:52922（当前 4 个）
+[broker] CONNACK → tool-pub-91506
+[broker] PUBLISH home/dayu200-living/cmd (78B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-91506（当前 3 个）
+[broker] - 断开 tool-pub-91506（当前 3 个）
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:50905（当前 4 个）
+[broker] CONNACK → tool-pub-51572
+[broker] PUBLISH home/dayu200-living/cmd (78B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-51572（当前 3 个）
+[broker] - 断开 tool-pub-51572（当前 3 个）
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (438B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:62792（当前 4 个）
+[broker] CONNACK → tool-pub-11532
+[broker] PUBLISH home/dayu200-living/cmd (78B) → 转发给 2 个订阅者
+[broker] - 断开 tool-pub-11532（当前 3 个）
+[broker] - 断开 tool-pub-11532（当前 3 个）
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:53758（当前 4 个）
+[broker] CONNACK → tool-pub-71675
+[broker] PUBLISH home/dayu200-living/cmd (78B) → 转发给 2 个订阅者
+[broker] - 断开 tool-pub-71675（当前 3 个）
+[broker] - 断开 tool-pub-71675（当前 3 个）
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 2 个订阅者
+[broker] - 断开 mqttjs_e7419e9a（当前 2 个）
+[broker] - 断开 mqttjs_e7419e9a（当前 2 个）
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:63027（当前 3 个）
+[broker] CONNACK → tool-pub-31653
+[broker] PUBLISH home/dayu200-living/cmd (78B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-31653（当前 2 个）
+[broker] - 断开 tool-pub-31653（当前 2 个）
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:55605（当前 3 个）
+[broker] CONNACK → tool-pub-91681
+[broker] PUBLISH home/dayu200-living/cmd (78B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-91681（当前 2 个）
+[broker] - 断开 tool-pub-91681（当前 2 个）
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:49358（当前 3 个）
+[broker] CONNACK → tool-pub-51751
+[broker] PUBLISH home/dayu200-living/cmd (78B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-51751（当前 2 个）
+[broker] - 断开 tool-pub-51751（当前 2 个）
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:60303（当前 3 个）
+[broker] CONNACK → tool-pub-11829
+[broker] PUBLISH home/dayu200-living/cmd (78B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-11829（当前 2 个）
+[broker] - 断开 tool-pub-11829（当前 2 个）
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:62963（当前 3 个）
+[broker] CONNACK → tool-pub-72000
+[broker] PUBLISH home/dayu200-living/cmd (78B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-72000（当前 2 个）
+[broker] - 断开 tool-pub-72000（当前 2 个）
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:64968（当前 3 个）
+[broker] CONNACK → tool-pub-32241
+[broker] PUBLISH home/dayu200-living/cmd (78B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-32241（当前 2 个）
+[broker] - 断开 tool-pub-32241（当前 2 个）
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:57066（当前 3 个）
+[broker] CONNACK → tool-pub-92331
+[broker] PUBLISH home/dayu200-living/cmd (78B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-92331（当前 2 个）
+[broker] - 断开 tool-pub-92331（当前 2 个）
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:51543（当前 3 个）
+[broker] CONNACK → tool-pub-52201
+[broker] PUBLISH home/dayu200-living/cmd (78B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-52201（当前 2 个）
+[broker] - 断开 tool-pub-52201（当前 2 个）
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:60867（当前 3 个）
+[broker] CONNACK → tool-pub-12371
+[broker] PUBLISH home/dayu200-living/cmd (78B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-12371（当前 2 个）
+[broker] - 断开 tool-pub-12371（当前 2 个）
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:51752（当前 3 个）
+[broker] CONNACK → tool-pub-72556
+[broker] PUBLISH home/dayu200-living/cmd (78B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-72556（当前 2 个）
+[broker] - 断开 tool-pub-72556（当前 2 个）
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:55871（当前 3 个）
+[broker] CONNACK → tool-pub-32582
+[broker] PUBLISH home/dayu200-living/cmd (78B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-32582（当前 2 个）
+[broker] - 断开 tool-pub-32582（当前 2 个）
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (461B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (461B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (461B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (461B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:55945（当前 3 个）
+[broker] CONNACK → tool-pub-92732
+[broker] PUBLISH home/dayu200-living/cmd (78B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-92732（当前 2 个）
+[broker] - 断开 tool-pub-92732（当前 2 个）
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:53370（当前 3 个）
+[broker] CONNACK → tool-pub-52766
+[broker] PUBLISH home/dayu200-living/cmd (78B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-52766（当前 2 个）
+[broker] - 断开 tool-pub-52766（当前 2 个）
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:57200（当前 3 个）
+[broker] CONNACK → tool-pub-12780
+[broker] PUBLISH home/dayu200-living/cmd (78B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-12780（当前 2 个）
+[broker] - 断开 tool-pub-12780（当前 2 个）
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:61439（当前 3 个）
+[broker] CONNACK → tool-pub-72891
+[broker] PUBLISH home/dayu200-living/cmd (78B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-72891（当前 2 个）
+[broker] - 断开 tool-pub-72891（当前 2 个）
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:52736（当前 3 个）
+[broker] CONNACK → tool-pub-32833
+[broker] PUBLISH home/dayu200-living/cmd (78B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-32833（当前 2 个）
+[broker] - 断开 tool-pub-32833（当前 2 个）
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:51082（当前 3 个）
+[broker] CONNACK → tool-pub-92857
+[broker] PUBLISH home/dayu200-living/cmd (78B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-92857（当前 2 个）
+[broker] - 断开 tool-pub-92857（当前 2 个）
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:51781（当前 3 个）
+[broker] CONNACK → tool-pub-52927
+[broker] PUBLISH home/dayu200-living/cmd (78B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-52927（当前 2 个）
+[broker] - 断开 tool-pub-52927（当前 2 个）
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:51525（当前 3 个）
+[broker] CONNACK → tool-pub-13020
+[broker] PUBLISH home/dayu200-living/cmd (78B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-13020（当前 2 个）
+[broker] - 断开 tool-pub-13020（当前 2 个）
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:56808（当前 3 个）
+[broker] CONNACK → tool-pub-72976
+[broker] PUBLISH home/dayu200-living/cmd (78B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-72976（当前 2 个）
+[broker] - 断开 tool-pub-72976（当前 2 个）
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:62474（当前 3 个）
+[broker] CONNACK → tool-pub-33030
+[broker] PUBLISH home/dayu200-living/cmd (78B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-33030（当前 2 个）
+[broker] - 断开 tool-pub-33030（当前 2 个）
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:65360（当前 3 个）
+[broker] CONNACK → tool-pub-93110
+[broker] PUBLISH home/dayu200-living/cmd (78B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-93110（当前 2 个）
+[broker] - 断开 tool-pub-93110（当前 2 个）
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:64571（当前 3 个）
+[broker] CONNACK → tool-pub-53305
+[broker] PUBLISH home/dayu200-living/cmd (78B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-53305（当前 2 个）
+[broker] - 断开 tool-pub-53305（当前 2 个）
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 1 个订阅者
+[broker] - 断开 home-cloud-gateway-62320（当前 1 个）
+[broker] - 断开 home-cloud-gateway-62320（当前 1 个）
+[broker] + 连接来自 ::ffff:127.0.0.1:56670（当前 2 个）
+[broker] CONNACK → tool-pub-13445
+[broker] PUBLISH home/dayu200-living/cmd (78B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-13445（当前 1 个）
+[broker] - 断开 tool-pub-13445（当前 1 个）
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 0 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 0 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 0 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 0 个订阅者
+[broker] PUBLISH home/esp32-bath/status (386B) → 转发给 0 个订阅者
+[broker] PUBLISH home/dayu200-living/status (462B) → 转发给 0 个订阅者
+^C

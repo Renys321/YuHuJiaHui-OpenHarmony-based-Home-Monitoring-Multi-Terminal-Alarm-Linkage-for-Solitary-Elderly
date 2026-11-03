@@ -1,0 +1,25 @@
+{
+  "_source": "用户在阿里云 Workbench 执行 USER-WORKBENCH-ONEPAGE.md §4 后贴回、由 Lead 2026-10-28T00:40 转达的 /status 字段摘录",
+  "_note": "只包含用户贴回的字段；未提供的项（如 adapter.counters）不得臆造，report 会按缺失处理。",
+  "service": "wearable-mqtt",
+  "version": "1.0.1",
+  "capturedByUser": true,
+  "adapter": {
+    "link": {
+      "deviceClientId": "wearable-sos-001",
+      "aliveTimeoutMs": 120000,
+      "watchdogArmed": true,
+      "offlineReported": false
+    },
+    "device": {
+      "deviceId": "esp32-sos",
+      "room": "随身求助",
+      "online": true,
+      "state": "NORMAL",
+      "alarmId": "",
+      "lastSeen": 1793118827013,
+      "lastSeenIso": "2026-10-28T00:33:47.013+08:00",
+      "source": "hb"
+    }
+  }
+}

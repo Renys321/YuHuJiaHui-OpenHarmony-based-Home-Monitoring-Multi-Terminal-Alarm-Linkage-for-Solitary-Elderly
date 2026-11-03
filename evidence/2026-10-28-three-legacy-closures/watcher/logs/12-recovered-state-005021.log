@@ -1,0 +1,82 @@
+﻿# recovered state snapshot (2026-10-28 00:50:22 +08:00)
+
+## homemon (new binary: MAX_CLIENTS 8 + keepalive)
+
+23655
+a5f355c2d5e9f4e7330282f1856411927eb54ad743b5acb7c599be7c2d6ed9ea  /data/homemon/homemon
+[1793119486] TCP 状态通道已监听 0.0.0.0:9000（最多 8 路客户端）
+
+## hdc fport
+
+450100445634303332012847942eca00    tcp:9001 tcp:9000    [Forward]
+
+## bridge / mirror cmdline + start time
+
+PID 57556 start=10/28/2026 00:24:49
+  "D:\Node\node.exe" server.js 
+PID 66100 start=10/28/2026 00:48:15
+  "D:\Node\node.exe" mqtt_bridge.js --broker 127.0.0.1:1883 --status-tcp 127.0.0.1:9001 --listen 9101 --relay-to 127.0.0.1:9001 --relay-ignore esp32-sos --lock-file "D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\bridge.lock" --cmd-out "D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\control" --status-file "D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\status.json" 
+PID 65784 start=10/28/2026 00:48:29
+  "D:\Node\node.exe" server.js --source api --transport relay --relay-to 127.0.0.1:9001 --listen-port 9002 --runtime-dir "D:\OpenHarmony\competition\cloud\wearable-mirror\runtime" --heartbeat-ms 5000 --poll-ms 2000 --api-base https://api.luxunacc.xyz 
+
+## supervisor state
+
+{
+  "supervisorPid": 40628,
+  "workerPid": 56416,
+  "state": "HEALTHY",
+  "startedAt": 1793113700879,
+  "heartbeatAt": 1793119814308,
+  "restartCount": 0,
+  "lastWorkerStartedAt": 1793113722711,
+  "lastWorkerExit": null,
+  "lastHealthyAt": 1793113722955
+}
+
+
+## latest 202 per device
+
+dayu200-living: 2026-10-27T16:50:21.954Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1793119821540 deviceTs=1793119820625 path=/internal/v1/device-status status=202 at=2026-10-27T16:50:21.953Z
+
+esp32-kitchen: 2026-10-27T16:50:07.687Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793119806977 deviceTs=1793119807070 path=/internal/v1/device-status status=202 at=2026-10-27T16:50:07.686Z
+
+esp32-bath: 2026-10-27T16:19:54.719Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1793117994579 deviceTs=1793117994445 path=/internal/v1/device-status status=202 at=2026-10-27T16:19:54.718Z
+
+## mirror status summary
+
+pid=65784 phase=NORMAL online=True relay=127.0.0.1:9001 connected=True connects=1 disconnects=0 linesSent=24 lastError=
+
+## bridge fport topology log: relay-ignore esp32-sos + dayu status
+
+[2026-10-27T16:50:12.500Z] [bridge] 鈫?home/dayu200-living/status  state=NORMAL room=瀹㈠巺 countToday=0
+[2026-10-27T16:50:14.498Z] [bridge] 蹇界暐鏉跨杩炴帴涓婄殑 relay 鍥炵亴锛歟sp32-kitchen锛堣 ID 鐢卞叆绔欒妭鐐规寔鏈?鍒氳鏈満娉ㄥ叆锛屼笉鍦ㄦ閲嶅鍙戝竷锛?[2026-10-27T16:50:14.503Z] [bridge] 蹇界暐鏉跨杩炴帴涓婄殑 --relay-ignore 璁惧鍥炵亴锛歟sp32-sos锛堢敱鏉垮閾捐矾鐩存帴娉ㄥ叆 homemon锛屾ˉ鎺ヤ笉鎺ョ銆佷笉閫€浼戞澘绔繛鎺ワ級
+[2026-10-27T16:50:15.510Z] [bridge] 鈫?home/dayu200-living/status  state=NORMAL room=瀹㈠巺 countToday=0
+[2026-10-27T16:50:18.520Z] [bridge] 鈫?home/dayu200-living/status  state=NORMAL room=瀹㈠巺 countToday=0
+[2026-10-27T16:50:19.524Z] [bridge] 蹇界暐鏉跨杩炴帴涓婄殑 relay 鍥炵亴锛歟sp32-kitchen锛堣 ID 鐢卞叆绔欒妭鐐规寔鏈?鍒氳鏈満娉ㄥ叆锛屼笉鍦ㄦ閲嶅鍙戝竷锛?[2026-10-27T16:50:20.523Z] [bridge] 蹇界暐鏉跨杩炴帴涓婄殑 --relay-ignore 璁惧鍥炵亴锛歟sp32-sos锛堢敱鏉垮閾捐矾鐩存帴娉ㄥ叆 homemon锛屾ˉ鎺ヤ笉鎺ョ銆佷笉閫€浼戞澘绔繛鎺ワ級
+[2026-10-27T16:50:21.541Z] [bridge] 鈫?home/dayu200-living/status  state=NORMAL room=瀹㈠巺 countToday=0
+
+## board 9000 connections
+
+tcp        0      0 0.0.0.0:9000            0.0.0.0:*               LISTEN      23655/homemon
+tcp        0  62653 10.127.130.131:9000     10.127.130.179:64469    ESTABLISHED 23655/homemon
+tcp        0      0 127.0.0.1:47276         127.0.0.1:9000          ESTABLISHED 720/hdcd
+tcp       51      0 127.0.0.1:9000          127.0.0.1:35824         ESTABLISHED 23655/homemon
+tcp        0      0 127.0.0.1:9000          127.0.0.1:50398         ESTABLISHED 23655/homemon
+tcp        0      0 127.0.0.1:47286         127.0.0.1:9000          ESTABLISHED 720/hdcd
+tcp        0      0 127.0.0.1:35824         127.0.0.1:9000          ESTABLISHED 720/hdcd
+tcp        0  62653 10.127.130.131:9000     10.127.130.179:64483    ESTABLISHED 23655/homemon
+tcp        0      0 127.0.0.1:9000          127.0.0.1:47276         ESTABLISHED 23655/homemon
+tcp        0      0 127.0.0.1:9000          127.0.0.1:47286         ESTABLISHED 23655/homemon
+tcp        0      0 127.0.0.1:50398         127.0.0.1:9000          ESTABLISHED 27321/com.dsh.eldercare
+
+## watcher still absent?
+
+watcherPid58052 alive=False
+
+mutex absent
+
+## DAYU UI texts
+
+
+
+居家安全监护 | 随身求助 · 已选设备在线 · esp32-sos | 随身求助 · 全屋在线 3/3 台设备 | 一切正常 | 客厅 | 厨房 | 随身求助 | 设备信息 | 房间 / 编号 | 随身求助 / esp32-sos | 在线状态 | 在线（本地 TCP 已连接） | 运行状态 | 一切正常 | 数据来源 | 随身 SOS 镜像（api） | 最近上报 | 刚刚 | 位置 | 暂无定位 | APP 版本 | 1.0.8 · 2026-10-27 随身求助横幅可收起/关闭 | 客厅摄像头 | （固定归属 dayu200-living / 客厅） | 该房间未配置摄像头 | 客厅摄像头仅在选中「客厅」时显示与控制 | 实时状态 | 预警处置 | 统计报告 | 没有 SIM 卡 | × | 11% | 00:50

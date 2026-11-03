@@ -1,0 +1,128 @@
+SELFTEST LOCAL-ALARM-VOICE-CLOSURE bench tooling
+node=D:\Node\node.exe version=v24.19.0
+workspace=<WORKSPACE>\competition\evidence\2026-10-26-local-alarm-voice-closure
+port=19102 evidence-status=<WORKSPACE>\competition\evidence\2026-10-26-local-alarm-voice-closure\verify\bench-status.jsonl
+started=2026-10-26T08:26:01.344Z
+command=D:\Node\node.exe <WORKSPACE>\competition\evidence\2026-10-26-local-alarm-voice-closure\tools\selftest-bench-server.js
+
+=== PHASE 1: bench-server.js on 127.0.0.1:19102 + fake ESP32 node ===
+  srv| [16:26:01.517] BENCH_READY host=127.0.0.1 port=19102 pid=46488
+  srv| [16:26:01.518] status-log=<WORKSPACE>\competition\evidence\2026-10-26-local-alarm-voice-closure\verify\bench-status.jsonl
+  srv| [16:26:01.518] command-log=<WORKSPACE>\competition\evidence\2026-10-26-local-alarm-voice-closure\verify\bench-commands.jsonl
+  srv| [16:26:01.520] control-file=<WORKSPACE>\competition\evidence\2026-10-26-local-alarm-voice-closure\tools\selftest-control.jsonl (watch 200ms)
+CHECK PASS P1.ready-line :: [16:26:01.517] BENCH_READY host=127.0.0.1 port=19102 pid=46488
+CHECK PASS P1.status-log-created :: <WORKSPACE>\competition\evidence\2026-10-26-local-alarm-voice-closure\verify\bench-status.jsonl
+CHECK PASS P1.command-log-created :: <WORKSPACE>\competition\evidence\2026-10-26-local-alarm-voice-closure\verify\bench-commands.jsonl
+  srv| [16:26:01.560] recv esp32-selftest state=NORMAL ts=1770000000000 alarm=-
+  srv| [16:26:01.560] node+ esp32-selftest 127.0.0.1:56817
+CHECK PASS P1.status-received :: [16:26:01.560] recv esp32-selftest state=NORMAL ts=1770000000000 alarm=-
+CHECK PASS P1.status-jsonl-parsed :: kind=status state=NORMAL room=selftest-bench
+CHECK PASS P1.status-jsonl-receive-wallclock :: 2026-10-26T08:26:01.559Z
+CHECK PASS P1.status-jsonl-raw-kept :: 407b
+  srv| [16:26:01.729] cmd> esp32-selftest inj climate 35.0 80 (control-file)
+CHECK PASS P1.control-file-delivered :: "inj climate 35.0 80"
+CHECK PASS P1.control-file-latency-under-3s :: 112ms
+  srv| [16:26:01.731] delivered esp32-selftest "inj climate 35.0 80" (20b)
+  srv| [16:26:01.732] cmd> esp32-selftest ack alarm-selftest-1 (stdin)
+CHECK PASS P1.stdin-delivered :: "ack alarm-selftest-1"
+  srv| [16:26:01.733] delivered esp32-selftest "ack alarm-selftest-1" (21b)
+  srv| [16:26:01.734] recv esp32-selftest state=ALARM ts=1770000005000 alarm=alarm-selftest-1/CLIMATE
+CHECK PASS P1.alarm-fields-parsed :: {"id":"alarm-selftest-1","type":"CLIMATE","countToday":1}
+  srv| [16:26:01.791] warn 127.0.0.1:56817 unparsed line (16b)
+CHECK PASS P1.non-json-line-quarantined :: this is not json
+  srv| [16:26:01.851] recv esp32-selftest state=ALARM ts=1770000000000 alarm=alarm-selftest-1/CLIMATE
+  srv| [16:26:01.915] node- esp32-selftest 127.0.0.1:56817 (socket-closed)
+  srv| [16:26:01.975] cmd> esp32-selftest reset (stdin)
+  srv| [16:26:01.976] queue esp32-selftest "reset" (device-offline, depth=1)
+CHECK PASS P1.offline-command-queued :: reset queued while node offline
+  srv| [16:26:02.038] recv esp32-selftest state=ACKED ts=1770000010000 alarm=alarm-selftest-1/CLIMATE
+  srv| [16:26:02.038] node+ esp32-selftest 127.0.0.1:56822
+CHECK PASS P1.queued-command-delivered-on-reconnect :: "reset"
+CHECK PASS P1.queued-delivery-logged :: {"queued":true}
+  srv| [16:26:02.039] delivered esp32-selftest "reset" (6b, queued)
+  srv| [16:26:02.147] cmd> esp32-selftest stop (control-file)
+CHECK PASS P1.reconnect-delivery :: "stop"
+CHECK PASS P1.four-commands-delivered :: ["inj climate 35.0 80","ack alarm-selftest-1","reset","stop"]
+CHECK PASS P1.commands-exact-lines :: ["inj climate 35.0 80","ack alarm-selftest-1","reset","stop"]
+CHECK PASS P1.both-control-sources :: control-file,stdin
+  srv| [16:26:02.148] delivered esp32-selftest "stop" (5b)
+  srv| [16:26:02.148] control(stdin) shutdown requested
+  srv| [16:26:02.149] BENCH_STOPPED
+CHECK PASS P1.graceful-shutdown-exit0 :: {"code":0,"signal":null}
+CHECK PASS P1.bench-stopped-line :: BENCH_STOPPED
+CHECK PASS P1.command-log-events :: rows=14
+CHECK PASS P1.all-status-records-valid-json :: rows=5
+CHECK PASS P1.narrow-bind-not-0.0.0.0 :: [16:26:01.517] BENCH_READY host=127.0.0.1 port=19102 pid=46488
+
+=== PHASE 2: --host 0.0.0.0 bench bind, board-reachable address ===
+  srv| [16:26:02.262] BENCH_READY host=0.0.0.0 port=19102 pid=12944
+  srv| [16:26:02.263] status-log=<WORKSPACE>\competition\evidence\2026-10-26-local-alarm-voice-closure\verify\bench-status.jsonl
+  srv| [16:26:02.263] command-log=<WORKSPACE>\competition\evidence\2026-10-26-local-alarm-voice-closure\verify\bench-commands.jsonl
+  srv| [16:26:02.276] lan-addrs=192.168.201.1:19102, 192.168.80.1:19102, 10.0.218.196:19102, 172.25.64.1:19102
+CHECK PASS P2.binds-0.0.0.0 :: [16:26:02.262] BENCH_READY host=0.0.0.0 port=19102 pid=12944
+CHECK PASS P2.lan-addr-logged :: 192.168.201.1:19102,
+CHECK PASS P2.connection-accepted :: LAN IP 192.168.201.1:19102
+  srv| [16:26:02.295] recv esp32-selftest state=NORMAL ts=1770000000000 alarm=-
+  srv| [16:26:02.296] node+ esp32-selftest 192.168.201.1:56824
+CHECK PASS P2.status-through-lan-bind :: 192.168.201.1
+CHECK PASS P2.os-listener-0.0.0.0 :: TCP    0.0.0.0:19102          0.0.0.0:0              LISTENING       12944
+  srv| [16:26:02.403] control(stdin) shutdown requested
+  srv| [16:26:02.405] BENCH_STOPPED
+CHECK PASS P2.graceful-shutdown-exit0 :: {"code":0,"signal":null}
+
+=== PHASE 3: serial-capture.ps1 (list ports / clean failure; no DTR-RTS toggle) ===
+WARN "pwsh" not found; falling back to "powershell" (5.1)
+CHECK PASS P3.ps1-parses-and-listports-exit0 :: code=0
+CHECK PASS P3.listports-output :: SERIAL_CAPTURE list-ports |   5 port(s): COM11, COM19, COM20, COM4, COM5
+CHECK PASS P3.listports-no-port-opened :: no capture started
+WARN "pwsh" not found; falling back to "powershell" (5.1)
+CHECK PASS P3.invalid-port-clean-exit2 :: code=2 err=ERROR: Failed to open COM99: ʹ�á�0�����������á�Open��ʱ�����쳣:���˿ڡ�COM99�������ڡ��� | Available ports: COM11, COM19, COM20, COM4, COM5
+CHECK PASS P3.pyserial-variant-importable :: SERIAL_CAPTURE list-ports via pyserial 3.5 |   COM11  USB Serial Port (COM11)
+
+=== PHASE 4: hash-evidence.ps1 (format, ordinal sort, recompute, verify) ===
+WARN "pwsh" not found; falling back to "powershell" (5.1)
+CHECK PASS P4.hash-script-exit0 :: code=0 HASH_OK files=4 bytes=69 elapsed=0.05s file=<WORKSPACE>\competition\evidence\2026-10-26-local-alarm-voice-closure\tools\.selftest-hash-sandbox\SHA256SUMS.txt
+CHECK PASS P4.sums-file-created :: <WORKSPACE>\competition\evidence\2026-10-26-local-alarm-voice-closure\tools\.selftest-hash-sandbox\SHA256SUMS.txt
+CHECK PASS P4.sums-format :: 4 lines, first=b7e22910c4a10903cee51f3e01c6342d5156570f33a57cbc716f00fa1135652e  CMakeLists.txt
+CHECK PASS P4.sums-ordinal-sorted :: ["CMakeLists.txt","alpha.txt","b.bin","nested/c.txt"]
+CHECK PASS P4.sums-no-bom-no-crlf :: utf8 without BOM, LF endings
+CHECK PASS P4.sums-hashes-recomputed-match :: 4 files
+WARN "pwsh" not found; falling back to "powershell" (5.1)
+CHECK PASS P4.verify-mode-exit0 :: HASH_VERIFY OK entries=4 files=4 mismatch=0 missing=0 extra=0 badFormat=0 file=<WORKSPACE>\competition\evidence\2026-10-26-local-alarm-voice-closure\tools\.selftest-hash-sandbox\SHA256SUMS.txt
+
+=== PHASE 5: bench-serial.py (serial harness, offline paths) ===
+  py| BENCH_SERIAL list-ports via pyserial 3.5 |   COM11  USB Serial Port (COM11)
+CHECK PASS P5.list-ports-exit0 :: code=0
+  py| CHECK PASS ansi-strip :: 'I (1234) bench: BENCH INJECT MODE red'
+  py| CHECK PASS ansi-osc-strip :: 'ab'
+  py| CHECK PASS control-bytes-strip :: 'ab'
+  py| CHECK PASS utf8-split-chinese :: ['\x1b[0mACK 已接受并生效：id=ALM-1\x1b[0m']
+  py| CHECK PASS invalid-bytes-tolerated :: ['bad=��\x00 ok']
+  py| CHECK PASS crlf :: []
+  py| CHECK PASS partial-flush :: ['partial-no-newline']
+  py| CHECK PASS scenario-duration :: 60.0
+  py| CHECK PASS scenario-sorted :: ['inj climate 35.0 80', 'inj pir 1', 'stop']
+  py| CHECK PASS scenario-not-due-early :: []
+  py| CHECK PASS scenario-due-exact :: ['inj climate 35.0 80', 'inj pir 1']
+  py| CHECK PASS commands-write-exact-bytes :: [b'inj climate 35.0 80\n', b'inj pir 1\n']
+  py| CHECK PASS scenario-catch-up :: ['stop']
+  py| CHECK PASS no-extra-writes :: [b'inj climate 35.0 80\n', b'inj pir 1\n', b'stop\n']
+  py| CHECK PASS reject-not-json
+  py| CHECK PASS reject-steps-not-list
+  py| CHECK PASS reject-negative-at
+  py| CHECK PASS reject-missing-send
+  py| CHECK PASS reject-multiline-send
+  py| CHECK PASS reject-bad-duration
+  py| CHECK PASS dtr-released-preopen :: False
+  py| CHECK PASS rts-released-preopen :: False
+  py| CHECK PASS never-touches-dtr-after-open :: main() only reads dtr/rts state
+  py| BENCH_SERIAL SELFTEST PASS 23/23 checks passed
+CHECK PASS P5.selftest-exit0 :: code=0
+CHECK PASS P5.selftest-all-checks-pass :: checks=23
+CHECK PASS P5.bad-com-clean-error-exit2 :: code=2 ERROR: failed to open COM99: could not open port 'COM99': FileNotFoundError(2, '系统找不到指定的文件。', None, 2) | Available ports: COM11, COM19, COM20, COM4, COM5
+  py| BENCH_SERIAL plan source=<WORKSPACE>\competition\evidence\2026-10-26-local-alarm-voice-closure\tools\bench-scenario.example.json duration=60s steps=8 |    1 atSec=1 send=inj pir 1
+CHECK PASS P5.example-scenario-plan-valid :: code=0 steps=8
+
+SELFTEST SUMMARY PASS: 47/47 checks passed, 0 failed, elapsed=9.29s
+finished=2026-10-26T08:26:10.635Z
+transcript=<WORKSPACE>\competition\evidence\2026-10-26-local-alarm-voice-closure\tools\selftest-output.txt

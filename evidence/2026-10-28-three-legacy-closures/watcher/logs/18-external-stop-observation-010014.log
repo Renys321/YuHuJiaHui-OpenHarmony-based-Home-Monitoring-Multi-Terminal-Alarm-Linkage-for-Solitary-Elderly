@@ -1,0 +1,78 @@
+﻿# external stop observation (read-only) 2026-10-28 01:00:14 +08:00
+
+## note: 本任务未启停任何进程/未写 materials；以下为 00:58:40 健康 -> 00:59:35 全部退出 的只读取证
+
+## node processes
+
+PID 27820 start=10/27/2026 22:29:42 "D:\Node\node.exe" D:\OpenHarmony\competition\bridge\mqtt_broker.js 1883 
+
+## watcher processes
+
+
+
+## ports 1883/9001/9101/9002
+
+
+LocalAddress LocalPort OwningProcess
+------------ --------- -------------
+::                1883         27820
+127.0.0.1         9001         31928
+
+
+
+
+## supervisor state/lock
+
+{
+  "supervisorPid": 67276,
+  "workerPid": 61132,
+  "state": "HEALTHY",
+  "startedAt": 1793120258768,
+  "heartbeatAt": 1793120295839,
+  "restartCount": 0,
+  "lastWorkerStartedAt": 1793120265851,
+  "lastWorkerExit": null,
+  "lastHealthyAt": 1793120266095
+}
+
+
+lock=67276 alive=False
+
+## watcher-state (stale)
+
+{
+    "timestamp":  "2026-10-28 00:58:42",
+    "target":  "450100445634303332012847942eca00",
+    "targetConnected":  true,
+    "p0":  "healthy",
+    "p0Reason":  "HEALTHY",
+    "app":  "present",
+    "inference":  "running",
+    "cameraFrames":  "LIVE",
+    "nodes":  "4/4",
+    "userStop":  false,
+    "userPaused":  false,
+    "lastEventCount":  159193,
+    "watcherPid":  63720
+}
+
+
+## public-sync-health (read-only run)
+
+=== public-sync / P0 只读健康检查（不启动、不停止、不读取密钥）===
+  时间            : 2026-10-28 01:00:20
+  Broker 1883     : LISTENING
+  Bridge 9101     : DOWN
+  supervisor      : healthy=False reason=STALE_LOCK state=HEALTHY supervisorPid=67276 workerPid=61132 heartbeatAgeMs=125579
+  结论            : NOT HEALTHY（BRIDGE_9101_DOWN,SUPERVISOR_STALE_LOCK）
+  修复：人工运行 materials\start-demo-supervisor.cmd，并在可见窗口输入 INGEST_KEY。
+  （key 只允许人工输入；本脚本与任何自动化都不会读取或持久化它。）
+
+## hdc fport
+
+450100445634303332012847942eca00    tcp:9001 tcp:9000    [Forward]
+
+## board homemon/app still up
+
+23655
+27321

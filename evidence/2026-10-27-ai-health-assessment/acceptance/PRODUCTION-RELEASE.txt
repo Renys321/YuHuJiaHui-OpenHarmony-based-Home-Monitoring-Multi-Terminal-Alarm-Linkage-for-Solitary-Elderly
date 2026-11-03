@@ -1,0 +1,60 @@
+# 生产发布记录（2026-10-27）
+
+> 发布由用户在主机执行；本文件只记录可核对的输出与代理侧复核结果。
+
+## 发布对象
+
+| 项 | 值 |
+| --- | --- |
+| 主机 | `47.76.70.118`（`iZj6ccp283r5405m9eqiv5Z`），部署目录 `/opt/eldercare` |
+| 发布包 | 源码包 `release-backend-src-health-2026-10-27.tar.gz` sha256 `b916911bbd71a7db0225ebae6ed7707c2f408ca4257b7d0e0e04015fd6e5e9cc` |
+| 镜像包 | `eldercare-cloud-backend-health-2026-10-27.tar.gz` sha256 `54f00c11…`（**未使用**：该包为 Windows Docker 的 OCI 格式，主机 `docker load` 不兼容；改用同源码包在主机 `docker compose build`） |
+| 构建产物 | `eldercare-cloud-backend:local` = `cdc38bf7298e`（244 MB） |
+| 旧镜像 | `eldercare-cloud-backend:door-v7-2026-10-27` = `5a02edcfaa42`（保留，用于回滚） |
+| 备份 | `/opt/eldercare/backup/20261027-155004/`、`20261027-155417/`（旧镜像 tgz、`/data` 卷 tgz、schema 计数、旧源码、旧 compose） |
+
+## 发布步骤（实际执行）
+
+1. 发布包 sha256 校验：镜像包 OK、源码包 OK；
+2. 备份：旧镜像 `docker save`、`/data` 卷 tar、schema 计数 `{"schemaVersion":7,"devices":8,"alerts":75,"safetyLogs":6}`、旧源码 `cloud-backend-before.tar.gz`、旧 compose；
+3. 源码替换：`cloud/backend` → `cloud/backend.before-health`，解压发布源码到 `cloud/backend`（含 `src/health-*.js`、`src/deepseek-client.js`）；
+4. compose 替换：`deploy/compose.public.yaml` 更新为含 `DEEPSEEK_*` 透传版本（旧文件已备份）；
+5. Key 配置：`deploy/.env.deploy` 写入 `DEEPSEEK_API_KEY`（隐藏输入/文件方式，`chmod 600`；校验 `saved_key_length=35`）；
+6. `docker compose --env-file deploy/.env.deploy -f deploy/compose.public.yaml build backend` → 成功；
+7. `docker compose ... up -d --no-build backend` → 只重建 backend，**caddy 未重启**（`Up 12 days`）；
+8. 启动日志：`HEALTH_ADVICE configured=true`；容器 healthy。
+
+## 代理侧复核（发布后）
+
+- `GET https://api.luxunacc.xyz/healthz` → 200；`readyz` → 200；
+- 匿名 `GET/PUT /api/v1/health-profile` → 401；
+- 登录 → 200；空资料 → `{"profile":null}`；
+- 保存 17 字段合成资料 → 200（`updatedAt` 存在）；读取 → age=72；
+- **真实 DeepSeek** `POST /api/v1/health-advice` → **200 / 6,716 ms / deepseek-chat / disclaimer 固定 / 红线扫描 0 命中**；
+- 内联 profile 生成 → 200 / 6,986 ms；
+- 非法年龄/血糖/身份字段/query → 400；
+- 既有功能：`/overview` 200、`/door-events` 200（5 条）、`/safety-logs` 200；
+- 证据文件：`real-api/prod-acceptance.json`、`real-api/prod-advice-complete.json`、`real-api/prod-saved-profile.json`。
+
+## 未做/未验证（如实）
+
+- **未主动重启生产 backend 容器**（避免不必要中断）：健康资料跨容器重启的持久化在本地后端与本地同款 Docker 容器上已实测；生产侧仅验证了同一容器内多次读取一致。
+- 未在生产端强制制造 AI 超时（需临时改 `DEEPSEEK_TIMEOUT_MS` 并重启，需另行授权）；超时语义在本地真实网络超时 + 单元测试中已验证。
+- 发布后未再导出 `/data` 卷做字节级对比；以 API 与 schema 计数（发布前 v7）判定数据未迁移、未丢失。
+
+## 回滚
+
+```bash
+cd /opt/eldercare
+# 方案 1：源码回滚（本次方式）
+rm -rf cloud/backend && mv cloud/backend.before-health cloud/backend
+cp backup/<TS>/compose.public.yaml.before deploy/compose.public.yaml
+docker compose --env-file deploy/.env.deploy -f deploy/compose.public.yaml build backend
+docker compose --env-file deploy/.env.deploy -f deploy/compose.public.yaml up -d --no-build backend
+
+# 方案 2：镜像回滚（旧镜像已保留）
+docker tag 5a02edcfaa42 eldercare-cloud-backend:local
+docker compose --env-file deploy/.env.deploy -f deploy/compose.public.yaml up -d --no-build backend
+```
+
+主快照 `backend-state.json` 未被本发布修改；旧镜像会忽略 `/data/health-state.json`，回滚无需恢复数据（可选删除该文件清除健康数据）。

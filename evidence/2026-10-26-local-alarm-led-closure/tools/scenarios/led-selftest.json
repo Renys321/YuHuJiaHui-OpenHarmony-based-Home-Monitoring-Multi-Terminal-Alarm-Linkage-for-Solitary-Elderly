@@ -1,0 +1,1 @@
+{"durationSec":22,"steps":[{"atSec":2,"send":"resume"},{"atSec":3,"send":"inj reboot"},{"atSec":8,"send":"inj led on"},{"atSec":10,"send":"inj led off"},{"atSec":12,"send":"inj led pol low"},{"atSec":13,"send":"inj led id 4000"},{"atSec":18,"send":"inj led auto"}]}

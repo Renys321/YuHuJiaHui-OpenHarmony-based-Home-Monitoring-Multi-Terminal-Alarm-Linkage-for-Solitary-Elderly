@@ -1,0 +1,10 @@
+﻿[isolated] endpoints=3 dispositions=2 safetyLogs=2 ackCommands=1 schema=7 restart=ok
+✔ isolated backend: dispositions persist across restart and never produce ACK commands (446.5259ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 732.2465

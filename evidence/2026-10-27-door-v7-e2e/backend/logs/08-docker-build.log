@@ -1,0 +1,48 @@
+﻿#0 building with "desktop-linux" instance using docker driver
+System.Management.Automation.RemoteException
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 687B 0.0s done
+#1 DONE 0.1s
+System.Management.Automation.RemoteException
+#2 [internal] load metadata for docker.io/library/node:24-alpine
+#2 DONE 0.2s
+System.Management.Automation.RemoteException
+#3 [internal] load .dockerignore
+#3 transferring context: 77B done
+#3 DONE 0.0s
+System.Management.Automation.RemoteException
+#4 [internal] load build context
+#4 DONE 0.0s
+System.Management.Automation.RemoteException
+#5 [1/5] FROM docker.io/library/node:24-alpine@sha256:ebfe2f90462722a7a4de65e91990e97fe0d401c70e0e762c5b53302f905ec1c1
+#5 resolve docker.io/library/node:24-alpine@sha256:ebfe2f90462722a7a4de65e91990e97fe0d401c70e0e762c5b53302f905ec1c1 0.0s done
+#5 DONE 0.0s
+System.Management.Automation.RemoteException
+#4 [internal] load build context
+#4 transferring context: 316.93kB 0.0s done
+#4 DONE 0.1s
+System.Management.Automation.RemoteException
+#6 [2/5] WORKDIR /app
+#6 CACHED
+System.Management.Automation.RemoteException
+#7 [3/5] COPY --chown=node:node package.json ./
+#7 CACHED
+System.Management.Automation.RemoteException
+#8 [4/5] COPY --chown=node:node src ./src
+#8 DONE 0.1s
+System.Management.Automation.RemoteException
+#9 [5/5] RUN mkdir -p /data && chown node:node /data
+#9 DONE 0.3s
+System.Management.Automation.RemoteException
+#10 exporting to image
+#10 exporting layers 0.1s done
+#10 exporting manifest sha256:4dd8338871caf1493ef314c98b1c8a4644bbea68fba0656738f4416d4ff0037d 0.0s done
+#10 exporting config sha256:2f5c0a7e693bfb76a5bc10de115335684123425c1225b840a02329d0ad7bd9fe 0.0s done
+#10 exporting attestation manifest sha256:1c30d1776e6d68f2c91ff2df0051320eeac6125656a46e5540ab5c9785f12cb0 0.0s done
+#10 exporting manifest list sha256:5a02edcfaa42db6360068ceb6b09b9c0fa53a9128caa698a0e73521a3813ccb9 0.0s done
+#10 naming to docker.io/library/eldercare-cloud-backend:door-v7-2026-10-27
+#10 naming to docker.io/library/eldercare-cloud-backend:door-v7-2026-10-27 done
+#10 unpacking to docker.io/library/eldercare-cloud-backend:door-v7-2026-10-27 0.1s done
+#10 DONE 0.4s
+System.Management.Automation.RemoteException
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/sf60exedn9uwnvbps6t5k3rv6

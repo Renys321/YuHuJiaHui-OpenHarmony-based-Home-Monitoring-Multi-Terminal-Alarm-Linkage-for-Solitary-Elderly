@@ -1,0 +1,24 @@
+﻿== 步骤 04b：语音播放全序列 + ACK 三态 ==
+时间: 2026-10-09 22:46:46
+
+--- hilog 全序列（本次 06:46 播放）---
+10-10 06:46:46.855   688  2217 I C02d13/HDC_LOG: [async_cmd.cpp:251] ExecuteCommand cmd:hilog -x 2>/dev/null | grep -aE 'SosVoice|SPEAKER' | grep -a '06:46:2|06:46:3' | head -14 fd:37 pid:30571
+
+--- ACK 三态 ---
+当前 alarmId = a-1791585986-1
+
+=== A) 错误 alarmId 的 ACK（应被拒绝，状态保持 ALARM）===
+[1791586008] ACK 被拒绝：告警 ID 不匹配（当前=a-1791585986-1，收到=a-WRONG-ID-999）
+"state":"ACKED"
+
+=== B) 正确 alarmId 的 ACK（应 ACKED 并写入安全日志）===
+[1791586011] ACK 被拒绝：该告警已被确认过（当前状态=ACKED，id=a-1791585986-1）
+"state":"ACKED"
+safety.log: 1 行
+
+=== C) 重复 ACK（应被拒绝，safety.log 不应增加）===
+[1791586014] ACK 被拒绝：该告警已被确认过（当前状态=ACKED，id=a-1791585986-1）
+"state":"ACKED"
+safety.log 行数: 1
+safety.log 内容:
+1791586006,a-1791585986-1,已确认，老人一切正常

@@ -1,0 +1,11 @@
+[connect] 2026-10-27T14:37:26.278Z broker=127.0.0.1:1883
+[subscribe] home/+/status err=none
+[msg] {"recvAt":"2026-10-27T14:37:26.628Z","sinceStartMs":451,"topic":"home/dayu200-living/status","deviceId":"dayu200-living","room":"客厅","ts":1793111845090,"tsAgeMs":1538,"state":"ALARM","countToday":0,"payloadBytes":387}
+[msg] {"recvAt":"2026-10-27T14:37:27.061Z","sinceStartMs":884,"topic":"home/esp32-kitchen/status","deviceId":"esp32-kitchen","room":"厨房","ts":1793111847101,"tsAgeMs":-40,"state":"ALARM","countToday":1,"payloadBytes":461}
+[msg] {"recvAt":"2026-10-27T14:37:29.856Z","sinceStartMs":3679,"topic":"home/dayu200-living/status","deviceId":"dayu200-living","room":"客厅","ts":1793111848100,"tsAgeMs":1756,"state":"ALARM","countToday":0,"payloadBytes":387}
+[msg] {"recvAt":"2026-10-27T14:37:30.754Z","sinceStartMs":4577,"topic":"home/esp32-bath/status","deviceId":"esp32-bath","room":"卫生间","ts":1793111850827,"tsAgeMs":-73,"state":"NORMAL","countToday":3,"payloadBytes":435}
+[msg] {"recvAt":"2026-10-27T14:37:32.574Z","sinceStartMs":6397,"topic":"home/esp32-kitchen/status","deviceId":"esp32-kitchen","room":"厨房","ts":1793111852600,"tsAgeMs":-26,"state":"ALARM","countToday":1,"payloadBytes":461}
+[msg] {"recvAt":"2026-10-27T14:37:32.725Z","sinceStartMs":6548,"topic":"home/dayu200-living/status","deviceId":"dayu200-living","room":"客厅","ts":1793111851106,"tsAgeMs":1619,"state":"ALARM","countToday":0,"payloadBytes":387}
+[msg] {"recvAt":"2026-10-27T14:37:36.283Z","sinceStartMs":10106,"topic":"home/esp32-bath/status","deviceId":"esp32-bath","room":"卫生间","ts":1793111856327,"tsAgeMs":-44,"state":"NORMAL","countToday":3,"payloadBytes":435}
+[msg] {"recvAt":"2026-10-27T14:37:38.064Z","sinceStartMs":11887,"topic":"home/esp32-kitchen/status","deviceId":"esp32-kitchen","room":"厨房","ts":1793111858090,"tsAgeMs":-26,"state":"ALARM","countToday":1,"payloadBytes":461}
+[summary] {"home/dayu200-living/status":5,"home/esp32-kitchen/status":3,"home/esp32-bath/status":2}

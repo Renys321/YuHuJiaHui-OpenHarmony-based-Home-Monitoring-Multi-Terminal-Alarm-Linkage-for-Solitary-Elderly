@@ -1,0 +1,104 @@
+{
+  "opId": "op-recovery-mid-undo-then-fallback-de-rb-69db87",
+  "mode": "rollback",
+  "state": "RECOVERED_TO_V6",
+  "exitCode": 20,
+  "startedAt": "2026-10-26T08:03:27.881Z",
+  "finishedAt": "2026-10-26T08:03:28.036Z",
+  "dataRoot": "/data",
+  "volumeName": "de-rb-69db87-vol-case-recoverymidu",
+  "backendStoppedAsserted": true,
+  "failPoints": [
+    "partial-landing",
+    "recovery-fail"
+  ],
+  "failAfterGlobal": 0,
+  "failAfterByPoint": {
+    "partial-landing": 2,
+    "recovery-fail": 1
+  },
+  "expectedPreTreeHash": "E2218F85E09F0D24E0B711DFDD296253AF342EE27E218DB746B5EA6ED53E107B",
+  "expectedPostTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+  "expectedOriginalTreeHash": "",
+  "preArchive": {
+    "path": "/backup/pre-upgrade.tgz",
+    "bytes": 962,
+    "sha256": "9B6F78AA42FD9468A2C30394522B13A6AC359CB93E2DBB2593F543D0883054D1"
+  },
+  "postArchive": {
+    "path": "/backup/post-upgrade.tgz",
+    "bytes": 1430,
+    "sha256": "B67BFEDDAFC9E75BEE6BD3474AD946286A39646E3C3F59EA88C3DAC80C1CFAA1",
+    "extractedTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F"
+  },
+  "original": {
+    "treeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+    "entryCount": 6,
+    "topLevelEntries": [
+      "activity-state.json",
+      "backend-state.json",
+      "evidence"
+    ],
+    "asideTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F"
+  },
+  "staging": {
+    "treeHash": "E2218F85E09F0D24E0B711DFDD296253AF342EE27E218DB746B5EA6ED53E107B",
+    "entryCount": 4
+  },
+  "final": {
+    "treeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+    "state": "v6_recovered"
+  },
+  "recovery": {
+    "attempted": true,
+    "recovered": true,
+    "error": "fail-point injected: recovery-fail after 1",
+    "via": "original-copy"
+  },
+  "mixedState": false,
+  "manualTakeover": false,
+  "serviceMustStayStopped": true,
+  "stages": [
+    {
+      "stage": "S0_PREFLIGHT",
+      "at": "2026-10-26T08:03:27.882Z"
+    },
+    {
+      "stage": "S1_PREFLIGHT_CHECKS",
+      "at": "2026-10-26T08:03:27.891Z"
+    },
+    {
+      "stage": "S2_VERIFY_POST_ARCHIVE",
+      "at": "2026-10-26T08:03:27.919Z"
+    },
+    {
+      "stage": "S3_COPY_ASIDE",
+      "at": "2026-10-26T08:03:27.946Z"
+    },
+    {
+      "stage": "S4_VERIFY_PRE_ARCHIVE",
+      "at": "2026-10-26T08:03:27.962Z"
+    },
+    {
+      "stage": "S5_LANDING",
+      "at": "2026-10-26T08:03:27.982Z"
+    },
+    {
+      "stage": "S6R_RECOVERY_FALLBACK_DONE",
+      "at": "2026-10-26T08:03:28.029Z"
+    }
+  ],
+  "landingOpCount": 0,
+  "preservedExtras": [],
+  "error": {
+    "message": "fail-point injected: partial-landing after 2",
+    "code": "FAIL_POINT",
+    "stage": "S5_LANDING"
+  },
+  "journalPath": "/data/.de-rollback/op-recovery-mid-undo-then-fallback-de-rb-69db87/journal.jsonl",
+  "spaceCheck": {
+    "dataBytes": 5343,
+    "freeBytes": 1023968288768,
+    "needBytes": 67114207
+  }
+}

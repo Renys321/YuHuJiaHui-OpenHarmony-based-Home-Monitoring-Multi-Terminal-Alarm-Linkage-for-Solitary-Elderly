@@ -1,0 +1,17 @@
+{
+    "durationSec":  22,
+    "steps":  [
+                  {
+                      "atSec":  1,
+                      "send":  "resume"
+                  },
+                  {
+                      "atSec":  2,
+                      "send":  "inj reboot"
+                  },
+                  {
+                      "atSec":  8,
+                      "send":  "inj climate 25.0 50.0"
+                  }
+              ]
+}

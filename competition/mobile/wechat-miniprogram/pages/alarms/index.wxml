@@ -1,0 +1,41 @@
+<view class="page">
+  <view class="page-title">告警</view>
+  <view class="page-subtitle">处理异常并留下处置说明</view>
+  <view class="connection-banner {{banner.bannerClass}}">
+    <view><view class="connection-title">{{banner.title}}</view><view class="connection-detail">{{banner.detail}}</view></view>
+    <view wx:if="{{mode === 'demo'}}" class="demo-badge">演示数据</view>
+  </view>
+  <view wx:if="{{loading}}" class="state-view"><view class="state-title">正在加载</view></view>
+  <view wx:elif="{{alarms.length === 0}}" class="state-view"><view class="state-title">暂无告警数据</view><view class="state-message">没有收到告警，或云端当前不可用。</view></view>
+  <view wx:else>
+    <view class="panel subscribe-panel">
+      <view class="subscribe-title">告警通知</view>
+      <view class="subscribe-detail">{{subscribeConfigured ? '微信订阅消息是一次性的：点一次通常只对应一条告警通知；通知发送后需要再次点击订阅。授权由你本人点击下面的按钮发起。' : '订阅消息未配置：需要先在非敏感生产配置中填入真实模板 ID，未配置时不会发起任何授权请求。'}}</view>
+      <button class="subscribe-button" disabled="{{subscribeBusy}}" bindtap="onRequestSubscribe">{{subscribeBusy ? '正在请求授权…' : subscribeText}}</button>
+      <view wx:if="{{subscribeNote}}" class="subscribe-note">{{subscribeNote}}</view>
+    </view>
+    <view wx:for="{{alarms}}" wx:key="id" class="panel alarm-card">
+      <view class="alarm-header"><view class="alarm-type">{{item.type}}</view><view class="{{item.stateClass}}">{{item.stateText}}</view></view>
+      <view class="alarm-message">{{item.message}}</view>
+      <view class="muted alarm-meta">{{item.roomName || '未知位置'}} · {{item.deviceId}}</view>
+      <view class="muted alarm-meta">{{item.timeText}}</view>
+      <view wx:if="{{item.evidence.available}}" class="evidence-box">
+        <view class="evidence-title">跌倒现场证据已保存</view>
+        <view class="evidence-privacy">仅经授权的家庭成员可查看，不生成公开图片链接。</view>
+        <button class="evidence-button" data-id="{{item.id}}" loading="{{previewingEvidenceId === item.id}}" disabled="{{previewingEvidenceId !== ''}}" bindtap="previewEvidence">查看现场图片</button>
+      </view>
+      <block wx:if="{{item.state === 'ALARM'}}">
+        <view wx:if="{{item.ackPending}}" class="ack-pending {{item.ackTimedOut ? 'timeout' : ''}}">
+          <view class="ack-pending-title">{{item.ackTimedOut ? '设备回执等待超时' : '等待设备回执'}}</view>
+          <view class="ack-pending-detail">{{item.ackTimedOut ? '命令仍在队列中，未收到 ACKED；下拉刷新可重新查询。' : '命令已经入队，只有设备返回 ACKED 后才会闭环。'}}</view>
+        </view>
+        <block wx:else>
+          <textarea class="note-input" data-id="{{item.id}}" maxlength="120" value="{{ackNotes[item.id]}}" placeholder="填写处置说明，例如：已电话确认老人安全" bindinput="onNoteInput" />
+          <button class="danger-button" data-id="{{item.id}}" loading="{{ackingId === item.id}}" disabled="{{ackingId !== ''}}" bindtap="acknowledge">确认并闭环</button>
+          <view wx:if="{{mode !== 'connected'}}" class="ack-warning">当前不是云端连接状态，按钮不会伪造确认结果。</view>
+        </block>
+      </block>
+      <view wx:else class="ack-result">{{item.acknowledgedBy ? '确认人：' + item.acknowledgedBy : '该告警已闭环'}}</view>
+    </view>
+  </view>
+</view>

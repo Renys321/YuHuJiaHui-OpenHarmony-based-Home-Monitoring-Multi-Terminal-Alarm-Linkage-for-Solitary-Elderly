@@ -1,0 +1,311 @@
+# bench-serial.py start 2026-10-26T20:09:30.626+08:00
+# com=COM5 baud=115200 dtr=False rts=False log=D:\OpenHarmony\competition\evidence\2026-10-26-local-alarm-led-closure\verify\led-identify-kitchen.log
+# plan atSec=2 send=resume
+# plan atSec=3 send=inj reboot
+# plan atSec=6 send=inj led on
+# plan atSec=7 send=inj led off
+# plan atSec=8 send=inj led on
+# plan atSec=9 send=inj led off
+# plan atSec=10 send=inj led on
+# plan atSec=11 send=inj led off
+# plan atSec=13 send=inj led pol low
+# plan atSec=14 send=inj led id 7000
+# plan atSec=22 send=inj led pol high
+# plan atSec=23 send=inj led id 7000
+# plan atSec=31 send=inj led auto
+# plan atSec=34 send=inj led on
+# plan atSec=35 send=inj led off
+# plan atSec=36 send=inj led on
+# plan atSec=37 send=inj led off
+# plan atSec=38 send=inj led on
+# plan atSec=39 send=inj led off
+# plan atSec=41 send=inj led pol low
+# plan atSec=42 send=inj led id 7000
+# plan atSec=50 send=inj led pol high
+# plan atSec=51 send=inj led id 7000
+# plan atSec=59 send=inj led auto
+# plan atSec=62 send=inj led on
+# plan atSec=63 send=inj led off
+# plan atSec=64 send=inj led on
+# plan atSec=65 send=inj led off
+# plan atSec=66 send=inj led on
+# plan atSec=67 send=inj led off
+# plan atSec=69 send=inj led pol low
+# plan atSec=70 send=inj led id 7000
+# plan atSec=78 send=inj led pol high
+# plan atSec=79 send=inj led id 7000
+# plan atSec=87 send=inj led auto
+[+00000000.453s] [2026-10-26T20:09:31.082+08:00] I (28083) elder-node: ADC raw: MQ2(CH5)=319 valid=1 danger=0 | MQ5(CH6)=235 valid=1 danger=0
+[+00000000.453s] [2026-10-26T20:09:31.082+08:00] I (28083) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":24.2,"rh":63.8,"ok":true,"valid":true},"gas":{"raw":235,"ok":true,"valid":true},"smoke":{"raw":319,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000000.453s] [2026-10-26T20:09:31.082+08:00] 
+[+00000000.453s] [2026-10-26T20:09:31.082+08:00] I (28113) elder-node: STACK_FREE task=main bytes=4052
+[+00000002.078s] [2026-10-26T20:09:32.698+08:00] SEND -> resume (atSec=2, elapsed=2.016s)
+[+00000002.250s] [2026-10-26T20:09:32.868+08:00] I (29913) elder-node: CMD 收到: resume
+[+00000003.110s] [2026-10-26T20:09:33.740+08:00] SEND -> inj reboot (atSec=3, elapsed=3.047s)
+[+00000003.328s] [2026-10-26T20:09:33.958+08:00] I (31003) elder-node: CMD 收到: inj reboot
+[+00000003.328s] [2026-10-26T20:09:33.958+08:00] W (31003) elder-node: INJ 重启：验证重启后不重放历史声音（NVS 暂停状态应保持）
+[+00000003.875s] [2026-10-26T20:09:34.505+08:00] ESP-ROM:esp32s3-20210327
+[+00000003.875s] [2026-10-26T20:09:34.505+08:00] Build:Mar 27 2021
+[+00000003.875s] [2026-10-26T20:09:34.505+08:00] rst:0x3 (RTC_SW_SYS_RST),boot:0x2b (SPI_FAST_FLASH_BOOT)
+[+00000003.875s] [2026-10-26T20:09:34.506+08:00] Saved PC:0x403758a4
+[+00000003.875s] [2026-10-26T20:09:34.506+08:00] SPIWP:0xee
+[+00000003.875s] [2026-10-26T20:09:34.506+08:00] mode:DIO, clock div:1
+[+00000003.875s] [2026-10-26T20:09:34.506+08:00] load:0x3fce3818,len:0x1758
+[+00000003.875s] [2026-10-26T20:09:34.506+08:00] load:0x403c9700,len:0x4
+[+00000003.875s] [2026-10-26T20:09:34.506+08:00] load:0x403c9704,len:0xc00
+[+00000003.875s] [2026-10-26T20:09:34.506+08:00] load:0x403cc700,len:0x2e20
+[+00000003.875s] [2026-10-26T20:09:34.506+08:00] entry 0x403c9908
+[+00000003.875s] [2026-10-26T20:09:34.506+08:00] I (31) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader
+[+00000003.875s] [2026-10-26T20:09:34.506+08:00] I (31) boot: compile time Oct 20 2026 19:51:15
+[+00000003.875s] [2026-10-26T20:09:34.506+08:00] I (31) boot: Multicore bootloader
+[+00000003.875s] [2026-10-26T20:09:34.506+08:00] I (35) boot: chip revision: v0.2
+[+00000003.875s] [2026-10-26T20:09:34.506+08:00] I (39) boot.esp32s3: Boot SPI Speed : 80MHz
+[+00000003.875s] [2026-10-26T20:09:34.506+08:00] I (44) boot.esp32s3: SPI Mode       : DIO
+[+00000003.875s] [2026-10-26T20:09:34.507+08:00] I (48) boot.esp32s3: SPI Flash Size : 2MB
+[+00000003.875s] [2026-10-26T20:09:34.507+08:00] I (53) boot: Enabling RNG early entropy source...
+[+00000003.875s] [2026-10-26T20:09:34.507+08:00] I (58) boot: Partition Table:
+[+00000003.875s] [2026-10-26T20:09:34.507+08:00] I (62) boot: ## Label            Usage          Type ST Offset   Length
+[+00000003.875s] [2026-10-26T20:09:34.507+08:00] I (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+[+00000003.875s] [2026-10-26T20:09:34.507+08:00] I (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+[+00000003.875s] [2026-10-26T20:09:34.507+08:00] I (84) boot:  2 factory          factory app      00 00 00010000 00100000
+[+00000003.875s] [2026-10-26T20:09:34.507+08:00] I (92) boot: End of partition table
+[+00000003.875s] [2026-10-26T20:09:34.507+08:00] I (96) esp_image: segment 0: paddr=00010020 vaddr=3c040020 size=309a0h (199072) map
+[+00000003.875s] [2026-10-26T20:09:34.507+08:00] I (140) esp_image: segment 1: paddr=000409c8 vaddr=3fc93300 size=028fch ( 10492) load
+[+00000003.875s] [2026-10-26T20:09:34.507+08:00] I (143) esp_image: segment 2: paddr=000432cc vaddr=40374000 size=0cd4ch ( 52556) load
+[+00000003.875s] [2026-10-26T20:09:34.507+08:00] I (158) esp_image: segment 3: paddr=00050020 vaddr=42000020 size=32f18h (208664) map
+[+00000003.875s] [2026-10-26T20:09:34.507+08:00] I (195) esp_image: segment 4: paddr=00082f40 vaddr=40380d4c size=02560h (  9568) load
+[+00000003.875s] [2026-10-26T20:09:34.507+08:00] I (198) esp_image: segment 5: paddr=000854a8 vaddr=600fe010 size=00004h (     4) load
+[+00000003.875s] [2026-10-26T20:09:34.507+08:00] I (207) boot: Loaded app from partition at offset 0x10000
+[+00000003.875s] [2026-10-26T20:09:34.507+08:00] I (207) boot: Disabling RNG early entropy source...
+[+00000003.875s] [2026-10-26T20:09:34.507+08:00] I (224) cpu_start: Multicore app
+[+00000003.875s] [2026-10-26T20:09:34.507+08:00] I (225) cpu_start: Pro cpu up.
+[+00000003.875s] [2026-10-26T20:09:34.507+08:00] I (225) cpu_start: Starting app cpu, entry point is 0x403754ac
+[+00000003.875s] [2026-10-26T20:09:34.507+08:00] I (0) cpu_start: App cpu up.
+[+00000003.875s] [2026-10-26T20:09:34.507+08:00] I (242) cpu_start: Pro cpu start user code
+[+00000003.875s] [2026-10-26T20:09:34.507+08:00] I (242) cpu_start: cpu freq: 160000000 Hz
+[+00000003.875s] [2026-10-26T20:09:34.507+08:00] I (242) cpu_start: Application information:
+[+00000003.891s] [2026-10-26T20:09:34.507+08:00] I (245) cpu_start: Project name:     esp32_elder_node
+[+00000003.891s] [2026-10-26T20:09:34.508+08:00] I (251) cpu_start: App version:      1
+[+00000003.891s] [2026-10-26T20:09:34.508+08:00] I (256) cpu_start: Compile time:     Oct 26 2026 20:03:52
+[+00000003.891s] [2026-10-26T20:09:34.508+08:00] I (262) cpu_start: ELF file SHA256:  5fd894b7af5931f0...
+[+00000003.891s] [2026-10-26T20:09:34.508+08:00] I (268) cpu_start: ESP-IDF:          v5.1.6-dirty
+[+00000003.891s] [2026-10-26T20:09:34.508+08:00] I (273) cpu_start: Min chip rev:     v0.0
+[+00000003.891s] [2026-10-26T20:09:34.508+08:00] I (278) cpu_start: Max chip rev:     v0.99 
+[+00000003.891s] [2026-10-26T20:09:34.508+08:00] I (283) cpu_start: Chip rev:         v0.2
+[+00000003.891s] [2026-10-26T20:09:34.508+08:00] I (287) heap_init: Initializing. RAM available for dynamic allocation:
+[+00000003.891s] [2026-10-26T20:09:34.508+08:00] I (295) heap_init: At 3FC96668 len 000530A8 (332 KiB): DRAM
+[+00000003.891s] [2026-10-26T20:09:34.508+08:00] I (301) heap_init: At 3FCE9710 len 00005724 (21 KiB): STACK/DRAM
+[+00000003.891s] [2026-10-26T20:09:34.508+08:00] I (307) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM
+[+00000003.891s] [2026-10-26T20:09:34.508+08:00] I (314) heap_init: At 600FE014 len 00001FD4 (7 KiB): RTCRAM
+[+00000003.891s] [2026-10-26T20:09:34.508+08:00] I (321) spi_flash: detected chip: boya
+[+00000003.891s] [2026-10-26T20:09:34.508+08:00] I (324) spi_flash: flash io: dio
+[+00000003.891s] [2026-10-26T20:09:34.508+08:00] W (328) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+[+00000003.891s] [2026-10-26T20:09:34.508+08:00] W (342) i2s(legacy): legacy i2s driver is deprecated, please migrate to use driver/i2s_std.h, driver/i2s_pdm.h or driver/i2s_tdm.h
+[+00000003.891s] [2026-10-26T20:09:34.508+08:00] I (354) sleep: Configure to isolate all GPIO pins in sleep state
+[+00000003.891s] [2026-10-26T20:09:34.508+08:00] I (361) sleep: Enable automatic switching of GPIO sleep configuration
+[+00000003.891s] [2026-10-26T20:09:34.508+08:00] I (368) app_start: Starting scheduler on CPU0
+[+00000003.891s] [2026-10-26T20:09:34.508+08:00] I (373) app_start: Starting scheduler on CPU1
+[+00000003.891s] [2026-10-26T20:09:34.509+08:00] I (373) main_task: Started on CPU0
+[+00000003.891s] [2026-10-26T20:09:34.509+08:00] I (383) main_task: Calling app_main()
+[+00000003.891s] [2026-10-26T20:09:34.509+08:00] I (393) elder-node: ESP32-S3 无线节点启动：esp32-kitchen / 厨房
+[+00000003.891s] [2026-10-26T20:09:34.509+08:00] W (393) elder-node: BENCH INJECT MODE：仅隔离台架验收（gw_port=9101 无活动=20s 重复提醒=10s 温湿度确认=2/2）
+[+00000004.016s] [2026-10-26T20:09:34.645+08:00] I (403) gpio: GPIO[1]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 
+[+00000004.016s] [2026-10-26T20:09:34.645+08:00] I (413) local-led: 板载 LED 就绪：GPIO1 单色，低电平有效，启动默认灭（no boot flash）
+[+00000004.016s] [2026-10-26T20:09:34.645+08:00] I (473) elder-node: 板载蜂鸣器就绪（XL9555 P0_3）
+[+00000004.016s] [2026-10-26T20:09:34.645+08:00] I (473) elder-node: SOS 按键就绪：板载 KEY0 = XL9555 P1_7（低电平按下，输入方向），上电基线=松开，P1=0xFF；需先见到松开才允许触发
+[+00000004.235s] [2026-10-26T20:09:34.861+08:00] I (713) local-voice: READY playback-only 16000Hz; amp standby muted; no boot alarm
+[+00000004.344s] [2026-10-26T20:09:34.970+08:00] I�W (803) elder-node: BENCH: UART0 命令通道就绪（115200 8N1，逐行命令）
+[+00000004.344s] [2026-10-26T20:09:34.970+08:00] I (803) elder-node: KEY0 原始电平变化：松开(高)（XL9555 P1=0xFF）
+[+00000006.094s] [2026-10-26T20:09:36.713+08:00] SEND -> inj led on (atSec=6, elapsed=6.031s)
+[+00000006.422s] [2026-10-26T20:09:37.042+08:00] I (2883) elder-node: CMD 收到: inj led on
+[+00000006.422s] [2026-10-26T20:09:37.042+08:00] W (2883) local-led: BENCH LED 原始电平=1（GPIO 输出 ON）
+[+00000007.110s] [2026-10-26T20:09:37.729+08:00] SEND -> inj led off (atSec=7, elapsed=7.047s)
+[+00000007.313s] [2026-10-26T20:09:37.932+08:00] I (3783) elder-node: CMD 收到: inj led off
+[+00000007.313s] [2026-10-26T20:09:37.932+08:00] W (3783) local-led: BENCH LED 原始电平=0（GPIO 输出 OFF）
+[+00000008.110s] [2026-10-26T20:09:38.736+08:00] SEND -> inj led on (atSec=8, elapsed=8.047s)
+[+00000008.297s] [2026-10-26T20:09:38.923+08:00] I (4773) elder-node: CMD 收到: inj led on
+[+00000008.297s] [2026-10-26T20:09:38.923+08:00] W (4773) local-led: BENCH LED 原始电平=1（GPIO 输出 ON）
+[+00000009.110s] [2026-10-26T20:09:39.730+08:00] SEND -> inj led off (atSec=9, elapsed=9.047s)
+[+00000009.297s] [2026-10-26T20:09:39.917+08:00] I (5763) elder-node: CMD 收到: inj led off
+[+00000009.297s] [2026-10-26T20:09:39.917+08:00] W (5763) local-led: BENCH LED 原始电平=0（GPIO 输出 OFF）
+[+00000009.719s] [2026-10-26T20:09:40.348+08:00] I (6153) elder-node: ADC raw: MQ2(CH5)=301 valid=1 danger=0 | MQ5(CH6)=271 valid=1 danger=0
+[+00000009.719s] [2026-10-26T20:09:40.348+08:00] I (6153) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":24.2,"rh":63.7,"ok":true,"valid":true},"gas":{"raw":271,"ok":true,"valid":true},"smoke":{"raw":301,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000009.719s] [2026-10-26T20:09:40.348+08:00] 
+[+00000009.719s] [2026-10-26T20:09:40.348+08:00] I (6183) elder-node: STACK_FREE task=main bytes=4052
+[+00000010.094s] [2026-10-26T20:09:40.721+08:00] SEND -> inj led on (atSec=10, elapsed=10.031s)
+[+00000010.328s] [2026-10-26T20:09:40.953+08:00] I (6793) elder-node: CMD 收到: inj led on
+[+00000010.328s] [2026-10-26T20:09:40.953+08:00] W (6793) local-led: BENCH LED 原始电平=1（GPIO 输出 ON）
+[+00000011.078s] [2026-10-26T20:09:41.699+08:00] SEND -> inj led off (atSec=11, elapsed=11.016s)
+[+00000011.313s] [2026-10-26T20:09:41.933+08:00] I (7783) elder-node: CMD 收到: inj led off
+[+00000011.313s] [2026-10-26T20:09:41.933+08:00] W (7783) local-led: BENCH LED 原始电平=0（GPIO 输出 OFF）
+[+00000013.063s] [2026-10-26T20:09:43.680+08:00] SEND -> inj led pol low (atSec=13, elapsed=13.000s)
+[+00000013.297s] [2026-10-26T20:09:43.926+08:00] I (9763) elder-node: CMD 收到: inj led pol low
+[+00000013.297s] [2026-10-26T20:09:43.926+08:00] W (9763) local-led: BENCH LED 极性=低电平有效（已按新极性重写当前电平）
+[+00000014.110s] [2026-10-26T20:09:44.735+08:00] SEND -> inj led id 7000 (atSec=14, elapsed=14.047s)
+[+00000014.297s] [2026-10-26T20:09:44.921+08:00] I (10753) elder-node: CMD 收到: inj led id 7000
+[+00000014.297s] [2026-10-26T20:09:44.921+08:00] W (10753) local-led: BENCH LED 识别演示 7000ms：12.5% 占空比（大部分灭、每 2s 短亮 250ms）；若观察结果相反说明有效电平需切换
+[+00000015.219s] [2026-10-26T20:09:45.838+08:00] I (11653) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":24.2,"rh":63.7,"ok":true,"valid":true},"gas":{"raw":216,"ok":true,"valid":true},"smoke":{"raw":307,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000015.219s] [2026-10-26T20:09:45.838+08:00] 
+[+00000015.219s] [2026-10-26T20:09:45.838+08:00] I (11673) elder-node: STACK_FREE task=main bytes=4052
+[+00000020.703s] [2026-10-26T20:09:51.324+08:00] I (17133) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":24.2,"rh":63.5,"ok":true,"valid":true},"gas":{"raw":213,"ok":true,"valid":true},"smoke":{"raw":307,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000020.703s] [2026-10-26T20:09:51.324+08:00] 
+[+00000020.703s] [2026-10-26T20:09:51.324+08:00] I (17153) elder-node: STACK_FREE task=main bytes=4052
+[+00000021.281s] [2026-10-26T20:09:51.912+08:00] W (17763) local-led: BENCH LED 识别演示结束，恢复状态驱动
+[+00000022.094s] [2026-10-26T20:09:52.723+08:00] SEND -> inj led pol high (atSec=22, elapsed=22.031s)
+[+00000022.281s] [2026-10-26T20:09:52.909+08:00] I (18753) elder-node: CMD 收到: inj led pol high
+[+00000022.281s] [2026-10-26T20:09:52.909+08:00] W (18753) local-led: BENCH LED 极性=高电平有效（已按新极性重写当前电平）
+[+00000023.094s] [2026-10-26T20:09:53.714+08:00] SEND -> inj led id 7000 (atSec=23, elapsed=23.031s)
+[+00000023.266s] [2026-10-26T20:09:53.898+08:00] I (19743) elder-node: CMD 收到: inj led id 7000
+[+00000023.266s] [2026-10-26T20:09:53.898+08:00] W (19743) local-led: BENCH LED 识别演示 7000ms：12.5% 占空比（大部分灭、每 2s 短亮 250ms）；若观察结果相反说明有效电平需切换
+[+00000026.188s] [2026-10-26T20:09:56.814+08:00] I (22623) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":24.2,"rh":63.6,"ok":true,"valid":true},"gas":{"raw":212,"ok":true,"valid":true},"smoke":{"raw":302,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000026.188s] [2026-10-26T20:09:56.814+08:00] 
+[+00000026.188s] [2026-10-26T20:09:56.814+08:00] I (22643) elder-node: STACK_FREE task=main bytes=4052
+[+00000030.344s] [2026-10-26T20:10:00.972+08:00] W (26823) local-led: BENCH LED 识别演示结束，恢复状态驱动
+[+00000031.094s] [2026-10-26T20:10:01.719+08:00] SEND -> inj led auto (atSec=31, elapsed=31.031s)
+[+00000031.344s] [2026-10-26T20:10:01.968+08:00] I (27813) elder-node: CMD 收到: inj led auto
+[+00000031.344s] [2026-10-26T20:10:01.968+08:00] W (27813) local-led: BENCH LED 恢复到状态驱动
+[+00000031.672s] [2026-10-26T20:10:02.298+08:00] I (28103) elder-node: ADC raw: MQ2(CH5)=315 valid=1 danger=0 | MQ5(CH6)=261 valid=1 danger=0
+[+00000031.672s] [2026-10-26T20:10:02.298+08:00] I (28103) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":24.2,"rh":63.5,"ok":true,"valid":true},"gas":{"raw":261,"ok":true,"valid":true},"smoke":{"raw":315,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000031.672s] [2026-10-26T20:10:02.298+08:00] 
+[+00000031.672s] [2026-10-26T20:10:02.298+08:00] I (28133) elder-node: STACK_FREE task=main bytes=4052
+[+00000034.094s] [2026-10-26T20:10:04.726+08:00] SEND -> inj led on (atSec=34, elapsed=34.031s)
+[+00000034.344s] [2026-10-26T20:10:04.974+08:00] I (30823) elder-node: CMD 收到: inj led on
+[+00000034.344s] [2026-10-26T20:10:04.974+08:00] W (30823) local-led: BENCH LED 原始电平=1（GPIO 输出 ON）
+[+00000035.094s] [2026-10-26T20:10:05.719+08:00] SEND -> inj led off (atSec=35, elapsed=35.031s)
+[+00000035.344s] [2026-10-26T20:10:05.968+08:00] I (31813) elder-node: CMD 收到: inj led off
+[+00000035.344s] [2026-10-26T20:10:05.968+08:00] W (31813) local-led: BENCH LED 原始电平=0（GPIO 输出 OFF）
+[+00000036.094s] [2026-10-26T20:10:06.716+08:00] SEND -> inj led on (atSec=36, elapsed=36.031s)
+[+00000036.328s] [2026-10-26T20:10:06.950+08:00] I (32803) elder-node: CMD 收到: inj led on
+[+00000036.328s] [2026-10-26T20:10:06.950+08:00] W (32803) local-led: BENCH LED 原始电平=1（GPIO 输出 ON）
+[+00000037.156s] [2026-10-26T20:10:07.774+08:00] I (33593) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":24.2,"rh":63.6,"ok":true,"valid":true},"gas":{"raw":215,"ok":true,"valid":true},"smoke":{"raw":313,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000037.156s] [2026-10-26T20:10:07.774+08:00] 
+[+00000037.156s] [2026-10-26T20:10:07.774+08:00] I (33613) elder-node: STACK_FREE task=main bytes=4052
+[+00000037.156s] [2026-10-26T20:10:07.775+08:00] SEND -> inj led off (atSec=37, elapsed=37.016s)
+[+00000037.344s] [2026-10-26T20:10:07.976+08:00] I (33823) elder-node: CMD 收到: inj led off
+[+00000037.344s] [2026-10-26T20:10:07.976+08:00] W (33823) local-led: BENCH LED 原始电平=0（GPIO 输出 OFF）
+[+00000038.094s] [2026-10-26T20:10:08.720+08:00] SEND -> inj led on (atSec=38, elapsed=38.031s)
+[+00000038.344s] [2026-10-26T20:10:08.971+08:00] I (34813) elder-node: CMD 收到: inj led on
+[+00000038.344s] [2026-10-26T20:10:08.971+08:00] W (34813) local-led: BENCH LED 原始电平=1（GPIO 输出 ON）
+[+00000039.094s] [2026-10-26T20:10:09.716+08:00] SEND -> inj led off (atSec=39, elapsed=39.031s)
+[+00000039.328s] [2026-10-26T20:10:09.950+08:00] I (35803) elder-node: CMD 收到: inj led off
+[+00000039.328s] [2026-10-26T20:10:09.950+08:00] W (35803) local-led: BENCH LED 原始电平=0（GPIO 输出 OFF）
+[+00000041.063s] [2026-10-26T20:10:11.692+08:00] SEND -> inj led pol low (atSec=41, elapsed=41.000s)
+[+00000041.328s] [2026-10-26T20:10:11.955+08:00] I (37793) elder-node: CMD 收到: inj led pol low
+[+00000041.328s] [2026-10-26T20:10:11.955+08:00] W (37793) local-led: BENCH LED 极性=低电平有效（已按新极性重写当前电平）
+[+00000042.078s] [2026-10-26T20:10:12.704+08:00] SEND -> inj led id 7000 (atSec=42, elapsed=42.016s)
+[+00000042.313s] [2026-10-26T20:10:12.940+08:00] I (38783) elder-node: CMD 收到: inj led id 7000
+[+00000042.313s] [2026-10-26T20:10:12.940+08:00] W (38783) local-led: BENCH LED 识别演示 7000ms：12.5% 占空比（大部分灭、每 2s 短亮 250ms）；若观察结果相反说明有效电平需切换
+[+00000042.641s] [2026-10-26T20:10:13.264+08:00] I (39083) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":24.2,"rh":63.6,"ok":true,"valid":true},"gas":{"raw":206,"ok":true,"valid":true},"smoke":{"raw":314,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000042.641s] [2026-10-26T20:10:13.264+08:00] 
+[+00000042.641s] [2026-10-26T20:10:13.264+08:00] I (39103) elder-node: STACK_FREE task=main bytes=4052
+[+00000048.125s] [2026-10-26T20:10:18.751+08:00] I (44563) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":24.2,"rh":63.6,"ok":true,"valid":true},"gas":{"raw":218,"ok":true,"valid":true},"smoke":{"raw":310,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000048.125s] [2026-10-26T20:10:18.751+08:00] 
+[+00000048.125s] [2026-10-26T20:10:18.751+08:00] I (44583) elder-node: STACK_FREE task=main bytes=4052
+[+00000049.406s] [2026-10-26T20:10:20.028+08:00] W (45883) local-led: BENCH LED 识别演示结束，恢复状态驱动
+[+00000050.094s] [2026-10-26T20:10:20.711+08:00] SEND -> inj led pol high (atSec=50, elapsed=50.031s)
+[+00000050.313s] [2026-10-26T20:10:20.931+08:00] I (46773) elder-node: CMD 收到: inj led pol high
+[+00000050.313s] [2026-10-26T20:10:20.931+08:00] W (46773) local-led: BENCH LED 极性=高电平有效（已按新极性重写当前电平）
+[+00000051.125s] [2026-10-26T20:10:21.742+08:00] SEND -> inj led id 7000 (atSec=51, elapsed=51.047s)
+[+00000051.391s] [2026-10-26T20:10:22.022+08:00] I (47863) elder-node: CMD 收到: inj led id 7000
+[+00000051.391s] [2026-10-26T20:10:22.022+08:00] W (47863) local-led: BENCH LED 识别演示 7000ms：12.5% 占空比（大部分灭、每 2s 短亮 250ms）；若观察结果相反说明有效电平需切换
+[+00000053.610s] [2026-10-26T20:10:24.241+08:00] I (50053) elder-node: ADC raw: MQ2(CH5)=307 valid=1 danger=0 | MQ5(CH6)=215 valid=1 danger=0
+[+00000053.610s] [2026-10-26T20:10:24.241+08:00] I (50053) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":24.2,"rh":63.6,"ok":true,"valid":true},"gas":{"raw":215,"ok":true,"valid":true},"smoke":{"raw":307,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000053.610s] [2026-10-26T20:10:24.241+08:00] 
+[+00000053.610s] [2026-10-26T20:10:24.241+08:00] I (50083) elder-node: STACK_FREE task=main bytes=4052
+[+00000058.469s] [2026-10-26T20:10:29.099+08:00] W (54953) local-led: BENCH LED 识别演示结束，恢复状态驱动
+[+00000059.094s] [2026-10-26T20:10:29.723+08:00] I (55543) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":24.2,"rh":63.6,"ok":true,"valid":true},"gas":{"raw":239,"ok":true,"valid":true},"smoke":{"raw":308,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000059.094s] [2026-10-26T20:10:29.723+08:00] 
+[+00000059.094s] [2026-10-26T20:10:29.723+08:00] I (55563) elder-node: STACK_FREE task=main bytes=4052
+[+00000059.156s] [2026-10-26T20:10:29.785+08:00] SEND -> inj led auto (atSec=59, elapsed=59.094s)
+[+00000059.391s] [2026-10-26T20:10:30.019+08:00] I (55873) elder-node: CMD 收到: inj led auto
+[+00000059.391s] [2026-10-26T20:10:30.019+08:00] W (55873) local-led: BENCH LED 恢复到状态驱动
+[+00000062.063s] [2026-10-26T20:10:32.695+08:00] SEND -> inj led on (atSec=62, elapsed=62.000s)
+[+00000062.375s] [2026-10-26T20:10:32.993+08:00] I (58843) elder-node: CMD 收到: inj led on
+[+00000062.375s] [2026-10-26T20:10:32.993+08:00] W (58843) local-led: BENCH LED 原始电平=1（GPIO 输出 ON）
+[+00000063.110s] [2026-10-26T20:10:33.738+08:00] SEND -> inj led off (atSec=63, elapsed=63.047s)
+[+00000063.453s] [2026-10-26T20:10:34.081+08:00] I (59933) elder-node: CMD 收到: inj led off
+[+00000063.453s] [2026-10-26T20:10:34.081+08:00] W (59933) local-led: BENCH LED 原始电平=0（GPIO 输出 OFF）
+[+00000064.078s] [2026-10-26T20:10:34.703+08:00] SEND -> inj led on (atSec=64, elapsed=64.016s)
+[+00000064.266s] [2026-10-26T20:10:34.890+08:00] I (60733) elder-node: CMD 收到: inj led on
+[+00000064.266s] [2026-10-26T20:10:34.890+08:00] W (60733) local-led: BENCH LED 原始电平=1（GPIO 输出 ON）
+[+00000064.594s] [2026-10-26T20:10:35.214+08:00] I (61023) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":24.2,"rh":63.6,"ok":true,"valid":true},"gas":{"raw":213,"ok":true,"valid":true},"smoke":{"raw":303,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000064.594s] [2026-10-26T20:10:35.214+08:00] 
+[+00000064.594s] [2026-10-26T20:10:35.214+08:00] I (61043) elder-node: STACK_FREE task=main bytes=4052
+[+00000065.094s] [2026-10-26T20:10:35.712+08:00] SEND -> inj led off (atSec=65, elapsed=65.031s)
+[+00000065.281s] [2026-10-26T20:10:35.913+08:00] I (61753) elder-node: CMD 收到: inj led off
+[+00000065.281s] [2026-10-26T20:10:35.913+08:00] W (61753) local-led: BENCH LED 原始电平=0（GPIO 输出 OFF）
+[+00000066.094s] [2026-10-26T20:10:36.723+08:00] SEND -> inj led on (atSec=66, elapsed=66.031s)
+[+00000066.266s] [2026-10-26T20:10:36.894+08:00] I (62743) elder-node: CMD 收到: inj led on
+[+00000066.266s] [2026-10-26T20:10:36.894+08:00] W (62743) local-led: BENCH LED 原始电平=1（GPIO 输出 ON）
+[+00000067.078s] [2026-10-26T20:10:37.701+08:00] SEND -> inj led off (atSec=67, elapsed=67.016s)
+[+00000067.266s] [2026-10-26T20:10:37.888+08:00] I (63733) elder-node: CMD 收到: inj led off
+[+00000067.266s] [2026-10-26T20:10:37.888+08:00] W (63733) local-led: BENCH LED 原始电平=0（GPIO 输出 OFF）
+[+00000069.063s] [2026-10-26T20:10:39.691+08:00] SEND -> inj led pol low (atSec=69, elapsed=69.000s)
+[+00000069.235s] [2026-10-26T20:10:39.862+08:00] I (65713) elder-node: CMD 收到: inj led pol low
+[+00000069.235s] [2026-10-26T20:10:39.862+08:00] W (65713) local-led: BENCH LED 极性=低电平有效（已按新极性重写当前电平）
+[+00000070.063s] [2026-10-26T20:10:40.686+08:00] I (66503) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":24.2,"rh":63.6,"ok":true,"valid":true},"gas":{"raw":212,"ok":true,"valid":true},"smoke":{"raw":304,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000070.063s] [2026-10-26T20:10:40.686+08:00] 
+[+00000070.063s] [2026-10-26T20:10:40.686+08:00] I (66523) elder-node: STACK_FREE task=main bytes=4052
+[+00000070.125s] [2026-10-26T20:10:40.749+08:00] SEND -> inj led id 7000 (atSec=70, elapsed=70.063s)
+[+00000070.375s] [2026-10-26T20:10:40.996+08:00] I (66833) elder-node: CMD 收到: inj led id 7000
+[+00000070.375s] [2026-10-26T20:10:40.996+08:00] W (66833) local-led: BENCH LED 识别演示 7000ms：12.5% 占空比（大部分灭、每 2s 短亮 250ms）；若观察结果相反说明有效电平需切换
+[+00000075.563s] [2026-10-26T20:10:46.185+08:00] I (71993) elder-node: ADC raw: MQ2(CH5)=301 valid=1 danger=0 | MQ5(CH6)=222 valid=1 danger=0
+[+00000075.563s] [2026-10-26T20:10:46.185+08:00] I (71993) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":24.2,"rh":63.6,"ok":true,"valid":true},"gas":{"raw":222,"ok":true,"valid":true},"smoke":{"raw":301,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000075.563s] [2026-10-26T20:10:46.185+08:00] 
+[+00000075.563s] [2026-10-26T20:10:46.185+08:00] I (72023) elder-node: STACK_FREE task=main bytes=4052
+[+00000077.438s] [2026-10-26T20:10:48.067+08:00] W (73923) local-led: BENCH LED 识别演示结束，恢复状态驱动
+[+00000078.063s] [2026-10-26T20:10:48.692+08:00] SEND -> inj led pol high (atSec=78, elapsed=78.000s)
+[+00000078.235s] [2026-10-26T20:10:48.862+08:00] I (74713) elder-node: CMD 收到: inj led pol high
+[+00000078.235s] [2026-10-26T20:10:48.863+08:00] W (74713) local-led: BENCH LED 极性=高电平有效（已按新极性重写当前电平）
+[+00000079.110s] [2026-10-26T20:10:49.735+08:00] SEND -> inj led id 7000 (atSec=79, elapsed=79.047s)
+[+00000079.344s] [2026-10-26T20:10:49.970+08:00] I (75803) elder-node: CMD 收到: inj led id 7000
+[+00000079.344s] [2026-10-26T20:10:49.970+08:00] W (75803) local-led: BENCH LED 识别演示 7000ms：12.5% 占空比（大部分灭、每 2s 短亮 250ms）；若观察结果相反说明有效电平需切换
+[+00000081.063s] [2026-10-26T20:10:51.684+08:00] I (77493) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":24.2,"rh":63.6,"ok":true,"valid":true},"gas":{"raw":182,"ok":true,"valid":true},"smoke":{"raw":303,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000081.063s] [2026-10-26T20:10:51.684+08:00] 
+[+00000081.063s] [2026-10-26T20:10:51.684+08:00] I (77513) elder-node: STACK_FREE task=main bytes=4052
+[+00000086.531s] [2026-10-26T20:10:57.157+08:00] W (82973) local-led: BENCH LED 识别演示结束，恢复状态驱动
+[+00000086.531s] [2026-10-26T20:10:57.157+08:00] I (82973) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":24.2,"rh":63.6,"ok":true,"valid":true},"gas":{"raw":214,"ok":true,"valid":true},"smoke":{"raw":307,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000086.531s] [2026-10-26T20:10:57.157+08:00] 
+[+00000086.531s] [2026-10-26T20:10:57.157+08:00] I (83003) elder-node: STACK_FREE task=main bytes=4052
+[+00000087.094s] [2026-10-26T20:10:57.716+08:00] SEND -> inj led auto (atSec=87, elapsed=87.031s)
+[+00000087.344s] [2026-10-26T20:10:57.965+08:00] I (83813) elder-node: CMD 收到: inj led auto
+[+00000087.344s] [2026-10-26T20:10:57.965+08:00] W (83813) local-led: BENCH LED 恢复到状态驱动
+[+00000092.031s] [2026-10-26T20:11:02.650+08:00] I (88463) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":24.2,"rh":63.7,"ok":true,"valid":true},"gas":{"raw":233,"ok":true,"valid":true},"smoke":{"raw":364,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000092.031s] [2026-10-26T20:11:02.650+08:00] 
+[+00000092.031s] [2026-10-26T20:11:02.650+08:00] I (88483) elder-node: STACK_FREE task=main bytes=4052
+# BENCH_SERIAL SUMMARY lines=203 bytes=19755 sent=35 duration=96.016s markers={BENCH INJECT MODE=1, 重复提醒=1, INJ =1, → {=17}
+# BENCH_SERIAL SENT #1 at=2.016s wall=2026-10-26T20:09:32.698+08:00 ok=True line='resume'
+# BENCH_SERIAL SENT #2 at=3.047s wall=2026-10-26T20:09:33.740+08:00 ok=True line='inj reboot'
+# BENCH_SERIAL SENT #3 at=6.031s wall=2026-10-26T20:09:36.713+08:00 ok=True line='inj led on'
+# BENCH_SERIAL SENT #4 at=7.047s wall=2026-10-26T20:09:37.729+08:00 ok=True line='inj led off'
+# BENCH_SERIAL SENT #5 at=8.047s wall=2026-10-26T20:09:38.736+08:00 ok=True line='inj led on'
+# BENCH_SERIAL SENT #6 at=9.047s wall=2026-10-26T20:09:39.730+08:00 ok=True line='inj led off'
+# BENCH_SERIAL SENT #7 at=10.031s wall=2026-10-26T20:09:40.721+08:00 ok=True line='inj led on'
+# BENCH_SERIAL SENT #8 at=11.016s wall=2026-10-26T20:09:41.699+08:00 ok=True line='inj led off'
+# BENCH_SERIAL SENT #9 at=13.000s wall=2026-10-26T20:09:43.680+08:00 ok=True line='inj led pol low'
+# BENCH_SERIAL SENT #10 at=14.047s wall=2026-10-26T20:09:44.735+08:00 ok=True line='inj led id 7000'
+# BENCH_SERIAL SENT #11 at=22.031s wall=2026-10-26T20:09:52.723+08:00 ok=True line='inj led pol high'
+# BENCH_SERIAL SENT #12 at=23.031s wall=2026-10-26T20:09:53.714+08:00 ok=True line='inj led id 7000'
+# BENCH_SERIAL SENT #13 at=31.031s wall=2026-10-26T20:10:01.719+08:00 ok=True line='inj led auto'
+# BENCH_SERIAL SENT #14 at=34.031s wall=2026-10-26T20:10:04.726+08:00 ok=True line='inj led on'
+# BENCH_SERIAL SENT #15 at=35.031s wall=2026-10-26T20:10:05.719+08:00 ok=True line='inj led off'
+# BENCH_SERIAL SENT #16 at=36.031s wall=2026-10-26T20:10:06.716+08:00 ok=True line='inj led on'
+# BENCH_SERIAL SENT #17 at=37.016s wall=2026-10-26T20:10:07.775+08:00 ok=True line='inj led off'
+# BENCH_SERIAL SENT #18 at=38.031s wall=2026-10-26T20:10:08.720+08:00 ok=True line='inj led on'
+# BENCH_SERIAL SENT #19 at=39.031s wall=2026-10-26T20:10:09.716+08:00 ok=True line='inj led off'
+# BENCH_SERIAL SENT #20 at=41.000s wall=2026-10-26T20:10:11.692+08:00 ok=True line='inj led pol low'
+# BENCH_SERIAL SENT #21 at=42.016s wall=2026-10-26T20:10:12.704+08:00 ok=True line='inj led id 7000'
+# BENCH_SERIAL SENT #22 at=50.031s wall=2026-10-26T20:10:20.711+08:00 ok=True line='inj led pol high'
+# BENCH_SERIAL SENT #23 at=51.047s wall=2026-10-26T20:10:21.742+08:00 ok=True line='inj led id 7000'
+# BENCH_SERIAL SENT #24 at=59.094s wall=2026-10-26T20:10:29.785+08:00 ok=True line='inj led auto'
+# BENCH_SERIAL SENT #25 at=62.000s wall=2026-10-26T20:10:32.695+08:00 ok=True line='inj led on'
+# BENCH_SERIAL SENT #26 at=63.047s wall=2026-10-26T20:10:33.738+08:00 ok=True line='inj led off'
+# BENCH_SERIAL SENT #27 at=64.016s wall=2026-10-26T20:10:34.703+08:00 ok=True line='inj led on'
+# BENCH_SERIAL SENT #28 at=65.031s wall=2026-10-26T20:10:35.712+08:00 ok=True line='inj led off'
+# BENCH_SERIAL SENT #29 at=66.031s wall=2026-10-26T20:10:36.723+08:00 ok=True line='inj led on'
+# BENCH_SERIAL SENT #30 at=67.016s wall=2026-10-26T20:10:37.701+08:00 ok=True line='inj led off'
+# BENCH_SERIAL SENT #31 at=69.000s wall=2026-10-26T20:10:39.691+08:00 ok=True line='inj led pol low'
+# BENCH_SERIAL SENT #32 at=70.063s wall=2026-10-26T20:10:40.749+08:00 ok=True line='inj led id 7000'
+# BENCH_SERIAL SENT #33 at=78.000s wall=2026-10-26T20:10:48.692+08:00 ok=True line='inj led pol high'
+# BENCH_SERIAL SENT #34 at=79.047s wall=2026-10-26T20:10:49.735+08:00 ok=True line='inj led id 7000'
+# BENCH_SERIAL SENT #35 at=87.031s wall=2026-10-26T20:10:57.716+08:00 ok=True line='inj led auto'

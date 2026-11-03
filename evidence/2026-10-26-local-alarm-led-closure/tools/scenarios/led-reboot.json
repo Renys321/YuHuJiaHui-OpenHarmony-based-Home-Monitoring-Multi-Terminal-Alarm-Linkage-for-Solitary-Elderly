@@ -1,0 +1,12 @@
+{
+  "durationSec": 40,
+  "steps": [
+    {"atSec": 1,  "send": "resume"},
+    {"atSec": 2,  "send": "inj reboot"},
+    {"atSec": 8,  "send": "inj led pol low"},
+    {"atSec": 9,  "send": "inj climate 47.0 95.0"},
+    {"atSec": 10, "send": "inj climate 47.0 95.0"},
+    {"atSec": 18, "send": "inj reboot"},
+    {"atSec": 28, "send": "inj led pol low"}
+  ]
+}

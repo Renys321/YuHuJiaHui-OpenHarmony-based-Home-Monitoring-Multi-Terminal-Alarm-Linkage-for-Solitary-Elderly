@@ -1,0 +1,425 @@
+{
+  "2026-10-25-dayu-formal-camera-inference-regression/formal-pose-events.jsonl": {
+    "frames": 436,
+    "duration_s": 272.0,
+    "dt_median_ms": 622,
+    "posture_counts": {
+      "UPRIGHT": 126,
+      "SITTING_OR_CROUCHING": 285,
+      "TRANSITION": 2,
+      "UNKNOWN": 23
+    },
+    "fall_events": [],
+    "fall_event_count": 0,
+    "frames_with_drop_ge_010": 20,
+    "rapid_drop_samples": [
+      {
+        "ts": 1792941438004,
+        "drop": 0.134,
+        "posture": "UPRIGHT",
+        "hip_y": 0.845,
+        "torso": 1.4,
+        "aspect": 1.0
+      },
+      {
+        "ts": 1792941466819,
+        "drop": 0.167,
+        "posture": "UPRIGHT",
+        "hip_y": 0.903,
+        "torso": 2.2,
+        "aspect": 0.67
+      },
+      {
+        "ts": 1792941474944,
+        "drop": 0.151,
+        "posture": "UPRIGHT",
+        "hip_y": 0.93,
+        "torso": 3.4,
+        "aspect": 0.72
+      },
+      {
+        "ts": 1792941477432,
+        "drop": 0.122,
+        "posture": "UPRIGHT",
+        "hip_y": 0.916,
+        "torso": 4.4,
+        "aspect": 0.73
+      },
+      {
+        "ts": 1792941479913,
+        "drop": 0.1,
+        "posture": "UPRIGHT",
+        "hip_y": 0.858,
+        "torso": 3.3,
+        "aspect": 0.72
+      },
+      {
+        "ts": 1792941483033,
+        "drop": 0.184,
+        "posture": "UPRIGHT",
+        "hip_y": 0.903,
+        "torso": 2.5,
+        "aspect": 0.7
+      },
+      {
+        "ts": 1792941486172,
+        "drop": 0.135,
+        "posture": "UPRIGHT",
+        "hip_y": 0.883,
+        "torso": 1.7,
+        "aspect": 0.71
+      },
+      {
+        "ts": 1792941488045,
+        "drop": 0.172,
+        "posture": "UPRIGHT",
+        "hip_y": 0.912,
+        "torso": 1.6,
+        "aspect": 0.7
+      },
+      {
+        "ts": 1792941492987,
+        "drop": 0.138,
+        "posture": "UPRIGHT",
+        "hip_y": 0.88,
+        "torso": 0.3,
+        "aspect": 0.69
+      },
+      {
+        "ts": 1792941496764,
+        "drop": 0.207,
+        "posture": "UPRIGHT",
+        "hip_y": 0.912,
+        "torso": 0.8,
+        "aspect": 0.69
+      },
+      {
+        "ts": 1792941498636,
+        "drop": 0.17,
+        "posture": "UPRIGHT",
+        "hip_y": 0.903,
+        "torso": 0.7,
+        "aspect": 0.69
+      },
+      {
+        "ts": 1792941601133,
+        "drop": 0.228,
+        "posture": "SITTING_OR_CROUCHING",
+        "hip_y": 0.704,
+        "torso": 2.8,
+        "aspect": 0.16
+      }
+    ]
+  },
+  "2026-10-25-dayu-formal-camera-inference-regression/formal-live-events.jsonl": {
+    "frames": 1288,
+    "duration_s": 823.2,
+    "dt_median_ms": 624,
+    "posture_counts": {
+      "UNKNOWN": 488,
+      "SITTING_OR_CROUCHING": 308,
+      "UPRIGHT": 337,
+      "NO_PERSON": 145,
+      "TRANSITION": 10
+    },
+    "fall_events": [],
+    "fall_event_count": 0,
+    "frames_with_drop_ge_010": 36,
+    "rapid_drop_samples": [
+      {
+        "ts": 1792940395587,
+        "drop": 0.181,
+        "posture": "UPRIGHT",
+        "hip_y": 0.623,
+        "torso": 2.2,
+        "aspect": 0.43
+      },
+      {
+        "ts": 1792940413097,
+        "drop": 0.27,
+        "posture": "SITTING_OR_CROUCHING",
+        "hip_y": 0.759,
+        "torso": 0.5,
+        "aspect": 0.87
+      },
+      {
+        "ts": 1792940436569,
+        "drop": 0.208,
+        "posture": "UPRIGHT",
+        "hip_y": 0.878,
+        "torso": 1.3,
+        "aspect": 1.01
+      },
+      {
+        "ts": 1792940437178,
+        "drop": 0.208,
+        "posture": "NO_PERSON",
+        "hip_y": 0.878,
+        "torso": 1.3,
+        "aspect": 1.01
+      },
+      {
+        "ts": 1792940437896,
+        "drop": 0.208,
+        "posture": "UNKNOWN",
+        "hip_y": 0.878,
+        "torso": 1.3,
+        "aspect": 1.01
+      },
+      {
+        "ts": 1792940438500,
+        "drop": 0.208,
+        "posture": "UNKNOWN",
+        "hip_y": 0.878,
+        "torso": 1.3,
+        "aspect": 1.01
+      },
+      {
+        "ts": 1792940439097,
+        "drop": 0.208,
+        "posture": "NO_PERSON",
+        "hip_y": 0.878,
+        "torso": 1.3,
+        "aspect": 1.01
+      },
+      {
+        "ts": 1792940439719,
+        "drop": 0.208,
+        "posture": "UNKNOWN",
+        "hip_y": 0.878,
+        "torso": 1.3,
+        "aspect": 1.01
+      },
+      {
+        "ts": 1792940506934,
+        "drop": 0.121,
+        "posture": "UPRIGHT",
+        "hip_y": 0.847,
+        "torso": 3.6,
+        "aspect": 0.91
+      },
+      {
+        "ts": 1792940519438,
+        "drop": 0.144,
+        "posture": "UPRIGHT",
+        "hip_y": 0.805,
+        "torso": 1.7,
+        "aspect": 0.78
+      },
+      {
+        "ts": 1792940520088,
+        "drop": 0.144,
+        "posture": "UPRIGHT",
+        "hip_y": 0.805,
+        "torso": 1.7,
+        "aspect": 0.78
+      },
+      {
+        "ts": 1792940535584,
+        "drop": 0.148,
+        "posture": "UPRIGHT",
+        "hip_y": 0.645,
+        "torso": 2.3,
+        "aspect": 7.74
+      }
+    ]
+  },
+  "2026-10-25-dayu-formal-camera-inference-regression/formal-redo-events.jsonl": {
+    "frames": 495,
+    "duration_s": 308.3,
+    "dt_median_ms": 624,
+    "posture_counts": {
+      "SITTING_OR_CROUCHING": 169,
+      "UPRIGHT": 140,
+      "TRANSITION": 1,
+      "UNKNOWN": 83,
+      "NO_PERSON": 102
+    },
+    "fall_events": [],
+    "fall_event_count": 0,
+    "frames_with_drop_ge_010": 11,
+    "rapid_drop_samples": [
+      {
+        "ts": 1792941963158,
+        "drop": 0.1,
+        "posture": "SITTING_OR_CROUCHING",
+        "hip_y": 0.533,
+        "torso": 4.0,
+        "aspect": 0.48
+      },
+      {
+        "ts": 1792941996809,
+        "drop": 0.194,
+        "posture": "UPRIGHT",
+        "hip_y": 0.467,
+        "torso": 1.7,
+        "aspect": 0.01
+      },
+      {
+        "ts": 1792941997415,
+        "drop": 0.109,
+        "posture": "SITTING_OR_CROUCHING",
+        "hip_y": 0.533,
+        "torso": 1.2,
+        "aspect": 0.3
+      },
+      {
+        "ts": 1792941998039,
+        "drop": 0.109,
+        "posture": "UNKNOWN",
+        "hip_y": 0.533,
+        "torso": 1.2,
+        "aspect": 0.3
+      },
+      {
+        "ts": 1792941998659,
+        "drop": 0.109,
+        "posture": "UNKNOWN",
+        "hip_y": 0.533,
+        "torso": 1.2,
+        "aspect": 0.3
+      },
+      {
+        "ts": 1792941999264,
+        "drop": 0.109,
+        "posture": "UNKNOWN",
+        "hip_y": 0.533,
+        "torso": 1.2,
+        "aspect": 0.3
+      },
+      {
+        "ts": 1792942065604,
+        "drop": 0.145,
+        "posture": "SITTING_OR_CROUCHING",
+        "hip_y": 0.521,
+        "torso": 1.6,
+        "aspect": 0.14
+      },
+      {
+        "ts": 1792942170421,
+        "drop": 0.25,
+        "posture": "UPRIGHT",
+        "hip_y": 0.831,
+        "torso": 1.4,
+        "aspect": 0.56
+      },
+      {
+        "ts": 1792942172269,
+        "drop": 0.151,
+        "posture": "UPRIGHT",
+        "hip_y": 0.861,
+        "torso": 0.7,
+        "aspect": 0.63
+      },
+      {
+        "ts": 1792942175381,
+        "drop": 0.104,
+        "posture": "UPRIGHT",
+        "hip_y": 0.871,
+        "torso": 1.0,
+        "aspect": 0.61
+      },
+      {
+        "ts": 1792942185960,
+        "drop": 0.234,
+        "posture": "UPRIGHT",
+        "hip_y": 0.859,
+        "torso": 3.9,
+        "aspect": 0.58
+      }
+    ]
+  },
+  "2026-10-25-dayu-formal-camera-inference-regression/formal-redo3-events.jsonl": {
+    "frames": 646,
+    "duration_s": 427.1,
+    "dt_median_ms": 658,
+    "posture_counts": {
+      "UNKNOWN": 68,
+      "NO_PERSON": 442,
+      "UPRIGHT": 40,
+      "SITTING_OR_CROUCHING": 96
+    },
+    "fall_events": [],
+    "fall_event_count": 0,
+    "frames_with_drop_ge_010": 5,
+    "rapid_drop_samples": [
+      {
+        "ts": 1792943204155,
+        "drop": 0.15,
+        "posture": "SITTING_OR_CROUCHING",
+        "hip_y": 0.509,
+        "torso": 1.0,
+        "aspect": 0.29
+      },
+      {
+        "ts": 1792943431371,
+        "drop": 0.203,
+        "posture": "UPRIGHT",
+        "hip_y": 0.67,
+        "torso": 2.6,
+        "aspect": 0.11
+      },
+      {
+        "ts": 1792943433315,
+        "drop": 0.194,
+        "posture": "UPRIGHT",
+        "hip_y": 0.665,
+        "torso": 1.6,
+        "aspect": 0.17
+      },
+      {
+        "ts": 1792943435922,
+        "drop": 0.412,
+        "posture": "UPRIGHT",
+        "hip_y": 0.908,
+        "torso": 2.5,
+        "aspect": 0.04
+      },
+      {
+        "ts": 1792943486753,
+        "drop": 0.151,
+        "posture": "SITTING_OR_CROUCHING",
+        "hip_y": 0.618,
+        "torso": 8.1,
+        "aspect": 0.96
+      }
+    ]
+  },
+  "2026-10-25-dayu-formal-camera-inference-regression/formal-capture-events.jsonl": {
+    "frames": 142,
+    "duration_s": 89.6,
+    "dt_median_ms": 620,
+    "posture_counts": {
+      "UPRIGHT": 66,
+      "SITTING_OR_CROUCHING": 24,
+      "UNKNOWN": 52
+    },
+    "fall_events": [],
+    "fall_event_count": 0,
+    "frames_with_drop_ge_010": 1,
+    "rapid_drop_samples": [
+      {
+        "ts": 1792940241297,
+        "drop": 0.247,
+        "posture": "UPRIGHT",
+        "hip_y": 1.0,
+        "torso": 1.7,
+        "aspect": 0.59
+      }
+    ]
+  },
+  "2026-10-26-demo-autostart/demo-events-mid.jsonl": {
+    "frames": 1396,
+    "duration_s": 1378.5,
+    "dt_median_ms": 638,
+    "posture_counts": {
+      "UNKNOWN": 1232,
+      "UPRIGHT": 30,
+      "NO_PERSON": 134
+    },
+    "fall_events": [],
+    "fall_event_count": 0,
+    "frames_with_drop_ge_010": 0,
+    "rapid_drop_samples": []
+  }
+}

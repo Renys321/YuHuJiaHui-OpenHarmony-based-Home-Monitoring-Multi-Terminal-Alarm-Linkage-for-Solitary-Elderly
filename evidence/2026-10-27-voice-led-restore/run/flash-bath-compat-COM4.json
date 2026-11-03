@@ -1,0 +1,17 @@
+{
+    "recordedAt":  "2026-10-27T01:04:40.3936375+08:00",
+    "com":  "COM4",
+    "mac":  "14:c1:9f:42:dd:b4",
+    "expectedMac":  "14:c1:9f:42:dd:b4",
+    "binPath":  "D:\\OpenHarmony\\competition\\esp32-node\\.local\\voice-led-restore-20261027\\build-bath-compat\\esp32_elder_node.bin",
+    "binSize":  1011312,
+    "binSha256":  "F56A5A64B336E0CB3AE669908CF41B462BC17E6CFECB863E8850B506258BEFCF",
+    "appFlashOffset":  "0x10000",
+    "esptoolExit":  0,
+    "esptoolReportedHashVerified":  true,
+    "fullErase":  false,
+    "wrotePartitions":  [
+                            "factory app only (0x10000)"
+                        ],
+    "note":  "App-partition-only update; bootloader/NVS/partition table untouched."
+}

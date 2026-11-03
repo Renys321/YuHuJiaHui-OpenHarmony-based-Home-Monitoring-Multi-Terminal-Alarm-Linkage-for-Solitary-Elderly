@@ -1,0 +1,100 @@
+{
+  "opId": "op-normal-de-rb-1ad75f",
+  "mode": "rollback",
+  "state": "COMPLETED",
+  "exitCode": 0,
+  "startedAt": "2026-10-26T08:01:25.547Z",
+  "finishedAt": "2026-10-26T08:01:25.678Z",
+  "dataRoot": "/data",
+  "volumeName": "de-rb-1ad75f-vol-rollback",
+  "backendStoppedAsserted": true,
+  "failPoints": [],
+  "failAfterGlobal": 0,
+  "failAfterByPoint": {},
+  "expectedPreTreeHash": "80A48E00D59D57E69AA644D567FD1D41CBE23FB544FE175F96B30E8176323171",
+  "expectedPostTreeHash": "FFF337AEDBAD4CE81E49617EA48CDD359EFB46792FA85AC7E3768EE5B0FFE5EE",
+  "expectedOriginalTreeHash": "",
+  "preArchive": {
+    "path": "/backup/pre-upgrade.tgz",
+    "bytes": 963,
+    "sha256": "0D2789748BAA2B2D03BB6EDC85A749BC0AABBFC51402773BCA02F018C67BC523"
+  },
+  "postArchive": {
+    "path": "/backup/post-upgrade.tgz",
+    "bytes": 1433,
+    "sha256": "857900FEA559D344BC278D07CC4940404148F50A27A78EF53C18C58255771D0C",
+    "extractedTreeHash": "FFF337AEDBAD4CE81E49617EA48CDD359EFB46792FA85AC7E3768EE5B0FFE5EE"
+  },
+  "original": {
+    "treeHash": "FFF337AEDBAD4CE81E49617EA48CDD359EFB46792FA85AC7E3768EE5B0FFE5EE",
+    "entryCount": 6,
+    "topLevelEntries": [
+      "activity-state.json",
+      "backend-state.json",
+      "evidence"
+    ],
+    "asideTreeHash": "FFF337AEDBAD4CE81E49617EA48CDD359EFB46792FA85AC7E3768EE5B0FFE5EE"
+  },
+  "staging": {
+    "treeHash": "80A48E00D59D57E69AA644D567FD1D41CBE23FB544FE175F96B30E8176323171",
+    "entryCount": 4
+  },
+  "final": {
+    "treeHash": "670AAE4775D79F81C3F7D14D262697B5B894F61FE5F51E836ED1AE7CA41F880F",
+    "state": "v5_restored_with_preserved_extras",
+    "preservedExtras": [
+      "activity-state.json",
+      "evidence/fall-2-na.jpg"
+    ]
+  },
+  "recovery": null,
+  "mixedState": null,
+  "manualTakeover": false,
+  "serviceMustStayStopped": false,
+  "stages": [
+    {
+      "stage": "S0_PREFLIGHT",
+      "at": "2026-10-26T08:01:25.548Z"
+    },
+    {
+      "stage": "S1_PREFLIGHT_CHECKS",
+      "at": "2026-10-26T08:01:25.557Z"
+    },
+    {
+      "stage": "S2_VERIFY_POST_ARCHIVE",
+      "at": "2026-10-26T08:01:25.589Z"
+    },
+    {
+      "stage": "S3_COPY_ASIDE",
+      "at": "2026-10-26T08:01:25.609Z"
+    },
+    {
+      "stage": "S4_VERIFY_PRE_ARCHIVE",
+      "at": "2026-10-26T08:01:25.624Z"
+    },
+    {
+      "stage": "S5_LANDING",
+      "at": "2026-10-26T08:01:25.642Z"
+    },
+    {
+      "stage": "S6_FINAL_VERIFY",
+      "at": "2026-10-26T08:01:25.667Z"
+    },
+    {
+      "stage": "S7_DONE",
+      "at": "2026-10-26T08:01:25.675Z"
+    }
+  ],
+  "landingOpCount": 3,
+  "preservedExtras": [
+    "activity-state.json",
+    "evidence/fall-2-na.jpg"
+  ],
+  "error": null,
+  "journalPath": "/data/.de-rollback/op-normal-de-rb-1ad75f/journal.jsonl",
+  "spaceCheck": {
+    "dataBytes": 5343,
+    "freeBytes": 1023968706560,
+    "needBytes": 67114207
+  }
+}

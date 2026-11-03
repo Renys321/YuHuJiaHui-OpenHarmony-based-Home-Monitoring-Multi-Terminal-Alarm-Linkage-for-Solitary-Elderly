@@ -1,0 +1,23 @@
+[  0.60] bridge 已连入 57102
+[  2.41] ← relay deviceId=esp32-test state=NORMAL alarm.id=
+[  2.41] → "rou"
+[  2.57] → "te esp32"
+[  2.73] → "-test g"
+[  2.88] → "as\n"
+[  3.42] ← relay deviceId=esp32-test state=ALARM alarm.id=sim-1791555116237-1
+[  3.46] → "route esp32-test ack wrong-id-123 测试错ID\n"
+[  5.97] → "route esp32-test ack sim-1791555116237-1 已确认老人正常\n"
+[  6.44] ← relay deviceId=esp32-test state=ACKED alarm.id=sim-1791555116237-1
+[  6.51] → "route esp32-test ack sim-1791555116237-1 重复确认\n"
+[  7.45] ← relay deviceId=esp32-test state=ACKED alarm.id=sim-1791555116237-1
+[  9.02] → "route missing-device gas\n"
+[ 10.53] → "{\"deviceId\":\"esp32-test\",\"cmd\":\"gas\"}\n"
+[ 10.53] → "gas\n"
+[ 10.53] → "ack sim-1791555116237-1 非route\n"
+[ 10.53] → "relay {\"deviceId\":\"esp32-test\",\"state\":\"ALARM\"}\n"
+[ 10.53] → "routeesp32-test gas\n"
+[ 12.47] ← relay deviceId=esp32-test state=ACKED alarm.id=sim-1791555116237-1
+[ 13.03] → "route esp32-test route esp32-test gas\n"
+[ 14.24] kill broker pid=14164
+[ 14.24] kill bridge pid=25348
+[ 14.24] kill sim pid=23388

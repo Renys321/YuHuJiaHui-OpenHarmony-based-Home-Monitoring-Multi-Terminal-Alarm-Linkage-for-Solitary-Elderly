@@ -1,0 +1,474 @@
+﻿# live snapshot 2026-10-28 00:24:41 +08:00 Asia/Shanghai
+
+## PC processes (powershell/node/python/hdc)
+
+
+ProcessId Name           CreationDate        CommandLine                                                                                                                                                                                                                                                    
+--------- ----           ------------        -----------                                                                                                                                                                                                                                                    
+    16540 node.exe       2026/10/27 14:08:55 "C:\Users\LENOVO\AppData\Local\OpenAI\Codex\runtimes\cua_node\1fb7137c46617d50\bin\node.exe"  ./server.mjs                                                                                                                                                     
+    57348 node.exe       2026/10/27 18:27:55 "D:\DevEcoStudio\DevEco Studio\tools\node\node.exe" --max-old-space-size=8192 --expose-gc --report-on-fatalerror --report-uncaught-exception --report-dir=C:\Users\LENOVO\AppData\Local\Huawei\DevEcoStudio26.0\log\lsp-server\1792594232709 --report-filename=
+                                             nodejs_error_1793096875899.txt "D:\DevEcoStudio\DevEco Studio\plugins\openharmony\ace-server\out\index.js" --stdio --logger-path=C:\Users\LENOVO\AppData\Local\Huawei\DevEcoStudio26.0\log\lsp-server\1792594232709 --logger-level=INFO --locale=zh-cn         
+    49816 node.exe       2026/10/27 22:01:53 "D:\DevEcoStudio\DevEco Studio\tools\node\node.exe" --max-old-space-size=8192 --max-semi-space-size=16 --expose-gc "D:\DevEcoStudio\DevEco Studio\tools\hvigor\hvigor\src\base\daemon\process\daemon-process-boot-script.js" INFO 00000050316dc2ea8e37a43288f31
+                                             15cd6da78bc84d7d2c141756433accaf51bd5a9f7f8d3afb36b3ddddca11c0621ba9f08fff5a44fbf5823524dca1147232f025cbe95021e6db73a2ce07928b60c3f3f68956d5663e1902dac74d05549b404                                                                                            
+    46148 node.exe       2026/10/27 22:01:53 "D:\DevEcoStudio\DevEco Studio\tools\node\node.exe" --max-old-space-size=8192 --max-semi-space-size=16 --expose-gc "D:\DevEcoStudio\DevEco Studio\tools\hvigor\hvigor\src\base\daemon\process\daemon-process-boot-script.js" INFO 00000050316dc2ea8e37a43288f31
+                                             15cd6da78bc84d7d2c141756433accaf51bd5a9f7f8d3afb36b3ddddca11c0621ba9f08fff5a44fbf5823524dca1147232f025cbe95021e6db73a2ce07928b60c3f3f68956d5663e1902dac74d05549b404                                                                                            
+    27820 node.exe       2026/10/27 22:29:42 "D:\Node\node.exe" D:\OpenHarmony\competition\bridge\mqtt_broker.js 1883                                                                                                                                                                                       
+    54300 powershell.exe 2026/10/27 22:34:36 C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoLogo -NoProfile -NonInteractive -Command "[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false); $OutputEncoding = [System.Text.UTF8Encoding]::new($false); cd D:\OpenHarmony\compet
+                                             ition\evidence\2026-10-27-wireless-without-usb\tools; node collect-timeline.js"                                                                                                                                                                                
+    52772 node.exe       2026/10/27 22:34:37 "D:\Node\node.exe" collect-timeline.js                                                                                                                                                                                                                         
+    31928 hdc.exe        2026/10/27 22:56:37 dummy -l 3 -s ::ffff:127.0.0.1:8710 -m                                                                                                                                                                                                                         
+    40628 node.exe       2026/10/27 23:08:20 "D:\Node\node.exe"  public-sync-supervisor.js   --state-file "D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\public-sync-supervisor.state.json"   --lock-file "D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\public-sy
+                                             nc-supervisor.lock"   --log-file "D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\public-sync-supervisor.log"                                                                                                                               
+    56416 node.exe       2026/10/27 23:08:42 D:\Node\node.exe D:\OpenHarmony\competition\cloud\onenet\public-sync-worker.js                                                                                                                                                                                 
+    11932 node.exe       2026/10/27 23:48:10 "D:\Node\node.exe"  server.js --source api --transport relay --relay-to 10.127.130.250:9000 --listen-port 9002 --runtime-dir "D:\OpenHarmony\competition\cloud\wearable-mirror\runtime" --heartbeat-ms 5000 --poll-ms 2000 --api-base https://api.luxunacc.xyz 
+    65880 pwsh.exe       2026/10/28 0:19:46  "C:\Users\LENOVO\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\powershell\pwsh.exe" -Command "try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}                                                                        
+                                             $names = 'hdc','mosquitto_pub','mosquitto_sub'; foreach ($n in $names) { $c = Get-Command $n -ErrorAction SilentlyContinue; if ($c) { \"$n=$($c.Source)\" } }; Get-Process | Where-Object { $_.ProcessName -match 'mqtt|bridge|homemon|fall|yolo|mirror|supervi
+                                             sor' } | Select-Object ProcessName,Id,StartTime; Test-NetConnection 10.127.130.250 -Port 9000 -InformationLevel Quiet; Test-NetConnection 127.0.0.1 -Port 1883 -InformationLevel Quiet; Test-NetConnection 127.0.0.1 -Port 9101 -InformationLevel Quiet; Get-Ch
+                                             ildItem competition -Recurse -File -Include '*fall*test*','*fall*accept*','*fall*inject*' | Select-Object -First 40 FullName"                                                                                                                                  
+    65104 node.exe       2026/10/28 0:19:55  "D:\Node\node.exe" server.js                                                                                                                                                                                                                                   
+    65460 powershell.exe 2026/10/28 0:24:16  C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoLogo -NoProfile -NonInteractive -Command "[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false); $OutputEncoding = [System.Text.UTF8Encoding]::new($false); cd D:\OpenHarmony\compet
+                                             ition                                                                                                                                                                                                                                                          
+                                             Get-ChildItem -Recurse -File -Include *.ps1,*.js,*.mjs,*.py,*.md,*.json5,*.json,*.sh,*.bat -ErrorAction SilentlyContinue | Where-Object {$_.FullName -notmatch 'evidence\\'} | Select-String -Pattern 'dayu-eldercare-preview-integration-2026-10-25' -SimpleMa
+                                             tch | ForEach-Object { '{0}:{1}: {2}' -f $_.Path.Replace('D:\OpenHarmony\competition\',''), $_.LineNumber, $_.Line.Trim() } | Select-Object -First 150"                                                                                                        
+    55480 powershell.exe 2026/10/28 0:24:37  C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoLogo -NoProfile -NonInteractive -Command "[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false); $OutputEncoding = [System.Text.UTF8Encoding]::new($false); $ev='D:\OpenHarmony\comp
+                                             etition\evidence\2026-10-27-video-fps'; Write-Host \"=== restart bridge -> .131 ===\"; Get-CimInstance Win32_Process -Filter \"Name='node.exe'\" | Where-Object {$_.CommandLine -match 'mqtt_bridge'} | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -
+                                             ErrorAction SilentlyContinue; Write-Host (\"stopped bridge \" + $_.ProcessId) }; Start-Sleep -Seconds 1; $root='D:\OpenHarmony\competition\evidence\2026-10-27-wireless-without-usb'; $sup='D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor'
+                                             ; Start-Process -FilePath 'D:\Node\node.exe' -ArgumentList @('D:\OpenHarmony\competition\bridge\mqtt_bridge.js','--broker','127.0.0.1:1883','--status-tcp','10.127.130.131:9000','--listen','9101','--relay-to','10.127.130.131:9000','--relay-ignore','esp32-s
+                                             os','--lock-file',\"$sup\bridge.lock\",'--cmd-out',\"$sup\control\",'--status-file',\"$sup\status.json\") -RedirectStandardOutput \"$root\bridge-wifi-131.log\" -RedirectStandardError \"$root\bridge-wifi-131.err.log\" -WindowStyle Hidden; Start-Sleep -Seco
+                                             nds 3; Get-NetTCPConnection -LocalPort 9101 -State Listen -ErrorAction SilentlyContinue | Select-Object OwningProcess; Write-Host \"=== restart relay ===\"; Get-CimInstance Win32_Process -Filter \"Name='node.exe'\" | Where-Object {$_.CommandLine -match '^
+                                             \"?D:\\Node\\node.exe\"? server\.js\s*$'} | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }; Start-Sleep -Seconds 1; $env:VIDEO_MODE='local'; $env:VIDEO_RELAY_HOST='0.0.0.0'; $env:VIDEO_RELAY_PORT='9443'; $env:BACKEND
+                                             _BASE='https://api.luxunacc.xyz'; $env:DAYU_HOST='10.127.130.131'; $env:DAYU_PORT='9301'; Start-Process -FilePath 'D:\Node\node.exe' -ArgumentList @('server.js') -WorkingDirectory 'D:\OpenHarmony\competition\video\relay' -RedirectStandardOutput (Join-Path
+                                              $ev 'relay-final2.out.log') -RedirectStandardError (Join-Path $ev 'relay-final2.err.log') -WindowStyle Hidden; Start-Sleep -Seconds 2; (Invoke-WebRequest -Uri 'http://127.0.0.1:9443/video/healthz' -TimeoutSec 5 -UseBasicParsing).Content; Write-Host \"===
+                                              reopen APP video ===\"; $h='D:\OpenHarmony\tools\hdc\hdc.exe'; $e='127.0.0.1:5555'; & $h -t $e shell \"aa start -b com.example.program_04 -a EntryAbility\" 2>&1 | Out-Null; Start-Sleep -Seconds 3; & $h -t $e shell \"uitest uiInput click 181 2668\" 2>&1 |
+                                              Out-Null; Start-Sleep -Seconds 2; & $h -t $e shell \"uitest dumpLayout -p /data/local/tmp/hh.json\" 2>&1 | Out-Null; & $h -t $e file recv /data/local/tmp/hh.json D:\OpenHarmony\tmp\hh.json 2>&1 | Out-Null; $raw=Get-Content D:\OpenHarmony\tmp\hh.json -Raw
+                                              -Encoding UTF8; $m=[regex]::Match($raw,'\"bounds\":\"\[(\d+),(\d+)\]\[(\d+),(\d+)\]\"[^{}]*?\"(?:originalText|text)\":\"视频探望\"'); if($m.Success){ $x=[int](([int]$m.Groups[1].Value+[int]$m.Groups[3].Value)/2); $y=[int](([int]$m.Groups[2].Value+[int]$m.Gro
+                                             ups[4].Value)/2); & $h -t $e shell \"uitest uiInput click $x $y\" 2>&1 | Out-Null; Write-Host \"opened video\"; Start-Sleep -Seconds 6; (Invoke-WebRequest -Uri 'http://127.0.0.1:9443/video/healthz' -TimeoutSec 5 -UseBasicParsing).Content } else { Write-Ho
+                                             st \"video entry not found\" }"                                                                                                                                                                                                                                
+    60896 node.exe       2026/10/28 0:24:39  "D:\Node\node.exe" D:\OpenHarmony\competition\bridge\mqtt_bridge.js --broker 127.0.0.1:1883 --status-tcp 10.127.130.131:9000 --listen 9101 --relay-to 10.127.130.131:9000 --relay-ignore esp32-sos --lock-file D:\OpenHarmony\competition\bridge\_test\current-
+                                             runtime\supervisor\bridge.lock --cmd-out D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\control --status-file D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\status.json                                               
+    65372 powershell.exe 2026/10/28 0:24:40  C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoLogo -NoProfile -NonInteractive -Command "[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false); $OutputEncoding = [System.Text.UTF8Encoding]::new($false); $ev='D:\OpenHarmony\comp
+                                             etition\evidence\2026-10-28-three-legacy-closures\watcher'                                                                                                                                                                                                     
+                                             $stamp=Get-Date -Format 'yyyyMMdd-HHmmss'                                                                                                                                                                                                                      
+                                             $log=Join-Path $ev (\"logs/00-live-snapshot-$stamp.log\")                                                                                                                                                                                                      
+                                             $hdc='D:\DevEcoStudio\DevEco Studio\sdk\default\openharmony\toolchains\hdc.exe'; $t='450100445634303332012847942eca00'                                                                                                                                         
+                                             $out=New-Object System.Collections.Generic.List[string]                                                                                                                                                                                                        
+                                             function A($s){ $script:out.Add($s) }                                                                                                                                                                                                                          
+                                             A (\"# live snapshot \" + (Get-Date -Format 'yyyy-MM-dd HH:mm:ss zzz') + \" Asia/Shanghai\")                                                                                                                                                                   
+                                             A \"## PC processes (powershell/node/python/hdc)\"                                                                                                                                                                                                             
+                                             A ((Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(powershell|pwsh|node|python|hdc)\.exe$' } | Select-Object ProcessId,Name,CreationDate,CommandLine | Format-Table -AutoSize -Wrap | Out-String -Width 300))                                
+                                             A \"## TCP listen 1883/9001/9101/9200/9301/9443\"                                                                                                                                                                                                              
+                                             A ((Get-NetTCPConnection -State Listen -ErrorAction SilentlyContinue | Where-Object { $_.LocalPort -in 1883,9001,9101,9200,9301,9443 } | Select-Object LocalAddress,LocalPort,OwningProcess | Sort-Object LocalPort | Format-Table -AutoSize | Out-String -Widt
+                                             h 160))                                                                                                                                                                                                                                                        
+                                             A \"## hdc list targets -v\"                                                                                                                                                                                                                                   
+                                             A ((& $hdc list targets -v 2>&1) -join \"`n\")                                                                                                                                                                                                                 
+                                             A \"## hdc fport ls\"                                                                                                                                                                                                                                          
+                                             A ((& $hdc fport ls 2>&1) -join \"`n\")                                                                                                                                                                                                                        
+                                             A \"## DAYU ifconfig wlan0\"                                                                                                                                                                                                                                   
+                                             A (((& $hdc -t $t shell 'ifconfig wlan0' 2>&1) -join \"`n\"))                                                                                                                                                                                                  
+                                             A \"## DAYU uptime\"                                                                                                                                                                                                                                           
+                                             A (((& $hdc -t $t shell 'uptime' 2>&1) -join \"`n\"))                                                                                                                                                                                                          
+                                             A \"## DAYU pidof homemon/app/inference\"                                                                                                                                                                                                                      
+                                             A (((& $hdc -t $t shell 'pidof homemon; pidof com.dsh.eldercare; pidof dayu_local_fall' 2>&1) -join \"`n\"))                                                                                                                                                   
+                                             A \"## DAYU netstat 9000/9200/9301\"                                                                                                                                                                                                                           
+                                             A (((& $hdc -t $t shell 'netstat -lntp' 2>&1) | Select-String -Pattern ':9000|:9200|:9301' | Out-String))                                                                                                                                                      
+                                             A \"## DAYU homemon sha256\"                                                                                                                                                                                                                                   
+                                             A (((& $hdc -t $t shell 'sha256sum /data/homemon/homemon' 2>&1) -join \"`n\"))                                                                                                                                                                                 
+                                             A \"## DAYU APP versionName\"                                                                                                                                                                                                                                  
+                                             A (((& $hdc -t $t shell 'bm dump -n com.dsh.eldercare' 2>&1) | Select-String -Pattern '\"versionName\": \"1\.' | Out-String))                                                                                                                                  
+                                             A \"## watcher-state.json (evidence/2026-10-26-demo-autostart/runtime)\"                                                                                                                                                                                       
+                                             A (Get-Content -LiteralPath 'D:\OpenHarmony\competition\evidence\2026-10-26-demo-autostart\runtime\watcher-state.json' -Raw)                                                                                                                                   
+                                             A \"## supervisor state\"                                                                                                                                                                                                                                      
+                                             A (Get-Content -LiteralPath 'D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\public-sync-supervisor.state.json' -Raw)                                                                                                                       
+                                             A \"## supervisor lock / bridge lock\"                                                                                                                                                                                                                         
+                                             A ((\"lock=\" + (Get-Content -LiteralPath 'D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\public-sync-supervisor.lock' -Raw).Trim() + \" bridge.lock=\" + (Get-Content -LiteralPath 'D:\OpenHarmony\competition\bridge\_test\current-runtim
+                                             e\supervisor\bridge.lock' -Raw).Trim()))                                                                                                                                                                                                                       
+                                             A \"## watcherPid 58052 alive?\"                                                                                                                                                                                                                               
+                                             A ((Get-Process -Id 58052 -ErrorAction SilentlyContinue | Select-Object Id,ProcessName,StartTime | Format-Table -AutoSize | Out-String))                                                                                                                       
+                                             A \"## demo-autostart mutex exists?\"                                                                                                                                                                                                                          
+                                             try { $m=[System.Threading.Mutex]::OpenExisting('Global\DayuDemoAutostart20261026'); A 'MUTEX EXISTS'; $m.Dispose() } catch { A ('MUTEX NOT FOUND: ' + $_.Exception.GetType().Name) }                                                                          
+                                             A \"## mirror lock / status\"                                                                                                                                                                                                                                  
+                                             A (Get-Content -LiteralPath 'D:\OpenHarmony\competition\cloud\wearable-mirror\runtime\mirror.lock' -Raw)                                                                                                                                                       
+                                             A (Get-Content -LiteralPath 'D:\OpenHarmony\competition\cloud\wearable-mirror\runtime\mirror-status.json' -Raw)                                                                                                                                                
+                                             A \"## last 15 lines supervisor log\"                                                                                                                                                                                                                          
+                                             A ((Get-Content -LiteralPath 'D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\public-sync-supervisor.log' -Tail 15) -join \"`n\")                                                                                                           
+                                             $text=$out -join \"`n`n\"                                                                                                                                                                                                                                      
+                                             $text | Set-Content -LiteralPath $log -Encoding UTF8                                                                                                                                                                                                           
+                                             Write-Host $text                                                                                                                                                                                                                                               
+                                             Write-Host ''                                                                                                                                                                                                                                                  
+                                             Write-Host (\"SNAPSHOT_SAVED=\" + $log)"                                                                                                                                                                                                                       
+    57728 powershell.exe 2026/10/28 0:24:41  powershell  -NoProfile -Command "Get-NetTCPConnection -LocalPort 9101 -ErrorAction SilentlyContinue | Where-Object {$_.State -eq 'Established'} | ForEach-Object { $_.RemoteAddress + ':' + $_.RemotePort }"                                                   
+    43908 hdc.exe        2026/10/28 0:24:42                                                                                                                                                                                                                                                                 
+
+
+
+
+## TCP listen 1883/9001/9101/9200/9301/9443
+
+
+LocalAddress LocalPort OwningProcess
+------------ --------- -------------
+::                1883         27820
+::                9101         60896
+0.0.0.0           9443         65104
+
+
+
+
+## hdc list targets -v
+
+127.0.0.1:5555		TCP	Connected	localhost	hdc
+450100445634303332012847942eca00		USB	Connected	localhost	hdc
+COM11		UART	Ready	unknown...	hdc
+COM19		UART	Ready	unknown...	hdc
+COM20		UART	Ready	unknown...	hdc
+
+## hdc fport ls
+
+[Empty]
+
+
+## DAYU ifconfig wlan0
+
+wlan0     Link encap:Ethernet  HWaddr 54:78:c9:96:a6:b2  Driver bcmsdh_sdmmc
+          inet addr:10.127.130.131  Bcast:10.127.130.255  Mask:255.255.255.0 
+          inet6 addr: 2409:8949:6b9e:4f5:5678:c9ff:fe96:a6b2/64 Scope: Global
+          inet6 addr: 2409:8949:6b9e:4f5:dc21:1116:1720:6632/64 Scope: Global
+          inet6 addr: fe80::5678:c9ff:fe96:a6b2/64 Scope: Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:33119 errors:0 dropped:0 overruns:0 frame:0 
+          TX packets:53176 errors:0 dropped:0 overruns:0 carrier:0 
+          collisions:0 txqueuelen:1000 
+          RX bytes:2973521 TX bytes:54112218 
+
+
+## DAYU uptime
+
+ 00:24:47 up 12:30,  0 users,  load average: 6.31, 6.20, 6.23
+
+## DAYU pidof homemon/app/inference
+
+23450
+27321
+2379
+
+## DAYU netstat 9000/9200/9301
+
+
+tcp        0      0 0.0.0.0:9000            0.0.0.0:*               LISTEN      23450/homemon
+tcp        0      0 127.0.0.1:9200          0.0.0.0:*               LISTEN      2379/dayu_local_fall
+tcp        0      0 0.0.0.0:9301            0.0.0.0:*               LISTEN      27321/com.dsh.eldercare
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51800         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:49866         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51116         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:44526         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:44450         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:44506         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51884         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:36558         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:38622         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:36602         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51826         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:44594         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:38506         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:44462         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:49788         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:36636         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:44650         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51870         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:49758         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:44660         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:44516         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:49854         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51186         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51900         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:49878         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51906         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51102         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51156         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:36552         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:44522         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:49852         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:49740         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9000          127.0.0.1:42788         ESTABLISHED 23450/homemon
+tcp        0      0 127.0.0.1:9200          127.0.0.1:38638         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:50978         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:44664         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51838         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:44480         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51046         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:49736         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:36628         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:38570         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:36562         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:44466         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51768         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:38544         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51090         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:36470         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51822         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:36478         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:49894         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:38650         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:49818         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:49730         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:49896         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51860         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:44542         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:38468         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:44496         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:38586         TIME_WAIT   -
+tcp        0      0 127.0.0.1:42788         127.0.0.1:9000          ESTABLISHED 27321/com.dsh.eldercare
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51016         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:38594         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:38624         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:49810         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51896         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:49846         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51018         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:39520         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:44636         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:36504         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:49724         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:38630         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51812         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51034         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:38600         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51196         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:38640         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:36468         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:36590         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51062         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51784         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51126         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:38612         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:49808         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:49830         TIME_WAIT   -
+tcp        0   1866 10.127.130.131:9000     10.127.130.179:55107    ESTABLISHED 23450/homemon
+tcp        0      0 127.0.0.1:9200          127.0.0.1:38478         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:36516         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:49748         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:44624         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:36526         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51140         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51160         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51170         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:44578         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51916         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:49774         TIME_WAIT   -
+tcp        0   1866 10.127.130.131:9000     10.127.130.179:55108    ESTABLISHED 23450/homemon
+tcp        0      0 127.0.0.1:9200          127.0.0.1:36548         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51000         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:50966         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:38620         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:38516         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:38492         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:36512         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:38554         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51004         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51886         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:44564         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51858         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:49762         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51932         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:36538         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51922         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:44562         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:38590         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:51814         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:39536         TIME_WAIT   -
+tcp        0      0 127.0.0.1:36574         127.0.0.1:9200          TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:50990         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:44608         TIME_WAIT   -
+tcp        0      0 127.0.0.1:9200          127.0.0.1:49842         TIME_WAIT   -
+
+
+
+
+## DAYU homemon sha256
+
+f6f4497c57492ca00f9ac70bf9a00330ebd5c658e2c134eae006cb5f0de2899b  /data/homemon/homemon
+
+## DAYU APP versionName
+
+
+        "versionName": "1.0.10"
+    "versionName": "1.0.10"
+
+
+
+
+## watcher-state.json (evidence/2026-10-26-demo-autostart/runtime)
+
+{
+    "timestamp":  "2026-10-27 23:04:30",
+    "target":  "450100445634303332012847942eca00",
+    "targetConnected":  true,
+    "p0":  "healthy",
+    "app":  "present",
+    "inference":  "running",
+    "cameraFrames":  "LIVE",
+    "nodes":  "4/4",
+    "userStop":  false,
+    "userPaused":  false,
+    "lastEventCount":  149070,
+    "watcherPid":  58052
+}
+
+
+## supervisor state
+
+{
+  "supervisorPid": 40628,
+  "workerPid": 56416,
+  "state": "HEALTHY",
+  "startedAt": 1793113700879,
+  "heartbeatAt": 1793118283902,
+  "restartCount": 0,
+  "lastWorkerStartedAt": 1793113722711,
+  "lastWorkerExit": null,
+  "lastHealthyAt": 1793113722955
+}
+
+
+## supervisor lock / bridge lock
+
+lock=40628 bridge.lock=60896
+
+## watcherPid 58052 alive?
+
+
+
+## demo-autostart mutex exists?
+
+MUTEX NOT FOUND: MethodInvocationException
+
+## mirror lock / status
+
+{"pid":11932,"startedAt":"2026-10-27T15:48:10.387Z","host":"pc"}
+
+
+{
+  "schemaVersion": 1,
+  "pid": 11932,
+  "startedAt": 1793116090390,
+  "updatedAt": 1793118289566,
+  "running": true,
+  "source": "api",
+  "modelSource": "api",
+  "hasData": true,
+  "phase": "ACKED",
+  "online": true,
+  "lastEmitAt": 1793118287810,
+  "emitCount": 465,
+  "changeEmitCount": 77,
+  "heartbeatEmitCount": 388,
+  "sourceSwitches": 0,
+  "fatalError": "",
+  "config": {
+    "source": "api",
+    "transport": "relay",
+    "mqttHost": "47.76.70.118:1883",
+    "mqttClientId": "wearable-mirror-001",
+    "upTopic": "eldercare/wearable/sos-001/up",
+    "hasMqttCredentials": true,
+    "apiBase": "https://api.luxunacc.xyz",
+    "hasGuardianCredentials": true,
+    "guardianSource": "file",
+    "apiPollMs": 2000,
+    "relay": "10.127.130.250:9000",
+    "tcpListen": "127.0.0.1:9002",
+    "deviceId": "esp32-sos",
+    "room": "闅忚韩姹傚姪",
+    "heartbeatMs": 5000,
+    "offlineAfterMs": 45000,
+    "runtimeDir": "D:\\OpenHarmony\\competition\\cloud\\wearable-mirror\\runtime"
+  },
+  "model": {
+    "lastDeviceMsgAt": 1793118286941,
+    "lastSeenPcMs": 1793118287681,
+    "event": {
+      "alarmId": "sos-11-686d1dee",
+      "eventTs": 1793116331119,
+      "acked": true,
+      "ackTs": 1793116362948,
+      "ackedBy": "device-ack-via-backend",
+      "gpsSource": "none"
+    },
+    "latestGps": null,
+    "latestGpsSource": "none",
+    "lastReject": null,
+    "counters": {
+      "payloads": 0,
+      "business": 0,
+      "sos": 0,
+      "sosRetransmit": 0,
+      "sosStale": 0,
+      "hb": 0,
+      "ack": 0,
+      "ackStale": 0,
+      "ackDuplicate": 0,
+      "boot": 0,
+      "gpsOk": 0,
+      "gpsReject": 0,
+      "malformed": 0,
+      "foreignDevice": 0,
+      "hbIdleWhileAlarm": 0,
+      "hbAlarmMismatch": 0,
+      "apiPolls": 742,
+      "apiSnapshots": 742
+    }
+  },
+  "sourceStatus": {
+    "kind": "api",
+    "base": "https://api.luxunacc.xyz",
+    "running": true,
+    "lastSnapshot": {
+      "state": "NORMAL",
+      "online": true,
+      "lastSeenTs": 1793118286941,
+      "alarmId": "",
+      "alarmState": "",
+      "gpsValid": false
+    },
+    "polls": 748,
+    "ok": 742,
+    "errors": 6,
+    "authFailures": 0,
+    "logins": 1,
+    "lastError": "TypeError",
+    "lastOkAt": 1793118287681,
+    "lastPollAt": 1793118287407
+  },
+  "transports": [
+    {
+      "kind": "relay",
+      "target": "10.127.130.250:9000",
+      "connected": false,
+      "linesSent": 150,
+      "lastSentAt": 1793116808815,
+      "lastConnectedAt": 1793116580237,
+      "connects": 2,
+      "disconnects": 56,
+      "lastError": "ETIMEDOUT"
+    }
+  ]
+}
+
+
+## last 15 lines supervisor log
+
+2026-10-27T16:19:25.055Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793117964958 deviceTs=1793117965035 path=/internal/v1/device-status status=202 at=2026-10-27T16:19:25.054Z
+2026-10-27T16:19:30.715Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-27T16:19:30.715Z
+2026-10-27T16:19:54.719Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1793117994579 deviceTs=1793117994445 path=/internal/v1/device-status status=202 at=2026-10-27T16:19:54.718Z
+2026-10-27T16:19:58.151Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793117997898 deviceTs=1793117997957 path=/internal/v1/device-status status=202 at=2026-10-27T16:19:58.150Z
+2026-10-27T16:20:30.908Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-27T16:20:30.907Z
+2026-10-27T16:21:31.382Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-27T16:21:31.382Z
+2026-10-27T16:21:42.563Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793118100993 deviceTs=0 path=/internal/v1/device-status status=202 at=2026-10-27T16:21:42.563Z
+2026-10-27T16:22:14.010Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793118133914 deviceTs=1793118133970 path=/internal/v1/device-status status=202 at=2026-10-27T16:22:14.009Z
+2026-10-27T16:22:32.196Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-27T16:22:32.195Z
+2026-10-27T16:22:44.594Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793118164503 deviceTs=1793118150430 path=/internal/v1/device-status status=202 at=2026-10-27T16:22:44.594Z
+2026-10-27T16:23:20.220Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793118199195 deviceTs=1793118199267 path=/internal/v1/device-status status=202 at=2026-10-27T16:23:20.219Z
+2026-10-27T16:23:33.445Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-27T16:23:33.444Z
+2026-10-27T16:23:52.330Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793118232110 deviceTs=1793118232187 path=/internal/v1/device-status status=202 at=2026-10-27T16:23:52.329Z
+2026-10-27T16:24:25.142Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793118265028 deviceTs=1793118265087 path=/internal/v1/device-status status=202 at=2026-10-27T16:24:25.141Z
+2026-10-27T16:24:33.696Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-27T16:24:33.695Z

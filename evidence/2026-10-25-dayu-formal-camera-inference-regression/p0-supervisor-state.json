@@ -1,0 +1,11 @@
+{
+  "supervisorPid": 11632,
+  "workerPid": 9908,
+  "state": "HEALTHY",
+  "startedAt": 1792938447557,
+  "heartbeatAt": 1792941312433,
+  "restartCount": 0,
+  "lastWorkerStartedAt": 1792938461677,
+  "lastWorkerExit": null,
+  "lastHealthyAt": 1792938461927
+}

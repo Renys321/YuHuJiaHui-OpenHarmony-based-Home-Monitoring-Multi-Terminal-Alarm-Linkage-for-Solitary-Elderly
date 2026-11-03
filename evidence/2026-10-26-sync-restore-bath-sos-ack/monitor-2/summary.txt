@@ -1,0 +1,2 @@
+# field-monitor start 2026-10-26T14:55:05.239+00:00
+stop=2026-10-26T14:55:17.251+00:00 reason=duration mqttStatusMsgs=2 ackedObserved=0 snapshots=3 markerLines=0 packetsSentTypes=[1,8] (1=CONNECT,8=SUBSCRIBE,12=PINGREQ; 3=PUBLISH 绝不应出现) out=<WORKSPACE>\competition\evidence\2026-10-26-sync-restore-bath-sos-ack\monitor-2

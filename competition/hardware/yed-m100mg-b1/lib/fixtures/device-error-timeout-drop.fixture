@@ -1,0 +1,40 @@
+# lib/fixtures/device-error-timeout-drop.fixture
+#
+# 用途：覆盖 ERROR、命令超时、URC 与命令响应交错、以及串口掉线四种异常路径。
+# 回放顺序：
+#   1) firmwarever 第 1 次 -> 正常
+#   2) paramver   第 1 次 -> 完全不响应（TIMEOUT）；第 2 次 -> ERROR；第 3 次 -> 正常
+#      （CLI 默认 retries=1，因此一次探测通常只会看到 TIMEOUT 后重试一次的结果）
+#   3) csq        第 1 次 -> 返回 ERROR
+#   4) ssta       第 1 次 -> 命令响应与 URC 交错（URC 不得混入响应行）
+#   5) location   第 1 次 -> 串口掉线
+# 性质：构造夹具，非真机录制。
+
+>>> config,get,firmwarever
+config,get,firmwarever
+config,firmwarever,ok,YED_DTU4_2.0.3
+
+>>> config,get,paramver
+<<< TIMEOUT
+
+>>> config,get,paramver
+config,get,paramver
+ERROR
+
+>>> config,get,paramver
+config,get,paramver
+config,paramver,ok,0
+
+>>> config,get,csq
+config,get,csq
+ERROR
+
+>>> config,get,ssta
+^^^ URC +SSTA: 3
+config,get,ssta
+^^^ URC +CPIN: READY
+config,ssta,ok,3
+^^^ URC RING
+
+>>> config,get,location,2
+^^^ DROP adaptor reported device removal

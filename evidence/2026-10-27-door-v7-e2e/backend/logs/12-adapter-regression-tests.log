@@ -1,0 +1,200 @@
+﻿✔ 新增 valid 字段被接受（这是此前 INVALID_STATUS 的唯一原因） (10.5436ms)
+✔ valid 不透传到上云载荷（后端合同不变） (0.6534ms)
+✔ valid 类型不是布尔仍拒绝 (0.7696ms)
+✔ 其它未知字段仍严格拒绝 (2.1822ms)
+✔ 不含 valid 的旧报文不受影响 (0.4397ms)
+✔ climate.valid 非布尔被拒绝 (0.275ms)
+✔ buildTopics creates only canonical OneJSON topics (4.0996ms)
+✔ buildTopics rejects traversal, separators, whitespace and oversized segments (0.6776ms)
+✔ toPropertyPost maps the complete internal state with one millisecond timestamp (1.6582ms)
+✔ toPropertyPost accepts flat optional fields and derives online from state (0.9436ms)
+✔ state conversion rejects invalid timestamps and sensor ranges (0.7855ms)
+✔ toAlarmEvent emits one alarm event and optional GPS (0.4549ms)
+✔ toAlarmEvent refuses non-alarm state, empty alarm and unknown alarm type (0.6942ms)
+✔ property/set maps ACK, including the documented value wrapper (0.5628ms)
+✔ property/set maps RESET and bounded SET_CONFIG (0.5285ms)
+✔ property/set rejects unknown commands, fields, injection and dangerous config (0.8461ms)
+✔ property/set enforces protocol envelope and payload size (0.4451ms)
+✔ property/set reply is tied to the request id (1.2085ms)
+✔ message ids are numeric strings with at most 13 digits (0.2683ms)
+✔ GPS distinguishes an invalid indoor fix from a valid WGS84 fix (0.3183ms)
+✔ utcNowMs returns a current 13-digit UTC epoch millisecond value (0.2618ms)
+✔ thing-model is valid JSON and covers every required identifier (0.9342ms)
+✔ OneNET import model matches the adapter-facing identifiers (1.2066ms)
+✔ requires an ingest key to be enabled, and stays inert without one (4.2434ms)
+[cloud-sync] OK device=dayu200-living ts=1791609077775 deviceTs=- path=/internal/v1/device-status status=200 at=2026-10-26T17:52:24.647Z
+✔ posts the exact payload shape the trusted backend ingests (9.0318ms)
+✔ preserves validated sensors, GPS and CSQ for the trusted backend (3.1646ms)
+✔ preserves the bounded FALL evidence association key (0.4096ms)
+✔ rejects an invalid evidence association before network I/O (0.5278ms)
+✔ every synced state is one the backend accepts (0.6859ms)
+✔ a device OFFLINE state is expressed as online=false with an accepted state (0.1961ms)
+✔ preserves strict monitor status for the trusted backend and rejects invalid values (0.7995ms)
+[cloud-sync] FAIL code=ECONNREFUSED device=dayu200-living
+✔ backend failures never throw and are reduced to safe codes (3.3837ms)
+[cloud-sync] FAIL code=SYNC_HTTP_ERROR device=dayu200-living
+[cloud-sync] FAIL code=SYNC_REQUEST_FAILED device=dayu200-living
+✔ non-2xx responses are reported as a safe HTTP error code, not a success (1.0952ms)
+✔ a throwing http transport is contained instead of crashing the gateway (0.5699ms)
+✔ an invalid device is rejected locally without any network call (0.2585ms)
+✔ the ingest key never appears in logs (1.0573ms)
+✔ rejects a backend URL carrying credentials, query or fragment (0.7018ms)
+✔ createCloudSyncFromEnv reads BACKEND_URL and BACKEND_INGEST_KEY (0.2938ms)
+✔ the gateway syncs aggregated state to the backend without blocking on it (10.3251ms)
+✔ a broken backend sync cannot break local ingestion or alarm dedup (1.3702ms)
+✔ exposes the shared contract surface with safe defaults (2.0106ms)
+✔ rejects unsafe or malformed options (1.4503ms)
+✔ creates a disabled client from empty env and reads configured env (0.3766ms)
+✔ accepts a fully valid ACK command and trims the action (2.1294ms)
+✔ rejects every incomplete, unsupported or already-completed command (0.6522ms)
+✔ isSafeAction allows Chinese text but rejects control characters (0.2208ms)
+✔ builds the exact downlink payload used by the local bridge (0.2118ms)
+✔ stays disabled and never touches the network without an ingest key (0.5008ms)
+✔ polls with the ingest key, publishes directly, waits for a real receipt, then reports ACKED (15.7749ms)
+[command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-26T17:52:24.691Z
+[command-sync] ACK_SENT id=21 device=dayu200-room-1
+[command-sync] ACKED id=21 device=dayu200-room-1
+✔ supports an injected MQTT client with QoS 1 and retain disabled (10.565ms)
+[command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-26T17:52:24.701Z
+[command-sync] ACK_SENT id=22 device=dayu200-room-1
+[command-sync] ACKED id=22 device=dayu200-room-1
+✔ supports the promise publisher injection point (14.1367ms)
+[command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-26T17:52:24.716Z
+[command-sync] ACK_FAIL code=PUBLISH_FAILED id=23 device=dayu200-room-1
+✔ awaits an asynchronous publishCommand result instead of treating the Promise as success (3.9373ms)
+[command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-26T17:52:24.719Z
+[command-sync] ACK_SENT id=3 device=dayu200-room-1
+[command-sync] ACK_FAIL code=ACK_TIMEOUT id=3 device=dayu200-room-1
+✔ never accepts a pre-existing ACKED state as the receipt (104.7611ms)
+[command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-26T17:52:24.824Z
+[command-sync] ACK_SENT id=4 device=dayu200-room-1
+[command-sync] ACK_FAIL code=ACK_TIMEOUT id=4 device=dayu200-room-1
+✔ ignores ACKED receipts whose alarm id does not match the command (109.2463ms)
+[command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-26T17:52:24.933Z
+[command-sync] ACK_FAIL code=PUBLISH_FAILED id=5 device=dayu200-room-1
+✔ reports FAILED with a bounded code when the downlink never succeeds (0.8322ms)
+[command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-26T17:52:24.934Z
+[command-sync] ACK_SENT id=9 device=dayu200-room-1
+[command-sync] ACKED id=9 device=dayu200-room-1
+✔ retries a failed publish and still requires a real receipt before ACKED (14.2241ms)
+[command-sync] POLL_FAIL code=SYNC_TIMEOUT
+✔ a transport failure surfaces as a bounded code without throwing (1.0202ms)
+[command-sync] POLL_FAIL code=SYNC_HTTP_ERROR
+[command-sync] POLL_FAIL code=SYNC_BAD_JSON
+✔ surfaces list HTTP failures and bad JSON without moving the cursor (0.7994ms)
+[command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-26T17:52:24.950Z
+[command-sync] ACK_SENT id=61 device=dayu200-room-1
+[command-sync] ACKED id=61 device=dayu200-room-1
+[command-sync] RESULT_FAIL code=SYNC_HTTP_ERROR id=61 device=dayu200-room-1
+✔ retries an ACKED result write-back without re-publishing or re-waiting (13.7277ms)
+[command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-26T17:52:24.964Z
+[command-sync] ACK_SENT id=62 device=dayu200-room-1
+[command-sync] ACK_FAIL code=ACK_TIMEOUT id=62 device=dayu200-room-1
+[command-sync] RESULT_FAIL code=SYNC_HTTP_ERROR id=62 device=dayu200-room-1
+✔ retries a FAILED result write-back without re-publishing (107.9869ms)
+[command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-26T17:52:25.072Z
+[command-sync] ACK_SENT id=4 device=dayu200-room-1
+[command-sync] ACKED id=4 device=dayu200-room-1
+✔ never publishes or reports the same command twice within one list (14.1567ms)
+[command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-26T17:52:25.087Z
+[command-sync] ACK_SENT id=11 device=dayu200-room-1
+[command-sync] ACKED id=11 device=dayu200-room-1
+✔ a settled command reappearing in a later poll is skipped (15.5086ms)
+[command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-26T17:52:25.102Z
+[command-sync] COMMAND_IGNORED code=UNSUPPORTED_COMMAND
+[command-sync] COMMAND_IGNORED code=INVALID_DEVICE_ID
+[command-sync] COMMAND_IGNORED code=INVALID_ACTION
+[command-sync] COMMAND_IGNORED code=COMMAND_NOT_PENDING
+✔ ignores invalid commands without publishing or reporting anything (0.8716ms)
+✔ observe rejects malformed device status without throwing (0.4152ms)
+[command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-26T17:52:25.103Z
+[command-sync] ACK_SENT id=41 device=dayu200-room-1
+[command-sync] STOP reason=TEST_STOP
+✔ stop cancels in-flight receipts without reporting a fake failure (14.1905ms)
+[command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-26T17:52:25.118Z
+[command-sync] COMMAND_IGNORED code=UNSUPPORTED_COMMAND
+[command-sync] STOP reason=DONE
+✔ start polls repeatedly and stop halts the loop (232.9282ms)
+✔ 派生 _cloudStatus 保留原始 deviceTs，且与网关 ts 不同 (5.2472ms)
+✔ 缺少设备 ts 时不伪造 deviceTs (1.374ms)
+✔ 非法 ts（字符串/小数/null）被拒绝，不会冒充 deviceTs (2.2446ms)
+✔ cloud-sync 202 日志打印原始 deviceTs 与网关 ts，且载荷不含 deviceTs (3.8346ms)
+✔ 缺少 deviceTs 时日志输出 -（不伪造） (0.4622ms)
+✔ normal state change is published to OneNET property/post immediately (7.3096ms)
+✔ the real homemon/ESP32 payload shape is accepted without inventing fields (1.2789ms)
+✔ stable state is rate limited instead of re-uploading on every report (1.4142ms)
+✔ a failed property publish is retried after the rate-limit window and is not marked successful (0.9739ms)
+✔ a real state transition publishes immediately even inside the rate limit window (0.8935ms)
+✔ a monitor disconnect or recovery publishes immediately without changing the OneNET model (7.7624ms)
+✔ concurrent reports for one device are applied in arrival order without duplicate in-flight publishes (0.8627ms)
+✔ the same alarmId never publishes safetyAlarm twice, across repeats and reset replay (0.7557ms)
+✔ a failed safetyAlarm is retried and enters dedup memory only after cloud confirmation (0.8758ms)
+✔ alarm memory is bounded per device so a long-running process cannot grow forever (1.2908ms)
+✔ a new alarmId publishes exactly one safetyAlarm event with a matching binding (0.6072ms)
+✔ two devices raising different alarmIds each alert exactly once (1.5849ms)
+✔ oversized, non-JSON, non-object and illegal deviceId payloads are rejected with safe codes (0.2798ms)
+✔ 10-digit second timestamps and unknown nested fields are rejected (0.6912ms)
+✔ a rejected payload never disturbs already aggregated device state (0.2496ms)
+✔ local broker reconnection never fabricates state and re-accepts fresh reports (0.8721ms)
+✔ devices are marked offline from local lastSeen and the transition reaches both cloud paths once (1.0067ms)
+✔ an explicit OFFLINE report is never rewritten as online (3.7021ms)
+✔ a OneNET outage does not break local ingestion, alarm dedup or the APP path (0.717ms)
+✔ cloud failures are reported as safe codes and never echo payload contents (0.4517ms)
+✔ RESET in self mode drives the configured gateway device and only succeeds on a real receipt (2.3358ms)
+✔ RESET never broadcasts to every online room (2.51ms)
+✔ RESET in local mode only clears gateway aggregation and publishes nothing (0.51ms)
+✔ RESET is refused when the target device is offline (0.2847ms)
+✔ RESET is refused when no unambiguous target is configured (0.1159ms)
+✔ RESET fails when the device never confirms, instead of pretending success (112.317ms)
+✔ RESET is not confirmed by a stale pre-alarm status (real-device TOCTOU race) (403.6057ms)
+✔ RESET is refused when the target has no active alarm (closes the real-device race) (0.6721ms)
+✔ RESET is confirmed only by a status arriving after the command was published (0.9134ms)
+✔ a restart between command and receipt settles pending waiters instead of hanging (0.4617ms)
+✔ ACK with a wrong or empty alarmId is never reported as a device-confirmed success (0.2344ms)
+✔ RESET carrying a non-empty alarmId placeholder is rejected by the adapter, not silently accepted (0.425ms)
+✔ SET_CONFIG is refused as a whole in this phase and applies nothing partially (0.3093ms)
+✔ an unknown downlink command fails closed (0.1051ms)
+✔ unexpected downlink fields are rejected even if a caller bypasses the adapter (0.1387ms)
+✔ stop clears the subscription, timer and pending waiters and is idempotent (0.1017ms)
+✔ SIGINT/SIGTERM style shutdown resolves an in-flight command as stopped (0.9489ms)
+✔ gateway starts, feeds and stops the trusted backend command sync (0.3713ms)
+✔ createGateway wires the gateway into transport.handleCommand from env (9.0641ms)
+✔ createGateway rejects an invalid reset mode rather than guessing (0.2206ms)
+✔ createGateway works with the real process.env, which is not a plain object (0.199ms)
+✔ createGateway reads gateway settings from the supplied env (0.1458ms)
+✔ createGateway enables backend command polling only when the ingest key is configured (0.3992ms)
+✔ createGateway rejects a non-object env rather than starting half-configured (0.1673ms)
+✔ transport errors are surfaced as safe cloudError codes instead of being invisible (0.3145ms)
+✔ assertRequiredEnv fails fast on missing non-secret metadata and never leaks the key (0.1851ms)
+✔ message ids stay 13-digit-safe and unique under a frozen clock (3.7624ms)
+✔ message id space exhaustion is reported loudly instead of silently duplicating (0.3234ms)
+✔ backend cloud sync preserves boolean valid while OneNET payload stays unchanged (2.5871ms)
+✔ 2xx 记录一条脱敏 OK 日志（deviceId/路径/状态码/UTC 时间） (6.3916ms)
+✔ 非 2xx 只记 FAIL，绝不记 OK (0.5006ms)
+✔ 成功日志按设备限频（okLogIntervalMs） (0.537ms)
+✔ okLogIntervalMs=0 时每次成功都记（用于验收抓取） (0.3597ms)
+✔ okLogIntervalMs 越界被拒绝 (0.5264ms)
+✔ GET /internal/v1/commands 成功时记录 POLL_OK 200 (1.11ms)
+✔ 轮询失败只记 POLL_FAIL，不记 POLL_OK (0.4263ms)
+✔ POLL_OK 限频：默认窗口内只记一次，0 时每次记录 (0.479ms)
+✔ pollOkLogIntervalMs 越界被拒绝 (0.2791ms)
+✔ creates the documented OneNET device-level token (2.7251ms)
+✔ builds only a device-level resource with safe topic segments (0.7048ms)
+✔ rejects malformed keys, weak methods, bad expiry and unknown fields (0.5422ms)
+✔ connects with TLS verification and subscribes to the canonical topics (9.0433ms)
+✔ pins the official OneNET self-signed MQTT certificate (0.412ms)
+✔ resolves an upload only after the OneNET application reply (3.2921ms)
+✔ maps an allowed downlink and publishes property/set_reply (1.7147ms)
+✔ rejects an invalid downlink without exposing its content (1.2819ms)
+✔ reconnects with a newly generated short-lived token (31.0873ms)
+✔ rejects duplicate pending IDs, cloud errors and offline publishes (1.5203ms)
+✔ environment factory defers secret access until connection time (0.3595ms)
+✔ parses only bounded OneNET reply metadata (0.2162ms)
+ℹ tests 141
+ℹ suites 0
+ℹ pass 141
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 875.6649

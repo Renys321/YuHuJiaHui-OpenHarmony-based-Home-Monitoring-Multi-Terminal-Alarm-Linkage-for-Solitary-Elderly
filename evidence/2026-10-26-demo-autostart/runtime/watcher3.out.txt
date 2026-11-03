@@ -1,0 +1,15 @@
+============================================================
+ DAYU demo autostart: P0 + formal camera + DAYU local inference
+ Keep this window open. P0 may open a second visible window for INGEST_KEY.
+ Keys: [S] stop auto care  [R] resume  [Q] quit watcher (leave services)
+============================================================
+[WAIT] formal app is backgrounded; bringing it to foreground.
+[2026-10-26 00:16:57] P0=healthy target=OK app=foregrounding detect=running frames=LIVE nodes=? stop=False paused=False
+[2026-10-26 00:17:07] P0=healthy target=OK app=present detect=running frames=LIVE nodes=? stop=False paused=False
+[2026-10-26 00:17:17] P0=healthy target=OK app=present detect=running frames=LIVE nodes=? stop=False paused=False
+[2026-10-26 00:17:26] P0=healthy target=OK app=present detect=running frames=LIVE nodes=? stop=False paused=False
+[2026-10-26 00:17:31] P0=healthy target=OK app=present detect=running frames=LIVE nodes=? stop=False paused=False
+[STOP] stop flag detected; auto start/restart is disabled.
+[2026-10-26 00:17:36] P0=healthy target=OK app=stopped detect=stopped frames=STOPPED nodes=? stop=True paused=False
+[2026-10-26 00:17:42] P0=healthy target=OK app=stopped detect=stopped frames=STOPPED nodes=? stop=True paused=False
+[2026-10-26 00:17:47] P0=healthy target=OK app=stopped detect=stopped frames=STOPPED nodes=? stop=True paused=False

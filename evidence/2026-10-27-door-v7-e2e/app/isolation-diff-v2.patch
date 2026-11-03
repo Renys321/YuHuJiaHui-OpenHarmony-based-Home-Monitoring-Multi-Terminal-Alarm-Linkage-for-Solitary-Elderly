@@ -1,0 +1,880 @@
+﻿diff --git "a/D:\\OpenHarmony\\APP\\ElderlyCareGuardian\\AppScope\\app.json5" "b/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\app-src\\AppScope\\app.json5"
+index 6305b2f..89da11f 100644
+--- "a/D:\\OpenHarmony\\APP\\ElderlyCareGuardian\\AppScope\\app.json5"
++++ "b/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\app-src\\AppScope\\app.json5"
+@@ -2,8 +2,8 @@
+   "app": {
+     "bundleName": "com.example.program_04",
+     "vendor": "example",
+-    "versionCode": 1000000,
+-    "versionName": "1.0.0",
++    "versionCode": 1000003,
++    "versionName": "1.0.3",
+     "buildVersion": "1",
+     "icon": "$media:layered_image",
+     "label": "$string:app_name"
+diff --git "a/D:\\OpenHarmony\\APP\\ElderlyCareGuardian\\entry\\src\\main\\ets\\components\\AlertItem.ets" "b/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\app-src\\entry\\src\\main\\ets\\components\\AlertItem.ets"
+index 389db44..6f8dc72 100644
+--- "a/D:\\OpenHarmony\\APP\\ElderlyCareGuardian\\entry\\src\\main\\ets\\components\\AlertItem.ets"
++++ "b/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\app-src\\entry\\src\\main\\ets\\components\\AlertItem.ets"
+@@ -80,18 +80,6 @@ export struct AlertItem {
+           .layoutWeight(1)
+           .maxLines(1)
+           .textOverflow({ overflow: TextOverflow.Ellipsis })
+-        if (this.alert.evidenceAvailable) {
+-          Row() {
+-            SymbolGlyph($r('sys.symbol.camera_fill'))
+-              .fontSize(10)
+-              .fontColor([Color.primaryDark])
+-            Text('有证据元数据')
+-              .fontSize(FontSize.mini)
+-              .fontWeight(FontWeight_.semibold)
+-              .fontColor(Color.primaryDark)
+-              .margin({ left: 3 })
+-          }
+-        }
+         if (this.alert.statusKey === 'acked' && this.alert.acknowledgedAt > 0) {
+           Row() {
+             SymbolGlyph($r('sys.symbol.checkmark'))
+diff --git "a/D:\\OpenHarmony\\APP\\ElderlyCareGuardian\\entry\\src\\main\\ets\\core\\api\\ApiClient.ts" "b/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\app-src\\entry\\src\\main\\ets\\core\\api\\ApiClient.ts"
+index f1c02bb..6b3c1a8 100644
+--- "a/D:\\OpenHarmony\\APP\\ElderlyCareGuardian\\entry\\src\\main\\ets\\core\\api\\ApiClient.ts"
++++ "b/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\app-src\\entry\\src\\main\\ets\\core\\api\\ApiClient.ts"
+@@ -16,10 +16,6 @@ import {
+ import { ApiError, ApiErrorKinds, ApiResult, errorForStatus } from './Errors';
+ import { HttpRawResponse, HttpRequestSpec, HttpTransport } from './HttpTransport';
+ import { isValidActivityScope, isValidIsoDate } from '../activity/ActivityReport';
+-import {
+-  EVIDENCE_TIMEOUT_MS, EvidenceImageBytes, EvidenceRequestCancellation,
+-  MAX_EVIDENCE_JPEG_BYTES, isBasicJpeg, isJpegContentType, validEvidenceAlarmId
+-} from '../evidence/EvidenceCore';
+ 
+ export class ApiClient {
+   private baseUrl: string;
+@@ -184,45 +180,6 @@ export class ApiClient {
+     return ApiResult.success<ActivityReportDto>(dto);
+   }
+ 
+-  /** 下载私有 FALL 证据。Token 只进入 transport 的 Authorization 请求头。 */
+-  async evidence(token: string, alarmId: string,
+-    cancellation: EvidenceRequestCancellation | null = null): Promise<ApiResult<EvidenceImageBytes>> {
+-    if (token.length === 0) return this.unauthorized<EvidenceImageBytes>();
+-    if (!validEvidenceAlarmId(alarmId)) {
+-      return ApiResult.failure<EvidenceImageBytes>(
+-        new ApiError(ApiErrorKinds.BAD_REQUEST, 400, 'invalid alarm id'));
+-    }
+-    const path: string = `/api/v1/alerts/${encodeURIComponent(alarmId)}/evidence/content`;
+-    const spec = new HttpRequestSpec('GET', path, token, '', EVIDENCE_TIMEOUT_MS);
+-    spec.responseType = 'binary';
+-    spec.maxResponseBytes = MAX_EVIDENCE_JPEG_BYTES;
+-    spec.cancellation = cancellation;
+-    const result: ApiResult<HttpRawResponse> = await this.send(spec);
+-    if (!result.ok) return ApiResult.failure<EvidenceImageBytes>(result.error as ApiError);
+-    const response: HttpRawResponse = result.value as HttpRawResponse;
+-    if (!isJpegContentType(response.contentType)) {
+-      return ApiResult.failure<EvidenceImageBytes>(
+-        new ApiError(ApiErrorKinds.MALFORMED, response.status, 'content-type is not image/jpeg'));
+-    }
+-    if (response.contentLengthValid === false) {
+-      return ApiResult.failure<EvidenceImageBytes>(
+-        new ApiError(ApiErrorKinds.MALFORMED, response.status, 'invalid content-length'));
+-    }
+-    if ((response.contentLength > MAX_EVIDENCE_JPEG_BYTES) ||
+-      response.bodyBytes.byteLength > MAX_EVIDENCE_JPEG_BYTES) {
+-      return ApiResult.failure<EvidenceImageBytes>(
+-        new ApiError(ApiErrorKinds.MALFORMED, response.status, 'evidence exceeds size limit'));
+-    }
+-    if (!isBasicJpeg(response.bodyBytes)) {
+-      return ApiResult.failure<EvidenceImageBytes>(
+-        new ApiError(ApiErrorKinds.MALFORMED, response.status, 'invalid jpeg payload'));
+-    }
+-    const image = new EvidenceImageBytes();
+-    image.alarmId = alarmId;
+-    image.contentType = response.contentType;
+-    image.payload = response.bodyBytes;
+-    return ApiResult.success<EvidenceImageBytes>(image);
+-  }
+ 
+   /** 提交告警确认：202 只表示命令入队，调用方必须继续刷新 alerts 等待 ACKED。 */
+   async ack(token: string, alarmId: string, note: string): Promise<ApiResult<AckDto>> {
+diff --git "a/D:\\OpenHarmony\\APP\\ElderlyCareGuardian\\entry\\src\\main\\ets\\core\\api\\HttpTransport.ts" "b/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\app-src\\entry\\src\\main\\ets\\core\\api\\HttpTransport.ts"
+index 847cb90..faff9c3 100644
+--- "a/D:\\OpenHarmony\\APP\\ElderlyCareGuardian\\entry\\src\\main\\ets\\core\\api\\HttpTransport.ts"
++++ "b/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\app-src\\entry\\src\\main\\ets\\core\\api\\HttpTransport.ts"
+@@ -1,7 +1,6 @@
+ /**
+  * HTTP 抽象：平台实现（HarmonyOS http）与测试 fake 都实现这个接口。
+  */
+-import { EvidenceRequestCancellation } from '../evidence/EvidenceCore';
+ 
+ export class HttpRequestSpec {
+   method: string = 'GET';
+@@ -12,11 +11,6 @@ export class HttpRequestSpec {
+   /** JSON 请求体字符串；为空表示无 body */
+   body: string = '';
+   timeoutMs: number = 15000;
+-  /** text 用于 JSON；binary 用于受保护证据 JPEG。 */
+-  responseType: string = 'text';
+-  /** 0 表示使用平台默认值；证据下载固定为 2 MiB。 */
+-  maxResponseBytes: number = 0;
+-  cancellation: EvidenceRequestCancellation | null = null;
+ 
+   constructor(method: string = 'GET', path: string = '', token: string = '',
+     body: string = '', timeoutMs: number = 15000) {
+@@ -35,11 +29,6 @@ export class HttpRawResponse {
+   networkError: boolean = false;
+   timedOut: boolean = false;
+   errorMessage: string = '';
+-  bodyBytes: Uint8Array = new Uint8Array(0);
+-  contentType: string = '';
+-  contentLength: number = -1;
+-  /** false 表示服务端发送了非法、负数或相互冲突的 Content-Length。 */
+-  contentLengthValid: boolean = true;
+   cancelled: boolean = false;
+ 
+   constructor(status: number = 0, bodyText: string = '', retryAfterSeconds: number = 0) {
+@@ -60,16 +49,6 @@ export class HttpRawResponse {
+     return response;
+   }
+ 
+-  static binary(status: number, payload: Uint8Array, contentType: string,
+-    contentLength: number = -1, contentLengthValid: boolean = true): HttpRawResponse {
+-    const response = new HttpRawResponse(status, '', 0);
+-    response.bodyBytes = payload;
+-    response.contentType = contentType;
+-    response.contentLength = contentLength;
+-    response.contentLengthValid = contentLengthValid;
+-    return response;
+-  }
+-
+   static cancelledRequest(): HttpRawResponse {
+     const response = new HttpRawResponse(0, '', 0);
+     response.networkError = true;
+diff --git "a/D:\\OpenHarmony\\APP\\ElderlyCareGuardian\\entry\\src\\main\\ets\\core\\capability\\DeviceCapabilities.ts" "b/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\app-src\\entry\\src\\main\\ets\\core\\capability\\DeviceCapabilities.ts"
+index 284f256..1d7e896 100644
+--- "a/D:\\OpenHarmony\\APP\\ElderlyCareGuardian\\entry\\src\\main\\ets\\core\\capability\\DeviceCapabilities.ts"
++++ "b/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\app-src\\entry\\src\\main\\ets\\core\\capability\\DeviceCapabilities.ts"
+@@ -123,13 +123,13 @@ function makeKitchen(): CapabilityProfile {
+   p.deviceId = 'esp32-kitchen';
+   p.displayName = '厨房节点';
+   p.verified = true;
+-  p.note = '已核实：AHT20 温湿度、MQ-2/MQ-5 原始 ADC（GAS/SMOKE 阈值 4096 永不告警，未标定）、板载蜂鸣器、CLIMATE 告警启用；无 PIR/门磁/水漏/摄像头。';
++  p.note = '已核实：AHT20 温湿度、MQ-2/MQ-5 原始 ADC（GAS/SMOKE 阈值 4096 永不告警，未标定）、板载蜂鸣器、CLIMATE 告警启用；PIR 已接入、门磁已接入；无水漏/摄像头。';
+   p.entries = [
+     entry('climate', '温湿度', true, true, true, 'AHT20 读数；云端未透传 valid，有效性按读数推断；CLIMATE 告警启用（5–45℃/10–90%RH）'),
+     entry('gas', '燃气（MQ-5）', true, true, false, 'MQ-5 原始 ADC；GAS 报警未启用，未标定，不代表 ppm'),
+     entry('smoke', '烟雾（MQ-2）', true, true, false, 'MQ-2 原始 ADC；SMOKE 报警未启用，未标定，不代表 ppm'),
+     entry('motion', '人体红外', false, false, false, '未安装（CONFIG_NODE_MOTION_GPIO=-1）'),
+-    entry('door', '门磁', false, false, false, '未安装（CONFIG_NODE_DOOR_GPIO=-1）'),
++    entry('door', '门磁', true, true, true, '已接入（GPIO14 门磁，v7 事件台账）'),
+     entry('water', '水漏', false, false, false, '未安装'),
+     entry('camera', '摄像头', false, false, false, '未安装'),
+     entry('sos', '紧急求助按键', false, false, false, '未安装')
+@@ -142,7 +142,7 @@ function makeBath(): CapabilityProfile {
+   p.deviceId = 'esp32-bath';
+   p.displayName = '卫生间节点';
+   p.verified = true;
+-  p.note = '已核实：AHT20 温湿度、PIR 活动、SOS 按键、板载蜂鸣器；1800s 无活动触发 NO_MOTION；水漏本轮禁用；无燃气/烟雾/门磁/摄像头。';
++  p.note = '已核实：AHT20 温湿度、PIR 活动、SOS 按键、板载蜂鸣器；1800s 无活动触发 NO_MOTION；水漏本轮禁用；门磁已接入（GPIO14）；无燃气/烟雾/摄像头。';
+   p.entries = [
+     entry('climate', '温湿度', true, true, true, 'AHT20 读数；云端未透传 valid，有效性按读数推断；CLIMATE 告警启用'),
+     entry('motion', '人体活动（PIR）', true, true, true, 'PIR 上报活动时间/次数；长时间无活动会触发 NO_MOTION 告警'),
+@@ -150,7 +150,7 @@ function makeBath(): CapabilityProfile {
+     entry('water', '水漏', false, false, false, '本轮未启用（CONFIG_NODE_WATER_GPIO=-1）'),
+     entry('gas', '燃气', false, false, false, '未安装（MQ 禁用）'),
+     entry('smoke', '烟雾', false, false, false, '未安装（MQ 禁用）'),
+-    entry('door', '门磁', false, false, false, '未安装（门磁禁用）'),
++    entry('door', '门磁', true, true, true, '已接入（GPIO14 门磁，v7 事件台账）'),
+     entry('camera', '摄像头', false, false, false, '未安装')
+   ];
+   return p;
+diff --git "a/D:\\OpenHarmony\\APP\\ElderlyCareGuardian\\entry\\src\\main\\ets\\core\\service\\Outcomes.ts" "b/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\app-src\\entry\\src\\main\\ets\\core\\service\\Outcomes.ts"
+index 3dbc531..8c1a552 100644
+--- "a/D:\\OpenHarmony\\APP\\ElderlyCareGuardian\\entry\\src\\main\\ets\\core\\service\\Outcomes.ts"
++++ "b/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\app-src\\entry\\src\\main\\ets\\core\\service\\Outcomes.ts"
+@@ -1,7 +1,6 @@
+ /**
+  * 登录/刷新/ACK/处置结果对象（纯逻辑，可测）。
+  */
+-import { EvidenceImageBytes } from '../evidence/EvidenceCore';
+ import { ActivityReportView } from '../activity/ActivityModels';
+ import { DispositionView, DoorEventView } from '../view/Models';
+ 
+@@ -22,13 +21,6 @@ export class RefreshOutcome {
+   stale: boolean = false;
+ }
+ 
+-export class EvidenceOutcome {
+-  ok: boolean = false;
+-  kind: string = '';
+-  message: string = '';
+-  image: EvidenceImageBytes | null = null;
+-}
+-
+ export class AckOutcome {
+   accepted: boolean = false;
+   kind: string = '';
+diff --git "a/D:\\OpenHarmony\\APP\\ElderlyCareGuardian\\entry\\src\\main\\ets\\core\\view\\Models.ts" "b/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\app-src\\entry\\src\\main\\ets\\core\\view\\Models.ts"
+index 49bb974..44a3ffc 100644
+--- "a/D:\\OpenHarmony\\APP\\ElderlyCareGuardian\\entry\\src\\main\\ets\\core\\view\\Models.ts"
++++ "b/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\app-src\\entry\\src\\main\\ets\\core\\view\\Models.ts"
+@@ -127,10 +127,6 @@ export class AlertView {
+   acknowledgedAt: number = 0;
+   acknowledgedBy: string = '';
+   acknowledgedText: string = '';
+-  evidenceAvailable: boolean = false;
+-  evidenceId: string = '';
+-  evidenceBytes: number = 0;
+-  evidenceCapturedAt: number = 0;
+ }
+ 
+ export class LocationView {
+diff --git "a/D:\\OpenHarmony\\APP\\ElderlyCareGuardian\\entry\\src\\main\\ets\\core\\view\\ViewMapper.ts" "b/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\app-src\\entry\\src\\main\\ets\\core\\view\\ViewMapper.ts"
+index b804eaa..10f6775 100644
+--- "a/D:\\OpenHarmony\\APP\\ElderlyCareGuardian\\entry\\src\\main\\ets\\core\\view\\ViewMapper.ts"
++++ "b/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\app-src\\entry\\src\\main\\ets\\core\\view\\ViewMapper.ts"
+@@ -615,10 +615,6 @@ export function mapAlert(dto: AlertDto): AlertView {
+   view.title = alertTypeLabel(dto.type);
+   const message: string = dto.message.length > 0 ? dto.message : '服务端未提供告警详情';
+   view.description = `${message} · 设备 ${dto.deviceId}`;
+-  view.evidenceAvailable = dto.evidence.available;
+-  view.evidenceId = dto.evidence.evidenceId;
+-  view.evidenceBytes = dto.evidence.bytes;
+-  view.evidenceCapturedAt = dto.evidence.capturedAt;
+   if (dto.state === 'ACKED') {
+     view.statusKey = 'acked';
+     view.statusText = '设备已确认';
+diff --git "a/D:\\OpenHarmony\\APP\\ElderlyCareGuardian\\entry\\src\\main\\ets\\net\\HarmonyHttpTransport.ets" "b/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\app-src\\entry\\src\\main\\ets\\net\\HarmonyHttpTransport.ets"
+index e51a52d..087eae8 100644
+--- "a/D:\\OpenHarmony\\APP\\ElderlyCareGuardian\\entry\\src\\main\\ets\\net\\HarmonyHttpTransport.ets"
++++ "b/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\app-src\\entry\\src\\main\\ets\\net\\HarmonyHttpTransport.ets"
+@@ -1,12 +1,12 @@
+ /**
+  * HarmonyOS HTTPS 传输实现：把统一 HttpRequestSpec 映射到 @kit.NetworkKit。
+- * JSON 返回文本；证据接口返回受 2 MiB 上限约束的二进制。
++ * 统一映射为 JSON 文本响应；本变体已剥离证据 JPEG 二进制下载。
+  * 不记录 URL 查询中的任何敏感信息（本项目 token 只放 Authorization 头，且本类不打印请求头）。
+  */
+ import { http } from '@kit.NetworkKit';
+ import { BusinessError } from '@kit.BasicServicesKit';
+ import { HttpRawResponse, HttpRequestSpec, HttpTransport } from '../core/api/HttpTransport';
+-import { ContentLengthResult, headerValue, parseContentLength } from '../core/api/HttpHeaders';
++import { headerValue } from '../core/api/HttpHeaders';
+ 
+ const CONNECT_TIMEOUT_MS: number = 10000;
+ /** HarmonyOS 网络栈请求超时错误码（见 @ohos.net.http.d.ts） */
+@@ -22,16 +22,8 @@ export class HarmonyHttpTransport implements HttpTransport {
+   async send(request: HttpRequestSpec): Promise<HttpRawResponse> {
+     const client = http.createHttp();
+     try {
+-      if (request.cancellation !== null && request.cancellation.isCancelled()) {
+-        return HttpRawResponse.cancelledRequest();
+-      }
+-      if (request.cancellation !== null) {
+-        request.cancellation.onCancel((): void => {
+-          client.destroy();
+-        });
+-      }
+       const header: Record<string, string> = {
+-        'Accept': request.responseType === 'binary' ? 'image/jpeg' : 'application/json'
++        'Accept': 'application/json'
+       };
+       if (request.body.length > 0) header['Content-Type'] = 'application/json';
+       if (request.token.length > 0) {
+@@ -42,32 +34,14 @@ export class HarmonyHttpTransport implements HttpTransport {
+         header: header,
+         connectTimeout: CONNECT_TIMEOUT_MS,
+         readTimeout: request.timeoutMs > 0 ? request.timeoutMs : 15000,
+-        expectDataType: request.responseType === 'binary'
+-          ? http.HttpDataType.ARRAY_BUFFER : http.HttpDataType.STRING,
++        expectDataType: http.HttpDataType.STRING,
+         usingCache: false
+       };
+-      if (request.maxResponseBytes > 0) {
+-        options.maxLimit = request.maxResponseBytes;
+-      }
+       if (request.body.length > 0) {
+         options.extraData = request.body;
+       }
+       const response: http.HttpResponse = await client.request(this.baseUrl + request.path, options);
+-      if (request.cancellation !== null && request.cancellation.isCancelled()) {
+-        return HttpRawResponse.cancelledRequest();
+-      }
+       const status: number = typeof response.responseCode === 'number' ? response.responseCode : 0;
+-      if (request.responseType === 'binary') {
+-        let payload: Uint8Array = new Uint8Array(0);
+-        if (response.result instanceof ArrayBuffer) {
+-          payload = new Uint8Array(response.result as ArrayBuffer);
+-        }
+-        const contentType: string = headerValue(response.header, 'content-type');
+-        const contentLength: ContentLengthResult = parseContentLength(response.header);
+-        return HttpRawResponse.binary(status, payload, contentType,
+-          contentLength.present && contentLength.valid ? contentLength.value : -1,
+-          contentLength.valid);
+-      }
+       let bodyText: string = '';
+       if (typeof response.result === 'string') {
+         bodyText = response.result;
+@@ -84,12 +58,6 @@ export class HarmonyHttpTransport implements HttpTransport {
+     } catch (error) {
+       const businessError: BusinessError = error as BusinessError;
+       const code: number = typeof businessError.code === 'number' ? businessError.code : 0;
+-      if (request.cancellation !== null && request.cancellation.isCancelled()) {
+-        return HttpRawResponse.cancelledRequest();
+-      }
+-      if (request.responseType === 'binary' && code === 2300063) {
+-        return HttpRawResponse.ok(413, '', 0);
+-      }
+       const message: string = typeof businessError.message === 'string' && businessError.message.length > 0
+         ? businessError.message : 'network request failed';
+       const timedOut: boolean = code === TIMEOUT_ERROR_CODE || /timeout|timed out/i.test(message);
+diff --git "a/D:\\OpenHarmony\\APP\\ElderlyCareGuardian\\entry\\src\\main\\ets\\pages\\AlertDetailPage.ets" "b/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\app-src\\entry\\src\\main\\ets\\pages\\AlertDetailPage.ets"
+index 14ef065..d7ff10f 100644
+--- "a/D:\\OpenHarmony\\APP\\ElderlyCareGuardian\\entry\\src\\main\\ets\\pages\\AlertDetailPage.ets"
++++ "b/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\app-src\\entry\\src\\main\\ets\\pages\\AlertDetailPage.ets"
+@@ -13,16 +13,12 @@ import { LevelBadge } from '../components/LevelBadge';
+ import { PrimaryButton, SecondaryButton } from '../components/Buttons';
+ import { AlertView, DispositionView, NetworkState, RunMode } from '../core/view/Models';
+ import {
+-  AckOutcome, DispositionSubmitOutcome, DispositionsOutcome, EvidenceOutcome
++  AckOutcome, DispositionSubmitOutcome, DispositionsOutcome
+ } from '../core/service/Outcomes';
+ import { DispositionOption, dispositionOptions, findAlert } from '../core/view/ViewMapper';
+ import { DISPOSITION_NOTE_MAX, DISPOSITION_OUTCOME_OTHER } from '../core/api/Contracts';
+ import { DateUtil } from '../common/DateUtil';
+ import { GuardianService } from '../service/GuardianService';
+-import { image } from '@kit.ImageKit';
+-import {
+-  EvidenceRequestCancellation, canViewFallEvidence
+-} from '../core/evidence/EvidenceCore';
+ 
+ class AckPhase {
+   static readonly IDLE: string = 'idle';
+@@ -40,13 +36,6 @@ class DispPhase {
+   static readonly FAILED: string = 'failed';
+ }
+ 
+-class EvidencePhase {
+-  static readonly IDLE: string = 'idle';
+-  static readonly LOADING: string = 'loading';
+-  static readonly READY: string = 'ready';
+-  static readonly FAILED: string = 'failed';
+-}
+-
+ class TimelineRow {
+   time: number = 0;
+   title: string = '';
+@@ -73,9 +62,6 @@ struct AlertDetailPage {
+   @State submitAt: number = 0;
+   @State elapsedSec: number = 0;
+   @State timelineRows: TimelineRow[] = [];
+-  @State evidencePhase: string = EvidencePhase.IDLE;
+-  @State evidenceMessage: string = '';
+-  @State evidencePixelMap: image.PixelMap | null = null;
+   /** 处置结果面板（独立于 ACK） */
+   @State dispPhase: string = DispPhase.IDLE;
+   @State dispOutcome: string = '';
+@@ -98,20 +84,12 @@ struct AlertDetailPage {
+   private redirecting: boolean = false;
+   /** 页面已销毁：ACK/处置请求已提交给服务器，不取消；但迟到回调不得再更新页面/定时器/提示。 */
+   private disposed: boolean = false;
+-  private evidenceCancellation: EvidenceRequestCancellation | null = null;
+-  private evidenceRequestId: number = 0;
+ 
+   aboutToAppear() {
+     this.disposed = false;
+     const params = this.getUIContext().getRouter().getParams() as Record<string, string>;
+     const nextAlarmId: string = params !== undefined && params !== null && params['alertId'] !== undefined
+       ? params['alertId'] : '';
+-    if (this.alarmId !== nextAlarmId) {
+-      this.cancelEvidenceLoad();
+-      this.releaseEvidencePixelMap();
+-      this.evidencePhase = EvidencePhase.IDLE;
+-      this.evidenceMessage = '';
+-    }
+     this.alarmId = nextAlarmId;
+     this.syncAlert();
+     this.tickTimerId = setInterval(() => {
+@@ -128,10 +106,6 @@ struct AlertDetailPage {
+     this.disposed = true;
+     this.dispRecordsRequestId += 1;
+     this.dispSubmitRequestId += 1;
+-    this.cancelEvidenceLoad();
+-    this.releaseEvidencePixelMap();
+-    this.evidencePhase = EvidencePhase.IDLE;
+-    this.evidenceMessage = '';
+     this.stopWaitTimer();
+     if (this.tickTimerId !== -1) {
+       clearInterval(this.tickTimerId);
+@@ -173,12 +147,6 @@ struct AlertDetailPage {
+     }
+     this.found = true;
+     this.alert = current;
+-    if (!this.canViewEvidence()) {
+-      this.cancelEvidenceLoad();
+-      this.releaseEvidencePixelMap();
+-      this.evidencePhase = EvidencePhase.IDLE;
+-      this.evidenceMessage = '';
+-    }
+     if (current.statusKey === 'acked') {
+       if (this.mode === RunMode.DEMO) {
+         this.phase = AckPhase.FAILED;
+@@ -451,78 +419,6 @@ struct AlertDetailPage {
+     return this.dispSaved !== null ? this.dispSaved : new DispositionView();
+   }
+ 
+-  private canViewEvidence(): boolean {
+-    return this.mode !== RunMode.DEMO && canViewFallEvidence(this.alert);
+-  }
+-
+-  private cancelEvidenceLoad(): void {
+-    this.evidenceRequestId += 1;
+-    if (this.evidenceCancellation !== null) {
+-      this.evidenceCancellation.cancel();
+-      this.evidenceCancellation = null;
+-    }
+-  }
+-
+-  private releaseEvidencePixelMap(): void {
+-    const current: image.PixelMap | null = this.evidencePixelMap;
+-    this.evidencePixelMap = null;
+-    if (current !== null) {
+-      current.release().catch((): void => {
+-        // 页面已离开，释放失败不回写 UI，也不记录图片内容。
+-      });
+-    }
+-  }
+-
+-  private loadEvidence(): void {
+-    if (!this.canViewEvidence() || this.evidencePhase === EvidencePhase.LOADING) return;
+-    this.cancelEvidenceLoad();
+-    this.releaseEvidencePixelMap();
+-    const requestId: number = this.evidenceRequestId;
+-    const alarmId: string = this.alert.alarmId;
+-    const cancellation = new EvidenceRequestCancellation();
+-    this.evidenceCancellation = cancellation;
+-    this.evidencePhase = EvidencePhase.LOADING;
+-    this.evidenceMessage = '正在加载证据…';
+-    GuardianService.loadEvidence(alarmId, cancellation).then(async (outcome: EvidenceOutcome) => {
+-      if (this.disposed || requestId !== this.evidenceRequestId || alarmId !== this.alert.alarmId) return;
+-      this.evidenceCancellation = null;
+-      if (!outcome.ok || outcome.image === null) {
+-        if (outcome.kind === 'cancelled' || outcome.kind === 'stale') return;
+-        this.evidencePhase = EvidencePhase.FAILED;
+-        this.evidenceMessage = outcome.message.length > 0 ? outcome.message : '证据加载失败，请主动重试';
+-        return;
+-      }
+-      let source: image.ImageSource | null = null;
+-      try {
+-        const payload: Uint8Array = outcome.image.payload;
+-        const exact: Uint8Array = new Uint8Array(payload.byteLength);
+-        exact.set(payload);
+-        source = image.createImageSource(exact.buffer as ArrayBuffer);
+-        const pixelMap: image.PixelMap = await source.createPixelMap({ editable: false });
+-        if (this.disposed || requestId !== this.evidenceRequestId || alarmId !== this.alert.alarmId) {
+-          await pixelMap.release();
+-          return;
+-        }
+-        this.evidencePixelMap = pixelMap;
+-        this.evidencePhase = EvidencePhase.READY;
+-        this.evidenceMessage = '';
+-      } catch (_) {
+-        if (!this.disposed && requestId === this.evidenceRequestId) {
+-          this.evidencePhase = EvidencePhase.FAILED;
+-          this.evidenceMessage = '证据 JPEG 解码失败，已拒绝显示';
+-        }
+-      } finally {
+-        if (source !== null) {
+-          try {
+-            await source.release();
+-          } catch (_) {
+-            // ImageSource 不包含业务状态；释放失败不影响告警文本和 ACK。
+-          }
+-        }
+-      }
+-    });
+-  }
+-
+   private toast(message: string): void {
+     try {
+       this.getUIContext().getPromptAction().showToast({ message: message });
+@@ -692,24 +588,6 @@ struct AlertDetailPage {
+         .lineHeight(19)
+         .margin({ top: 10 })
+ 
+-      if (this.canViewEvidence()) {
+-        Row() {
+-          SymbolGlyph($r('sys.symbol.camera_fill'))
+-            .fontSize(11)
+-            .fontColor([Color.primaryDark])
+-          Text(`FALL 证据可用 · ${this.alert.evidenceBytes} bytes`)
+-            .fontSize(FontSize.mini)
+-            .fontColor(Color.primaryDark)
+-            .layoutWeight(1)
+-            .maxLines(2)
+-            .margin({ left: Space.xs })
+-        }
+-        .width('100%')
+-        .padding({ left: 10, right: 10, top: 8, bottom: 8 })
+-        .backgroundColor('#FFFFFF')
+-        .borderRadius(Radius.chip)
+-        .margin({ top: 10 })
+-      }
+     }
+     .padding(Space.lg - 1)
+     .width('100%')
+@@ -720,90 +598,6 @@ struct AlertDetailPage {
+     .margin({ left: this.pm(), right: this.pm(), top: Space.md - 2 })
+   }
+ 
+-  @Builder
+-  evidencePanel() {
+-    Column() {
+-      Row() {
+-        Text('告警证据')
+-          .fontSize(FontSize.h3)
+-          .fontWeight(FontWeight_.bold)
+-          .fontColor(Color.textPrimary)
+-        Blank()
+-        if (this.evidencePhase === EvidencePhase.READY) {
+-          Text('仅内存显示')
+-            .fontSize(FontSize.mini)
+-            .fontColor(Color.textTertiary)
+-        }
+-      }
+-      .width('100%')
+-
+-      if (this.evidencePhase === EvidencePhase.IDLE) {
+-        Row() {
+-          PrimaryButton({
+-            label: '查看证据',
+-            onClick_: () => { this.loadEvidence(); }
+-          })
+-        }
+-        .width('100%')
+-        .margin({ top: Space.md })
+-      } else if (this.evidencePhase === EvidencePhase.LOADING) {
+-        Row() {
+-          LoadingProgress()
+-            .width(20)
+-            .height(20)
+-            .color(Color.primary)
+-          Text(this.evidenceMessage)
+-            .fontSize(FontSize.caption)
+-            .fontColor(Color.textSecondary)
+-            .margin({ left: Space.sm })
+-        }
+-        .width('100%')
+-        .justifyContent(FlexAlign.Center)
+-        .padding({ top: Space.lg, bottom: Space.lg })
+-      } else if (this.evidencePhase === EvidencePhase.READY && this.evidencePixelMap !== null) {
+-        Image(this.evidencePixelMap)
+-          .width('100%')
+-          .aspectRatio(4 / 3)
+-          .objectFit(ImageFit.Contain)
+-          .backgroundColor('#111827')
+-          .borderRadius(Radius.button)
+-          .margin({ top: Space.md })
+-        Text(this.alert.evidenceCapturedAt > 0
+-          ? `拍摄时间：${DateUtil.formatDateTime(this.alert.evidenceCapturedAt)}` : '拍摄时间未知')
+-          .fontSize(FontSize.mini)
+-          .fontColor(Color.textTertiary)
+-          .margin({ top: Space.xs })
+-      } else {
+-        Column() {
+-          Text(this.evidenceMessage.length > 0 ? this.evidenceMessage : '证据加载失败')
+-            .fontSize(FontSize.caption)
+-            .fontColor(Color.warningDark)
+-            .width('100%')
+-          Row() {
+-            SecondaryButton({
+-              label: '重试',
+-              onClick_: () => { this.loadEvidence(); }
+-            })
+-          }
+-          .width('100%')
+-          .margin({ top: Space.sm })
+-        }
+-        .width('100%')
+-        .padding(Space.md)
+-        .backgroundColor(Color.warningLight)
+-        .borderRadius(Radius.button)
+-        .margin({ top: Space.md })
+-      }
+-    }
+-    .padding(Space.lg - 2)
+-    .width('100%')
+-    .backgroundColor(Color.card)
+-    .borderRadius(Radius.card)
+-    .shadow(Shadow_.card())
+-    .alignItems(HorizontalAlign.Start)
+-    .margin({ left: this.pm(), right: this.pm(), top: Space.md - 2 })
+-  }
+-
+   @Builder
+   demoBanner() {
+     Row() {
+@@ -1539,9 +1333,6 @@ struct AlertDetailPage {
+         Scroll() {
+           Column() {
+             this.heroCard()
+-            if (this.canViewEvidence()) {
+-              this.evidencePanel()
+-            }
+             this.ackPanel()
+             this.dispositionPanel()
+             this.timelineCard()
+diff --git "a/D:\\OpenHarmony\\APP\\ElderlyCareGuardian\\entry\\src\\main\\ets\\service\\GuardianService.ets" "b/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\app-src\\entry\\src\\main\\ets\\service\\GuardianService.ets"
+index 2d2cde1..79c9930 100644
+--- "a/D:\\OpenHarmony\\APP\\ElderlyCareGuardian\\entry\\src\\main\\ets\\service\\GuardianService.ets"
++++ "b/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\app-src\\entry\\src\\main\\ets\\service\\GuardianService.ets"
+@@ -23,7 +23,7 @@ import {
+ } from '../core/api/Contracts';
+ import {
+   AckOutcome, ActivityReportOutcome, DispositionSubmitOutcome, DispositionsOutcome,
+-  DoorEventsOutcome, EvidenceOutcome, LoginOutcome, RefreshOutcome, SafetyLogsOutcome
++  DoorEventsOutcome, LoginOutcome, RefreshOutcome, SafetyLogsOutcome
+ } from '../core/service/Outcomes';
+ import { Poller } from '../core/polling/Poller';
+ import { SessionCore } from '../core/session/SessionCore';
+@@ -49,9 +49,6 @@ import {
+ } from '../core/view/ViewMapper';
+ import { HarmonyHttpTransport } from '../net/HarmonyHttpTransport';
+ import { StoredSession, TokenVault } from '../auth/TokenVault';
+-import {
+-  EvidenceImageBytes, EvidenceMemoryCache, EvidenceRequestCancellation, validEvidenceAlarmId
+-} from '../core/evidence/EvidenceCore';
+ 
+ const API_BASE_URL: string = 'https://api.luxunacc.xyz';
+ const POLL_INTERVAL_MS: number = 30 * 1000;
+@@ -132,8 +129,6 @@ export class GuardianService {
+   /** 恢复结果解析（提交前用当前时间复验有效期），页面恢复入口实际调用。 */
+   private static restorer: SessionRestorer | null = null;
+   private static hostContext: common.Context | null = null;
+-  /** 只保存当前进程内的压缩 JPEG；账号切换、鉴权失效和登出都会清空。 */
+-  private static evidenceCache: EvidenceMemoryCache = new EvidenceMemoryCache();
+ 
+   private static recoveryCoordinator(): SessionRecoveryCoordinator {
+     if (GuardianService.recovery === null) {
+@@ -211,7 +206,6 @@ export class GuardianService {
+ 
+   /** 清空账号相关业务缓存（避免下次登录短暂显示上一账号数据）。 */
+   private static clearBusinessData(): void {
+-    GuardianService.evidenceCache.clearAll();
+     AppStorage.setOrCreate<DeviceView[]>(AppKeys.DEVICES, []);
+     AppStorage.setOrCreate<RoomView[]>(AppKeys.ROOMS, []);
+     AppStorage.setOrCreate<AlertView[]>(AppKeys.ALERTS, []);
+@@ -366,7 +360,6 @@ export class GuardianService {
+     coordinator.invalidate();
+     GuardianService.stopAutoRefresh();
+     GuardianService.session.clear();
+-    GuardianService.evidenceCache.clearAll();
+     TokenVault.clearMemory();
+     const clearTask: Promise<void> = coordinator.clearSecure();
+     GuardianService.writeDefaultState();
+@@ -729,89 +722,6 @@ export class GuardianService {
+     return GuardianService.poller !== null && GuardianService.poller.isRunning();
+   }
+ 
+-  // ------------------------------------------------------------- evidence
+-
+-  /** 私有 FALL 证据下载；不写文件、不写相册，只返回内存中的压缩 JPEG。 */
+-  static async loadEvidence(alarmId: string,
+-    cancellation: EvidenceRequestCancellation): Promise<EvidenceOutcome> {
+-    const outcome = new EvidenceOutcome();
+-    if (!validEvidenceAlarmId(alarmId)) {
+-      outcome.kind = ApiErrorKinds.BAD_REQUEST;
+-      outcome.message = '告警编号无效，无法查看证据';
+-      return outcome;
+-    }
+-    const guard: RequestGuard = GuardianService.requestGuard();
+-    const ticket: SessionTicket = guard.capture();
+-    const startedAt: number = GuardianService.now();
+-    if (ticket.token.length === 0 || !guard.isCurrent(ticket, startedAt)) {
+-      outcome.kind = ApiErrorKinds.UNAUTHORIZED;
+-      outcome.message = '会话已过期，请重新登录';
+-      return outcome;
+-    }
+-    const cached: Uint8Array | null = GuardianService.evidenceCache.get(ticket.guardianId, alarmId);
+-    if (cached !== null) {
+-      const image = new EvidenceImageBytes();
+-      image.alarmId = alarmId;
+-      image.contentType = 'image/jpeg';
+-      image.payload = cached;
+-      image.fromCache = true;
+-      outcome.ok = true;
+-      outcome.kind = 'ok';
+-      outcome.image = image;
+-      return outcome;
+-    }
+-    const api: ApiClient | null = GuardianService.apiClient();
+-    if (api === null) {
+-      outcome.kind = ApiErrorKinds.UNKNOWN;
+-      outcome.message = '服务未初始化，请重启 APP';
+-      return outcome;
+-    }
+-    const result: ApiResult<EvidenceImageBytes> =
+-      await api.evidence(ticket.token, alarmId, cancellation);
+-    if (!guard.isCurrent(ticket, GuardianService.now())) {
+-      outcome.kind = 'stale';
+-      outcome.message = '会话已切换，本次证据结果已忽略';
+-      return outcome;
+-    }
+-    if (!result.ok) {
+-      const error: ApiError = result.error as ApiError;
+-      outcome.kind = error.kind;
+-      outcome.message = GuardianService.evidenceMessage(error);
+-      if (error.kind === ApiErrorKinds.UNAUTHORIZED) {
+-        GuardianService.setUnauthorized('会话已过期，请重新登录');
+-      } else if (error.kind === ApiErrorKinds.FORBIDDEN) {
+-        GuardianService.setUnauthorized('当前账号无权访问该家庭，请重新登录');
+-      }
+-      return outcome;
+-    }
+-    const image: EvidenceImageBytes = result.value as EvidenceImageBytes;
+-    if (!guard.isCurrent(ticket, GuardianService.now()) || image.alarmId !== alarmId) {
+-      outcome.kind = 'stale';
+-      outcome.message = '告警已切换，本次证据结果已忽略';
+-      return outcome;
+-    }
+-    GuardianService.evidenceCache.put(ticket.guardianId, alarmId, image.payload);
+-    outcome.ok = true;
+-    outcome.kind = 'ok';
+-    outcome.image = image;
+-    return outcome;
+-  }
+-
+-  private static evidenceMessage(error: ApiError): string {
+-    if (error.kind === ApiErrorKinds.UNAUTHORIZED) return '会话已过期，请重新登录';
+-    if (error.kind === ApiErrorKinds.FORBIDDEN) return '当前账号无权查看该家庭证据';
+-    if (error.kind === ApiErrorKinds.NOT_FOUND) return '证据暂不可用';
+-    if (error.kind === ApiErrorKinds.TIMEOUT) return '证据加载超时，请主动重试';
+-    if (error.kind === ApiErrorKinds.CANCELLED) return '证据加载已取消';
+-    if (error.kind === ApiErrorKinds.TOO_LARGE) return '证据超过 2 MiB 安全上限，已拒绝显示';
+-    if (error.kind === ApiErrorKinds.MALFORMED) return '证据不是有效的 JPEG，已拒绝显示';
+-    if (error.kind === ApiErrorKinds.SERVER || error.kind === ApiErrorKinds.SERVICE_UNAVAILABLE ||
+-      error.kind === ApiErrorKinds.NETWORK) {
+-      return '证据加载失败，请稍后主动重试';
+-    }
+-    return '证据加载失败，请稍后主动重试';
+-  }
+-
+   // ------------------------------------------------------------------ ack
+ 
+   /**
+diff --git "a/D:\\OpenHarmony\\APP\\ElderlyCareGuardian\\tests\\capability.test.mjs" "b/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\app-src\\tests\\capability.test.mjs"
+index cb3a842..3c0f1ba 100644
+--- "a/D:\\OpenHarmony\\APP\\ElderlyCareGuardian\\tests\\capability.test.mjs"
++++ "b/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\app-src\\tests\\capability.test.mjs"
+@@ -26,7 +26,7 @@ function entryOf(profile, kind) {
+   return found;
+ }
+ 
+-test('kitchen: 已核实，具备温湿度 + MQ 原始 ADC，无 PIR/门磁/水漏/摄像头', () => {
++test('kitchen: 已核实，具备温湿度 + MQ 原始 ADC，门磁已接入；PIR/水漏/摄像头能力项未安装', () => {
+   const p = resolveCapability('esp32-kitchen');
+   assert.equal(p.verified, true);
+   assert.equal(p.deviceId, 'esp32-kitchen');
+@@ -34,7 +34,9 @@ test('kitchen: 已核实，具备温湿度 + MQ 原始 ADC，无 PIR/门磁/水
+   assert.equal(entryOf(p, 'gas').installed, true);
+   assert.equal(entryOf(p, 'smoke').installed, true);
+   assert.equal(entryOf(p, 'motion').installed, false, '厨房不得显示 PIR 已安装');
+-  assert.equal(entryOf(p, 'door').installed, false, '厨房不得显示门磁已安装');
++  assert.equal(entryOf(p, 'door').installed, true, '厨房门磁已接入（v7 事件台账）');
++  assert.equal(entryOf(p, 'door').enabled, true, '厨房门磁已启用');
++  assert.equal(entryOf(p, 'door').alarmEnabled, true, '门磁能力项 alarmEnabled=true（指令要求）');
+   assert.equal(entryOf(p, 'water').installed, false, '厨房不得显示水漏已安装');
+   assert.equal(entryOf(p, 'camera').installed, false);
+ });
+@@ -54,7 +56,7 @@ test('kitchen: 温湿度 CLIMATE 告警已启用（能力表按 capability audit
+   assert.equal(entryOf(p, 'climate').alarmEnabled, true);
+ });
+ 
+-test('bath: 具备温湿度/PIR/SOS，无燃气/烟雾/门磁，水漏未启用', () => {
++test('bath: 具备温湿度/PIR/SOS/门磁，无燃气/烟雾，水漏未启用', () => {
+   const p = resolveCapability('esp32-bath');
+   assert.equal(p.verified, true);
+   assert.equal(entryOf(p, 'climate').installed, true);
+@@ -63,7 +65,9 @@ test('bath: 具备温湿度/PIR/SOS，无燃气/烟雾/门磁，水漏未启用'
+   assert.equal(entryOf(p, 'sos').alarmEnabled, true);
+   assert.equal(entryOf(p, 'gas').installed, false, '卫生间不得显示燃气已安装');
+   assert.equal(entryOf(p, 'smoke').installed, false, '卫生间不得显示烟雾已安装');
+-  assert.equal(entryOf(p, 'door').installed, false, '卫生间不得显示门磁已安装');
++  assert.equal(entryOf(p, 'door').installed, true, '卫生间门磁已接入（v7 事件台账）');
++  assert.equal(entryOf(p, 'door').enabled, true, '卫生间门磁已启用');
++  assert.equal(entryOf(p, 'door').alarmEnabled, true, '门磁能力项 alarmEnabled=true（指令要求）');
+   assert.equal(entryOf(p, 'water').installed, false, '水漏本轮未启用，不得显示已安装/告警');
+ });
+ 
+@@ -111,7 +115,7 @@ test('capabilitySummaryOf: kitchen 摘要只列已核实已启用能力', () =>
+   assert.match(summary, /燃气/);
+   assert.match(summary, /烟雾/);
+   assert.doesNotMatch(summary, /人体红外|人体活动/);
+-  assert.doesNotMatch(summary, /门磁/);
++  assert.match(summary, /门磁/);
+ });
+ 
+ test('capabilityNoteOf: 明确列出未安装/未启用能力', () => {
+diff --git "a/D:\\OpenHarmony\\APP\\ElderlyCareGuardian\\tests\\defect-sensor.test.mjs" "b/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\app-src\\tests\\defect-sensor.test.mjs"
+index f4b7219..c8fc55e 100644
+--- "a/D:\\OpenHarmony\\APP\\ElderlyCareGuardian\\tests\\defect-sensor.test.mjs"
++++ "b/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\app-src\\tests\\defect-sensor.test.mjs"
+@@ -200,7 +200,7 @@ test('颜色 token：仅 ok 为 success；unknown/offline/disabled 中性；inva
+   assert.equal(colorTokenForSensorState('waiting'), 'info');
+ });
+ 
+-test('能力门控无回归：厨房无 PIR/门磁/水漏，卫生间无燃气/烟雾，未知不默认', () => {
++test('能力门控：厨房门磁已接入并展示，PIR/水漏仍未安装；卫生间无燃气/烟雾，未知不默认', () => {
+   const kitchen = mapDeviceJson({
+     deviceId: 'esp32-kitchen',
+     sensors: {
+@@ -210,7 +210,11 @@ test('能力门控无回归：厨房无 PIR/门磁/水漏，卫生间无燃气/
+     }
+   });
+   assert.equal(sensorOf(kitchen, 'motion'), null);
+-  assert.equal(sensorOf(kitchen, 'door'), null);
++  const kitchenDoor = sensorOf(kitchen, 'door');
++  assert.ok(kitchenDoor, '厨房门磁已接入，必须展示 door 瓦片');
++  assert.equal(kitchenDoor.kind, 'door');
++  assert.equal(kitchenDoor.valueText, '开启');
++  assert.equal(kitchenDoor.state, 'attention');
+   assert.equal(sensorOf(kitchen, 'water'), null);
+ 
+   const bath = mapDeviceJson({
+diff --git "a/D:\\OpenHarmony\\APP\\ElderlyCareGuardian\\tests\\view-mapper.test.mjs" "b/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\app-src\\tests\\view-mapper.test.mjs"
+index ab78936..ca93446 100644
+--- "a/D:\\OpenHarmony\\APP\\ElderlyCareGuardian\\tests\\view-mapper.test.mjs"
++++ "b/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\app-src\\tests\\view-mapper.test.mjs"
+@@ -140,7 +140,7 @@ test('kitchen gas/smoke：valueText 只显示原始 ADC，不含 ppm；“报警
+   }
+ });
+ 
+-test('kitchen 即使服务端下发 motion/door/water，也不展示未安装能力', () => {
++test('kitchen 下发 motion/door/water：门磁已接入并展示，PIR/水漏仍不展示', () => {
+   const view = mapDeviceJson({
+     deviceId: 'esp32-kitchen',
+     sensors: {
+@@ -149,8 +149,12 @@ test('kitchen 即使服务端下发 motion/door/water，也不展示未安装能
+       water: { wet: true }
+     }
+   });
+-  assert.equal(sensorOf(view, 'motion'), null, '厨房无 PIR，不得展示 motion 瓦片');
+-  assert.equal(sensorOf(view, 'door'), null, '厨房无门磁，不得展示 door 瓦片');
++  assert.equal(sensorOf(view, 'motion'), null, '厨房 PIR 能力项未安装，不得展示 motion 瓦片');
++  const door = sensorOf(view, 'door');
++  assert.ok(door, '厨房门磁已接入，必须展示 door 瓦片');
++  assert.equal(door.kind, 'door');
++  assert.equal(door.valueText, '开启');
++  assert.equal(door.alarmEnabled, false);
+   assert.equal(sensorOf(view, 'water'), null, '厨房无水漏，不得展示 water 瓦片');
+ });
+ 
+@@ -319,8 +323,6 @@ test('alert 状态映射：ALARM 待确认 / ackPending 等待设备确认 / ACK
+   assert.notEqual(byId.get('a-waiting').statusKey, 'acked');
+   assert.equal(byId.get('a-acked').statusKey, 'acked');
+   assert.equal(byId.get('a-acked').statusText, '设备已确认');
+-  assert.equal(byId.get('a-acked').evidenceAvailable, true);
+-  assert.equal(byId.get('a-acked').evidenceId, 'ev-1');
+ });
+ 
+ test('ACK 202 之后的本地映射：同一 ALARM+ackPending=true 仍是“等待设备确认”，绝不本地变 ACKED', () => {

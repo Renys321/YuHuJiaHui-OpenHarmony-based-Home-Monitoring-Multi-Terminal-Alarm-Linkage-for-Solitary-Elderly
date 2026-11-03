@@ -1,0 +1,63 @@
+{
+  "_source": "C1/C2 物理验收时刻由用户在阿里云 Workbench/现场记录、Lead 转达（C1: 2026-10-28T00:38；C2: 2026-10-28T00:41）；t_off 取“设备最后一次有效上行”时刻",
+  "no_docker_restart": true,
+  "events": [
+    {
+      "t": "2026-10-28T00:35:45.905+08:00",
+      "kind": "sos_pressed",
+      "alarmId": "sos-12-1a1003dc",
+      "note": "用户按实体 SOS 键；createdAt 与 API 一致",
+      "phase": "C1"
+    },
+    {
+      "t": "2026-10-28T00:36:46.980+08:00",
+      "kind": "device_power_off",
+      "note": "设备最后一次有效上行 00:36:46.984；随后 ESP32 断电，M100 保持供电",
+      "phase": "C1"
+    },
+    {
+      "t": "2026-10-28T00:37:55.000+08:00",
+      "kind": "alert_ack_clicked",
+      "alarmId": "sos-12-1a1003dc",
+      "note": "Lead 转达 ≈00:37:55；采样 00:37:52.865 已见 ackPending=true",
+      "phase": "C1"
+    },
+    {
+      "t": "2026-10-28T00:38:30.000+08:00",
+      "kind": "device_power_on",
+      "note": "Lead 转达 ≈00:38:30",
+      "phase": "C1"
+    },
+    {
+      "t": "2026-10-28T00:38:30.000+08:00",
+      "kind": "device_restart",
+      "note": "断电→上电（取上电时刻）",
+      "phase": "C1"
+    },
+    {
+      "t": "2026-10-28T00:38:32.754+08:00",
+      "kind": "alert_acked_observed",
+      "alarmId": "sos-12-1a1003dc",
+      "note": "API acknowledgedAt，采样 00:38:37.170 观测到 ACKED",
+      "phase": "C1"
+    },
+    {
+      "t": "2026-10-28T00:38:52.370+08:00",
+      "kind": "device_power_off",
+      "phase": "C2",
+      "note": "C2：设备最后一次有效上行 00:38:52.370，随后 ESP32 断电（M100 保持供电）"
+    },
+    {
+      "t": "2026-10-28T00:41:32.000+08:00",
+      "kind": "device_power_on",
+      "phase": "C2",
+      "note": "C2：Lead 转达 ≈00:41:32 上电；恢复后 lastSeen 首次推进到 00:41:32.698"
+    },
+    {
+      "t": "2026-10-28T00:41:32.000+08:00",
+      "kind": "device_restart",
+      "phase": "C2",
+      "note": "C2：断电→上电"
+    }
+  ]
+}

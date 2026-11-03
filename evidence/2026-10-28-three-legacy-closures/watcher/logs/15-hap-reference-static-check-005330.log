@@ -1,0 +1,223 @@
+# HAP 引用修正静态校验（2026-10-28 00:53:30）
+## 备份
+
+Name                                   Length
+----                                   ------
+demo-preflight.js.bak-20261028          12873
+demo_start.ps1.bak-20261028             17685
+device-preflight.ps1.bak-20261028        7495
+README.md.bak-20261028                   3009
+start-demo-supervisor.cmd.bak-20261028    186
+start-demo-supervisor.ps1.bak-20261028  19121
+
+
+
+## 1) PS1 AST/BOM/SHA
+  D:\OpenHarmony\competition\materials\demo_start.ps1 | parse=PARSE_OK | BOM=True | sha256=190afb87dc7109f3abacb92295f9e1636c42983917bca3994a31dbaafc5357c9
+  D:\OpenHarmony\competition\materials\device-preflight.ps1 | parse=PARSE_OK | BOM=True | sha256=bc72935ceb4b530af1c7f8f365a080c950f72c388657a529f77e3773b2cf6263
+## 2) node --check demo-preflight.js
+  exit=0 out=
+## 3) node demo-preflight.js --simulate --json（只读）
+  exit=0
+{
+  "generatedAt": "2026-10-27T16:53:31.006Z",
+  "mode": "simulate",
+  "root": "D:\\OpenHarmony\\competition",
+  "blockers": 0,
+  "warnings": 4,
+  "checks": [
+    {
+      "level": "PASS",
+      "name": "workspace",
+      "detail": "workspace root exists"
+    },
+    {
+      "level": "PASS",
+      "name": "artifact: homemon-arm",
+      "detail": "177872 bytes, SHA-256 A5F355C2D5E9F4E7330282F1856411927EB54AD743B5ACB7C599BE7C2D6ED9EA"
+    },
+    {
+      "level": "PASS",
+      "name": "artifact: say.sh",
+      "detail": "1521 bytes, SHA-256 725857B3740405C6B87E6D3B9DF27515AE12CEC979E87652D154CD262641AE27"
+    },
+    {
+      "level": "PASS",
+      "name": "artifact: signed HAP",
+      "detail": "1385966 bytes, SHA-256 B5EC606E428A40B6005F552276000EE2CDEA79A3E91DB4612DCB874406F2B714"
+    },
+    {
+      "level": "WARN",
+      "name": "artifact: unsigned HAP",
+      "detail": "missing"
+    },
+    {
+      "level": "PASS",
+      "name": "artifact: ESP32 app image",
+      "detail": "756560 bytes, SHA-256 0E523D0BA52F7CDDEF3D2DB83989EE3199B312EFF636BF55F722AA3AE47A839B"
+    },
+    {
+      "level": "PASS",
+      "name": "HAP identity",
+      "detail": "signed HAP SHA-256 matches 1.0.10 build recorded in northbound/RELEASE.md"
+    },
+    {
+      "level": "PASS",
+      "name": "HDC USB target",
+      "detail": "simulated USB Connected target"
+    },
+    {
+      "level": "PASS",
+      "name": "DAYU API/ABI",
+      "detail": "simulated API 26, aarch64 kernel, 32-bit userspace"
+    },
+    {
+      "level": "PASS",
+      "name": "homemon runtime",
+      "detail": "simulated running state"
+    },
+    {
+      "level": "PASS",
+      "name": "local TCP 1883",
+      "detail": "LISTENING (PID 27820)"
+    },
+    {
+      "level": "PASS",
+      "name": "local TCP 9001",
+      "detail": "LISTENING (PID 31928)"
+    },
+    {
+      "level": "PASS",
+      "name": "local TCP 9101",
+      "detail": "LISTENING (PID 66100)"
+    },
+    {
+      "level": "WARN",
+      "name": "local TCP 9200",
+      "detail": "not listening"
+    },
+    {
+      "level": "WARN",
+      "name": "backend readiness",
+      "detail": "unavailable (ECONNREFUSED)"
+    },
+    {
+      "level": "WARN",
+      "name": "vision health",
+      "detail": "unavailable (ECONNREFUSED)"
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "homemon-arm",
+      "relative": "southbound/out/homemon-arm",
+      "required": true,
+      "exists": true,
+      "bytes": 177872,
+      "mtimeMs": 1793119478591.146,
+      "sha256": "A5F355C2D5E9F4E7330282F1856411927EB54AD743B5ACB7C599BE7C2D6ED9EA"
+    },
+    {
+      "name": "say.sh",
+      "relative": "southbound/say.sh",
+      "required": true,
+      "exists": true,
+      "bytes": 1521,
+      "mtimeMs": 1791552605970.3955,
+      "sha256": "725857B3740405C6B87E6D3B9DF27515AE12CEC979E87652D154CD262641AE27"
+    },
+    {
+      "name": "signed HAP",
+      "relative": "evidence/2026-10-27-video-fps/dayu-video-fps-1.0.10-signed.hap",
+      "required": true,
+      "exists": true,
+      "bytes": 1385966,
+      "mtimeMs": 1793117908149.667,
+      "sha256": "B5EC606E428A40B6005F552276000EE2CDEA79A3E91DB4612DCB874406F2B714"
+    },
+    {
+      "name": "unsigned HAP",
+      "relative": "northbound/entry/build/default/outputs/default/entry-default-unsigned.hap",
+      "required": false,
+      "exists": false
+    },
+    {
+      "name": "ESP32 app image",
+      "relative": "esp32-node/build/esp32_elder_node.bin",
+      "required": true,
+      "exists": true,
+      "bytes": 756560,
+      "mtimeMs": 1792500225076.2866,
+      "sha256": "0E523D0BA52F7CDDEF3D2DB83989EE3199B312EFF636BF55F722AA3AE47A839B"
+    }
+  ],
+  "result": "READY_WITH_WARNINGS"
+}
+## 4) powershell device-preflight.ps1 -Simulate（只读）
+  exit=0
+
+====================================================================
+1. PC 时间（证据必须同时记录 PC 与设备时间）
+====================================================================
+  PC local time              2026-10-28 00:53:31 +08:00
+  PC UTC                     2026-10-27 16:53:31
+
+====================================================================
+2. hdc 目标
+====================================================================
+  mode                       SIMULATE（不调用真实 hdc 设备命令）
+  hdc list targets           <simulated target>
+
+====================================================================
+3. 设备系统基线（只读）
+====================================================================
+  const.ohos.apiversion      26
+  const.product.software.version OpenHarmony-7.0.0.38
+  uname -m                   aarch64
+  getconf LONG_BIT           32
+  verdict                    PASS（模拟）
+
+====================================================================
+4. 当前权威制品
+====================================================================
+  southbound/out/homemon-arm 177872 bytes  A5F355C2D5E9F4E7330282F1856411927EB54AD743B5ACB7C599BE7C2D6ED9EA
+  southbound/out/homemon-arm64 (REFERENCE only) 41288 bytes  5D66984963361C6F7024CD4A9A5F79E7F45BF493E02A12A9244660066941398B
+  southbound/say.sh          1521 bytes  725857B3740405C6B87E6D3B9DF27515AE12CEC979E87652D154CD262641AE27
+  signed HAP 1.0.10 (RELEASE.md) 1385966 bytes  B5EC606E428A40B6005F552276000EE2CDEA79A3E91DB4612DCB874406F2B714
+  esp32-node/build/esp32_elder_node.bin 756560 bytes  0E523D0BA52F7CDDEF3D2DB83989EE3199B312EFF636BF55F722AA3AE47A839B
+  reminder                   真机南向入口必须是 homemon-arm（32 位用户态），不要用 homemon-arm64
+  signed HAP hash check      PASS（与 RELEASE.md 1.0.10 一致）
+
+====================================================================
+5. 板端 homemon 状态（只读）
+====================================================================
+  ps -ef | grep [h]omemon    3221 /data/homemon/homemon /data/homemon/homemon.conf
+  /data/homemon/status.json  {"state":"NORMAL", ...}
+
+====================================================================
+6. PC 侧端口监听状态
+====================================================================
+
+LocalAddress LocalPort OwningProcess
+------------ --------- -------------
+::                9101         66100
+::                1883         27820
+127.0.0.1         9001         31928
+
+
+
+  note                       无监听属正常：真机验收前需要先启动 Broker/Bridge
+
+====================================================================
+7. 串口候选（ESP32 / YED-M100MG-B1）
+====================================================================
+  available COM              COM19, COM20, COM11
+  COM19                      \Device\BthModem1
+  COM20                      \Device\BthModem0
+  COM11                      \Device\VCP0
+  note                       ESP32 历史烧录口为 COM9；COM 归属仍需本机确认，不要据虚拟串口推断 YED
+
+====================================================================
+预检结论
+====================================================================
+RESULT: READY -- 可以开始真机验收（下一步：部署 homemon-arm 并确认状态流）

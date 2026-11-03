@@ -1,0 +1,35 @@
+﻿== 步骤 05b：跨设备/离线/重连（环境与测试同进程树）==
+时间: 2026-10-09 22:49:01
+
+fport: Forwardport result:OK
+broker PID=25532 bridge PID=28284
+sim_node PID=25316 （id=esp32-bath room=卫生间）
+
+--- 1) bridge 收到 esp32-bath 上行 ---
+
+[bridge] 鈫?home/esp32-bath/status  state=NORMAL room=鍗敓闂?countToday=0
+[bridge] 鈫?home/esp32-bath/status  state=NORMAL room=鍗敓闂?countToday=0
+
+--- 2) 经 bridge 下发 gas 到 esp32-bath ---
+  [tool] 已连接 127.0.0.1:1883
+  [tool] 已发布 → home/esp32-bath/cmd: {cmd:gas}
+
+[MQTT] 鈫?home/esp32-bath/cmd: {cmd:gas}
+[bridge] 鈫?home/esp32-bath/status  state=NORMAL room=鍗敓闂?countToday=0
+[bridge] 鈫?home/esp32-bath/status  state=NORMAL room=鍗敓闂?countToday=0
+[sim-node] 宸茶繛鎺ョ綉鍏?127.0.0.1:9100锛堜綔涓?esp32-bath / 鍗敓闂达級
+[sim-node] 鈫?NORMAL 娲诲姩 0 娆?[sim-node] 鈫?NORMAL 娲诲姩 0 娆?[sim-node] 鈫?NORMAL 娲诲姩 0 娆?[sim-node] 鈫?NORMAL 娲诲姩 0 娆?
+
+--- 3) 精确停止 sim PID 25316，等 16 秒（期望：卫生间离线、DAYU 在线）---
+
+板端 DAYU: /bin/sh: no closing quote
+
+--- 4) 同 ID 重启（期望自动重新在线）---
+新 sim PID=2980
+
+[bridge] 鏃犵嚎鑺傜偣 esp32-bath 鏂紑
+[bridge] 鈫?home/esp32-bath/status  state=NORMAL room=鍗敓闂?countToday=0
+[bridge] 鈫?home/esp32-bath/status  state=NORMAL room=鍗敓闂?countToday=0
+
+--- 5) 收尾：停止本轮 sim PID 2980（不删安全日志）---
+已停止

@@ -1,0 +1,106 @@
+{
+  "type": "DERIVED_EMULATION_NOT_HISTORICAL",
+  "derived_from": "competition/cloud/backend/src (frozen v6 tree, verified against SOURCE-HASHES.txt)",
+  "edits": [
+    {
+      "from": "const SCHEMA_VERSION = 6;",
+      "to": "const SCHEMA_VERSION = 5;"
+    },
+    {
+      "from": "const READABLE_SCHEMA_VERSIONS = new Set([1, 2, 3, 4, 5, SCHEMA_VERSION]);",
+      "to": "const READABLE_SCHEMA_VERSIONS = new Set([1, 2, 3, 4, 5]);"
+    },
+    {
+      "from": "      communications: [...this.communications.values()].map(communicationToDocument),\n      safetyLogs: this.safetyLogs.map(safetyLogToDocument)\n",
+      "to": "      communications: [...this.communications.values()].map(communicationToDocument)\n"
+    }
+  ],
+  "files": [
+    {
+      "path": "src/activity-store.js",
+      "bytes": 9337,
+      "sha256": "35EF7BA23DCB5B676533CE3C356896165C4931427CEE3B6AA0C58E27E765FC71",
+      "identical_to_frozen": true
+    },
+    {
+      "path": "src/activity.js",
+      "bytes": 37941,
+      "sha256": "AB555AD8B80857AB52AD3ACFF7BFFD9BA7434919B4F8BCF1027A054FA9736EE9",
+      "identical_to_frozen": true
+    },
+    {
+      "path": "src/auth.js",
+      "bytes": 4150,
+      "sha256": "E26F5DA2FCD9117160A5D69FA2162EC0E3891194C8416F3096B9E9828E71548C",
+      "identical_to_frozen": true
+    },
+    {
+      "path": "src/comms-core.js",
+      "bytes": 15816,
+      "sha256": "FDC49F4238B561C9E0D7C88DF872634BCDB60F7F672177FA1E8236FA38DC39E4",
+      "identical_to_frozen": true
+    },
+    {
+      "path": "src/evidence-store.js",
+      "bytes": 11676,
+      "sha256": "00E36802087A4B2C15BA776689CDD347374BFE0CBFDE05644A76A1572E03D818",
+      "identical_to_frozen": true
+    },
+    {
+      "path": "src/household-auth.js",
+      "bytes": 5813,
+      "sha256": "09D1FD14625C4E21F6D6919DF69030D07FE089CB98BEF79B436ABD01020852B5",
+      "identical_to_frozen": true
+    },
+    {
+      "path": "src/main.js",
+      "bytes": 15127,
+      "sha256": "D40C4365EC2FE57FF62726AB0BA91210EDF007C4C8B3057435E32284E4898551",
+      "identical_to_frozen": true
+    },
+    {
+      "path": "src/notify-delivery.js",
+      "bytes": 39601,
+      "sha256": "BA31846AB3F68C514FB83BECFB9EE237E5FA4820C2A05D02EDD2E312B547A1B6",
+      "identical_to_frozen": true
+    },
+    {
+      "path": "src/notify-privacy.js",
+      "bytes": 13412,
+      "sha256": "AEBC9487F5F1E21CCC495AC00D8569B0F6810846CE60FF9008600EE1E36179A7",
+      "identical_to_frozen": true
+    },
+    {
+      "path": "src/notify-provider.js",
+      "bytes": 17188,
+      "sha256": "BAD04463BF3701D2AB2EBDB622D9AF3F1F9253F4D791C1F2F7FB6FBB1FD28DF3",
+      "identical_to_frozen": true
+    },
+    {
+      "path": "src/persistent-store.js",
+      "bytes": 66968,
+      "sha256": "6F6E06ACFADBC951E6AB44224F54EC7E3C3F341FB1638DA6CE3B8A0E3AFF53B3",
+      "identical_to_frozen": false
+    },
+    {
+      "path": "src/safety-log.js",
+      "bytes": 9350,
+      "sha256": "D34D376A59E5432F21000994B1231244BFBEFE4C6F3164A201FD02C8A7473A3D",
+      "identical_to_frozen": true
+    },
+    {
+      "path": "src/server.js",
+      "bytes": 37008,
+      "sha256": "A7FAD1E52979A045F844BE390EF6F9892B228AA5D4E4B34A0E8C724A53E65443",
+      "identical_to_frozen": true
+    },
+    {
+      "path": "src/store.js",
+      "bytes": 18385,
+      "sha256": "0594285BD8E7727EA06DDAF97B34D0B68971716B5391311BECBDD4282B3AD8AC",
+      "identical_to_frozen": true
+    }
+  ],
+  "diff_lines_added": 3,
+  "diff_lines_removed": 4
+}

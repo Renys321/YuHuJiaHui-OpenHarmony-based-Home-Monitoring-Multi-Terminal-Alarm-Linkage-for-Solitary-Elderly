@@ -1,0 +1,5 @@
+﻿127.0.0.1:5555		TCP	Connected	localhost	hdc
+COM11		UART	Ready	unknown...	hdc
+COM19		UART	Ready	unknown...	hdc
+COM20		UART	Ready	unknown...	hdc
+COM4		UART	Ready	unknown...	hdc

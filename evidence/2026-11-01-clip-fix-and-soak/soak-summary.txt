@@ -1,0 +1,8 @@
+=== 30 轮浸泡汇总 ===
+cycles=30 target=esp32-bath pass=210 fail=0
+
+=== 浸泡窗口内异常条目数（应为 0）===
+0
+
+=== 问答时延（30 轮）===
+min=663ms avg=924ms max=1321ms n=30

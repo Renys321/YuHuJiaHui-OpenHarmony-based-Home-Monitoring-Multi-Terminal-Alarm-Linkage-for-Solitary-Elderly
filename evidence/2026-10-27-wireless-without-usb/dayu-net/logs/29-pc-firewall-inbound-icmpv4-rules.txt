@@ -1,0 +1,12 @@
+﻿# PC firewall inbound ICMPv4 echo rules (root cause of DAYU->PC ping loss), captured: 2026-10-27 22:36:34 +08:00
+# WLAN network category is Public (see 18-pc-network-category.txt); only Private-profile rules are active.
+----------------------------------------------------------------------------------------------------
+核心网络 - 需要目标不可访问的碎片(ICMPv4-In)                                Enabled=True   Dir=Inbound   Action=Allow  Profile=Any
+核心网络诊断 - ICMP 回显请求(ICMPv4-In)                                Enabled=False  Dir=Inbound   Action=Allow  Profile=Domain
+核心网络诊断 - ICMP 回显请求(ICMPv4-In)                                Enabled=False  Dir=Inbound   Action=Allow  Profile=Private, Public
+文件和打印机共享 (限制性) (回显请求 - ICMPv4-In)                            Enabled=False  Dir=Inbound   Action=Allow  Profile=Domain, Public
+文件和打印机共享 (限制性) (回显请求 - ICMPv4-In)                            Enabled=True   Dir=Inbound   Action=Allow  Profile=Private
+文件和打印机共享(回显请求 - ICMPv4-In)                                   Enabled=True   Dir=Inbound   Action=Allow  Profile=Private
+文件和打印机共享(回显请求 - ICMPv4-In)                                   Enabled=False  Dir=Inbound   Action=Allow  Profile=Public
+文件和打印机共享(回显请求 - ICMPv4-In)                                   Enabled=False  Dir=Inbound   Action=Allow  Profile=Domain
+虚拟机监控(回显请求- ICMPv4-In)                                       Enabled=False  Dir=Inbound   Action=Allow  Profile=Any

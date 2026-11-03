@@ -1,0 +1,18 @@
+﻿[2026-10-28 00:42:01] [EXECUTE] [INFO] 已复制 northbound -> D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\northbound-1.0.0-archive（不含 .hvigor）
+[2026-10-28 00:42:01] [EXECUTE] [INFO] 恢复 entry\src\main\ets\pages\Index.ets  bytes=66383  sha256=773C7E98A5E23F7FA21FAEB44688A12B01E644F12ABE56BEAC6063C517EEE62D
+[2026-10-28 00:42:01] [EXECUTE] [INFO] 恢复 entry\src\main\ets\model\CameraModel.ets  bytes=18137  sha256=71F5DAE41B9B7BF00261A556950541C14E94D40A0BC5AD05C400F31146160C59
+[2026-10-28 00:42:01] [EXECUTE] [INFO] 恢复 entry\src\main\ets\model\DeviceModel.ets  bytes=9342  sha256=50C7BCC17FE8A0E84BC8F17874492F68291EEED7744918AF9D2109610773E30D
+[2026-10-28 00:42:01] [EXECUTE] [INFO] 恢复 entry\src\main\ets\model\DeviceCapabilities.ts  bytes=1927  sha256=149FCCC7580AC70080981A6A3A4026C8AA761B0D51C091B3D6EE8AAACA29AB51
+[2026-10-28 00:42:15] [EXECUTE] [INFO] 已复制 northbound -> D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\northbound-1.0.0-archive（不含 .hvigor）
+[2026-10-28 00:42:15] [EXECUTE] [INFO] 恢复 entry\src\main\ets\pages\Index.ets  bytes=66383  sha256=773C7E98A5E23F7FA21FAEB44688A12B01E644F12ABE56BEAC6063C517EEE62D
+[2026-10-28 00:42:15] [EXECUTE] [INFO] 恢复 entry\src\main\ets\model\CameraModel.ets  bytes=18137  sha256=71F5DAE41B9B7BF00261A556950541C14E94D40A0BC5AD05C400F31146160C59
+[2026-10-28 00:42:15] [EXECUTE] [INFO] 恢复 entry\src\main\ets\model\DeviceModel.ets  bytes=9342  sha256=50C7BCC17FE8A0E84BC8F17874492F68291EEED7744918AF9D2109610773E30D
+[2026-10-28 00:42:15] [EXECUTE] [INFO] 恢复 entry\src\main\ets\model\DeviceCapabilities.ts  bytes=1927  sha256=149FCCC7580AC70080981A6A3A4026C8AA761B0D51C091B3D6EE8AAACA29AB51
+[2026-10-28 00:42:15] [EXECUTE] [INFO] 重建 AppScope/app.json5 1.0.0/1000000 bytes=246 sha256=EF7D05EC485968AD2E91634AEE47FD60992178FA0BCF6DF447254E189540BF0D
+[2026-10-28 00:42:15] [EXECUTE] [INFO] 删除旧线不存在文件: entry\src\main\ets\model\PreviewTuning.ets
+[2026-10-28 00:42:15] [EXECUTE] [INFO] 删除旧线不存在文件: entry\src\main\ets\model\VideoStreamServer.ets
+[2026-10-28 00:42:15] [EXECUTE] [INFO] 删除旧线不存在文件: entry\src\main\ets\model\WearableBannerPrefs.ets
+[2026-10-28 00:42:15] [EXECUTE] [INFO] 已写 RECOVERY-NOTES.md
+[2026-10-28 00:42:16] [EXECUTE] [INFO] 归档清单: 207 个文件
+[2026-10-28 00:42:16] [EXECUTE] [INFO] --- 归档 vs 当前 northbound（同步作用域）差异 ---
+[2026-10-28 00:42:16] [EXECUTE] [INFO] === 完成 ===

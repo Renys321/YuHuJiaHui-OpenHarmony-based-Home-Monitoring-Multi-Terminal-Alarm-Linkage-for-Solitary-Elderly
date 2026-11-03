@@ -1,0 +1,173 @@
+W (85639) elder-node: WiFi 断开（reason=205），重连中…
+I (88049) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+I (88049) wifi:state: init -> auth (b0)
+I (89049) wifi:state: auth -> init (200)
+I (89049) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+W (89049) elder-node: WiFi 断开（reason=2），重连中…
+I (89149) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":6},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":53.0,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,6],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (89169) elder-node: STACK_FREE task=main bytes=4068
+W (91469) elder-node: WiFi 断开（reason=205），重连中…
+I (93879) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+I (93879) wifi:state: init -> auth (b0)
+I (94629) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+I (94629) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":6},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":53.0,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,6],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (94659) elder-node: STACK_FREE task=main bytes=4068
+I (94879) wifi:state: auth -> init (200)
+I (94879) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+W (94879) elder-node: WiFi 断开（reason=2），重连中…
+W (97299) elder-node: WiFi 断开（reason=205），重连中…
+I (99709) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+I (99709) wifi:state: init -> auth (b0)
+I (100029) elder-node: 检测到活动（今日第 7 次）
+I (100119) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":7},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":53.1,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,7],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (100139) elder-node: STACK_FREE task=main bytes=4068
+I (100709) wifi:state: auth -> init (200)
+I (100709) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+W (100709) elder-node: WiFi 断开（reason=2），重连中…
+W (103129) elder-node: WiFi 断开（reason=205），重连中…
+I (105539) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+I (105539) wifi:state: init -> auth (b0)
+I (105599) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":7},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":53.0,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,7],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (105619) elder-node: STACK_FREE task=main bytes=4068
+I (106539) wifi:state: auth -> init (200)
+I (106539) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+W (106539) elder-node: WiFi 断开（reason=2），重连中…
+W (108949) elder-node: WiFi 断开（reason=205），重连中…
+I (111079) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":7},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":53.1,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,7],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (111099) elder-node: STACK_FREE task=main bytes=4068
+I (111369) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+I (111369) wifi:state: init -> auth (b0)
+I (112369) wifi:state: auth -> init (200)
+I (112369) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+W (112369) elder-node: WiFi 断开（reason=2），重连中…
+W (114779) elder-node: WiFi 断开（reason=205），重连中…
+I (116559) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+I (116559) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":7},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":53.1,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,7],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (116589) elder-node: STACK_FREE task=main bytes=4068
+I (117189) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+I (117189) wifi:state: init -> auth (b0)
+I (118199) wifi:state: auth -> init (200)
+I (118199) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+W (118199) elder-node: WiFi 断开（reason=2），重连中…
+W (120609) elder-node: WiFi 断开（reason=205），重连中…
+I (122049) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":7},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":53.2,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,7],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (122069) elder-node: STACK_FREE task=main bytes=4068
+I (123019) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+I (123019) wifi:state: init -> auth (b0)
+I (124019) wifi:state: auth -> init (200)
+I (124019) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+W (124029) elder-node: WiFi 断开（reason=2），重连中…
+W (126439) elder-node: WiFi 断开（reason=205），重连中…
+I (127529) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":7},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":53.2,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,7],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (127549) elder-node: STACK_FREE task=main bytes=4068
+I (128559) elder-node: 检测到活动（今日第 8 次）
+W (128849) elder-node: WiFi 断开（reason=201），重连中…
+I (131259) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+I (131259) wifi:state: init -> auth (b0)
+I (132259) wifi:state: auth -> init (200)
+I (132259) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+W (132269) elder-node: WiFi 断开（reason=2），重连中…
+I (133009) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":8},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":53.3,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,8],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (133029) elder-node: STACK_FREE task=main bytes=4068
+W (134679) elder-node: WiFi 断开（reason=205），重连中…
+I (137089) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+I (137089) wifi:state: init -> auth (b0)
+I (138089) wifi:state: auth -> init (200)
+I (138089) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+W (138089) elder-node: WiFi 断开（reason=2），重连中…
+I (138489) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+I (138489) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":8},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":53.4,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,8],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (138519) elder-node: STACK_FREE task=main bytes=4068
+W (140509) elder-node: WiFi 断开（reason=205），重连中…
+I (142919) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+I (142919) wifi:state: init -> auth (b0)
+I (143919) wifi:state: auth -> init (200)
+I (143919) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+W (143919) elder-node: WiFi 断开（reason=2），重连中…
+I (143979) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":8},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":53.3,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,8],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (143999) elder-node: STACK_FREE task=main bytes=4068
+W (146339) elder-node: WiFi 断开（reason=205），重连中…
+I (148749) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+I (148749) wifi:state: init -> auth (b0)
+I (149459) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":8},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":53.3,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,8],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (149479) elder-node: STACK_FREE task=main bytes=4068
+I (149749) wifi:state: auth -> init (200)
+I (149749) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+W (149749) elder-node: WiFi 断开（reason=2），重连中…
+W (152169) elder-node: WiFi 断开（reason=205），重连中…
+I (153759) elder-node: 检测到活动（今日第 9 次）
+I (154579) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+I (154579) wifi:state: init -> auth (b0)
+I (154939) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":9},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":53.5,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,9],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (154959) elder-node: STACK_FREE task=main bytes=4068
+I (155579) wifi:state: auth -> init (200)
+I (155579) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+W (155579) elder-node: WiFi 断开（reason=2），重连中…
+W (157999) elder-node: WiFi 断开（reason=205），重连中…
+I (160409) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+I (160409) wifi:state: init -> auth (b0)
+I (160419) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+I (160419) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":9},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":53.6,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,9],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (160449) elder-node: STACK_FREE task=main bytes=4068
+I (161409) wifi:state: auth -> init (200)
+I (161409) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+W (161409) elder-node: WiFi 断开（reason=2），重连中…
+I (162549) elder-node: 检测到活动（今日第 10 次）
+W (163819) elder-node: WiFi 断开（reason=205），重连中…
+I (165909) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":10},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":53.7,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,10],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (165929) elder-node: STACK_FREE task=main bytes=4068
+I (166239) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+I (166239) wifi:state: init -> auth (b0)
+I (167239) wifi:state: auth -> init (200)
+I (167239) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+W (167239) elder-node: WiFi 断开（reason=2），重连中…
+W (169649) elder-node: WiFi 断开（reason=205），重连中…
+I (171389) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":10},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":53.8,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,10],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (171409) elder-node: STACK_FREE task=main bytes=4068
+I (172059) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+I (172059) wifi:state: init -> auth (b0)
+I (173069) wifi:state: auth -> init (200)
+I (173069) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+W (173069) elder-node: WiFi 断开（reason=2），重连中…
+I (173509) elder-node: 检测到活动（今日第 11 次）
+W (175479) elder-node: WiFi 断开（reason=205），重连中…
+I (176869) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":11},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":53.8,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,11],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (176889) elder-node: STACK_FREE task=main bytes=4068
+I (177889) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+I (177889) wifi:state: init -> auth (b0)
+I (178889) wifi:state: auth -> init (200)
+I (178889) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+W (178899) elder-node: WiFi 断开（reason=2），重连中…
+W (181309) elder-node: WiFi 断开（reason=201），重连中…
+I (182349) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+I (182349) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":11},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":53.9,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,11],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (182379) elder-node: STACK_FREE task=main bytes=4068
+I (183719) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+I (183719) wifi:state: init -> auth (b0)
+I (184719) wifi:state: auth -> init (200)
+I (184719) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+W (184719) elder-node: WiFi 断开（reason=2），重连中…
+W (187139) elder-node: WiFi 断开（reason=205），重连中…
+I (187839) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":11},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":53.9,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,11],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (187859) elder-node: STACK_FREE task=main bytes=4068
+I (189549) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+I (189549) wifi:state: init -> auth (b0)
+I (190549) wifi:state: auth -> init (200)
+I (190549) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+W (190549) elder-node: WiFi 断开（reason=2），重连中…
+W (192969) elder-node: WiFi 断开（reason=205），重连中…
+I (193319) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":11},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":54.0,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,11],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (193339) elder-node: STACK_FREE task=main bytes=4068
+I (195379) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+I (195379) wifi:state: init -> auth (b0)
+I (196379) wifi:state: auth -> init (200)
+I (196379) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+W (196379) elder-node: WiFi 断开（reason=2），重连中…
+W (198799) elder-node: WiFi 断开（reason=205），重连中…
+I (198799) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":11},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":54.0,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,11],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (198829) elder-node: STACK_FREE task=main bytes=4068
+I (201209) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+I (201209) wifi:state: init -> auth (b0)
+I (202209) wifi:state: auth -> init (200)
+I (202209) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+W (202209) elder-node: WiFi 断开（reason=2），重连中…

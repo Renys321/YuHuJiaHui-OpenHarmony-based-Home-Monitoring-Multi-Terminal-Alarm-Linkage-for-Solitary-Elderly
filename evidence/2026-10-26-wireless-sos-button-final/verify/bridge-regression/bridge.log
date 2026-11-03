@@ -1,0 +1,22 @@
+=== mqtt_bridge 启动 ===
+  Broker    : 127.0.0.1:18831
+  上行主题  : home/<deviceId>/status   （设备编号由报文决定）
+  下行主题  : home/<deviceId>/cmd      （按编号路由到对应节点）
+  命令兜底  : control
+  求助播报  : 关闭（未提供 --sos-source / --sos-targets）
+  监听端口  : 9112（等待无线节点接入）
+  监听端口  : 9112（等待无线节点接入）
+[MQTT] 已连接 127.0.0.1:18831（clientId=bridge-dayu200-living-65535）
+[MQTT] 订阅成功: home/+/cmd
+[bridge] 无线节点接入 ::ffff:127.0.0.1:51998
+[bridge] 无线节点接入 ::ffff:127.0.0.1:51999
+[bridge] → home/esp32-sos/status  state=NORMAL room=测试 countToday=0
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=测试 countToday=0
+[MQTT] ← home/esp32-kitchen/cmd: {"cmd":"ack","alarmId":"e-9-1","action":"已确认"}
+[bridge] 命令已写入节点 esp32-kitchen 的活动连接: ack e-9-1 已确认
+[MQTT] ← home/esp32-kitchen/cmd: {"cmd":"reset"}
+[bridge] 命令已写入节点 esp32-kitchen 的活动连接: reset
+[MQTT] ← home/esp32-kitchen/cmd: {"cmd":"notice","alarmId":"e-9-2","source":"esp32-sos"}
+[bridge] → home/esp32-sos/status  state=ALARM room=测试 countToday=0
+[bridge] 无线节点 esp32-sos 断开
+[bridge] 无线节点 esp32-kitchen 断开

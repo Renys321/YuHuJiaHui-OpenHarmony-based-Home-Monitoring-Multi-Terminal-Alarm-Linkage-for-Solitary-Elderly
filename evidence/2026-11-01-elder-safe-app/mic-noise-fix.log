@@ -1,0 +1,4 @@
+MIC noise fix 2026-11-01
+PGA 0x09: 0x88 -> 0x44
+HPF ~75Hz
+kitchen MIC_TEST rms=9 peak=128 samples=47360 seconds=3 (quiet room)

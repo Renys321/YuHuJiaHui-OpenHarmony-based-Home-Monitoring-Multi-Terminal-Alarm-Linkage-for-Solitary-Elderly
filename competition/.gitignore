@@ -1,0 +1,14 @@
+# Local credentials and device identities must never enter source control.
+.env
+.env.*
+!.env.example
+!deploy/.env.deploy.example
+cloud/private/
+hardware/**/private/
+mobile/wechat-miniprogram/project.private.config.json
+cloud/backend/data/
+node_modules/
+.tts-work/
+esp32-node/.local/
+esp32-node/build-*/
+

@@ -1,0 +1,14 @@
+﻿{
+    "timestamp":  "2026-10-26 01:16:33",
+    "target":  "450100445634303332012847942eca00",
+    "targetConnected":  false,
+    "p0":  "healthy",
+    "app":  "waiting",
+    "inference":  "waiting",
+    "cameraFrames":  "WAIT",
+    "nodes":  "",
+    "userStop":  false,
+    "userPaused":  false,
+    "lastEventCount":  4987,
+    "watcherPid":  52900
+}

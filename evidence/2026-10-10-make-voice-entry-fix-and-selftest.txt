@@ -1,0 +1,38 @@
+== 2026-10-10 make_voice.ps1 入口修复与真实文件自测 ==
+记录时区: Asia/Shanghai
+
+初始脚本 SHA-256:
+F30ADBF789774B1588D3A11872784B7B2AD8DF813230641B6FC3BCDB4DFED192
+
+首次真实文件调用:
+powershell -NoProfile -ExecutionPolicy Bypass -File materials\make_voice.ps1 -Input <WORKSPACE>\录音机-20261009-2052.m4a -OutName make_voice-selftest-20261010.wav
+
+结果: EXIT_CODE=1，尚未调用 FFmpeg，也未生成输出。
+错误位置: materials\make_voice.ps1:24
+错误: Cannot bind argument to parameter 'Path' because it is an empty string.
+
+根因:
+参数变量 `$Input` 与 PowerShell 自动变量 `$input` 大小写不敏感冲突；参数绑定后脚本体读到空的自动变量。
+
+修复:
+- 内部参数重命名为 `$InputPath`。
+- 添加 `[Alias('Input')]`，保持既有 `-Input` 命令行兼容。
+- 输入检查改为 `Test-Path -LiteralPath $InputPath`。
+
+修复后脚本 SHA-256:
+1239E93A60AE93CCD1409A52DBFB7576E8606F8EA4462596849F84D02E1A31EB
+
+验证:
+- PowerShell Parser errors = 0。
+- 使用原有 `-Input` 参数再次转换，EXIT_CODE=0。
+- 输出大小: 225754 bytes。
+- 输出 SHA-256: B7B81062654645051BD8DBD73B23A06BA7BEBFFE179F7730BA16A65D18B102E9。
+- FFmpeg 探测: Duration 00:00:02.35，pcm_s16le，48000 Hz，1 channel，s16，768 kb/s。
+- 自测输出移至 `evidence/2026-10-10-make-voice-selftest.wav`，未留在 APP rawfile 目录。
+- 缺失输入用例 EXIT_CODE=1，未生成 `must-not-exist.wav`。
+- FFmpeg 内部失败用例使用非音频文本输入，FFmpeg EXIT_CODE=1，脚本报告“Output file does not contain any stream”；目标 `must-not-exist-after-ffmpeg.wav` 不存在，随机临时 WAV 已清理。
+- 生产 `sos.wav` 未被覆盖，大小仍为 574286 bytes，SHA-256 仍为 898A09E5F09F23665AB30280CB3A9BCEC52CD7733AAFDBF9AC12C432E6E54528。
+
+边界:
+- 该测试证明语音转换脚本可以处理真实 M4A 并保护既有输出。
+- 自测 WAV 没有打包进 HAP，也没有在设备扬声器播放；实体声学输出仍为 NOT TESTED。

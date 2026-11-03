@@ -1,0 +1,19 @@
+=== 修复与重建记录 2026-11-02 12:30:54 ===
+
+问题: living(语音关闭) 编译失败: CONFIG_NODE_MIC_RECORD_SEC/PORT undeclared
+修复: node_main.c 的 micupload 分支加 #if CONFIG_NODE_VOICE_ENABLED / #else / #endif
+同步: common + kitchen + bathroom + living 四份 node_main.c 哈希一致: 4b24bb984e2c8045b4c1a5c4e886243459e01a1261606b539d5d9bb36579c59f
+
+=== 重建结果 ===
+kitchen  63a99cabe90b0e5b32f996d3e6a9f93f7dec44b00f1d5428c2d8b519697618c6  1168720 B  mtime=2026-11-02 12:29:42
+bathroom  024cf0e968f2a813f80d6b90a29ff766a6f6f2e88d63476d0653ff4a9c8df441  1157728 B  mtime=2026-11-02 12:30:04
+living  d8b49f9e7785338a45d2f2e9513737b8affe8e8442c38bd1436c2a59804519a7  771920 B  mtime=2026-11-02 12:30:25
+
+=== 分支字符串校验（二进制内 UTF-8 精确匹配）===
+kitchen 已排队= 1 未启用= 0 key-parse= 1
+bathroom 已排队= 1 未启用= 0 key-parse= 1
+living 已排队= 0 未启用= 1 key-parse= 0
+
+=== 构建脚本告警 ===
+- build-node.ps1 提示旧 sdkconfig.defaults 的 Wi-Fi 配置被忽略（保留现有 sdkconfig）；不影响本次编译
+- kitchen/bathroom/living 均 exit=0

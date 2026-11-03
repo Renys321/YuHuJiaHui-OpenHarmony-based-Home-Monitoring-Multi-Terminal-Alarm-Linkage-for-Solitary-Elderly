@@ -1,0 +1,62 @@
+[0;32mI (91936) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1793595728066,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1793595670065,"countToday":0},"door":{"open":true,"lastOpenTs":0,"lastCloseTs":0,"seq":52},"climate":{"tempC":0.0,"rh":0.0,"ok":true,"valid":false},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[0m
+[0;32mI (91966) elder-node: STACK_FREE task=main bytes=2980[0m
+[0;32mI (92026) elder-node: STACK_FREE task=gateway-net bytes=2212[0m
+[0;32mI (96966) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1793595733096,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1793595670065,"countToday":0},"door":{"open":true,"lastOpenTs":0,"lastCloseTs":0,"seq":52},"climate":{"tempC":0.0,"rh":0.0,"ok":true,"valid":false},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[0m
+[0;32mI (96996) elder-node: STACK_FREE task=main bytes=2980[0m
+[0;32mI (97026) elder-node: STACK_FREE task=gateway-net bytes=2212[0m
+[0;32mI (97366) speaker-net: rx {"type":"ping"}[0m
+[0;32mI (99246) speaker-net: RX pcm bytes=241120[0m
+[0;32mI (99306) local-voice: PCM begin 16000Hz mono[0m
+[0;32mI (99316) local-voice: PCM write first block n=256 bytes=1024[0m
+[0;32mI (101996) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1793595738127,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1793595670065,"countToday":0},"door":{"open":true,"lastOpenTs":0,"lastCloseTs":0,"seq":52},"climate":{"tempC":0.0,"rh":0.0,"ok":true,"valid":false},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[0m
+[0;32mI (102026) elder-node: STACK_FREE task=gateway-net bytes=2212[0m
+[0;32mI (102026) elder-node: STACK_FREE task=main bytes=2980[0m
+[0;32mI (107036) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0[0m
+[0;32mI (107036) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1793595743166,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1793595670065,"countToday":0},"door":{"open":true,"lastOpenTs":0,"lastCloseTs":0,"seq":52},"climate":{"tempC":0.0,"rh":0.0,"ok":true,"valid":false},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[0m
+[0;32mI (107076) elder-node: STACK_FREE task=main bytes=2980[0m
+[0;32mI (107086) local-voice: PCM end[0m
+[0;32mI (107086) speaker-net: PCM played bytes=241120[0m
+[0;32mI (107126) elder-node: STACK_FREE task=gateway-net bytes=2132[0m
+[0;32mI (107346) speaker-net: rx {"type":"ping"}[0m
+[0;32mI (112076) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1793595748206,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1793595670065,"countToday":0},"door":{"open":true,"lastOpenTs":0,"lastCloseTs":0,"seq":52},"climate":{"tempC":0.0,"rh":0.0,"ok":true,"valid":false},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[0m
+[0;32mI (112106) elder-node: STACK_FREE task=main bytes=2980[0m
+[0;32mI (112126) elder-node: STACK_FREE task=gateway-net bytes=2132[0m
+[0;32mI (117106) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1793595753236,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1793595670065,"countToday":0},"door":{"open":true,"lastOpenTs":0,"lastCloseTs":0,"seq":52},"climate":{"tempC":0.0,"rh":0.0,"ok":true,"valid":false},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[0m
+[0;32mI (117126) elder-node: STACK_FREE task=gateway-net bytes=2132[0m
+[0;32mI (117136) elder-node: STACK_FREE task=main bytes=2980[0m
+[0;32mI (117376) speaker-net: rx {"type":"ping"}[0m
+[0;32mI (122146) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1793595758276,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1793595670065,"countToday":0},"door":{"open":true,"lastOpenTs":0,"lastCloseTs":0,"seq":52},"climate":{"tempC":0.0,"rh":0.0,"ok":true,"valid":false},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[0m
+[0;32mI (122176) elder-node: STACK_FREE task=main bytes=2980[0m
+[0;32mI (122236) elder-node: STACK_FREE task=gateway-net bytes=2132[0m
+[0;32mI (127176) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0[0m
+[0;32mI (127176) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1793595763306,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1793595670065,"countToday":0},"door":{"open":true,"lastOpenTs":0,"lastCloseTs":0,"seq":52},"climate":{"tempC":0.0,"rh":0.0,"ok":true,"valid":false},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[0m
+[0;32mI (127216) elder-node: STACK_FREE task=main bytes=2980[0m
+[0;32mI (127236) elder-node: STACK_FREE task=gateway-net bytes=2132[0m
+[0;32mI (127406) speaker-net: rx {"type":"ping"}[0m
+[0;32mI (132216) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1793595768346,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1793595670065,"countToday":0},"door":{"open":true,"lastOpenTs":0,"lastCloseTs":0,"seq":52},"climate":{"tempC":0.0,"rh":0.0,"ok":true,"valid":false},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[0m
+[0;32mI (132236) elder-node: STACK_FREE task=gateway-net bytes=2132[0m
+[0;32mI (132246) elder-node: STACK_FREE task=main bytes=2980[0m
+[0;32mI (137256) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1793595773386,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1793595670065,"countToday":0},"door":{"open":true,"lastOpenTs":0,"lastCloseTs":0,"seq":52},"climate":{"tempC":0.0,"rh":0.0,"ok":true,"valid":false},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[0m
+[0;32mI (137286) elder-node: STACK_FREE task=main bytes=2980[0m
+[0;32mI (137346) elder-node: STACK_FREE task=gateway-net bytes=2132[0m
+[0;32mI (137406) speaker-net: rx {"type":"ping"}[0m
+[0;32mI (142286) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1793595778416,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1793595670065,"countToday":0},"door":{"open":true,"lastOpenTs":0,"lastCloseTs":0,"seq":52},"climate":{"tempC":0.0,"rh":0.0,"ok":true,"valid":false},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[0m
+[0;32mI (142316) elder-node: STACK_FREE task=main bytes=2980[0m
+[0;32mI (142346) elder-node: STACK_FREE task=gateway-net bytes=2084[0m
+[0;32mI (147316) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0[0m
+[0;32mI (147316) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1793595783446,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1793595670065,"countToday":0},"door":{"open":true,"lastOpenTs":0,"lastCloseTs":0,"seq":52},"climate":{"tempC":0.0,"rh":0.0,"ok":true,"valid":false},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[0m
+[0;32mI (147346) elder-node: STACK_FREE task=gateway-net bytes=2084[0m
+[0;32mI (147356) elder-node: STACK_FREE task=main bytes=2980[0m
+[0;32mI (147386) speaker-net: rx {"type":"ping"}[0m

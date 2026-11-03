@@ -1,0 +1,34 @@
+﻿# homemon keepalive zombie-reclaim check (2026-10-28 00:51:52)
+## board 9000 connections (previous LAN bridge sockets 64469/64483 should be gone ~45-75s after peer death)
+tcp        0      0 0.0.0.0:9000            0.0.0.0:*               LISTEN      23655/homemon
+tcp        0  97436 10.127.130.131:9000     10.127.130.179:64469    ESTABLISHED 23655/homemon
+tcp        0      0 127.0.0.1:47276         127.0.0.1:9000          ESTABLISHED 720/hdcd
+tcp       51      0 127.0.0.1:9000          127.0.0.1:35824         ESTABLISHED 23655/homemon
+tcp        0      0 127.0.0.1:9000          127.0.0.1:50398         ESTABLISHED 23655/homemon
+tcp        0      0 127.0.0.1:47286         127.0.0.1:9000          ESTABLISHED 720/hdcd
+tcp        0      0 127.0.0.1:35824         127.0.0.1:9000          ESTABLISHED 720/hdcd
+tcp        0  97436 10.127.130.131:9000     10.127.130.179:64483    ESTABLISHED 23655/homemon
+tcp        0      0 127.0.0.1:9000          127.0.0.1:47276         ESTABLISHED 23655/homemon
+tcp      189      0 127.0.0.1:9000          127.0.0.1:47286         ESTABLISHED 23655/homemon
+tcp        0      0 127.0.0.1:50398         127.0.0.1:9000          ESTABLISHED 27321/com.dsh.eldercare
+## PC side bridge/mirror cmdline
+PID 66100 start=10/28/2026 00:48:15 "D:\Node\node.exe" mqtt_bridge.js --broker 127.0.0.1:1883 --status-tcp 127.0.0.1:9001 --listen 9101 --relay-to 127.0.0.1:9001 --relay-ignore esp32-sos --lock-file "D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\bridge.lock" --cmd-out "D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\control" --status-file "D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\status.json" 
+PID 65784 start=10/28/2026 00:48:29 "D:\Node\node.exe" server.js --source api --transport relay --relay-to 127.0.0.1:9001 --listen-port 9002 --runtime-dir "D:\OpenHarmony\competition\cloud\wearable-mirror\runtime" --heartbeat-ms 5000 --poll-ms 2000 --api-base https://api.luxunacc.xyz 
+## latest 202 per device
+dayu200-living: 2026-10-27T16:51:24.875Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1793119884764 deviceTs=1793119883855 path=/internal/v1/device-status status=202 at=2026-10-27T16:51:24.873Z
+esp32-kitchen: 2026-10-27T16:51:46.169Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793119905721 deviceTs=1793119905810 path=/internal/v1/device-status status=202 at=2026-10-27T16:51:46.168Z
+esp32-bath: 2026-10-27T16:19:54.719Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1793117994579 deviceTs=1793117994445 path=/internal/v1/device-status status=202 at=2026-10-27T16:19:54.718Z
+## mirror state
+pid=65784 phase=NORMAL online=True relay=127.0.0.1:9001 connected=True connects=1 disconnects=0 linesSent=42 lastError=
+## homemon recent connection log (client accept/close)
+[1793119486] TCP 状态通道已监听 0.0.0.0:9000（最多 8 路客户端）
+[1793119500] TCP 客户端接入 127.0.0.1（第 1 路）
+[1793119602] TCP 客户端接入 10.127.130.179（第 2 路）
+[1793119602] TCP 客户端接入 10.127.130.179（第 3 路）
+[1793119606] TCP 客户端接入 10.127.130.179（第 4 路）
+[1793119606] TCP 客户端断开（第 4 路）
+[1793119617] TCP 客户端接入 10.127.130.179（第 4 路）
+[1793119617] TCP 客户端断开（第 4 路）
+[1793119695] TCP 客户端接入 127.0.0.1（第 4 路）
+[1793119695] TCP 客户端接入 127.0.0.1（第 5 路）
+[1793119709] TCP 客户端接入 127.0.0.1（第 6 路）

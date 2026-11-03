@@ -1,0 +1,116 @@
+# bench-serial.py start 2026-10-26T21:25:33.413+08:00
+# com=COM5 baud=115200 dtr=False rts=False log=D:\OpenHarmony\competition\evidence\2026-10-26-kitchen-sos-led-speech-final\verify\bench-kitchen-cancel.log
+# plan atSec=1 send=resume
+# plan atSec=3 send=inj voice 5
+# plan atSec=5 send=stop
+# plan atSec=8 send=inj voice 6
+# plan atSec=9 send=stop
+# plan atSec=12 send=inj climate 50.0 60.0
+# plan atSec=13 send=inj climate 50.0 60.0
+# plan atSec=13.35 send=stop
+# plan atSec=17 send=inj sos
+# plan atSec=17.4 send=ack {lastAlarm}
+# plan atSec=22 send=reset
+[+00000001.110s] [2026-10-26T21:25:34.527+08:00] SEND -> resume (atSec=1, elapsed=1.047s)
+[+00000001.297s] [2026-10-26T21:25:34.712+08:00] I (133135) elder-node: CMD 收到: resume
+[+00000003.110s] [2026-10-26T21:25:36.515+08:00] SEND -> inj voice 5 (atSec=3, elapsed=3.047s)
+[+00000003.375s] [2026-10-26T21:25:36.782+08:00] I (135135) elder-node: CMD 收到: inj voice 5
+[+00000003.375s] [2026-10-26T21:25:36.782+08:00] W (135135) elder-node: INJ 试听 clip=5（长时间未检测到活动，请确认家人情况。）
+[+00000003.375s] [2026-10-26T21:25:36.782+08:00] I (135195) local-voice: PLAY clip=5 bytes=39889 text=长时间未检测到活动，请确认家人情况。
+[+00000004.547s] [2026-10-26T21:25:37.959+08:00] I (136335) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":60.0,"ok":true,"valid":true},"gas":{"raw":279,"ok":true,"valid":true},"smoke":{"raw":127,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000004.547s] [2026-10-26T21:25:37.959+08:00] 
+[+00000004.547s] [2026-10-26T21:25:37.959+08:00] I (136355) elder-node: STACK_FREE task=main bytes=3916
+[+00000005.110s] [2026-10-26T21:25:38.517+08:00] SEND -> stop (atSec=5, elapsed=5.047s)
+[+00000005.344s] [2026-10-26T21:25:38.752+08:00] I (137165) elder-node: CMD 收到: stop
+[+00000005.344s] [2026-10-26T21:25:38.753+08:00] W (137165) elder-node: STOP 被忽略：当前没有正在告警的事件（state=NORMAL）
+[+00000008.078s] [2026-10-26T21:25:41.498+08:00] SEND -> inj voice 6 (atSec=8, elapsed=8.016s)
+[+00000008.406s] [2026-10-26T21:25:41.822+08:00] I (140165) elder-node: CMD 收到: inj voice 6
+[+00000008.406s] [2026-10-26T21:25:41.822+08:00] W (140165) elder-node: INJ 试听 clip=6（室内温湿度异常，请前来查看。）
+[+00000008.406s] [2026-10-26T21:25:41.822+08:00] I (140175) local-voice: STOP clip=5 result=ESP_OK cancelled=1
+[+00000008.406s] [2026-10-26T21:25:41.822+08:00] I (140175) local-voice: STACK_FREE task=local-voice bytes=1056
+[+00000008.406s] [2026-10-26T21:25:41.822+08:00] I (140235) local-voice: PLAY clip=6 bytes=31999 text=室内温湿度异常，请前来查看。
+[+00000009.094s] [2026-10-26T21:25:42.512+08:00] SEND -> stop (atSec=9, elapsed=9.031s)
+[+00000009.344s] [2026-10-26T21:25:42.758+08:00] I (141165) elder-node: CMD 收到: stop
+[+00000009.344s] [2026-10-26T21:25:42.758+08:00] W (141165) elder-node: STOP 被忽略：当前没有正在告警的事件（state=NORMAL）
+[+00000009.578s] [2026-10-26T21:25:42.994+08:00] I (141365) elder-node: ADC raw: MQ2(CH5)=160 valid=1 danger=0 | MQ5(CH6)=271 valid=1 danger=0
+[+00000009.578s] [2026-10-26T21:25:42.994+08:00] I (141365) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":60.0,"ok":true,"valid":true},"gas":{"raw":271,"ok":true,"valid":true},"smoke":{"raw":160,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000009.578s] [2026-10-26T21:25:42.994+08:00] 
+[+00000009.578s] [2026-10-26T21:25:42.994+08:00] I (141395) elder-node: STACK_FREE task=main bytes=3916
+[+00000012.063s] [2026-10-26T21:25:45.476+08:00] SEND -> inj climate 50.0 60.0 (atSec=12, elapsed=12.000s)
+[+00000012.281s] [2026-10-26T21:25:45.691+08:00] I (144105) elder-node: CMD 收到: inj climate 50.0 60.0
+[+00000012.281s] [2026-10-26T21:25:45.691+08:00] W (144105) elder-node: INJ 温湿度=50.0C/60.0%
+[+00000012.438s] [2026-10-26T21:25:45.845+08:00] I (144255) local-voice: STOP clip=6 result=ESP_OK cancelled=0
+[+00000012.438s] [2026-10-26T21:25:45.845+08:00] I (144255) local-voice: STACK_FREE task=local-voice bytes=1056
+[+00000013.063s] [2026-10-26T21:25:46.471+08:00] SEND -> inj climate 50.0 60.0 (atSec=13, elapsed=13.000s)
+[+00000013.281s] [2026-10-26T21:25:46.688+08:00] I (145105) elder-node: CMD 收到: inj climate 50.0 60.0
+[+00000013.281s] [2026-10-26T21:25:46.688+08:00] W (145105) elder-node: INJ 温湿度=50.0C/60.0%
+[+00000013.469s] [2026-10-26T21:25:46.876+08:00] SEND -> stop (atSec=13.35, elapsed=13.406s)
+[+00000013.610s] [2026-10-26T21:25:47.031+08:00] I (145405) elder-node: 温湿度告警原因判定：temp=50.0 rh=60.0 valid=1 -> reason=1
+[+00000013.610s] [2026-10-26T21:25:47.031+08:00] W (145405) elder-node: 告警提示音开始：2 声，间隔 100 ms；随后播报 clip=2（室内温度异常，请前来查看。）
+[+00000013.610s] [2026-10-26T21:25:47.031+08:00] W (145415) elder-node: AHT20 温湿度越界 -> ALARM（e-ub132000c-3，type=CLIMATE）语音+蜂鸣已请求
+[+00000013.610s] [2026-10-26T21:25:47.031+08:00] I (145425) local-led: LED 模式=ALARM_BLINK type=CLIMATE（低电平有效；告警期间不被普通联网提示覆盖）
+[+00000013.750s] [2026-10-26T21:25:47.169+08:00] I (145535) elder-node: CMD 收到: stop
+[+00000013.750s] [2026-10-26T21:25:47.169+08:00] I (145535) elder-node: STOP 已接受并生效：本轮声音停止，state 保持 ALARM id=e-ub132000c-3 type=CLIMATE；同一持续事件不再重复拉响
+[+00000013.750s] [2026-10-26T21:25:47.169+08:00] I (145535) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":50.0,"rh":60.0,"ok":false,"valid":true},"gas":{"raw":275,"ok":true,"valid":true},"smoke":{"raw":142,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-ub132000c-3","type":"CLIMATE","countToday":1}}
+[+00000013.750s] [2026-10-26T21:25:47.169+08:00] 
+[+00000013.750s] [2026-10-26T21:25:47.169+08:00] I (145575) elder-node: STACK_FREE task=main bytes=3916
+[+00000014.688s] [2026-10-26T21:25:48.102+08:00] I (146485) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":50.0,"rh":60.0,"ok":false,"valid":true},"gas":{"raw":279,"ok":true,"valid":true},"smoke":{"raw":126,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-ub132000c-3","type":"CLIMATE","countToday":1}}
+[+00000014.688s] [2026-10-26T21:25:48.102+08:00] 
+[+00000014.688s] [2026-10-26T21:25:48.102+08:00] I (146505) elder-node: STACK_FREE task=main bytes=3916
+[+00000017.110s] [2026-10-26T21:25:50.519+08:00] SEND -> inj sos (atSec=17, elapsed=17.047s)
+[+00000017.375s] [2026-10-26T21:25:50.784+08:00] I (149115) elder-node: CMD 收到: inj sos
+[+00000017.375s] [2026-10-26T21:25:50.784+08:00] W (149115) elder-node: INJ SOS（台架注入事件）
+[+00000017.375s] [2026-10-26T21:25:50.785+08:00] W (149115) elder-node: SOS 本地已触发：台架注入 SOS（来源设备=esp32-kitchen / 房间=厨房，厨房设备实体按键）；状态=正在发送，尚未收到监护人确认
+[+00000017.375s] [2026-10-26T21:25:50.785+08:00] W (149135) elder-node: 告警提示音开始：3 声，间隔 100 ms；随后播报 clip=1（我需要帮助，请尽快过来。）
+[+00000017.375s] [2026-10-26T21:25:50.785+08:00] W (149145) elder-node: 台架注入 SOS -> ALARM（e-ub132000c-4，type=MANUAL_SOS）语音+蜂鸣已请求
+[+00000017.375s] [2026-10-26T21:25:50.785+08:00] I (149155) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":50.0,"rh":60.0,"ok":false,"valid":true},"gas":{"raw":276,"ok":true,"valid":true},"smoke":{"raw":157,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-ub132000c-4","type":"MANUAL_SOS","countToday":1}}
+[+00000017.375s] [2026-10-26T21:25:50.785+08:00] 
+[+00000017.375s] [2026-10-26T21:25:50.785+08:00] I (149195) elder-node: STACK_FREE task=main bytes=3916
+[+00000017.469s] [2026-10-26T21:25:50.877+08:00] I (149295) local-led: LED 模式=SOS_TRIPLE type=MANUAL_SOS（低电平有效；告警期间不被普通联网提示覆盖）
+[+00000017.516s] [2026-10-26T21:25:50.938+08:00] SEND -> ack e-ub132000c-4 (atSec=17.4, elapsed=17.469s)
+[+00000017.828s] [2026-10-26T21:25:51.246+08:00] I (149595) elder-node: CMD 收到: ack e-ub132000c-4
+[+00000017.828s] [2026-10-26T21:25:51.246+08:00] I (149595) elder-node: ACK 回执已接受并生效（阶段③：监护人已确认）：id=e-ub132000c-4 type=MANUAL_SOS -> state=ACKED，蜂鸣器已停，语音已取消
+[+00000017.828s] [2026-10-26T21:25:51.246+08:00] I (149605) elder-node: ADC raw: MQ2(CH5)=101 valid=1 danger=0 | MQ5(CH6)=285 valid=1 danger=0
+[+00000017.828s] [2026-10-26T21:25:51.246+08:00] I (149615) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ACKED","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":50.0,"rh":60.0,"ok":false,"valid":true},"gas":{"raw":285,"ok":true,"valid":true},"smoke":{"raw":101,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-ub132000c-4","type":"MANUAL_SOS","countToday":1}}
+[+00000017.828s] [2026-10-26T21:25:51.246+08:00] 
+[+00000017.828s] [2026-10-26T21:25:51.246+08:00] I (149655) elder-node: STACK_FREE task=main bytes=3916
+[+00000017.922s] [2026-10-26T21:25:51.339+08:00] I (149755) local-led: LED 模式=ACKED_CONFIRM_PULSE type=MANUAL_SOS（低电平有效；告警期间不被普通联网提示覆盖）
+[+00000018.860s] [2026-10-26T21:25:52.273+08:00] I (150655) elder-node: 温湿度告警原因判定：temp=50.0 rh=60.0 valid=1 -> reason=1
+[+00000018.860s] [2026-10-26T21:25:52.273+08:00] W (150655) elder-node: 告警提示音开始：2 声，间隔 100 ms；随后播报 clip=2（室内温度异常，请前来查看。）
+[+00000018.860s] [2026-10-26T21:25:52.273+08:00] W (150665) elder-node: AHT20 温湿度越界 -> ALARM（e-ub132000c-5，type=CLIMATE）语音+蜂鸣已请求
+[+00000018.860s] [2026-10-26T21:25:52.273+08:00] I (150675) local-led: LED 模式=ALARM_BLINK type=CLIMATE（低电平有效；告警期间不被普通联网提示覆盖）
+[+00000019.625s] [2026-10-26T21:25:53.034+08:00] W (151385) elder-node: 语音播报开始：clip=2（室内温度异常，请前来查看。）
+[+00000019.625s] [2026-10-26T21:25:53.034+08:00] I (151445) local-voice: PLAY clip=2 bytes=30139 text=室内温度异常，请前来查看。
+[+00000019.891s] [2026-10-26T21:25:53.312+08:00] I (151685) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":50.0,"rh":60.0,"ok":false,"valid":true},"gas":{"raw":269,"ok":true,"valid":true},"smoke":{"raw":127,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-ub132000c-5","type":"CLIMATE","countToday":1}}
+[+00000019.891s] [2026-10-26T21:25:53.312+08:00] 
+[+00000019.891s] [2026-10-26T21:25:53.312+08:00] I (151715) elder-node: STACK_FREE task=main bytes=3916
+[+00000022.078s] [2026-10-26T21:25:55.492+08:00] SEND -> reset (atSec=22, elapsed=22.016s)
+[+00000022.344s] [2026-10-26T21:25:55.757+08:00] I (154115) elder-node: CMD 收到: reset
+[+00000022.344s] [2026-10-26T21:25:55.757+08:00] I (154115) elder-node: 状态复位 -> NORMAL（warning: reset 不会解除监护暂停）
+[+00000022.344s] [2026-10-26T21:25:55.757+08:00] I (154115) local-voice: STOP clip=2 result=ESP_OK cancelled=1
+[+00000022.344s] [2026-10-26T21:25:55.757+08:00] I (154115) local-voice: STACK_FREE task=local-voice bytes=1056
+[+00000022.344s] [2026-10-26T21:25:55.757+08:00] I (154125) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":50.0,"rh":60.0,"ok":false,"valid":true},"gas":{"raw":280,"ok":true,"valid":true},"smoke":{"raw":137,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000022.344s] [2026-10-26T21:25:55.757+08:00] 
+[+00000022.344s] [2026-10-26T21:25:55.757+08:00] I (154165) elder-node: STACK_FREE task=main bytes=3660
+[+00000022.438s] [2026-10-26T21:25:55.850+08:00] I (154265) local-led: LED 模式=OFF type=-（低电平有效；告警期间不被普通联网提示覆盖）
+[+00000022.985s] [2026-10-26T21:25:56.394+08:00] I (154765) elder-node: 温湿度告警原因判定：temp=50.0 rh=60.0 valid=1 -> reason=1
+[+00000022.985s] [2026-10-26T21:25:56.394+08:00] W (154765) elder-node: 告警提示音开始：2 声，间隔 100 ms；随后播报 clip=2（室内温度异常，请前来查看。）
+[+00000022.985s] [2026-10-26T21:25:56.394+08:00] W (154775) elder-node: AHT20 温湿度越界 -> ALARM（e-ub132000c-6，type=CLIMATE）语音+蜂鸣已请求
+[+00000022.985s] [2026-10-26T21:25:56.394+08:00] I (154785) local-led: LED 模式=ALARM_BLINK type=CLIMATE（低电平有效；告警期间不被普通联网提示覆盖）
+[+00000023.719s] [2026-10-26T21:25:57.139+08:00] W (155495) elder-node: 语音播报开始：clip=2（室内温度异常，请前来查看。）
+[+00000023.719s] [2026-10-26T21:25:57.139+08:00] I (155555) local-voice: PLAY clip=2 bytes=30139 text=室内温度异常，请前来查看。
+[+00000025.000s] [2026-10-26T21:25:58.413+08:00] I (156795) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":50.0,"rh":60.0,"ok":false,"valid":true},"gas":{"raw":274,"ok":true,"valid":true},"smoke":{"raw":127,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-ub132000c-6","type":"CLIMATE","countToday":1}}
+[+00000025.000s] [2026-10-26T21:25:58.413+08:00] 
+[+00000025.000s] [2026-10-26T21:25:58.413+08:00] I (156815) elder-node: STACK_FREE task=main bytes=3660
+# BENCH_SERIAL SUMMARY lines=80 bytes=10031 sent=11 duration=26.000s markers={PLAY clip==4, STOP 已接受并生效=1, INJ =5, → {=9}
+# BENCH_SERIAL SENT #1 at=1.047s wall=2026-10-26T21:25:34.527+08:00 ok=True line='resume'
+# BENCH_SERIAL SENT #2 at=3.047s wall=2026-10-26T21:25:36.515+08:00 ok=True line='inj voice 5'
+# BENCH_SERIAL SENT #3 at=5.047s wall=2026-10-26T21:25:38.517+08:00 ok=True line='stop'
+# BENCH_SERIAL SENT #4 at=8.016s wall=2026-10-26T21:25:41.498+08:00 ok=True line='inj voice 6'
+# BENCH_SERIAL SENT #5 at=9.031s wall=2026-10-26T21:25:42.512+08:00 ok=True line='stop'
+# BENCH_SERIAL SENT #6 at=12.000s wall=2026-10-26T21:25:45.476+08:00 ok=True line='inj climate 50.0 60.0'
+# BENCH_SERIAL SENT #7 at=13.000s wall=2026-10-26T21:25:46.471+08:00 ok=True line='inj climate 50.0 60.0'
+# BENCH_SERIAL SENT #8 at=13.406s wall=2026-10-26T21:25:46.876+08:00 ok=True line='stop'
+# BENCH_SERIAL SENT #9 at=17.047s wall=2026-10-26T21:25:50.519+08:00 ok=True line='inj sos'
+# BENCH_SERIAL SENT #10 at=17.469s wall=2026-10-26T21:25:50.938+08:00 ok=True line='ack e-ub132000c-4'
+# BENCH_SERIAL SENT #11 at=22.016s wall=2026-10-26T21:25:55.492+08:00 ok=True line='reset'

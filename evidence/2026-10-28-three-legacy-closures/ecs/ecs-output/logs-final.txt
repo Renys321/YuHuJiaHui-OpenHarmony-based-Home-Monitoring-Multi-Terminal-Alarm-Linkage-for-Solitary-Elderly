@@ -1,0 +1,12 @@
+2026-10-27T16:33:00.988Z INFO SERVICE_STARTED service=wearable-mqtt version=1.0.1 mqttHost=0.0.0.0 mqttPort=1883 statusHost=127.0.0.1 statusPort=8099 dataDir=/data backendBase=http://backend:8080
+2026-10-27T16:33:04.267Z INFO DEVICE_LINK_UP clientId=wearable-sos-001
+2026-10-27T16:37:45.274Z INFO COMMAND_ACCEPTED commandId=36 alarmId=sos-12-1a1003dc attemptRound=1
+2026-10-27T16:37:45.277Z INFO COMMAND_ACK_SENT commandId=36 alarmId=sos-12-1a1003dc attempt=1 round=1 subscribers=1
+2026-10-27T16:37:50.279Z INFO COMMAND_ACK_SENT commandId=36 alarmId=sos-12-1a1003dc attempt=2 round=1 subscribers=1
+2026-10-27T16:37:55.280Z INFO COMMAND_ACK_SENT commandId=sos... attempt=3 round=1 subscribers=1
+2026-10-27T16:37:55.281Z WARN COMMAND_PARKED commandId=36 alarmId=sos-12-1a1003dc round=1 maxRounds=3
+2026-10-27T16:38:32.301Z INFO PARKED_RECOVERY_TRIGGERED source=sos count=1
+2026-10-27T16:38:32.460Z INFO COMMAND_ACK_SENT commandId=36 alarmId=sos-12-1a1003dc attempt=1 round=2 subscribers=1
+2026-10-27T16:38:32.758Z INFO COMMAND_RECEIPT_ACCEPTED commandId=36 alarmId=sos-12-1a1003dc
+2026-10-27T16:38:32.777Z INFO COMMAND_RESULT_ACKED commandId=36 alarmId=sos-12-1a1003dc
+2026-10-27T16:40:52.371Z WARN DEVICE_UPLINK_TIMEOUT silentMs=120002 timeoutMs=120000 state=NORMAL hasActiveAlarm=false

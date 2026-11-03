@@ -1,0 +1,273 @@
+﻿[2026-10-26 00:14:09] Watcher start.
+[2026-10-26 00:14:13] Bringing formal app to foreground.
+[2026-10-26 00:14:14] Deploying D:\OpenHarmony\competition\materials\demo-autostart\dayu\dayu_local_fall -> /data/local/tmp/dayu-demo-autostart-2026-10-26/dayu_local_fall
+[2026-10-26 00:14:15] Deploying D:\OpenHarmony\competition\materials\demo-autostart\dayu\models\320\model.ncnn.param -> /data/local/tmp/dayu-demo-autostart-2026-10-26/models/320/model.ncnn.param
+[2026-10-26 00:14:15] Deploying D:\OpenHarmony\competition\materials\demo-autostart\dayu\models\320\model.ncnn.bin -> /data/local/tmp/dayu-demo-autostart-2026-10-26/models/320/model.ncnn.bin
+[2026-10-26 00:14:17] Starting DAYU P1-B inference (320, rotate=0, conf=0.7).
+[2026-10-26 00:15:36] Watcher start.
+[2026-10-26 00:15:41] Bringing formal app to foreground.
+[2026-10-26 00:16:45] Watcher start.
+[2026-10-26 00:16:50] Bringing formal app to foreground.
+[2026-10-26 00:17:33] Stop flag detected.
+[2026-10-26 00:17:34] Stopped owned inference PIDs: 12493
+[2026-10-26 00:17:50] Watcher start.
+[2026-10-26 00:17:54] Bringing formal app to foreground.
+[2026-10-26 00:17:56] Starting DAYU P1-B inference (320, rotate=0, conf=0.7).
+[2026-10-26 00:18:14] Inference did not reach listen/process state.
+[2026-10-26 00:18:22] Starting DAYU P1-B inference (320, rotate=0, conf=0.7).
+[2026-10-26 00:20:10] Watcher start.
+[2026-10-26 00:20:15] Bringing formal app to foreground.
+[2026-10-26 00:20:35] Starting DAYU P1-B inference (320, rotate=0, conf=0.7).
+[2026-10-26 00:21:05] Restoring hdc fport tcp:9001 -> tcp:9000.
+[2026-10-26 00:22:17] Bringing formal app to foreground.
+[2026-10-26 00:22:37] Bringing formal app to foreground.
+[2026-10-26 00:22:48] Watcher start.
+[2026-10-26 00:22:51] Stopped owned inference PIDs: 17179
+[2026-10-26 00:23:23] Bringing formal app to foreground.
+[2026-10-26 00:23:25] Starting DAYU P1-B inference (320, rotate=0, conf=0.7).
+[2026-10-26 00:25:04] Watcher start.
+[2026-10-26 00:25:07] Bringing formal app to foreground.
+[2026-10-26 00:25:16] Stopped owned inference PIDs: 19841
+[2026-10-26 00:27:39] Starting DAYU P1-B inference (320, rotate=0, conf=0.7).
+[2026-10-26 00:28:52] Watcher start.
+[2026-10-26 00:28:57] Starting DAYU P1-B inference (320, rotate=0, conf=0.7).
+[2026-10-26 00:29:00] Killed detached hdc launch process after spawn; service runs under setsid.
+[2026-10-26 00:29:37] Watcher start.
+[2026-10-26 00:31:10] Unknown inference process already exists; not killing: 1005,2026,10,26,0,31,9,755641747
+[2026-10-26 00:31:12] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-26 00:31:31] Starting frozen DAYU homemon.
+[2026-10-26 00:31:36] Restoring hdc fport tcp:9001 -> tcp:9000.
+[2026-10-26 00:31:47] Starting formal app EntryAbility.
+[2026-10-26 00:31:52] Starting DAYU P1-B inference (320, rotate=0, conf=0.7).
+[2026-10-26 00:31:55] Killed detached hdc launch process after spawn; service runs under setsid.
+[2026-10-26 00:32:04] Bringing formal app to foreground.
+[2026-10-26 00:34:54] Watcher start.
+[2026-10-26 00:35:14] Starting formal app EntryAbility.
+[2026-10-26 00:53:56] Starting DAYU P1-B inference (320, rotate=0, conf=0.7).
+[2026-10-26 00:53:59] Killed detached hdc launch process after spawn; service runs under setsid.
+[2026-10-26 00:54:48] Watcher start.
+[2026-10-26 01:15:57] Starting DAYU P1-B inference (320, rotate=0, conf=0.7).
+[2026-10-26 01:16:02] Inference spawn sent; listener not confirmed yet.
+[2026-10-26 01:16:08] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-26 01:16:41] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-26 01:17:13] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-26 01:17:44] Starting frozen DAYU homemon.
+[2026-10-26 01:17:52] Restoring hdc fport tcp:9001 -> tcp:9000.
+[2026-10-26 01:17:55] Starting frozen DAYU homemon.
+[2026-10-26 01:18:00] Restoring hdc fport tcp:9001 -> tcp:9000.
+[2026-10-26 01:18:03] Starting frozen DAYU homemon.
+[2026-10-26 01:18:06] Restoring hdc fport tcp:9001 -> tcp:9000.
+[2026-10-26 01:18:13] Starting formal app EntryAbility.
+[2026-10-26 01:18:13] Deploying D:\OpenHarmony\competition\materials\demo-autostart\dayu\dayu_local_fall -> /data/local/tmp/dayu-demo-autostart-2026-10-26/dayu_local_fall
+[2026-10-26 01:18:13] Hash mismatch after deploy: /data/local/tmp/dayu-demo-autostart-2026-10-26/dayu_local_fall
+[2026-10-26 01:18:16] Restoring hdc fport tcp:9001 -> tcp:9000.
+[2026-10-26 01:18:18] Starting DAYU P1-B inference (320, rotate=0, conf=0.7).
+[2026-10-26 01:18:20] Killed detached hdc launch process after spawn; service runs under setsid.
+[2026-10-26 01:18:27] Starting formal app EntryAbility.
+[2026-10-26 01:18:28] Deploying D:\OpenHarmony\competition\materials\demo-autostart\dayu\dayu_local_fall -> /data/local/tmp/dayu-demo-autostart-2026-10-26/dayu_local_fall
+[2026-10-26 01:18:28] Hash mismatch after deploy: /data/local/tmp/dayu-demo-autostart-2026-10-26/dayu_local_fall
+[2026-10-26 01:18:30] Restoring hdc fport tcp:9001 -> tcp:9000.
+[2026-10-26 01:18:44] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-26 01:18:52] Restoring hdc fport tcp:9001 -> tcp:9000.
+[2026-10-26 01:18:58] Starting formal app EntryAbility.
+[2026-10-26 01:19:17] Watcher start.
+[2026-10-26 01:19:21] Restoring hdc fport tcp:9001 -> tcp:9000.
+[2026-10-26 01:19:27] Starting formal app EntryAbility.
+[2026-10-26 01:19:31] Deploying D:\OpenHarmony\competition\materials\demo-autostart\dayu\dayu_local_fall -> /data/local/tmp/dayu-demo-autostart-2026-10-26/dayu_local_fall
+[2026-10-26 01:19:34] Hash mismatch after deploy: /data/local/tmp/dayu-demo-autostart-2026-10-26/dayu_local_fall
+[2026-10-26 01:19:48] Restoring hdc fport tcp:9001 -> tcp:9000.
+[2026-10-26 01:19:54] Restoring hdc fport tcp:9001 -> tcp:9000.
+[2026-10-26 01:20:01] Starting formal app EntryAbility.
+[2026-10-26 01:20:05] Deploying D:\OpenHarmony\competition\materials\demo-autostart\dayu\dayu_local_fall -> /data/local/tmp/dayu-demo-autostart-2026-10-26/dayu_local_fall
+[2026-10-26 01:20:27] Restoring hdc fport tcp:9001 -> tcp:9000.
+[2026-10-26 01:20:34] Starting formal app EntryAbility.
+[2026-10-26 01:20:49] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-26 01:21:01] Restoring hdc fport tcp:9001 -> tcp:9000.
+[2026-10-26 01:21:09] Starting formal app EntryAbility.
+[2026-10-26 01:21:24] Starting DAYU P1-B inference (320, rotate=0, conf=0.7).
+[2026-10-26 01:21:33] Restoring hdc fport tcp:9001 -> tcp:9000.
+[2026-10-26 01:21:40] Starting DAYU P1-B inference (320, rotate=0, conf=0.7).
+[2026-10-26 01:21:43] Inference spawn sent; listener not confirmed yet.
+[2026-10-26 01:21:46] Restoring hdc fport tcp:9001 -> tcp:9000.
+[2026-10-26 16:00:39] Watcher start.
+[2026-10-26 16:00:41] Starting frozen DAYU homemon.
+[2026-10-26 16:00:43] Restoring hdc fport tcp:9001 -> tcp:9000.
+[2026-10-26 16:00:47] Starting DAYU P1-B inference (320, rotate=0, conf=0.7).
+[2026-10-26 16:00:49] Killed detached hdc launch process after spawn; service runs under setsid.
+[2026-10-26 16:03:17] Restoring hdc fport tcp:9001 -> tcp:9000.
+[2026-10-26 21:39:06] Watcher start.
+[2026-10-26 21:48:50] Watcher start.
+[2026-10-26 22:38:56] Watcher start.
+[2026-10-26 22:38:56] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-26 22:39:06] Starting frozen DAYU homemon.
+[2026-10-26 22:39:11] Restoring hdc fport tcp:9001 -> tcp:9000.
+[2026-10-26 22:39:18] Starting formal app EntryAbility.
+[2026-10-26 22:39:26] Starting DAYU P1-B inference (320, rotate=0, conf=0.7).
+[2026-10-26 22:39:28] Killed detached hdc launch process after spawn; service runs under setsid.
+[2026-10-26 22:39:41] Starting formal app EntryAbility.
+[2026-10-27 02:23:14] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 11:57:30] Watcher start.
+[2026-10-27 11:57:32] Starting frozen DAYU homemon.
+[2026-10-27 11:57:35] Restoring hdc fport tcp:9001 -> tcp:9000.
+[2026-10-27 11:57:40] Starting DAYU P1-B inference (320, rotate=0, conf=0.7).
+[2026-10-27 11:57:42] Killed detached hdc launch process after spawn; service runs under setsid.
+[2026-10-27 11:58:07] Watcher start.
+[2026-10-27 13:16:38] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:17:09] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:17:40] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:18:12] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:18:43] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:19:14] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:19:45] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:20:17] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:20:48] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:21:19] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:21:50] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:22:22] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:22:54] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:23:25] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:23:56] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:24:28] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:24:59] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:25:30] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:26:02] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:26:33] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:27:04] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:27:36] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:28:07] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:28:39] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:29:10] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:29:41] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:30:13] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:30:44] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:31:16] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:31:47] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:32:19] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:32:50] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:33:21] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:33:52] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:34:24] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:34:55] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:35:26] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:35:58] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:36:29] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:37:00] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:37:31] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:38:02] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:38:33] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:39:05] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:39:36] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:40:07] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:40:38] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:41:10] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:41:41] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:42:12] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:42:43] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:43:14] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:43:45] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:44:16] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:44:48] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:45:19] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:45:50] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:46:22] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:46:53] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:47:24] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:47:56] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:48:27] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:48:58] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:49:30] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:50:01] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:50:32] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:51:03] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:51:35] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:52:06] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:52:38] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:53:09] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:53:40] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:54:12] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:54:43] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:55:14] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:55:45] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:56:17] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:56:48] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:57:19] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:57:50] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:58:22] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:58:53] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:59:24] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 13:59:55] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 14:00:27] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 14:00:58] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 14:01:30] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 14:02:01] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 14:02:32] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 14:03:03] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 14:03:34] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 14:04:06] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 14:04:37] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 14:05:08] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 14:05:39] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 14:06:11] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 14:06:42] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 14:07:13] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 14:07:45] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 14:08:16] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 14:08:47] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 14:09:18] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 14:09:49] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 14:10:20] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 14:10:51] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 14:11:03] Restoring hdc fport tcp:9001 -> tcp:9000.
+[2026-10-27 14:11:07] Bringing formal app to foreground.
+[2026-10-27 16:13:16] Deploying D:\OpenHarmony\competition\materials\demo-autostart\dayu\dayu_local_fall -> /data/local/tmp/dayu-demo-autostart-2026-10-26/dayu_local_fall
+[2026-10-27 16:13:25] Restoring hdc fport tcp:9001 -> tcp:9000.
+[2026-10-27 16:24:31] Restoring hdc fport tcp:9001 -> tcp:9000.
+[2026-10-27 19:46:46] Watcher start.
+[2026-10-27 19:46:46] Restoring hdc fport tcp:9001 -> tcp:9000.
+[2026-10-27 19:53:29] Starting formal app EntryAbility.
+[2026-10-27 20:22:17] Starting formal app EntryAbility.
+[2026-10-27 20:23:37] Starting formal app EntryAbility.
+[2026-10-27 22:11:11] Bringing formal app to foreground.
+[2026-10-27 22:11:49] Bringing formal app to foreground.
+[2026-10-27 22:14:13] Bringing formal app to foreground.
+[2026-10-27 22:25:44] Restoring hdc fport tcp:9001 -> tcp:9000.
+[2026-10-27 22:43:49] Unknown inference process already exists; not killing: 2379
+[2026-10-27 22:43:51] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:44:22] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:44:52] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:45:23] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:45:53] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:46:23] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:46:54] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:47:24] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:47:55] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:48:26] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:48:58] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:49:29] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:49:59] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:50:30] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:51:00] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:51:30] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:52:00] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:52:31] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:53:02] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:53:33] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:54:03] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:54:33] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:55:03] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:55:34] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:56:05] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:56:36] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:56:44] Restoring hdc fport tcp:9001 -> tcp:9000.
+[2026-10-27 22:56:50] Bringing formal app to foreground.
+[2026-10-28 00:53:47] Watcher start.
+[2026-10-28 00:55:12] 检测到 STALE supervisor lock PID=40628（进程已退出）、陈旧 state=HEALTHY；允许重新拉起 P0 入口（INGEST_KEY 需由用户在该可见窗口输入）
+[2026-10-28 00:55:12] P0 不健康（reason=STALE_LOCK state=HEALTHY heartbeatAgeSec=28 supervisorAlive=False workerAlive=False）；拉起既有正式 P0 入口（key 由用户在该可见窗口输入，本脚本从不读取）
+[2026-10-28 00:56:18] P0 不健康（reason=STALE_LOCK state=HEALTHY heartbeatAgeSec=95 supervisorAlive=False workerAlive=False）；拉起既有正式 P0 入口（key 由用户在该可见窗口输入，本脚本从不读取）
+[2026-10-28 00:57:25] P0 不健康（reason=STALE_LOCK state=HEALTHY heartbeatAgeSec=161 supervisorAlive=False workerAlive=False）；拉起既有正式 P0 入口（key 由用户在该可见窗口输入，本脚本从不读取）
+[2026-10-28 00:57:44] P0 不健康（WORKER_DEAD）但 supervisor 进程仍存活 PID=67276；不重复拉起，等待其自身重启/熔断恢复
+[2026-10-28 01:01:01] Watcher start.
+[2026-10-28 01:01:02] 检测到 STALE supervisor lock PID=67276（进程已退出）、陈旧 state=HEALTHY；允许重新拉起 P0 入口（INGEST_KEY 需由用户在该可见窗口输入）
+[2026-10-28 01:01:02] P0 不健康（reason=PORTS_DOWN state=HEALTHY heartbeatAgeSec=167 supervisorAlive=False workerAlive=False）；拉起既有正式 P0 入口（key 由用户在该可见窗口输入，本脚本从不读取）
+[2026-10-28 01:08:10] Bringing formal app to foreground.
+[2026-10-28 02:43:28] HDC target not connected; restarting hdc server once (no unknown process kill).

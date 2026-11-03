@@ -1,0 +1,11 @@
+=== mqtt_bridge 启动 ===
+  Broker    : 127.0.0.1:1883
+  上行主题  : home/<deviceId>/status   （设备编号由报文决定）
+  下行主题  : home/<deviceId>/cmd      （按编号路由到对应节点）
+  命令兜底  : D:\OpenHarmony\competition\bridge\_test\real-esp32-control
+  监听端口  : 9100（等待无线节点接入）
+  监听端口  : 9100（等待无线节点接入）
+[MQTT] 已连接 127.0.0.1:1883（clientId=bridge-dayu200-01-80545）
+[MQTT] 订阅成功: home/+/cmd
+[bridge] 无线节点接入 ::ffff:10.188.108.179:54342
+[bridge] 无线节点 listen:54342 断开

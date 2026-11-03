@@ -1,0 +1,8 @@
+.device-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12rpx; }
+.device-name { font-size: 32rpx; font-weight: 700; }
+.device-value { max-width: 390rpx; overflow-wrap: anywhere; text-align: right; }
+.monitor-online { color: #067647; font-weight: 600; }
+.monitor-offline { color: #b42318; font-weight: 700; }
+.monitor-disabled { color: #667085; }
+.sensor-row text:last-child { max-width: 390rpx; text-align: right; }
+.sensor-alert { color: #b42318; font-weight: 700; }

@@ -1,0 +1,17 @@
+{
+  "_comment": "LOCAL-ALARM-SPEECH-FINAL bench scenario 2 (kitchen, bench firmware): prove mid-playback cancellation still works with the new announce engine (stop/ACK must abort the voice), and that a stop during the short chirp prevents the voice from starting at all. No WiFi, no cloud events.",
+  "durationSec": 26,
+  "steps": [
+    {"atSec": 1,    "send": "resume"},
+    {"atSec": 3,    "send": "inj voice 5"},
+    {"atSec": 5,    "send": "stop"},
+    {"atSec": 8,    "send": "inj voice 6"},
+    {"atSec": 9,    "send": "stop"},
+    {"atSec": 12,   "send": "inj climate 50.0 60.0"},
+    {"atSec": 13,   "send": "inj climate 50.0 60.0"},
+    {"atSec": 13.35,"send": "stop"},
+    {"atSec": 17,   "send": "inj sos"},
+    {"atSec": 17.4, "send": "ack {lastAlarm}"},
+    {"atSec": 22,   "send": "reset"}
+  ]
+}

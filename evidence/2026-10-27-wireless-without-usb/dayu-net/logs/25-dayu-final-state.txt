@@ -1,0 +1,42 @@
+﻿# final state captured: 2026-10-27 22:33:40 +08:00
+$ hdc -t 450100445634303332012847942eca00 shell "date; ifconfig wlan0; /vendor/bin/wpa_cli ... status; ping 223.5.5.5; ping 10.127.130.217"
+----------------------------------------------------------------------
+Tue Oct 27 22:33:39 CST 2026
+wlan0     Link encap:Ethernet  HWaddr 54:78:c9:96:a6:b2  Driver bcmsdh_sdmmc
+          inet addr:10.127.130.131  Bcast:10.127.130.255  Mask:255.255.255.0 
+          inet6 addr: 2409:8949:6b9e:4f5:5678:c9ff:fe96:a6b2/64 Scope: Global
+          inet6 addr: 2409:8949:6b9e:4f5:b445:a41d:62a0:b4d4/64 Scope: Global
+          inet6 addr: fe80::5678:c9ff:fe96:a6b2/64 Scope: Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:1775 errors:0 dropped:0 overruns:0 frame:0 
+          TX packets:1831 errors:0 dropped:0 overruns:0 carrier:0 
+          collisions:0 txqueuelen:1000 
+          RX bytes:216637 TX bytes:432253 
+
+---WPA---
+bssid=5a:fe:a0:a6:a3:d7
+freq=2462
+ssid=ElderCareLab
+id=0
+mode=station
+wifi_generation=4
+pairwise_cipher=CCMP
+group_cipher=CCMP
+key_mgmt=WPA2-PSK
+wpa_state=COMPLETED
+ip_address=10.127.130.131
+p2p_device_address=b6:18:5e:81:0a:03
+address=54:78:c9:96:a6:b2
+uuid=6d510e24-1061-5d41-b440-51f6a61e6221
+ieee80211ac=1
+---INTERNET---
+Ping 223.5.5.5 (223.5.5.5): 56(84) bytes.
+
+--- 223.5.5.5 ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss
+---GW---
+Ping 10.127.130.217 (10.127.130.217): 56(84) bytes.
+
+--- 10.127.130.217 ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss
+

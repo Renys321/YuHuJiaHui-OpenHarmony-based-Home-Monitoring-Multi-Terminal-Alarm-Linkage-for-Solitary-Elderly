@@ -1,0 +1,10 @@
+﻿# cloud-sync proof: dayu200-living status (polled by bridge over Wi-Fi at 10.127.130.131:9000) reaches cloud, captured: 2026-10-27 22:34:45 +08:00
+----------------------------------------------------------------------
+2026-10-27T14:31:40.036Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1793111499918 deviceTs=1793111498892 path=/internal/v1/device-status status=202 at=2026-10-27T14:31:40.034Z
+2026-10-27T14:32:10.189Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1793111529999 deviceTs=1793111528984 path=/internal/v1/device-status status=202 at=2026-10-27T14:32:10.189Z
+2026-10-27T14:32:40.385Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1793111560130 deviceTs=1793111559079 path=/internal/v1/device-status status=202 at=2026-10-27T14:32:40.385Z
+2026-10-27T14:33:13.275Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1793111593178 deviceTs=1793111592163 path=/internal/v1/device-status status=202 at=2026-10-27T14:33:13.274Z
+2026-10-27T14:33:44.578Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1793111620292 deviceTs=1793111619283 path=/internal/v1/device-status status=202 at=2026-10-27T14:33:44.577Z
+2026-10-27T14:34:16.550Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1793111656457 deviceTs=1793111655443 path=/internal/v1/device-status status=202 at=2026-10-27T14:34:16.549Z
+2026-10-27T14:34:27.762Z [worker:stderr] [cloud-sync] FAIL code=SYNC_TIMEOUT device=dayu200-living
+2026-10-27T14:34:29.668Z [worker:stderr] [cloud-sync] FAIL code=UNKNOWN device=dayu200-living

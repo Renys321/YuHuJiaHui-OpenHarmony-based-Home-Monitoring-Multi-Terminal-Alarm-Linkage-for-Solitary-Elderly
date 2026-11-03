@@ -1,0 +1,16 @@
+﻿adapter-battery.test.js            exit=0 ℹ pass 20 ℹ fail 0
+adapter-valid-field.test.js        exit=0 ℹ pass 6 ℹ fail 0
+adapter.test.js                    exit=0 ℹ pass 17 ℹ fail 0
+cloud-sync-battery.test.js         exit=0 ℹ pass 6 ℹ fail 0
+cloud-sync.test.js                 exit=0 ℹ pass 17 ℹ fail 0
+command-sync.test.js               exit=0 ℹ pass 26 ℹ fail 0
+device-ts-chain.test.js            exit=0 ℹ pass 5 ℹ fail 0
+downlink-check.test.js             exit=0 ℹ pass 3 ℹ fail 0
+gateway-battery.test.js            exit=0 ℹ pass 5 ℹ fail 0
+gateway.test.js                    exit=0 ℹ pass 49 ℹ fail 0
+live-check.test.js                 exit=0 ℹ pass 5 ℹ fail 0
+public-sync.test.js                exit=0 ℹ pass 4 ℹ fail 0
+success-log.test.js                exit=0 ℹ pass 9 ℹ fail 0
+token.test.js                      exit=0 ℹ pass 3 ℹ fail 0
+transport.test.js                  exit=0 ℹ pass 9 ℹ fail 0
+TOTAL_PASS=184 FILES_FAILED=0 

@@ -1,0 +1,13 @@
+﻿snapshot=<WORKSPACE>\competition\evidence\2026-10-27-reconnect-dayu-sos\homemon-nomotion\live-evidence\board-status-before-fix.json
+sha256=66D20A35594BA4B9639B612CD0DF102560907F575DAEB2CAFD882A12C70FD10F
+ts=1793112206469
+ts_local=2026-10-27T22:43:26+08:00
+lastActiveTs=1793073453036
+lastActiveTs_local=2026-10-27T11:57:33+08:00
+alarm.id=a-1793111963-2
+alarm.raise_local=2026-10-27T22:39:23+08:00
+idle_at_alarm_s=38510
+state=ALARM
+alarm.type=NO_MOTION
+alarm.countToday=2
+note=lastActiveTs equals homemon start time (11:57:33 +08); +1800s => NO_MOTION, exactly no_motion_sec

@@ -1,0 +1,44 @@
+# build / runtime
+build/
+_work/
+.preview/
+node_modules/
+oh_modules/
+.hvigor/
+.venv/
+__pycache__/
+torchinductor_LENOVO/
+*.obj
+*.o
+*.cmake
+*.map
+*.protobin
+*.msgpack
+*.exe
+*.tar
+*.tar.gz
+*.tar*
+*.zip
+*.bin
+*.so
+*.dll
+*.a
+*.lib
+*.hap
+# secrets
+.secrets
+.env
+.env.deploy
+*.p12
+*.pem
+*.p7b
+*.jks
+*.keystore
+# logs (仅根目录运行时日志)
+/logs/
+# os
+.DS_Store
+Thumbs.db
+
+# Office 临时锁文件
+~$*

@@ -1,0 +1,195 @@
+﻿# live snapshot (post Lead .131 fix) 2026-10-28 00:28:37 +08:00
+
+## node processes
+
+PID 27820 start=10/27/2026 22:29:42
+  "D:\Node\node.exe" D:\OpenHarmony\competition\bridge\mqtt_broker.js 1883 
+PID 40628 start=10/27/2026 23:08:20
+  "D:\Node\node.exe"  public-sync-supervisor.js   --state-file "D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\public-sync-supervisor.state.json"   --lock-file "D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\public-sync-supervisor.lock"   --log-file "D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\public-sync-supervisor.log"
+PID 56416 start=10/27/2026 23:08:42
+  D:\Node\node.exe D:\OpenHarmony\competition\cloud\onenet\public-sync-worker.js
+PID 57556 start=10/28/2026 00:24:49
+  "D:\Node\node.exe" server.js 
+PID 46292 start=10/28/2026 00:27:19
+  "D:\Node\node.exe"  mqtt_bridge.js --broker 127.0.0.1:1883 --status-tcp 10.127.130.131:9000 --listen 9101 --relay-to 10.127.130.131:9000 --relay-ignore esp32-sos --lock-file "D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\bridge.lock" --cmd-out "D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\control" --status-file "D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\status.json" 
+PID 59300 start=10/28/2026 00:27:32
+  "D:\Node\node.exe"  server.js --source api --transport relay --relay-to 10.127.130.131:9000 --listen-port 9002 --runtime-dir "D:\OpenHarmony\competition\cloud\wearable-mirror\runtime" --heartbeat-ms 5000 --poll-ms 2000 --api-base https://api.luxunacc.xyz 
+
+## listening 1883/9001/9101/9002/9443
+
+
+LocalAddress LocalPort OwningProcess
+------------ --------- -------------
+::                1883         27820
+::                9101         46292
+0.0.0.0           9443         57556
+
+
+
+
+## hdc list targets -v / fport ls
+
+127.0.0.1:5555		TCP	Connected	localhost	hdc
+450100445634303332012847942eca00		USB	Connected	localhost	hdc
+COM11		UART	Ready	unknown...	hdc
+COM19		UART	Ready	unknown...	hdc
+COM20		UART	Ready	unknown...	hdc
+
+[Empty]
+
+
+## supervisor state / lock
+
+{
+  "supervisorPid": 40628,
+  "workerPid": 56416,
+  "state": "HEALTHY",
+  "startedAt": 1793113700879,
+  "heartbeatAt": 1793118493973,
+  "restartCount": 0,
+  "lastWorkerStartedAt": 1793113722711,
+  "lastWorkerExit": null,
+  "lastHealthyAt": 1793113722955
+}
+
+
+lock=40628 bridge.lock=46292
+
+## dayu200-living 202 last 3
+
+2026-10-27T16:27:06.183Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1793118426065 deviceTs=1793118400307 path=/internal/v1/device-status status=202 at=2026-10-27T16:27:06.182Z
+2026-10-27T16:27:39.231Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1793118459120 deviceTs=1793118457451 path=/internal/v1/device-status status=202 at=2026-10-27T16:27:39.231Z
+2026-10-27T16:28:11.425Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1793118491005 deviceTs=1793118484542 path=/internal/v1/device-status status=202 at=2026-10-27T16:28:11.424Z
+
+## kitchen/bath 202 last 3
+
+2026-10-27T16:27:10.221Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793118429817 deviceTs=0 path=/internal/v1/device-status status=202 at=2026-10-27T16:27:10.220Z
+2026-10-27T16:27:43.712Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793118462648 deviceTs=1793118462752 path=/internal/v1/device-status status=202 at=2026-10-27T16:27:43.711Z
+2026-10-27T16:28:15.704Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793118495591 deviceTs=1793118495672 path=/internal/v1/device-status status=202 at=2026-10-27T16:28:15.703Z
+
+## mirror status
+
+{
+  "schemaVersion": 1,
+  "pid": 59300,
+  "startedAt": 1793118452117,
+  "updatedAt": 1793118520835,
+  "running": true,
+  "source": "api",
+  "modelSource": "api",
+  "hasData": true,
+  "phase": "NORMAL",
+  "online": true,
+  "lastEmitAt": 1793118520835,
+  "emitCount": 15,
+  "changeEmitCount": 3,
+  "heartbeatEmitCount": 12,
+  "sourceSwitches": 0,
+  "fatalError": "",
+  "config": {
+    "source": "api",
+    "transport": "relay",
+    "mqttHost": "47.76.70.118:1883",
+    "mqttClientId": "wearable-mirror-001",
+    "upTopic": "eldercare/wearable/sos-001/up",
+    "hasMqttCredentials": true,
+    "apiBase": "https://api.luxunacc.xyz",
+    "hasGuardianCredentials": true,
+    "guardianSource": "file",
+    "apiPollMs": 2000,
+    "relay": "10.127.130.131:9000",
+    "tcpListen": "127.0.0.1:9002",
+    "deviceId": "esp32-sos",
+    "room": "闅忚韩姹傚姪",
+    "heartbeatMs": 5000,
+    "offlineAfterMs": 45000,
+    "runtimeDir": "D:\\OpenHarmony\\competition\\cloud\\wearable-mirror\\runtime"
+  },
+  "model": {
+    "lastDeviceMsgAt": 1793118497050,
+    "lastSeenPcMs": 1793118500101,
+    "event": null,
+    "latestGps": null,
+    "latestGpsSource": "none",
+    "lastReject": null,
+    "counters": {
+      "payloads": 0,
+      "business": 0,
+      "sos": 0,
+      "sosRetransmit": 0,
+      "sosStale": 0,
+      "hb": 0,
+      "ack": 0,
+      "ackStale": 0,
+      "ackDuplicate": 0,
+      "boot": 0,
+      "gpsOk": 0,
+      "gpsReject": 0,
+      "malformed": 0,
+      "foreignDevice": 0,
+      "hbIdleWhileAlarm": 0,
+      "hbAlarmMismatch": 0,
+      "apiPolls": 22,
+      "apiSnapshots": 22
+    }
+  },
+  "sourceStatus": {
+    "kind": "api",
+    "base": "https://api.luxunacc.xyz",
+    "running": true,
+    "lastSnapshot": {
+      "state": "NORMAL",
+      "online": true,
+      "lastSeenTs": 1793118497050,
+      "alarmId": "",
+      "alarmState": "",
+      "gpsValid": false
+    },
+    "polls": 23,
+    "ok": 22,
+    "errors": 0,
+    "authFailures": 0,
+    "logins": 1,
+    "lastError": "",
+    "lastOkAt": 1793118517614,
+    "lastPollAt": 1793118519619
+  },
+  "transports": [
+    {
+      "kind": "relay",
+      "target": "10.127.130.131:9000",
+      "connected": true,
+      "linesSent": 15,
+      "lastSentAt": 1793118520835,
+      "lastConnectedAt": 1793118452929,
+      "connects": 1,
+      "disconnects": 0,
+      "lastError": ""
+    }
+  ]
+}
+
+
+## watcher process/mutex
+
+watcherPid58052=False
+
+mutex absent
+
+## watcher-state.json tail timestamp
+
+{
+    "timestamp":  "2026-10-27 23:04:30",
+    "target":  "450100445634303332012847942eca00",
+    "targetConnected":  true,
+    "p0":  "healthy",
+    "app":  "present",
+    "inference":  "running",
+    "cameraFrames":  "LIVE",
+    "nodes":  "4/4",
+    "userStop":  false,
+    "userPaused":  false,
+    "lastEventCount":  149070,
+    "watcherPid":  58052
+}
+

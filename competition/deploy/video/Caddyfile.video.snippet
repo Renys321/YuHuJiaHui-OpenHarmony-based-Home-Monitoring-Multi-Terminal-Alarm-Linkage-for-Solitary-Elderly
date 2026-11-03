@@ -1,0 +1,26 @@
+# deploy/video/Caddyfile.video.snippet
+#
+# 本文件是「要插入到既有 /opt/eldercare/deploy/Caddyfile 站点块内的片段」说明，
+# 不是完整 Caddyfile。install-on-ecs.sh 会做两处幂等修改：
+#
+#   1) 在 `reverse_proxy backend:8080` 之前插入：
+#        reverse_proxy /video/* video-relay:9443
+#      只把 /video/* 交给 video-relay；其余路径仍由原来的 backend 反代处理。
+#      Caddy 的 reverse_proxy 默认支持 WebSocket 升级透传，不需要额外配置。
+#
+#   2) 在既有 log 的 `fields { ... }` 内插入 query 过滤：
+#        request>uri query {
+#            delete ticket
+#            delete key
+#        }
+#      原因：手机 APP 的 WS URL 是 /video/stream?ticket=<64hex>，PC agent 注册是
+#      /video/agent?key=<VIDEO_AGENT_KEY>；Caddy 默认访问日志会记录完整 request.uri
+#      （含 query），不处理就等于把一次性 ticket 与 agent key 写进公网访问日志。
+#      relay 自己不打 query，但代理层必须同样脱敏。
+#
+# 验收：install-on-ecs.sh 在重启 Caddy 前用 `caddy validate` 校验语法；重启后
+#   公开 https://域名/video/healthz 必须 200，且 https://域名/video/session（POST）
+#   返回 401（证明 /video/* 已路由到 relay 而不是 backend 的 404）。
+#
+# 若现有 Caddyfile 结构与预期不符（找不到 reverse_proxy backend:8080 或 log filter
+# fields 段），install-on-ecs.sh 会拒绝继续并回滚，绝不“跳过脱敏”上线。

@@ -1,0 +1,24 @@
+﻿== 步骤 06：本轮结束状态（脚本在步骤1中止，未启动任何新进程）==
+执行时间: 2026-10-09 22:41:50
+
+--- PC 侧端口占用（1883 broker / 9100 bridge / 9000 fport）---
+  端口 1883 : 无监听
+  端口 9100 : 无监听
+  端口 9000 : 无监听
+
+--- 我本轮是否启动过 broker/bridge：否（脚本在步骤1中止，未到步骤3/4）---
+
+--- 板端 homemon 状态（是否残留）---
+
+
+--- 板端 /data/homemon 内容（不删除，按要求保留安全日志）---
+total 8192
+-rw-r--r-- 1 root root    0 2026-10-10 06:41 control
+-rw-r--r-- 1 root root   31 2026-10-10 05:20 daily.txt
+-rw-r--r-- 1 root root 2128 2026-10-10 06:22 homemon.log
+-rw-r--r-- 1 root root  115 2026-10-10 05:22 say.log
+-rwxr-xr-x 1 root root 1349 2026-10-10 05:22 say.sh
+-rw-r--r-- 1 root root  389 2026-10-10 06:41 status.json
+
+--- 板端 control 文件内容（本轮未写入）---
+(end)

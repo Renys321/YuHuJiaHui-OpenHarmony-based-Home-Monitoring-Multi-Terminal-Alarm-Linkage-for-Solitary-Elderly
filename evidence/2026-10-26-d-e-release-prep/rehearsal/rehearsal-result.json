@@ -1,0 +1,221 @@
+{
+  "kind": "ISOLATED_REHEARSAL",
+  "generatedAt": "2026-10-26T05:18:43.387Z",
+  "timezone": "Asia/Shanghai",
+  "workspace": "D:/OpenHarmony",
+  "tempRoot": "C:\\Users\\LENOVO\\AppData\\Local\\Temp\\de-release-rehearsal-KZ6mul",
+  "legacyEmulation": {
+    "path": "D:\\OpenHarmony\\competition\\evidence\\2026-10-26-d-e-release-prep\\rehearsal\\legacy-v5-emulation\\src",
+    "type": "DERIVED_EMULATION_NOT_HISTORICAL",
+    "note": "no authentic schema-v5 backend artifact exists in the workspace; see rehearsal/legacy-v5-emulation/LEGACY-EMULATION.md"
+  },
+  "fixtures": [
+    {
+      "deviceId": "rehearsal-fixture-bath",
+      "room": "合成演练-卫生间",
+      "alarmId": "rehearsal-alarm-1"
+    },
+    {
+      "deviceId": "rehearsal-fixture-living",
+      "room": "合成演练-客厅",
+      "alarmId": "rehearsal-alarm-2"
+    },
+    {
+      "deviceId": "rehearsal-fixture-kitchen",
+      "room": "合成演练-厨房",
+      "alarmId": null
+    }
+  ],
+  "steps": [
+    {
+      "step": "seed schema-v5 synthetic state with legacy boundary code",
+      "ok": true,
+      "detail": {
+        "schemaVersion": 5,
+        "devices": 3,
+        "alerts": 2,
+        "activityFileExists": false
+      }
+    },
+    {
+      "step": "take pre-upgrade backup (main snapshot + absence of activity file)",
+      "ok": true,
+      "detail": {
+        "treeHash": "A3975FF7055127BB102EDB6D4DBF5ABEF312F1E9CBAFFCFE6E546B9419AB9EE2",
+        "files": [
+          {
+            "path": "backend-state.json",
+            "bytes": 2765,
+            "sha256": "CBCB58916D795DDFDB88422072330A6CF70735A92939427742B85DB47DA96674"
+          }
+        ],
+        "activityFileInBackup": false
+      }
+    },
+    {
+      "step": "frozen candidate loads v5 state and upgrades it to v6 on first write",
+      "ok": true,
+      "detail": {
+        "schemaVersion": 6,
+        "safetyLogs": 0
+      }
+    },
+    {
+      "step": "add D dispositions / safety logs and reload them",
+      "ok": true,
+      "detail": {
+        "created": 3,
+        "reloaded": 3,
+        "dispositionIds": [
+          "dsp-1",
+          "dsp-2",
+          "dsp-3"
+        ]
+      }
+    },
+    {
+      "step": "add E activity records and reload them",
+      "ok": true,
+      "detail": {
+        "activityFileVersion": 1,
+        "dayCount": 5,
+        "dataSinceIsNumber": true
+      }
+    },
+    {
+      "step": "snapshot the complete post-upgrade data before rollback",
+      "ok": true,
+      "detail": {
+        "treeHash": "8FF8A7486861815C4470AA5F64C902DF9409E42B3476667DA32BBD8A533B178C",
+        "files": [
+          "activity-state.json",
+          "backend-state.json"
+        ]
+      }
+    },
+    {
+      "step": "rollback per runbook: verify -> stage -> swap -> verify",
+      "ok": true,
+      "detail": {
+        "journal": [
+          {
+            "guard": "post-upgrade snapshot preserved",
+            "ok": true,
+            "treeHash": "8FF8A7486861815C4470AA5F64C902DF9409E42B3476667DA32BBD8A533B178C"
+          },
+          {
+            "guard": "pre-upgrade backup verified",
+            "ok": true,
+            "treeHash": "A3975FF7055127BB102EDB6D4DBF5ABEF312F1E9CBAFFCFE6E546B9419AB9EE2"
+          },
+          {
+            "guard": "staged restore verified",
+            "ok": true,
+            "treeHash": "A3975FF7055127BB102EDB6D4DBF5ABEF312F1E9CBAFFCFE6E546B9419AB9EE2"
+          },
+          {
+            "guard": "upgraded data moved aside (retained)",
+            "ok": true,
+            "path": "data.post-upgrade-aside-58613e33"
+          },
+          {
+            "guard": "restored live data verified",
+            "ok": true,
+            "treeHash": "A3975FF7055127BB102EDB6D4DBF5ABEF312F1E9CBAFFCFE6E546B9419AB9EE2"
+          }
+        ],
+        "asideRetained": "data.post-upgrade-aside-58613e33"
+      }
+    },
+    {
+      "step": "legacy boundary code reads restored v5 state",
+      "ok": true,
+      "detail": {
+        "schemaVersion": 5,
+        "alerts": 2
+      }
+    },
+    {
+      "step": "legacy boundary code serves existing API on restored data (127.0.0.1)",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "alerts": 2,
+        "bindsLoopbackOnly": true
+      }
+    },
+    {
+      "step": "account for post-upgrade records that leave the runtime after rollback",
+      "ok": true,
+      "detail": {
+        "restoredRuntimeFiles": [
+          "backend-state.json"
+        ],
+        "retainedAsideFiles": [
+          "activity-state.json",
+          "backend-state.json"
+        ],
+        "lostFromRuntime": [
+          "3 dispositions / safety logs (kept in aside v6 snapshot)",
+          "activity statistics (kept in aside activity-state.json)"
+        ],
+        "retainedIn": "data.post-upgrade-aside-58613e33"
+      }
+    },
+    {
+      "step": "legacy boundary code refuses the v6 snapshot (why rollback needs the snapshot swap)",
+      "ok": true,
+      "detail": {
+        "refused": true,
+        "message": "persistent store unsupported schemaVersion: 6"
+      }
+    },
+    {
+      "step": "restored v5 data can be loaded by the frozen candidate again",
+      "ok": true,
+      "detail": {
+        "alerts": 2,
+        "schemaVersion": 5
+      }
+    }
+  ],
+  "guards": [
+    {
+      "guard": "corrupted pre-upgrade backup archive",
+      "aborted": true,
+      "liveDataUntouched": true,
+      "asideCreated": false,
+      "message": "pre-upgrade backup hash mismatch -> abort"
+    },
+    {
+      "guard": "pre-upgrade checksum mismatch (metadata vs archive)",
+      "aborted": true,
+      "liveDataUntouched": true,
+      "asideCreated": false,
+      "message": "pre-upgrade backup hash mismatch -> abort"
+    },
+    {
+      "guard": "post-upgrade data preservation failed (snapshot missing)",
+      "aborted": true,
+      "liveDataUntouched": true,
+      "asideCreated": false,
+      "message": "post-upgrade snapshot missing -> abort"
+    }
+  ],
+  "legacyReadback": {
+    "schemaVersion": 5,
+    "devices": 3,
+    "alerts": 2,
+    "safetyLogsSupportedByLegacy": 0
+  },
+  "finalTreeHashes": {
+    "preUpgrade": "A3975FF7055127BB102EDB6D4DBF5ABEF312F1E9CBAFFCFE6E546B9419AB9EE2",
+    "postUpgrade": "8FF8A7486861815C4470AA5F64C902DF9409E42B3476667DA32BBD8A533B178C",
+    "restoredLive": "A3975FF7055127BB102EDB6D4DBF5ABEF312F1E9CBAFFCFE6E546B9419AB9EE2"
+  },
+  "result": "REHEARSAL_PASS",
+  "failures": 0,
+  "stepsCount": 12,
+  "clock": "Date.now frozen during run for reproducible tree hashes",
+  "baseTs": 1792980000000
+}

@@ -1,0 +1,45 @@
+{
+    "durationSec":  42,
+    "steps":  [
+                  {
+                      "atSec":  1,
+                      "send":  "resume"
+                  },
+                  {
+                      "atSec":  2,
+                      "send":  "inj reboot"
+                  },
+                  {
+                      "atSec":  8,
+                      "send":  "inj sos"
+                  },
+                  {
+                      "atSec":  11,
+                      "send":  "inj sos"
+                  },
+                  {
+                      "atSec":  15,
+                      "send":  "stop"
+                  },
+                  {
+                      "atSec":  18,
+                      "send":  "inj sos"
+                  },
+                  {
+                      "atSec":  20,
+                      "send":  "inj sos"
+                  },
+                  {
+                      "atSec":  24,
+                      "send":  "ack {lastAlarm}"
+                  },
+                  {
+                      "atSec":  28,
+                      "send":  "inj sos"
+                  },
+                  {
+                      "atSec":  34,
+                      "send":  "ack {lastAlarm}"
+                  }
+              ]
+}

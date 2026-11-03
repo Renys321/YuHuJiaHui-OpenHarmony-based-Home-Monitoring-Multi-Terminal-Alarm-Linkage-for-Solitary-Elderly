@@ -1,0 +1,7 @@
+﻿127.0.0.1:5555		TCP	Connected	localhost	hdc
+450100445634303332012847942eca00		USB	Offline	localhost	hdc
+COM11		UART	Ready	unknown...	hdc
+COM19		UART	Ready	unknown...	hdc
+COM20		UART	Ready	unknown...	hdc
+COM4		UART	Ready	unknown...	hdc
+COM5		UART	Ready	unknown...	hdc

@@ -1,0 +1,224 @@
+I (78167) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792949884608,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792949876847,"countToday":6},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.5,"rh":54.9,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,6],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (78177) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (78197) elder-node: STACK_FREE task=main bytes=4068
+I (83657) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792949890098,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792949876847,"countToday":6},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.5,"rh":54.8,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,6],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (83687) elder-node: STACK_FREE task=main bytes=4068
+I (83697) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (89137) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792949895578,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792949876847,"countToday":6},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.5,"rh":54.8,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,6],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (89167) elder-node: STACK_FREE task=main bytes=4068
+I (89197) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (94617) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+I (94617) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792949901058,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792949876847,"countToday":6},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.5,"rh":54.9,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,6],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (94647) elder-node: STACK_FREE task=main bytes=4068
+I (94697) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (100107) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792949906548,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792949876847,"countToday":6},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.6,"rh":55.0,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,6],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (100137) elder-node: STACK_FREE task=main bytes=4068
+I (100197) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (105587) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792949912028,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792949876847,"countToday":6},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.6,"rh":55.0,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,6],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (105597) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (105617) elder-node: STACK_FREE task=main bytes=4068
+I (111077) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792949917518,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792949876847,"countToday":6},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.6,"rh":55.0,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,6],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (111107) elder-node: STACK_FREE task=main bytes=4068
+I (111117) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (116557) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+I (116557) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792949922998,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792949876847,"countToday":6},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.6,"rh":55.1,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,6],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (116587) elder-node: STACK_FREE task=main bytes=4068
+I (116617) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (122047) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792949928488,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792949876847,"countToday":6},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.5,"rh":55.1,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,6],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (122077) elder-node: STACK_FREE task=main bytes=4068
+I (122117) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (125257) elder-node: 检测到活动（今日第 7 次）
+I (127527) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792949933968,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792949931697,"countToday":7},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.5,"rh":55.2,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,7],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (127557) elder-node: STACK_FREE task=main bytes=4068
+I (127617) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (133007) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792949939448,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792949931697,"countToday":7},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.5,"rh":55.3,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,7],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (133017) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (133037) elder-node: STACK_FREE task=main bytes=4068
+I (137317) elder-node: 检测到活动（今日第 8 次）
+I (138497) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+I (138497) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792949944938,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792949943757,"countToday":8},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.5,"rh":55.8,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,8],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (138527) elder-node: STACK_FREE task=main bytes=4068
+I (138537) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (143997) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792949950438,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792949943757,"countToday":8},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.5,"rh":56.1,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,8],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (144027) elder-node: STACK_FREE task=main bytes=4068
+I (144047) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (148297) elder-node: 检测到活动（今日第 9 次）
+I (149477) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792949955918,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792949954737,"countToday":9},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.5,"rh":56.1,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,9],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (149507) elder-node: STACK_FREE task=main bytes=4068
+I (149547) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (154957) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792949961398,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792949954737,"countToday":9},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.5,"rh":56.0,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,9],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (154987) elder-node: STACK_FREE task=main bytes=4068
+I (155047) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (157077) elder-node: 检测到活动（今日第 10 次）
+I (160437) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+I (160437) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792949966878,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792949963517,"countToday":10},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.5,"rh":56.0,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,10],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (160447) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (160477) elder-node: STACK_FREE task=main bytes=4068
+I (165937) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792949972378,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792949963517,"countToday":10},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.5,"rh":55.9,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,10],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (165967) elder-node: STACK_FREE task=main bytes=4068
+I (165977) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (170237) elder-node: 检测到活动（今日第 11 次）
+I (171417) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792949977858,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792949976677,"countToday":11},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.6,"rh":56.1,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,11],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (171447) elder-node: STACK_FREE task=main bytes=4068
+I (171477) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (174627) elder-node: 检测到活动（今日第 12 次）
+I (176897) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792949983338,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792949981067,"countToday":12},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.6,"rh":56.1,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,12],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (176927) elder-node: STACK_FREE task=main bytes=4068
+I (176977) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (182377) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+I (182377) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792949988818,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792949981067,"countToday":12},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.6,"rh":56.3,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,12],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (182407) elder-node: STACK_FREE task=main bytes=4068
+I (182477) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (187867) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792949994308,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792949981067,"countToday":12},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.6,"rh":56.2,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,12],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (187877) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (187897) elder-node: STACK_FREE task=main bytes=4068
+I (193267) elder-node: 检测到活动（今日第 13 次）
+I (193357) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792949999798,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792949999707,"countToday":13},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.7,"rh":56.0,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,13],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (193387) elder-node: STACK_FREE task=main bytes=4068
+I (193397) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (198837) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950005278,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792949999707,"countToday":13},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.6,"rh":55.9,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,13],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (198867) elder-node: STACK_FREE task=main bytes=4068
+I (198897) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (204317) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+I (204317) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950010758,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792949999707,"countToday":13},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.7,"rh":56.0,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,13],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (204347) elder-node: STACK_FREE task=main bytes=4068
+I (204397) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (207537) elder-node: 检测到活动（今日第 14 次）
+I (209807) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950016248,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950013977,"countToday":14},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.6,"rh":56.0,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,14],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (209837) elder-node: STACK_FREE task=main bytes=4068
+I (209897) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (215287) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950021728,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950013977,"countToday":14},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.6,"rh":55.9,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,14],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (215297) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (215317) elder-node: STACK_FREE task=main bytes=4068
+I (220777) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950027218,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950013977,"countToday":14},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.6,"rh":55.9,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,14],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (220807) elder-node: STACK_FREE task=main bytes=4068
+I (220817) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (226257) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+I (226257) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950032698,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950013977,"countToday":14},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.6,"rh":56.0,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,14],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (226287) elder-node: STACK_FREE task=main bytes=4068
+I (226317) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (231747) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950038188,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950013977,"countToday":14},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.6,"rh":56.0,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,14],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (231777) elder-node: STACK_FREE task=main bytes=4068
+I (231817) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (237227) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950043668,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950013977,"countToday":14},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.6,"rh":56.1,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,14],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (237257) elder-node: STACK_FREE task=main bytes=4068
+I (237317) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (242707) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950049148,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950013977,"countToday":14},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.7,"rh":56.3,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,14],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (242717) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (242737) elder-node: STACK_FREE task=main bytes=4068
+I (248197) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+I (248197) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950054638,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950013977,"countToday":14},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.7,"rh":56.4,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,14],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (248227) elder-node: STACK_FREE task=main bytes=4068
+I (248237) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (253697) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950060138,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950013977,"countToday":14},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.7,"rh":56.3,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,14],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (253727) elder-node: STACK_FREE task=main bytes=4068
+I (253747) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (259177) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950065618,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950013977,"countToday":14},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.6,"rh":56.4,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,14],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (259207) elder-node: STACK_FREE task=main bytes=4068
+I (259247) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (264657) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950071098,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950013977,"countToday":14},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.7,"rh":56.5,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,14],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (264687) elder-node: STACK_FREE task=main bytes=4068
+I (264747) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (270137) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+I (270137) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950076578,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950013977,"countToday":14},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.7,"rh":56.4,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,14],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (270147) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (270177) elder-node: STACK_FREE task=main bytes=4068
+I (275637) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950082078,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950013977,"countToday":14},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.6,"rh":56.4,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,14],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (275667) elder-node: STACK_FREE task=main bytes=4068
+I (275677) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (281117) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950087558,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950013977,"countToday":14},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.7,"rh":56.3,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,14],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (281147) elder-node: STACK_FREE task=main bytes=4068
+I (281177) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (286597) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950093038,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950013977,"countToday":14},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.7,"rh":56.5,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,14],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (286627) elder-node: STACK_FREE task=main bytes=4068
+I (286677) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (292077) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+I (292077) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950098518,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950013977,"countToday":14},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.7,"rh":56.6,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,14],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (292107) elder-node: STACK_FREE task=main bytes=4068
+I (292177) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (297567) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950104008,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950013977,"countToday":14},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.7,"rh":56.5,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,14],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (297577) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (297597) elder-node: STACK_FREE task=main bytes=4068
+I (303057) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950109498,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950013977,"countToday":14},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.7,"rh":56.5,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,14],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (303087) elder-node: STACK_FREE task=main bytes=4068
+I (303097) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (308537) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950114978,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950013977,"countToday":14},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.7,"rh":56.7,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,14],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (308567) elder-node: STACK_FREE task=main bytes=4068
+I (308597) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (314017) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+I (314017) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950120458,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950013977,"countToday":14},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.7,"rh":56.7,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,14],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (314047) elder-node: STACK_FREE task=main bytes=4068
+I (314097) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (319507) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950125948,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950013977,"countToday":14},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.7,"rh":56.7,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,14],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (319537) elder-node: STACK_FREE task=main bytes=4068
+I (319597) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (324987) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950131428,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950013977,"countToday":14},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.7,"rh":56.7,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,14],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (324997) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (325017) elder-node: STACK_FREE task=main bytes=4068
+I (330477) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950136918,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950013977,"countToday":14},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.8,"rh":56.6,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,14],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (330507) elder-node: STACK_FREE task=main bytes=4068
+I (330517) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (335957) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+I (335957) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950142398,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950013977,"countToday":14},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.8,"rh":56.5,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,14],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (335987) elder-node: STACK_FREE task=main bytes=4068
+I (336017) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (336997) elder-node: 检测到活动（今日第 15 次）
+I (341447) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950147888,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950143437,"countToday":15},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.8,"rh":56.5,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,15],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (341477) elder-node: STACK_FREE task=main bytes=4068
+I (341517) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (346927) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950153368,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950143437,"countToday":15},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.8,"rh":56.6,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,15],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (346957) elder-node: STACK_FREE task=main bytes=4068
+I (347017) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (352407) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950158848,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950143437,"countToday":15},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.8,"rh":56.6,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,15],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (352417) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (352437) elder-node: STACK_FREE task=main bytes=4068
+I (357897) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+I (357897) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950164338,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950143437,"countToday":15},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.9,"rh":56.6,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,15],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (357927) elder-node: STACK_FREE task=main bytes=4068
+I (357937) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (363397) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950169838,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950143437,"countToday":15},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.8,"rh":56.6,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,15],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (363427) elder-node: STACK_FREE task=main bytes=4068
+I (363447) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (368877) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950175318,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950143437,"countToday":15},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.8,"rh":56.6,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,15],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (368907) elder-node: STACK_FREE task=main bytes=4068
+I (368947) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (374357) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950180798,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950143437,"countToday":15},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.8,"rh":56.9,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,15],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (374387) elder-node: STACK_FREE task=main bytes=4068
+I (374447) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (379837) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+I (379837) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950186278,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950143437,"countToday":15},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.9,"rh":56.8,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,15],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (379847) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (379877) elder-node: STACK_FREE task=main bytes=4068
+I (385247) elder-node: 检测到活动（今日第 16 次）
+I (385337) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950191778,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950191687,"countToday":16},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.9,"rh":56.8,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,16],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (385367) elder-node: STACK_FREE task=main bytes=4068
+I (385377) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (390817) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950197258,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950191687,"countToday":16},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.9,"rh":56.9,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,16],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (390847) elder-node: STACK_FREE task=main bytes=4068
+I (390877) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (396297) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950202738,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950191687,"countToday":16},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.9,"rh":57.0,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,16],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (396327) elder-node: STACK_FREE task=main bytes=4068
+I (396377) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (401777) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+I (401777) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950208218,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950191687,"countToday":16},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.9,"rh":57.0,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,16],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (401807) elder-node: STACK_FREE task=main bytes=4068
+I (401877) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (407267) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950213708,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950191687,"countToday":16},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.9,"rh":56.9,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,16],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (407277) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (407297) elder-node: STACK_FREE task=main bytes=4068
+I (412757) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950219198,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950191687,"countToday":16},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.9,"rh":56.8,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,16],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (412787) elder-node: STACK_FREE task=main bytes=4068
+I (412797) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (418237) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950224678,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950191687,"countToday":16},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.9,"rh":56.8,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,16],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (418267) elder-node: STACK_FREE task=main bytes=4068
+I (418297) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (423717) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+I (423717) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950230158,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950191687,"countToday":16},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.9,"rh":56.8,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,16],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (423747) elder-node: STACK_FREE task=main bytes=4068
+I (423797) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (429207) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950235648,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950191687,"countToday":16},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.9,"rh":56.8,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,16],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (429237) elder-node: STACK_FREE task=main bytes=4068
+I (429297) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (434687) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1792950241128,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1792950191687,"countToday":16},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.9,"rh":56.8,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,16],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (434697) elder-node: STACK_FREE task=gateway-net bytes=2700
+I (434717) elder-node: STACK_FREE task=main bytes=4068

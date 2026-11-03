@@ -1,0 +1,72 @@
+# deploy/video/compose.video.yaml
+#
+# 视频探望中继（video-relay）的 compose override，与既有 compose.public.yaml 叠加使用。
+#
+# 设计边界（2026-10-27）：
+#   1) 不新建镜像：复用 ECS 上已有的 eldercare-cloud-backend:local（含 node 24 运行时），
+#      entrypoint 覆盖为 node /opt/video-relay/server.js；源码只读挂载，
+#      ws 依赖已 vendor 在源码里（competition/video/relay/vendor/ws），无需在服务器 npm install。
+#   2) **不发布任何主机端口**：只 expose 9443，公网入口仍只有 Caddy 的 80/443。
+#   3) 不修改/不重建 backend 与 caddy 镜像定义；只新增 video-relay 一个服务。
+#   4) 密钥只来自 /opt/eldercare/deploy/video.env（600），由 install-on-ecs.sh 生成；
+#      本文件只写非密钥固定值。
+#   5) 必须与 compose.public.yaml 一起使用（同一 project: eldercare-public）：
+#        docker compose --env-file /opt/eldercare/deploy/.env.deploy \
+#          -f /opt/eldercare/deploy/compose.public.yaml \
+#          -f /opt/eldercare/deploy/compose.video.yaml \
+#          up -d --no-deps video-relay
+#
+# 健康检查用 /video/healthz：它不依赖后端、不依赖 DAYU 在线，只表示 relay 进程可服务。
+# DAYU/agent 在线状态看日志与 relay 返回的 dayuLink 字段（connected/connecting/down）。
+
+name: eldercare-public
+
+services:
+  video-relay:
+    # 复用已有后端镜像（node 运行时），不新增镜像构建/拉取失败点。
+    image: eldercare-cloud-backend:local
+    init: true
+    restart: unless-stopped
+    entrypoint: ["node", "/opt/video-relay/server.js"]
+    working_dir: /opt/video-relay
+    read_only: true
+    depends_on:
+      backend:
+        condition: service_healthy
+    env_file:
+      - ${VIDEO_ENV_FILE:-/opt/eldercare/deploy/video.env}
+    environment:
+      # 容器内固定值（非密钥）；mode/后端地址/agent key 全部来自 video.env。
+      VIDEO_RELAY_HOST: "0.0.0.0"
+      VIDEO_RELAY_PORT: "9443"
+      NODE_ENV: "production"
+    # 只声明容器内端口：不做主机端口映射，对外只经 Caddy。
+    expose:
+      - "9443"
+    volumes:
+      # 源码只读挂载（install-on-ecs.sh 同步到 /opt/eldercare/video-relay）。
+      - ${VIDEO_SOURCE_DIR:-/opt/eldercare/video-relay}:/opt/video-relay:ro
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=8m
+    security_opt:
+      - no-new-privileges:true
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - video-public-edge
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:9443/video/healthz').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
+
+networks:
+  # 加入 backend/caddy 所在的 public-edge 网络（真实名称由 install-on-ecs.sh 探测后
+  # 通过 VIDEO_PUBLIC_NETWORK 注入；默认值适用于标准部署）。
+  video-public-edge:
+    external: true
+    name: ${VIDEO_PUBLIC_NETWORK:-eldercare-public_public-edge}

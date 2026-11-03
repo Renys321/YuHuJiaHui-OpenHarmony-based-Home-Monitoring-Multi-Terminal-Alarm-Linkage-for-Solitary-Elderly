@@ -1,0 +1,45 @@
+{
+  "base": "http://127.0.0.1:18081",
+  "phase": "first",
+  "steps": [
+    {
+      "step": "anonymous_401",
+      "result": {
+        "status": 401
+      }
+    },
+    {
+      "step": "login",
+      "result": {
+        "status": 200
+      }
+    },
+    {
+      "step": "save_profile",
+      "result": {
+        "status": 200,
+        "hasUpdatedAt": true
+      }
+    },
+    {
+      "step": "real_advice",
+      "result": {
+        "status": 200,
+        "ms": 6187,
+        "model": "deepseek-chat",
+        "summaryChars": 224,
+        "diet": 6,
+        "exerciseAndSleep": 6,
+        "warningSigns": 6,
+        "disclaimerFixed": true,
+        "noDiagnosisWords": true
+      }
+    },
+    {
+      "step": "identity_field_rejected",
+      "result": {
+        "status": 400
+      }
+    }
+  ]
+}

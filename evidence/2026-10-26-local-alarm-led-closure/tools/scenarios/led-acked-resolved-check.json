@@ -1,0 +1,33 @@
+{
+    "durationSec":  32,
+    "steps":  [
+                  {
+                      "atSec":  1,
+                      "send":  "resume"
+                  },
+                  {
+                      "atSec":  2,
+                      "send":  "inj reboot"
+                  },
+                  {
+                      "atSec":  7,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  8,
+                      "send":  "inj climate 47.0 95.0"
+                  },
+                  {
+                      "atSec":  14,
+                      "send":  "ack {lastAlarm}"
+                  },
+                  {
+                      "atSec":  20,
+                      "send":  "inj climate 25.0 50.0"
+                  },
+                  {
+                      "atSec":  21,
+                      "send":  "inj climate 25.0 50.0"
+                  }
+              ]
+}

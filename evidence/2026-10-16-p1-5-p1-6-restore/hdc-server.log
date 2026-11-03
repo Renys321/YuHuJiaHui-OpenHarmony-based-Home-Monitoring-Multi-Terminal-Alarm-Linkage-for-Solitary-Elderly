@@ -1,0 +1,9 @@
+[I][2026-10-16 23:03:35] Program running. Ver: 3.2.0f Pid:32288
+LogToPath uv_fs_open C:\Users\LENOVO\AppData\Local\Temp\.hdc.cache.log error operation not permitted
+[I][2026-10-16 23:03:35] set UV_THREADPOOL_SIZE:128
+LogToPath uv_fs_open C:\Users\LENOVO\AppData\Local\Temp\.hdc.cache.log error operation not permitted
+[F][2026-10-16 23:03:35] Other instance already running, program mutex failed
+LogToPath uv_fs_open C:\Users\LENOVO\AppData\Local\Temp\.hdc.cache.log error operation not permitted
+Initial failed
+[W][2026-10-16 23:03:35] ~HdcSessionBase free sessionRef:0 instance:server
+LogToPath uv_fs_open C:\Users\LENOVO\AppData\Local\Temp\.hdc.cache.log error operation not permitted

@@ -1,0 +1,26 @@
+# bench-serial.py start 2026-10-26T19:04:42.346+08:00
+# com=COM5 baud=115200 dtr=False rts=False log=D:\OpenHarmony\competition\evidence\2026-10-26-kitchen-key0-sos\verify\netlab-COM5-outage.log
+[+00000003.281s] [2026-10-26T19:04:45.622+08:00] I (33421) elder-node: 时间已同步（不改动环境告警状态）
+[+00000004.109s] [2026-10-26T19:04:46.445+08:00] I (34211) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793012686426,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":24.0,"rh":64.2,"ok":true,"valid":true},"gas":{"raw":237,"ok":true,"valid":true},"smoke":{"raw":334,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000004.109s] [2026-10-26T19:04:46.447+08:00] 
+[+00000004.109s] [2026-10-26T19:04:46.447+08:00] I (34221) elder-node: STACK_FREE task=gateway-net bytes=2820
+[+00000004.109s] [2026-10-26T19:04:46.448+08:00] I (34241) elder-node: STACK_FREE task=main bytes=4052
+[+00000009.593s] [2026-10-26T19:04:51.937+08:00] I (39701) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793012691916,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":24.0,"rh":64.1,"ok":true,"valid":true},"gas":{"raw":209,"ok":true,"valid":true},"smoke":{"raw":333,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000009.593s] [2026-10-26T19:04:51.938+08:00] 
+[+00000009.593s] [2026-10-26T19:04:51.938+08:00] I (39721) elder-node: STACK_FREE task=main bytes=4052
+[+00000009.609s] [2026-10-26T19:04:51.939+08:00] I (39741) elder-node: STACK_FREE task=gateway-net bytes=2820
+[+00000015.093s] [2026-10-26T19:04:57.429+08:00] I (45181) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793012697396,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":24.0,"rh":64.1,"ok":true,"valid":true},"gas":{"raw":222,"ok":true,"valid":true},"smoke":{"raw":325,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000015.093s] [2026-10-26T19:04:57.430+08:00] 
+[+00000015.093s] [2026-10-26T19:04:57.431+08:00] I (45201) elder-node: STACK_FREE task=main bytes=4052
+[+00000015.093s] [2026-10-26T19:04:57.431+08:00] I (45241) elder-node: STACK_FREE task=gateway-net bytes=2820
+[+00000020.562s] [2026-10-26T19:05:02.907+08:00] I (50661) elder-node: ADC raw: MQ2(CH5)=314 valid=1 danger=0 | MQ5(CH6)=218 valid=1 danger=0
+[+00000020.578s] [2026-10-26T19:05:02.909+08:00] I (50661) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793012702877,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":24.1,"rh":64.0,"ok":true,"valid":true},"gas":{"raw":218,"ok":true,"valid":true},"smoke":{"raw":314,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000020.578s] [2026-10-26T19:05:02.909+08:00] 
+[+00000020.578s] [2026-10-26T19:05:02.910+08:00] I (50691) elder-node: STACK_FREE task=main bytes=4052
+[+00000026.047s] [2026-10-26T19:05:08.380+08:00] I (56151) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793012708366,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":24.1,"rh":64.0,"ok":true,"valid":true},"gas":{"raw":311,"ok":true,"valid":true},"smoke":{"raw":359,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000026.047s] [2026-10-26T19:05:08.382+08:00] 
+[+00000026.047s] [2026-10-26T19:05:08.383+08:00] I (56171) elder-node: STACK_FREE task=main bytes=4052
+[+00000031.515s] [2026-10-26T19:05:13.860+08:00] I (61631) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793012713846,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":24.1,"rh":64.1,"ok":true,"valid":true},"gas":{"raw":261,"ok":true,"valid":true},"smoke":{"raw":357,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000031.515s] [2026-10-26T19:05:13.861+08:00] 
+[+00000031.515s] [2026-10-26T19:05:13.861+08:00] I (61651) elder-node: STACK_FREE task=main bytes=4052
+# BENCH_SERIAL SUMMARY lines=23 bytes=3455 sent=0 duration=33.015s markers={→ {=6}

@@ -1,0 +1,13 @@
+# bench-serial.py start 2026-10-26T21:51:26.239+08:00
+# com=COM8 baud=115200 dtr=False rts=False log=D:\OpenHarmony\competition\evidence\2026-10-26-wireless-sos-button-final\verify\com8-recheck.log
+[+00000000.921s] [2026-10-26T21:51:27.163+08:00] I (634357) elder-node: → {"deviceId":"esp32-sos","room":"随身求助","ts":1793022476015,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":0.0,"rh":0.0,"ok":true,"valid":false},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-1793022476-1","type":"MANUAL_SOS","countToday":1}}
+[+00000000.921s] [2026-10-26T21:51:27.163+08:00] 
+[+00000000.921s] [2026-10-26T21:51:27.164+08:00] I (634427) elder-node: STACK_FREE task=gateway-net bytes=2688
+[+00000005.921s] [2026-10-26T21:51:32.168+08:00] I (639387) elder-node: → {"deviceId":"esp32-sos","room":"随身求助","ts":1793022476015,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":0.0,"rh":0.0,"ok":true,"valid":false},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-1793022476-1","type":"MANUAL_SOS","countToday":1}}
+[+00000005.921s] [2026-10-26T21:51:32.168+08:00] 
+[+00000005.921s] [2026-10-26T21:51:32.168+08:00] I (639427) elder-node: STACK_FREE task=gateway-net bytes=2688
+[+00000010.953s] [2026-10-26T21:51:37.202+08:00] I (644417) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+[+00000010.953s] [2026-10-26T21:51:37.202+08:00] I (644417) elder-node: → {"deviceId":"esp32-sos","room":"随身求助","ts":1793022476015,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":0.0,"rh":0.0,"ok":true,"valid":false},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-1793022476-1","type":"MANUAL_SOS","countToday":1}}
+[+00000010.953s] [2026-10-26T21:51:37.202+08:00] 
+[+00000010.953s] [2026-10-26T21:51:37.202+08:00] I (644427) elder-node: STACK_FREE task=gateway-net bytes=2688
+# BENCH_SERIAL SUMMARY lines=10 bytes=1721 sent=0 duration=15.078s markers={→ {=3}

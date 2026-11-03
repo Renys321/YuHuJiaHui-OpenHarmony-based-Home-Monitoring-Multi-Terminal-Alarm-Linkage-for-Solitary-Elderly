@@ -1,0 +1,14 @@
+[2026-11-01T05:55:53.992Z] [elder-safe] 已记录，不改变告警状态
+[2026-11-01T05:55:58.054Z] 音箱播报完成: {"type":"done","node":"esp32-bath","ok":1}
+[2026-11-01T05:55:58.056Z] 音箱播报完成: {"type":"done","node":"esp32-kitchen","ok":1}
+[2026-11-01T06:02:36.373Z] [S3 采音] hello node=esp32-kitchen room=厨房
+[2026-11-01T06:02:36.373Z] [S3 采音] 开始接收 (16000Hz mono)
+[2026-11-01T06:02:40.518Z] [S3 录音] node=esp32-kitchen room=厨房 pcm=128000B (4.0s) file=D:\OpenHarmony\competition\voice-gateway\.work\recordings\esp32-kitchen-2026-11-01T06-02-40-517Z.wav
+[2026-11-01T06:02:42.569Z] [S3 ASR] 安全短语二次识别: 我们是 -> 我没事（conf=0.97）
+[2026-11-01T06:02:42.570Z] [S3 ASR] 2051ms, text=我没事
+[2026-11-01T06:02:42.571Z] [elder-safe] S3 自述安全：只记录，不 ACK 告警
+[2026-11-01T06:02:42.862Z] [elder-safe] 云端已记录 eventId=es-3 room=厨房
+[2026-11-01T06:02:43.361Z] 音箱播报：已推送 127360B PCM 到 2 个节点
+[2026-11-01T06:02:43.363Z] [elder-safe] 已记录，不改变告警状态
+[2026-11-01T06:02:47.466Z] 音箱播报完成: {"type":"done","node":"esp32-kitchen","ok":1}
+[2026-11-01T06:02:47.467Z] 音箱播报完成: {"type":"done","node":"esp32-bath","ok":1}

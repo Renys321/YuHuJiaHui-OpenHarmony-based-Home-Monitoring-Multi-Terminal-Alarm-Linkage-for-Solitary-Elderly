@@ -1,0 +1,256 @@
+﻿{
+    "devices":  [
+                    {
+                        "id":  "esp32-kitchen",
+                        "deviceId":  "esp32-kitchen",
+                        "name":  "厨房节点",
+                        "roomId":  "厨房",
+                        "roomName":  "厨房",
+                        "location":  "",
+                        "online":  true,
+                        "monitorOnline":  -1,
+                        "state":  "NORMAL",
+                        "lastSeenTs":  1793113286338,
+                        "sensors":  {
+                                        "motion":  {
+                                                       "lastActiveTs":  1793112552868,
+                                                       "countToday":  1
+                                                   },
+                                        "door":  {
+                                                     "open":  true,
+                                                     "lastOpenTs":  0,
+                                                     "lastCloseTs":  0,
+                                                     "seq":  29
+                                                 },
+                                        "gas":  {
+                                                    "ok":  true,
+                                                    "raw":  4095,
+                                                    "valid":  true
+                                                },
+                                        "smoke":  {
+                                                      "ok":  true,
+                                                      "raw":  186,
+                                                      "valid":  true
+                                                  },
+                                        "climate":  {
+                                                        "tempC":  24.9,
+                                                        "rh":  55.3,
+                                                        "valid":  true
+                                                    }
+                                    },
+                        "csq":  null
+                    },
+                    {
+                        "id":  "esp32-sos-isolated-test",
+                        "deviceId":  "esp32-sos-isolated-test",
+                        "name":  "隔离测试节点",
+                        "roomId":  "隔离测试",
+                        "roomName":  "隔离测试",
+                        "location":  "",
+                        "online":  false,
+                        "monitorOnline":  -1,
+                        "state":  "NORMAL",
+                        "lastSeenTs":  1793015096411,
+                        "sensors":  {
+                                        "motion":  {
+                                                       "lastActiveTs":  0,
+                                                       "countToday":  0
+                                                   },
+                                        "door":  {
+                                                     "open":  false,
+                                                     "lastOpenTs":  0
+                                                 },
+                                        "gas":  {
+                                                    "ok":  true,
+                                                    "raw":  0
+                                                },
+                                        "smoke":  {
+                                                      "ok":  true,
+                                                      "raw":  0
+                                                  },
+                                        "climate":  {
+                                                        "tempC":  0,
+                                                        "rh":  0
+                                                    }
+                                    },
+                        "csq":  null
+                    },
+                    {
+                        "id":  "esp32-sos-isolated-test2",
+                        "deviceId":  "esp32-sos-isolated-test2",
+                        "name":  "隔离测试节点",
+                        "roomId":  "隔离测试",
+                        "roomName":  "隔离测试",
+                        "location":  "",
+                        "online":  false,
+                        "monitorOnline":  -1,
+                        "state":  "ALARM",
+                        "lastSeenTs":  1793015553487,
+                        "sensors":  {
+                                        "motion":  {
+                                                       "lastActiveTs":  0,
+                                                       "countToday":  0
+                                                   },
+                                        "door":  {
+                                                     "open":  false,
+                                                     "lastOpenTs":  0
+                                                 },
+                                        "gas":  {
+                                                    "ok":  true,
+                                                    "raw":  0
+                                                },
+                                        "smoke":  {
+                                                      "ok":  true,
+                                                      "raw":  0
+                                                  },
+                                        "climate":  {
+                                                        "tempC":  0,
+                                                        "rh":  0
+                                                    }
+                                    },
+                        "csq":  null
+                    },
+                    {
+                        "id":  "yed-home-gateway",
+                        "deviceId":  "yed-home-gateway",
+                        "name":  "家庭网关节点",
+                        "roomId":  "家庭网关",
+                        "roomName":  "家庭网关",
+                        "location":  "",
+                        "online":  false,
+                        "monitorOnline":  -1,
+                        "state":  "NORMAL",
+                        "lastSeenTs":  1792137411645,
+                        "sensors":  {
+
+                                    },
+                        "csq":  29
+                    },
+                    {
+                        "id":  "dayu200-living",
+                        "deviceId":  "dayu200-living",
+                        "name":  "客厅节点",
+                        "roomId":  "客厅",
+                        "roomName":  "客厅",
+                        "location":  "",
+                        "online":  false,
+                        "monitorOnline":  -1,
+                        "state":  "ALARM",
+                        "lastSeenTs":  1793113068128,
+                        "sensors":  {
+                                        "motion":  {
+                                                       "lastActiveTs":  1793073453036,
+                                                       "countToday":  0
+                                                   },
+                                        "door":  {
+                                                     "open":  false,
+                                                     "lastOpenTs":  0
+                                                 },
+                                        "gas":  {
+                                                    "ok":  true,
+                                                    "raw":  0
+                                                },
+                                        "smoke":  {
+                                                      "ok":  true,
+                                                      "raw":  0
+                                                  },
+                                        "climate":  {
+                                                        "tempC":  0,
+                                                        "rh":  0
+                                                    }
+                                    },
+                        "csq":  null
+                    },
+                    {
+                        "id":  "dayu200-01",
+                        "deviceId":  "dayu200-01",
+                        "name":  "客厅节点",
+                        "roomId":  "客厅",
+                        "roomName":  "客厅",
+                        "location":  "",
+                        "online":  false,
+                        "monitorOnline":  -1,
+                        "state":  "WARN",
+                        "lastSeenTs":  1792163188688,
+                        "sensors":  {
+                                        "motion":  {
+                                                       "lastActiveTs":  1501837564864,
+                                                       "countToday":  0
+                                                   },
+                                        "door":  {
+                                                     "open":  false,
+                                                     "lastOpenTs":  0
+                                                 },
+                                        "gas":  {
+                                                    "ok":  true,
+                                                    "raw":  1023
+                                                },
+                                        "smoke":  {
+                                                      "ok":  true,
+                                                      "raw":  990
+                                                  },
+                                        "climate":  {
+                                                        "tempC":  0,
+                                                        "rh":  0
+                                                    }
+                                    },
+                        "csq":  null
+                    },
+                    {
+                        "id":  "esp32-sos",
+                        "deviceId":  "esp32-sos",
+                        "name":  "随身求助节点",
+                        "roomId":  "随身求助",
+                        "roomName":  "随身求助",
+                        "location":  "",
+                        "online":  true,
+                        "monitorOnline":  -1,
+                        "state":  "NORMAL",
+                        "lastSeenTs":  1793113277065,
+                        "sensors":  {
+
+                                    },
+                        "csq":  null
+                    },
+                    {
+                        "id":  "esp32-bath",
+                        "deviceId":  "esp32-bath",
+                        "name":  "卫生间节点",
+                        "roomId":  "卫生间",
+                        "roomName":  "卫生间",
+                        "location":  "",
+                        "online":  true,
+                        "monitorOnline":  -1,
+                        "state":  "NORMAL",
+                        "lastSeenTs":  1793113287283,
+                        "sensors":  {
+                                        "motion":  {
+                                                       "lastActiveTs":  1793113275109,
+                                                       "countToday":  35
+                                                   },
+                                        "door":  {
+                                                     "open":  true,
+                                                     "lastOpenTs":  0,
+                                                     "lastCloseTs":  0,
+                                                     "seq":  42
+                                                 },
+                                        "gas":  {
+                                                    "ok":  true,
+                                                    "raw":  0,
+                                                    "valid":  false
+                                                },
+                                        "smoke":  {
+                                                      "ok":  true,
+                                                      "raw":  0,
+                                                      "valid":  false
+                                                  },
+                                        "climate":  {
+                                                        "tempC":  26.7,
+                                                        "rh":  51.7,
+                                                        "valid":  true
+                                                    }
+                                    },
+                        "csq":  null
+                    }
+                ]
+}

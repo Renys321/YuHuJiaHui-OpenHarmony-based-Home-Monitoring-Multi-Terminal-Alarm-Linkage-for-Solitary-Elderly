@@ -1,0 +1,25 @@
+{
+  "base": "http://127.0.0.1:18081",
+  "phase": "restart",
+  "steps": [
+    {
+      "step": "anonymous_401",
+      "result": {
+        "status": 401
+      }
+    },
+    {
+      "step": "login",
+      "result": {
+        "status": 200
+      }
+    },
+    {
+      "step": "restart_persistence",
+      "result": {
+        "status": 200,
+        "age": 72
+      }
+    }
+  ]
+}

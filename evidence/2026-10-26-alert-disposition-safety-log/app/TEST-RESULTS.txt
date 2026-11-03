@@ -1,0 +1,129 @@
+APP 测试结果（task-3：告警独立处置结果 + 安全日志历史页）
+================================================================
+时间：2026-10-26 01:56–02:00 (+08:00)
+主机：Windows；Node.js v24.19.0；DevEco Studio TypeScript 4.9.5
+工作目录：<WORKSPACE>\APP\ElderlyCareGuardian
+合同：competition/evidence/2026-10-26-alert-disposition-safety-log/CONTRACT.md
+
+重要说明（沙箱限制，已与 Lead 确认）
+--------------------------------
+本会话（DSH workspace-write 沙箱）无法运行 hvigor/restool：Node child_process 以
+stdio:'pipe' 启动子进程被沙箱以 EPERM 拒绝（实测 spawnSync(stdio:'pipe')=EPERM，
+stdio:'inherit'=OK；`node --test` 也因 spawn 子进程而 EPERM）。
+因此本会话不产出 hvigor test / assembleHap 结果；由 Lead 会话在源码冻结后执行，
+结果写入 BUILD-RESULTS.txt。本会话用 in-process 方式真实执行 core 逻辑测试。
+
+命令 1：core 源码 TypeScript 编译（真实执行）
+--------------------------------------------
+node "D:\DevEcoStudio\DevEco Studio\tools\hvigor\hvigor\node_modules\typescript\bin\tsc" -p tests/tsconfig.json
+[tsc exit code: 0]
+
+命令 2：Node 测试（in-process，逐文件）
+--------------------------------------
+cd tests
+node <file>.test.mjs   # 每文件一个进程，不 spawn 子进程；同一批 node:test 断言
+说明：node --test 的等价单文件运行方式因沙箱 spawn EPERM 改为逐文件直接执行，
+      测试文件与断言未修改、未放宽、未删除。
+
+D 类验收口径（排除并行 E 会话的 activity-report.test.mjs）：
+  文件数 = 18
+  tests  = 241
+  pass   = 241
+  fail   = 0
+  非零退出文件 = 0
+
+口径说明（235 与 241 的差异）：
+  - 01:56 首次 D 全量运行 = 235/235；其中既有基线 213 + 本轮新增 disposition 22。
+  - 01:56 后并行 E 会话向共享文件 tests/api-client.test.mjs 追加 6 条 activityReport 用例
+    （17→23 条），最新一次 D 全量运行为 241/241。
+  - 两个数字都真实；D 类新增贡献恒为 22 条。Lead 的 BUILD-RESULTS.txt 采用首次 235/235，
+    本文件采用最新 241/241，均不含 E 的 activity-report.test.mjs。
+
+其中：
+  - 本轮（D 类）新增 tests/disposition.test.mjs = 22 tests，22 pass，0 fail
+  - 本轮（D 类）新增 Hypium entry/src/test/Disposition.test.ets = 18 tests（18 个 it）
+  - Hypium 全量 = localUnit 1 + validContract 20 + disposition 18 = 39，全部通过（见下节）
+  - 既有基线测试在本轮改动后全部通过（api-client.test.mjs 含并行 E 会话追加的
+    6 条 activityReport 用例，执行计入 241，但不作为 task-3 成果）
+  - 并行 E 会话的 activity-report.test.mjs 未纳入本任务验收；快照时其 42/42 通过，
+    但属另一条任务线，E 代码仍可能变化。
+
+disposition.test.mjs 覆盖点（22 条）
+-----------------------------------
+1. parseDispositions 完整字段（含 dispositionId/alarmId/deviceId/roomName/alarmType/
+   alarmCreatedAt/outcome/outcomeLabel/note/operator/operatorRole/serverTime）
+2. 缺字段不崩溃；serverTime 缺失/0/负数/字符串/NaN 一律 serverTimePresent=false
+3. 非法结构返回 null（空串/HTML/数组/dispositions 非数组/logs 键错位）；空数组=[]；
+   非对象元素跳过
+4. parseSafetyLogs 合法/空/非法结构
+5. parseDispositionResult：201 created=true、200 created=false+duplicate=true、
+   缺失 disposition→null
+6. note 归一化（trim、CRLF→单个空格、连续 \n 各自→空格）、200 字上限常量
+7. validDispositionAlarmId（ALARM_ID_RE 1–80）、validClientDispositionId
+   （8–64、无 ".."）、validDispositionOutcome（5 枚举）、normalizeSafetyLogLimit
+   （0/-3/201/NaN→50，1/200→原值）
+8. dispositionOutcomeLabel 五个合同枚举文案 + 未知枚举返回空串
+9. mapDisposition 缺字段回退（未知结果/处理人未知/房间未知）与时间无效态
+10. 服务端 outcomeLabel 优先；mapDispositions 保持服务端顺序
+11. ApiClient.createDisposition 201 成功且请求体只有
+    clientDispositionId/outcome/note 三字段（无 alarmId/operator/serverTime）
+12. 200 幂等重放 duplicate=true、httpStatus=200
+13. 202 → MALFORMED（绝不当作已保存/待确认）
+14. 201 缺 created、200 却 created=true → MALFORMED
+15. 400/404/409/500/503 全部失败且 kind 正确
+16. 网络失败 NETWORK、超时 TIMEOUT，错误 message 不含 token
+17. 非法输入在发请求前拒绝（坏 outcome、OTHER 空说明、>200 字、控制字符、
+    坏 alarmId、坏 clientDispositionId、空 token），200 字边界允许
+18. alarmId URL 编码进路径（不进入 query）
+19. dispositions GET 200/404/非法 body/500/空 token（空 token 不发请求）
+20. safetyLogs 默认 50、非法 limit 回退 50、合法 120 透传、非法 body、网络失败
+21. 三个 Outcome 默认值均为失败态（ok=false、items=[]、disposition=null）
+22. 页面接线静态守卫（ACK 面板保留、独立处置面板、服务端时间展示、
+    演示模式禁用、失败分支无“已保存”、安全日志只来自 loadSafetyLogs、
+    页面不硬编码 API 路径、无示例安全日志回退、生产域名不变）
+
+原始输出
+--------
+logs/node-tests.log（tsc 命令与 exit code、每个测试文件的 tests/pass/fail/exit、
+以及每条断言的真实输出）
+
+本会话 hvigor 尝试记录（未成功，仅作环境证据；最终构建由 Lead 会话执行）
+---------------------------------------------------------------------
+命令 A：& 'D:\DevEcoStudio\DevEco Studio\tools\hvigor\bin\hvigorw.bat' test --mode module -p product=default -p module=entry@default --no-daemon
+  exit code = 1；ERROR 00308003 ENOENT: ...\.hvigor\project_caches\<hash>\workspace\node_modules\@ohos\hvigor\bin\hvigor.js
+命令 B：node <同一 cache>/@ohos/hvigor/bin/hvigor.js test --mode module -p product=default -p module=entry@default --no-daemon
+  exit code = 1；进入构建后在 :entry:default@CompileResource 失败：Error Code 00308018 / spawn EPERM
+命令 C：node <同一 cache>/@ohos/hvigor/bin/hvigor.js assembleHap --mode module -p product=default -p buildMode=debug --no-daemon
+  exit code = 1；同上 :entry:default@CompileResource / spawn EPERM
+根因（本机实测）：DSH Windows 沙箱禁止 Node child_process.spawn(stdio:'pipe')：
+  node -e "require('child_process').spawnSync('cmd.exe',['/c','echo hi'],{stdio:'pipe'})"     → EPERM
+  node -e "require('child_process').spawnSync('cmd.exe',['/c','echo hi'],{stdio:'inherit'})" → exit 0
+hvigor/restool 内部以 pipe 捕获子进程输出，故本会话无法完成编译；`node --test` 同因 EPERM。
+Lead 会话已于 2026-10-26 01:53 执行 hvigor test（BUILD SUCCESSFUL，20 tasks，含
+Disposition.test.ets 编译）；源码在 01:54 有最终调整 + 并行 E 代码变化，
+最终 hvigor test / assembleHap 以 Lead 在其会话构建并写入 BUILD-RESULTS.txt 为准。
+
+Hypium 与 HAP 构建（Lead 会话执行，已在源码冻结后完成）
+------------------------------------------------------
+详见 app/BUILD-RESULTS.txt、app/logs/hvigor-test.log、app/logs/hvigor-assembleHap.log、
+app/runtime/UNIT-TEST-RESULT.txt、app/runtime/coverage.log。
+- hvigor test: exit code 0，BUILD SUCCESSFUL（20 tasks: 11 executed / 9 up-to-date）
+  OHOS_REPORT_RESULT: Tests run: 39, Failure: 0, Error: 0, Pass: 39, Ignore: 0
+  其中本轮 D 类 Hypium 18 条（dispositionDtoParsing 11 + dispositionApiClient 7），全部 Success。
+- hvigor assembleHap: exit code 0，BUILD SUCCESSFUL（33 tasks）
+  产物 entry/build/default/outputs/default/entry-default-unsigned.hap
+  大小 2,613,947 bytes；SHA-256 2CFB890880274AFD946E9C0E87427E2E60FA099DA7F6AD15A1F5899EDEAF91DF
+  （本会话已独立复算 HAP 与证据副本哈希，与 BUILD-RESULTS.txt 一致）
+  未签名（无 signingConfigs）、未安装、未发布。
+- 说明：该 HAP 同时包含并行 E 类（活动报告）代码；E 不在 task-3 验收范围，
+  由 Lead 在最终报告中单列。D 类界面已编译进 HAP，但未在真机运行态验收。
+
+未覆盖 / NOT TESTED
+-------------------
+- HarmonyOS 真机/模拟器 UI 渲染（处置面板、LogPage 双 tab、滚动布局）未在真机验证；
+- hvigor test 的 Hypium 运行结果、assembleHap 产物、HAP SHA-256 由 Lead 会话产出
+  （BUILD-RESULTS.txt）；
+- 真实后端 GET /api/v1/alerts/{id}/dispositions、POST dispositions、
+  GET /api/v1/safety-logs 的联网联调由 Lead/task-4 隔离集成验证；
+- 本文件中的 HTTP 响应全部来自 tests/fake-transport.mjs 的 SIMULATED 响应，
+  不代表任何真实服务器返回。

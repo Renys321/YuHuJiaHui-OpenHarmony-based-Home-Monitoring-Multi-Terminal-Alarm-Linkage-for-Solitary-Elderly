@@ -1,0 +1,86 @@
+﻿# DAYU homemon 客户端槽位纵向只读采样（2026-10-28 00:39:53 Asia/Shanghai）
+# 说明：板端 homemon 只有 4 个客户端槽位（southbound/src/homemon.c MAX_CLIENTS=4）；下列 PC .179 端口在 PC 侧已不存在，
+#       板端仍 ESTABLISHED 且 Send-Q 增长 => 死连接未回收，占住槽位。
+
+## t=00:39:56
+board_zombie_est_from_PC=3 board_loopback_est=2 board_SYN_RECV=4 PC_bridge_established=0 PC_bridge_synsent=3 mirror_relay_connected=False mirror_connects=24 disconnects=33 lastError=ETIMEDOUT linesSent=103
+  tcp        0 130949 10.127.130.131:9000     10.127.130.179:55852    ESTABLISHED 23450/homemon
+  tcp        0 109207 10.127.130.131:9000     10.127.130.179:55853    ESTABLISHED 23450/homemon
+  tcp        0 104540 10.127.130.131:9000     10.127.130.179:57067    ESTABLISHED 23450/homemon
+
+## t=00:40:03
+board_zombie_est_from_PC=3 board_loopback_est=2 board_SYN_RECV=5 PC_bridge_established=0 PC_bridge_synsent=1 mirror_relay_connected=False mirror_connects=24 disconnects=34 lastError=ETIMEDOUT linesSent=103
+  tcp        0 131937 10.127.130.131:9000     10.127.130.179:55852    ESTABLISHED 23450/homemon
+  tcp        0 110195 10.127.130.131:9000     10.127.130.179:55853    ESTABLISHED 23450/homemon
+  tcp        0 105528 10.127.130.131:9000     10.127.130.179:57067    ESTABLISHED 23450/homemon
+
+## t=00:40:09
+board_zombie_est_from_PC=3 board_loopback_est=2 board_SYN_RECV=4 PC_bridge_established=0 PC_bridge_synsent=1 mirror_relay_connected=False mirror_connects=24 disconnects=34 lastError=ETIMEDOUT linesSent=103
+  tcp        0 132925 10.127.130.131:9000     10.127.130.179:55852    ESTABLISHED 23450/homemon
+  tcp        0 111183 10.127.130.131:9000     10.127.130.179:55853    ESTABLISHED 23450/homemon
+  tcp        0 106516 10.127.130.131:9000     10.127.130.179:57067    ESTABLISHED 23450/homemon
+
+## t=00:40:14
+board_zombie_est_from_PC=3 board_loopback_est=2 board_SYN_RECV=4 PC_bridge_established=0 PC_bridge_synsent=2 mirror_relay_connected=False mirror_connects=24 disconnects=34 lastError=ETIMEDOUT linesSent=103
+  tcp        0 133913 10.127.130.131:9000     10.127.130.179:55852    ESTABLISHED 23450/homemon
+  tcp        0 112171 10.127.130.131:9000     10.127.130.179:55853    ESTABLISHED 23450/homemon
+  tcp        0 107504 10.127.130.131:9000     10.127.130.179:57067    ESTABLISHED 23450/homemon
+
+## t=00:40:21
+board_zombie_est_from_PC=3 board_loopback_est=2 board_SYN_RECV=4 PC_bridge_established=0 PC_bridge_synsent=2 mirror_relay_connected=False mirror_connects=24 disconnects=34 lastError=ETIMEDOUT linesSent=103
+  tcp        0 134901 10.127.130.131:9000     10.127.130.179:55852    ESTABLISHED 23450/homemon
+  tcp        0 113159 10.127.130.131:9000     10.127.130.179:55853    ESTABLISHED 23450/homemon
+  tcp        0 108492 10.127.130.131:9000     10.127.130.179:57067    ESTABLISHED 23450/homemon
+
+## t=00:40:27
+board_zombie_est_from_PC=3 board_loopback_est=2 board_SYN_RECV=5 PC_bridge_established=0 PC_bridge_synsent=2 mirror_relay_connected=False mirror_connects=25 disconnects=35 lastError=ECONNRESET linesSent=104
+  tcp        0 135889 10.127.130.131:9000     10.127.130.179:55852    ESTABLISHED 23450/homemon
+  tcp        0 114147 10.127.130.131:9000     10.127.130.179:55853    ESTABLISHED 23450/homemon
+  tcp        0 109480 10.127.130.131:9000     10.127.130.179:57067    ESTABLISHED 23450/homemon
+
+## t=00:40:33
+board_zombie_est_from_PC=3 board_loopback_est=2 board_SYN_RECV=4 PC_bridge_established=0 PC_bridge_synsent=3 mirror_relay_connected=False mirror_connects=25 disconnects=35 lastError=ECONNRESET linesSent=104
+  tcp        0 137371 10.127.130.131:9000     10.127.130.179:55852    ESTABLISHED 23450/homemon
+  tcp        0 115629 10.127.130.131:9000     10.127.130.179:55853    ESTABLISHED 23450/homemon
+  tcp        0 110962 10.127.130.131:9000     10.127.130.179:57067    ESTABLISHED 23450/homemon
+
+## t=00:40:40
+board_zombie_est_from_PC=3 board_loopback_est=2 board_SYN_RECV=4 PC_bridge_established=0 PC_bridge_synsent=4 mirror_relay_connected=False mirror_connects=25 disconnects=35 lastError=ECONNRESET linesSent=104
+  tcp        0 138359 10.127.130.131:9000     10.127.130.179:55852    ESTABLISHED 23450/homemon
+  tcp        0 116617 10.127.130.131:9000     10.127.130.179:55853    ESTABLISHED 23450/homemon
+  tcp        0 111950 10.127.130.131:9000     10.127.130.179:57067    ESTABLISHED 23450/homemon
+
+## t=00:40:46
+board_zombie_est_from_PC=3 board_loopback_est=2 board_SYN_RECV=4 PC_bridge_established=0 PC_bridge_synsent=4 mirror_relay_connected=False mirror_connects=25 disconnects=36 lastError=ETIMEDOUT linesSent=104
+  tcp        0 139347 10.127.130.131:9000     10.127.130.179:55852    ESTABLISHED 23450/homemon
+  tcp        0 117605 10.127.130.131:9000     10.127.130.179:55853    ESTABLISHED 23450/homemon
+  tcp        0 112938 10.127.130.131:9000     10.127.130.179:57067    ESTABLISHED 23450/homemon
+
+## t=00:40:52
+board_zombie_est_from_PC=3 board_loopback_est=2 board_SYN_RECV=2 PC_bridge_established=0 PC_bridge_synsent=3 mirror_relay_connected=False mirror_connects=25 disconnects=36 lastError=ETIMEDOUT linesSent=104
+  tcp        0 140335 10.127.130.131:9000     10.127.130.179:55852    ESTABLISHED 23450/homemon
+  tcp        0 118593 10.127.130.131:9000     10.127.130.179:55853    ESTABLISHED 23450/homemon
+  tcp        0 113926 10.127.130.131:9000     10.127.130.179:57067    ESTABLISHED 23450/homemon
+
+## bridge 日志统计（D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\lead\bridge-0131.out.log）
+  总行数=237 转发目标断开=0 已连接转发目标=0 relay通道已恢复=0 节点重连提示（毫秒后重连）=0
+  末 8 行：
+[2026-10-27T16:40:19.578Z] [bridge] 鈫?home/esp32-kitchen/status  state=NORMAL room=鍘ㄦ埧 countToday=1
+[2026-10-27T16:40:20.204Z] [bridge] 杞彂鐩爣鏂紑锛堣繛缁け璐?1 娆★級锛?000 姣鍚庨噸杩?[2026-10-27T16:40:25.176Z] [bridge] 鈫?home/esp32-kitchen/status  state=NORMAL room=鍘ㄦ埧 countToday=1
+[2026-10-27T16:40:30.600Z] [bridge] 鈫?home/esp32-kitchen/status  state=NORMAL room=鍘ㄦ埧 countToday=1
+[2026-10-27T16:40:36.072Z] [bridge] 鈫?home/esp32-kitchen/status  state=NORMAL room=鍘ㄦ埧 countToday=1
+[2026-10-27T16:40:41.585Z] [bridge] 鈫?home/esp32-kitchen/status  state=NORMAL room=鍘ㄦ埧 countToday=1
+[2026-10-27T16:40:44.248Z] [bridge] 杞彂鐩爣鏂紑锛堣繛缁け璐?2 娆★級锛?000 姣鍚庨噸杩?[2026-10-27T16:40:46.978Z] [bridge] 鈫?home/esp32-kitchen/status  state=NORMAL room=鍘ㄦ埧 countToday=1
+[2026-10-27T16:40:50.275Z] [bridge] 鑺傜偣 10.127.130.131:9000 30000 姣鍚庨噸杩烇紙杩炵画澶辫触 16 娆★級
+[2026-10-27T16:40:52.492Z] [bridge] 鈫?home/esp32-kitchen/status  state=NORMAL room=鍘ㄦ埧 countToday=1
+
+## mirror 日志统计（runtime\mirror.log）
+  总行数=339 relay connected=30 relay disconnected=98 最近 8 行：
+[2026-10-28 00:39:31.359] [relay] disconnected 10.127.130.131:9000, reconnect in backoff
+[2026-10-28 00:39:37.613] [mirror] emit(change) state=ACKED online=false alarm=sos-12-1a1003dc gps=none eventTs=1793118945905 ackTs=1793119112754
+[2026-10-28 00:39:39.430] [mirror] emit(change) state=ACKED online=false alarm=sos-12-1a1003dc gps=none eventTs=1793118945905 ackTs=1793119112754
+[2026-10-28 00:39:54.432] [relay] disconnected 10.127.130.131:9000, reconnect in backoff
+[2026-10-28 00:40:18.646] [relay] connected 10.127.130.131:9000
+[2026-10-28 00:40:19.438] [relay] disconnected 10.127.130.131:9000, reconnect in backoff
+[2026-10-28 00:40:41.507] [relay] disconnected 10.127.130.131:9000, reconnect in backoff
+[2026-10-28 00:40:55.535] [mirror] emit(change) state=ACKED online=false alarm=sos-12-1a1003dc gps=none eventTs=1793118945905 ackTs=1793119112754

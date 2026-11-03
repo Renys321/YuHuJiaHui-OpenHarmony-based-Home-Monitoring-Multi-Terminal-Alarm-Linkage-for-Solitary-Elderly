@@ -1,0 +1,19 @@
+[broker] 监听 0.0.0.0:18831（自包含 MQTT broker，Ctrl+C 退出）
+[broker] + 连接来自 ::ffff:127.0.0.1:50248（当前 1 个）
+[broker] CONNACK → bridge-dayu200-living-65535
+[broker] SUBSCRIBE bridge-dayu200-living-65535 → home/+/cmd
+[broker] PUBLISH home/esp32-sos/status (391B) → 转发给 0 个订阅者
+[broker] PUBLISH home/esp32-kitchen/status (395B) → 转发给 0 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:52007（当前 2 个）
+[broker] CONNACK → smoke-1793031566896
+[broker] PUBLISH home/esp32-kitchen/cmd (52B) → 转发给 1 个订阅者
+[broker] - 断开 smoke-1793031566896（当前 1 个）
+[broker] + 连接来自 ::ffff:127.0.0.1:63153（当前 2 个）
+[broker] CONNACK → smoke-1793031567517
+[broker] PUBLISH home/esp32-kitchen/cmd (15B) → 转发给 1 个订阅者
+[broker] - 断开 smoke-1793031567517（当前 1 个）
+[broker] + 连接来自 ::ffff:127.0.0.1:63744（当前 2 个）
+[broker] CONNACK → smoke-1793031568048
+[broker] PUBLISH home/esp32-kitchen/cmd (55B) → 转发给 1 个订阅者
+[broker] - 断开 smoke-1793031568048（当前 1 个）
+[broker] PUBLISH home/esp32-sos/status (405B) → 转发给 0 个订阅者

@@ -1,0 +1,1777 @@
+{
+  "at": "2026-10-27T17:05:25.616Z",
+  "epochMs": 1793120725616,
+  "devices": {
+    "devices": [
+      {
+        "id": "esp32-kitchen",
+        "deviceId": "esp32-kitchen",
+        "name": "厨房节点",
+        "roomId": "厨房",
+        "roomName": "厨房",
+        "location": "",
+        "online": true,
+        "monitorOnline": -1,
+        "state": "NORMAL",
+        "lastSeenTs": 1793120721189,
+        "sensors": {
+          "motion": {
+            "lastActiveTs": 1793120474013,
+            "countToday": 1
+          },
+          "door": {
+            "open": true,
+            "lastOpenTs": 0,
+            "lastCloseTs": 0,
+            "seq": 29
+          },
+          "gas": {
+            "ok": true,
+            "raw": 4095,
+            "valid": true
+          },
+          "smoke": {
+            "ok": true,
+            "raw": 174,
+            "valid": true
+          },
+          "climate": {
+            "tempC": 25,
+            "rh": 56.6,
+            "valid": true
+          }
+        },
+        "csq": null
+      },
+      {
+        "id": "esp32-sos-isolated-test",
+        "deviceId": "esp32-sos-isolated-test",
+        "name": "隔离测试节点",
+        "roomId": "隔离测试",
+        "roomName": "隔离测试",
+        "location": "",
+        "online": false,
+        "monitorOnline": -1,
+        "state": "NORMAL",
+        "lastSeenTs": 1793015096411,
+        "sensors": {
+          "motion": {
+            "lastActiveTs": 0,
+            "countToday": 0
+          },
+          "door": {
+            "open": false,
+            "lastOpenTs": 0
+          },
+          "gas": {
+            "ok": true,
+            "raw": 0
+          },
+          "smoke": {
+            "ok": true,
+            "raw": 0
+          },
+          "climate": {
+            "tempC": 0,
+            "rh": 0
+          }
+        },
+        "csq": null
+      },
+      {
+        "id": "esp32-sos-isolated-test2",
+        "deviceId": "esp32-sos-isolated-test2",
+        "name": "隔离测试节点",
+        "roomId": "隔离测试",
+        "roomName": "隔离测试",
+        "location": "",
+        "online": false,
+        "monitorOnline": -1,
+        "state": "ALARM",
+        "lastSeenTs": 1793015553487,
+        "sensors": {
+          "motion": {
+            "lastActiveTs": 0,
+            "countToday": 0
+          },
+          "door": {
+            "open": false,
+            "lastOpenTs": 0
+          },
+          "gas": {
+            "ok": true,
+            "raw": 0
+          },
+          "smoke": {
+            "ok": true,
+            "raw": 0
+          },
+          "climate": {
+            "tempC": 0,
+            "rh": 0
+          }
+        },
+        "csq": null
+      },
+      {
+        "id": "yed-home-gateway",
+        "deviceId": "yed-home-gateway",
+        "name": "家庭网关节点",
+        "roomId": "家庭网关",
+        "roomName": "家庭网关",
+        "location": "",
+        "online": false,
+        "monitorOnline": -1,
+        "state": "NORMAL",
+        "lastSeenTs": 1792137411645,
+        "sensors": {},
+        "csq": 29
+      },
+      {
+        "id": "dayu200-living",
+        "deviceId": "dayu200-living",
+        "name": "客厅节点",
+        "roomId": "客厅",
+        "roomName": "客厅",
+        "location": "",
+        "online": true,
+        "monitorOnline": -1,
+        "state": "NORMAL",
+        "lastSeenTs": 1793120725399,
+        "sensors": {
+          "motion": {
+            "lastActiveTs": 0,
+            "countToday": 0
+          },
+          "door": {
+            "open": false,
+            "lastOpenTs": 0
+          },
+          "gas": {
+            "ok": true,
+            "raw": 0
+          },
+          "smoke": {
+            "ok": true,
+            "raw": 0
+          },
+          "climate": {
+            "tempC": 0,
+            "rh": 0,
+            "valid": false
+          }
+        },
+        "csq": null
+      },
+      {
+        "id": "dayu200-01",
+        "deviceId": "dayu200-01",
+        "name": "客厅节点",
+        "roomId": "客厅",
+        "roomName": "客厅",
+        "location": "",
+        "online": false,
+        "monitorOnline": -1,
+        "state": "WARN",
+        "lastSeenTs": 1792163188688,
+        "sensors": {
+          "motion": {
+            "lastActiveTs": 1501837564864,
+            "countToday": 0
+          },
+          "door": {
+            "open": false,
+            "lastOpenTs": 0
+          },
+          "gas": {
+            "ok": true,
+            "raw": 1023
+          },
+          "smoke": {
+            "ok": true,
+            "raw": 990
+          },
+          "climate": {
+            "tempC": 0,
+            "rh": 0
+          }
+        },
+        "csq": null
+      },
+      {
+        "id": "esp32-sos",
+        "deviceId": "esp32-sos",
+        "name": "随身求助节点",
+        "roomId": "随身求助",
+        "roomName": "随身求助",
+        "location": "",
+        "online": true,
+        "monitorOnline": -1,
+        "state": "NORMAL",
+        "lastSeenTs": 1793120702624,
+        "sensors": {},
+        "csq": null
+      },
+      {
+        "id": "esp32-bath",
+        "deviceId": "esp32-bath",
+        "name": "卫生间节点",
+        "roomId": "卫生间",
+        "roomName": "卫生间",
+        "location": "",
+        "online": true,
+        "monitorOnline": -1,
+        "state": "NORMAL",
+        "lastSeenTs": 1793120726289,
+        "sensors": {
+          "motion": {
+            "lastActiveTs": 1793120705211,
+            "countToday": 18
+          },
+          "door": {
+            "open": true,
+            "lastOpenTs": 0,
+            "lastCloseTs": 0,
+            "seq": 42
+          },
+          "gas": {
+            "ok": true,
+            "raw": 0,
+            "valid": false
+          },
+          "smoke": {
+            "ok": true,
+            "raw": 0,
+            "valid": false
+          },
+          "climate": {
+            "tempC": 26.3,
+            "rh": 53.9,
+            "valid": true
+          }
+        },
+        "csq": null
+      }
+    ]
+  },
+  "alerts": {
+    "alerts": [
+      {
+        "id": "sos-12-1a1003dc",
+        "alarmId": "sos-12-1a1003dc",
+        "deviceId": "esp32-sos",
+        "roomName": "随身求助",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793118945905,
+        "acknowledgedAt": 1793119112754,
+        "acknowledgedBy": "household-guardian",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "sos-11-686d1dee",
+        "alarmId": "sos-11-686d1dee",
+        "deviceId": "esp32-sos",
+        "roomName": "随身求助",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793116331119,
+        "acknowledgedAt": 1793116362948,
+        "acknowledgedBy": "household-guardian",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793116172-2",
+        "alarmId": "e-1793116172-2",
+        "deviceId": "esp32-kitchen",
+        "roomName": "厨房",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1793116174322,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "sos-10-4a2b38da",
+        "alarmId": "sos-10-4a2b38da",
+        "deviceId": "esp32-sos",
+        "roomName": "随身求助",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793116020138,
+        "acknowledgedAt": 1793116162218,
+        "acknowledgedBy": "household-guardian",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "sos-9-729e65b9",
+        "alarmId": "sos-9-729e65b9",
+        "deviceId": "esp32-sos",
+        "roomName": "随身求助",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793115909368,
+        "acknowledgedAt": 1793115943453,
+        "acknowledgedBy": "household-guardian",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793114787-1",
+        "alarmId": "e-1793114787-1",
+        "deviceId": "esp32-kitchen",
+        "roomName": "厨房",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793114787711,
+        "acknowledgedAt": 1793116168823,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "sos-8-fc452df6",
+        "alarmId": "sos-8-fc452df6",
+        "deviceId": "esp32-sos",
+        "roomName": "随身求助",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793113747338,
+        "acknowledgedAt": 1793113941303,
+        "acknowledgedBy": "household-guardian",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "sos-7-b941b638",
+        "alarmId": "sos-7-b941b638",
+        "deviceId": "esp32-sos",
+        "roomName": "随身求助",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793112752478,
+        "acknowledgedAt": 1793112779268,
+        "acknowledgedBy": "household-guardian",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "a-1793111963-2",
+        "alarmId": "a-1793111963-2",
+        "deviceId": "dayu200-living",
+        "roomName": "客厅",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1793111969643,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793111841-1",
+        "alarmId": "e-1793111841-1",
+        "deviceId": "esp32-kitchen",
+        "roomName": "厨房",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793111841160,
+        "acknowledgedAt": 1793112399909,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793111706-2",
+        "alarmId": "e-1793111706-2",
+        "deviceId": "esp32-kitchen",
+        "roomName": "厨房",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1793111710787,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793109878-1",
+        "alarmId": "e-1793109878-1",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1793111409122,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "sos-6-49732005",
+        "alarmId": "sos-6-49732005",
+        "deviceId": "esp32-sos",
+        "roomName": "随身求助",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793110004756,
+        "acknowledgedAt": 1793110029191,
+        "acknowledgedBy": "household-guardian",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "sos-5-a865a846",
+        "alarmId": "sos-5-a865a846",
+        "deviceId": "esp32-sos",
+        "roomName": "随身求助",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793096063939,
+        "acknowledgedAt": 1793096874004,
+        "acknowledgedBy": "household-guardian",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "sos-4-6c6aed3f",
+        "alarmId": "sos-4-6c6aed3f",
+        "deviceId": "esp32-sos",
+        "roomName": "随身求助",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793095639447,
+        "acknowledgedAt": 1793095665707,
+        "acknowledgedBy": "household-guardian",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "sos-3-0555328b",
+        "alarmId": "sos-3-0555328b",
+        "deviceId": "esp32-sos",
+        "roomName": "随身求助",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793095543954,
+        "acknowledgedAt": 1793095590294,
+        "acknowledgedBy": "household-guardian",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "sos-2-124737aa",
+        "alarmId": "sos-2-124737aa",
+        "deviceId": "esp32-sos",
+        "roomName": "随身求助",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793095403874,
+        "acknowledgedAt": 1793095442595,
+        "acknowledgedBy": "household-guardian",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793083293-1",
+        "alarmId": "e-1793083293-1",
+        "deviceId": "esp32-kitchen",
+        "roomName": "厨房",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1793083297860,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793076473-3",
+        "alarmId": "e-1793076473-3",
+        "deviceId": "esp32-kitchen",
+        "roomName": "厨房",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1793076478377,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793076169-1",
+        "alarmId": "e-1793076169-1",
+        "deviceId": "esp32-sos",
+        "roomName": "随身求助",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1793076171966,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793075858-2",
+        "alarmId": "e-1793075858-2",
+        "deviceId": "esp32-kitchen",
+        "roomName": "厨房",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793075859020,
+        "acknowledgedAt": 1793076473271,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793075383-1",
+        "alarmId": "e-1793075383-1",
+        "deviceId": "esp32-kitchen",
+        "roomName": "厨房",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1793075385379,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "a-1793075253-1",
+        "alarmId": "a-1793075253-1",
+        "deviceId": "dayu200-living",
+        "roomName": "客厅",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793075253993,
+        "acknowledgedAt": 1793111967322,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793035292-1",
+        "alarmId": "e-1793035292-1",
+        "deviceId": "esp32-sos",
+        "roomName": "随身求助",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793035292653,
+        "acknowledgedAt": 1793038991306,
+        "acknowledgedBy": "household-guardian",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793034982-1",
+        "alarmId": "e-1793034982-1",
+        "deviceId": "esp32-kitchen",
+        "roomName": "厨房",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793034982770,
+        "acknowledgedAt": 1793035921385,
+        "acknowledgedBy": "household-guardian",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793034481-2",
+        "alarmId": "e-1793034481-2",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793034481964,
+        "acknowledgedAt": 1793037610429,
+        "acknowledgedBy": "household-guardian",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793034445-1",
+        "alarmId": "e-1793034445-1",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793034447843,
+        "acknowledgedAt": 1793034480232,
+        "acknowledgedBy": "household-guardian",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-uf849b8b9-1",
+        "alarmId": "e-uf849b8b9-1",
+        "deviceId": "esp32-kitchen",
+        "roomName": "厨房",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793033273211,
+        "acknowledgedAt": 1793034847985,
+        "acknowledgedBy": "household-guardian",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793032428-2",
+        "alarmId": "e-1793032428-2",
+        "deviceId": "esp32-kitchen",
+        "roomName": "厨房",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1793032428835,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793032029-1",
+        "alarmId": "e-1793032029-1",
+        "deviceId": "esp32-kitchen",
+        "roomName": "厨房",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793032029411,
+        "acknowledgedAt": 1793032424914,
+        "acknowledgedBy": "household-guardian",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793026775-2",
+        "alarmId": "e-1793026775-2",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793026775160,
+        "acknowledgedAt": 1793028681649,
+        "acknowledgedBy": "household-guardian",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793026613-1",
+        "alarmId": "e-1793026613-1",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793026613635,
+        "acknowledgedAt": 1793026774538,
+        "acknowledgedBy": "household-guardian",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793024137-1",
+        "alarmId": "e-1793024137-1",
+        "deviceId": "esp32-kitchen",
+        "roomName": "厨房",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793024136982,
+        "acknowledgedAt": 1793024614542,
+        "acknowledgedBy": "household-guardian",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793022476-1",
+        "alarmId": "e-1793022476-1",
+        "deviceId": "esp32-sos",
+        "roomName": "随身求助",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1793022576411,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793022316-1",
+        "alarmId": "e-1793022316-1",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1793022576232,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793022345-1",
+        "alarmId": "e-1793022345-1",
+        "deviceId": "esp32-kitchen",
+        "roomName": "厨房",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1793022574186,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-ue0f6b3b8-1",
+        "alarmId": "e-ue0f6b3b8-1",
+        "deviceId": "esp32-kitchen",
+        "roomName": "厨房",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1793015928109,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793015853-2",
+        "alarmId": "e-1793015853-2",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1793015853810,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "iso2-1793015541043",
+        "alarmId": "iso2-1793015541043",
+        "deviceId": "esp32-sos-isolated-test2",
+        "roomName": "隔离测试",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1793015541044,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793015347-1",
+        "alarmId": "e-1793015347-1",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793015346985,
+        "acknowledgedAt": 1793015851108,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793015331-3",
+        "alarmId": "e-1793015331-3",
+        "deviceId": "esp32-kitchen",
+        "roomName": "厨房",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1793015331793,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793013072-2",
+        "alarmId": "e-1793013072-2",
+        "deviceId": "esp32-kitchen",
+        "roomName": "厨房",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793013072947,
+        "acknowledgedAt": 1793015330396,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793013032-1",
+        "alarmId": "e-1793013032-1",
+        "deviceId": "esp32-kitchen",
+        "roomName": "厨房",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793013032562,
+        "acknowledgedAt": 1793013071294,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793011846-4",
+        "alarmId": "e-1793011846-4",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1793011862521,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793011761-3",
+        "alarmId": "e-1793011761-3",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793011797652,
+        "acknowledgedAt": 1793011862338,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793011433-2",
+        "alarmId": "e-1793011433-2",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1793011433952,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793011422-1",
+        "alarmId": "e-1793011422-1",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793011422766,
+        "acknowledgedAt": 1793011433696,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793002333-3",
+        "alarmId": "e-1793002333-3",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793002334415,
+        "acknowledgedAt": 1793002692351,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793002319-2",
+        "alarmId": "e-1793002319-2",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793002319715,
+        "acknowledgedAt": 1793002330315,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1793002128-1",
+        "alarmId": "e-1793002128-1",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1793002128911,
+        "acknowledgedAt": 1793002319315,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "a-1793001695-1",
+        "alarmId": "a-1793001695-1",
+        "deviceId": "dayu200-living",
+        "roomName": "客厅",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1793001716593,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "a-1792947692-1",
+        "alarmId": "a-1792947692-1",
+        "deviceId": "dayu200-living",
+        "roomName": "客厅",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1792947695360,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "a-1792945642-1",
+        "alarmId": "a-1792945642-1",
+        "deviceId": "dayu200-living",
+        "roomName": "客厅",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1792945643515,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "a-1792941858-1",
+        "alarmId": "a-1792941858-1",
+        "deviceId": "dayu200-living",
+        "roomName": "客厅",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1792941859389,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1792939457-3",
+        "alarmId": "e-1792939457-3",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1792939457442,
+        "acknowledgedAt": 1792939743074,
+        "acknowledgedBy": "household-guardian",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1792939123-2",
+        "alarmId": "e-1792939123-2",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1792939123021,
+        "acknowledgedAt": 1792939456156,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1792938806-1",
+        "alarmId": "e-1792938806-1",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1792938806001,
+        "acknowledgedAt": 1792939121101,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "a-1501844532-1",
+        "alarmId": "a-1501844532-1",
+        "deviceId": "dayu200-living",
+        "roomName": "客厅",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1792938462746,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1792865448-1",
+        "alarmId": "e-1792865448-1",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1792865452888,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "a-1792854147-1",
+        "alarmId": "a-1792854147-1",
+        "deviceId": "dayu200-living",
+        "roomName": "客厅",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1792854148809,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "a-1792775029-1",
+        "alarmId": "a-1792775029-1",
+        "deviceId": "dayu200-living",
+        "roomName": "客厅",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1792775456774,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1792773551-1",
+        "alarmId": "e-1792773551-1",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1792773551210,
+        "acknowledgedAt": 1792776871045,
+        "acknowledgedBy": "household-guardian",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "a-1792684843-1",
+        "alarmId": "a-1792684843-1",
+        "deviceId": "dayu200-living",
+        "roomName": "客厅",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1792684848904,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1792684577-1",
+        "alarmId": "e-1792684577-1",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1792684577157,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "a-1792659716-1",
+        "alarmId": "a-1792659716-1",
+        "deviceId": "dayu200-living",
+        "roomName": "客厅",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1792659719610,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1792658780-1",
+        "alarmId": "e-1792658780-1",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1792658780035,
+        "acknowledgedAt": 1792659752915,
+        "acknowledgedBy": "household-guardian",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1792652318-4",
+        "alarmId": "e-1792652318-4",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1792652318683,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "a-1792652242-1",
+        "alarmId": "a-1792652242-1",
+        "deviceId": "dayu200-living",
+        "roomName": "客厅",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1792652243965,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1792651791-3",
+        "alarmId": "e-1792651791-3",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1792651790780,
+        "acknowledgedAt": 1792652313643,
+        "acknowledgedBy": "household-guardian",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1792651351-2",
+        "alarmId": "e-1792651351-2",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1792651351512,
+        "acknowledgedAt": 1792651790243,
+        "acknowledgedBy": "household-guardian",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1792650796-1",
+        "alarmId": "e-1792650796-1",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1792650796107,
+        "acknowledgedAt": 1792651347382,
+        "acknowledgedBy": "household-guardian",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "a-1792605792-1",
+        "alarmId": "a-1792605792-1",
+        "deviceId": "dayu200-living",
+        "roomName": "客厅",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1792605793131,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1792605071-1",
+        "alarmId": "e-1792605071-1",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1792605070913,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1792604832-1",
+        "alarmId": "e-1792604832-1",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1792604832103,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-15-1",
+        "alarmId": "e-15-1",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1792510308088,
+        "acknowledgedAt": 1792510415389,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1792510263-1",
+        "alarmId": "e-1792510263-1",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1792510265484,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1792510065-1",
+        "alarmId": "e-1792510065-1",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1792510065172,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1792509900-1",
+        "alarmId": "e-1792509900-1",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1792509903553,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-10-1",
+        "alarmId": "e-10-1",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1792509708381,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-11-1",
+        "alarmId": "e-11-1",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1792509668060,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-6-1",
+        "alarmId": "e-6-1",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "MANUAL_SOS",
+        "message": "检测到异常",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1792509504206,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "a-1792509351-1",
+        "alarmId": "a-1792509351-1",
+        "deviceId": "dayu200-living",
+        "roomName": "客厅",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1792509353404,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "a-1792166801-3",
+        "alarmId": "a-1792166801-3",
+        "deviceId": "dayu200-living",
+        "roomName": "客厅",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1792166804602,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "a-1792166696-2",
+        "alarmId": "a-1792166696-2",
+        "deviceId": "dayu200-living",
+        "roomName": "客厅",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1792166699488,
+        "acknowledgedAt": 1792166801598,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "a-1792165887-1",
+        "alarmId": "a-1792165887-1",
+        "deviceId": "dayu200-living",
+        "roomName": "客厅",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1792165888488,
+        "acknowledgedAt": 1792166696485,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "a-1501837620-1",
+        "alarmId": "a-1501837620-1",
+        "deviceId": "dayu200-living",
+        "roomName": "客厅",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1792163208091,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1792162960-1",
+        "alarmId": "e-1792162960-1",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1792163089406,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "a-1792066079-1",
+        "alarmId": "a-1792066079-1",
+        "deviceId": "dayu200-living",
+        "roomName": "客厅",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1792066081711,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-1792061235-2",
+        "alarmId": "e-1792061235-2",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1792065772691,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "e-36-1",
+        "alarmId": "e-36-1",
+        "deviceId": "esp32-bath",
+        "roomName": "卫生间",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1792060178172,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "a-1501844089-2",
+        "alarmId": "a-1501844089-2",
+        "deviceId": "dayu200-living",
+        "roomName": "客厅",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ALARM",
+        "ackPending": false,
+        "createdAt": 1792060139151,
+        "acknowledgedAt": 0,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      },
+      {
+        "id": "a-1501839535-1",
+        "alarmId": "a-1501839535-1",
+        "deviceId": "dayu200-living",
+        "roomName": "客厅",
+        "type": "NO_MOTION",
+        "message": "长时间未检测到活动",
+        "state": "ACKED",
+        "ackPending": false,
+        "createdAt": 1792055583806,
+        "acknowledgedAt": 1792060136114,
+        "acknowledgedBy": "",
+        "evidence": {
+          "available": false
+        }
+      }
+    ]
+  },
+  "location": {
+    "locations": [
+      {
+        "deviceId": "yed-home-gateway",
+        "location": "32.967175, 112.553223",
+        "latitude": 32.96717453,
+        "longitude": 112.553222656,
+        "fixTime": 1792137396000
+      }
+    ]
+  },
+  "overview": {
+    "generatedAt": 1793120726552,
+    "deviceCount": 8,
+    "onlineCount": 4,
+    "monitorOfflineCount": 0,
+    "activeAlertCount": 48,
+    "latestAlert": {
+      "id": "sos-12-1a1003dc",
+      "alarmId": "sos-12-1a1003dc",
+      "deviceId": "esp32-sos",
+      "roomName": "随身求助",
+      "type": "MANUAL_SOS",
+      "message": "检测到异常",
+      "state": "ACKED",
+      "ackPending": false,
+      "createdAt": 1793118945905,
+      "acknowledgedAt": 1793119112754,
+      "acknowledgedBy": "household-guardian",
+      "evidenceId": ""
+    },
+    "location": {
+      "valid": true,
+      "latitude": 32.96717453,
+      "longitude": 112.553222656,
+      "fixTime": 1792137396000
+    }
+  },
+  "statuses": {
+    "devices": 200,
+    "alerts": 200,
+    "location": 200,
+    "overview": 200
+  }
+}

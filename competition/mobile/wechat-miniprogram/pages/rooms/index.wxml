@@ -1,0 +1,18 @@
+<view class="page">
+  <view class="page-title">房间</view>
+  <view class="page-subtitle">按位置查看监测覆盖和设备在线情况</view>
+  <view class="connection-banner {{banner.bannerClass}}">
+    <view><view class="connection-title">{{banner.title}}</view><view class="connection-detail">{{banner.detail}}</view></view>
+    <view wx:if="{{mode === 'demo'}}" class="demo-badge">演示数据</view>
+  </view>
+  <view wx:if="{{loading}}" class="state-view"><view class="state-title">正在加载</view></view>
+  <view wx:elif="{{rooms.length === 0}}" class="state-view"><view class="state-title">暂无房间数据</view><view class="state-message">配置云端后端或在总览中开启本地演示数据。</view></view>
+  <view wx:else>
+    <view wx:for="{{rooms}}" wx:key="id" class="panel room-card">
+      <view class="room-header"><view class="room-name">{{item.name}}</view><view class="{{item.stateClass}}">{{item.stateText}}</view></view>
+      <view class="muted room-location">{{item.location || '位置未设置'}}</view>
+      <view class="row"><text>设备</text><text>{{item.deviceCount}} 台</text></view>
+      <view class="row"><text>在线</text><text>{{item.onlineDeviceCount}} 台</text></view>
+    </view>
+  </view>
+</view>

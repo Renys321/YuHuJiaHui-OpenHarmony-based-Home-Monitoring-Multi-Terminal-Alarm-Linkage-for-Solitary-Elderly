@@ -1,0 +1,11 @@
+============================================================
+ DAYU demo autostart: P0 + formal camera + DAYU local inference
+ Keep this window open. P0 may open a second visible window for INGEST_KEY.
+ Keys: [S] stop auto care  [R] resume  [Q] quit watcher (leave services)
+============================================================
+[WAIT] starting DAYU local P1-B 320 inference (conf=0.7, rotate=0).
+[2026-10-26 00:29:01] P0=healthy target=OK app=active detect=running frames=LIVE nodes=3/3 stop=False paused=False
+[2026-10-26 00:29:06] P0=healthy target=OK app=active detect=running frames=LIVE nodes=3/3 stop=False paused=False
+[2026-10-26 00:29:11] P0=healthy target=OK app=active detect=running frames=LIVE nodes=3/3 stop=False paused=False
+[2026-10-26 00:29:21] P0=healthy target=OK app=active detect=running frames=LIVE nodes=3/3 stop=False paused=False
+[2026-10-26 00:29:26] P0=healthy target=OK app=active detect=running frames=LIVE nodes=3/3 stop=False paused=False

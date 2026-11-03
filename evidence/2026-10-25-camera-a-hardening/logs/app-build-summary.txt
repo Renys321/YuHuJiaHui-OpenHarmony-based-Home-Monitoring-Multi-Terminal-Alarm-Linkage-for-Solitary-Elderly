@@ -1,0 +1,6 @@
+hvigorw assembleHap --mode module -p product=default -p buildMode=debug --no-daemon
+:entry:default@CompileArkTS: SUCCESS
+:entry:default@PackageHap: SUCCESS
+BUILD SUCCESSFUL
+33 tasks: 27 executed, 6 up-to-date
+Signing: skipped because no signingConfigs profile is configured; artifact is unsigned debug HAP.

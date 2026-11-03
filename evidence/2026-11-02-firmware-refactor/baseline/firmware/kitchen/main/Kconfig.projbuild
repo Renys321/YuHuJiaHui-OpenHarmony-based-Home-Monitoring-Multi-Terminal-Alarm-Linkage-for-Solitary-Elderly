@@ -1,0 +1,504 @@
+menu "居家安全监护 · ESP32-S3 无线节点"
+
+    config NODE_VOICE_ENABLED
+        bool "ES8388 local voice candidate (DNESP32S3, requires free I2S pins)"
+        default n
+        help
+            Playback only. Uses GPIO3/9/10/46 and I2C0 GPIO41/42.
+            Frozen kitchen MQ5 wiring uses GPIO9. Kitchen voice revision moves
+            its protected ADC signal to GPIO7 (ADC1_CH6); rewire before deployment.
+            Also isolates local sensing from WiFi/gateway reconnects.
+
+    config NODE_VOICE_VOLUME
+        int "Speaker analog volume (0..33; ES8388 LOUT2/ROUT2)"
+        depends on NODE_VOICE_ENABLED
+        range 0 33
+        default 15
+        help
+            寄存器值，不是百分比。DNESP32S3 喇叭通路（LOUT2/ROUT2 寄存器 0x30/0x31）：
+            0x1E=30 为 0 dB，0x21=33 为 +4.5 dB 上限。超过 0 dB 可能削顶/失真。
+            厨房原为 20（约 -15 dB），2026-10-26 用户要求与卫生间一致后改为 30。
+            卫生间一直为 30（0 dB）。
+
+    config NODE_VOICE_BOOT_TEST
+        bool "Speak diagnostic test once at boot (no alarm generated)"
+        depends on NODE_VOICE_ENABLED
+        default n
+
+    config NODE_VOICE_AMP_SETTLE_MS
+        int "功放使能后到开始送 I2S 数据的等待时间(ms)"
+        depends on NODE_VOICE_ENABLED
+        default 60
+        range 0 500
+        help
+            XL9555 P0_2 打开功放后不能立即送音频：等待期间让功放上电稳定，
+            避免把语音开头截掉/发出爆音。语音素材本身另带 200 ms 前导静音。
+
+    config NODE_ALARM_CHIRP_ON_MS
+        int "告警短提示音：单声鸣响(ms)"
+        default 200
+        range 50 1000
+        help
+            告警时先响 N 声短提示音，蜂鸣停止后才播完整中文语音（两者不重叠）。
+            旧行为是蜂鸣器连续响 10 秒并与语音重叠，实测把语音完全遮盖。
+
+    config NODE_ALARM_CHIRP_GAP_MS
+        int "告警短提示音：声间间隔(ms)"
+        default 100
+        range 50 1000
+
+    config NODE_ALARM_CHIRP_COUNT
+        int "普通告警短提示音声数"
+        default 2
+        range 1 8
+
+    config NODE_ALARM_CHIRP_COUNT_SOS
+        int "SOS 短提示音声数（与 LED 三短闪对应）"
+        default 3
+        range 1 8
+
+    config NODE_ALARM_VOICE_GAP_MS
+        int "最后一声提示音结束到开始播报语音的间隔(ms)"
+        default 150
+        range 0 1000
+
+    config NODE_WIFI_SSID
+        string "WiFi 名称 (SSID)"
+        default "YOUR_WIFI"
+        help
+            节点所在房间的 WiFi 名称（2.4GHz）。
+
+    config NODE_WIFI_PASS
+        string "WiFi 密码"
+        default "YOUR_PASSWORD"
+
+    config NODE_ID
+        string "设备编号 deviceId"
+        default "esp32-bathroom"
+        help
+            上报报文里的设备编号，决定云端主题 home/<deviceId>/status。
+            同一套系统内必须唯一，建议形如 esp32-卫生间 的拼音/英文。
+
+    config NODE_ROOM
+        string "房间名称 room"
+        default "卫生间"
+        help
+            上报给北向 APP 展示的房间名。
+
+    config NODE_GW_HOST
+        string "网关地址（PC 上桥接程序所在主机）"
+        default "192.168.1.100"
+        help
+            桥接程序 mqtt_bridge.js 监听的主机 IP。
+            注意：ESP32 只需连到这个网关，不需要自己实现 MQTT。
+
+    config NODE_GW_PORT
+        int "网关端口"
+        default 9100
+        help
+            桥接程序 --listen 的端口。
+
+    config NODE_MOTION_GPIO
+        int "人体传感器 GPIO"
+        default 4
+        help
+            红外人体传感器输入脚（高电平=有人）。接 -1 表示不使用。
+
+    config NODE_MOTION_DEBOUNCE_CONFIRM
+        int "PIR 连续确认次数（消抖）"
+        default 2
+        range 1 10
+
+    config NODE_SOS_GPIO
+        int "SOS 按键 GPIO（内部上拉，低电平按下；-1 禁用）"
+        default -1
+        help
+            按键另一端接 GND，按下为低电平。建议用仅输入脚（如 IO35/IO36/IO37）。
+
+    config NODE_SOS_DEBOUNCE_CONFIRM
+        int "SOS 按下连续确认次数（消抖）"
+        default 2
+        range 1 10
+
+    config NODE_SOS_KEY0_ENABLED
+        bool "板载 KEY0 作为实体 SOS 求助按键（XL9555 P1_7，低电平按下）"
+        default n
+        help
+            正点原子 DNESP32S3 的 KEY0 不在 ESP32-S3 GPIO 上，而由 I2C IO 扩展器
+            XL9555（7 位地址 0x20）的 P1_7 读取
+            （BSP：09_iic_exio/components/BSP/XL9555/xl9555.h -> KEY0_IO = 0x8000，
+            xl9555_key_scan() 以 KEY0==0 判定按下；xl9555_ioconfig(0xF003) 把 P1_7
+            配置为输入）。因此不能用 GPIO 上拉/中断，只能读输入寄存器。
+
+            启用后固件每 100 ms 经 I2C0(GPIO41/42) 读取一次：
+              - 读取失败时不触发、也不解除（绝不把通信错误当成一次求助）；
+              - 必须先观察到“松开”才允许触发（上电即低/悬空不报警）；
+              - 长按只产生一次求助；松开后可再次发起新的求助；
+              - 与 NODE_SOS_GPIO 不冲突，但同一房间建议只接一个物理求助入口。
+
+            注意：板上另一颗按键 BOOT(GPIO0) 是 strapping 脚，上电按住会进入
+            下载模式，不能作为求助键。KEY0 与蜂鸣器共用 XL9555，但不占用
+            ES8388 的 I2S 引脚（GPIO3/9/10/46）。
+
+    config NODE_WATER_GPIO
+        int "水漏传感器 DO GPIO（-1 禁用）"
+        default -1
+        help
+            水漏模块数字输出，必须确认输出电平 <= 3.3V 后才能接入。
+
+    config NODE_WATER_ACTIVE_LOW
+        bool "水漏 DO 低电平=湿润"
+        default y
+
+    config NODE_WATER_CONFIRM_COUNT
+        int "水漏连续湿润确认次数"
+        default 3
+        range 1 20
+
+    config NODE_WATER_CLEAR_COUNT
+        int "水漏连续干燥确认次数（重新武装）"
+        default 3
+        range 1 20
+
+    config NODE_DOOR_GPIO
+        int "门窗磁 GPIO"
+        default 5
+        help
+            门窗磁输入脚（高电平=开启）。接 -1 表示不使用。
+
+    config NODE_DOOR_OPEN_LEVEL
+        int "门磁开启对应电平（0=低电平开启/1=高电平开启）"
+        default 0
+        range 0 1
+        help
+            无源干簧管干接点接 GPIO 与 GND，内部上拉：
+            常开型（磁铁靠近=触点闭合=拉低）用 0；常闭型（磁铁靠近=断开=高）用 1。
+            必须按实物开/关门实测电平确认，不得仅凭"常开/常闭"名称推测。
+
+    config NODE_DOOR_CONFIRM_COUNT
+        int "门磁连续确认次数（状态变化去抖）"
+        default 2
+        range 1 20
+        help
+            连续 N 次采样电平一致才确认状态翻转；上电首次读数连续 N 次稳定后才建立基线，
+            不凭空生成"刚开门/刚关门"事件。默认 2（约 2 秒，采样周期 1 秒）。
+
+    config NODE_DOOR_CACHE_MAX
+        int "门磁离线事件缓存上限（条）"
+        default 8
+        range 1 40
+        help
+            未确认送达的开关事件 FIFO 上限，超过丢最旧（由后端 (deviceId,seq) 幂等去重保证
+            重复上传不重复记账）。默认 8 条，避免心跳 JSON 过大与无限增长。
+
+    config NODE_DOOR_CACHE_KEEP_SEC
+        int "门磁离线事件缓存保留时长（秒）"
+        default 300
+        range 10 86400
+        help
+            事件入队后至少保留该时长，重连后随心跳补传；超时后移除（后端幂等去重，
+            重复发送无害；移除后若后端仍缺该 seq，由状态变化兜底在下次翻转时补记）。
+            默认 300 秒，覆盖短期离线补传窗口。
+
+    config NODE_BUZZER_XL9555
+        bool "使用板载蜂鸣器（XL9555 P0_3，正点原子 DNESP32S3）"
+        default n
+        help
+            板载蜂鸣器不在 GPIO 上，而由 I2C IO 扩展芯片 XL9555 的 P0_3 控制
+            （官方 BSP：components/BSP/XL9555/xl9555.h -> BEEP_IO=0x0008）。
+            启用后 NODE_BUZZER_GPIO 应设为 -1。
+
+    config NODE_BUZZER_GPIO
+        int "蜂鸣器 GPIO"
+        default 6
+        help
+            有源蜂鸣器输出脚（高电平鸣响）。接 -1 表示不使用。
+
+    config NODE_AHT20_ENABLED
+        bool "启用 AHT20 温湿度传感器"
+        default n
+
+    config NODE_DHT11_GPIO
+        int "DHT11 DATA GPIO（-1 禁用；与 AHT20 二选一）"
+        default -1
+        help
+            DHT11 单总线数据脚，模块 VCC 3.3V、DATA 需 4.7k~10k 上拉到 3.3V。
+            启用时不要同时启用 AHT20；默认 -1，保持旧节点行为不变。
+
+    config NODE_DHT11_BENCH
+        bool "DHT11 连续 5 次离线自检（仅 bench 诊断）"
+        default n
+        help
+            仅供离线 bench：启动后在 WiFi 之前连续读取 5 次并打印结果；生产配置保持 n。
+
+    config NODE_LOCAL_BENCH
+        bool "本地 PIR/SOS bench（跳过 WiFi/网关）"
+        default n
+        help
+            仅供离线 bench：跳过 WiFi/网关，持续轮询 PIR/SOS 并打印原始电平/事件；
+            不发送 MQTT，不注册设备。生产配置保持 n。
+
+    config NODE_I2C_SDA_GPIO
+        int "AHT20 SDA GPIO"
+        default 11
+        depends on NODE_AHT20_ENABLED
+
+    config NODE_I2C_SCL_GPIO
+        int "AHT20 SCL GPIO"
+        default 12
+        depends on NODE_AHT20_ENABLED
+
+    config NODE_MQ2_ADC_CHANNEL
+        int "MQ-2 ADC1 通道（GPIO1=0；-1 禁用）"
+        default -1
+        range -1 9
+        help
+            厨房已验收接线为 GPIO6 / ADC1_CH5。MQ 模块 AO 必须先限压或分压到 ESP32-S3 ADC 安全范围。
+
+    config NODE_MQ5_ADC_CHANNEL
+        int "MQ-5 ADC1 通道（GPIO2=1；-1 禁用）"
+        default -1
+        range -1 9
+        help
+            厨房原冻结接线 GPIO9 / ADC1_CH8，与板载音频冲突。
+            厨房语音候选改为 GPIO7 / ADC1_CH6，必须同步迁移实物信号线。
+            MQ 模块 AO 必须先限压或分压到 ESP32-S3 ADC 安全范围。
+
+    config NODE_MQ2_ALARM_RAW
+        int "MQ-2 烟雾报警原始阈值（4096=校准前禁用）"
+        default 4096
+        range 0 4096
+
+    config NODE_MQ5_ALARM_RAW
+        int "MQ-5 燃气报警原始阈值（4096=校准前禁用）"
+        default 4096
+        range 0 4096
+
+    config NODE_MQ_CONFIRM_COUNT
+        int "MQ 连续确认次数（触发/解除都需要连续 N 次）"
+        default 3
+        range 1 10
+
+    config NODE_MQ_HYSTERESIS_RAW
+        int "MQ 回差（raw）：解除告警需低于 阈值-回差"
+        default 20
+        range 0 1024
+
+    # ---------------- 电池电压采样（契约 BATTERY-CHAIN-CONTRACT.md §1/§2） ----------------
+    # 语义：-1 = 该设备没有电池采样电路（固定供电），固件**不输出** battery 字段。
+    #       >=0 = 该设备接了“电池 -> 100k/100k 分压 -> ADC1”的采样电路。
+    # 硬性要求：只能用 ADC1（GPIO1..10 = CH0..CH9；ADC2 在 Wi-Fi 开启时不可用）；
+    #           不得复用 MQ-2/MQ-5 通道（编译期 #error 拦截）；禁止电池正极直连 ADC。
+    config NODE_BATTERY_ADC_CHANNEL
+        int "电池电压采样 ADC1 通道（-1 禁用；GPIO2=CH1，GPIO8=CH7）"
+        default -1
+        range -1 9
+        help
+            固定供电节点（esp32-kitchen / esp32-bath / dayu200）必须保持 -1：
+            此时固件不采样、不输出 battery 字段，APP 依据设备台账判定“固定供电，无电池电量数据”。
+            电池化节点（esp32-sos / esp32-node-wearable）按接线文档接好分压后才能启用；
+            未接线时即使启用也只会输出 valid=false + reason（不会伪报电压/百分比）。
+
+    config NODE_BATTERY_DIVIDER_NUM
+        int "电池分压比分子（R1=R2=100k -> 2）"
+        default 2
+        range 1 100
+        help
+            battery_mv = adc_pin_mv * NUM / DEN。1S 锂电用 100k/100k -> 2:1；
+            2S（6.0~8.4V）用 200k/100k -> 3:1，且必须复核分压后 <=3.1V。
+
+    config NODE_BATTERY_DIVIDER_DEN
+        int "电池分压比分母"
+        default 1
+        range 1 100
+
+    config NODE_BATTERY_CAL_GAIN_PERMILLE
+        int "两点校准增益（千分比：1000=不修正）"
+        default 1000
+        range 500 2000
+        help
+            至少两点万用表校准后填入。公式：mv = mv * GAIN/1000 + OFFSET。
+            未校准时保持 1000/0，并且 NODE_BATTERY_CALIBRATED 必须为 n。
+
+    config NODE_BATTERY_CAL_OFFSET_MV
+        int "两点校准偏移（mV，可为负）"
+        default 0
+        range -500 500
+
+    config NODE_BATTERY_LOW_MV
+        int "低电量阈值（mV，<= 即 low=true）"
+        default 3500
+        range 2000 5000
+
+    config NODE_BATTERY_MIN_MV
+        int "有效范围下界（mV，低于即 valid=false/OUT_OF_RANGE）"
+        default 2500
+        range 0 5000
+
+    config NODE_BATTERY_MAX_MV
+        int "有效范围上界（mV，高于即 valid=false/OUT_OF_RANGE）"
+        default 4350
+        range 1000 60000
+
+    config NODE_BATTERY_CALIBRATED
+        bool "已用万用表做过至少两点校准（仅此时才输出 percent）"
+        default n
+        help
+            未标定时固件只输出 mV + valid，percent=null（APP 显示“未标定”）。
+            绝不允许把未标定电压换算成百分比冒充精确电量。
+
+    config NODE_BATTERY_SAMPLE_SEC
+        int "电池采样周期（秒；契约默认 30s）"
+        default 30
+        range 5 3600
+        help
+            采样在主任务里顺序执行（8 次中位数，样本间 2ms 间隔），不单独建任务，
+            不打断 Wi-Fi 连接；抖动样本由 battery_logic 的极差/一致率/范围三重门限剔除。
+
+    config NODE_ALARM_BEEP_SEC
+        int "【已弃用】旧“告警连续鸣响时长(秒)”"
+        default 10
+        range 0 600
+        help
+            2026-10-26 起告警不再连续鸣响该时长：改为“短提示音 -> 完整语音”的编排
+            （见 NODE_ALARM_CHIRP_*）。该符号保留只为兼容旧 profile 文件，固件不再读取。
+
+    config NODE_BOOT_BEEP_MS
+        int "上电自检短鸣时长(ms，0=不鸣)"
+        default 0
+        range 0 2000
+        help
+            仅用于一次性验证蜂鸣器控制；量产/验收后必须保持 0，避免每次开机鸣响。
+
+    config NODE_TEMP_LOW_C
+        int "低温阈值（摄氏度）"
+        default 10
+
+    config NODE_TEMP_HIGH_C
+        int "高温阈值（摄氏度）"
+        default 30
+
+    config NODE_RH_LOW
+        int "低湿阈值（百分比）"
+        default 25
+        range 0 100
+
+    config NODE_RH_HIGH
+        int "高湿阈值（百分比）"
+        default 75
+        range 0 100
+
+    config NODE_CLIMATE_CONFIRM_COUNT
+        int "温湿度越界连续确认次数（有效采样，1 秒/次）"
+        default 3
+        range 1 60
+        help
+            连续 N 次“有效”读数越界才触发 CLIMATE 告警，用于抑制短暂波动。
+            缺失/无效读数（I2C 失败、CRC 错、物理不可能值）不参与计数，
+            也不能用来触发或解除告警。
+
+    config NODE_CLIMATE_CLEAR_COUNT
+        int "温湿度恢复连续确认次数（回到回差带内）"
+        default 5
+        range 1 120
+        help
+            连续 N 次有效读数回到“阈值±回差”带内才解除 CLIMATE 告警，
+            避免在阈值附近反复告警。
+
+    config NODE_TEMP_HYST_C
+        int "温度恢复回差（摄氏度，0=无回差）"
+        default 1
+        range 0 10
+
+    config NODE_RH_HYST
+        int "湿度恢复回差（百分比，0=无回差）"
+        default 3
+        range 0 30
+
+    config NODE_ALARM_REPEAT_SEC
+        int "持续告警重复提醒间隔（秒，0=只提醒一次）"
+        default 120
+        range 0 3600
+        help
+            告警未被 ACK/停止且危险持续时，按该间隔重复一次语音+蜂鸣提醒（限频）。
+            用户停止（stop）或 ACK 后不再重复；危险先解除再出现会形成新告警。
+            这是演示默认值，不是医疗或安全标准。
+
+    config NODE_NO_MOTION_REQUIRE_ARM
+        bool "无活动提醒要求本次启动后先确认过一次有效活动"
+        default y
+        help
+            防止 PIR 断线/常低被误判为“老人长时间无活动”。开启后必须先观察到
+            一次有效活动（上升沿）才启用无活动计时。关闭则上电即开始计时。
+
+    config NODE_ALARM_BENCH_INJECT
+        bool "台架注入模式（仅隔离验收；默认关闭）"
+        default n
+        help
+            仅供隔离台架验收：允许网关命令注入温湿度/PIR/SOS 测试值，用于验证
+            触发/优先级/限频/停止/ACK/恢复/重启时序。正常现场固件必须为 n。
+            开启时置位日志 BENCH INJECT MODE，且应配合独立测试网关端口使用，
+            不生成云端事件。
+
+    config NODE_LED_GPIO
+        int "板载告警 LED GPIO（-1=禁用；DNESP32S3 用户 LED 为 IO1）"
+        default -1
+        help
+            ALIENTEK DNESP32S3 板载用户 LED：官方 BSP led.h 定义为
+            LED_GPIO_PIN GPIO_NUM_1；官方 IO 分配表记 IO1=LED1。
+            本项目 IO1 未被 MQ-2(IO6)/MQ-5(IO7)/音频(3/9/10/46)/AHT20(4/5)/
+            PIR(36)/SOS(15) 占用。只作本地告警指示，不承担普通联网状态显示。
+
+    config NODE_LED_ACTIVE_LOW
+        bool "LED 低电平点亮"
+        default y
+        help
+            按原理图/实测确认的 LED 有效电平。默认低电平点亮；
+            若台架 `led id` 观察结果相反（大部分亮、短灭），改为 n 后重建。
+
+    config NODE_REPORT_SEC
+        int "上报周期（秒）"
+        default 5
+
+    config NODE_NO_MOTION_SEC
+        int "无活动告警阈值（秒）"
+        default 1800
+        help
+            超过该时长没有检测到人体活动即触发告警（演示时可调小到 30）。
+            只表示“长时间未检测到活动”，不能表述为昏迷、跌倒或无人。
+
+    config NODE_AUDIO_PORT
+        int "AI 语音网关音箱端口"
+        default 9102
+        help
+            节点作为“网络音箱”连到 PC 语音网关的这个 TCP 端口，接收
+            16kHz/mono/s16le PCM 并用 ES8388 扬声器播放。与 9101 传感
+            网关端口分离，避免影响告警上报链路。
+
+    config NODE_MIC_PORT
+        int "AI 语音网关采音端口"
+        depends on NODE_VOICE_ENABLED
+        default 9303
+        help
+            告警窗口或 micupload 命令触发时，节点把板载咪头采集的
+            16kHz/mono/s16le PCM 上传到 PC 网关的这个 TCP 端口。
+            与音箱 9102、问答 9302 分开，三者互不阻塞。
+
+    config NODE_MIC_RECORD_SEC
+        int "告警录音时长（秒）"
+        depends on NODE_VOICE_ENABLED
+        range 3 5
+        default 4
+        help
+            每次告警/手动上传只录这段时间；不做常开监听。文件按
+            16kHz/16bit/mono 计约 32 kB/秒。
+
+    config NODE_MIC_UPLOAD
+        bool "本地告警时自动上传现场录音"
+        depends on NODE_VOICE_ENABLED
+        default y
+        help
+            进入 ALARM（SOS/环境/无活动）时自动录音并上传到 9303。
+            关闭后仍可用串口 micupload 手动触发验收。
+
+endmenu

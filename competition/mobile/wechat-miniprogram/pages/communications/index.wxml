@@ -1,0 +1,81 @@
+<view class="page">
+  <view class="page-title">远程交流</view>
+  <view class="page-subtitle">写一条文字留言，由家里设备用预置语音播报，老人确认后状态会更新</view>
+  <view class="connection-banner {{banner.bannerClass}}">
+    <view><view class="connection-title">{{banner.title}}</view><view class="connection-detail">{{banner.detail}}</view></view>
+    <view wx:if="{{mode === 'demo'}}" class="demo-badge">演示数据</view>
+  </view>
+
+  <view class="panel">
+    <view class="panel-title">发送远程留言</view>
+    <view class="compose-note">本页只发送文字，并用设备保存的预置语音播报；不采集手机麦克风，也不需要老人操作手机。</view>
+
+    <view class="field">
+      <view class="field-label">发送设备</view>
+      <picker mode="selector" range="{{deviceNames}}" value="{{deviceIndex}}" bindchange="onDeviceChange">
+        <view class="picker-value">{{deviceIndex >= 0 ? deviceNames[deviceIndex] : '暂无可选设备'}}</view>
+      </picker>
+    </view>
+
+    <view class="field">
+      <view class="field-label">预置语音播报</view>
+      <view class="voice-list">
+        <view
+          wx:for="{{voices}}"
+          wx:key="id"
+          class="voice-option {{voiceId === item.id ? 'selected' : ''}}"
+          data-id="{{item.id}}"
+          bindtap="onVoiceChange"
+        >{{item.label}}</view>
+      </view>
+    </view>
+
+    <view class="field">
+      <view class="field-label">留言内容（最多 120 字）</view>
+      <textarea
+        class="message-input"
+        maxlength="120"
+        value="{{text}}"
+        placeholder="例如：晚饭在锅里，记得按时吃药"
+        bindinput="onTextInput"
+      />
+    </view>
+
+    <view class="field-row">
+      <view class="field-label">需要老人确认</view>
+      <switch checked="{{requestAck}}" bindchange="onAckChange" />
+    </view>
+
+    <view wx:if="{{fieldErrors.deviceId}}" class="field-error">{{fieldErrors.deviceId}}</view>
+    <view wx:if="{{fieldErrors.voiceId}}" class="field-error">{{fieldErrors.voiceId}}</view>
+    <view wx:if="{{fieldErrors.text}}" class="field-error">{{fieldErrors.text}}</view>
+
+    <button class="primary-button" loading="{{sending}}" disabled="{{sending}}" bindtap="onSendTap">{{sending ? '正在发送…' : '发送远程留言'}}</button>
+    <button wx:if="{{canRetry}}" class="secondary-button" disabled="{{sending}}" bindtap="onRetryTap">重试发送（不会重复留言）</button>
+    <view wx:if="{{canRetry}}" class="compose-note">上次发送失败，重试会复用同一条留言编号，不会重复播报。</view>
+  </view>
+
+  <view class="panel">
+    <view class="panel-head">
+      <view class="panel-title">近期留言</view>
+      <button class="small-button secondary-button" loading="{{messagesLoading}}" disabled="{{messagesLoading}}" bindtap="onRefreshTap">刷新</button>
+    </view>
+    <view class="compose-note">点击「刷新」或下拉页面可查看最新播报与老人确认状态。</view>
+    <view wx:if="{{listError}}" class="field-error">{{listError}}</view>
+    <view wx:if="{{messages.length === 0}}" class="state-view">
+      <view class="state-title">暂无留言</view>
+      <view class="state-message">点击「刷新」或下拉页面加载近期留言。</view>
+    </view>
+    <view wx:else>
+      <view wx:for="{{messages}}" wx:key="messageId" class="panel message-card">
+        <view class="message-head">
+          <view class="message-text">{{item.text}}</view>
+          <view class="{{item.statusClass}}">{{item.statusText}}</view>
+        </view>
+        <view class="muted message-meta">{{item.voiceLabel}} · {{item.deviceName}} · {{item.timeText}}</view>
+        <view wx:if="{{item.requestAck && item.ackText}}" class="message-ack">{{item.ackText}}</view>
+        <view wx:if="{{item.failureText}}" class="message-failure">{{item.failureText}}</view>
+      </view>
+    </view>
+  </view>
+</view>

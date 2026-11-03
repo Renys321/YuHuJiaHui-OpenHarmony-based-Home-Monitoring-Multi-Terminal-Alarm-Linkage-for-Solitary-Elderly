@@ -1,0 +1,1 @@
+{"deviceId":"esp32-bath","room":"卫生间","ts":1791606682,"state":"ALARM","sensors":{"motion":{"lastActiveTs":1791606534,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":0.0,"rh":0.0,"ok":true},"gas":{"raw":0,"ok":true},"smoke":{"raw":0,"ok":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-1791606564-2","type":"NO_MOTION","countToday":1}}

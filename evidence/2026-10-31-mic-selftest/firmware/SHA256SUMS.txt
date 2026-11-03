@@ -1,0 +1,8 @@
+b4ae5b50cdc3ed4cf223d9cf997e167985dfcff09461b8de4dff55bfd9de187e *NEW-bath-mic-app.bin
+cb71afbc53b6dd02ed6a38653e38c751862919b78471c23c2ff8d23e99ec292e *NEW-kitchen-mic-app.bin
+56d9a8054ec6b1aa0fb19e5390d6744e55fd2b572de722742a799f5c3a8caa6b *ROLLBACK-bath-door-v7-app.bin
+d2e3c2636dbf34a815845c1808709c4e6951ed733fc3ccf92f7594d6c59ebbfa *ROLLBACK-bath-door-v7-bootloader.bin
+7f00b6c042a89b15b0cac534f82ed988caf29278ff5700b0c511eb1b5bb7c820 *ROLLBACK-bath-door-v7-partition.bin
+0aa8144d87d76df3e946fa81a493e67c050cec8c86dafc4aa1d8c3a3170e179b *ROLLBACK-kitchen-door-v7-app.bin
+0f5e8dc72468a86cfc09953105eab94f1b87e7c784208d7bf75a9885b9943ae2 *ROLLBACK-kitchen-door-v7-bootloader.bin
+7f00b6c042a89b15b0cac534f82ed988caf29278ff5700b0c511eb1b5bb7c820 *ROLLBACK-kitchen-door-v7-partition.bin

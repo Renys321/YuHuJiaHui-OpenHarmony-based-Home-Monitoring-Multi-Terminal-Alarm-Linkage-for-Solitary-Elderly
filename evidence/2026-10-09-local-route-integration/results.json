@@ -1,0 +1,56 @@
+{
+ "pids": [
+  {
+   "n": "broker",
+   "pid": 14164
+  },
+  {
+   "n": "bridge",
+   "pid": 25348
+  },
+  {
+   "n": "sim",
+   "pid": 23388
+  }
+ ],
+ "results": [
+  {
+   "name": "relay 收到 esp32-test 的真实状态 JSON",
+   "ok": true,
+   "info": "state=NORMAL"
+  },
+  {
+   "name": "拆包 route 被重组并下发，节点进入 ALARM 并回传真实 alarmId",
+   "ok": true,
+   "info": "alarmId=sim-1791555116237-1"
+  },
+  {
+   "name": "错 alarmId ACK 后仍为 ALARM",
+   "ok": true,
+   "info": "state=ALARM"
+  },
+  {
+   "name": "正确 alarmId ACK 后为 ACKED",
+   "ok": true,
+   "info": "state=ACKED"
+  },
+  {
+   "name": "重复 ACK 被节点拒绝且仍为 ACKED",
+   "ok": true,
+   "info": "state=ACKED"
+  },
+  {
+   "name": "route missing-device 被 bridge 拒绝且节点未收到",
+   "ok": true
+  },
+  {
+   "name": "普通 JSON / 裸命令 / relay / routeXXX 行均未成为节点命令",
+   "ok": true,
+   "info": "sim 命令数 4→4 state=ACKED"
+  },
+  {
+   "name": "嵌套 route 被 bridge 拒绝",
+   "ok": true
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+﻿capturedAt=2026-10-27 22:44:55 === 本轮修改/新增文件 SHA-256 === （备份文件 *.bak-20261027 为修改前原样副本，可直接回滚）
+ea586938dcf6a32a2fcfa12b6ae1a7290f548dd61a2f3a7fcc18003c29a02c45  bridge\mqtt_bridge.js
+a2680e6c19fec4e1229777d8207078fa554c23126449644d137623fcdc7c8d01  bridge\bridge_auto_recovery.test.js
+53d424c26c030dcac42e42ddcf0868aa55da5f05239e668e423eced1f4f70a36  bridge\README.md
+0a18942ba14f34eef36744958c472e96dc8b0998e043073a4a89a0efa121f0e9  cloud\onenet\command-sync.js
+4743a97a4241d21a0b739b67d3eee3a0017140e812c2607ce8666a647e087327  cloud\onenet\public-sync.js
+0283832ea58a0e25d322cf8acdc328a062fbbb11ab66c602576c096bf3139baf  cloud\onenet\public-sync-supervisor.js
+78a806fdf27d0c730294fff26e19ba5bd3a7ba06144ed631cf07e0f9eada0ffb  cloud\onenet\public-sync-supervisor.test.js
+0f019cbedc79a2a928e9b7e1eeea419a8229b6d24d2a1cf176e16b05a5b25ef4  cloud\onenet\command-sync-scope.test.js
+76233ba59a7498af1abf6551d58922cfe3004eb27617678eed1dd97acb4c976a  cloud\onenet\fixtures\public-sync-fake-worker.js
+b098867440429be5938fd7cb5666705792da820350ec1b7df0015865ca67d68c  cloud\onenet\README.md
+740d20bd035ef9c754931fcdb9548b4d1686b74762072d00893544b2f7b65f83  materials\demo-autostart\demo-autostart.ps1
+5dd2f22358a8ec318707c9346bc27de14f63db905ef7f21219f0b23074887437  materials\start-demo-supervisor.ps1
+d881b5b6ca7429fd44afcbcb96dccd5a23bf42ff1169e4d8f695d35960da3bc7  materials\public-sync-health.ps1
+24ca44b3fdbc024cc6d7dd7cd8444a5668a623b95f9eed2e304e745cfb361bc4  materials\verify-p0-health.ps1
+a6f0a21bcf84b93a73af29febd30fb800e3ebf6f6bdf5297ee3240cce38ee180  materials\README.md
+
+=== 修改前备份（可回滚） ===
+649a7c79d87ee6c363f639d8c1dac97433d264a175291beafea10067b57a5855  32311  bridge\mqtt_bridge.js.bak-20261027
+078553d4f7aa2cdcce365f6b44c4616e6535f8f0c596b995a5a6f23ad20a1d47  16312  cloud\onenet\public-sync-supervisor.js.bak-20261027
+d83101ec90cab977b2f4cc82d8fe8629c01430c6fde13ebd8c543ef28f084fbe  15335  materials\start-demo-supervisor.ps1.bak-20261027
+3e639c47913fcee7968e3785a3699a0b3b78618f7038f4d50503307518269f48  19510  materials\demo-autostart\demo-autostart.ps1.bak-20261027

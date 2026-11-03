@@ -1,0 +1,126 @@
+{
+  "base": "https://api.luxunacc.xyz",
+  "ranAt": "2026-10-27T08:11:39.401Z",
+  "steps": [
+    {
+      "step": "anonymous_401",
+      "result": {
+        "status": 401,
+        "body": {
+          "error": "unauthorized"
+        }
+      }
+    },
+    {
+      "step": "anonymous_put_401",
+      "result": {
+        "status": 401
+      }
+    },
+    {
+      "step": "login",
+      "result": {
+        "status": 200
+      }
+    },
+    {
+      "step": "get_profile_before",
+      "result": {
+        "status": 200,
+        "profile": null
+      }
+    },
+    {
+      "step": "save_profile",
+      "result": {
+        "status": 200,
+        "fields": 17,
+        "hasUpdatedAt": true
+      }
+    },
+    {
+      "step": "read_profile",
+      "result": {
+        "status": 200,
+        "age": 72
+      }
+    },
+    {
+      "step": "real_advice",
+      "result": {
+        "status": 200,
+        "ms": 6716,
+        "model": "deepseek-chat",
+        "summaryChars": 251,
+        "diet": 5,
+        "exerciseAndSleep": 5,
+        "warningSigns": 6,
+        "disclaimerFixed": true,
+        "redLineHits": []
+      }
+    },
+    {
+      "step": "advice_inline_profile",
+      "result": {
+        "status": 200,
+        "ms": 6986
+      }
+    },
+    {
+      "step": "invalid_age_400",
+      "result": {
+        "status": 400,
+        "fields": [
+          "age must be an integer in [1, 130]"
+        ]
+      }
+    },
+    {
+      "step": "invalid_glucose_400",
+      "result": {
+        "status": 400
+      }
+    },
+    {
+      "step": "identity_fields_400",
+      "result": {
+        "status": 400,
+        "fields": [
+          "unknown field: idCard",
+          "unknown field: phone"
+        ]
+      }
+    },
+    {
+      "step": "query_rejected_400",
+      "result": {
+        "status": 400
+      }
+    },
+    {
+      "step": "restore_profile",
+      "result": {
+        "status": 200
+      }
+    },
+    {
+      "step": "existing_overview_ok",
+      "result": {
+        "status": 200
+      }
+    },
+    {
+      "step": "existing_door_events_ok",
+      "result": {
+        "status": 200,
+        "count": 5
+      }
+    },
+    {
+      "step": "existing_safety_logs_ok",
+      "result": {
+        "status": 200
+      }
+    }
+  ]
+}

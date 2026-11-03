@@ -1,0 +1,11 @@
+[0;32mI (28580) elder-node: CMD 收到: beep on[0m
+[0;33mW (28580) elder-node: BEEP ON（自检声源，不改变告警状态）[0m
+[0;32mI (28880) elder-node: CMD 收到: mictest 5[0m
+[0;33mW (28880) elder-node: MIC_TEST 开始：5 秒（安静/说话各测一次，比较 RMS 与峰值）[0m
+[0;32mI (28920) local-voice: MIC begin 16000Hz mono s16 (ES8388 ADC, DIN=GPIO14)[0m
+[0;32mI (31480) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1793461023630,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1793460997939,"countToday":0},"door":{"open":true,"lastOpenTs":0,"lastCloseTs":0,"seq":52},"climate":{"tempC":0.0,"rh":0.0,"ok":true,"valid":false},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[0m
+[0;32mI (31510) elder-node: STACK_FREE task=main bytes=1996[0m
+[0;32mI (31570) elder-node: STACK_FREE task=gateway-net bytes=2220[0m
+[0;32mI (33980) local-voice: MIC end playback_restored=1[0m
+[0;32mI (33990) local-voice: MIC_TEST rms=881 peak=1696 samples=79360 seconds=5 min=-1478 max=1696[0m

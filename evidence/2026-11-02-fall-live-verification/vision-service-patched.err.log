@@ -1,0 +1,21 @@
+[vision] frame rotation locked: 0
+[vision] HTTP JPEG ingest listening on 127.0.0.1:9200
+[vision] monitor watchdog: timeout=10000ms startup-grace=15000ms heartbeat=60000ms
+[vision] monitor online: first_frame
+[vision] FALL command published
+[vision] FALL command published
+[vision] FALL command published
+[vision] FALL command published
+[vision] FALL command published
+[vision] FALL command published
+[vision] FALL command published
+[vision] FALL command published
+[vision] FALL command published
+[vision] FALL command published
+[vision] FALL command published
+[vision] FALL command published
+[vision] monitor offline: no_frame
+[vision] monitor online: frames_resumed
+[vision] FALL command published
+[vision] monitor offline: no_frame
+[vision] monitor online: frames_resumed

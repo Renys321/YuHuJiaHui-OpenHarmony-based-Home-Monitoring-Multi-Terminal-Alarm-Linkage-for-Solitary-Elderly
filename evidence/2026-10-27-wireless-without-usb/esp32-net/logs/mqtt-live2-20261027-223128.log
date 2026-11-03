@@ -1,0 +1,12 @@
+[connect] 2026-10-27T14:31:29.168Z broker=127.0.0.1:1883
+[subscribe] home/+/status err=none
+[msg] {"recvAt":"2026-10-27T14:31:30.887Z","sinceStartMs":1813,"topic":"home/dayu200-living/status","deviceId":"dayu200-living","room":"客厅","ts":1793111489861,"tsAgeMs":1026,"state":"ALARM","countToday":0,"payloadBytes":387}
+[msg] {"recvAt":"2026-10-27T14:31:31.071Z","sinceStartMs":1997,"topic":"home/esp32-kitchen/status","deviceId":"esp32-kitchen","room":"厨房","ts":1793111491100,"tsAgeMs":-29,"state":"ACKED","countToday":1,"payloadBytes":460}
+[msg] {"recvAt":"2026-10-27T14:31:31.496Z","sinceStartMs":2422,"topic":"home/esp32-bath/status","deviceId":"esp32-bath","room":"卫生间","ts":1793111491470,"tsAgeMs":26,"state":"ALARM","countToday":116,"payloadBytes":462}
+[msg] {"recvAt":"2026-10-27T14:31:33.880Z","sinceStartMs":4806,"topic":"home/dayu200-living/status","deviceId":"dayu200-living","room":"客厅","ts":1793111492878,"tsAgeMs":1002,"state":"ALARM","countToday":0,"payloadBytes":387}
+[msg] {"recvAt":"2026-10-27T14:31:36.576Z","sinceStartMs":7502,"topic":"home/esp32-kitchen/status","deviceId":"esp32-kitchen","room":"厨房","ts":1793111496600,"tsAgeMs":-24,"state":"ACKED","countToday":1,"payloadBytes":459}
+[msg] {"recvAt":"2026-10-27T14:31:36.882Z","sinceStartMs":7808,"topic":"home/dayu200-living/status","deviceId":"dayu200-living","room":"客厅","ts":1793111495886,"tsAgeMs":996,"state":"ALARM","countToday":0,"payloadBytes":387}
+[msg] {"recvAt":"2026-10-27T14:31:36.980Z","sinceStartMs":7906,"topic":"home/esp32-bath/status","deviceId":"esp32-bath","room":"卫生间","ts":1793111496970,"tsAgeMs":10,"state":"ALARM","countToday":117,"payloadBytes":462}
+[msg] {"recvAt":"2026-10-27T14:31:42.072Z","sinceStartMs":12998,"topic":"home/esp32-kitchen/status","deviceId":"esp32-kitchen","room":"厨房","ts":1793111502090,"tsAgeMs":-18,"state":"ACKED","countToday":1,"payloadBytes":460}
+[msg] {"recvAt":"2026-10-27T14:31:42.379Z","sinceStartMs":13305,"topic":"home/esp32-bath/status","deviceId":"esp32-bath","room":"卫生间","ts":1793111502460,"tsAgeMs":-81,"state":"ALARM","countToday":117,"payloadBytes":462}
+[summary] {"home/dayu200-living/status":17,"home/esp32-kitchen/status":9,"home/esp32-bath/status":9}

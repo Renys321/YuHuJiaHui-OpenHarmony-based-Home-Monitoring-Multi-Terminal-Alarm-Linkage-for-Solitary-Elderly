@@ -1,0 +1,16 @@
+﻿== final checks (post-ruling, refreshed) 2026-10-28 00:53:03 ==
+[version]     "versionCode": 1000010, |     "versionName": "1.0.10",
+[source-vs-snapshot] snapshot=63 northbound=63 changed=0 onlySnap=0 onlyNb=0
+[signing] files=58 changed=0 onlyArchive=0 onlyNow=0
+[entry/build] none (已 clean)
+[hap-outside-signing] none
+[bak/backup/keystore] none
+[private-key-material] 0 files (0 = 无私钥)
+[signing-assets] count=58 bytes=14,669,110 (16 个既有签名 HAP + 证书/链/profile + 3 py + 2 json)
+[docs] README=7801B RELEASE=9071B
+[hvigor-cache] files=23 bytes=5,788,810 (gitignored, 无源码/HAP/密钥)
+[evidence-build] build-1.0.10-from-northbound.log(4086); clean-1.0.10-from-northbound.log(211); dayu-eldercare-1.0.10-from-northbound-norpc.hap(1368270); dayu-eldercare-1.0.10-from-northbound-signed.hap(1385966); dayu-eldercare-1.0.10-from-northbound-unsigned.hap(2024688); northbound-tests.log(11234); SHA256SUMS.txt(590); sign-app.log(841); static-checks.json(3485); static-checks.txt(2534); strip-rpcid.log(334); verify-app.log(2985); verify-app-chain.cer(2829); verify-app-profile.p7b(3533)
+[release-signed] 7C38C95D1296DB8B14ED1DC83C8D0F72036C5E57ED15951131D9EC168FAD5372 1385966B
+[rollback-1.0.10] B5EC606E428A40B6005F552276000EE2CDEA79A3E91DB4612DCB874406F2B714 1385966B
+[password-leak] none
+[ruling] 安装未执行（非必需，HAP 保留为构建证据）；旧脚本 1.0.0 指向由 watcher-recover 修正；stale 测试记录不改；版本保持 1.0.10，下次 1.0.11/1000011

@@ -1,0 +1,8 @@
+[2026-11-01T07:14:18.242Z] [S3 采音] hello node=esp32-kitchen room=厨房 alarmId=- reason=prompt
+[2026-11-01T07:14:19.201Z] [S3 ASR] 953ms, text=我没事
+[2026-11-01T07:14:19.203Z] [elder-safe] S3 自述安全：只记录，不 ACK 告警
+[2026-11-01T07:14:19.521Z] [elder-safe] 云端已记录 eventId=es-12 room=厨房
+[2026-11-01T07:14:20.046Z] 音箱播报：已推送 123520B PCM 到 2 个节点
+[2026-11-01T07:14:20.047Z] [elder-safe] 已记录，不改变告警状态
+[2026-11-01T07:14:24.000Z] 音箱播报完成: {"type":"done","node":"esp32-kitchen","ok":1}
+[2026-11-01T07:14:24.002Z] 音箱播报完成: {"type":"done","node":"esp32-bath","ok":1}

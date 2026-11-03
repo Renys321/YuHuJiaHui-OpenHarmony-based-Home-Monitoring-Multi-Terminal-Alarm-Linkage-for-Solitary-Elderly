@@ -1,0 +1,1 @@
+[p1b] listening 127.0.0.1:9200 model=yolo11n-pose-ncnn-320-static-p1b size=320 threads=4 duration=600s

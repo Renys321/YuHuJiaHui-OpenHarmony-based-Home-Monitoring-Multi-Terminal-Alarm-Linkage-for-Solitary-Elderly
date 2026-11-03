@@ -1,0 +1,7 @@
+# Overlay only: use AFTER the selected room profile. Not a production baseline.
+CONFIG_NODE_VOICE_ENABLED=y
+CONFIG_NODE_VOICE_VOLUME=15
+# Voice mailboxes add nested stack buffers to the main sampling/report path.
+# The default 3584-byte main stack overflowed on the actual kitchen board.
+CONFIG_ESP_MAIN_TASK_STACK_SIZE=8192
+# CONFIG_NODE_VOICE_BOOT_TEST is not set

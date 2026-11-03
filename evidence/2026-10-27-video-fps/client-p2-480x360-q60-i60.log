@@ -1,0 +1,26 @@
+﻿[connect] 10.127.130.250:9301 connected
+[control] {"type":"hello","proto":1,"device":"dayu200-living","camera":"640x480","quality":60,"intervalMs":120,"cameraActive":true}
+[control] {"type":"config","width":480,"height":360,"quality":60,"intervalMs":60}
+[control] {"type":"started","proto":1}
+[stop] sending stop control
+{
+  "ok": false,
+  "host": "10.127.130.250",
+  "port": 9301,
+  "durationMs": 20824,
+  "frames": 50,
+  "jpegValid": 50,
+  "jpegInvalid": 0,
+  "uniqueFrameHashes": 50,
+  "avgFps": 2.4,
+  "minFrameBytes": 14653,
+  "maxFrameBytes": 16392,
+  "avgFrameBytes": 15516,
+  "savedFrames": 5,
+  "sawStopped": false,
+  "controlLines": [
+    "{\"type\":\"hello\",\"proto\":1,\"device\":\"dayu200-living\",\"camera\":\"640x480\",\"quality\":60,\"intervalMs\":120,\"cameraActive\":true}",
+    "{\"type\":\"config\",\"width\":480,\"height\":360,\"quality\":60,\"intervalMs\":60}",
+    "{\"type\":\"started\",\"proto\":1}"
+  ]
+}

@@ -1,0 +1,14 @@
+﻿$ hdc -t 450100445634303332012847942eca00 shell "cat /proc/net/route; echo ---ARP---; cat /proc/net/arp; echo ---WIRELESS---; cat /proc/net/wireless"
+# captured: 2026-10-27 22:31:54 +08:00
+----------------------------------------------------------------------
+Iface	Destination	Gateway 	Flags	RefCnt	Use	Metric	Mask		MTU	Window	IRTT                                                       
+wlan0	00827F0A	00000000	0001	0	0	0	00FFFFFF	0	0	0                                                                              
+---ARP---
+IP address       HW type     Flags       HW address            Mask     Device
+10.127.130.179   0x1         0x2         ec:91:61:6f:69:fd     *        wlan0
+10.127.130.217   0x1         0x2         5a:fe:a0:a6:a3:d7     *        wlan0
+---WIRELESS---
+Inter-| sta-|   Quality        |   Discarded packets               | Missed | WE
+ face | tus | link level noise |  nwid  crypt   frag  retry   misc | beacon | 22
+ wlan0: 0000    5.  -39.  -75.       0      0      0      0      0        0
+

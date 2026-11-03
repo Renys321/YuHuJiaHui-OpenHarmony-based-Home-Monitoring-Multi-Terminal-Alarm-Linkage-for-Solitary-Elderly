@@ -1,0 +1,4 @@
+Local backend regression only; no deployment and no production access.
+npm run check: PASS
+npm test: tests=215 pass=215 fail=0 cancelled=0 skipped=0
+npm run test:restart: tests=2 pass=2 fail=0 cancelled=0 skipped=0

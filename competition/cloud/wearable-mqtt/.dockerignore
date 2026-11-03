@@ -1,0 +1,7 @@
+# 构建上下文只需要运行时源码；测试、工具、文档与本地数据不进入镜像/挂载目录。
+test
+tools
+data
+*.md
+Dockerfile
+.dockerignore

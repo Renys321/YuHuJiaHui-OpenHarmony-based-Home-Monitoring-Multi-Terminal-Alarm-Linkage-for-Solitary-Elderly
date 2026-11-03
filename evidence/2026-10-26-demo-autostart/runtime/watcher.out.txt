@@ -1,0 +1,10 @@
+============================================================
+ DAYU demo autostart: P0 + formal camera + DAYU local inference
+ Keep this window open. P0 may open a second visible window for INGEST_KEY.
+ Keys: [S] stop auto care  [R] resume  [Q] quit watcher (leave services)
+============================================================
+[WAIT] formal app is backgrounded; bringing it to foreground.
+[WAIT] deploying dayu_local_fall to DAYU demo dir.
+[WAIT] deploying model.ncnn.param to DAYU demo dir.
+[WAIT] deploying model.ncnn.bin to DAYU demo dir.
+[WAIT] starting DAYU local P1-B 320 inference (conf=0.7, rotate=0).

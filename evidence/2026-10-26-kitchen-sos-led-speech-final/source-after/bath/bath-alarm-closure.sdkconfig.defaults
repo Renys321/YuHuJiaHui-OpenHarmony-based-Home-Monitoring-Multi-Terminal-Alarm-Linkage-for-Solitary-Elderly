@@ -1,0 +1,28 @@
+# LOCAL-ALARM-VOICE-CLOSURE 生产参数（2026-10-26）
+# 演示默认值，不是医疗或燃气安全标准；现场按需调整并记录。
+# 温湿度：短暂波动连续确认 3 次（1 秒/次）才报；恢复需连续 5 次回到回差带内。
+CONFIG_NODE_CLIMATE_CONFIRM_COUNT=3
+CONFIG_NODE_CLIMATE_CLEAR_COUNT=5
+CONFIG_NODE_TEMP_HYST_C=1
+CONFIG_NODE_RH_HYST=3
+# 持续异常期间的重复提醒限频（秒）；0 = 只在触发时提醒一次。
+# “长时间未检测到活动”只提醒一次；SOS/环境类告警按此间隔限频重复。
+CONFIG_NODE_ALARM_REPEAT_SEC=300
+# 无活动提醒要求本次启动后先确认过一次有效 PIR 活动，防止断线常低误报。
+CONFIG_NODE_NO_MOTION_REQUIRE_ARM=y
+# 正常现场固件必须关闭台架注入。
+# CONFIG_NODE_ALARM_BENCH_INJECT is not set
+# 板载单色告警 LED（DNESP32S3 用户 LED = IO1）：
+#   ALARM 普通告警 1.25Hz 快闪；SOS 三短闪；ACKED 慢脉冲；NORMAL 灭。
+#   仅本地告警指示，不承担普通联网状态显示；stop 只静音不停灯。
+CONFIG_NODE_LED_GPIO=1
+CONFIG_NODE_LED_ACTIVE_LOW=y
+
+# 告警声音编排（2026-10-26 LOCAL-ALARM-SPEECH-FINAL）：先短提示音，蜂鸣停止后再播
+# 完整中文语音，二者不重叠。旧行为是蜂鸣器连续响 10 秒并把语音完全遮盖。
+CONFIG_NODE_ALARM_CHIRP_ON_MS=200
+CONFIG_NODE_ALARM_CHIRP_GAP_MS=100
+CONFIG_NODE_ALARM_CHIRP_COUNT=2
+CONFIG_NODE_ALARM_CHIRP_COUNT_SOS=3
+CONFIG_NODE_ALARM_VOICE_GAP_MS=150
+CONFIG_NODE_VOICE_AMP_SETTLE_MS=60

@@ -1,0 +1,15 @@
+== host tests (LOCAL-ALARM-SPEECH-FINAL) rerun at 2026-10-26T22:33:29.8643177+08:00 ==
+alarm_logic(public): PASS=141 FAIL=0
+alarm_logic(bath): PASS=54 FAIL=0
+bathroom_logic(bath,含新增8条): PASS=62 FAIL=0
+bathroom_logic(public): PASS=54 FAIL=0
+== adpcm decoder vs audioop reference ==
+climate_both.adpcm: D:\OpenHarmony\competition\evidence\2026-10-26-kitchen-sos-led-speech-final\audio\final\climate_both.adpcm: samples=72378 mismatches=0 -> PASS
+climate_generic.adpcm: D:\OpenHarmony\competition\evidence\2026-10-26-kitchen-sos-led-speech-final\audio\final\climate_generic.adpcm: samples=63990 mismatches=0 -> PASS
+climate_rh.adpcm: D:\OpenHarmony\competition\evidence\2026-10-26-kitchen-sos-led-speech-final\audio\final\climate_rh.adpcm: samples=60618 mismatches=0 -> PASS
+climate_temp.adpcm: D:\OpenHarmony\competition\evidence\2026-10-26-kitchen-sos-led-speech-final\audio\final\climate_temp.adpcm: samples=60270 mismatches=0 -> PASS
+no_motion.adpcm: D:\OpenHarmony\competition\evidence\2026-10-26-kitchen-sos-led-speech-final\audio\final\no_motion.adpcm: samples=79770 mismatches=0 -> PASS
+sos.adpcm: D:\OpenHarmony\competition\evidence\2026-10-26-kitchen-sos-led-speech-final\audio\final\sos.adpcm: samples=55574 mismatches=0 -> PASS
+== node profile tests ==
+ℹ tests 1 | ℹ pass 1 | ℹ fail 0
+ℹ tests 3 | ℹ pass 3 | ℹ fail 0

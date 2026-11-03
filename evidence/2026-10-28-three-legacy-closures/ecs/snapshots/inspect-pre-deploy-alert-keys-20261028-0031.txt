@@ -1,0 +1,9 @@
+# 本文件为只读字段结构核查输出（UTF-8）；不含坐标数值、不含凭据。
+# 生成: 2026-10-28 Asia/Shanghai（ecs-verify）
+
+now=2026-10-27T16:27:10.738Z
+esp32sos_alerts=13
+alert_keys=id,alarmId,deviceId,roomName,type,message,state,ackPending,createdAt,acknowledgedAt,acknowledgedBy,evidence
+alarmId=sos-11-686d1dee createdAt=1793116331119 state=ACKED ackPending=false ackAt=1793116362948 ackBy="household-guardian" locKeys=[]
+alarmId=sos-10-4a2b38da createdAt=1793116020138 state=ACKED ackPending=false ackAt=1793116162218 ackBy="household-guardian" locKeys=[]
+alarmId=sos-9-729e65b9 createdAt=1793115909368 state=ACKED ackPending=false ackAt=1793115943453 ackBy="household-guardian" locKeys=[]

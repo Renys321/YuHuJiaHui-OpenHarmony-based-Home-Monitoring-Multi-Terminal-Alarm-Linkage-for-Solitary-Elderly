@@ -1,0 +1,9 @@
+[0;32mI (23322) elder-node: CMD 收到: mictest 3[0m
+[0;33mW (23322) elder-node: MIC_TEST 开始：3 秒（安静/说话各测一次，比较 RMS 与峰值）[0m
+[0;32mI (23322) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793459561639,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1793459543993,"countToday":1},"door":{"open":true,"lastOpenTs":0,"lastCloseTs":0,"seq":12},"climate":{"tempC":23.6,"rh":67.5,"ok":true,"valid":true},"gas":{"raw":357,"ok":true,"valid":true},"smoke":{"raw":139,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,1],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[0m
+[0;32mI (23362) local-voice: MIC begin 16000Hz mono s16 (ES8388 ADC, DIN=GPIO14)[0m
+[0;32mI (23372) elder-node: STACK_FREE task=main bytes=1668[0m
+[0;32mI (23402) elder-node: STACK_FREE task=gateway-net bytes=2216[0m
+[0;32mI (26422) local-voice: MIC end playback_restored=1[0m
+[0;32mI (26432) local-voice: MIC_TEST rms=0 peak=0 samples=47360 seconds=3 min=0 max=0[0m

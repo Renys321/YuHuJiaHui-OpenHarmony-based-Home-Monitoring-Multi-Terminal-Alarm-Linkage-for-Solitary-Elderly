@@ -1,0 +1,3 @@
+.room-header { display: flex; align-items: center; justify-content: space-between; }
+.room-name { font-size: 34rpx; font-weight: 700; }
+.room-location { margin: 8rpx 0 14rpx; }

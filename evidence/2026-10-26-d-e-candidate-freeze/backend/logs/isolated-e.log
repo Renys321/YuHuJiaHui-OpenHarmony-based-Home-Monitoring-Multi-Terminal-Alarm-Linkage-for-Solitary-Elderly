@@ -1,0 +1,45 @@
+PASS  D0 alarm fixture ingest accepted 202
+PASS  E3 ingest accepted 202
+PASS  E3 duplicate ingest accepted 202
+PASS  E3 increment ingest accepted 202
+PASS  E3 rollback ingest accepted 202
+PASS  E4 PIR-less ingest accepted 202
+PASS  E1 day report 200
+PASS  E1 dataSince is a positive integer (epoch ms), not a string
+PASS  E1 server does NOT return dataSinceMs / dataSinceText
+PASS  E3 first sample only establishes baseline: count is 4+2=6 (not 5+9+2)
+PASS  E3 counter rollback recorded as reset without negative delta
+PASS  E1 field inventory matches documented contract
+PASS  E1 day range is exactly one day
+PASS  E5 no-data hours stay null, never 0
+PASS  E8 disclaimer is the PIR trigger-count wording
+PASS  E4 PIR-less device row: count null + hasMotionSensor false
+PASS  E2 week = rolling 7 days ending on selected date
+PASS  E2 month = rolling 30 days ending on selected date (NOT a calendar month)
+PASS  E2 previous window is the previous equal-length window
+PASS  E5 insufficient history does not fabricate a trend
+PASS  E4 summary counts only the selected window and days with data
+PASS  E2 invalid scope -> 400
+PASS  E2 invalid calendar date -> 400
+PASS  E2 unauthenticated -> 401
+PASS  D3 disposition created 201
+PASS  D3 identical replay is idempotent 200
+PASS  D3 changed content conflicts 409
+PASS  D2 client-supplied serverTime/operator rejected 400
+PASS  D1 disposition did not create ACK command
+PASS  D1 disposition did not change alert status / ackPending
+PASS  D4 safety logs come from the ledger and contain the record
+PASS  E6 activity file uses its own version=1 and only whitelisted keys
+PASS  E6 main snapshot is schema v6 and has no activity state
+PASS  E7 activity report survives backend restart with identical count
+PASS  D5 safety logs survive backend restart
+PASS  E7 activity write failure keeps ingest 202 (natural 202 proves nothing about stats)
+PASS  E7 failed activity write rolls memory back (report stays null, no fake success)
+PASS  E7 activity file was never created because every write failed
+PASS  E7 corrupt activity file fails closed (no silent reset)
+
+[isolated-d-e] checks=39 passed=39 failed=0
+[isolated-d-e] monthRange={"from":"2026-09-27","to":"2026-10-26","days":30} weekRange={"from":"2026-10-20","to":"2026-10-26","days":7}
+[isolated-d-e] activityFile keys=version,savedAt,activity version=1 mainSchema=6
+[isolated-d-e] dataSinceType=number dataSinceMs=false dataSinceText=false
+[isolated-d-e] ISOLATED_PASS

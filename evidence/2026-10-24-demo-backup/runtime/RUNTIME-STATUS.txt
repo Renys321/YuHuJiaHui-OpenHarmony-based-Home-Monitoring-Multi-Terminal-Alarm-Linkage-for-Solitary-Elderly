@@ -1,0 +1,24 @@
+DEMO BACKUP RUNTIME SNAPSHOT
+Captured=2026-10-24T00:04:33.0493651+08:00
+Mode=read-only
+
+[LISTEN PORTS]
+port=1883 status=not-listening
+port=6540 status=not-listening
+port=9000 status=not-listening
+port=9001 status=not-listening
+port=9101 status=not-listening
+port=9200 status=not-listening
+port=5555 local=127.0.0.1:5555 owningPid=6936
+
+[KNOWN PROCESS NAMES]
+name=node pid=35412
+name=node pid=37864
+name=node pid=41692
+name=node pid=45296
+name=node pid=48972
+name=python status=not-found
+name=python3 status=not-found
+name=homemon status=not-found
+name=hdc pid=41824
+name=hdc pid=43072

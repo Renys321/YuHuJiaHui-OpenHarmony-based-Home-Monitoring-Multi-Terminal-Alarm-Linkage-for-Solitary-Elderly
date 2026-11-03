@@ -1,0 +1,19 @@
+﻿$ hdc -t 450100445634303332012847942eca00 shell "/vendor/bin/wpa_cli -p /data/service/el1/public/wifi/sockets/wpa -i wlan0 status"
+# captured: 2026-10-27 22:31:53 +08:00
+----------------------------------------------------------------------
+bssid=5a:fe:a0:a6:a3:d7
+freq=2462
+ssid=ElderCareLab
+id=0
+mode=station
+wifi_generation=4
+pairwise_cipher=CCMP
+group_cipher=CCMP
+key_mgmt=WPA2-PSK
+wpa_state=COMPLETED
+ip_address=10.127.130.131
+p2p_device_address=b6:18:5e:81:0a:03
+address=54:78:c9:96:a6:b2
+uuid=6d510e24-1061-5d41-b440-51f6a61e6221
+ieee80211ac=1
+

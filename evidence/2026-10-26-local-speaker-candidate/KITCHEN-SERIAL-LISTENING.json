@@ -1,0 +1,120 @@
+{
+  "stage": "listening",
+  "port": "COM5",
+  "startedAt": "2026-10-26T01:15:55.004637+08:00",
+  "rawUARTSaved": false,
+  "serialCommandsSent": false,
+  "hardwareRestart": false,
+  "samples": [
+    {
+      "observedAt": "2026-10-26T01:15:55.305471+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 0,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.2,
+        "rh": 53.8,
+        "valid": true
+      },
+      "gas": {
+        "raw": 328,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 183,
+        "valid": true
+      }
+    },
+    {
+      "observedAt": "2026-10-26T01:16:02.186673+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 0,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.2,
+        "rh": 53.8,
+        "valid": true
+      },
+      "gas": {
+        "raw": 337,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 246,
+        "valid": true
+      }
+    },
+    {
+      "observedAt": "2026-10-26T01:16:09.087815+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 1792948569139,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.2,
+        "rh": 54.0,
+        "valid": true
+      },
+      "gas": {
+        "raw": 341,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 183,
+        "valid": true
+      }
+    },
+    {
+      "observedAt": "2026-10-26T01:16:16.008484+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 1792948576059,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.3,
+        "rh": 54.0,
+        "valid": true
+      },
+      "gas": {
+        "raw": 315,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 239,
+        "valid": true
+      }
+    }
+  ],
+  "voice": [
+    "READY",
+    "PLAY clip=3",
+    "STOP result=ESP_OK cancelled=0",
+    "READY",
+    "PLAY clip=3",
+    "STOP result=ESP_OK cancelled=0",
+    "READY",
+    "PLAY clip=3",
+    "STOP result=ESP_OK cancelled=0",
+    "READY",
+    "PLAY clip=3"
+  ],
+  "network": [
+    "WIFI_DISCONNECTED",
+    "WIFI_GOT_IP",
+    "GATEWAY_CONNECTED",
+    "WIFI_DISCONNECTED",
+    "WIFI_DISCONNECTED"
+  ],
+  "diagnostics": [
+    "A stack overflow in task main has been detected",
+    "Backtrace: 0x40375b2e:0x3fca5b70 0x4037d739:0x3fca5b90 0x4038029e:0x3fca5bb0 0x4037ef37:0x3fca5c30 0x403803ac:0x3fca5c50 0x403803a2:0x00000000",
+    "rst:0x3 (RTC_SW_SYS_RST)",
+    "A stack overflow in task main has been detected",
+    "Backtrace: 0x40375b2e:0x3fca5b70 0x4037d739:0x3fca5b90 0x4038029e:0x3fca5bb0 0x4037ef37:0x3fca5c30 0x403803ac:0x3fca5c50 0x403803a2:0x00000000",
+    "rst:0x3 (RTC_SW_SYS_RST)",
+    "A stack overflow in task main has been detected",
+    "Backtrace: 0x40375b2e:0x3fca5b70 0x4037d739:0x3fca5b90 0x4038029e:0x3fca5bb0 0x4037ef37:0x3fca5c30 0x403803ac:0x3fca5c50 0x403803a2:0x00000000",
+    "rst:0x3 (RTC_SW_SYS_RST)",
+    "A stack overflow in task main has been detected",
+    "Backtrace: 0x40375b2e:0x3fca5b70 0x4037d739:0x3fca5b90 0x4038029e:0x3fca5bb0 0x4037ef37:0x3fca5c30 0x403803ac:0x3fca5c50 0x403803a2:0x00000000",
+    "rst:0x3 (RTC_SW_SYS_RST)"
+  ]
+}

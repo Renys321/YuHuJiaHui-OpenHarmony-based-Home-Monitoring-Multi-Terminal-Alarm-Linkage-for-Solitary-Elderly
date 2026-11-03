@@ -1,0 +1,15 @@
+﻿# cmd: ping -n 4 10.127.130.131
+# captured: 2026-10-27 22:32:17 +08:00
+----------------------------------------------------------------------
+
+Pinging 10.127.130.131 with 32 bytes of data:
+Reply from 10.127.130.131: bytes=32 time=211ms TTL=64
+Reply from 10.127.130.131: bytes=32 time=75ms TTL=64
+Reply from 10.127.130.131: bytes=32 time=233ms TTL=64
+Reply from 10.127.130.131: bytes=32 time=241ms TTL=64
+
+Ping statistics for 10.127.130.131:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 75ms, Maximum = 241ms, Average = 190ms
+

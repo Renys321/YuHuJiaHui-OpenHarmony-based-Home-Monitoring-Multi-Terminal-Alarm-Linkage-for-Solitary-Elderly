@@ -1,0 +1,19 @@
+{
+  "src": [
+    "pages/LoginPage",
+    "pages/Index",
+    "pages/AlertDetailPage",
+    "pages/LogPage",
+    "pages/DevicePage",
+    "pages/StatsPage",
+    "pages/RegisterPage",
+    "pages/ForgotPage",
+    "pages/ChangePwdPage",
+    "pages/CancelAccountPage",
+    "pages/VideoVisitPage",
+    "pages/ActivityReportPage",
+    "pages/HealthAssessmentPage",
+    "pages/ElderEditPage",
+    "pages/ContactsEditPage"
+  ]
+}

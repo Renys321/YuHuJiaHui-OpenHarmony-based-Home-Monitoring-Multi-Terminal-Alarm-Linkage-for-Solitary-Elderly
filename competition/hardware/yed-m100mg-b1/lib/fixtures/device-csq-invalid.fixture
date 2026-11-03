@@ -1,0 +1,62 @@
+# lib/fixtures/device-csq-invalid.fixture
+#
+# 用途：覆盖 CSQ 边界与非法值以及 SSTA 枚举边界。
+# 说明：同一命令出现多个应答体时按顺序回放；配合 CLI 的多次采样可以依次得到
+#       CSQ 0 / 31 / 99 / 非法值。CSQ=99 是“未知”，CLI 绝不折算 dBm，也绝不算强信号。
+# 性质：构造夹具，非真机录制。
+
+>>> config,get,firmwarever
+config,get,firmwarever
+config,firmwarever,ok,YED_DTU4_2.0.3
+
+>>> config,get,paramver
+config,get,paramver
+config,paramver,ok,0
+
+>>> config,get,csq
+config,get,csq
+config,csq,ok,0
+
+>>> config,get,csq
+config,get,csq
+config,csq,ok,31
+
+>>> config,get,csq
+config,get,csq
+config,csq,ok,99
+
+>>> config,get,csq
+config,get,csq
+config,csq,ok,32
+
+>>> config,get,csq
+config,get,csq
+config,csq,ok,abc
+
+>>> config,get,ssta
+config,get,ssta
+config,ssta,ok,0
+
+>>> config,get,ssta
+config,get,ssta
+config,ssta,ok,2
+
+>>> config,get,ssta
+config,get,ssta
+config,ssta,ok,3
+
+>>> config,get,ssta
+config,get,ssta
+config,ssta,ok,4
+
+>>> config,get,ssta
+config,get,ssta
+config,ssta,ok,5
+
+>>> config,get,ssta
+config,get,ssta
+config,ssta,ok,6
+
+>>> config,get,ssta
+config,get,ssta
+config,ssta,ok,7

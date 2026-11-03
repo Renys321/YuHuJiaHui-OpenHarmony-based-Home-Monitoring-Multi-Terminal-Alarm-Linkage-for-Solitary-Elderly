@@ -1,0 +1,8 @@
+﻿$ hdc -t 450100445634303332012847942eca00 shell "/vendor/bin/wpa_cli -p /data/service/el1/public/wifi/sockets/wpa -i wlan0 list_networks; /vendor/bin/wpa_cli -p /data/service/el1/public/wifi/sockets/wpa -i wlan0 scan_results"
+# captured: 2026-10-27 22:31:54 +08:00
+----------------------------------------------------------------------
+network id / ssid / bssid / flags
+0	ElderCareLab	any	[CURRENT]
+bssid / frequency / signal level / flags / ssid / informationElements
+5a:fe:a0:a6:a3:d7	2462	-41	[WPA2-PSK-CCMP][ESS]	ElderCareLab	[7 434e04010d14][61 0b001500000000000000000000000000000000000000][192 000000faff]
+

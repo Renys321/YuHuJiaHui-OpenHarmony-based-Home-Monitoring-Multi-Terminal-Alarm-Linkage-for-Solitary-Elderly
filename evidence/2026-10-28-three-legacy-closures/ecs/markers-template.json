@@ -1,0 +1,12 @@
+{
+  "_说明": "复制本文件为 ecs-output/markers.json，把 t 改成真实发生时刻（Asia/Shanghai，+08:00）。没有发生的动作不要写；不确定就留 note。kind 允许: device_power_off | device_power_on | device_restart | alert_ack_clicked | deploy_done | note",
+  "no_docker_restart": false,
+  "events": [
+    { "t": "2026-10-28T00:00:00+08:00", "kind": "deploy_done", "note": "请改成 install-on-ecs.sh 成功结束的真实时刻" },
+    { "t": "2026-10-28T00:00:00+08:00", "kind": "alert_ack_clicked", "alarmId": "sos-XX-XXXXXXXX", "note": "ACK 重启窗口：APP 点确认的时刻" },
+    { "t": "2026-10-28T00:00:00+08:00", "kind": "device_power_off", "note": "ESP32 断电（M100 保持供电）" },
+    { "t": "2026-10-28T00:00:00+08:00", "kind": "device_power_on", "note": "ESP32 上电" },
+    { "t": "2026-10-28T00:00:00+08:00", "kind": "device_restart", "note": "设备重启（断电+上电）时刻，取上电时刻" },
+    { "t": "2026-10-28T00:00:00+08:00", "kind": "note", "note": "其他需要澄清的时间（例如离线 >2min 的断电/上电时刻）" }
+  ]
+}

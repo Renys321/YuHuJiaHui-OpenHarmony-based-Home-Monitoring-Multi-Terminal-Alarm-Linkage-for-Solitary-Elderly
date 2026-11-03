@@ -1,0 +1,42 @@
+{
+  "inspectedAt": "2026-10-25T17:06:27.995Z",
+  "port": "COM5",
+  "device": "esp32-kitchen",
+  "mac": "50:78:7d:16:ed:60",
+  "flashBytes": 16777216,
+  "flashSHA256": "7A0E9077C8C9B64313AF010BB23878F624B5464F841578865E459CC1069F9979",
+  "partitionTableMD5Verified": true,
+  "partitions": [
+    {
+      "type": 1,
+      "subtype": 2,
+      "offset": 36864,
+      "size": 24576,
+      "label": "nvs",
+      "flags": 0
+    },
+    {
+      "type": 1,
+      "subtype": 1,
+      "offset": 61440,
+      "size": 4096,
+      "label": "phy_init",
+      "flags": 0
+    },
+    {
+      "type": 0,
+      "subtype": 0,
+      "offset": 65536,
+      "size": 1048576,
+      "label": "factory",
+      "flags": 0
+    }
+  ],
+  "appPartitionBytes": 1048576,
+  "appPartitionSHA256": "AC6CCE540ED528C8F85F2D2EE22C3C7696F6C9099617FA732059A0F026349FC4",
+  "originalMatchesFrozen": true,
+  "frozenAppBytes": 782496,
+  "frozenAppSHA256": "330D9CA6EF858B0A4043607CA2EB7E92125A9030F2D06B05DA1218B8CCE62938",
+  "backupPrivate": true,
+  "flashed": false
+}

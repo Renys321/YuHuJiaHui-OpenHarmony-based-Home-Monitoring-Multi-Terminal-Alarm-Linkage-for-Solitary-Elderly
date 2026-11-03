@@ -1,0 +1,15 @@
+[connect] 2026-10-27T14:25:08.953Z broker=127.0.0.1:1883
+[subscribe] home/+/status err=none
+[msg] {"recvAt":"2026-10-27T14:25:23.706Z","sinceStartMs":14841,"topic":"home/dayu200-living/status","deviceId":"dayu200-living","room":"客厅","ts":1793111122729,"tsAgeMs":977,"state":"ALARM","countToday":0,"payloadBytes":387}
+[msg] {"recvAt":"2026-10-27T14:25:24.187Z","sinceStartMs":15322,"topic":"home/esp32-kitchen/status","deviceId":"esp32-kitchen","room":"厨房","ts":1793111123110,"tsAgeMs":1077,"state":"ACKED","countToday":1,"payloadBytes":460}
+[msg] {"recvAt":"2026-10-27T14:25:24.248Z","sinceStartMs":15383,"topic":"home/esp32-bath/status","deviceId":"esp32-bath","room":"卫生间","ts":1793111123580,"tsAgeMs":668,"state":"ALARM","countToday":93,"payloadBytes":460}
+[msg] {"recvAt":"2026-10-27T14:25:26.819Z","sinceStartMs":17954,"topic":"home/dayu200-living/status","deviceId":"dayu200-living","room":"客厅","ts":1793111125734,"tsAgeMs":1085,"state":"ALARM","countToday":0,"payloadBytes":387}
+[msg] {"recvAt":"2026-10-27T14:25:28.569Z","sinceStartMs":19704,"topic":"home/esp32-kitchen/status","deviceId":"esp32-kitchen","room":"厨房","ts":1793111128600,"tsAgeMs":-31,"state":"ACKED","countToday":1,"payloadBytes":460}
+[msg] {"recvAt":"2026-10-27T14:25:29.037Z","sinceStartMs":20172,"topic":"home/esp32-bath/status","deviceId":"esp32-bath","room":"卫生间","ts":1793111129070,"tsAgeMs":-33,"state":"ALARM","countToday":93,"payloadBytes":460}
+[msg] {"recvAt":"2026-10-27T14:25:29.697Z","sinceStartMs":20832,"topic":"home/dayu200-living/status","deviceId":"dayu200-living","room":"客厅","ts":1793111128739,"tsAgeMs":958,"state":"ALARM","countToday":0,"payloadBytes":387}
+[msg] {"recvAt":"2026-10-27T14:25:34.079Z","sinceStartMs":25214,"topic":"home/esp32-kitchen/status","deviceId":"esp32-kitchen","room":"厨房","ts":1793111134090,"tsAgeMs":-11,"state":"ACKED","countToday":1,"payloadBytes":460}
+[msg] {"recvAt":"2026-10-27T14:25:34.545Z","sinceStartMs":25680,"topic":"home/esp32-bath/status","deviceId":"esp32-bath","room":"卫生间","ts":1793111134560,"tsAgeMs":-15,"state":"ALARM","countToday":93,"payloadBytes":460}
+[error] read ECONNRESET
+[error] connect ECONNREFUSED 127.0.0.1:1883
+[error] connect ECONNREFUSED 127.0.0.1:1883
+[summary] {"home/dayu200-living/status":18,"home/esp32-kitchen/status":10,"home/esp32-bath/status":10}

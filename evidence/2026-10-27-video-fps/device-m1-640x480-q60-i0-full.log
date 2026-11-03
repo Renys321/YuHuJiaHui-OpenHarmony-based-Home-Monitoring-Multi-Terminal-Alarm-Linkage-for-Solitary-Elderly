@@ -1,0 +1,8 @@
+﻿10-27 23:58:13.130 16966 16966 I A03d00/JSAPP: [VideoStreamServer] frame#41 cap=110ms scale=67ms pack=41ms send=4ms size=480x360 q=50 bytes=12356 fps=4 interval=40
+10-27 23:58:18.217 16966 16966 I A03d00/JSAPP: [VideoStreamServer] frame#61 cap=100ms scale=51ms pack=43ms send=6ms size=480x360 q=50 bytes=12497 fps=4 interval=40
+10-28 00:03:39.143 21193 21193 I A03d00/JSAPP: [VideoStreamServer] 配置更新 size=640x480 q=60 interval=0 crop=0
+10-28 00:03:39.144 21193 21193 I A03d00/JSAPP: [VideoStreamServer] 开始取帧 viewer=lead-acceptance-client size=640x480 q=60 interval=0
+10-28 00:03:39.401 21193 21193 I A03d00/JSAPP: [VideoStreamServer] frame#1 cap=164ms scale=0ms pack=82ms send=4ms size=640x480 q=60 bytes=22803 fps=0 interval=0
+10-28 00:03:44.958 21193 21193 I A03d00/JSAPP: [VideoStreamServer] frame#21 cap=242ms scale=0ms pack=85ms send=8ms size=640x480 q=60 bytes=23690 fps=4 interval=0
+10-28 00:03:50.405 21193 21193 I A03d00/JSAPP: [VideoStreamServer] frame#41 cap=173ms scale=0ms pack=75ms send=7ms size=640x480 q=60 bytes=23637 fps=4 interval=0
+10-28 00:03:56.028 21193 21193 I A03d00/JSAPP: [VideoStreamServer] frame#61 cap=132ms scale=0ms pack=76ms send=3ms size=640x480 q=60 bytes=22610 fps=4 interval=0

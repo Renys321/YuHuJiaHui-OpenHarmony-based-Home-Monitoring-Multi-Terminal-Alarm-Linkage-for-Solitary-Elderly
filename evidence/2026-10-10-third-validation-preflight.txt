@@ -1,0 +1,18 @@
+== 第三轮真机验证前置检查 ==
+PC 时间（Asia/Shanghai）: 2026-10-10 09:52:39 +08:00
+
+hdc list targets:
+- exit code: 0
+- output: empty
+- conclusion: 当前没有在线 HDC 目标，未执行任何设备 shell、部署或启动操作。
+
+本地端口:
+- 127.0.0.1:1883 free
+- 127.0.0.1:9000 free
+- 127.0.0.1:9100 free
+
+本轮边界:
+- 未运行 materials/demo_start.ps1。
+- 未安装 HAP，未推送或启动 homemon，未建立 hdc fport。
+- 未启动 Broker、Bridge 或 sim_node。
+- 本记录不是第三轮真机 PASS；恢复设备连接后需重新执行完整预检。

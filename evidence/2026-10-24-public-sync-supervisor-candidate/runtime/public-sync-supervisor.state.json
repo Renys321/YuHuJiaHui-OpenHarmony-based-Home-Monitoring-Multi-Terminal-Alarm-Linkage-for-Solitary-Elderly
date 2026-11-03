@@ -1,0 +1,16 @@
+{
+  "supervisorPid": 11872,
+  "workerPid": 50580,
+  "state": "HEALTHY",
+  "startedAt": 1792852352390,
+  "heartbeatAt": 1792867343355,
+  "restartCount": 1,
+  "lastWorkerStartedAt": 1792852550631,
+  "lastWorkerExit": {
+    "code": 4294967295,
+    "signal": null,
+    "at": 1792852549609,
+    "durationMs": 180644
+  },
+  "lastHealthyAt": 1792852550848
+}

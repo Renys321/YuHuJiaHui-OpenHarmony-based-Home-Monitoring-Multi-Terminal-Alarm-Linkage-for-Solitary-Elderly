@@ -1,0 +1,17 @@
+{
+    "recordedAt":  "2026-10-27T02:01:02.5220669+08:00",
+    "com":  "COM4",
+    "mac":  "14:c1:9f:42:dd:b4",
+    "expectedMac":  "14:c1:9f:42:dd:b4",
+    "binPath":  "D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\firmware\\bath-v7-esp32_elder_node.bin",
+    "binSize":  1011648,
+    "binSha256":  "56D9A8054EC6B1AA0FB19E5390D6744E55FD2B572DE722742A799F5C3A8CAA6B",
+    "appFlashOffset":  "0x10000",
+    "esptoolExit":  0,
+    "esptoolReportedHashVerified":  true,
+    "fullErase":  false,
+    "wrotePartitions":  [
+                            "factory app only (0x10000)"
+                        ],
+    "note":  "App-partition-only update; bootloader/NVS/partition table untouched."
+}

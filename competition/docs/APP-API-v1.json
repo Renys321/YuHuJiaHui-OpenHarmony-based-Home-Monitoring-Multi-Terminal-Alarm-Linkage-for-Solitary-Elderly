@@ -1,0 +1,53 @@
+{
+  "contract": "eldercare-guardian-app",
+  "version": "1.3.0",
+  "versionHistory": [
+    { "version": "1.0.0", "date": "2026-10-15", "note": "core /api/v1 contract" },
+    { "version": "1.1.0", "date": "2026-10-26", "note": "additive: alert dispositions + persistent safety logs (schema v6)" },
+    { "version": "1.2.0", "date": "2026-10-26", "note": "additive: PIR activity day/week/month report (independent version=1 store)" },
+    { "version": "1.3.0", "date": "2026-10-27", "note": "additive: health profile GET/PUT + DeepSeek health-education advice (independent version=1 health store; fixed server-side disclaimer)" }
+  ],
+  "basePath": "/api/v1",
+  "timeUnit": "unix-milliseconds",
+  "authentication": {
+    "login": "POST /api/v1/auth/app",
+    "scheme": "Bearer",
+    "expiresInSeconds": 7200,
+    "passwordPolicy": "8-256 characters; entered by the guardian; never embedded in the APP"
+  },
+  "endpoints": [
+    { "method": "POST", "path": "/api/v1/auth/app", "auth": "none" },
+    { "method": "GET", "path": "/api/v1/overview", "auth": "bearer" },
+    { "method": "GET", "path": "/api/v1/rooms", "auth": "bearer" },
+    { "method": "GET", "path": "/api/v1/devices", "auth": "bearer" },
+    { "method": "GET", "path": "/api/v1/alerts", "auth": "bearer" },
+    { "method": "GET", "path": "/api/v1/alerts/{alarmId}/evidence", "auth": "bearer" },
+    { "method": "GET", "path": "/api/v1/alerts/{alarmId}/evidence/content", "auth": "bearer", "responseType": "image/jpeg" },
+    { "method": "POST", "path": "/api/v1/alerts/{alarmId}/ack", "auth": "bearer" },
+    { "method": "GET", "path": "/api/v1/location", "auth": "bearer" },
+    { "method": "GET", "path": "/api/v1/contacts", "auth": "bearer" },
+    { "method": "POST", "path": "/api/v1/alerts/{alarmId}/dispositions", "auth": "bearer" },
+    { "method": "GET", "path": "/api/v1/alerts/{alarmId}/dispositions", "auth": "bearer" },
+    { "method": "GET", "path": "/api/v1/safety-logs?limit={1..200}&alarmId={alarmId}", "auth": "bearer" },
+    { "method": "GET", "path": "/api/v1/activity/report?scope={day|week|month}&date={YYYY-MM-DD}", "auth": "bearer" },
+    { "method": "GET", "path": "/api/v1/health-profile", "auth": "bearer" },
+    { "method": "PUT", "path": "/api/v1/health-profile", "auth": "bearer" },
+    { "method": "POST", "path": "/api/v1/health-advice", "auth": "bearer" },
+    { "method": "POST", "path": "/api/v1/communications/messages", "auth": "bearer" },
+    { "method": "GET", "path": "/api/v1/communications/messages?limit={1..100}", "auth": "bearer" },
+    { "method": "GET", "path": "/api/v1/communications/messages/{messageId}", "auth": "bearer" }
+  ],
+  "enums": {
+    "deviceState": ["NORMAL", "WARN", "ALARM", "ACKED", "OFFLINE"],
+    "communicationState": ["QUEUED", "DELIVERED", "PLAYED", "ACKED", "FAILED", "EXPIRED"],
+    "voiceId": ["CHECK_IN", "PLEASE_RESPOND", "MEDICINE_REMINDER", "FAMILY_MESSAGE", "EMERGENCY_CONTACTING"],
+    "dispositionOutcome": ["CONTACTED_FAMILY", "CONTACTED_COMMUNITY", "ON_SITE_CONFIRMED_NORMAL", "FALSE_ALARM", "OTHER"],
+    "activityScope": ["day", "week", "month"],
+    "activityStatus": ["no_data", "insufficient", "partial", "ok"],
+    "healthTaste": ["light", "normal", "salty"]
+  },
+  "compatibility": {
+    "rule": "Existing /api/v1 fields and meanings are additive-only. Breaking changes require /api/v2.",
+    "clientRule": "Clients must ignore unknown response fields and must not invent undocumented request fields."
+  }
+}

@@ -1,0 +1,150 @@
+[2026-10-27T16:24:49.463Z] INFO  video relay starting mode=local relay=0.0.0.0:9443 backendBase=https://api.luxunacc.xyz dayu=10.127.130.131:9301 maxViewers=2 idleStopMs=3000 ticketTtlMs=60000 heartbeatMs=5000 dayuDownGraceMs=30000 logLevel=info
+[2026-10-27T16:24:49.499Z] INFO  relay listening host=0.0.0.0 port=9443 mode=local
+[2026-10-27T16:24:49.500Z] INFO  video relay ready listen=0.0.0.0:9443 mode=local
+[2026-10-27T16:24:51.381Z] INFO  http method=GET path=/video/healthz status=200 ms=2
+[2026-10-27T16:24:59.649Z] INFO  session ticket issued ticketPrefix=0da803 ttlMs=60000 backendStatus=200
+[2026-10-27T16:24:59.653Z] INFO  http method=POST path=/video/session status=200 ms=675
+[2026-10-27T16:24:59.738Z] INFO  viewer joined viewer=v1 viewers=1 mode=local
+[2026-10-27T16:24:59.740Z] INFO  dayu connecting host=10.127.130.131 port=9301 attempt=1
+[2026-10-27T16:24:59.741Z] INFO  stream upgrade accepted ticketPrefix=0da803
+[2026-10-27T16:25:00.922Z] INFO  dayu hello proto=1 device=dayu200-living camera=320x240 cameraActive=true
+[2026-10-27T16:25:01.037Z] INFO  dayu streaming device=
+[2026-10-27T16:25:01.038Z] INFO  frame source up viewers=1
+[2026-10-27T16:25:01.200Z] INFO  viewer first frame viewer=v1 firstFrameAfterMs=1461
+[2026-10-27T16:25:04.984Z] INFO  http method=GET path=/video/healthz status=200 ms=1
+[2026-10-27T16:29:42.559Z] WARN  dayu link lost reason=read ECONNRESET
+[2026-10-27T16:29:42.560Z] WARN  frame source down, keeping viewers reason=read ECONNRESET viewers=1 graceMs=30000
+[2026-10-27T16:29:42.561Z] INFO  dayu reconnect scheduled inMs=500 attempt=1
+[2026-10-27T16:29:43.069Z] INFO  dayu connecting host=10.127.130.131 port=9301 attempt=2
+[2026-10-27T16:29:45.080Z] WARN  dayu link not established reason=connect timeout
+[2026-10-27T16:29:45.082Z] INFO  dayu reconnect scheduled inMs=1000 attempt=2
+[2026-10-27T16:29:46.093Z] INFO  dayu connecting host=10.127.130.131 port=9301 attempt=3
+[2026-10-27T16:29:48.103Z] WARN  dayu link not established reason=connect timeout
+[2026-10-27T16:29:48.105Z] INFO  dayu reconnect scheduled inMs=2000 attempt=3
+[2026-10-27T16:29:50.114Z] INFO  dayu connecting host=10.127.130.131 port=9301 attempt=4
+[2026-10-27T16:29:52.121Z] WARN  dayu link not established reason=connect timeout
+[2026-10-27T16:29:52.123Z] INFO  dayu reconnect scheduled inMs=5000 attempt=4
+[2026-10-27T16:29:57.135Z] INFO  dayu connecting host=10.127.130.131 port=9301 attempt=5
+[2026-10-27T16:29:59.142Z] WARN  dayu link not established reason=connect timeout
+[2026-10-27T16:29:59.142Z] INFO  dayu reconnect scheduled inMs=10000 attempt=5
+[2026-10-27T16:30:09.146Z] INFO  dayu connecting host=10.127.130.131 port=9301 attempt=6
+[2026-10-27T16:30:10.502Z] INFO  dayu hello proto=1 device=dayu200-living camera=320x240 cameraActive=true
+[2026-10-27T16:30:10.725Z] INFO  dayu streaming device=
+[2026-10-27T16:30:10.726Z] INFO  dayu recovered, notifying viewers viewers=1
+[2026-10-27T16:30:24.259Z] INFO  viewer left viewer=v1 viewers=0 framesSent=69 dropped=0
+[2026-10-27T16:30:27.263Z] INFO  idle stop: no viewers idleStopMs=3000
+[2026-10-27T16:47:19.223Z] INFO  http method=GET path=/video/healthz status=200 ms=1
+[2026-10-27T17:07:20.925Z] INFO  session ticket issued ticketPrefix=f79b88 ttlMs=60000 backendStatus=200
+[2026-10-27T17:07:20.928Z] INFO  http method=POST path=/video/session status=200 ms=369
+[2026-10-27T17:07:20.998Z] INFO  viewer joined viewer=v2 viewers=1 mode=local
+[2026-10-27T17:07:21.000Z] INFO  dayu connecting host=10.127.130.131 port=9301 attempt=1
+[2026-10-27T17:07:21.001Z] INFO  stream upgrade accepted ticketPrefix=f79b88
+[2026-10-27T17:07:23.011Z] WARN  dayu link not established reason=connect timeout
+[2026-10-27T17:07:23.013Z] WARN  frame source down, keeping viewers reason=connect timeout viewers=1 graceMs=30000
+[2026-10-27T17:07:23.013Z] INFO  dayu reconnect scheduled inMs=500 attempt=1
+[2026-10-27T17:07:23.524Z] INFO  dayu connecting host=10.127.130.131 port=9301 attempt=2
+[2026-10-27T17:07:25.539Z] WARN  dayu link not established reason=connect timeout
+[2026-10-27T17:07:25.540Z] INFO  dayu reconnect scheduled inMs=1000 attempt=2
+[2026-10-27T17:07:26.549Z] INFO  dayu connecting host=10.127.130.131 port=9301 attempt=3
+[2026-10-27T17:07:28.563Z] WARN  dayu link not established reason=connect timeout
+[2026-10-27T17:07:28.564Z] INFO  dayu reconnect scheduled inMs=2000 attempt=3
+[2026-10-27T17:07:29.511Z] INFO  viewer left viewer=v2 viewers=0 framesSent=0 dropped=0
+[2026-10-27T17:07:30.068Z] INFO  session end viewersClosed=0 ticketsRevoked=0 verified=true backendStatus=200
+[2026-10-27T17:07:30.069Z] INFO  http method=POST path=/video/session/end status=200 ms=553
+[2026-10-27T17:07:30.572Z] INFO  dayu connecting host=10.127.130.131 port=9301 attempt=4
+[2026-10-27T17:07:31.702Z] INFO  session ticket issued ticketPrefix=fd28be ttlMs=60000 backendStatus=200
+[2026-10-27T17:07:31.705Z] INFO  http method=POST path=/video/session status=200 ms=197
+[2026-10-27T17:07:31.734Z] INFO  viewer joined viewer=v3 viewers=1 mode=local
+[2026-10-27T17:07:31.735Z] INFO  stream upgrade accepted ticketPrefix=fd28be
+[2026-10-27T17:07:32.583Z] WARN  dayu link not established reason=connect timeout
+[2026-10-27T17:07:32.584Z] WARN  frame source down, keeping viewers reason=connect timeout viewers=1 graceMs=30000
+[2026-10-27T17:07:32.584Z] INFO  dayu reconnect scheduled inMs=5000 attempt=4
+[2026-10-27T17:07:37.590Z] INFO  dayu connecting host=10.127.130.131 port=9301 attempt=5
+[2026-10-27T17:07:38.873Z] INFO  viewer left viewer=v3 viewers=0 framesSent=0 dropped=0
+[2026-10-27T17:07:39.342Z] INFO  session end viewersClosed=0 ticketsRevoked=0 verified=true backendStatus=200
+[2026-10-27T17:07:39.344Z] INFO  http method=POST path=/video/session/end status=200 ms=450
+[2026-10-27T17:07:39.600Z] WARN  dayu link not established reason=connect timeout
+[2026-10-27T17:07:39.600Z] INFO  frame source down (no viewers) reason=connect timeout
+[2026-10-27T17:07:39.601Z] INFO  dayu reconnect scheduled inMs=10000 attempt=5
+[2026-10-27T17:07:41.877Z] INFO  idle stop: no viewers idleStopMs=3000
+[2026-10-27T17:08:18.228Z] INFO  session ticket issued ticketPrefix=891b2c ttlMs=60000 backendStatus=200
+[2026-10-27T17:08:18.231Z] INFO  http method=POST path=/video/session status=200 ms=276
+[2026-10-27T17:08:18.264Z] INFO  viewer joined viewer=v4 viewers=1 mode=local
+[2026-10-27T17:08:18.265Z] INFO  dayu connecting host=10.127.130.131 port=9301 attempt=6
+[2026-10-27T17:08:18.266Z] INFO  stream upgrade accepted ticketPrefix=891b2c
+[2026-10-27T17:08:20.280Z] WARN  dayu link not established reason=connect timeout
+[2026-10-27T17:08:20.281Z] WARN  frame source down, keeping viewers reason=connect timeout viewers=1 graceMs=30000
+[2026-10-27T17:08:20.281Z] INFO  dayu reconnect scheduled inMs=10000 attempt=6
+[2026-10-27T17:08:23.264Z] INFO  viewer left viewer=v4 viewers=0 framesSent=0 dropped=0
+[2026-10-27T17:08:23.584Z] INFO  session end viewersClosed=0 ticketsRevoked=0 verified=true backendStatus=200
+[2026-10-27T17:08:23.586Z] INFO  http method=POST path=/video/session/end status=200 ms=292
+[2026-10-27T17:08:26.282Z] INFO  idle stop: no viewers idleStopMs=3000
+[2026-10-27T17:08:29.921Z] INFO  http method=GET path=/healthz status=404 ms=0
+[2026-10-27T17:09:32.881Z] INFO  session ticket issued ticketPrefix=969ced ttlMs=60000 backendStatus=200
+[2026-10-27T17:09:32.883Z] INFO  http method=POST path=/video/session status=200 ms=611
+[2026-10-27T17:09:32.937Z] INFO  viewer joined viewer=v5 viewers=1 mode=local
+[2026-10-27T17:09:32.938Z] INFO  dayu connecting host=10.127.130.131 port=9301 attempt=7
+[2026-10-27T17:09:32.939Z] INFO  stream upgrade accepted ticketPrefix=969ced
+[2026-10-27T17:09:34.942Z] WARN  dayu link not established reason=connect timeout
+[2026-10-27T17:09:34.943Z] WARN  frame source down, keeping viewers reason=connect timeout viewers=1 graceMs=30000
+[2026-10-27T17:09:34.943Z] INFO  dayu reconnect scheduled inMs=10000 attempt=7
+[2026-10-27T17:09:36.131Z] INFO  viewer left viewer=v5 viewers=0 framesSent=0 dropped=0
+[2026-10-27T17:09:36.241Z] INFO  session end viewersClosed=0 ticketsRevoked=0 verified=true backendStatus=200
+[2026-10-27T17:09:36.243Z] INFO  http method=POST path=/video/session/end status=200 ms=99
+[2026-10-27T17:09:39.143Z] INFO  idle stop: no viewers idleStopMs=3000
+[2026-10-27T17:10:45.117Z] INFO  session ticket issued ticketPrefix=f0533f ttlMs=60000 backendStatus=200
+[2026-10-27T17:10:45.118Z] INFO  http method=POST path=/video/session status=200 ms=547
+[2026-10-27T17:10:45.170Z] INFO  viewer joined viewer=v6 viewers=1 mode=local
+[2026-10-27T17:10:45.171Z] INFO  dayu connecting host=10.127.130.131 port=9301 attempt=8
+[2026-10-27T17:10:45.173Z] INFO  stream upgrade accepted ticketPrefix=f0533f
+[2026-10-27T17:10:47.181Z] WARN  dayu link not established reason=connect timeout
+[2026-10-27T17:10:47.182Z] WARN  frame source down, keeping viewers reason=connect timeout viewers=1 graceMs=30000
+[2026-10-27T17:10:47.182Z] INFO  dayu reconnect scheduled inMs=10000 attempt=8
+[2026-10-27T17:10:57.194Z] INFO  dayu connecting host=10.127.130.131 port=9301 attempt=9
+[2026-10-27T17:10:59.204Z] WARN  dayu link not established reason=connect timeout
+[2026-10-27T17:10:59.205Z] INFO  dayu reconnect scheduled inMs=10000 attempt=9
+[2026-10-27T17:11:00.208Z] INFO  viewer left viewer=v6 viewers=0 framesSent=0 dropped=0
+[2026-10-27T17:11:03.221Z] INFO  idle stop: no viewers idleStopMs=3000
+[2026-10-27T17:11:10.343Z] INFO  http method=GET path=/video/healthz status=200 ms=0
+[2026-10-27T17:13:02.585Z] INFO  session ticket issued ticketPrefix=72f620 ttlMs=60000 backendStatus=200
+[2026-10-27T17:13:02.587Z] INFO  http method=POST path=/video/session status=200 ms=299
+[2026-10-27T17:13:02.669Z] INFO  viewer joined viewer=v7 viewers=1 mode=local
+[2026-10-27T17:13:02.671Z] INFO  dayu connecting host=10.127.130.131 port=9301 attempt=10
+[2026-10-27T17:13:02.672Z] INFO  stream upgrade accepted ticketPrefix=72f620
+[2026-10-27T17:13:04.673Z] WARN  dayu link not established reason=connect timeout
+[2026-10-27T17:13:04.674Z] WARN  frame source down, keeping viewers reason=connect timeout viewers=1 graceMs=30000
+[2026-10-27T17:13:04.675Z] INFO  dayu reconnect scheduled inMs=10000 attempt=10
+[2026-10-27T17:13:14.690Z] INFO  dayu connecting host=10.127.130.131 port=9301 attempt=11
+[2026-10-27T17:13:16.697Z] WARN  dayu link not established reason=connect timeout
+[2026-10-27T17:13:16.697Z] INFO  dayu reconnect scheduled inMs=10000 attempt=11
+[2026-10-27T17:13:17.681Z] INFO  viewer left viewer=v7 viewers=0 framesSent=0 dropped=0
+[2026-10-27T17:13:20.686Z] INFO  idle stop: no viewers idleStopMs=3000
+[2026-10-27T17:13:42.618Z] INFO  http method=GET path=/video/healthz status=200 ms=0
+[2026-10-27T17:14:27.703Z] INFO  session ticket issued ticketPrefix=060904 ttlMs=60000 backendStatus=200
+[2026-10-27T17:14:27.706Z] INFO  http method=POST path=/video/session status=200 ms=292
+[2026-10-27T17:14:27.800Z] INFO  viewer joined viewer=v8 viewers=1 mode=local
+[2026-10-27T17:14:27.801Z] INFO  dayu connecting host=10.127.130.131 port=9301 attempt=12
+[2026-10-27T17:14:27.802Z] INFO  stream upgrade accepted ticketPrefix=060904
+[2026-10-27T17:14:29.808Z] WARN  dayu link not established reason=connect timeout
+[2026-10-27T17:14:29.809Z] WARN  frame source down, keeping viewers reason=connect timeout viewers=1 graceMs=30000
+[2026-10-27T17:14:29.810Z] INFO  dayu reconnect scheduled inMs=10000 attempt=12
+[2026-10-27T17:14:30.228Z] INFO  viewer left viewer=v8 viewers=0 framesSent=0 dropped=0
+[2026-10-27T17:14:30.347Z] INFO  session end viewersClosed=0 ticketsRevoked=0 verified=true backendStatus=200
+[2026-10-27T17:14:30.349Z] INFO  http method=POST path=/video/session/end status=200 ms=133
+[2026-10-27T17:14:32.183Z] INFO  session ticket issued ticketPrefix=30f336 ttlMs=60000 backendStatus=200
+[2026-10-27T17:14:32.185Z] INFO  http method=POST path=/video/session status=200 ms=119
+[2026-10-27T17:14:32.247Z] INFO  viewer joined viewer=v9 viewers=1 mode=local
+[2026-10-27T17:14:32.248Z] INFO  dayu connecting host=10.127.130.131 port=9301 attempt=13
+[2026-10-27T17:14:32.248Z] INFO  stream upgrade accepted ticketPrefix=30f336
+[2026-10-27T17:14:34.259Z] WARN  dayu link not established reason=connect timeout
+[2026-10-27T17:14:34.261Z] WARN  frame source down, keeping viewers reason=connect timeout viewers=1 graceMs=30000
+[2026-10-27T17:14:37.387Z] INFO  viewer left viewer=v9 viewers=0 framesSent=0 dropped=0
+[2026-10-27T17:14:37.855Z] INFO  session end viewersClosed=0 ticketsRevoked=0 verified=true backendStatus=200
+[2026-10-27T17:14:37.856Z] INFO  http method=POST path=/video/session/end status=200 ms=516
+[2026-10-27T17:14:38.806Z] INFO  http method=GET path=/healthz status=404 ms=0
+[2026-10-27T17:14:38.831Z] INFO  http method=GET path=/health status=404 ms=0
+[2026-10-27T17:14:38.833Z] INFO  http method=GET path=/video/healthz status=200 ms=0
+[2026-10-27T17:14:38.872Z] INFO  http method=GET path=/status status=404 ms=1
+[2026-10-27T17:14:38.873Z] INFO  http method=GET path=/video/status status=404 ms=0
+[2026-10-27T17:14:39.814Z] INFO  dayu connecting host=10.127.130.131 port=9301 attempt=13
+[2026-10-27T17:14:40.390Z] INFO  idle stop: no viewers idleStopMs=3000

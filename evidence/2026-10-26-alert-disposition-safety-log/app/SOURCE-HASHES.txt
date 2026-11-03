@@ -1,0 +1,73 @@
+APP 源码 SHA-256（task-3：告警独立处置结果 + 安全日志历史页）
+================================================================
+时间：2026-10-26 01:58 (+08:00) 源码冻结快照
+工作目录：<WORKSPACE>\APP\ElderlyCareGuardian
+算法：SHA-256（PowerShell Get-FileHash）；字节数 = 文件长度
+
+D 类改动文件
+------------
+9B1B8AA4E360D0426986B75F1F7BD57C64127D9B9DBB32377602415A5177428B  32564  entry/src/main/ets/core/api/Contracts.ts
+E7C8D312DEAEF5501B5FC0B72D3EDC2D7F8F97F3DEEFCDDE40E34B6C362C4937  18994  entry/src/main/ets/core/api/ApiClient.ts
+F830566F877386B2B248C7700B5B7B0E023CE7490B5151D97C1422A60D20EFAA   6231  entry/src/main/ets/core/view/Models.ts
+BA08405A2B1B44E8AE3AD1924D2AB369E19D00D005EE8491FE3EB249A261AAED  29794  entry/src/main/ets/core/view/ViewMapper.ts
+08F660C8227AC671481A0880E7ABA15DAC52A62F14A188C59FC49BAB27858250   2425  entry/src/main/ets/core/service/Outcomes.ts
+ABE34D0A2511627E09FFADB749A6DEDEDA121D5A3BF6AF2D4BDB2EB0F9D2CAFF  57039  entry/src/main/ets/service/GuardianService.ets
+3000A11C62F78E13EBFB39F1D4BA9644F2A52596C53B47EACB1257369117F6D7  54927  entry/src/main/ets/pages/AlertDetailPage.ets
+87F51C08BC1726D699C21D40383707CF5F069B7BD7113639ABE8F75CA09F2205  22825  entry/src/main/ets/pages/LogPage.ets
+9BBF41EBD6E942F9F36993AE0EDD5EECE72C5BB7C747C8828F6749C2CC206B01  15596  entry/src/test/Disposition.test.ets
+41C4984586C836EB56AC29410166AE12870524B8B02132B45C4AE0B06AB11BE0    254  entry/src/test/List.test.ets
+31DED2692464FB729B5616BC72C26B1999D0B32788CDEBCC4A79D2880FF36DF8  26422  tests/disposition.test.mjs
+
+净改动为 0 的文件（已按 Lead 要求收敛并还原）
+---------------------------------------------
+entry/src/main/ets/pages/ProfilePage.ets   未修改（路径入口 url: 'pages/LogPage' 保持原样）
+
+共享文件中“非本任务”追加段的说明（并行 E 会话，属另一条任务线，不是 app-dev 的改动）
+----------------------------------------------------------------------------------
+下列 5 个文件同时被本任务（D：处置/安全日志）与并行 E 会话（活动报告 activity/report）修改，
+上面的 SHA-256 是“冻结时刻”整文件哈希，其中包含 E 追加代码；D 部分由本任务负责，
+E 部分（core/activity/*、ActivityReportPage、activityReport API 等）不由本任务负责，
+也不计入 task-3 验收：
+  - entry/src/main/ets/core/api/Contracts.ts        （E 段：Activity DTO/解析，位于处置段之后）
+  - entry/src/main/ets/core/api/ApiClient.ts        （E 段：activityReport 方法）
+  - entry/src/main/ets/core/view/Models.ts          （E 段：Activity 视图模型）
+  - entry/src/main/ets/core/service/Outcomes.ts     （E 段：Activity 报告 Outcome）
+  - entry/src/main/ets/service/GuardianService.ets  （E 段：活动报告服务方法）
+并行 E 文件（非本任务，列此仅便于区分）：
+  entry/src/main/ets/core/activity/ActivityModels.ts
+  entry/src/main/ets/core/activity/ActivityReport.ts
+  entry/src/main/ets/pages/ActivityReportPage.ets
+  entry/src/main/ets/pages/StatsPage.ets
+  entry/src/main/resources/base/profile/main_pages.json
+  tests/activity-report.test.mjs
+  tests/api-client.test.mjs 中追加的 6 条 activityReport 用例
+
+生产域名核对
+------------
+entry/src/main/ets/service/GuardianService.ets 中 API_BASE_URL 仍为
+https://api.luxunacc.xyz（未修改）。
+
+构建后源码漂移说明（只有并行 E 文件，D 文件未变）
+------------------------------------------------
+Lead 于 01:59:34 完成 HAP 构建，本快照 D 类文件哈希与构建时一致（已独立复算 HAP：
+2,613,947 bytes / 2CFB8908…，与 BUILD-RESULTS.txt 相同）。
+构建之后（02:01:22–02:01:48）并行 E 会话再次修改了以下 3 个文件，导致**当前工作树**与
+HAP 中的 E 代码不一致（D 类文件在 01:55 后未再变更）：
+  - entry/src/main/ets/core/api/Contracts.ts（当前 33822 bytes；本快照构建时 32564 bytes）
+  - entry/src/main/ets/core/activity/ActivityReport.ts
+  - entry/src/main/ets/pages/ActivityReportPage.ets
+即：HAP 中的 D 类（处置/安全日志）代码 = 本快照；E 类代码为构建时刻版本。
+若最终 HAP 需与当前工作树完全一致，须等并行 E 会话冻结后重建（Lead 决策）。
+
+本目录证据文件
+--------------
+app/TEST-RESULTS.txt
+app/SOURCE-HASHES.txt（本文件）
+app/UI-CHANGES.md
+app/BUILD-RESULTS.txt（Lead 构建写入）
+app/FINAL-SOURCE-HASHES.txt（Lead 全量 D 快照）
+app/entry-default-unsigned-2CFB8908.hap（Lead 归档副本）
+app/logs/node-tests.log
+app/logs/hvigor-test.log
+app/logs/hvigor-assembleHap.log
+app/runtime/UNIT-TEST-RESULT.txt、coverage.log、coverageReport.json（Lead 构建产物）

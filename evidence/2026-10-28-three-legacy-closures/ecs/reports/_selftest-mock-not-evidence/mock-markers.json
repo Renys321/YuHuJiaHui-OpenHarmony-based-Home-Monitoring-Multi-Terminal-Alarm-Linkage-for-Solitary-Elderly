@@ -1,0 +1,22 @@
+{
+  "no_docker_restart": true,
+  "events": [
+    {
+      "t": "2026-10-28T01:01:30.000+08:00",
+      "kind": "device_power_off"
+    },
+    {
+      "t": "2026-10-28T01:02:00.000+08:00",
+      "kind": "alert_ack_clicked",
+      "alarmId": "sos-9-aaaaaaaa"
+    },
+    {
+      "t": "2026-10-28T01:04:50.000+08:00",
+      "kind": "device_power_on"
+    },
+    {
+      "t": "2026-10-28T01:04:50.000+08:00",
+      "kind": "device_restart"
+    }
+  ]
+}

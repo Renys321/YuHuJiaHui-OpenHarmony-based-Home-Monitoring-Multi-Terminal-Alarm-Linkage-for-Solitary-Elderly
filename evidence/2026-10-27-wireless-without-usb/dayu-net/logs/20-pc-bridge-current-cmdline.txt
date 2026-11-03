@@ -1,0 +1,6 @@
+﻿# cmd: BRIDGECMD
+# captured: 2026-10-27 22:32:36 +08:00
+----------------------------------------------------------------------
+PID=61072 START=10/27/2026 22:25:23
+"D:\Node\node.exe" mqtt_bridge.js --broker 127.0.0.1:1883 --status-tcp 10.127.130.131:9000 --listen 9101 --relay-to 10.127.130.131:9000 --cmd-out <WORKSPACE>\competition\bridge\_test\current-runtime\supervisor\control --status-file <WORKSPACE>\competition\bridge\_test\current-runtime\supervisor\status.json
+

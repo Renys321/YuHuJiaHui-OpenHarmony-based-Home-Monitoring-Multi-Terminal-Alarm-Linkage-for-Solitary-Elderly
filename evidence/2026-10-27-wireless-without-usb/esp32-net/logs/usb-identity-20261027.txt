@@ -1,0 +1,9 @@
+﻿== 串口枚举（22:25:08 / 22:25:36 采集，USB 未拔时） ==
+[usb] COM5 [{"path":"COM5","manufacturer":"wch.cn","serialNumber":"7&25042A44&0&1","pnpId":"USB\\VID_1A86&PID_7523\\7&25042A44&0&1","locationId":"Port_#0001.Hub_#0004","friendlyName":"USB-SERIAL CH340 (COM5)","vendorId":"1A86","productId":"7523"}]
+[usb] COM4 [{"path":"COM4","manufacturer":"wch.cn","serialNumber":"7&25042A44&0&2","pnpId":"USB\\VID_1A86&PID_7523\\7&25042A44&0&2","locationId":"Port_#0002.Hub_#0004","friendlyName":"USB-SERIAL CH340 (COM4)","vendorId":"1A86","productId":"7523"}]
+
+== 22:37:39 / 22:38:14 复核（USB 数据线已不在一侧） ==
+SerialPort.GetPortNames() = COM11, COM19, COM20
+Win32_PnPEntity CH340/USB-SERIAL = NONE
+Open COM4 -> 端口不存在
+Open COM5 -> 端口不存在

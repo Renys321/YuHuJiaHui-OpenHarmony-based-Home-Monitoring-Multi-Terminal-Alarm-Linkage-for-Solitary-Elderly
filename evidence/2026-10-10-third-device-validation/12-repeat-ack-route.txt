@@ -1,0 +1,39 @@
+PC_SEND_TIME=2026-10-10 10:11:28 +08:00
+SEND_OK=true
+PC_CAPTURE_TIME=2026-10-10 10:11:33 +08:00
+--- SIM NODE TAIL ---
+[sim-node] → ACKED 活动 0 次
+[sim-node] → ACKED 活动 0 次
+[sim-node] → ACKED 活动 0 次
+[sim-node] → ACKED 活动 0 次
+[sim-node] → ACKED 活动 0 次
+[sim-node] → ACKED 活动 0 次
+[sim-node] → ACKED 活动 0 次
+[sim-node] → ACKED 活动 0 次
+[sim-node] → ACKED 活动 0 次
+[sim-node] → ACKED 活动 0 次
+[sim-node] → ACKED 活动 0 次
+[sim-node] → ACKED 活动 0 次
+[sim-node] ← 收到命令: ack sim-1791598053239-1 重复确认测试
+[sim-node] ACK 被拒绝：当前没有待处理告警（state=ACKED，收到 id=sim-1791598053239-1）
+[sim-node] → ACKED 活动 0 次
+[sim-node] → ACKED 活动 0 次
+--- BRIDGE TAIL ---
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] 命令已发往节点 esp32-bath: ack sim-1791598053239-1 重复确认测试
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+--- STATUS JSON ---
+{"deviceId":"esp32-bath","room":"卫生间","ts":1791598292,"state":"ACKED","sensors":{"motion":{"lastActiveTs":1791598287,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":0,"rh":0,"ok":true},"gas":{"raw":0,"ok":true},"smoke":{"raw":0,"ok":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"sim-1791598053239-1","type":"GAS","countToday":1}}

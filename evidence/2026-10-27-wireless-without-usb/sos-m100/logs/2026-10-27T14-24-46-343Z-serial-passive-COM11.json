@@ -1,0 +1,42 @@
+{
+  "port": "COM11",
+  "mode": "READ_ONLY_NO_WRITES",
+  "dtr": false,
+  "rts": false,
+  "probedAt": "2026-10-27T14:24:46.324Z",
+  "probedAtLocal": "2026-10-27 22:24:46 +08:00",
+  "results": [
+    {
+      "baud": 115200,
+      "opened": true,
+      "bytes": 1,
+      "ascii": ".",
+      "hex": "fe",
+      "error": ""
+    },
+    {
+      "baud": 9600,
+      "opened": true,
+      "bytes": 0,
+      "ascii": "",
+      "hex": "",
+      "error": ""
+    },
+    {
+      "baud": 38400,
+      "opened": true,
+      "bytes": 0,
+      "ascii": "",
+      "hex": "",
+      "error": ""
+    },
+    {
+      "baud": 57600,
+      "opened": true,
+      "bytes": 0,
+      "ascii": "",
+      "hex": "",
+      "error": ""
+    }
+  ]
+}

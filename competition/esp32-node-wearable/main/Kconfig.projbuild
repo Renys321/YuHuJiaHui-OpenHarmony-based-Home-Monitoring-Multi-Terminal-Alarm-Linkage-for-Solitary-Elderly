@@ -1,0 +1,115 @@
+menu "Wearable SOS"
+
+    config WEARABLE_DEV_ID
+        string "设备 ID（上行 JSON dev 字段，后端固定为 esp32-sos）"
+        default "esp32-sos"
+
+    config WEARABLE_FW_VERSION
+        string "固件版本（boot 帧 fw 字段）"
+        default "wearable-1.0.0"
+
+    config WEARABLE_BUTTON_GPIO
+        int "求助按钮 GPIO（内部上拉，低电平按下）"
+        default 4
+        range 0 48
+        help
+            2 脚常开按钮：一端接该 GPIO，另一端接 GND。
+            不要使用 GPIO6（16MB Flash 板上的 SPI flash 脚）、19/20（USB）、26-37（Flash/PSRAM）。
+
+    config WEARABLE_BUZZER_GPIO
+        int "蜂鸣器 GPIO（高电平触发 3 针模块 I/O）"
+        default 5
+        range 0 48
+        help
+            3 针有源蜂鸣器模块：I/O 接该 GPIO，VCC 接 3.3V，GND 接 GND。
+            本模块实测为高电平触发；待机输出 0（静音）。
+
+    config WEARABLE_UART_TX_GPIO
+        int "UART1 TX GPIO（接 M100 RXD）"
+        default 17
+        range 0 48
+
+    config WEARABLE_UART_RX_GPIO
+        int "UART1 RX GPIO（接 M100 TXD）"
+        default 18
+        range 0 48
+
+    config WEARABLE_UART_BAUD
+        int "UART1 波特率"
+        default 115200
+        range 9600 921600
+
+    config WEARABLE_QUERY_GPS_ON_SOS
+        bool "按下 SOS 时向 M100 查询一次 GPS（config,get,gpsext，1500ms 超时；实验开关，默认关闭）"
+        default n
+        help
+            实测 M100 的 GPS 是它自己主动上报到 MQTT 上行主题的固定格式报文
+            （WGS84 十进制 "经度_纬度"，如 113.9737_22.69271，无前缀/无时间字段），
+            由 ECS 适配器解析成“求助时最近定位”。因此正式固件默认关闭本开关：
+            不向 M100 发任何 config,get/... 命令，SOS 上行 JSON 的 gps 固定为 null，
+            避免查询/配置回包与透传业务互相干扰。
+            仅台架实验需要 ESP32 主动取一次定位时才打开：打开后按键会发
+            config,get,gpsext（1500ms 超时），有效定位补发同 alarmId 的 SOS；
+            所有 config 回包只在本地解析，绝不回显到 MQTT 上行。
+
+    # ---------------- 电池电压采样（契约 BATTERY-CHAIN-CONTRACT.md §1/§2） ----------------
+    # 本板默认 2（GPIO2 = ADC1_CH1）：硬件按 BOM/接线文档接好 100k/100k 分压即可启用。
+    # ⚠ 当前实物**没有**电池/分压/ADC 接线：固件只会输出 battery.valid=false + mv=null +
+    #   reason=OUT_OF_RANGE，绝不伪报电压/百分比（三重门限：样本数+极差+一致率+范围）。
+    config NODE_BATTERY_ADC_CHANNEL
+        int "电池电压采样 ADC1 通道（-1 禁用；GPIO2=CH1，GPIO8=CH7）"
+        default 2
+        range -1 9
+        help
+            只能用 ADC1（GPIO1..10 = CH0..CH9；ADC2 在 Wi-Fi/4G 工作时不可用）。
+            GPIO6 是 16MB Flash 的 SPI flash 脚，严禁使用；不要与按钮 GPIO4/蜂鸣器 GPIO5 冲突。
+            接线见 evidence/2026-10-27-battery-video-visit/battery/BOM-WIRING.md。
+
+    config NODE_BATTERY_DIVIDER_NUM
+        int "电池分压比分子（R1=R2=100k -> 2）"
+        default 2
+        range 1 100
+
+    config NODE_BATTERY_DIVIDER_DEN
+        int "电池分压比分母"
+        default 1
+        range 1 100
+
+    config NODE_BATTERY_CAL_GAIN_PERMILLE
+        int "两点校准增益（千分比：1000=不修正）"
+        default 1000
+        range 500 2000
+
+    config NODE_BATTERY_CAL_OFFSET_MV
+        int "两点校准偏移（mV，可为负）"
+        default 0
+        range -500 500
+
+    config NODE_BATTERY_LOW_MV
+        int "低电量阈值（mV，<= 即 low=true）"
+        default 3500
+        range 2000 5000
+
+    config NODE_BATTERY_MIN_MV
+        int "有效范围下界（mV，低于即 valid=false/OUT_OF_RANGE）"
+        default 2500
+        range 0 5000
+
+    config NODE_BATTERY_MAX_MV
+        int "有效范围上界（mV，高于即 valid=false/OUT_OF_RANGE）"
+        default 4350
+        range 1000 60000
+
+    config NODE_BATTERY_CALIBRATED
+        bool "已用万用表做过至少两点校准（仅此时才输出 percent）"
+        default n
+        help
+            未标定时只输出 mV + valid，percent=null（APP 显示“未标定”）。
+            绝不允许把未标定电压换算成百分比冒充精确电量。
+
+    config NODE_BATTERY_SAMPLE_SEC
+        int "电池采样周期（秒；契约默认 30s）"
+        default 30
+        range 5 3600
+
+endmenu

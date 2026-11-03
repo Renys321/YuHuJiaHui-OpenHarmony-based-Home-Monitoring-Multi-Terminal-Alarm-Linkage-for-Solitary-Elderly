@@ -1,0 +1,16 @@
+﻿$ hdc -t 450100445634303332012847942eca00 shell "hilog -x 2>&1 | grep -iE 'CameraModel' | tail -15"
+# captured: 2026-10-27 22:32:12 +08:00
+----------------------------------------------------------------------
+10-27 19:53:40.755 31805 31805 I A03d00/JSAPP: [CameraModel] 预览已启动 640x480
+10-27 20:22:18.932 16805 16805 I A03d00/JSAPP: [CameraModel] 预览已启动 640x480
+10-27 20:23:38.222  8411  8411 I A03d00/JSAPP: [CameraModel] 预览已启动 640x480
+10-27 20:50:16.881  8411  8411 I A03d00/JSAPP: [CameraModel] 资源已释放
+10-27 20:50:20.964  8411  8411 I A03d00/JSAPP: [CameraModel] 预览已启动 640x480
+10-27 22:10:52.158  8411  8411 I A03d00/JSAPP: [CameraModel] 资源已释放
+10-27 22:11:10.201  8411  8411 I A03d00/JSAPP: [CameraModel] 预览已启动 640x480
+10-27 22:11:29.196  8411  8411 I A03d00/JSAPP: [a92ab1b11065d49, 25f3a4e, baa367] [CameraModel] 资源已释放
+10-27 22:11:48.852  8411  8411 I A03d00/JSAPP: [CameraModel] 预览已启动 640x480
+10-27 22:13:50.297  8411  8411 I A03d00/JSAPP: [a92ab1b19d7505f, 5579dc, 39fa18e] [CameraModel] 资源已释放
+10-27 22:14:12.745  8411  8411 I A03d00/JSAPP: [CameraModel] 预览已启动 640x480
+10-27 22:32:11.236   720  2320 I C02d13/HDC_LOG: [async_cmd.cpp:251] ExecuteCommand cmd:hilog -x 2>&1 | grep -iE 'CameraModel' | tail -15 fd:37 pid:12898
+

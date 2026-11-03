@@ -1,0 +1,18 @@
+﻿== 步骤 03b：fport 与监听进程检测诊断 ==
+时间: 2026-10-09 22:45:45
+
+--- 1) 当前 fport 规则 ---
+[Empty]
+
+--- 2) Get-NetTCPConnection -LocalPort 9000 ---
+异常: 拒绝访问 
+
+--- 3) 原生 TCP 连接测试 127.0.0.1:9000 ---
+Connect 失败: 使用“2”个参数调用“Connect”时发生异常:“No connection could be made because the target machine actively refused it 127.0.0.1:9000”
+
+--- 4) netstat 视角（对照） ---
+
+  TCP    127.0.0.1:60057        127.0.0.1:9000         TIME_WAIT       0
+
+--- 5) 板端 homemon 是否还在（Die 不应杀板上进程）---
+root         30278     1 0 06:45:31 ?     00:00:00 homemon /data/local/tmp/demo.conf

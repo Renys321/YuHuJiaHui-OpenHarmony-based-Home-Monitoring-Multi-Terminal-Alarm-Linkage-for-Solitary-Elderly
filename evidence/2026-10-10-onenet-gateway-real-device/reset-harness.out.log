@@ -1,0 +1,7 @@
+[gateway] START mode=self device=dayu200-living
+[harness] gateway started, broker=mqtt://127.0.0.1:1883, events=D:\OpenHarmony\competition\evidence\2026-10-10-onenet-gateway-real-device\gateway-reset-events.jsonl, lifetime=150s
+[harness] deviceName=dayu200-living resetMode=self
+[gateway] LOCAL_SUBSCRIBED topic=home/+/status
+[harness] reset trigger subscribed topic=onenet/test/property-set err=no
+[gateway] RESET scope=self device=dayu200-living result=OK baselineSeq=2 seenSeq=3 seenState=NORMAL
+[harness] RESET result ok=true message=reset confirmed by device

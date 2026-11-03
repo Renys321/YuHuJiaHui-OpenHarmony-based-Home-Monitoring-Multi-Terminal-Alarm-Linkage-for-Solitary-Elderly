@@ -1,0 +1,77 @@
+<view class="page">
+  <view class="page-title">居家总览</view>
+  <view class="page-subtitle">查看房间、设备和待处理告警</view>
+
+  <view class="connection-banner {{banner.bannerClass}}">
+    <view>
+      <view class="connection-title">{{banner.title}}</view>
+      <view class="connection-detail">{{banner.detail}}</view>
+    </view>
+    <view wx:if="{{mode === 'demo'}}" class="demo-badge">演示数据</view>
+  </view>
+
+  <view wx:if="{{loading}}" class="state-view">
+    <view class="state-title">正在加载</view>
+    <view class="state-message">正在读取当前配置与监护状态</view>
+  </view>
+
+  <block wx:else>
+    <view class="summary-grid">
+      <view class="summary-item">
+        <view class="summary-number">{{summary.roomCount}}</view>
+        <view class="muted">房间</view>
+      </view>
+      <view class="summary-item">
+        <view class="summary-number">{{summary.onlineCount}}</view>
+        <view class="muted">在线设备</view>
+      </view>
+      <view class="summary-item alarm-summary">
+        <view class="summary-number">{{summary.alarmCount}}</view>
+        <view class="muted">待处理</view>
+      </view>
+      <view class="summary-item monitor-summary">
+        <view class="summary-number">{{summary.monitorOfflineCount}}</view>
+        <view class="muted">监护失联</view>
+      </view>
+    </view>
+
+    <view class="panel">
+      <view class="panel-title">最近告警</view>
+      <view wx:if="{{recentAlarms.length === 0}}" class="empty-inline">暂无告警数据</view>
+      <view wx:for="{{recentAlarms}}" wx:key="id" class="alarm-row">
+        <view>
+          <view class="alarm-message">{{item.message}}</view>
+          <view class="muted alarm-meta">{{item.roomName || '未知位置'}} · {{item.timeText}}</view>
+        </view>
+        <view class="{{item.stateClass}}">{{item.stateText}}</view>
+      </view>
+    </view>
+
+    <view class="panel">
+      <view class="panel-title">远程留言</view>
+      <view class="muted">给家里的 DAYU 设备留一句话，并选择一条预置语音在现场播报。</view>
+      <button class="secondary-button" bindtap="goCommunications">打开远程留言</button>
+    </view>
+
+    <view class="panel settings-panel">
+      <view class="panel-title">连接设置</view>
+      <view class="field-label">受信 HTTPS 后端</view>
+      <view wx:if="{{backendLocked}}" class="locked-backend">
+        <view class="locked-backend-label">生产地址已锁定</view>
+        <view class="locked-backend-url">{{apiBaseUrl}}</view>
+      </view>
+      <block wx:else>
+        <input class="text-input" value="{{apiBaseUrl}}" placeholder="https://api.example.com" bindinput="onApiInput" />
+        <view class="security-note">只填写你控制的 HTTPS API 地址。不要填写 OneNET access_key、token、Cookie 或网页登录凭据。</view>
+        <button class="secondary-button" bindtap="saveBackend">保存后端地址</button>
+      </block>
+      <view class="demo-switch-row">
+        <view>
+          <view class="demo-switch-title">本地演示数据</view>
+          <view class="muted">开启后所有页面都会明确标记“演示数据”</view>
+        </view>
+        <switch checked="{{demoMode}}" color="#b54708" bindchange="onDemoChange" />
+      </view>
+    </view>
+  </block>
+</view>

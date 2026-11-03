@@ -1,0 +1,6 @@
+10-10 10:02:27.830  2422  2422 I A03d00/JSAPP: [UI-Link] 已连接端口 9000
+10-10 10:10:10.017  2422  2422 I A03d00/JSAPP: [UI] 已下发闭环到 esp32-bath
+10-10 10:10:14.815  2422  2422 I A03d00/JSAPP: [UI] 设备 esp32-bath 已确认闭环：sim-1791598053239-1
+10-10 10:10:29.809   754   896 I C02d13/HDC_LOG: [async_cmd.cpp:251] ExecuteCommand cmd:hilog -x -z 800 -e 'UI-Link|已下发闭环|已确认闭环|下发失败' fd:44 pid:3780
+10-10 10:10:43.621   754   896 I C02d13/HDC_LOG: [async_cmd.cpp:251] ExecuteCommand cmd:hilog -x -z 300 -e '已下发闭环|已确认闭环|下发失败' fd:44 pid:3824
+10-10 10:11:13.285   754   896 I C02d13/HDC_LOG: [async_cmd.cpp:251] ExecuteCommand cmd:hilog -x -e '已下发闭环|已确认闭环|UI-Link|下发失败' fd:44 pid:3844

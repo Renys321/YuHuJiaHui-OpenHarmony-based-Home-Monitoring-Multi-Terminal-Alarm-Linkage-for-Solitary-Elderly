@@ -1,0 +1,212 @@
+{
+  "kind": "verify-report",
+  "generatedAt": "2026-10-28T00:34:58.715+08:00",
+  "samplesFile": "D:\\OpenHarmony\\competition\\evidence\\2026-10-28-three-legacy-closures\\ecs\\snapshots\\samples-post-deploy-first10min-20261028-003409.ndjson",
+  "baselineFile": "D:\\OpenHarmony\\competition\\evidence\\2026-10-28-three-legacy-closures\\ecs\\snapshots\\samples-pre-upgrade-20261028-003201.ndjson",
+  "markersFile": null,
+  "statusFiles": [
+    "status-after.json"
+  ],
+  "logsFile": null,
+  "overall": "BLOCKED",
+  "criteria": [
+    {
+      "id": "C0_DEPLOY_VERSION",
+      "title": "ECS 已部署 1.0.1（version=1.0.1 / deviceAliveTimeoutMs=120000）",
+      "verdict": "PASS",
+      "detail": "version=1.0.1（期望 1.0.1）; link.aliveTimeoutMs=120000（期望 120000）; startedAt=null",
+      "evidence": [
+        "status-after.json"
+      ]
+    },
+    {
+      "id": "C1_ACK_RESTART_WINDOW",
+      "title": "ACK 重启窗口：PENDING→设备重启→真实回执→ACKED（≤30s）",
+      "verdict": "BLOCKED",
+      "detail": "采样中没有任何已 ACKED 的随身 SOS 告警（acknowledgedAt>0）。该判据必须由真实 PENDING 告警 + 用户在 APP 确认制造，脚本绝不代报/激活。",
+      "evidence": []
+    },
+    {
+      "id": "C2_OFFLINE_2MIN",
+      "title": "断电 >120s 后 API online=false（120s 阈值），恢复后 online=true + lastSeen 推进",
+      "verdict": "BLOCKED",
+      "detail": "采样中未出现 online=false。可能：①设备未断电 >120s；②仍是 1.0.0（不会翻 false）；③断电时长不足。当前最后 seen 最大陈旧度=25s",
+      "evidence": []
+    },
+    {
+      "id": "C3_NO_DUPLICATE_ALARM",
+      "title": "同一 alarmId 在 /api/v1/alerts 只有 1 条，数量不因重连增加",
+      "verdict": "PASS",
+      "detail": "每个 alarmId 在告警列表里唯一；数量只在出现新 alarmId 时增加。",
+      "evidence": [
+        "采样条数=4；esp32-sos 告警 total/末次=13",
+        "alarmId 集合=[\"sos-11-686d1dee\",\"sos-10-4a2b38da\",\"sos-9-729e65b9\",\"sos-8-fc452df6\",\"sos-7-b941b638\",\"sos-6-49732005\",\"sos-5-a865a846\",\"sos-4-6c6aed3f\",\"sos-3-0555328b\",\"sos-2-124737aa\",\"e-1793076169-1\",\"e-1793035292-1\",\"e-1793022476-1\"]",
+        "每条 alarmId 出现次数=[{\"id\":\"sos-11-686d1dee\",\"n\":4},{\"id\":\"sos-10-4a2b38da\",\"n\":4},{\"id\":\"sos-9-729e65b9\",\"n\":4},{\"id\":\"sos-8-fc452df6\",\"n\":4},{\"id\":\"sos-7-b941b638\",\"n\":4},{\"id\":\"sos-6-49732005\",\"n\":4},{\"id\":\"sos-5-a865a846\",\"n\":4},{\"id\":\"sos-4-6c6aed3f\",\"n\":4},{\"id\":\"sos-3-0555328b\",\"n\":4},{\"id\":\"sos-2-124737aa\",\"n\":4},{\"id\":\"e-1793076169-1\",\"n\":4},{\"id\":\"e-1793035292-1\",\"n\":4},{\"id\":\"e-1793022476-1\",\"n\":4}]",
+        "ECS counters sosReceived=0 sosDuplicates=0"
+      ]
+    },
+    {
+      "id": "C4_LOCATION_INTACT",
+      "title": "位置/GPS 不因升级丢失（与升级前基线对比；无 fix 时 valid=false，不用 (0,0) 冒充）",
+      "verdict": "BLOCKED",
+      "detail": "升级前后 API 都**没有** esp32-sos 的位置数据（/api/v1/devices 无 gps 字段、/api/v1/location 无 esp32-sos 记录）：既没丢，也无法用该判据证明升级无影响。该字段与 DESIGN-CONTRACT §5.2 的“现网已支持”记录不一致，需 Lead 决策：要么户外拿到首次 GPS fix 后复测，要么接受现网后端未暴露该字段。",
+      "evidence": [
+        "本次采样中位置记录=0；gps.valid=true 出现=false；gps 字段缺失=true；gps.valid=false 且无坐标=false",
+        "升级前基线：位置记录=0；gps.valid=true=false（基线样本数=1）"
+      ]
+    },
+    {
+      "id": "C5_NO_FAKE_ACK",
+      "title": "不代报 ACK：ACKED 只能来自设备真实回执（commandResultOk 增长）",
+      "verdict": "BLOCKED",
+      "detail": "采样中无 ACKED 告警，无法验证（需真实 PENDING + APP 确认）。",
+      "evidence": [
+        "ACKED 告警数=0；/status 有证据=true；commandResultOk≥1=false",
+        "脚本本身从不 POST /alerts/{id}/ack、从不写 device-status（代码级边界）"
+      ]
+    },
+    {
+      "id": "C6_NO_DOCKER_RESTART",
+      "title": "验收全程未执行 docker restart（自愈靠事件驱动重投）",
+      "verdict": "BLOCKED",
+      "detail": "需要人工在 markers JSON 里声明 no_docker_restart=true（并保证期间没人重启容器）。",
+      "evidence": []
+    }
+  ],
+  "timeline": {
+    "device": [
+      {
+        "at": "2026-10-28T00:34:11.987+08:00",
+        "epochMs": 1793118851987,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793118827019,
+        "lastSeenIso": "2026-10-28T00:33:47.019+08:00",
+        "lastSeenAgeSec": 25
+      },
+      {
+        "at": "2026-10-28T00:34:25.244+08:00",
+        "epochMs": 1793118865244,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793118857023,
+        "lastSeenIso": "2026-10-28T00:34:17.023+08:00",
+        "lastSeenAgeSec": 8
+      },
+      {
+        "at": "2026-10-28T00:34:37.629+08:00",
+        "epochMs": 1793118877629,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793118857023,
+        "lastSeenIso": "2026-10-28T00:34:17.023+08:00",
+        "lastSeenAgeSec": 21
+      },
+      {
+        "at": "2026-10-28T00:34:51.242+08:00",
+        "epochMs": 1793118891243,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793118887030,
+        "lastSeenIso": "2026-10-28T00:34:47.030+08:00",
+        "lastSeenAgeSec": 4
+      }
+    ],
+    "alerts": [
+      {
+        "alarmId": "sos-11-686d1dee",
+        "firstSeenAt": "2026-10-28T00:34:11.987+08:00",
+        "createdAtIso": "2026-10-27T23:52:11.119+08:00",
+        "acknowledgedAtIso": "2026-10-27T23:52:42.948+08:00",
+        "state": "ACKED"
+      },
+      {
+        "alarmId": "sos-10-4a2b38da",
+        "firstSeenAt": "2026-10-28T00:34:11.987+08:00",
+        "createdAtIso": "2026-10-27T23:47:00.138+08:00",
+        "acknowledgedAtIso": "2026-10-27T23:49:22.218+08:00",
+        "state": "ACKED"
+      },
+      {
+        "alarmId": "sos-9-729e65b9",
+        "firstSeenAt": "2026-10-28T00:34:11.987+08:00",
+        "createdAtIso": "2026-10-27T23:45:09.368+08:00",
+        "acknowledgedAtIso": "2026-10-27T23:45:43.453+08:00",
+        "state": "ACKED"
+      },
+      {
+        "alarmId": "sos-8-fc452df6",
+        "firstSeenAt": "2026-10-28T00:34:11.987+08:00",
+        "createdAtIso": "2026-10-27T23:09:07.338+08:00",
+        "acknowledgedAtIso": "2026-10-27T23:12:21.303+08:00",
+        "state": "ACKED"
+      },
+      {
+        "alarmId": "sos-7-b941b638",
+        "firstSeenAt": "2026-10-28T00:34:11.987+08:00",
+        "createdAtIso": "2026-10-27T22:52:32.478+08:00",
+        "acknowledgedAtIso": "2026-10-27T22:52:59.268+08:00",
+        "state": "ACKED"
+      },
+      {
+        "alarmId": "sos-6-49732005",
+        "firstSeenAt": "2026-10-28T00:34:11.987+08:00",
+        "createdAtIso": "2026-10-27T22:06:44.756+08:00",
+        "acknowledgedAtIso": "2026-10-27T22:07:09.191+08:00",
+        "state": "ACKED"
+      },
+      {
+        "alarmId": "sos-5-a865a846",
+        "firstSeenAt": "2026-10-28T00:34:11.987+08:00",
+        "createdAtIso": "2026-10-27T18:14:23.939+08:00",
+        "acknowledgedAtIso": "2026-10-27T18:27:54.004+08:00",
+        "state": "ACKED"
+      },
+      {
+        "alarmId": "sos-4-6c6aed3f",
+        "firstSeenAt": "2026-10-28T00:34:11.987+08:00",
+        "createdAtIso": "2026-10-27T18:07:19.447+08:00",
+        "acknowledgedAtIso": "2026-10-27T18:07:45.707+08:00",
+        "state": "ACKED"
+      },
+      {
+        "alarmId": "sos-3-0555328b",
+        "firstSeenAt": "2026-10-28T00:34:11.987+08:00",
+        "createdAtIso": "2026-10-27T18:05:43.954+08:00",
+        "acknowledgedAtIso": "2026-10-27T18:06:30.294+08:00",
+        "state": "ACKED"
+      },
+      {
+        "alarmId": "sos-2-124737aa",
+        "firstSeenAt": "2026-10-28T00:34:11.987+08:00",
+        "createdAtIso": "2026-10-27T18:03:23.874+08:00",
+        "acknowledgedAtIso": "2026-10-27T18:04:02.595+08:00",
+        "state": "ACKED"
+      },
+      {
+        "alarmId": "e-1793076169-1",
+        "firstSeenAt": "2026-10-28T00:34:11.987+08:00",
+        "createdAtIso": "2026-10-27T12:42:51.966+08:00",
+        "acknowledgedAtIso": null,
+        "state": "ALARM"
+      },
+      {
+        "alarmId": "e-1793035292-1",
+        "firstSeenAt": "2026-10-28T00:34:11.987+08:00",
+        "createdAtIso": "2026-10-27T01:21:32.653+08:00",
+        "acknowledgedAtIso": "2026-10-27T02:23:11.306+08:00",
+        "state": "ACKED"
+      },
+      {
+        "alarmId": "e-1793022476-1",
+        "firstSeenAt": "2026-10-28T00:34:11.987+08:00",
+        "createdAtIso": "2026-10-26T21:49:36.411+08:00",
+        "acknowledgedAtIso": null,
+        "state": "ALARM"
+      }
+    ]
+  },
+  "evidenceHints": [
+    "最新 /status counters: {\"sosReceived\":0,\"sosDuplicates\":0,\"deviceOfflineReports\":0,\"parkedRecoveryTriggers\":0,\"commandResultOk\":0,\"commandsRedelivered\":0,\"deviceLinkUps\":0,\"deviceLinkDowns\":0,\"activeEventClearedByDevice\":0}"
+  ]
+}

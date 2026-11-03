@@ -1,0 +1,44 @@
+﻿# 在板固件身份 / 构建来源 / 可回滚 bin（只读核对，未烧录）
+采集时间: 2026-10-27 22:30-22:38 (+08:00)
+
+## 1. 板卡身份（串口自报 + 启动日志 + 烧录记录互证）
+| 项 | esp32-kitchen | esp32-bath |
+|---|---|---|
+| PC 串口（USB 未拔时） | COM5 | COM4 |
+| 板卡 | ESP32-S3 (QFN56) rev v0.2，flash 2MB | 同左 |
+| deviceId | esp32-kitchen | esp32-bath |
+| room | 厨房 | 卫生间 |
+| MAC | 50:78:7d:16:ed:60 | 14:c1:9f:42:dd:b4 |
+| Wi-Fi IP（DHCP） | 10.127.130.168/24 | 10.127.130.71/24 |
+| 默认网关（AP） | 10.127.130.217 | 10.127.130.217 |
+| 固件项目名 | esp32_elder_node | esp32_elder_node |
+| App version | 1 | 1 |
+| ESP-IDF | v5.1.6-dirty | v5.1.6-dirty |
+| 网关目标（sdkconfig） | 10.127.130.179:9101 | 10.127.130.179:9101 |
+| Wi-Fi SSID（sdkconfig） | ElderCareLab（密码不记录） | ElderCareLab（密码不记录） |
+
+证据来源：
+- 串口实时: esp32-net/logs/serial-COM5-20261027-222508.log, serial-COM4-20261027-222536.log
+- 启动日志(IP/身份): evidence/2026-10-27-door-v7-e2e/acceptance/kitchen-v7-boot-20261027.log, bath-v7-boot-20261027.log
+- 烧录记录(MAC): evidence/2026-10-27-door-v7-e2e/acceptance/flash-kitchen-v7-COM5.json, flash-bath-v7-COM4.json
+
+## 2. 在板固件构建来源
+- 最近一次烧录（app 分区 only，bootloader/NVS/分区表未动）：
+  - bath:  2026-10-27T02:01:02.522+08:00  COM4  flash-bath-v7-COM4.json
+  - kitchen:2026-10-27T02:02:34.669+08:00  COM5  flash-kitchen-v7-COM5.json
+- 构建目录: competition/esp32-node/.local/door-v7-20261027/build-kitchen|build-bath
+- 启动日志显示 App version=1、ESP-IDF v5.1.6-dirty、ESP32-S3、factory app 1MiB @0x10000（与 v7 记录一致）
+
+## 3. 可回滚 bin（与在板固件逐字节同源，SHA256 实算一致）
+| 用途 | 路径 | 大小 | SHA-256 |
+|---|---|---|---|
+| kitchen 回滚/复烧 | competition/evidence/2026-10-27-door-v7-e2e/firmware/kitchen-v7-esp32_elder_node.bin | 1,022,480 B | 0AA8144D87D76DF3E946FA81A493E67C050CEC8C86DAFC4AA1D8C3A3170E179B |
+| bath 回滚/复烧 | competition/evidence/2026-10-27-door-v7-e2e/firmware/bath-v7-esp32_elder_node.bin | 1,011,648 B | 56D9A8054EC6B1AA0FB19E5390D6744E55FD2B572DE722742A799F5C3A8CAA6B |
+| kitchen 构建产物 | .../.local/door-v7-20261027/build-kitchen/esp32_elder_node.bin | 1,022,480 B | 0AA8144D...0E179B（与上同一哈希） |
+| bath 构建产物 | .../.local/door-v7-20261027/build-bath/esp32_elder_node.bin | 1,011,648 B | 56D9A805...CAA6B（与上同一哈希） |
+- bootloader / 分区表归档：同目录 kitchen-v7-bootloader.bin / kitchen-v7-partition-table.bin / bath-v7-*.bin（本次未改动）
+
+## 4. 回滚方式与风险
+- 因在板固件与归档 bin 同源，回滚=把同版本 app 再写回 0x10000（app-only），无需动 bootloader/分区表/NVS。
+- 风险：仅 app 分区回滚不会恢复 NVS 中的运行态（门磁 seq/累计计数会保留或按固件逻辑重算）；若 bootloader/分区表也被改过则必须整片重烧（本次记录显示最近一次是 app-only，故风险低）。
+- 本次会话未执行任何烧录/擦除。

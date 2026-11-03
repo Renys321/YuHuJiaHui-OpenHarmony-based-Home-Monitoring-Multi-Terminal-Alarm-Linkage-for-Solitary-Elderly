@@ -1,0 +1,34 @@
+== Third demo_start -WithWireless retry ==
+START_PC=2026-10-10 10:02:06 +08:00
+DEMO_START_SHA256=3041764611938A921044C1169B4ACFE1AB91BD09A280A08A66EA1F9C9EFE6B1D
+
+==== 拉起演示环境 ====
+[0/5] 设备在线: 450100445634303332012847942eca00
+[1/5] 推送并启动 homemon（arm32）+ say.sh
+FileTransfer finish, Size:163592, File count = 1, time:13ms rate:12584.00kB/s
+
+FileTransfer finish, Size:1521, File count = 1, time:9ms rate:169.00kB/s
+
+  -rwxr-xr-x 1 root root 1521 2026-10-10 10:02 /data/homemon/say.sh
+  SHA=8d5040f395571a0c1e4767354465a833d75ed86ad303c627a7cfd92e8071e7ac
+  二进制 SHA-256 校验通过：8d5040f395571a0c1e4767354465a833d75ed86ad303c627a7cfd92e8071e7ac
+  [1791597733] TCP 状态通道已监听 0.0.0.0:9000（最多 4 路客户端）
+[2/5] 建立 hdc fport tcp:9000 tcp:9000 并验证协议
+  转发已生效并通过协议探针（deviceId=dayu200-living）
+[3/5] 启动自包含 MQTT broker（1883）
+  broker 已监听 1883（PID 10804，日志 <WORKSPACE>\competition\bridge\_test\demo-broker.out.log）
+[4/5] 启动桥接（--listen 9100 → --relay-to 127.0.0.1:9000 注入板上应用）
+  bridge 已监听 9100，MQTT 与转发目标均已连接（PID 15016，日志 <WORKSPACE>\competition\bridge\_test\demo-bridge.out.log）
+[5/5] 安装并启动监护人 APP
+  应用进程数: 1
+[+] 启动模拟无线节点（卫生间）
+  sim_node 已启动（PID 15068，日志 <WORKSPACE>\competition\bridge\_test\demo-simnode.out.log）
+
+==== 环境就绪，等待真机验收 ====
+  broker 日志：<WORKSPACE>\competition\bridge\_test\demo-broker.out.log / <WORKSPACE>\competition\bridge\_test\demo-broker.err.log
+  bridge 日志：<WORKSPACE>\competition\bridge\_test\demo-bridge.out.log / <WORKSPACE>\competition\bridge\_test\demo-bridge.err.log
+  语音链路自查： "<WORKSPACE>\tools\hdc\hdc.exe" shell "cat /data/homemon/say.log"
+  停止： powershell -ExecutionPolicy Bypass -File <WORKSPACE>\competition\materials\demo_start.ps1 -Stop
+
+END_PC=2026-10-10 10:20:36 +08:00
+EXIT_CODE=0

@@ -1,0 +1,54 @@
+# APP 构建与单元测试结果（本轮最终）
+
+- 日期：2026-10-26（Asia/Shanghai）
+- 构建执行者：Lead（app-dev 会话受沙箱 spawn EPERM 限制无法构建，改由 Lead 执行；源码冻结后构建）
+- 工程：`<WORKSPACE>\APP\ElderlyCareGuardian`
+- 工具：DevEco Studio 自带 hvigor（`D:\DevEcoStudio\DevEco Studio\tools\hvigor\hvigor\bin\hvigor.js`）
+- 环境：`DEVECO_SDK_HOME=D:\DevEcoStudio\DevEco Studio\sdk`；`JAVA_HOME=D:\DevEcoStudio\DevEco Studio\jbr`
+
+## 1. 单元测试（Hypium，本地单元测试预览器执行）
+
+```text
+node <hvigor.js> test --mode module -p product=default -p module=entry@default --no-daemon
+exit code: 0
+BUILD SUCCESSFUL in 14 s 844 ms（20 tasks: 11 executed / 9 up-to-date）
+OHOS_REPORT_RESULT: stream=Tests run: 39, Failure: 0, Error: 0, Pass: 39, Ignore: 0
+```
+
+- 39 条中，本轮新增告警处置相关 18 条：`dispositionDtoParsing` 11 条 + `dispositionApiClient` 7 条；其余为既有 validContract/localUnit 回归（localUnit 1 + validContractViewMapper 20 = 21）。
+- 完整原始输出：
+  - `app/logs/hvigor-test.log`
+  - `app/runtime/UNIT-TEST-RESULT.txt`（Hypium 逐条 Success 列表）
+  - `app/runtime/coverage.log`（含 `Tests run: 39`）
+  - `app/runtime/coverageReport.json`
+- 另有 app-dev 在主机侧逐文件 in-process 运行的 ts-node 测试（`node tests/<file>.test.mjs`，规避沙箱 spawn）：18 文件 / 235 tests / 235 pass（既有 213 + 新增 `disposition.test.mjs` 22）。原始输出 `app/logs/node-tests.log`。
+
+## 2. HAP 构建
+
+```text
+node <hvigor.js> assembleHap --mode module -p product=default -p buildMode=debug --no-daemon
+exit code: 0
+BUILD SUCCESSFUL in 14 s 127 ms（33 tasks: 27 executed / 6 up-to-date）
+WARN: Will skip sign 'hos_hap'. No signingConfigs profile is configured in current project.
+```
+
+| 项 | 值 |
+|---|---|
+| 产物路径 | `APP/ElderlyCareGuardian/entry/build/default/outputs/default/entry-default-unsigned.hap` |
+| 大小 | 2,613,947 B |
+| SHA-256 | `2CFB890880274AFD946E9C0E87427E2E60FA099DA7F6AD15A1F5899EDEAF91DF` |
+| 签名状态 | **unsigned**（工程未配置 signingConfigs，符合历史构建边界；未签名/未安装/未发布） |
+| 归档副本 | `app/entry-default-unsigned-2CFB8908.hap`（同大小同哈希） |
+| 构建窗口 | 2026-10-26 01:59:04–01:59:34 |
+
+## 3. 构建一致性说明（重要）
+
+- 构建开始前最后一次 APP/backend 源码写入为 01:58:04（并行会话的 activity 测试文件）；本轮 D 类源文件最后写入为 01:55，均早于构建。
+- **该 HAP 包含并行会话正在实现的 E 类（活动报告 `GET /api/v1/activity/report`、`ActivityReportPage` 等）代码**。E 类不属于 task-3 合同范围、未由本 Team 验收，也不在 D 类真实/本地验收结论内；若部署该 HAP，E 页面在公网后端未升级时只会显示真实接口错误，不会伪造数据。
+- D 类（告警独立处置 + 安全日志）源码已通过 Hypium 编译与上述 39 条测试；D 类界面（告警详情处置面板、安全日志页签）已编译进该 HAP，但**未在真实手机/模拟器上做运行态验收**。
+
+## 4. 未覆盖 / 边界
+
+- 未签名、未安装到模拟器或真机；未对正式 HAP/正式应用数据做任何改动。
+- 未连接生产后端做 APP 运行态验证（公网后端尚未部署新接口，见 `DEPLOY-DIFF-AND-ROLLBACK.md`）。
+- Hypium 测试运行环境为 DevEco 本地单元测试预览器，不等于真机 UI 行为。

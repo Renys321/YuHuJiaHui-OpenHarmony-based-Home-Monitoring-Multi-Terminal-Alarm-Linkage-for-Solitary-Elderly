@@ -1,0 +1,126 @@
+[+0000.891s] ESP-ROM:esp32s3-20210327
+[+0000.891s] Build:Mar 27 2021
+[+0000.891s] rst:0x1 (POWERON),boot:0x2b (SPI_FAST_FLASH_BOOT)
+[+0000.891s] SPIWP:0xee
+[+0000.891s] mode:DIO, clock div:1
+[+0000.891s] load:0x3fce3818,len:0x1758
+[+0000.891s] load:0x403c9700,len:0x4
+[+0000.891s] load:0x403c9704,len:0xc00
+[+0000.891s] load:0x403cc700,len:0x2e20
+[+0000.891s] entry 0x403c9908
+[+0000.891s] I (27) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader
+[+0000.891s] I (27) boot: compile time Oct 20 2026 19:51:15
+[+0000.891s] I (27) boot: Multicore bootloader
+[+0000.891s] I (30) boot: chip revision: v0.2
+[+0000.891s] I (34) boot.esp32s3: Boot SPI Speed : 80MHz
+[+0000.891s] I (39) boot.esp32s3: SPI Mode       : DIO
+[+0000.891s] I (44) boot.esp32s3: SPI Flash Size : 2MB
+[+0000.891s] I (49) boot: Enabling RNG early entropy source...
+[+0000.891s] I (54) boot: Partition Table:
+[+0000.891s] I (58) boot: ## Label            Usage          Type ST Offset   Length
+[+0000.891s] I (65) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+[+0000.891s] I (72) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+[+0000.891s] I (80) boot:  2 factory          factory app      00 00 00010000 00100000
+[+0000.891s] I (87) boot: End of partition table
+[+0000.891s] I (91) esp_image: segment 0: paddr=00010020 vaddr=3c090020 size=3db70h (252784) map
+[+0000.891s] I (145) esp_image: segment 1: paddr=0004db98 vaddr=3fc99a00 size=02480h (  9344) load
+[+0000.891s] I (147) esp_image: segment 2: paddr=00050020 vaddr=42000020 size=8e634h (583220) map
+[+0000.891s] I (256) esp_image: segment 3: paddr=000de65c vaddr=3fc9be80 size=021cch (  8652) load
+[+0000.891s] I (258) esp_image: segment 4: paddr=000e0830 vaddr=40374000 size=159b4h ( 88500) load
+[+0000.891s] I (281) esp_image: segment 5: paddr=000f61ec vaddr=600fe010 size=00004h (     4) load
+[+0000.891s] I (290) boot: Loaded app from partition at offset 0x10000
+[+0000.891s] I (290) boot: Disabling RNG early entropy source...
+[+0000.891s] I (302) cpu_start: Multicore app
+[+0000.891s] I (303) cpu_start: Pro cpu up.
+[+0000.891s] I (303) cpu_start: Starting app cpu, entry point is 0x4037559c
+[+0000.891s] I (0) cpu_start: App cpu up.
+[+0000.891s] I (320) cpu_start: Pro cpu start user code
+[+0000.891s] I (320) cpu_start: cpu freq: 160000000 Hz
+[+0000.891s] I (320) cpu_start: Application information:
+[+0000.891s] I (323) cpu_start: Project name:     esp32_elder_node
+[+0000.891s] I (329) cpu_start: App version:      1
+[+0000.891s] I (333) cpu_start: Compile time:     Oct 26 2026 16:23:26
+[+0000.891s] I (340) cpu_start: ELF file SHA256:  ba0c6e61ee90c9bd...
+[+0000.891s] I (346) cpu_start: ESP-IDF:          v5.1.6-dirty
+[+0000.891s] I (351) cpu_start: Min chip rev:     v0.0
+[+0000.891s] I (356) cpu_start: Max chip rev:     v0.99
+[+0000.891s] I (360) cpu_start: Chip rev:         v0.2
+[+0000.891s] I (365) heap_init: Initializing. RAM available for dynamic allocation:
+[+0000.891s] I (373) heap_init: At 3FCA2518 len 000471F8 (284 KiB): DRAM
+[+0000.891s] I (379) heap_init: At 3FCE9710 len 00005724 (21 KiB): STACK/DRAM
+[+0000.891s] I (385) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM
+[+0000.891s] I (391) heap_init: At 600FE014 len 00001FD4 (7 KiB): RTCRAM
+[+0000.891s] I (399) spi_flash: detected chip: boya
+[+0000.891s] I (402) spi_flash: flash io: dio
+[+0000.891s] W (406) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+[+0000.891s] W (420) i2s(legacy): legacy i2s driver is deprecated, please migrate to use driver/i2s_std.h, driver/i2s_pdm.h or driver/i2s_tdm.h
+[+0000.891s] I (432) sleep: Configure to isolate all GPIO pins in sleep state
+[+0000.891s] I (439) sleep: Enable automatic switching of GPIO sleep configuration
+[+0000.891s] I (446) app_start: Starting scheduler on CPU0
+[+0000.891s] I (451) app_start: Starting scheduler on CPU1
+[+0000.891s] I (451) main_task: Started on CPU0
+[+0000.891s] I (461) main_task: Calling app_main()
+[+0000.891s] I (471) elder-node: ESP32-S3 无线节点启动：esp32-kitchen / 厨房
+[+0000.891s] I (521) elder-node: 板载蜂鸣器就绪（XL9555 P0_3）
+[+0001.391s] I (751) local-voice: READY playback-only 16000Hz; no boot alarm
+[+0001.391s] I (841) elder-node: 温湿度自检 OK: temp=23.7C rh=64.4%
+[+0001.391s] I (841) pp: pp rom version: e7ae62f
+[+0001.391s] I (841) net80211: net80211 rom version: e7ae62f
+[+0001.391s] I (851) wifi:wifi driver task: 3fcb0128, prio:23, stack:6656, core=0
+[+0001.391s] I (851) wifi:wifi firmware version: 02461b5
+[+0001.391s] I (851) wifi:wifi certification version: v7.0
+[+0001.391s] I (851) wifi:config NVS flash: enabled
+[+0001.391s] I (861) wifi:config nano formating: disabled
+[+0001.391s] I (861) wifi:Init data frame dynamic rx buffer num: 32
+[+0001.391s] I (871) wifi:Init static rx mgmt buffer num: 5
+[+0001.391s] I (871) wifi:Init management short buffer num: 32
+[+0001.391s] I (881) wifi:Init dynamic tx buffer num: 32
+[+0001.391s] I (881) wifi:Init static tx FG buffer num: 2
+[+0001.391s] I (881) wifi:Init static rx buffer size: 1600
+[+0001.391s] I (891) wifi:Init static rx buffer num: 10
+[+0001.391s] I (891) wifi:Init dynamic rx buffer num: 32
+[+0001.391s] I (901) wifi_init: rx ba win: 6
+[+0001.391s] I (901) wifi_init: tcpip mbox: 32
+[+0001.391s] I (901) wifi_init: udp mbox: 6
+[+0001.391s] I (911) wifi_init: tcp mbox: 6
+[+0001.391s] I (911) wifi_init: tcp tx win: 5760
+[+0001.391s] I (911) wifi_init: tcp rx win: 5760
+[+0001.391s] I (921) wifi_init: tcp mss: 1440
+[+0001.391s] I (921) wifi_init: WiFi IRAM OP enabled
+[+0001.391s] I (931) wifi_init: WiFi RX IRAM OP enabled
+[+0001.391s] I (931) wifi:Set ps type: 0, coexist: 0
+[+0001.391s] I (941) phy_init: phy_version 680,a6008b2,Jun  4 2024,16:41:10
+[+0001.391s] I (1011) wifi:mode : sta (50:78:7d:16:ed:60)
+[+0001.391s] I (1011) wifi:enable tsf
+[+0001.391s] I (1021) elder-node: 连接 WiFi: ElderCareLab
+[+0004.328s] I (3911) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+[+0004.328s] I (3911) wifi:state: init -> auth (b0)
+[+0004.328s] I (3941) wifi:state: auth -> init (1c0)
+[+0004.328s] I (3951) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+[+0004.328s] W (3951) elder-node: WiFi 断开（reason=202），重连中…
+[+0006.734s] W (6361) elder-node: WiFi 断开（reason=205），重连中…
+[+0007.203s] I (6781) elder-node: ADC raw: MQ2(CH5)=288 valid=1 danger=0 | MQ5(CH6)=217 valid=1 danger=0
+[+0007.203s] I (6781) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":23.7,"rh":64.5,"ok":true,"valid":true},"gas":{"raw":217,"ok":true,"valid":true},"smoke":{"raw":288,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+0007.203s] I (6811) elder-node: STACK_FREE task=main bytes=4052
+[+0009.250s] I (8771) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+[+0009.250s] I (8771) wifi:state: init -> auth (b0)
+[+0009.250s] I (8781) wifi:state: auth -> assoc (0)
+[+0009.250s] I (8811) wifi:state: assoc -> run (10)
+[+0009.250s] I (8831) wifi:connected with ElderCareLab, aid = 7, channel 1, BW20, bssid = 5a:fe:a0:a6:a3:d7
+[+0009.250s] I (8831) wifi:security: WPA2-PSK, phy: bgn, rssi: -6
+[+0009.250s] I (8841) wifi:pm start, type: 0
+[+0009.250s] I (8841) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us
+[+0009.250s] I (8851) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000
+[+0009.250s] I (8861) wifi:<ba-add>idx:0 (ifx:0, 5a:fe:a0:a6:a3:d7), tid:0, ssn:0, winSize:64
+[+0009.250s] I (8871) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us
+[+0009.250s] I (8871) wifi:AP's beacon interval = 102400 us, DTIM period = 2
+[+0010.234s] I (9861) esp_netif_handlers: sta ip: 10.127.130.168, mask: 255.255.255.0, gw: 10.127.130.217
+[+0010.234s] I (9861) elder-node: 已获取 IP: 10.127.130.168
+[+0011.359s] I (10981) elder-node: 已连接网关 10.127.130.179:9101
+[+0011.359s] I (10981) elder-node: STACK_FREE task=gateway-net bytes=2900
+[+0012.687s] I (12271) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":23.7,"rh":64.4,"ok":true,"valid":true},"gas":{"raw":213,"ok":true,"valid":true},"smoke":{"raw":283,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+0012.687s] I (12281) elder-node: STACK_FREE task=gateway-net bytes=2900
+[+0012.687s] I (12301) elder-node: STACK_FREE task=main bytes=4052
+[+0018.172s] I (17761) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":23.7,"rh":64.4,"ok":true,"valid":true},"gas":{"raw":229,"ok":true,"valid":true},"smoke":{"raw":291,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+0018.172s] I (17781) elder-node: STACK_FREE task=main bytes=4052
+[+0018.172s] I (17801) elder-node: STACK_FREE task=gateway-net bytes=2900

@@ -1,0 +1,1 @@
+{"deviceId":"esp32-test","room":"TestRoom","ts":1791555126,"state":"ACKED","sensors":{"motion":{"lastActiveTs":1791555121,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":0,"rh":0,"ok":true},"gas":{"raw":0,"ok":true},"smoke":{"raw":0,"ok":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"sim-1791555116237-1","type":"GAS","countToday":1}}

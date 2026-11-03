@@ -1,0 +1,18 @@
+[2026-10-31T16:53:23.999Z] [S3 采音] hello node=s3-sim-test room=测试
+[2026-10-31T16:53:24.002Z] [S3 采音] 开始接收 (16000Hz mono)
+[2026-10-31T16:53:24.006Z] [S3 录音] node=s3-sim-test room=测试 pcm=128000B (4.0s) file=D:\OpenHarmony\competition\voice-gateway\.work\recordings\s3-sim-test-2026-10-31T16-53-24-005Z.wav
+[2026-10-31T16:53:26.349Z] [S3 ASR] 安全短语二次识别: 我们是 -> 我没事（conf=0.99）
+[2026-10-31T16:53:26.351Z] [S3 ASR] 2343ms, text=我没事
+[2026-10-31T16:53:26.351Z] [elder-safe] S3 自述安全：只记录，不 ACK 告警
+[2026-10-31T16:53:27.234Z] 音箱播报：已推送 127360B PCM 到 2 个节点
+[2026-10-31T16:53:27.235Z] [elder-safe] 已记录，不改变告警状态
+[2026-10-31T16:53:31.248Z] 音箱播报完成: {"type":"done","node":"esp32-kitchen","ok":1}
+[2026-10-31T16:53:31.302Z] 音箱播报完成: {"type":"done","node":"esp32-bath","ok":1}
+[2026-10-31T16:53:49.604Z] [S3 采音] hello node=s3-sim-test room=测试
+[2026-10-31T16:53:49.606Z] [S3 采音] 开始接收 (16000Hz mono)
+[2026-10-31T16:53:49.608Z] [S3 录音] node=s3-sim-test room=测试 pcm=78560B (2.5s) file=D:\OpenHarmony\competition\voice-gateway\.work\recordings\s3-sim-test-2026-10-31T16-53-49-607Z.wav
+[2026-10-31T16:53:50.858Z] [S3 ASR] 1249ms, text=今天天气怎么样
+[2026-10-31T16:53:52.728Z] 音箱播报：已推送 271200B PCM 到 2 个节点
+[2026-10-31T16:53:52.729Z] [S3 问答] 完成: 总耗时 3123ms
+[2026-10-31T16:54:01.339Z] 音箱播报完成: {"type":"done","node":"esp32-bath","ok":1}
+[2026-10-31T16:54:01.344Z] 音箱播报完成: {"type":"done","node":"esp32-kitchen","ok":1}

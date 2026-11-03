@@ -1,0 +1,37 @@
+F....F......F......F........................
+======================================================================
+FAIL: test_bending_is_not_a_fall (test_fall_detector.FallDetectorTests.test_bending_is_not_a_fall)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\LENOVO\AppData\Local\Temp\baseline_tests\test_fall_detector.py", line 65, in test_bending_is_not_a_fall
+    self.assertIsNone(detector.update(frame(ts, "bending")))
+AssertionError: FallEvent(ts_ms=600, score=0.622, track_id=1, torso_angle_deg=45.000000000000014, bbox_aspect=0.625, hip_drop_per_sec=0.2999999999999997) is not None
+
+======================================================================
+FAIL: test_quick_drop_and_sustained_horizontal_pose_emits_once (test_fall_detector.FallDetectorTests.test_quick_drop_and_sustained_horizontal_pose_emits_once)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\LENOVO\AppData\Local\Temp\baseline_tests\test_fall_detector.py", line 46, in test_quick_drop_and_sustained_horizontal_pose_emits_once
+    self.assertIsNone(detector.update(frame(900, "horizontal")))
+AssertionError: FallEvent(ts_ms=900, score=0.958, track_id=1, torso_angle_deg=87.61405596961119, bbox_aspect=2.4615384615384612, hip_drop_per_sec=1.25) is not None
+
+======================================================================
+FAIL: test_13_calibrated_defaults_are_exact (test_fall_calibration.CalibrationTests.test_13_calibrated_defaults_are_exact)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\LENOVO\AppData\Local\Temp\baseline_tests\test_fall_calibration.py", line 191, in test_13_calibrated_defaults_are_exact
+    self.assertEqual(0.15, config.rapid_hip_drop_per_sec, "速率阈值不得低于 0.15")
+AssertionError: 0.15 != 0.1 : 速率阈值不得低于 0.15
+
+======================================================================
+FAIL: test_7_slow_drop_010_per_sec_never_fires (test_fall_calibration.CalibrationTests.test_7_slow_drop_010_per_sec_never_fires)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\LENOVO\AppData\Local\Temp\baseline_tests\test_fall_calibration.py", line 118, in test_7_slow_drop_010_per_sec_never_fires
+    self.assertFalse(any(events), "0.10/s 的安全下降不得触发")
+AssertionError: True is not false : 0.10/s 的安全下降不得触发
+
+----------------------------------------------------------------------
+Ran 44 tests in 0.009s
+
+FAILED (failures=4)

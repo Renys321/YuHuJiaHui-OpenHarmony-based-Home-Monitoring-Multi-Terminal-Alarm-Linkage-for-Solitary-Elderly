@@ -1,0 +1,98 @@
+﻿{
+    "pcLocalTime":  "2026-10-10 23:36:31 +08:00",
+    "pcUtc":  "2026-10-10 15:36:31",
+    "hdcTarget":  "450100445634303332012847942eca00",
+    "deviceDate":  "Fri Jan  1 20:48:42 CST 2021",
+    "deviceDateUtc":  "Fri Jan  1 12:48:42 UTC 2021",
+    "localHomemonSha256":  "0D243539403DE89C547DEFACF43C86A4980142EF8EC686B277BE7133C42881E6",
+    "boardHomemonSha256":  "0d243539403de89c547defacf43c86a4980142ef8ec686b277be7133c42881e6",
+    "results":  [
+                    {
+                        "name":  "board homemon matches authoritative artifact",
+                        "ok":  true,
+                        "detail":  ""
+                    },
+                    {
+                        "name":  "homemon running on board",
+                        "ok":  true,
+                        "detail":  ""
+                    },
+                    {
+                        "name":  "local MQTT broker started",
+                        "ok":  true,
+                        "detail":  "pid=48796"
+                    },
+                    {
+                        "name":  "gateway harness started",
+                        "ok":  true,
+                        "detail":  "pid=26640"
+                    },
+                    {
+                        "name":  "gateway subscribed to local broker (broker SUBSCRIBE log)",
+                        "ok":  true,
+                        "detail":  ""
+                    },
+                    {
+                        "name":  "real board status reached OneNET property/post",
+                        "ok":  true,
+                        "detail":  "count=2"
+                    },
+                    {
+                        "name":  "cloud payload preserved deviceId and room",
+                        "ok":  true,
+                        "detail":  ""
+                    },
+                    {
+                        "name":  "cloud timestamp is 13-digit ms from PC clock",
+                        "ok":  true,
+                        "detail":  ""
+                    },
+                    {
+                        "name":  "stable state was rate limited",
+                        "ok":  true,
+                        "detail":  "delta=0"
+                    },
+                    {
+                        "name":  "board alarm produced a safetyAlarm event",
+                        "ok":  true,
+                        "detail":  "count=1"
+                    },
+                    {
+                        "name":  "alarm event carries a real board alarmId",
+                        "ok":  true,
+                        "detail":  ""
+                    },
+                    {
+                        "name":  "alarm type is MANUAL_SOS",
+                        "ok":  true,
+                        "detail":  "type=MANUAL_SOS"
+                    },
+                    {
+                        "name":  "gateway alarmId matches the board status.json alarmId",
+                        "ok":  true,
+                        "detail":  ""
+                    },
+                    {
+                        "name":  "same alarmId was not re-alarmed",
+                        "ok":  true,
+                        "detail":  "before=1 after=1"
+                    },
+                    {
+                        "name":  "board status.json is valid JSON with the expected deviceId",
+                        "ok":  true,
+                        "detail":  ""
+                    },
+                    {
+                        "name":  "broker port released after cleanup",
+                        "ok":  true,
+                        "detail":  ""
+                    },
+                    {
+                        "name":  "no gateway process left",
+                        "ok":  true,
+                        "detail":  ""
+                    }
+                ],
+    "passed":  17,
+    "total":  17
+}

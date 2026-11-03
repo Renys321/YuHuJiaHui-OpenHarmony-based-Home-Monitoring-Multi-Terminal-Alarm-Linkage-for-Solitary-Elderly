@@ -1,0 +1,67 @@
+[1/5] C:\Windows\system32\cmd.exe /C "cd /D D:\OpenHarmony\competition\esp32-node\build\esp-idf\esptool_py && D:\Espressif-5.1.6\python_env\idf5.1_py3.11_env\Scripts\python.exe D:/Espressif-5.1.6/frameworks/esp-idf-v5.1.6/components/partition_table/check_sizes.py --offset 0x8000 partition --type app D:/OpenHarmony/competition/esp32-node/build/partition_table/partition-table.bin D:/OpenHarmony/competition/esp32-node/build/esp32_elder_node.bin"
+esp32_elder_node.bin binary size 0xb8470 bytes. Smallest app partition is 0x100000 bytes. 0x47b90 bytes (28%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] C:\Windows\system32\cmd.exe /C "cd /D D:\OpenHarmony\competition\esp32-node\build\bootloader\esp-idf\esptool_py && D:\Espressif-5.1.6\python_env\idf5.1_py3.11_env\Scripts\python.exe D:/Espressif-5.1.6/frameworks/esp-idf-v5.1.6/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 D:/OpenHarmony/competition/esp32-node/build/bootloader/bootloader.bin"
+Bootloader binary size 0x51e0 bytes. 0x2e20 bytes (36%) free.
+[3/5] No install step for 'bootloader'
+[4/5] Completed 'bootloader'
+[4/5] C:\Windows\system32\cmd.exe /C "cd /D D:\Espressif-5.1.6\frameworks\esp-idf-v5.1.6\components\esptool_py && D:\Espressif-5.1.6\tools\cmake\3.30.2\bin\cmake.exe -D IDF_PATH=D:/Espressif-5.1.6/frameworks/esp-idf-v5.1.6 -D SERIAL_TOOL=D:/Espressif-5.1.6/python_env/idf5.1_py3.11_env/Scripts/python.exe;;D:/Espressif-5.1.6/frameworks/esp-idf-v5.1.6/components/esptool_py/esptool/esptool.py;--chip;esp32s3 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D WORKING_DIRECTORY=D:/OpenHarmony/competition/esp32-node/build -P D:/Espressif-5.1.6/frameworks/esp-idf-v5.1.6/components/esptool_py/run_serial_tool.cmake"
+esptool.py --chip esp32s3 -p COM9 -b 115200 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 2MB 0x0 bootloader/bootloader.bin 0x10000 esp32_elder_node.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.7.0
+Serial port COM9
+Connecting....
+Chip is ESP32-S3 (QFN56) (revision v0.2)
+Features: WiFi, BLE, Embedded PSRAM 8MB (AP_3v3)
+Crystal is 40MHz
+MAC: 14:c1:9f:42:dd:b4
+Uploading stub...
+Running stub...
+Stub running...
+Configuring flash size...
+Flash will be erased from 0x00000000 to 0x00005fff...
+Flash will be erased from 0x00010000 to 0x000c8fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+Compressed 20960 bytes to 13307...
+Writing at 0x00000000... (100 %)
+Wrote 20960 bytes (13307 compressed) at 0x00000000 in 1.8 seconds (effective 94.7 kbit/s)...
+Hash of data verified.
+Compressed 754800 bytes to 478924...
+Writing at 0x00010000... (3 %)
+Writing at 0x0001c04e... (6 %)
+Writing at 0x00025d8f... (10 %)
+Writing at 0x00030b4d... (13 %)
+Writing at 0x00036f2a... (16 %)
+Writing at 0x0003d28e... (20 %)
+Writing at 0x00042d93... (23 %)
+Writing at 0x000483cd... (26 %)
+Writing at 0x0004dc15... (30 %)
+Writing at 0x00053340... (33 %)
+Writing at 0x00058d94... (36 %)
+Writing at 0x0005ea9f... (40 %)
+Writing at 0x0006449b... (43 %)
+Writing at 0x0006a17c... (46 %)
+Writing at 0x0006f0b3... (50 %)
+Writing at 0x00074205... (53 %)
+Writing at 0x00079297... (56 %)
+Writing at 0x0007e686... (60 %)
+Writing at 0x00083ae5... (63 %)
+Writing at 0x00089688... (66 %)
+Writing at 0x0008ecf5... (70 %)
+Writing at 0x000946df... (73 %)
+Writing at 0x0009a0b6... (76 %)
+Writing at 0x0009f50f... (80 %)
+Writing at 0x000a7adb... (83 %)
+Writing at 0x000b0257... (86 %)
+Writing at 0x000b5cd0... (90 %)
+Writing at 0x000bbc01... (93 %)
+Writing at 0x000c1992... (96 %)
+Writing at 0x000c69e0... (100 %)
+Wrote 754800 bytes (478924 compressed) at 0x00010000 in 42.4 seconds (effective 142.4 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 103...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (effective 205.1 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

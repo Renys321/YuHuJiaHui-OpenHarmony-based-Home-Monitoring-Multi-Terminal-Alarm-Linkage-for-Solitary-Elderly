@@ -1,0 +1,124 @@
+{
+  "tool": "verify-v6-to-v7",
+  "backendSource": "D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\backend-src",
+  "schemaVersionConstant": 7,
+  "v6Snapshot": {
+    "path": "D:\\OpenHarmony\\competition\\evidence\\2026-10-26-d-e-production-release\\build\\smoke-data\\backend-state.json",
+    "sha256": "70974a3b289a0e13aac1bb795adb1d526cc2cc59057efa5dbefd42ba249bc4a6",
+    "bytes": 1982
+  },
+  "upgradedSnapshot": {
+    "path": "D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\compat\\out\\backend-state.from-v6.work.json",
+    "sha256": "aae9504e34b652ca689fc521deb97c69b6b2f7cb84cbf30f813ddcc93da481b8",
+    "bytes": 2363
+  },
+  "checks": [
+    {
+      "name": "v0 源 v6 快照结构完整（schemaVersion=6，旧字段计数留档）",
+      "pass": true,
+      "detail": {
+        "schemaVersion": 6,
+        "devices": 1,
+        "alerts": 1,
+        "commands": 0,
+        "contacts": 0,
+        "safetyLogs": 1,
+        "hasDoorEventsKey": false,
+        "sha256": "70974a3b289a0e13aac1bb795adb1d526cc2cc59057efa5dbefd42ba249bc4a6",
+        "workCopySha256": "70974a3b289a0e13aac1bb795adb1d526cc2cc59057efa5dbefd42ba249bc4a6"
+      }
+    },
+    {
+      "name": "v1 v7 代码可加载 v6 快照（v6 在 READABLE_SCHEMA_VERSIONS 内）",
+      "pass": true,
+      "detail": {
+        "devices": 1,
+        "alerts": 1,
+        "commands": 0,
+        "contacts": 0,
+        "safetyLogs": 1,
+        "doorEvents": 0
+      }
+    },
+    {
+      "name": "v2 一次成功写入触发主快照升级（schemaVersion 6 -> 7）",
+      "pass": true,
+      "detail": {
+        "schemaVersion": 7,
+        "savedAt": 1793036658227,
+        "devices": 1,
+        "alerts": 1,
+        "commands": 0,
+        "contacts": 0,
+        "safetyLogs": 1,
+        "doorEvents": 2
+      }
+    },
+    {
+      "name": "v3 旧字段内容逐项保留（设备/告警/处置/联系人）",
+      "pass": true,
+      "detail": {
+        "device": "esp32-kitchen",
+        "room": "厨房",
+        "alert": "e-smoke-1793026800-1",
+        "safetyLog": "dsp-1"
+      }
+    },
+    {
+      "name": "v4 门磁扩展字段落盘为 doorEvents 台账（seq 幂等键、设备时间来源）",
+      "pass": true,
+      "detail": [
+        {
+          "eventId": "dr-1",
+          "deviceId": "esp32-kitchen",
+          "open": false,
+          "occurredAt": 1793036652226,
+          "timeSource": "device",
+          "seq": 101,
+          "source": "device-cache"
+        },
+        {
+          "eventId": "dr-2",
+          "deviceId": "esp32-kitchen",
+          "open": true,
+          "occurredAt": 1793036657226,
+          "timeSource": "device",
+          "seq": 102,
+          "source": "device-cache"
+        }
+      ]
+    },
+    {
+      "name": "v5 重启后（重新加载）doorEvents 与旧数据仍在",
+      "pass": true,
+      "detail": {
+        "devices": 1,
+        "alerts": 1,
+        "safetyLogs": 1,
+        "doorEvents": 2,
+        "doorEventSeqs": [
+          101,
+          102
+        ]
+      }
+    },
+    {
+      "name": "v6 幂等：同一 door.events 重传不重复记账",
+      "pass": true,
+      "detail": {
+        "before": 2,
+        "after": 2
+      }
+    },
+    {
+      "name": "v7 fail-closed：schemaVersion=8 快照被拒绝（不静默降级/清空）",
+      "pass": true,
+      "detail": {
+        "rejectedWith": "persistent store unsupported schemaVersion: 8"
+      }
+    }
+  ],
+  "passed": 8,
+  "failed": 0,
+  "verdict": "V6_TO_V7_COMPAT_PASS"
+}

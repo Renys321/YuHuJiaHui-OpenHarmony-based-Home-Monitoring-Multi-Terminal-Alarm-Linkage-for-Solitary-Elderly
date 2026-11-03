@@ -1,0 +1,16 @@
+﻿{
+    "id":  "sos-7-b941b638",
+    "alarmId":  "sos-7-b941b638",
+    "deviceId":  "esp32-sos",
+    "roomName":  "随身求助",
+    "type":  "MANUAL_SOS",
+    "message":  "检测到异常",
+    "state":  "ACKED",
+    "ackPending":  false,
+    "createdAt":  1793112752478,
+    "acknowledgedAt":  1793112779268,
+    "acknowledgedBy":  "household-guardian",
+    "evidence":  {
+                     "available":  false
+                 }
+}

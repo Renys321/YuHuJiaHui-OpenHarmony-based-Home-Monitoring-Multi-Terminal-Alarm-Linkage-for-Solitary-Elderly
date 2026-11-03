@@ -1,0 +1,23 @@
+--- frozen/competition/cloud/backend/src/persistent-store.js
++++ rehearsal/legacy-v5-emulation/src/persistent-store.js
+@@ -59,8 +59,8 @@
+  *   v5 -> v6：新增 safetyLogs 告警处置结果 / 安全日志台账（独立于 ACK）。
+  * v1..v5 快照都能加载：缺失的键一律视为空集合，下一次成功变更写 v6。
+  */
+-const SCHEMA_VERSION = 6;
+-const READABLE_SCHEMA_VERSIONS = new Set([1, 2, 3, 4, 5, SCHEMA_VERSION]);
++const SCHEMA_VERSION = 5;
++const READABLE_SCHEMA_VERSIONS = new Set([1, 2, 3, 4, 5]);
+ 
+ const STATES = new Set(['NORMAL', 'WARN', 'ALARM', 'ACKED']);
+ const ALERT_STATES = new Set(['ALARM', 'ACKED']);
+@@ -903,8 +903,7 @@
+       contacts: this.contacts.map(contactToDocument),
+       notifications: [...this.notifications.values()].map(notificationToDocument),
+       subscriptions: [...this.subscriptions.values()].map(subscriptionToDocument),
+-      communications: [...this.communications.values()].map(communicationToDocument),
+-      safetyLogs: this.safetyLogs.map(safetyLogToDocument)
++      communications: [...this.communications.values()].map(communicationToDocument)
+     };
+   }
+ 

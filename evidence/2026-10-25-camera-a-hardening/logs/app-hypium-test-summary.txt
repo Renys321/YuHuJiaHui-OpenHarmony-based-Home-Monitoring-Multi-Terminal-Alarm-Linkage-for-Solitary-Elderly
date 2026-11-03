@@ -1,0 +1,4 @@
+hvigor test --no-daemon
+BUILD SUCCESSFUL
+20 tasks: 19 executed, 1 up-to-date
+Tests run: 21, Failure: 0, Error: 0, Pass: 21, Ignore: 0

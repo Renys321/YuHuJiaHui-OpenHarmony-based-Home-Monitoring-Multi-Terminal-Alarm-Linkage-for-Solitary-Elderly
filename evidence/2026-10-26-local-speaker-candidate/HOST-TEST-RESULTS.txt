@@ -1,0 +1,28 @@
+PASS=54 FAIL=0
+PASS=54 FAIL=0
+✔ bathroom 身份与正式引脚 (1.6768ms)
+✔ bathroom 禁用 MQ 与门磁 (0.3654ms)
+✔ bathroom 不覆盖 kitchen 配置 (0.5326ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 101.346
+✔ kitchen rewire keeps both ADC sensors and reserves actual audio pins (2.9477ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 102.2448
+PASS bath-voice
+PASS kitchen-baseline
+PASS kitchen-voice-rewired
+PASS kitchen-voice-conflict
+PASS mq2-audio-pin-conflict
+PASS sos-audio-pin-conflict

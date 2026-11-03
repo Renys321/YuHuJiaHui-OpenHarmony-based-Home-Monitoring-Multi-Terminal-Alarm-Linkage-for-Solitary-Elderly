@@ -1,0 +1,18 @@
+﻿=== captured at 2026-10-27T22:37:39.3970272+08:00 ===
+--- PC IPv4 (WLAN) ---
+WLAN 10.127.130.179/24
+--- listening 1883/9101/9001 ---
+:::9101 pid=61072
+:::1883 pid=27820
+127.0.0.1:9001 pid=51048
+--- 9101 established (Wi-Fi inbound) ---
+10.127.130.71:64774 since=2026-10-27T22:36:45.0000000+08:00
+10.127.130.168:62213 since=2026-10-27T22:36:47.0000000+08:00
+--- bridge/broker process commandlines ---
+pid=61072 "D:\Node\node.exe" mqtt_bridge.js --broker 127.0.0.1:1883 --status-tcp 10.127.130.131:9000 --listen 9101 --relay-to 10.127.130.131:9000 --cmd-out <WORKSPACE>\competition\bridge\_test\current-runtime\supervisor\control --status-file <WORKSPACE>\competition\bridge\_test\current-runtime\supervisor\status.json
+pid=27820 "D:\Node\node.exe" <WORKSPACE>\competition\bridge\mqtt_broker.js 1883 
+--- serial ports present ---
+COM11
+COM19
+COM20
+--- CH340 devices ---

@@ -1,0 +1,19 @@
+# 本文件为只读字段结构核查输出（UTF-8）；不含坐标数值、不含凭据。
+# 生成: 2026-10-28 Asia/Shanghai（ecs-verify）
+
+now=2026-10-27T16:27:01.622Z
+esp32_sos_shape={
+ "id": "string",
+ "deviceId": "string",
+ "name": "string",
+ "roomId": "string",
+ "roomName": "string",
+ "location": "string",
+ "online": "boolean",
+ "monitorOnline": "number",
+ "state": "string",
+ "lastSeenTs": "number",
+ "sensors": {},
+ "csq": "null"
+}
+sos.location_type=string keys=

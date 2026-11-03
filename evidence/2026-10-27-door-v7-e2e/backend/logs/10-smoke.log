@@ -1,0 +1,30 @@
+﻿# door v7 backend image smoke (local sandbox, temp container + temp named volume)
+# image     : eldercare-cloud-backend:door-v7-2026-10-27
+# container : de-door-v7-smoke-20261027015059
+# volume    : de-door-v7-smoke-20261027015059
+# endpoint  : http://127.0.0.1:18087 (127.0.0.1 only)
+# env       : secrets are random per run and never printed
+PASS  image identity resolved :: imageId=sha256:5a02edcfaa42db6360068ceb6b09b9c0fa53a9128caa698a0e73521a3813ccb9
+PASS  temp named volume created :: volume=de-door-v7-smoke-20261027015059
+PASS  container started :: dockerRunExit=0
+PASS  container healthy (/healthz 200) :: attempts=1 status=200
+PASS  /readyz 200 :: status=200
+PASS  anonymous /api/v1/overview -> 401 :: status=401
+PASS  anonymous /api/v1/door-events -> 401 :: status=401
+PASS  anonymous /internal/v1/device-status -> 401 :: status=401
+PASS  wrong guardian password -> 401 :: status=401
+PASS  guardian login 200 (synthetic credentials) :: status=200 tokenType=Bearer tokenLen=135
+PASS  door-events with valid session -> 200 {events:[]} :: status=200 events=0
+PASS  extended v7 door ingest -> 202 :: status=202
+PASS  door-events shows ingested events (newest first, seq 102/101) :: status=200 count=2 seqs=102,101 open=True,False timeSource=device,device eventIds=dr-2,dr-1
+PASS  legacy v6 two-key door ingest -> 202 (old format accepted) :: status=202
+PASS  legacy change recorded by server fallback (seq=0 state-change) :: status=200 count=3 stateChange=1
+PASS  in-container snapshot upgraded to schemaVersion 7 :: dockerExecExit=0 snapshot={"schemaVersion":7,"doorEvents":3,"devices":1}
+PASS  data volume contains backend-state.json :: files=backend-state.json,evidence
+PASS  no credential/token leakage in container logs :: secretMatches=0
+PASS  temp container + temp volume removed (cleanup) :: dockerRmExit=0 dockerVolumeRmExit=0
+PASS  no de-door-v7-smoke leftovers :: containers=0 volumes=0
+PASS  demo volumes eldercare-public_* untouched (3 present) :: volumes=eldercare-public_backend-data,eldercare-public_caddy-config,eldercare-public_caddy-data
+
+# RESULT SMOKE_PASS checks=21 passed=21 failed=0
+# NOTE cleanupPerformed=True; temp assets removed even on failure

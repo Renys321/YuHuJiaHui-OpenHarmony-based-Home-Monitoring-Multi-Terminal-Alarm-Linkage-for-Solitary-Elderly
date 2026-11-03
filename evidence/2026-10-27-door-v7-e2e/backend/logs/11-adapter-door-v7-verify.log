@@ -1,0 +1,30 @@
+﻿# adapter door v7 patch verification
+# patched : D:\OpenHarmony\competition\evidence\2026-10-27-door-v7-e2e\_work\onenet-adapter\adapter.js (sha256 9453a47dbeba0e096f625aead134550e4ea08997fe1f117269499e0de5ca64e5)
+# original: D:\OpenHarmony\competition\cloud\onenet\adapter.js (sha256 8f03e56f7aa02bac8a9b43c29a8873296ac2c1958c44e76bde2cb69ac21b5af8)
+PASS  A1 legacy {open:false,lastOpenTs:0} accepted, output keys unchanged :: keys=lastOpenTs,open open=false lastOpenTs=0
+PASS  A2 legacy {open:true,lastOpenTs:13-digit} accepted :: {"open":true,"lastOpenTs":1793036599000}
+PASS  B1 extended v7 door accepted (open:null,lastCloseTs,seq,events) :: {"open":null,"lastOpenTs":0,"lastCloseTs":1793036590000,"seq":7,"events":[{"seq":5,"open":false,"ts":1793036580000},{"seq":6,"open":true,"ts":0},{"seq":7,"open":false,"ts":1793036590000}]}
+PASS  B2 extended output preserves every v7 field :: see B1
+PASS  B3 extended fields passed through property params exactly (no coercion) :: {"open":null,"lastOpenTs":0,"lastCloseTs":1793036590000,"seq":7,"events":[{"seq":5,"open":false,"ts":1793036580000},{"seq":6,"open":true,"ts":0},{"seq":7,"open":false,"ts":1793036590000}]}
+PASS  B4 extended variants: events=[] / open boolean + full fields :: {"open":false,"lastOpenTs":0,"lastCloseTs":0,"seq":1,"events":[]}
+PASS  C1 adapter output -> cloud-sync ingest payload keeps v7 door fields :: {"open":null,"lastOpenTs":0,"lastCloseTs":1793036590000,"seq":7,"events":[{"seq":5,"open":false,"ts":1793036580000},{"seq":6,"open":true,"ts":0},{"seq":7,"open":false,"ts":1793036590000}]}
+PASS  C2 legacy path through cloud-sync unchanged :: {"open":false,"lastOpenTs":0}
+PASS  E1 unknown door field rejected :: rejected: door contains unknown field: foo
+PASS  E2 open as string rejected :: rejected: door.open must be a boolean
+PASS  E3 open undefined (missing) rejected :: rejected: door.open is required
+PASS  E4 lastOpenTs 10-digit seconds rejected :: rejected: door.lastOpenTs must be a 13-digit UTC Unix timestamp in milliseconds
+PASS  E5 lastCloseTs 10-digit seconds rejected :: rejected: door.lastCloseTs must be a 13-digit UTC Unix timestamp in milliseconds
+PASS  E6 seq=0 rejected :: rejected: door.seq must be an integer in [1, 9007199254740991]
+PASS  E7 seq negative rejected :: rejected: door.seq must be an integer in [1, 9007199254740991]
+PASS  E8 seq non-integer rejected :: rejected: door.seq must be an integer in [1, 9007199254740991]
+PASS  E9 events non-array rejected :: rejected: door.events must be an array
+PASS  E10 events element unknown field rejected :: rejected: door.events[0] contains unknown field: foo
+PASS  E11 events element missing ts rejected :: rejected: door.events[0].ts is required
+PASS  E12 events element seq=0 rejected :: rejected: door.events[0].seq must be an integer in [1, 9007199254740991]
+PASS  E13 events element open null rejected (events are real transitions) :: rejected: door.events[0].open must be a boolean
+PASS  E14 events element ts 10-digit rejected :: rejected: door.events[0].ts must be a 13-digit UTC Unix timestamp in milliseconds
+PASS  E15 events length over cap (17 > 16) rejected :: rejected: door.events must contain at most 16 entries
+PASS  F1 ORIGINAL adapter rejects extended door (patch necessary) :: original rejected: door contains unknown field: lastCloseTs
+PASS  F2 ORIGINAL adapter rejects open:null (patch necessary) :: original rejected: door.open must be a boolean
+
+# RESULT ADAPTER_PATCH_PASS checks=25 passed=25 failed=0

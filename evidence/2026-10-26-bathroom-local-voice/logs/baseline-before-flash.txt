@@ -1,0 +1,111 @@
+ESP-ROM:esp32s3-20210327
+rst:0x1 (POWERON),boot:0x2b (SPI_FAST_FLASH_BOOT)
+I (27) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader
+I (27) boot: compile time Oct 20 2026 23:16:46
+I (27) boot: Multicore bootloader
+I (30) boot: chip revision: v0.2
+I (34) boot.esp32s3: Boot SPI Speed : 80MHz
+I (39) boot.esp32s3: SPI Mode       : DIO
+I (44) boot.esp32s3: SPI Flash Size : 2MB
+I (49) boot: Enabling RNG early entropy source...
+I (54) boot: Partition Table:
+I (58) boot: ## Label            Usage          Type ST Offset   Length
+I (65) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+I (72) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+I (80) boot:  2 factory          factory app      00 00 00010000 00100000
+I (87) boot: End of partition table
+I (91) esp_image: segment 0: paddr=00010020 vaddr=3c090020 size=1b5d8h (112088) map
+I (120) esp_image: segment 1: paddr=0002b600 vaddr=3fc99800 size=0459ch ( 17820) load
+I (124) esp_image: segment 2: paddr=0002fba4 vaddr=40374000 size=00474h (  1140) load
+I (126) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=8827ch (557692) map
+I (234) esp_image: segment 4: paddr=000b82a4 vaddr=40374474 size=152f0h ( 86768) load
+I (263) boot: Loaded app from partition at offset 0x10000
+I (263) boot: Disabling RNG early entropy source...
+I (274) cpu_start: Multicore app
+I (275) cpu_start: Pro cpu up.
+I (275) cpu_start: Starting app cpu, entry point is 0x4037558c
+I (0) cpu_start: App cpu up.
+I (293) cpu_start: Pro cpu start user code
+I (293) cpu_start: cpu freq: 160000000 Hz
+I (293) cpu_start: Application information:
+I (296) cpu_start: Project name:     esp32_elder_node
+I (301) cpu_start: App version:      1
+I (306) cpu_start: Compile time:     Oct 22 2026 22:30:17
+I (312) cpu_start: ELF file SHA256:  76aaa5f1a0ba0126...
+I (318) cpu_start: ESP-IDF:          v5.1.6-dirty
+I (323) cpu_start: Min chip rev:     v0.0
+I (328) cpu_start: Max chip rev:     v0.99 
+I (333) cpu_start: Chip rev:         v0.2
+I (338) heap_init: Initializing. RAM available for dynamic allocation:
+I (345) heap_init: At 3FCA21D8 len 00047538 (285 KiB): DRAM
+I (351) heap_init: At 3FCE9710 len 00005724 (21 KiB): STACK/DRAM
+I (358) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM
+I (364) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM
+I (371) spi_flash: detected chip: generic
+I (375) spi_flash: flash io: dio
+W (379) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+I (392) sleep: Configure to isolate all GPIO pins in sleep state
+I (399) sleep: Enable automatic switching of GPIO sleep configuration
+I (406) app_start: Starting scheduler on CPU0
+I (411) app_start: Starting scheduler on CPU1
+I (411) main_task: Started on CPU0
+I (421) main_task: Calling app_main()
+I (441) elder-node: ESP32-S3 无线节点启动：esp32-bath / 卫生间
+I (441) gpio: GPIO[36]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:0 
+I (451) gpio: GPIO[15]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 
+I (511) elder-node: 板载蜂鸣器就绪（XL9555 P0_3）
+I (721) elder-node: AHT20 自检 OK: temp=25.2C rh=53.4%
+I (721) pp: pp rom version: e7ae62f
+I (721) net80211: net80211 rom version: e7ae62f
+I (731) wifi:wifi driver task: 3fcac8f8, prio:23, stack:6656, core=0
+I (741) wifi:wifi firmware version: 02461b5
+I (741) wifi:wifi certification version: v7.0
+I (741) wifi:config NVS flash: enabled
+I (741) wifi:config nano formating: disabled
+I (741) wifi:Init data frame dynamic rx buffer num: 32
+I (751) wifi:Init static rx mgmt buffer num: 5
+I (751) wifi:Init management short buffer num: 32
+I (761) wifi:Init dynamic tx buffer num: 32
+I (761) wifi:Init static tx FG buffer num: 2
+I (761) wifi:Init static rx buffer size: 1600
+I (771) wifi:Init static rx buffer num: 10
+I (771) wifi:Init dynamic rx buffer num: 32
+I (781) wifi_init: rx ba win: 6
+I (781) wifi_init: tcpip mbox: 32
+I (781) wifi_init: udp mbox: 6
+I (791) wifi_init: tcp mbox: 6
+I (791) wifi_init: tcp tx win: 5760
+I (791) wifi_init: tcp rx win: 5760
+I (801) wifi_init: tcp mss: 1440
+I (801) wifi_init: WiFi IRAM OP enabled
+I (811) wifi_init: WiFi RX IRAM OP enabled
+I (811) wifi:Set ps type: 0, coexist: 0
+I (821) phy_init: phy_version 680,a6008b2,Jun  4 2024,16:41:10
+I (921) wifi:mode : sta (14:c1:9f:42:dd:b4)
+I (921) wifi:enable tsf
+I (931) elder-node: 连接 WiFi: <redacted-ssid>
+I (3811) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1
+I (3811) wifi:state: init -> auth (b0)
+I (3821) wifi:state: auth -> init (1c0)
+I (3821) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+W (3821) elder-node: WiFi 断开（reason=202），重连中…
+W (6241) elder-node: WiFi 断开（reason=205），重连中…
+I (8651) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+I (8651) wifi:state: init -> auth (b0)
+I (8651) wifi:state: auth -> assoc (0)
+I (8691) wifi:state: assoc -> run (10)
+I (8711) wifi:connected with <redacted-ssid>, aid = 1, channel 11, BW20, bssid = <redacted-bssid>
+I (8711) wifi:security: WPA2-PSK, phy: bgn, rssi: -20
+I (8711) wifi:pm start, type: 0
+I (8721) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us
+I (8721) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000
+I (8731) wifi:<ba-add>idx:0 (ifx:0, 5a:fe:a0:a6:a3:d7), tid:0, ssn:0, winSize:64
+I (8751) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us
+I (8751) wifi:AP's beacon interval = 102400 us, DTIM period = 2
+I (9741) esp_netif_handlers: sta ip: <ip>, mask: <ip>, gw: <ip>
+I (9741) elder-node: 已获取 IP: <ip>
+I (9851) elder-node: 已连接网关 <gateway>
+I (14021) elder-node: 检测到活动（今日第 1 次）
+I (15201) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+I (15201) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":1},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.3,"rh":53.7,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,1],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+I (19501) elder-node: 检测到活动（今日第 2 次）

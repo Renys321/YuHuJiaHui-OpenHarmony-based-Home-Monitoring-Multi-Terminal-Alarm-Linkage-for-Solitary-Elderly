@@ -1,0 +1,213 @@
+{
+  "date": "2026-10-26",
+  "kind": "ISOLATED_LOCAL_VERIFICATION",
+  "scope": "local backend source + temp data file + 127.0.0.1 ephemeral port",
+  "fixture": {
+    "note": "TEST fixture only, written into a temp file by this script; not production data",
+    "deviceId": "esp32-test-disp",
+    "alarmIds": [
+      "alarm-test-disp-1",
+      "alarm-test-disp-2"
+    ]
+  },
+  "noProductionActions": {
+    "mqttPublish": false,
+    "httpIngestToProduction": false,
+    "deviceOperations": false,
+    "existingAlarmAck": false,
+    "productionDeploy": false
+  },
+  "startedAt": 1792951092373,
+  "finishedAt": 1792951092529,
+  "total": 37,
+  "passed": 37,
+  "failed": 0,
+  "results": [
+    {
+      "name": "未认证 GET safety-logs -> 401",
+      "ok": true,
+      "detail": "status=401"
+    },
+    {
+      "name": "初始安全日志为空且返回 200",
+      "ok": true,
+      "detail": "status=200 logs=0"
+    },
+    {
+      "name": "首次登记处置 -> 201",
+      "ok": true,
+      "detail": "status=201 body={\"created\":true,\"disposition\":{\"dispositionId\":\"dsp-1\",\"alarmId\":\"alarm-test-disp-1\",\"deviceId\":\"esp32-test-disp\",\"roomN"
+    },
+    {
+      "name": "公开处置字段完整（alarmId/deviceId/room/outcome/label/operator/serverTime）",
+      "ok": true,
+      "detail": "{\"dispositionId\":\"dsp-1\",\"alarmId\":\"alarm-test-disp-1\",\"deviceId\":\"esp32-test-disp\",\"roomName\":\"测试房间\",\"alarmType\":\"SOS\",\"alarmCreatedAt\":1792951032377,\"outcome\":\"CONTACTED_FAMILY\",\"outcomeLabel\":\"已联系家"
+    },
+    {
+      "name": "处置 ID 形如 dsp-N",
+      "ok": true,
+      "detail": "dsp-1"
+    },
+    {
+      "name": "公开响应不包含 token/openid/口令字段",
+      "ok": true,
+      "detail": "clean response"
+    },
+    {
+      "name": "同 clientDispositionId 同内容重放 -> 200 duplicate",
+      "ok": true,
+      "detail": "status=200 body={\"created\":false,\"duplicate\":true,\"disposition\":{\"dispositionId\":\"dsp-1\",\"alarmId\":\"alarm-test-disp-1\",\"deviceId\":\"esp32"
+    },
+    {
+      "name": "同 clientDispositionId 改内容 -> 409",
+      "ok": true,
+      "detail": "status=409"
+    },
+    {
+      "name": "非法 outcome -> 400",
+      "ok": true,
+      "detail": "status=400"
+    },
+    {
+      "name": "note 201 字符 -> 400",
+      "ok": true,
+      "detail": "status=400"
+    },
+    {
+      "name": "OTHER 且空说明 -> 400",
+      "ok": true,
+      "detail": "status=400"
+    },
+    {
+      "name": "note 含控制字符 -> 400",
+      "ok": true,
+      "detail": "status=400"
+    },
+    {
+      "name": "请求体伪造 operator 字段 -> 400",
+      "ok": true,
+      "detail": "status=400"
+    },
+    {
+      "name": "clientDispositionId 过短 -> 400",
+      "ok": true,
+      "detail": "status=400"
+    },
+    {
+      "name": "未知告警登记处置 -> 404",
+      "ok": true,
+      "detail": "status=404"
+    },
+    {
+      "name": "GET 单告警处置记录 -> 1 条",
+      "ok": true,
+      "detail": "status=200 count=1"
+    },
+    {
+      "name": "登记处置后告警仍为 ALARM 且 ackPending=false",
+      "ok": true,
+      "detail": "state=ALARM ackPending=false"
+    },
+    {
+      "name": "登记处置未生成任何 ACK 命令",
+      "ok": true,
+      "detail": "commands=0"
+    },
+    {
+      "name": "既有 ACK -> 202 PENDING",
+      "ok": true,
+      "detail": "status=202 body={\"accepted\":true,\"status\":\"PENDING\",\"commandId\":\"1\"}"
+    },
+    {
+      "name": "ACK 生成 1 条 PENDING 命令",
+      "ok": true,
+      "detail": "commands=1"
+    },
+    {
+      "name": "ACK 提交后告警仍非 ACKED（202 不冒充已确认）",
+      "ok": true,
+      "detail": "state=ALARM ackPending=true"
+    },
+    {
+      "name": "ACK 等待设备回执期间仍可登记处置 -> 201",
+      "ok": true,
+      "detail": "status=201"
+    },
+    {
+      "name": "设备回执后告警 ACKED",
+      "ok": true,
+      "detail": "state=ACKED"
+    },
+    {
+      "name": "ACKED 后仍可登记处置 -> 201",
+      "ok": true,
+      "detail": "status=201"
+    },
+    {
+      "name": "GET safety-logs -> 3 条",
+      "ok": true,
+      "detail": "status=200 count=3"
+    },
+    {
+      "name": "安全日志按 serverTime 降序（同刻按 ID 降序）",
+      "ok": true,
+      "detail": "order ok"
+    },
+    {
+      "name": "按 alarmId 过滤只返回该告警记录",
+      "ok": true,
+      "detail": "status=200 count=0"
+    },
+    {
+      "name": "limit=1 生效",
+      "ok": true,
+      "detail": "count=1"
+    },
+    {
+      "name": "backend 重启后安全日志仍可查（3 条）",
+      "ok": true,
+      "detail": "status=200 count=3"
+    },
+    {
+      "name": "重启后单告警处置记录仍为 3 条",
+      "ok": true,
+      "detail": "count=3"
+    },
+    {
+      "name": "重启后 ACK 命令仍为 1 条（处置未新增命令）",
+      "ok": true,
+      "detail": "commands=1"
+    },
+    {
+      "name": "重启后 ACKED 状态与 acknowledgedAt/By 保留",
+      "ok": true,
+      "detail": "state=ACKED at=1792951092496 by=household-guardian"
+    },
+    {
+      "name": "快照 schemaVersion=6 且含 safetyLogs 3 条",
+      "ok": true,
+      "detail": "schemaVersion=6 safetyLogs=3"
+    },
+    {
+      "name": "快照不含 token/口令/openid 字段或会话 token 值",
+      "ok": true,
+      "detail": "snapshot clean"
+    },
+    {
+      "name": "快照顶层只含白名单键",
+      "ok": true,
+      "detail": "schemaVersion,savedAt,devices,alerts,commands,contacts,notifications,subscriptions,communications,safetyLogs"
+    },
+    {
+      "name": "安全日志记录只含白名单字段",
+      "ok": true,
+      "detail": "dispositionId,clientDispositionId,alarmId,deviceId,room,type,outcome,note,actor,serverTime"
+    },
+    {
+      "name": "v5 快照可加载且 safetyLogs 视为空账本",
+      "ok": true,
+      "detail": "logs=0"
+    }
+  ],
+  "result": "ISOLATED_PASS"
+}

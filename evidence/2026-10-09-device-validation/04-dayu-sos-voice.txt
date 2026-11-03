@@ -1,0 +1,36 @@
+﻿== 步骤 04：DAYU 本机 SOS 语音链路 + ACK 三态 ==
+开始: 2026-10-09 22:46:18
+
+--- HAP 安装 + APP 启动 ---
+[Info]App install path:<WORKSPACE>\competition\northbound\signing\eldercare-signed.hap msg:install bundle successfully. 
+AppMod finish
+force stop process successfully.
+start ability successfully.
+APP_PROCS=1
+CLEARED
+
+--- 触发 SOS（写 control）: 22:46:26 ---
+=== say.log ===
+2026-10-10 05:22:10  say.sh 被调用，文本: 
+2026-10-10 05:22:10  aa start 结果: start ability successfully.
+2026-10-10 06:46:26  say.sh 被调用，文本: 
+2026-10-10 06:46:26  aa start 结果(rc=0): start ability successfully.
+=== homemon.log 关键行 ===
+[1791580930] SAY: 我需要帮助，请尽快联系我
+[1791584526] ALARM id=a-1791584526-2 type=NO_MOTION detail=长时间未检测到人体活动
+[1791585986] ALARM id=a-1791585986-1 type=MANUAL_SOS detail=老人主动按下随身求助按钮
+[1791585986] SAY: 我需要帮助，请尽快联系我
+=== 状态 ===
+{"deviceId":"dayu200-living","room":"客厅","ts":1791585997,"state":"ALARM","sensors":{"motion":{"lastActiveTs":1791585997,"countToday":1860},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":0.0,"rh":0.0,"ok":true},"gas":{"raw":1023,"ok":true},"smoke":{"raw":995,"ok":true}},"history":[0,0,0,
+=== 报警 ID ===
+"alarm":{"id":"a-1791585986-1"
+
+--- hilog: 语音 Ability ---
+10-10 06:46:33.267 29227 30397 I C01332/UIAbility: [ui_ability_thread352]name:SosVoiceAbility,targeState:0,isNewWant:0
+10-10 06:46:33.268 29227 29227 I C01332/UIAbility: [ui_ability_thread271]Lifecycle:name SosVoiceAbility
+10-10 06:46:33.279 29227 29227 I A00000/SosVoice: SosVoiceAbility onDestroy
+10-10 06:46:33.280   502   962 I C01336/AMS: [ABMS8291]AbilityTransitionDone, ability:com.dsh.eldercare/SosVoiceAbility, state:0, callerPid:29227
+10-10 06:46:33.281   502  1216 I C01336/AMS: [ABR888]TerminateAbility:SosVoiceAbility
+10-10 06:46:33.281   502  1216 I C01336/AMS: [ABR2752]Notify callers on terminate: SosVoiceAbility
+10-10 06:46:33.284   502  1509 I C01357/ProcessMgr: [ARR1161]terminate SosVoiceAbility
+10-10 06:46:38.381   688   738 I C02d13/HDC_LOG: [async_cmd.cpp:251] ExecuteCommand cmd:hilog -x 2>/dev/null | grep -aE 'SosVoice|1st device:\[SPEAKER\]' | tail -8 fd:26 pid:30548

@@ -1,0 +1,30 @@
+# lib/fixtures/device-gnss-fixed.fixture
+#
+# 用途：GPS 已开启 + 显式 fix=1 + 合法经纬度/时间/速度/方向。
+# 性质：**根据厂家公开 gpsext 回包格式构造**的坐标（110.1234567E / 20.1234567N 为文档示例值，
+#       不是任何一个真实家庭地址）；真机当前尚未取得 FIXED。
+# 短包 `config,gps,ok,E,<lon>,N,<lat>` 没有 fix 标志，因此只能判定 UNKNOWN，不能算定位成功。
+
+>>> config,get,firmwarever
+config,get,firmwarever
+config,firmwarever,ok,YED_DTU4_2.0.3
+
+>>> config,get,paramver
+config,get,paramver
+config,paramver,ok,0
+
+>>> config,get,csq
+config,get,csq
+config,csq,ok,30
+
+>>> config,get,ssta
+config,get,ssta
+config,ssta,ok,3
+
+>>> config,get,location,2
+config,get,location,2
+config,location,ok,1,30,1,0,0
+
+>>> config,get,gpsext
+config,get,gpsext
+config,gps,ok,1,E,110.1234567,N,20.1234567,0,0,184,-3.6,0,2022-11-3 2:43:51

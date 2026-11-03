@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "rootDir": "../entry/src/main/ets/core",
+    "outDir": "./build",
+    "strict": false,
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "declaration": false,
+    "sourceMap": false,
+    "removeComments": false,
+    "types": []
+  },
+  "include": ["../entry/src/main/ets/core/**/*.ts"],
+  "exclude": ["node_modules", "build"]
+}

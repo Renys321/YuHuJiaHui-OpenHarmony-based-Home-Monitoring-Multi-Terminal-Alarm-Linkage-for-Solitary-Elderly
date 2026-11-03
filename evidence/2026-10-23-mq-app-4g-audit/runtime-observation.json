@@ -1,0 +1,47 @@
+{
+  "evidenceClass": "REAL READ-ONLY HOST OBSERVATION; NOT DEVICE-TO-PHONE ACCEPTANCE",
+  "timezone": "Asia/Shanghai",
+  "initialObservationWindow": "2026-10-23 23:12-23:14 +08:00",
+  "http": {
+    "observedAt": "2026-10-23T15:12:02.527Z",
+    "method": "GET",
+    "url": "https://api.luxunacc.xyz/api/v1/devices",
+    "credentialsSent": false,
+    "status": 401,
+    "devicePayloadObtained": false,
+    "meaning": "Protected endpoint reachable; MQ response fields and deployed source parity unknown"
+  },
+  "hdc": {
+    "client": "D:/DevEcoStudio/DevEco Studio/sdk/default/openharmony/toolchains/hdc.exe",
+    "version": "3.2.0f",
+    "targetRequested": "127.0.0.1:5555",
+    "targetListed": false,
+    "listSummary": "One connected USB target; UART-ready entries COM11, COM19, COM20, COM7. No serial port was opened by the audit.",
+    "pidQueryBundle": "com.example.program_04",
+    "pidQueryOutput": "[Fail]Not match target founded, check connect-key please",
+    "pidQueryExitCode": 0,
+    "semanticSuccess": false,
+    "hostDaemonObservedAfterClientInvocation": true,
+    "note": "HDC client may implicitly start its host daemon; no phone APP, device or business-service restart was performed"
+  },
+  "hostRecheck": {
+    "observedAt": "2026-10-23T23:18:38.5925640+08:00",
+    "checkedListeningPorts": [1883, 9101, 9001, 5555, 8080, 8710],
+    "absentListeningPorts": [1883, 9101, 9001, 5555, 8080],
+    "presentListeners": [{"address": "127.0.0.1", "port": 8710, "processId": 43072}],
+    "selectedProcesses": [
+      {"name": "node.exe", "processId": 45296, "broker": false, "bridge": false, "publicSync": false},
+      {"name": "node.exe", "processId": 37864, "broker": false, "bridge": false, "publicSync": false},
+      {"name": "hdc.exe", "processId": 43072, "broker": false, "bridge": false, "publicSync": false}
+    ],
+    "emulatorProcessMatched": false,
+    "scope": "Current Windows host, default known ports and selected executable/command-name patterns only; not a claim that every possible remote deployment is stopped"
+  },
+  "liveFirstFieldLossPoint": "UNDETERMINED: no current natural device payload, authenticated backend payload or target-phone view obtained",
+  "productionCodeChanged": false,
+  "serialOpened": false,
+  "mqttSentOrSubscribed": false,
+  "hapBuilt": false,
+  "hapInstalled": false,
+  "businessServiceRestarted": false
+}

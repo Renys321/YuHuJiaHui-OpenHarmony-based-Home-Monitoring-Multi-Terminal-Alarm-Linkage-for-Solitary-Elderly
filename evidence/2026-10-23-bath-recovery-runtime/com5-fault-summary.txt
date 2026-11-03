@@ -1,0 +1,89 @@
+rst:0x1 (POWERON),boot:0x2b (SPI_FAST_FLASH_BOOT)
+[0;32mI (65) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (441) elder-node: ESP32-S3 æ çº¿èç¹å¯å¨ï¼esp32-bath / å«çé´[0m
+[0;32mI (721) elder-node: AHT20 èªæ£ OK: temp=25.1C rh=49.0%[0m
+I (731) wifi:wifi driver task: 3fcac8f8, prio:23, stack:6656, core=0
+I (741) wifi:wifi firmware version: 02461b5
+I (741) wifi:wifi certification version: v7.0
+I (741) wifi:config NVS flash: enabled
+I (741) wifi:config nano formating: disabled
+I (741) wifi:Init data frame dynamic rx buffer num: 32
+I (751) wifi:Init static rx mgmt buffer num: 5
+I (751) wifi:Init management short buffer num: 32
+I (761) wifi:Init dynamic tx buffer num: 32
+I (761) wifi:Init static tx FG buffer num: 2
+I (761) wifi:Init static rx buffer size: 1600
+I (771) wifi:Init static rx buffer num: 10
+I (771) wifi:Init dynamic rx buffer num: 32
+[0;32mI (781) wifi_init: rx ba win: 6[0m
+[0;32mI (781) wifi_init: tcpip mbox: 32[0m
+[0;32mI (781) wifi_init: udp mbox: 6[0m
+[0;32mI (791) wifi_init: tcp mbox: 6[0m
+[0;32mI (791) wifi_init: tcp tx win: 5760[0m
+[0;32mI (791) wifi_init: tcp rx win: 5760[0m
+[0;32mI (801) wifi_init: tcp mss: 1440[0m
+[0;32mI (801) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (811) wifi_init: WiFi RX IRAM OP enabled[0m
+I (811) wifi:Set ps type: 0, coexist: 0
+I (951) wifi:mode : sta (14:c1:9f:42:dd:b4)
+I (951) wifi:enable tsf
+I (3841) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (3841) wifi:state: init -> auth (b0)
+I (4841) wifi:state: auth -> init (200)
+I (4841) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+[0;33mW (4841) elder-node: WiFi æ­å¼ï¼reason=2ï¼ï¼éè¿ä¸­â¦[0m
+[0;33mW (7251) elder-node: WiFi æ­å¼ï¼reason=205ï¼ï¼éè¿ä¸­â¦[0m
+I (9661) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (9661) wifi:state: init -> auth (b0)
+I (10661) wifi:state: auth -> init (200)
+I (10661) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+[0;33mW (10671) elder-node: WiFi æ­å¼ï¼reason=2ï¼ï¼éè¿ä¸­â¦[0m
+[0;33mW (13081) elder-node: WiFi æ­å¼ï¼reason=201ï¼ï¼éè¿ä¸­â¦[0m
+I (15491) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (15491) wifi:state: init -> auth (b0)
+I (16491) wifi:state: auth -> init (200)
+I (16491) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+[0;33mW (16491) elder-node: WiFi æ­å¼ï¼reason=2ï¼ï¼éè¿ä¸­â¦[0m
+[0;33mW (18901) elder-node: WiFi æ­å¼ï¼reason=205ï¼ï¼éè¿ä¸­â¦[0m
+I (21311) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (21311) wifi:state: init -> auth (b0)
+I (22311) wifi:state: auth -> init (200)
+I (22311) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+[0;33mW (22311) elder-node: WiFi æ­å¼ï¼reason=2ï¼ï¼éè¿ä¸­â¦[0m
+[0;33mW (24731) elder-node: WiFi æ­å¼ï¼reason=205ï¼ï¼éè¿ä¸­â¦[0m
+I (27131) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (27141) wifi:state: init -> auth (b0)
+I (28141) wifi:state: auth -> init (200)
+I (28141) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+[0;33mW (28141) elder-node: WiFi æ­å¼ï¼reason=2ï¼ï¼éè¿ä¸­â¦[0m
+[0;33mW (30551) elder-node: WiFi æ­å¼ï¼reason=201ï¼ï¼éè¿ä¸­â¦[0m
+I (32961) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (32961) wifi:state: init -> auth (b0)
+I (33961) wifi:state: auth -> init (200)
+I (33961) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+[0;33mW (33961) elder-node: WiFi æ­å¼ï¼reason=2ï¼ï¼éè¿ä¸­â¦[0m
+[0;33mW (36371) elder-node: WiFi æ­å¼ï¼reason=205ï¼ï¼éè¿ä¸­â¦[0m
+I (38781) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (38781) wifi:state: init -> auth (b0)
+I (39791) wifi:state: auth -> init (200)
+I (39791) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+[0;33mW (39791) elder-node: WiFi æ­å¼ï¼reason=2ï¼ï¼éè¿ä¸­â¦[0m
+[0;33mW (42201) elder-node: WiFi æ­å¼ï¼reason=201ï¼ï¼éè¿ä¸­â¦[0m
+I (44611) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (44611) wifi:state: init -> auth (b0)
+I (45611) wifi:state: auth -> init (200)
+I (45611) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+[0;33mW (45611) elder-node: WiFi æ­å¼ï¼reason=2ï¼ï¼éè¿ä¸­â¦[0m
+[0;33mW (48021) elder-node: WiFi æ­å¼ï¼reason=205ï¼ï¼éè¿ä¸­â¦[0m
+I (50431) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (50431) wifi:state: init -> auth (b0)
+I (51431) wifi:state: auth -> init (200)
+I (51431) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+[0;33mW (51431) elder-node: WiFi æ­å¼ï¼reason=2ï¼ï¼éè¿ä¸­â¦[0m
+[0;33mW (53851) elder-node: WiFi æ­å¼ï¼reason=201ï¼ï¼éè¿ä¸­â¦[0m
+[0;33mW (56261) elder-node: WiFi æ­å¼ï¼reason=201ï¼ï¼éè¿ä¸­â¦[0m
+I (58661) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (58661) wifi:state: init -> auth (b0)
+I (59671) wifi:state: auth -> init (200)
+I (59671) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+[0;33mW (59671) elder-node: WiFi æ­å¼ï¼reason=2ï¼ï¼éè¿ä¸­â¦[0m

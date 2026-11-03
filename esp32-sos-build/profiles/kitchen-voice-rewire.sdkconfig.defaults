@@ -1,0 +1,5 @@
+# Kitchen voice wiring revision; apply AFTER kitchen + voice overlays.
+# Requires physical MQ5 protected analog signal move GPIO9 -> GPIO7.
+# ADC1 channel numbering is zero-based: GPIO7 = ADC1_CH6.
+# Do not use with the frozen GPIO9 wiring. Network settings are not changed.
+CONFIG_NODE_MQ5_ADC_CHANNEL=6

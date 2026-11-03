@@ -1,0 +1,15 @@
+== host tests 2026-10-26T18:37:55.4804295+08:00 ==
+alarm_logic: PASS=85 FAIL=0
+bathroom_logic: PASS=54 FAIL=0
+✔ bathroom 身份与正式引脚 (0.8227ms)
+✔ bathroom 禁用 MQ 与门磁 (0.1418ms)
+✔ bathroom 不覆盖 kitchen 配置 (0.7059ms)
+✔ kitchen rewire keeps both ADC sensors and reserves actual audio pins (3.9428ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 121.7599

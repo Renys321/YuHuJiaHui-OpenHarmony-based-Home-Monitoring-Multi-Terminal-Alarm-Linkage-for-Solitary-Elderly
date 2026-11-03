@@ -1,0 +1,5 @@
+﻿# PS1 AST/Syntax parse (powershell.exe 5.1, 2026-10-28)
+D:\OpenHarmony\competition\materials\demo-autostart\demo-autostart.ps1 | parse=PARSE_OK | BOM=True | sha256=740d20bd035ef9c754931fcdb9548b4d1686b74762072d00893544b2f7b65f83
+D:\OpenHarmony\competition\materials\start-demo-supervisor.ps1 | parse=PARSE_OK | BOM=True | sha256=6b5afc2e32648e1738badd5e38cf484443e8a00dd3929a836b338adf45232b75
+D:\OpenHarmony\competition\materials\public-sync-health.ps1 | parse=PARSE_OK | BOM=True | sha256=d881b5b6ca7429fd44afcbcb96dccd5a23bf42ff1169e4d8f695d35960da3bc7
+D:\OpenHarmony\competition\materials\verify-p0-health.ps1 | parse=PARSE_OK | BOM=True | sha256=24ca44b3fdbc024cc6d7dd7cd8444a5668a623b95f9eed2e304e745cfb361bc4

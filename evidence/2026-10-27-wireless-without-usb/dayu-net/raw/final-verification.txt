@@ -1,0 +1,7 @@
+REPORT.md: 18136 bytes, 263 lines, valid UTF-8, first line: # DAYU200 接入 ElderCareLab Wi-Fi 与 PC↔DAYU 可达性验收
+
+scanned files: 41
+credential-value scan (psk=value / encryptedData= / IV=): 0 matches
+
+passphrase-literal scan: 0 matches (executed out-of-band with runtime-built needle)
+VERDICT: CLEAN - no Wi-Fi credential material in evidence folder

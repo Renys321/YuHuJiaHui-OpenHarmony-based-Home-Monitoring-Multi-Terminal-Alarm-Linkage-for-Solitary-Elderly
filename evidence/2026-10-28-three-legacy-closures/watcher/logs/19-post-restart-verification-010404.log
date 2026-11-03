@@ -1,0 +1,116 @@
+﻿# post-restart verification (read-only) 2026-10-28 01:04:04 +08:00
+
+## watcher-state (fresh)
+
+{
+    "timestamp":  "2026-10-28 01:03:51",
+    "target":  "450100445634303332012847942eca00",
+    "targetConnected":  true,
+    "p0":  "healthy",
+    "p0Reason":  "HEALTHY",
+    "app":  "present",
+    "inference":  "running",
+    "cameraFrames":  "LIVE",
+    "nodes":  "4/4",
+    "userStop":  false,
+    "userPaused":  false,
+    "lastEventCount":  159672,
+    "watcherPid":  38176
+}
+
+
+## watcher log tail 15
+
+[2026-10-27 22:55:03] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:55:34] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:56:05] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:56:36] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-27 22:56:44] Restoring hdc fport tcp:9001 -> tcp:9000.
+[2026-10-27 22:56:50] Bringing formal app to foreground.
+[2026-10-28 00:53:47] Watcher start.
+[2026-10-28 00:55:12] 检测到 STALE supervisor lock PID=40628（进程已退出）、陈旧 state=HEALTHY；允许重新拉起 P0 入口（INGEST_KEY 需由用户在该可见窗口输入）
+[2026-10-28 00:55:12] P0 不健康（reason=STALE_LOCK state=HEALTHY heartbeatAgeSec=28 supervisorAlive=False workerAlive=False）；拉起既有正式 P0 入口（key 由用户在该可见窗口输入，本脚本从不读取）
+[2026-10-28 00:56:18] P0 不健康（reason=STALE_LOCK state=HEALTHY heartbeatAgeSec=95 supervisorAlive=False workerAlive=False）；拉起既有正式 P0 入口（key 由用户在该可见窗口输入，本脚本从不读取）
+[2026-10-28 00:57:25] P0 不健康（reason=STALE_LOCK state=HEALTHY heartbeatAgeSec=161 supervisorAlive=False workerAlive=False）；拉起既有正式 P0 入口（key 由用户在该可见窗口输入，本脚本从不读取）
+[2026-10-28 00:57:44] P0 不健康（WORKER_DEAD）但 supervisor 进程仍存活 PID=67276；不重复拉起，等待其自身重启/熔断恢复
+[2026-10-28 01:01:01] Watcher start.
+[2026-10-28 01:01:02] 检测到 STALE supervisor lock PID=67276（进程已退出）、陈旧 state=HEALTHY；允许重新拉起 P0 入口（INGEST_KEY 需由用户在该可见窗口输入）
+[2026-10-28 01:01:02] P0 不健康（reason=PORTS_DOWN state=HEALTHY heartbeatAgeSec=167 supervisorAlive=False workerAlive=False）；拉起既有正式 P0 入口（key 由用户在该可见窗口输入，本脚本从不读取）
+
+## node processes
+
+PID 27820 start=10/27/2026 22:29:42 "D:\Node\node.exe" D:\OpenHarmony\competition\bridge\mqtt_broker.js 1883 
+PID 46720 start=10/28/2026 01:01:11 "D:\Node\node.exe" D:\OpenHarmony\competition\bridge\mqtt_bridge.js --broker 127.0.0.1:1883 --status-tcp 127.0.0.1:9001 --listen 9101 --relay-to 127.0.0.1:9001 --cmd-out D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\control --status-file D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\status.json --lock-file D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\bridge.lock --relay-ignore esp32-sos 
+PID 32288 start=10/28/2026 01:01:12 "D:\Node\node.exe" D:\OpenHarmony\competition\cloud\onenet\public-sync-supervisor.js --public-sync-entry D:\OpenHarmony\competition\cloud\onenet\public-sync.js --worker-script D:\OpenHarmony\competition\cloud\onenet\public-sync-worker.js --state-file D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\public-sync-supervisor.state.json --lock-file D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\public-sync-supervisor.lock --log-file D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\public-sync-supervisor.log
+PID 60936 start=10/28/2026 01:01:20 D:\Node\node.exe D:\OpenHarmony\competition\cloud\onenet\public-sync-worker.js
+PID 61116 start=10/28/2026 01:03:07 "D:\Node\node.exe" server.js --source api --transport relay --relay-to 127.0.0.1:9001 --listen-port 9002 --runtime-dir "D:\OpenHarmony\competition\cloud\wearable-mirror\runtime" --heartbeat-ms 5000 --poll-ms 2000 --api-base https://api.luxunacc.xyz 
+
+## supervisor state
+
+{
+  "supervisorPid": 32288,
+  "workerPid": 60936,
+  "state": "HEALTHY",
+  "startedAt": 1793120472905,
+  "heartbeatAt": 1793120630052,
+  "restartCount": 0,
+  "lastWorkerStartedAt": 1793120480025,
+  "lastWorkerExit": null,
+  "lastHealthyAt": 1793120480288
+}
+
+
+## latest 202 per device
+
+dayu200-living: 2026-10-27T17:03:55.755Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1793120634718 deviceTs=1793120634689 path=/internal/v1/device-status status=202 at=2026-10-27T17:03:55.754Z
+
+esp32-kitchen: 2026-10-27T17:03:36.704Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793120616396 deviceTs=1793120616494 path=/internal/v1/device-status status=202 at=2026-10-27T17:03:36.703Z
+
+esp32-bath: 2026-10-27T17:03:36.457Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1793120616353 deviceTs=1793120616422 path=/internal/v1/device-status status=202 at=2026-10-27T17:03:36.456Z
+
+## mirror status summary
+
+pid=61116 phase=NORMAL online=True relay=127.0.0.1:9001 connected=True connects=1 disconnects=0 linesSent=14 lastError=
+
+## homemon pid/sha
+
+23655
+a5f355c2d5e9f4e7330282f1856411927eb54ad743b5acb7c599be7c2d6ed9ea  /data/homemon/homemon
+
+## homemon startup log (TCP lines)
+
+[1793120634] TCP 客户端接入 127.0.0.1（第 2 路）
+[1793120634] TCP 客户端断开（第 2 路）
+
+## hdc fport
+
+450100445634303332012847942eca00    tcp:9001 tcp:9000    [Forward]
+
+## board 9000 connections
+
+tcp        0      0 0.0.0.0:9000            0.0.0.0:*               LISTEN      23655/homemon
+tcp        0      0 127.0.0.1:39642         127.0.0.1:9000          TIME_WAIT   -
+tcp        0      0 127.0.0.1:51684         127.0.0.1:9000          ESTABLISHED 720/hdcd
+tcp      121      0 127.0.0.1:9000          127.0.0.1:51684         ESTABLISHED 23655/homemon
+tcp        0      0 127.0.0.1:42438         127.0.0.1:9000          ESTABLISHED 720/hdcd
+tcp        0      0 127.0.0.1:9000          127.0.0.1:50398         ESTABLISHED 23655/homemon
+tcp        0      0 127.0.0.1:9000          127.0.0.1:42438         ESTABLISHED 23655/homemon
+tcp        0      0 127.0.0.1:51676         127.0.0.1:9000          ESTABLISHED 720/hdcd
+tcp        0      0 127.0.0.1:37100         127.0.0.1:9000          TIME_WAIT   -
+tcp        0      0 127.0.0.1:50398         127.0.0.1:9000          ESTABLISHED 27321/com.dsh.eldercare
+tcp        0      0 127.0.0.1:9000          127.0.0.1:51676         ESTABLISHED 23655/homemon
+tcp        0      0 127.0.0.1:48388         127.0.0.1:9000          TIME_WAIT   -
+tcp        0      0 127.0.0.1:47380         127.0.0.1:9000          TIME_WAIT   -
+
+## public-sync-health (read-only)
+
+=== public-sync / P0 只读健康检查（不启动、不停止、不读取密钥）===
+  时间            : 2026-10-28 01:04:07
+  Broker 1883     : LISTENING
+  Bridge 9101     : LISTENING
+  supervisor      : healthy=True reason=HEALTHY state=HEALTHY supervisorPid=32288 workerPid=60936 heartbeatAgeMs=17924
+  结论            : HEALTHY（HEALTHY）
+
+## DAYU UI texts
+
+居家安全监护 | 卫生间 · 已选设备在线 · esp32-bath | 卫生间 · 全屋在线 3/4 台设备 | 一切正常 | 客厅 | 厨房 | 随身求助 | 卫生间 | 今日活动 | 16 次 | 温度 | 26.3 ℃ | 湿度 | 53.6 % | 门窗 | 开启 | 最后活动 | 刚刚 | 人体传感器 | 今日活动 | 16 次 | 累计触发 | 随身求助（esp32-sos） | 来源 | 随身求助设备 · 在线 | 告警状态 | 正常 | 事件时间 | 无进行中事件 | 定位：暂无定位（设备未回传有效坐标） | 确认状态 | 等待设备确认（手机 APP 确认后由设备回执） | 最近上报：暂无 · 数据来源：mirror | 卫生间 · 门窗状态 | 当前：开启 | 最近开启 暂无 | 室内环境 | 温度 | 湿度 | 实时状态 | 预警处置 | 统计报告 | 没有 SIM 卡 | × | 11% | 01:04

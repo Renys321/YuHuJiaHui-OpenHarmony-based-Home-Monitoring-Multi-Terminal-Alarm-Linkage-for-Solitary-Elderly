@@ -1,0 +1,22 @@
+# bench-serial.py start 2026-10-26T22:54:31.064+08:00
+# com=COM4 baud=115200 dtr=False rts=False log=D:\OpenHarmony\competition\evidence\2026-10-26-sync-restore-bath-sos-ack\bath-serial-2255.log
+[+00000001.765s] [2026-10-26T22:54:32.818+08:00] I (248182) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+[+00000001.765s] [2026-10-26T22:54:32.818+08:00] I (248182) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1793026472799,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1793026457378,"countToday":19},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.6,"rh":59.9,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,19],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000001.765s] [2026-10-26T22:54:32.818+08:00] 
+[+00000001.765s] [2026-10-26T22:54:32.818+08:00] I (248212) elder-node: STACK_FREE task=main bytes=4068
+[+00000001.765s] [2026-10-26T22:54:32.818+08:00] I (248242) elder-node: STACK_FREE task=gateway-net bytes=2732
+[+00000007.109s] [2026-10-26T22:54:38.159+08:00] I (253582) elder-node: 检测到活动（今日第 20 次）
+[+00000007.265s] [2026-10-26T22:54:38.316+08:00] I (253672) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1793026478290,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1793026478199,"countToday":20},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.6,"rh":59.9,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,20],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000007.265s] [2026-10-26T22:54:38.316+08:00] 
+[+00000007.265s] [2026-10-26T22:54:38.316+08:00] I (253702) elder-node: STACK_FREE task=main bytes=4068
+[+00000007.265s] [2026-10-26T22:54:38.317+08:00] I (253742) elder-node: STACK_FREE task=gateway-net bytes=2732
+[+00000012.750s] [2026-10-26T22:54:43.811+08:00] I (259152) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1793026483769,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1793026478198,"countToday":20},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.6,"rh":60.0,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,20],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000012.750s] [2026-10-26T22:54:43.811+08:00] 
+[+00000012.750s] [2026-10-26T22:54:43.811+08:00] I (259182) elder-node: STACK_FREE task=main bytes=4068
+[+00000012.750s] [2026-10-26T22:54:43.811+08:00] I (259242) elder-node: STACK_FREE task=gateway-net bytes=2732
+[+00000013.703s] [2026-10-26T22:54:44.760+08:00] I (260182) elder-node: 检测到活动（今日第 21 次）
+[+00000018.203s] [2026-10-26T22:54:49.254+08:00] I (264632) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1793026489249,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1793026484799,"countToday":21},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.6,"rh":60.0,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,21],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000018.203s] [2026-10-26T22:54:49.254+08:00] 
+[+00000018.203s] [2026-10-26T22:54:49.254+08:00] I (264642) elder-node: STACK_FREE task=gateway-net bytes=2732
+[+00000018.203s] [2026-10-26T22:54:49.254+08:00] I (264662) elder-node: STACK_FREE task=main bytes=4068
+# BENCH_SERIAL SUMMARY lines=19 bytes=2634 sent=0 duration=20.015s markers={→ {=4}

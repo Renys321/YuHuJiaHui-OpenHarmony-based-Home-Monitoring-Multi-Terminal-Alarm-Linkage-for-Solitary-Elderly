@@ -1,0 +1,16 @@
+[  0.07] [broker] 监听 0.0.0.0:18830（自包含 MQTT broker，Ctrl+C 退出）
+[  0.60] [broker] + 连接来自 ::ffff:127.0.0.1:57101（当前 1 个）
+[  0.60] [broker] CONNACK → bridge-dayu200-01-13945
+[  0.60] [broker] SUBSCRIBE bridge-dayu200-01-13945 → home/+/cmd
+[  2.41] [broker] PUBLISH home/esp32-test/status (357B) → 转发给 0 个订阅者
+[  3.42] [broker] PUBLISH home/esp32-test/status (378B) → 转发给 0 个订阅者
+[  4.43] [broker] PUBLISH home/esp32-test/status (378B) → 转发给 0 个订阅者
+[  5.44] [broker] PUBLISH home/esp32-test/status (378B) → 转发给 0 个订阅者
+[  6.44] [broker] PUBLISH home/esp32-test/status (378B) → 转发给 0 个订阅者
+[  7.45] [broker] PUBLISH home/esp32-test/status (378B) → 转发给 0 个订阅者
+[  8.45] [broker] PUBLISH home/esp32-test/status (378B) → 转发给 0 个订阅者
+[  9.45] [broker] PUBLISH home/esp32-test/status (378B) → 转发给 0 个订阅者
+[ 10.46] [broker] PUBLISH home/esp32-test/status (378B) → 转发给 0 个订阅者
+[ 11.46] [broker] PUBLISH home/esp32-test/status (378B) → 转发给 0 个订阅者
+[ 12.47] [broker] PUBLISH home/esp32-test/status (378B) → 转发给 0 个订阅者
+[ 13.48] [broker] PUBLISH home/esp32-test/status (378B) → 转发给 0 个订阅者

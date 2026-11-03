@@ -1,0 +1,654 @@
+--- Warning: GDB cannot open serial ports accessed as COMx
+
+--- Using \\.\COM9 instead...
+
+--- esp-idf-monitor 1.5.0 on \\.\COM9 115200
+
+--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+Executing action: monitor
+Running idf_monitor in directory D:\OpenHarmony\competition\esp32-node
+Executing "D:\Espressif-5.1.6\python_env\idf5.1_py3.11_env\Scripts\python.exe D:\Espressif-5.1.6\frameworks\esp-idf-v5.1.6\tools/idf_monitor.py -p COM9 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 D:\OpenHarmony\competition\esp32-node\build\esp32_elder_node.elf --force-color -m 'D:\Espressif-5.1.6\python_env\idf5.1_py3.11_env\Scripts\python.exe' 'D:\Espressif-5.1.6\frameworks\esp-idf-v5.1.6\tools\idf.py' '-p' 'COM9'"...
+ESP-ROM:esp32s3-20210327
+
+ESP-ROM:esp32s3-20210327
+
+Build:Mar 27 2021
+
+rst:0x1 (POWERON),boot:0xb (SPI_FAST_FLASH_BOOT)
+
+SPIWP:0xee
+
+mode:DIO, clock div:1
+
+load:0x3fce3818,len:0x1758
+
+load:0x403c9700,len:0x4
+
+load:0x403c9704,len:0xc00
+
+load:0x403cc700,len:0x2e20
+
+entry 0x403c9908
+
+I (27) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader
+
+I (27) boot: compile time Oct  9 2026 18:59:40
+
+I (27) boot: Multicore bootloader
+
+I (30) boot: chip revision: v0.2
+
+I (34) boot.esp32s3: Boot SPI Speed : 80MHz
+
+I (39) boot.esp32s3: SPI Mode       : DIO
+
+I (44) boot.esp32s3: SPI Flash Size : 2MB
+
+I (48) boot: Enabling RNG early entropy source...
+
+I (54) boot: Partition Table:
+
+I (57) boot: ## Label            Usage          Type ST Offset   Length
+
+I (65) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+
+I (72) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+
+I (80) boot:  2 factory          factory app      00 00 00010000 00100000
+
+I (87) boot: End of partition table
+
+I (91) esp_image: segment 0: paddr=00010020 vaddr=3c090020 size=1a1d4h (106964) map
+
+I (119) esp_image: segment 1: paddr=0002a1fc vaddr=3fc98400 size=0457ch ( 17788) load
+
+I (123) esp_image: segment 2: paddr=0002e780 vaddr=40374000 size=01898h (  6296) load
+
+I (126) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=85860h (546912) map
+
+I (231) esp_image: segment 4: paddr=000b5888 vaddr=40375898 size=12b44h ( 76612) load
+
+I (257) boot: Loaded app from partition at offset 0x10000
+
+I (257) boot: Disabling RNG early entropy source...
+
+I (269) cpu_start: Multicore app
+
+I (269) cpu_start: Pro cpu up.
+
+I (269) cpu_start: Starting app cpu, entry point is 0x403754a0
+
+--- 0x403754a0: call_start_cpu1 at D:/Espressif-5.1.6/frameworks/esp-idf-v5.1.6/components/esp_system/port/cpu_start.c:160
+
+
+I (0) cpu_start: App cpu up.
+
+I (287) cpu_start: Pro cpu start user code
+
+I (287) cpu_start: cpu freq: 160000000 Hz
+
+I (287) cpu_start: Application information:
+
+I (290) cpu_start: Project name:     esp32_elder_node
+
+I (296) cpu_start: App version:      1
+
+I (300) cpu_start: Compile time:     Oct 10 2026 11:01:15
+
+I (306) cpu_start: ELF file SHA256:  1c696655fcad0610...
+
+I (312) cpu_start: ESP-IDF:          v5.1.6-dirty
+
+I (318) cpu_start: Min chip rev:     v0.0
+
+I (322) cpu_start: Max chip rev:     v0.99 
+
+I (327) cpu_start: Chip rev:         v0.2
+
+I (332) heap_init: Initializing. RAM available for dynamic allocation:
+
+I (339) heap_init: At 3FCA0D78 len 00048998 (290 KiB): DRAM
+
+I (345) heap_init: At 3FCE9710 len 00005724 (21 KiB): STACK/DRAM
+
+I (352) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM
+
+I (358) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM
+
+I (366) spi_flash: detected chip: generic
+
+I (369) spi_flash: flash io: dio
+
+W (373) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+
+I (387) sleep: Configure to isolate all GPIO pins in sleep state
+
+I (393) sleep: Enable automatic switching of GPIO sleep configuration
+
+I (400) app_start: Starting scheduler on CPU0
+
+I (405) app_start: Starting scheduler on CPU1
+
+I (405) main_task: Started on CPU0
+
+I (415) main_task: Calling app_main()
+
+I (435) elder-node: ESP32-S3 无线节点启动：esp32-bath / 卫生间
+
+I (435) gpio: GPIO[4]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:0 
+
+I (445) gpio: GPIO[5]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:0 
+
+I (455) gpio: GPIO[6]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 
+
+I (465) pp: pp rom version: e7ae62f
+
+I (465) net80211: net80211 rom version: e7ae62f
+
+I (475) wifi:wifi driver task: 3fcab0b4, prio:23, stack:6656, core=0
+
+I (485) wifi:wifi firmware version: 02461b5
+
+I (485) wifi:wifi certification version: v7.0
+
+I (485) wifi:config NVS flash: enabled
+
+I (485) wifi:config nano formating: disabled
+
+I (495) wifi:Init data frame dynamic rx buffer num: 32
+
+I (495) wifi:Init static rx mgmt buffer num: 5
+
+I (495) wifi:Init management short buffer num: 32
+
+I (505) wifi:Init dynamic tx buffer num: 32
+
+I (505) wifi:Init static tx FG buffer num: 2
+
+I (515) wifi:Init static rx buffer size: 1600
+
+I (515) wifi:Init static rx buffer num: 10
+
+I (515) wifi:Init dynamic rx buffer num: 32
+
+I (525) wifi_init: rx ba win: 6
+
+I (525) wifi_init: tcpip mbox: 32
+
+I (535) wifi_init: udp mbox: 6
+
+I (535) wifi_init: tcp mbox: 6
+
+I (535) wifi_init: tcp tx win: 5760
+
+I (545) wifi_init: tcp rx win: 5760
+
+I (545) wifi_init: tcp mss: 1440
+
+I (555) wifi_init: WiFi IRAM OP enabled
+
+I (555) wifi_init: WiFi RX IRAM OP enabled
+
+I (565) wifi:Set ps type: 0, coexist: 0
+
+
+
+I (565) phy_init: phy_version 680,a6008b2,Jun  4 2024,16:41:10
+
+I (755) wifi:mode : sta (14:c1:9f:42:dd:b4)
+
+I (755) wifi:enable tsf
+
+I (755) elder-node: 连接 WiFi: ElderCareLab
+
+I (1975) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (1975) wifi:state: init -> auth (b0)
+
+I (2985) wifi:state: auth -> init (200)
+
+I (2995) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (2995) elder-node: WiFi 断开（reason=2），重连中…
+
+W (5405) elder-node: WiFi 断开（reason=205），重连中…
+
+I (5455) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (5455) wifi:state: init -> auth (b0)
+
+I (6465) wifi:state: auth -> init (200)
+
+I (6475) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (6475) elder-node: WiFi 断开（reason=2），重连中…
+
+W (8885) elder-node: WiFi 断开（reason=205），重连中…
+
+I (8935) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (8935) wifi:state: init -> auth (b0)
+
+I (9945) wifi:state: auth -> init (200)
+
+I (9955) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (9955) elder-node: WiFi 断开（reason=2），重连中…
+
+W (12365) elder-node: WiFi 断开（reason=205），重连中…
+
+I (12415) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (12415) wifi:state: init -> auth (b0)
+
+I (13425) wifi:state: auth -> init (200)
+
+I (13435) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (13435) elder-node: WiFi 断开（reason=2），重连中…
+
+W (15845) elder-node: WiFi 断开（reason=205），重连中…
+
+I (15895) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (15905) wifi:state: init -> auth (b0)
+
+I (16915) wifi:state: auth -> init (200)
+
+I (16925) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (16925) elder-node: WiFi 断开（reason=2），重连中…
+
+W (19335) elder-node: WiFi 断开（reason=205），重连中…
+
+I (19385) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (19385) wifi:state: init -> auth (b0)
+
+I (20395) wifi:state: auth -> init (200)
+
+I (20405) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (20405) elder-node: WiFi 断开（reason=2），重连中…
+
+W (22815) elder-node: WiFi 断开（reason=205），重连中…
+
+I (22865) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (22865) wifi:state: init -> auth (b0)
+
+I (23875) wifi:state: auth -> init (200)
+
+I (23885) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (23885) elder-node: WiFi 断开（reason=2），重连中…
+
+W (26295) elder-node: WiFi 断开（reason=205），重连中…
+
+I (26345) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (26345) wifi:state: init -> auth (b0)
+
+I (27355) wifi:state: auth -> init (200)
+
+I (27365) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (27365) elder-node: WiFi 断开（reason=2），重连中…
+
+W (29775) elder-node: WiFi 断开（reason=205），重连中…
+
+I (29825) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (29825) wifi:state: init -> auth (b0)
+
+I (30835) wifi:state: auth -> init (200)
+
+I (30845) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (30845) elder-node: WiFi 断开（reason=2），重连中…
+
+W (33255) elder-node: WiFi 断开（reason=205），重连中…
+
+I (33305) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (33305) wifi:state: init -> auth (b0)
+
+I (34315) wifi:state: auth -> init (200)
+
+I (34325) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (34325) elder-node: WiFi 断开（reason=2），重连中…
+
+W (36735) elder-node: WiFi 断开（reason=205），重连中…
+
+I (36785) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (36785) wifi:state: init -> auth (b0)
+
+I (37805) wifi:state: auth -> init (200)
+
+I (37815) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (37815) elder-node: WiFi 断开（reason=2），重连中…
+
+W (40225) elder-node: WiFi 断开（reason=205），重连中…
+
+W (42635) elder-node: WiFi 断开（reason=201），重连中…
+
+I (42725) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (42725) wifi:state: init -> auth (b0)
+
+I (43745) wifi:state: auth -> init (200)
+
+I (43755) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (43755) elder-node: WiFi 断开（reason=2），重连中…
+
+W (46165) elder-node: WiFi 断开（reason=205），重连中…
+
+I (46215) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (46215) wifi:state: init -> auth (b0)
+
+I (47225) wifi:state: auth -> init (200)
+
+I (47235) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (47235) elder-node: WiFi 断开（reason=2），重连中…
+
+W (49645) elder-node: WiFi 断开（reason=205），重连中…
+
+I (49695) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (49695) wifi:state: init -> auth (b0)
+
+I (50705) wifi:state: auth -> init (200)
+
+I (50715) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (50715) elder-node: WiFi 断开（reason=2），重连中…
+
+W (53125) elder-node: WiFi 断开（reason=205），重连中…
+
+W (55535) elder-node: WiFi 断开（reason=201），重连中…
+
+I (55635) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (55635) wifi:state: init -> auth (b0)
+
+I (56645) wifi:state: auth -> init (200)
+
+I (56655) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (56655) elder-node: WiFi 断开（reason=2），重连中…
+
+W (59065) elder-node: WiFi 断开（reason=205），重连中…
+
+W (61475) elder-node: WiFi 断开（reason=201），重连中…
+
+I (61575) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (61575) wifi:state: init -> auth (b0)
+
+I (62585) wifi:state: auth -> init (200)
+
+I (62595) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (62595) elder-node: WiFi 断开（reason=2），重连中…
+
+W (65005) elder-node: WiFi 断开（reason=205），重连中…
+
+I (65055) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (65055) wifi:state: init -> auth (b0)
+
+I (66065) wifi:state: auth -> init (200)
+
+I (66075) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (66075) elder-node: WiFi 断开（reason=2），重连中…
+
+W (68485) elder-node: WiFi 断开（reason=205），重连中…
+
+I (68535) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (68535) wifi:state: init -> auth (b0)
+
+I (69545) wifi:state: auth -> init (200)
+
+I (69555) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (69555) elder-node: WiFi 断开（reason=2），重连中…
+
+W (71965) elder-node: WiFi 断开（reason=205），重连中…
+
+I (72015) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (72015) wifi:state: init -> auth (b0)
+
+I (73025) wifi:state: auth -> init (200)
+
+I (73035) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (73035) elder-node: WiFi 断开（reason=2），重连中…
+
+W (75445) elder-node: WiFi 断开（reason=205），重连中…
+
+I (75495) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (75495) wifi:state: init -> auth (b0)
+
+I (76505) wifi:state: auth -> init (200)
+
+I (76515) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (76515) elder-node: WiFi 断开（reason=2），重连中…
+
+W (78925) elder-node: WiFi 断开（reason=205），重连中…
+
+I (78975) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (78975) wifi:state: init -> auth (b0)
+
+I (79995) wifi:state: auth -> init (200)
+
+I (80005) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (80005) elder-node: WiFi 断开（reason=2），重连中…
+
+W (82415) elder-node: WiFi 断开（reason=205），重连中…
+
+I (82455) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (82465) wifi:state: init -> auth (b0)
+
+I (83475) wifi:state: auth -> init (200)
+
+I (83485) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (83485) elder-node: WiFi 断开（reason=2），重连中…
+
+W (85895) elder-node: WiFi 断开（reason=205），重连中…
+
+I (85945) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (85945) wifi:state: init -> auth (b0)
+
+I (86955) wifi:state: auth -> init (200)
+
+I (86965) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (86965) elder-node: WiFi 断开（reason=2），重连中…
+
+W (89375) elder-node: WiFi 断开（reason=205），重连中…
+
+I (89425) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (89425) wifi:state: init -> auth (b0)
+
+I (90435) wifi:state: auth -> init (200)
+
+I (90445) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (90445) elder-node: WiFi 断开（reason=2），重连中…
+
+W (92855) elder-node: WiFi 断开（reason=205），重连中…
+
+W (95265) elder-node: WiFi 断开（reason=201），重连中…
+
+I (95365) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (95365) wifi:state: init -> auth (b0)
+
+I (96375) wifi:state: auth -> init (200)
+
+I (96385) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (96385) elder-node: WiFi 断开（reason=2），重连中…
+
+W (98795) elder-node: WiFi 断开（reason=201），重连中…
+
+I (98845) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (98845) wifi:state: init -> auth (b0)
+
+I (99855) wifi:state: auth -> init (200)
+
+I (99865) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (99865) elder-node: WiFi 断开（reason=2），重连中…
+
+W (102275) elder-node: WiFi 断开（reason=205），重连中…
+
+I (102335) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (102335) wifi:state: init -> auth (b0)
+
+I (103345) wifi:state: auth -> init (200)
+
+I (103355) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (103355) elder-node: WiFi 断开（reason=2），重连中…
+
+W (105765) elder-node: WiFi 断开（reason=205），重连中…
+
+I (105805) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (105805) wifi:state: init -> auth (b0)
+
+I (106815) wifi:state: auth -> init (200)
+
+I (106825) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (106825) elder-node: WiFi 断开（reason=2），重连中…
+
+W (109235) elder-node: WiFi 断开（reason=205），重连中…
+
+I (109285) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (109285) wifi:state: init -> auth (b0)
+
+I (110305) wifi:state: auth -> init (200)
+
+I (110315) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (110315) elder-node: WiFi 断开（reason=2），重连中…
+
+W (112725) elder-node: WiFi 断开（reason=205），重连中…
+
+I (112775) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (112775) wifi:state: init -> auth (b0)
+
+I (113785) wifi:state: auth -> init (200)
+
+I (113795) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (113795) elder-node: WiFi 断开（reason=2），重连中…
+
+W (116205) elder-node: WiFi 断开（reason=205），重连中…
+
+I (116255) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (116255) wifi:state: init -> auth (b0)
+
+I (117265) wifi:state: auth -> init (200)
+
+I (117275) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (117275) elder-node: WiFi 断开（reason=2），重连中…
+
+W (119685) elder-node: WiFi 断开（reason=205），重连中…
+
+I (119735) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (119735) wifi:state: init -> auth (b0)
+
+I (120745) wifi:state: auth -> init (200)
+
+I (120755) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (120755) elder-node: WiFi 断开（reason=2），重连中…
+
+W (123165) elder-node: WiFi 断开（reason=205），重连中…
+
+I (123215) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (123215) wifi:state: init -> auth (b0)
+
+I (124225) wifi:state: auth -> init (200)
+
+I (124235) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (124235) elder-node: WiFi 断开（reason=2），重连中…
+
+W (126645) elder-node: WiFi 断开（reason=205），重连中…
+
+I (126695) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (126695) wifi:state: init -> auth (b0)
+
+I (127705) wifi:state: auth -> init (200)
+
+I (127715) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (127715) elder-node: WiFi 断开（reason=2），重连中…
+
+W (130125) elder-node: WiFi 断开（reason=205），重连中…
+
+I (130175) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (130175) wifi:state: init -> auth (b0)
+
+I (131195) wifi:state: auth -> init (200)
+
+I (131205) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (131205) elder-node: WiFi 断开（reason=2），重连中…
+
+W (133615) elder-node: WiFi 断开（reason=205），重连中…
+
+I (133655) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (133665) wifi:state: init -> auth (b0)
+
+I (134675) wifi:state: auth -> init (200)
+
+I (134685) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (134685) elder-node: WiFi 断开（reason=2），重连中…
+
+W (137095) elder-node: WiFi 断开（reason=201），重连中…
+
+I (137145) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+I (137145) wifi:state: init -> auth (b0)
+
+I (138155) wifi:state: auth -> init (200)
+
+I (138165) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1
+
+W (138165) elder-node: WiFi 断开（reason=2），重连中…
+
+

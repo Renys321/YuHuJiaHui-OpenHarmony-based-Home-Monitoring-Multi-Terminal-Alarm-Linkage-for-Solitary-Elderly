@@ -1,0 +1,489 @@
+=== 稳定性测试 cycles=30 target=esp32-bath question=今天天气怎么样 ===
+
+-- 第 1 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (1206ms) 27 字: 我这儿看不到天气，您看看窗外或问问家人。出门记得添衣。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+-- 第 2 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (857ms) 27 字: 我查不到实时天气，您看窗外或问家人。出门记得添衣防滑。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+-- 第 3 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (982ms) 29 字: 我这儿看不到实时天气，您看窗外或问家人。出门记得添衣防滑。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+-- 第 4 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (817ms) 27 字: 我这儿看不到天气，您看看窗外或问问家人。出门记得添衣。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+-- 第 5 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (1021ms) 27 字: 我这儿看不到天气，您看看窗外或问问家人。出门记得添衣。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+-- 第 6 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (1087ms) 29 字: 我这儿查不到实时天气，您看看窗外或问问家人。出门记得添衣。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+-- 第 7 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (732ms) 25 字: 我这儿查不到天气，您看窗外或问家人。出门记得添衣。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+-- 第 8 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (1073ms) 27 字: 我查不到实时天气，您看窗外或问家人。出门记得添衣防滑。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+-- 第 9 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (830ms) 29 字: 我这儿看不到实时天气，您看看窗外或问问家人。出门记得添衣。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+-- 第 10 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (833ms) 23 字: 我这儿看不到实时天气，您问问家人或看看窗外吧。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+-- 第 11 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (1089ms) 27 字: 我这儿查不到实时天气，您看窗外或问家人。出门记得添衣。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+-- 第 12 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (928ms) 27 字: 我查不到实时天气，您看窗外或问家人。出门记得添衣防滑。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+-- 第 13 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (911ms) 29 字: 我这儿看不到实时天气，您看窗外或问家人。出门记得添衣防滑。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+-- 第 14 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (917ms) 23 字: 我这儿看不到实时天气，您问问家人或看看窗外吧。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+-- 第 15 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (820ms) 31 字: 我这儿看不到实时天气，您问问家人或看看窗外。出门记得添衣防滑。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+-- 第 16 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (864ms) 27 字: 我查不到实时天气，您看窗外或问家人。出门记得添衣防滑。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+-- 第 17 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (807ms) 27 字: 我查不到实时天气，您看窗外或问家人。出门记得添衣防滑。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+-- 第 18 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (666ms) 26 字: 我这儿看不到天气，您开窗看看或问家人。出门记得添衣。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+-- 第 19 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (1200ms) 27 字: 我这儿查不到天气，您看窗外或问家人。出门记得添衣防滑。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+-- 第 20 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (709ms) 29 字: 我这儿看不到实时天气，您看窗外或问家人。出门记得添衣防滑。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+-- 第 21 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (666ms) 27 字: 我这儿看不到实时天气，您看窗外或问家人。出门记得添衣。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+-- 第 22 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (1321ms) 27 字: 我这儿看不到实时天气，您看窗外或问家人。出门记得添衣。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+-- 第 23 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (1029ms) 27 字: 我查不到实时天气，您看窗外或问家人。出门记得添衣防滑。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+-- 第 24 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (1106ms) 27 字: 我查不到实时天气，您看窗外或问家人。出门记得添衣防滑。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+-- 第 25 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (870ms) 27 字: 我这儿查不到实时天气，您看窗外或问家人。出门记得添衣。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+-- 第 26 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (663ms) 29 字: 我这儿查不到实时天气，您看窗外或问家人。出门记得添衣防滑。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+-- 第 27 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (954ms) 27 字: 我查不到实时天气，您看窗外或问家人。出门记得添衣防滑。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+-- 第 28 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (852ms) 27 字: 我这儿查不到天气，您看窗外或问家人。出门记得添衣防滑。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+-- 第 29 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (1062ms) 29 字: 我这儿查不到实时天气，您看窗外或问家人。出门记得添衣防滑。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+-- 第 30 轮 --
+  [PASS] gateway ports 9302/9303/9102 (0ms) listening
+  [PASS] DAYU hdc mapping (0ms) 9001+9302
+  [PASS] text query + answer<=40 (851ms) 27 字: 我查不到实时天气，您看看窗外或问问家人。出门记得添衣。
+  [PASS] target speaker push (0ms) matched esp32-bath
+  [PASS] speaker done ok=1 (0ms) esp32-bath 已回执
+  [PASS] no cross-node playback (0ms) 仅 esp32-bath
+  [PASS] cloud healthz (0ms) ok(node)
+
+=== 汇总 ===
+
+Cycle Check                          Ok Detail                                  Ms
+----- -----                          -- ------                                  --
+    1 gateway ports 9302/9303/9102 True listening                                0
+    1 DAYU hdc mapping             True 9001+9302                                0
+    1 text query + answer<=40      True 27 字: 我这儿看不到天气，您看看窗外或问问家人。出门记得添衣。     1206
+    1 target speaker push          True matched esp32-bath                       0
+    1 speaker done ok=1            True esp32-bath 已回执                           0
+    1 no cross-node playback       True 仅 esp32-bath                             0
+    1 cloud healthz                True ok(node)                                 0
+    2 gateway ports 9302/9303/9102 True listening                                0
+    2 DAYU hdc mapping             True 9001+9302                                0
+    2 text query + answer<=40      True 27 字: 我查不到实时天气，您看窗外或问家人。出门记得添衣防滑。      857
+    2 target speaker push          True matched esp32-bath                       0
+    2 speaker done ok=1            True esp32-bath 已回执                           0
+    2 no cross-node playback       True 仅 esp32-bath                             0
+    2 cloud healthz                True ok(node)                                 0
+    3 gateway ports 9302/9303/9102 True listening                                0
+    3 DAYU hdc mapping             True 9001+9302                                0
+    3 text query + answer<=40      True 29 字: 我这儿看不到实时天气，您看窗外或问家人。出门记得添衣防滑。    982
+    3 target speaker push          True matched esp32-bath                       0
+    3 speaker done ok=1            True esp32-bath 已回执                           0
+    3 no cross-node playback       True 仅 esp32-bath                             0
+    3 cloud healthz                True ok(node)                                 0
+    4 gateway ports 9302/9303/9102 True listening                                0
+    4 DAYU hdc mapping             True 9001+9302                                0
+    4 text query + answer<=40      True 27 字: 我这儿看不到天气，您看看窗外或问问家人。出门记得添衣。      817
+    4 target speaker push          True matched esp32-bath                       0
+    4 speaker done ok=1            True esp32-bath 已回执                           0
+    4 no cross-node playback       True 仅 esp32-bath                             0
+    4 cloud healthz                True ok(node)                                 0
+    5 gateway ports 9302/9303/9102 True listening                                0
+    5 DAYU hdc mapping             True 9001+9302                                0
+    5 text query + answer<=40      True 27 字: 我这儿看不到天气，您看看窗外或问问家人。出门记得添衣。     1021
+    5 target speaker push          True matched esp32-bath                       0
+    5 speaker done ok=1            True esp32-bath 已回执                           0
+    5 no cross-node playback       True 仅 esp32-bath                             0
+    5 cloud healthz                True ok(node)                                 0
+    6 gateway ports 9302/9303/9102 True listening                                0
+    6 DAYU hdc mapping             True 9001+9302                                0
+    6 text query + answer<=40      True 29 字: 我这儿查不到实时天气，您看看窗外或问问家人。出门记得添衣。   1087
+    6 target speaker push          True matched esp32-bath                       0
+    6 speaker done ok=1            True esp32-bath 已回执                           0
+    6 no cross-node playback       True 仅 esp32-bath                             0
+    6 cloud healthz                True ok(node)                                 0
+    7 gateway ports 9302/9303/9102 True listening                                0
+    7 DAYU hdc mapping             True 9001+9302                                0
+    7 text query + answer<=40      True 25 字: 我这儿查不到天气，您看窗外或问家人。出门记得添衣。        732
+    7 target speaker push          True matched esp32-bath                       0
+    7 speaker done ok=1            True esp32-bath 已回执                           0
+    7 no cross-node playback       True 仅 esp32-bath                             0
+    7 cloud healthz                True ok(node)                                 0
+    8 gateway ports 9302/9303/9102 True listening                                0
+    8 DAYU hdc mapping             True 9001+9302                                0
+    8 text query + answer<=40      True 27 字: 我查不到实时天气，您看窗外或问家人。出门记得添衣防滑。     1073
+    8 target speaker push          True matched esp32-bath                       0
+    8 speaker done ok=1            True esp32-bath 已回执                           0
+    8 no cross-node playback       True 仅 esp32-bath                             0
+    8 cloud healthz                True ok(node)                                 0
+    9 gateway ports 9302/9303/9102 True listening                                0
+    9 DAYU hdc mapping             True 9001+9302                                0
+    9 text query + answer<=40      True 29 字: 我这儿看不到实时天气，您看看窗外或问问家人。出门记得添衣。    830
+    9 target speaker push          True matched esp32-bath                       0
+    9 speaker done ok=1            True esp32-bath 已回执                           0
+    9 no cross-node playback       True 仅 esp32-bath                             0
+    9 cloud healthz                True ok(node)                                 0
+   10 gateway ports 9302/9303/9102 True listening                                0
+   10 DAYU hdc mapping             True 9001+9302                                0
+   10 text query + answer<=40      True 23 字: 我这儿看不到实时天气，您问问家人或看看窗外吧。          833
+   10 target speaker push          True matched esp32-bath                       0
+   10 speaker done ok=1            True esp32-bath 已回执                           0
+   10 no cross-node playback       True 仅 esp32-bath                             0
+   10 cloud healthz                True ok(node)                                 0
+   11 gateway ports 9302/9303/9102 True listening                                0
+   11 DAYU hdc mapping             True 9001+9302                                0
+   11 text query + answer<=40      True 27 字: 我这儿查不到实时天气，您看窗外或问家人。出门记得添衣。     1089
+   11 target speaker push          True matched esp32-bath                       0
+   11 speaker done ok=1            True esp32-bath 已回执                           0
+   11 no cross-node playback       True 仅 esp32-bath                             0
+   11 cloud healthz                True ok(node)                                 0
+   12 gateway ports 9302/9303/9102 True listening                                0
+   12 DAYU hdc mapping             True 9001+9302                                0
+   12 text query + answer<=40      True 27 字: 我查不到实时天气，您看窗外或问家人。出门记得添衣防滑。      928
+   12 target speaker push          True matched esp32-bath                       0
+   12 speaker done ok=1            True esp32-bath 已回执                           0
+   12 no cross-node playback       True 仅 esp32-bath                             0
+   12 cloud healthz                True ok(node)                                 0
+   13 gateway ports 9302/9303/9102 True listening                                0
+   13 DAYU hdc mapping             True 9001+9302                                0
+   13 text query + answer<=40      True 29 字: 我这儿看不到实时天气，您看窗外或问家人。出门记得添衣防滑。    911
+   13 target speaker push          True matched esp32-bath                       0
+   13 speaker done ok=1            True esp32-bath 已回执                           0
+   13 no cross-node playback       True 仅 esp32-bath                             0
+   13 cloud healthz                True ok(node)                                 0
+   14 gateway ports 9302/9303/9102 True listening                                0
+   14 DAYU hdc mapping             True 9001+9302                                0
+   14 text query + answer<=40      True 23 字: 我这儿看不到实时天气，您问问家人或看看窗外吧。          917
+   14 target speaker push          True matched esp32-bath                       0
+   14 speaker done ok=1            True esp32-bath 已回执                           0
+   14 no cross-node playback       True 仅 esp32-bath                             0
+   14 cloud healthz                True ok(node)                                 0
+   15 gateway ports 9302/9303/9102 True listening                                0
+   15 DAYU hdc mapping             True 9001+9302                                0
+   15 text query + answer<=40      True 31 字: 我这儿看不到实时天气，您问问家人或看看窗外。出门记得添衣防滑。  820
+   15 target speaker push          True matched esp32-bath                       0
+   15 speaker done ok=1            True esp32-bath 已回执                           0
+   15 no cross-node playback       True 仅 esp32-bath                             0
+   15 cloud healthz                True ok(node)                                 0
+   16 gateway ports 9302/9303/9102 True listening                                0
+   16 DAYU hdc mapping             True 9001+9302                                0
+   16 text query + answer<=40      True 27 字: 我查不到实时天气，您看窗外或问家人。出门记得添衣防滑。      864
+   16 target speaker push          True matched esp32-bath                       0
+   16 speaker done ok=1            True esp32-bath 已回执                           0
+   16 no cross-node playback       True 仅 esp32-bath                             0
+   16 cloud healthz                True ok(node)                                 0
+   17 gateway ports 9302/9303/9102 True listening                                0
+   17 DAYU hdc mapping             True 9001+9302                                0
+   17 text query + answer<=40      True 27 字: 我查不到实时天气，您看窗外或问家人。出门记得添衣防滑。      807
+   17 target speaker push          True matched esp32-bath                       0
+   17 speaker done ok=1            True esp32-bath 已回执                           0
+   17 no cross-node playback       True 仅 esp32-bath                             0
+   17 cloud healthz                True ok(node)                                 0
+   18 gateway ports 9302/9303/9102 True listening                                0
+   18 DAYU hdc mapping             True 9001+9302                                0
+   18 text query + answer<=40      True 26 字: 我这儿看不到天气，您开窗看看或问家人。出门记得添衣。       666
+   18 target speaker push          True matched esp32-bath                       0
+   18 speaker done ok=1            True esp32-bath 已回执                           0
+   18 no cross-node playback       True 仅 esp32-bath                             0
+   18 cloud healthz                True ok(node)                                 0
+   19 gateway ports 9302/9303/9102 True listening                                0
+   19 DAYU hdc mapping             True 9001+9302                                0
+   19 text query + answer<=40      True 27 字: 我这儿查不到天气，您看窗外或问家人。出门记得添衣防滑。     1200
+   19 target speaker push          True matched esp32-bath                       0
+   19 speaker done ok=1            True esp32-bath 已回执                           0
+   19 no cross-node playback       True 仅 esp32-bath                             0
+   19 cloud healthz                True ok(node)                                 0
+   20 gateway ports 9302/9303/9102 True listening                                0
+   20 DAYU hdc mapping             True 9001+9302                                0
+   20 text query + answer<=40      True 29 字: 我这儿看不到实时天气，您看窗外或问家人。出门记得添衣防滑。    709
+   20 target speaker push          True matched esp32-bath                       0
+   20 speaker done ok=1            True esp32-bath 已回执                           0
+   20 no cross-node playback       True 仅 esp32-bath                             0
+   20 cloud healthz                True ok(node)                                 0
+   21 gateway ports 9302/9303/9102 True listening                                0
+   21 DAYU hdc mapping             True 9001+9302                                0
+   21 text query + answer<=40      True 27 字: 我这儿看不到实时天气，您看窗外或问家人。出门记得添衣。      666
+   21 target speaker push          True matched esp32-bath                       0
+   21 speaker done ok=1            True esp32-bath 已回执                           0
+   21 no cross-node playback       True 仅 esp32-bath                             0
+   21 cloud healthz                True ok(node)                                 0
+   22 gateway ports 9302/9303/9102 True listening                                0
+   22 DAYU hdc mapping             True 9001+9302                                0
+   22 text query + answer<=40      True 27 字: 我这儿看不到实时天气，您看窗外或问家人。出门记得添衣。     1321
+   22 target speaker push          True matched esp32-bath                       0
+   22 speaker done ok=1            True esp32-bath 已回执                           0
+   22 no cross-node playback       True 仅 esp32-bath                             0
+   22 cloud healthz                True ok(node)                                 0
+   23 gateway ports 9302/9303/9102 True listening                                0
+   23 DAYU hdc mapping             True 9001+9302                                0
+   23 text query + answer<=40      True 27 字: 我查不到实时天气，您看窗外或问家人。出门记得添衣防滑。     1029
+   23 target speaker push          True matched esp32-bath                       0
+   23 speaker done ok=1            True esp32-bath 已回执                           0
+   23 no cross-node playback       True 仅 esp32-bath                             0
+   23 cloud healthz                True ok(node)                                 0
+   24 gateway ports 9302/9303/9102 True listening                                0
+   24 DAYU hdc mapping             True 9001+9302                                0
+   24 text query + answer<=40      True 27 字: 我查不到实时天气，您看窗外或问家人。出门记得添衣防滑。     1106
+   24 target speaker push          True matched esp32-bath                       0
+   24 speaker done ok=1            True esp32-bath 已回执                           0
+   24 no cross-node playback       True 仅 esp32-bath                             0
+   24 cloud healthz                True ok(node)                                 0
+   25 gateway ports 9302/9303/9102 True listening                                0
+   25 DAYU hdc mapping             True 9001+9302                                0
+   25 text query + answer<=40      True 27 字: 我这儿查不到实时天气，您看窗外或问家人。出门记得添衣。      870
+   25 target speaker push          True matched esp32-bath                       0
+   25 speaker done ok=1            True esp32-bath 已回执                           0
+   25 no cross-node playback       True 仅 esp32-bath                             0
+   25 cloud healthz                True ok(node)                                 0
+   26 gateway ports 9302/9303/9102 True listening                                0
+   26 DAYU hdc mapping             True 9001+9302                                0
+   26 text query + answer<=40      True 29 字: 我这儿查不到实时天气，您看窗外或问家人。出门记得添衣防滑。    663
+   26 target speaker push          True matched esp32-bath                       0
+   26 speaker done ok=1            True esp32-bath 已回执                           0
+   26 no cross-node playback       True 仅 esp32-bath                             0
+   26 cloud healthz                True ok(node)                                 0
+   27 gateway ports 9302/9303/9102 True listening                                0
+   27 DAYU hdc mapping             True 9001+9302                                0
+   27 text query + answer<=40      True 27 字: 我查不到实时天气，您看窗外或问家人。出门记得添衣防滑。      954
+   27 target speaker push          True matched esp32-bath                       0
+   27 speaker done ok=1            True esp32-bath 已回执                           0
+   27 no cross-node playback       True 仅 esp32-bath                             0
+   27 cloud healthz                True ok(node)                                 0
+   28 gateway ports 9302/9303/9102 True listening                                0
+   28 DAYU hdc mapping             True 9001+9302                                0
+   28 text query + answer<=40      True 27 字: 我这儿查不到天气，您看窗外或问家人。出门记得添衣防滑。      852
+   28 target speaker push          True matched esp32-bath                       0
+   28 speaker done ok=1            True esp32-bath 已回执                           0
+   28 no cross-node playback       True 仅 esp32-bath                             0
+   28 cloud healthz                True ok(node)                                 0
+   29 gateway ports 9302/9303/9102 True listening                                0
+   29 DAYU hdc mapping             True 9001+9302                                0
+   29 text query + answer<=40      True 29 字: 我这儿查不到实时天气，您看窗外或问家人。出门记得添衣防滑。   1062
+   29 target speaker push          True matched esp32-bath                       0
+   29 speaker done ok=1            True esp32-bath 已回执                           0
+   29 no cross-node playback       True 仅 esp32-bath                             0
+   29 cloud healthz                True ok(node)                                 0
+   30 gateway ports 9302/9303/9102 True listening                                0
+   30 DAYU hdc mapping             True 9001+9302                                0
+   30 text query + answer<=40      True 27 字: 我查不到实时天气，您看看窗外或问问家人。出门记得添衣。      851
+   30 target speaker push          True matched esp32-bath                       0
+   30 speaker done ok=1            True esp32-bath 已回执                           0
+   30 no cross-node playback       True 仅 esp32-bath                             0
+   30 cloud healthz                True ok(node)                                 0
+
+
+cycles=30 target=esp32-bath pass=210 fail=0

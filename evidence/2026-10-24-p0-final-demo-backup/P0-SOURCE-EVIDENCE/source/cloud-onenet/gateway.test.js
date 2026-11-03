@@ -1,0 +1,1077 @@
+'use strict';
+
+const assert = require('node:assert/strict');
+const test = require('node:test');
+
+const { HomeCloudGateway, createGateway } = require('./gateway');
+const { mapPropertySet, toPropertyPost } = require('./adapter');
+
+const NOW = 1791609077775;
+
+/** 严格按 southbound/src/homemon.c:626-645 与 esp32-node/main/node_main.c:326-340 的报文形状构造。 */
+function statusLine(overrides = {}) {
+  const base = {
+    deviceId: 'dayu200-living',
+    room: '客厅',
+    ts: NOW,
+    state: 'NORMAL',
+    sensors: {
+      motion: { lastActiveTs: NOW - 308220, countToday: 3 },
+      door: { open: false, lastOpenTs: 0 },
+      climate: { tempC: 24.6, rh: 41.2, ok: true },
+      gas: { raw: 123, ok: true },
+      smoke: { raw: 45, ok: true }
+    },
+    history: [0, 0, 0, 0, 0, 0, 0],
+    slots: [0, 0, 0, 0],
+    alarm: { id: '', type: '', countToday: 0 }
+  };
+  return Object.assign(base, overrides);
+}
+
+function alarmLine(deviceId, alarmId, type, room = '客厅', extra = {}) {
+  return statusLine(Object.assign({
+    deviceId,
+    room,
+    state: 'ALARM',
+    alarm: { id: alarmId, type, countToday: 1 }
+  }, extra));
+}
+
+/** 可注入的伪 OneNET 传输层：不连接真实云端，可按需注入失败。 */
+function makeTransport(options = {}) {
+  const calls = { property: [], alarm: [] };
+  const listeners = new Map();
+  return {
+    calls,
+    failProperty: options.failProperty || null,
+    failAlarm: options.failAlarm || null,
+    publishProperty(status, opts) {
+      calls.property.push({ status: JSON.parse(JSON.stringify(status)), opts });
+      if (this.failProperty) return Promise.reject(this.failProperty);
+      return Promise.resolve({ id: opts.id, code: 200 });
+    },
+    publishAlarm(status, opts) {
+      calls.alarm.push({ status: JSON.parse(JSON.stringify(status)), opts });
+      if (this.failAlarm) return Promise.reject(this.failAlarm);
+      return Promise.resolve({ id: opts.id, code: 200 });
+    },
+    on(event, handler) {
+      if (!listeners.has(event)) listeners.set(event, new Set());
+      listeners.get(event).add(handler);
+    },
+    off(event, handler) {
+      if (listeners.has(event)) listeners.get(event).delete(handler);
+    },
+    emit(event, payload) {
+      for (const handler of Array.from(listeners.get(event) || [])) handler(payload);
+    }
+  };
+}
+
+/** 可注入的伪本地状态源：单元测试不连接真实 Broker。 */
+function makeStatusSource() {
+  const subscribers = new Set();
+  const published = [];
+  let closed = false;
+  return {
+    published,
+    get closed() { return closed; },
+    subscribe(handler) {
+      subscribers.add(handler);
+      return () => subscribers.delete(handler);
+    },
+    publish(topic, message) {
+      published.push({ topic, message });
+      return Promise.resolve(true);
+    },
+    /** 模拟本地 Broker 推送一条 status 报文给订阅者。 */
+    async emit(message) {
+      for (const handler of Array.from(subscribers)) await handler(message);
+    },
+    close() {
+      closed = true;
+      subscribers.clear();
+      return Promise.resolve();
+    }
+  };
+}
+
+function makeGateway(overrides = {}) {
+  const transport = overrides.transport || makeTransport();
+  const statusSource = overrides.statusSource || makeStatusSource();
+  let clock = overrides.startMs === undefined ? NOW : overrides.startMs;
+  const gateway = new HomeCloudGateway(Object.assign({
+    transport,
+    statusSource,
+    deviceName: 'dayu200-home-gateway',
+    resetMode: 'self',
+    now: () => clock,
+    logger: { info() {}, warn() {}, error() {} }
+  }, overrides.gateway));
+  return {
+    gateway,
+    transport,
+    statusSource,
+    advance(ms) { clock += ms; },
+    setClock(value) { clock = value; }
+  };
+}
+
+const settle = () => new Promise((resolve) => setImmediate(resolve));
+
+/* ------------------------------------------------------------------ 1. 正常状态上云 */
+
+test('normal state change is published to OneNET property/post immediately', async () => {
+  const { gateway, transport } = makeGateway();
+  gateway.start();
+
+  const result = await gateway.ingest(JSON.stringify(statusLine()));
+
+  assert.equal(result.accepted, true);
+  assert.equal(result.deviceId, 'dayu200-living');
+  assert.equal(transport.calls.property.length, 1);
+  assert.equal(transport.calls.alarm.length, 0);
+
+  const { status, opts } = transport.calls.property[0];
+  assert.equal(status.deviceId, 'dayu200-living');
+  assert.equal(status.room, '客厅', 'room must be preserved so the cloud keeps the room source');
+  assert.equal(status.state, 'NORMAL');
+  assert.deepEqual(status.sensors, {
+    motion: { lastActiveTs: NOW - 308220, countToday: 3 },
+    door: { open: false, lastOpenTs: 0 },
+    gas: { raw: 123, ok: true },
+    smoke: { raw: 45, ok: true },
+    climate: { tempC: 24.6, rh: 41.2 }
+  }, 'validated sensor values must reach OneNET');
+  assert.deepEqual(Object.keys(status).sort(),
+    ['alarm', 'deviceId', 'monitorOnline', 'online', 'room', 'sensors', 'state'],
+    'history, slots and other root-only fields must not cross the gateway boundary');
+  assert.match(opts.id, /^\d{1,13}$/);
+  assert.equal(opts.timestampMs, NOW);
+
+  await gateway.stop('T');
+  assert.equal(gateway.running, false);
+});
+
+test('the real homemon/ESP32 payload shape is accepted without inventing fields', async () => {
+  const { gateway, transport } = makeGateway();
+  gateway.start();
+  await gateway.ingest(JSON.stringify(statusLine({ deviceId: 'esp32-bath', room: '卫生间' })));
+  // ESP32 在 NTP 同步前的设计值：ts=0 必须被接受
+  const preNtp = statusLine({ deviceId: 'esp32-bathroom', room: '卫生间', ts: 0 });
+  preNtp.sensors.motion.lastActiveTs = 0;
+  preNtp.sensors.motion.countToday = 0;
+  await gateway.ingest(JSON.stringify(preNtp));
+
+  assert.equal(transport.calls.property.length, 2);
+  assert.equal(transport.calls.property[1].status.room, '卫生间');
+  assert.equal(transport.calls.property[1].status.sensors.motion.lastActiveTs, 0);
+  await gateway.stop('T');
+});
+
+/* ------------------------------------------------------------------ 2. 稳定状态限频 */
+
+test('stable state is rate limited instead of re-uploading on every report', async () => {
+  const { gateway, transport, advance } = makeGateway();
+  gateway.start();
+
+  await gateway.ingest(JSON.stringify(statusLine()));
+  assert.equal(transport.calls.property.length, 1, 'first snapshot publishes');
+
+  // 同状态重复上报 5 次，均在限频窗口内
+  for (let i = 0; i < 5; i += 1) {
+    advance(1000);
+    await gateway.ingest(JSON.stringify(statusLine()));
+  }
+  assert.equal(transport.calls.property.length, 1, 'stable state must not flood the cloud');
+
+  // 超过 stableIntervalMs 后允许一次心跳式上云
+  advance(30000);
+  await gateway.ingest(JSON.stringify(statusLine()));
+  assert.equal(transport.calls.property.length, 2, 'stable state is re-published after the interval');
+  await gateway.stop('T');
+});
+
+test('a failed property publish is retried after the rate-limit window and is not marked successful', async () => {
+  const transport = makeTransport({ failProperty: Object.assign(new Error('down'), { code: 'NOT_READY' }) });
+  const { gateway, advance } = makeGateway({ transport });
+  gateway.start();
+
+  await gateway.ingest(JSON.stringify(statusLine()));
+  const device = gateway.devices.get('dayu200-living');
+  assert.equal(transport.calls.property.length, 1);
+  assert.equal(device.lastPublishedSignature, '', 'a failed call must not be recorded as published');
+
+  advance(1000);
+  await gateway.ingest(JSON.stringify(statusLine()));
+  assert.equal(transport.calls.property.length, 1, 'a cloud outage must not create a retry storm');
+
+  transport.failProperty = null;
+  advance(30000);
+  await gateway.ingest(JSON.stringify(statusLine()));
+  assert.equal(transport.calls.property.length, 2, 'the current state is retried after the bounded delay');
+  assert.notEqual(device.lastPublishedSignature, '');
+  await gateway.stop('T');
+});
+
+test('a real state transition publishes immediately even inside the rate limit window', async () => {
+  const { gateway, transport, advance } = makeGateway();
+  gateway.start();
+
+  await gateway.ingest(JSON.stringify(statusLine()));
+  advance(1000);
+  await gateway.ingest(JSON.stringify(alarmLine('dayu200-living', 'a-1-1', 'GAS')));
+
+  assert.equal(transport.calls.property.length, 2);
+  assert.equal(transport.calls.property[1].status.state, 'ALARM');
+  await gateway.stop('T');
+});
+
+test('a monitor disconnect or recovery publishes immediately without changing the OneNET model', async () => {
+  const synced = [];
+  const cloudSync = {
+    enabled: true,
+    publish(status) {
+      synced.push(JSON.parse(JSON.stringify(status)));
+      return Promise.resolve({ ok: true });
+    }
+  };
+  const { gateway, transport, advance } = makeGateway({ gateway: { cloudSync } });
+  gateway.start();
+
+  await gateway.ingest(JSON.stringify(statusLine({ monitorOnline: 1 })));
+  advance(1000);
+  await gateway.ingest(JSON.stringify(statusLine({ monitorOnline: 0 })));
+  await settle();
+
+  assert.equal(transport.calls.property.length, 2, 'monitor transition must bypass the stable-state rate limit');
+  assert.deepEqual(synced.map((item) => item.monitorOnline), [1, 0]);
+  assert.equal(gateway.devices.get('dayu200-living').monitorOnline, 0);
+  assert.equal(Object.prototype.hasOwnProperty.call(
+    toPropertyPost(transport.calls.property[1].status, { id: '1', timestampMs: NOW }).params,
+    'monitorOnline'
+  ), false, 'local watchdog state must not change the deployed OneNET thing model');
+  await gateway.stop('T');
+});
+
+test('concurrent reports for one device are applied in arrival order without duplicate in-flight publishes', async () => {
+  const transport = makeTransport();
+  let resolveFirst;
+  let firstCall = true;
+  transport.publishProperty = function publishProperty(status, opts) {
+    this.calls.property.push({ status: JSON.parse(JSON.stringify(status)), opts });
+    if (firstCall) {
+      firstCall = false;
+      return new Promise((resolve) => { resolveFirst = resolve; });
+    }
+    return Promise.resolve({ id: opts.id, code: 200 });
+  };
+  const { gateway } = makeGateway({ transport });
+  gateway.start();
+
+  const first = gateway.ingest(JSON.stringify(statusLine()));
+  await settle();
+  const second = gateway.ingest(JSON.stringify(statusLine({ state: 'WARN' })));
+  await settle();
+  assert.equal(transport.calls.property.length, 1, 'the second report waits for the first publish');
+
+  resolveFirst({ id: transport.calls.property[0].opts.id, code: 200 });
+  await first;
+  await second;
+  assert.equal(transport.calls.property.length, 2);
+  assert.equal(transport.calls.property[1].status.state, 'WARN');
+  assert.equal(gateway.devices.get('dayu200-living').state, 'WARN');
+  await gateway.stop('T');
+});
+
+/* ------------------------------------------------------- 3. 同 alarmId 去重 */
+
+test('the same alarmId never publishes safetyAlarm twice, across repeats and reset replay', async () => {
+  const { gateway, transport, advance } = makeGateway();
+  gateway.start();
+
+  await gateway.ingest(JSON.stringify(alarmLine('dayu200-living', 'a-1-1', 'GAS')));
+  assert.equal(transport.calls.alarm.length, 1);
+
+  advance(1000);
+  await gateway.ingest(JSON.stringify(alarmLine('dayu200-living', 'a-1-1', 'GAS')));
+  assert.equal(transport.calls.alarm.length, 1, 'duplicate alarm status must not re-alarm');
+
+  // reset 清空状态后又收到同一条 retained 报文，也不能重复告警
+  await gateway.ingest(JSON.stringify(statusLine()));
+  advance(1000);
+  await gateway.ingest(JSON.stringify(alarmLine('dayu200-living', 'a-1-1', 'GAS')));
+  assert.equal(transport.calls.alarm.length, 1, 'retained replay after reset must not re-alarm');
+  await gateway.stop('T');
+});
+
+test('a failed safetyAlarm is retried and enters dedup memory only after cloud confirmation', async () => {
+  const transport = makeTransport({ failAlarm: Object.assign(new Error('down'), { code: 'NOT_READY' }) });
+  const { gateway, advance } = makeGateway({ transport });
+  gateway.start();
+
+  const line = JSON.stringify(alarmLine('dayu200-living', 'a-retry-1', 'GAS'));
+  await gateway.ingest(line);
+  assert.equal(transport.calls.alarm.length, 1);
+  assert.equal(gateway.seenAlarms.size, 0, 'a failed alarm must not be permanently deduplicated');
+  assert.equal(gateway.alarmAttempts.size, 1);
+
+  advance(1000);
+  await gateway.ingest(line);
+  assert.equal(transport.calls.alarm.length, 1, 'alarm retries are rate limited during an outage');
+
+  transport.failAlarm = null;
+  advance(30000);
+  await gateway.ingest(line);
+  assert.equal(transport.calls.alarm.length, 2);
+  assert.equal(gateway.seenAlarms.size, 1, 'only a confirmed alarm enters dedup memory');
+  assert.equal(gateway.alarmAttempts.size, 0);
+
+  advance(30000);
+  await gateway.ingest(line);
+  assert.equal(transport.calls.alarm.length, 2, 'a confirmed alarm remains deduplicated');
+  await gateway.stop('T');
+});
+
+test('alarm memory is bounded per device so a long-running process cannot grow forever', async () => {
+  const { gateway, transport } = makeGateway({ gateway: { alarmMemory: 2 } });
+  gateway.start();
+
+  for (let i = 1; i <= 5; i += 1) {
+    await gateway.ingest(JSON.stringify(alarmLine('dayu200-living', `a-1-${i}`, 'NO_MOTION')));
+  }
+  assert.equal(transport.calls.alarm.length, 5, 'each new alarmId still alerts once');
+  assert.ok(gateway.seenAlarms.size <= 2 * 1, `seenAlarms must be pruned, got ${gateway.seenAlarms.size}`);
+  await gateway.stop('T');
+});
+
+/* ---------------------------------------------------------- 4. 新 alarmId 事件 */
+
+test('a new alarmId publishes exactly one safetyAlarm event with a matching binding', async () => {
+  const { gateway, transport } = makeGateway();
+  gateway.start();
+
+  await gateway.ingest(JSON.stringify(alarmLine('esp32-bath', 'e-1791608799-2', 'NO_MOTION', '卫生间')));
+
+  assert.equal(transport.calls.alarm.length, 1);
+  const { status, opts } = transport.calls.alarm[0];
+  assert.equal(status.deviceId, 'esp32-bath');
+  assert.equal(status.room, '卫生间');
+  assert.equal(status.state, 'ALARM');
+  assert.equal(status.alarm.id, 'e-1791608799-2');
+  assert.equal(status.alarm.type, 'NO_MOTION');
+  assert.equal(opts.alarm.id, 'e-1791608799-2');
+  assert.equal(opts.alarm.type, 'NO_MOTION');
+  assert.equal(opts.alarm.countToday, 1);
+  assert.match(opts.id, /^\d{1,13}$/);
+  await gateway.stop('T');
+});
+
+test('two devices raising different alarmIds each alert exactly once', async () => {
+  const { gateway, transport } = makeGateway();
+  gateway.start();
+
+  await gateway.ingest(JSON.stringify(alarmLine('esp32-bath', 'e-1-1', 'NO_MOTION', '卫生间')));
+  await gateway.ingest(JSON.stringify(alarmLine('dayu200-living', 'a-1-1', 'GAS')));
+  await gateway.ingest(JSON.stringify(alarmLine('esp32-bath', 'e-1-1', 'NO_MOTION', '卫生间')));
+
+  assert.equal(transport.calls.alarm.length, 2);
+  assert.deepEqual(
+    transport.calls.alarm.map((c) => c.status.deviceId),
+    ['esp32-bath', 'dayu200-living']
+  );
+  await gateway.stop('T');
+});
+
+/* ------------------------------------------------------------ 5. 非法状态拒绝 */
+
+test('oversized, non-JSON, non-object and illegal deviceId payloads are rejected with safe codes', async () => {
+  const { gateway, transport } = makeGateway();
+  gateway.start();
+
+  assert.equal((await gateway.ingest('not json at all')).code, 'INVALID_JSON');
+  assert.equal((await gateway.ingest('[]')).code, 'NOT_AN_OBJECT');
+  assert.equal((await gateway.ingest(JSON.stringify({ deviceId: 'bad id!', room: 'x', state: 'NORMAL' }))).code, 'INVALID_DEVICE_ID');
+  assert.equal((await gateway.ingest(JSON.stringify({ deviceId: '', room: 'x', state: 'NORMAL' }))).code, 'INVALID_DEVICE_ID');
+  assert.equal((await gateway.ingest(JSON.stringify({ deviceId: 'a'.repeat(65), room: 'x', state: 'NORMAL' }))).code, 'INVALID_DEVICE_ID');
+  assert.equal((await gateway.ingest(JSON.stringify({ deviceId: '../etc', room: 'x', state: 'NORMAL' }))).code, 'INVALID_DEVICE_ID');
+  assert.equal((await gateway.ingest('x'.repeat(17 * 1024))).code, 'PAYLOAD_TOO_LARGE');
+
+  assert.equal(transport.calls.property.length, 0);
+  assert.equal(transport.calls.alarm.length, 0);
+  await gateway.stop('T');
+});
+
+test('10-digit second timestamps and unknown nested fields are rejected', async () => {
+  const { gateway, transport } = makeGateway();
+  gateway.start();
+
+  const seconds = statusLine({ deviceId: 'esp32-bath', ts: 1791609077 });
+  assert.equal((await gateway.ingest(JSON.stringify(seconds))).code, 'INVALID_TIMESTAMP');
+
+  const badSensor = statusLine({ deviceId: 'esp32-bath' });
+  badSensor.sensors.motion.unexpected = 1;
+  assert.equal((await gateway.ingest(JSON.stringify(badSensor))).code, 'INVALID_STATUS');
+
+  const badState = statusLine({ deviceId: 'esp32-bath', state: 'EXPLODED' });
+  assert.equal((await gateway.ingest(JSON.stringify(badState))).code, 'INVALID_STATUS');
+
+  for (const monitorOnline of [2, null, '0', Number.NaN]) {
+    const badMonitor = statusLine({ monitorOnline });
+    assert.equal((await gateway.ingest(badMonitor)).code, 'INVALID_STATUS');
+  }
+
+  assert.equal(transport.calls.property.length, 0);
+  await gateway.stop('T');
+});
+
+test('a rejected payload never disturbs already aggregated device state', async () => {
+  const { gateway, transport } = makeGateway();
+  gateway.start();
+  await gateway.ingest(JSON.stringify(statusLine()));
+
+  assert.equal((await gateway.ingest('{broken')).accepted, false);
+  assert.equal(gateway.devices.get('dayu200-living').state, 'NORMAL');
+  assert.equal(transport.calls.property.length, 1);
+  await gateway.stop('T');
+});
+
+/* ------------------------------------------------------------- 6. MQTT 重连 */
+
+test('local broker reconnection never fabricates state and re-accepts fresh reports', async () => {
+  const { gateway, transport } = makeGateway();
+  gateway.start();
+  await gateway.ingest(JSON.stringify(statusLine()));
+
+  // 模拟本地链路短暂中断：期间没有报文，设备按 lastSeen 判离线
+  const { advance } = makeGateway();
+  void advance;
+  await gateway.stop('BROKER_CLOSED');
+
+  const restarted = makeGateway();
+  restarted.gateway.start();
+  await restarted.gateway.ingest(JSON.stringify(statusLine({ deviceId: 'esp32-bath' })));
+  assert.equal(restarted.transport.calls.property.length, 1);
+  assert.equal(restarted.transport.calls.property[0].status.deviceId, 'esp32-bath');
+  await restarted.gateway.stop('T');
+});
+
+test('devices are marked offline from local lastSeen and the transition reaches both cloud paths once', async () => {
+  const synced = [];
+  const cloudSync = {
+    enabled: true,
+    publish(status, ts) {
+      synced.push({ status: JSON.parse(JSON.stringify(status)), ts });
+      return Promise.resolve({ ok: true });
+    }
+  };
+  const { gateway, transport, advance } = makeGateway({ gateway: { offlineAfterMs: 12000, cloudSync } });
+  const offline = [];
+  gateway.on('deviceOffline', (info) => offline.push(info.deviceId));
+  gateway.start();
+
+  await gateway.ingest(JSON.stringify(statusLine()));
+  assert.equal(gateway.devices.get('dayu200-living').online, true);
+
+  advance(11000);
+  assert.equal(gateway.devices.get('dayu200-living').online, true, 'still inside the 12s window');
+
+  advance(2000);
+  await gateway._markOffline();
+  assert.equal(gateway.devices.get('dayu200-living').online, false);
+  assert.deepEqual(offline, ['dayu200-living']);
+  assert.equal(transport.calls.property.length, 2, 'the offline transition reaches OneNET');
+  assert.equal(transport.calls.property[1].status.online, false);
+  assert.equal(synced.length, 2, 'normal and offline states each reach the trusted backend once');
+  assert.equal(synced[1].status.online, false);
+
+  advance(30000);
+  await gateway._markOffline();
+  assert.equal(transport.calls.property.length, 2, 'a confirmed offline transition is not repeated');
+  assert.equal(synced.length, 2, 'backend offline sync is transition-based, not scan-based');
+
+  // 新报文自动恢复在线
+  await gateway.ingest(JSON.stringify(statusLine()));
+  assert.equal(gateway.devices.get('dayu200-living').online, true);
+  await gateway.stop('T');
+});
+
+test('an explicit OFFLINE report is never rewritten as online', async () => {
+  const synced = [];
+  const cloudSync = {
+    enabled: true,
+    publish(status) {
+      synced.push(JSON.parse(JSON.stringify(status)));
+      return Promise.resolve({ ok: true });
+    }
+  };
+  const { gateway, transport } = makeGateway({ gateway: { cloudSync } });
+  const events = [];
+  gateway.on('deviceStatus', (status) => events.push(status));
+  gateway.start();
+
+  await gateway.ingest(JSON.stringify(statusLine({ state: 'OFFLINE' })));
+  await settle();
+  assert.equal(gateway.devices.get('dayu200-living').online, false);
+  assert.equal(transport.calls.property[0].status.online, false);
+  assert.equal(synced[0].online, false);
+  assert.equal(events[0].online, false);
+  await gateway.stop('T');
+});
+
+/* -------------------------------------------------- 7. 云断线不影响本地告警 */
+
+test('a OneNET outage does not break local ingestion, alarm dedup or the APP path', async () => {
+  const transport = makeTransport({ failProperty: Object.assign(new Error('down'), { code: 'NOT_READY' }) });
+  const { gateway, statusSource } = makeGateway({ transport });
+  const cloudErrors = [];
+  gateway.on('cloudError', (info) => cloudErrors.push(info.code));
+  gateway.start();
+
+  const ok = await gateway.ingest(JSON.stringify(alarmLine('esp32-bath', 'e-1-1', 'NO_MOTION', '卫生间')));
+  assert.equal(ok.accepted, true, 'local ingestion must succeed while the cloud is down');
+  assert.equal(gateway.devices.get('esp32-bath').state, 'ALARM', 'local alarm state is kept');
+  assert.ok(cloudErrors.length >= 1, 'the cloud failure is reported as a safe code');
+  assert.ok(cloudErrors.every((code) => /^[A-Z_]{3,40}$/.test(code)));
+  // 上云尝试被记录但云端明确失败：绝不产生成功回执
+  assert.equal(transport.calls.alarm.length, 1);
+  assert.equal(transport.calls.alarm[0].status.alarm.id, 'e-1-1');
+  assert.equal(gateway.pendingCount, undefined, 'the gateway exposes no fake success counter');
+
+  // 本地订阅仍然可用，且没有把载荷写进任何日志通道
+  assert.equal(typeof statusSource.publish, 'function');
+  await gateway.stop('T');
+});
+
+test('cloud failures are reported as safe codes and never echo payload contents', async () => {
+  const secretish = 'token-abcdef-should-not-be-logged';
+  const transport = makeTransport({ failProperty: Object.assign(new Error(`leak ${secretish}`), { code: 'CLOUD_REJECTED' }) });
+  const logged = [];
+  const { gateway } = makeGateway({
+    transport,
+    gateway: { logger: { info: (m) => logged.push(m), warn: (m) => logged.push(m), error: (m) => logged.push(m) } }
+  });
+  gateway.start();
+  await gateway.ingest(JSON.stringify(statusLine({ deviceId: 'esp32-bath', room: '卫生间' })));
+
+  const joined = logged.join('\n');
+  assert.ok(joined.includes('CLOUD_REJECTED'), 'the safe error code is logged');
+  assert.ok(!joined.includes(secretish), 'no secret or payload contents may be logged');
+  await gateway.stop('T');
+});
+
+/* ------------------------------------------------------------- 8. RESET 成功 */
+
+test('RESET in self mode drives the configured gateway device and only succeeds on a real receipt', async () => {
+  const { gateway, transport, statusSource, advance } = makeGateway({ gateway: { resetMode: 'self' } });
+  gateway.start();
+
+  // 网关自身设备先以 ALARM 在线
+  await gateway.ingest(JSON.stringify(alarmLine('dayu200-home-gateway', 'a-9-9', 'GAS', '家庭网关')));
+  assert.equal(statusSource.published.length, 0, 'no command published merely by registering state');
+
+  const pending = gateway.handleCommand({ command: 'RESET' }, { requestId: '1001' });
+  await settle();
+
+  assert.deepEqual(
+    statusSource.published.map((p) => p.topic),
+    ['home/dayu200-home-gateway/cmd']
+  );
+  // 必须是 JSON：Bridge 只认 {"cmd":"reset"}，裸字符串会被判为无法解析并丢弃
+  assert.equal(statusSource.published[0].message, '{"cmd":"reset"}');
+
+  // 设备真实回执：状态离开 ALARM
+  advance(1000);
+  await gateway.ingest(JSON.stringify(statusLine({ deviceId: 'dayu200-home-gateway', room: '家庭网关' })));
+
+  const result = await pending;
+  assert.deepEqual(result, { ok: true, message: 'reset confirmed by device' });
+  await gateway.stop('T');
+});
+
+test('RESET never broadcasts to every online room', async () => {
+  const { gateway, statusSource } = makeGateway({ gateway: { resetMode: 'self' } });
+  gateway.start();
+  await gateway.ingest(JSON.stringify(alarmLine('dayu200-home-gateway', 'a-9-9', 'GAS', '家庭网关')));
+  await gateway.ingest(JSON.stringify(statusLine({ deviceId: 'esp32-bath', room: '卫生间' })));
+  await gateway.ingest(JSON.stringify(statusLine({ deviceId: 'esp32-kitchen', room: '厨房' })));
+
+  const pending = gateway.handleCommand({ command: 'RESET' }, { requestId: '1001' });
+  await settle();
+  await gateway.ingest(JSON.stringify(statusLine({ deviceId: 'dayu200-home-gateway', room: '家庭网关' })));
+  await pending;
+
+  const topics = statusSource.published.map((p) => p.topic);
+  assert.deepEqual(topics, ['home/dayu200-home-gateway/cmd']);
+  assert.ok(!topics.some((topic) => topic.includes('esp32-bath')));
+  assert.ok(!topics.some((topic) => topic.includes('esp32-kitchen')));
+  await gateway.stop('T');
+});
+
+test('RESET in local mode only clears gateway aggregation and publishes nothing', async () => {
+  const { gateway, statusSource } = makeGateway({ gateway: { resetMode: 'local' } });
+  gateway.start();
+  await gateway.ingest(JSON.stringify(alarmLine('esp32-bath', 'e-1-1', 'GAS', '卫生间')));
+
+  const result = await gateway.handleCommand({ command: 'RESET' }, { requestId: '1001' });
+  assert.equal(result.ok, true);
+  assert.equal(gateway.devices.get('esp32-bath').state, 'NORMAL');
+  assert.equal(statusSource.published.length, 0, 'local mode must not touch any device');
+  await gateway.stop('T');
+});
+
+/* --------------------------------------------------------------- 9. 目标离线 */
+
+test('RESET is refused when the target device is offline', async () => {
+  const { gateway, statusSource, advance } = makeGateway({ gateway: { resetMode: 'self', offlineAfterMs: 12000 } });
+  gateway.start();
+  await gateway.ingest(JSON.stringify(alarmLine('dayu200-home-gateway', 'a-9-9', 'GAS', '家庭网关')));
+
+  advance(20000);
+  await gateway._markOffline();
+  assert.equal(gateway.devices.get('dayu200-home-gateway').online, false);
+
+  const result = await gateway.handleCommand({ command: 'RESET' }, { requestId: '1001' });
+  assert.equal(result.ok, false);
+  assert.equal(statusSource.published.length, 0, 'an offline target must not receive a command');
+  await gateway.stop('T');
+});
+
+test('RESET is refused when no unambiguous target is configured', async () => {
+  const { gateway } = makeGateway({ gateway: { resetMode: 'target' } });
+  gateway.start();
+  const result = await gateway.handleCommand({ command: 'RESET' }, { requestId: '1001' });
+  assert.equal(result.ok, false);
+  await gateway.stop('T');
+});
+
+/* --------------------------------------------------------------- 10. 回执超时 */
+
+test('RESET fails when the device never confirms, instead of pretending success', async () => {
+  const { gateway } = makeGateway({ gateway: { resetMode: 'self', commandTimeoutMs: 100 } });
+  gateway.start();
+  await gateway.ingest(JSON.stringify(alarmLine('dayu200-home-gateway', 'a-9-9', 'GAS', '家庭网关')));
+
+  const result = await gateway.handleCommand({ command: 'RESET' }, { requestId: '1001' });
+  assert.equal(result.ok, false);
+  assert.equal(result.message, 'device did not confirm reset');
+  assert.equal(gateway.waiters.size, 0, 'no pending waiter may leak after a timeout');
+  await gateway.stop('T');
+});
+
+test('RESET is not confirmed by a stale pre-alarm status (real-device TOCTOU race)', async () => {
+  // 2026-10-10 真机验收实测到的竞态：设备曾上报 NORMAL，随后才 ALARM。
+  // 该旧 NORMAL 快照在命令下发前就已存在，绝不能被当成 RESET 的回执。
+  const { gateway, statusSource } = makeGateway({ gateway: { resetMode: 'self', commandTimeoutMs: 400 } });
+  gateway.start();
+
+  // 1) 先来一份 NORMAL（这是“过期”快照）
+  await gateway.ingest(JSON.stringify(statusLine({ deviceId: 'dayu200-home-gateway', room: '家庭网关' })));
+  // 2) 再来 ALARM（设备当前真的在告警）
+  await gateway.ingest(JSON.stringify(alarmLine('dayu200-home-gateway', 'a-9-9', 'MANUAL_SOS', '家庭网关')));
+  assert.equal(gateway.devices.get('dayu200-home-gateway').state, 'ALARM');
+
+  // 3) 下发 RESET，但设备**不**回新状态：必须失败，不能拿旧的 NORMAL 冒充回执。
+  //    注意：这里刻意不再插入新状态——真机上 Bridge 会把“告警前”的旧 NORMAL 延迟投递，
+  //    因此回执必须同时晚于“命令下发”和“本笔告警被观测到”的时刻。
+  const result = await gateway.handleCommand({ command: 'RESET' }, { requestId: '1001' });
+  assert.equal(result.ok, false, 'a stale pre-alarm NORMAL must never confirm a RESET');
+  assert.equal(result.message, 'device did not confirm reset');
+  // 命令本身确实下发了，且是 Bridge 能解析的 JSON 形态
+  assert.deepEqual(statusSource.published.map((p) => p.message), ['{"cmd":"reset"}']);
+
+  await gateway.stop('T');
+});
+
+test('RESET is refused when the target has no active alarm (closes the real-device race)', async () => {
+  // 真机实测：目标当时并非 ALARM，却因为设备紧接着上报一条告警前的旧 NORMAL，
+  // 被误判为“RESET 已确认”。RESET 的语义是解除告警，因此无告警时必须直接拒绝。
+  const { gateway, statusSource } = makeGateway({ gateway: { resetMode: 'self', commandTimeoutMs: 200 } });
+  gateway.start();
+
+  await gateway.ingest(JSON.stringify(statusLine({ deviceId: 'dayu200-home-gateway', room: '家庭网关' })));
+  assert.equal(gateway.devices.get('dayu200-home-gateway').state, 'NORMAL');
+
+  const result = await gateway.handleCommand({ command: 'RESET' }, { requestId: '1001' });
+  assert.equal(result.ok, false);
+  assert.equal(result.message, 'target has no active alarm to reset');
+  assert.equal(statusSource.published.length, 0, 'no command may be sent when there is no alarm to reset');
+  await gateway.stop('T');
+});
+
+test('RESET is confirmed only by a status arriving after the command was published', async () => {
+  const { gateway } = makeGateway({ gateway: { resetMode: 'self', commandTimeoutMs: 2000 } });
+  gateway.start();
+  await gateway.ingest(JSON.stringify(statusLine({ deviceId: 'dayu200-home-gateway', room: '家庭网关' })));
+  await gateway.ingest(JSON.stringify(alarmLine('dayu200-home-gateway', 'a-9-9', 'MANUAL_SOS', '家庭网关')));
+
+  const pending = gateway.handleCommand({ command: 'RESET' }, { requestId: '1001' });
+  await settle();
+
+  // 命令下发之后才到达的新 NORMAL 才算回执
+  await gateway.ingest(JSON.stringify(statusLine({ deviceId: 'dayu200-home-gateway', room: '家庭网关' })));
+
+  const result = await pending;
+  assert.deepEqual(result, { ok: true, message: 'reset confirmed by device' });
+  await gateway.stop('T');
+});
+
+test('a restart between command and receipt settles pending waiters instead of hanging', async () => {
+  const { gateway } = makeGateway({ gateway: { resetMode: 'self', commandTimeoutMs: 60000 } });
+  gateway.start();
+  await gateway.ingest(JSON.stringify(alarmLine('dayu200-home-gateway', 'a-9-9', 'GAS', '家庭网关')));
+
+  const pending = gateway.handleCommand({ command: 'RESET' }, { requestId: '1001' });
+  await settle();
+  await gateway.stop('SIGTERM');
+
+  const result = await pending;
+  assert.equal(result.ok, false);
+  assert.equal(gateway.waiters.size, 0);
+});
+
+/* ------------------------------------------------------------- 11. 错误 alarmId */
+
+test('ACK with a wrong or empty alarmId is never reported as a device-confirmed success', async () => {
+  const { gateway, statusSource } = makeGateway();
+  gateway.start();
+  await gateway.ingest(JSON.stringify(alarmLine('esp32-bath', 'e-1-1', 'GAS', '卫生间')));
+
+  // 第一阶段物模型 control 没有 deviceId，无法安全定向 ACK：必须拒绝而不是猜“当前房间”
+  const wrong = await gateway.handleCommand({ command: 'ACK', alarmId: 'e-wrong', action: '确认' }, { requestId: '1001' });
+  assert.equal(wrong.ok, false);
+
+  const empty = await gateway.handleCommand({ command: 'ACK', alarmId: '', action: '确认' }, { requestId: '1002' });
+  assert.equal(empty.ok, false);
+
+  assert.equal(statusSource.published.length, 0, 'no ACK may be routed without an explicit device binding');
+  await gateway.stop('T');
+});
+
+test('RESET carrying a non-empty alarmId placeholder is rejected by the adapter, not silently accepted', () => {
+  assert.throws(
+    () => mapPropertySet({ id: '1', version: '1.0', params: { control: { command: 'RESET', alarmId: 'a-1' } } }),
+    /must be empty/
+  );
+  assert.deepEqual(
+    mapPropertySet({ id: '1', version: '1.0', params: { control: { command: 'RESET', alarmId: '', action: '' } } }).command,
+    { command: 'RESET' }
+  );
+});
+
+/* -------------------------------------------------------- 12. SET_CONFIG 原子性 */
+
+test('SET_CONFIG is refused as a whole in this phase and applies nothing partially', async () => {
+  const { gateway, statusSource } = makeGateway();
+  gateway.start();
+  await gateway.ingest(JSON.stringify(alarmLine('esp32-bath', 'e-1-1', 'GAS', '卫生间')));
+  const before = JSON.stringify(gateway.devices.get('esp32-bath'));
+
+  const result = await gateway.handleCommand(
+    { command: 'SET_CONFIG', config: { noMotionSec: 600 } },
+    { requestId: '1001' }
+  );
+  assert.equal(result.ok, false);
+  assert.equal(statusSource.published.length, 0);
+  assert.equal(JSON.stringify(gateway.devices.get('esp32-bath')), before, 'no partial effect on device state');
+  await gateway.stop('T');
+});
+
+test('an unknown downlink command fails closed', async () => {
+  const { gateway, statusSource } = makeGateway();
+  gateway.start();
+  const result = await gateway.handleCommand({ command: 'REBOOT' }, { requestId: '1001' });
+  assert.equal(result.ok, false);
+  assert.equal(statusSource.published.length, 0);
+  await gateway.stop('T');
+});
+
+test('unexpected downlink fields are rejected even if a caller bypasses the adapter', async () => {
+  const { gateway, statusSource } = makeGateway();
+  gateway.start();
+  for (const payload of [
+    { command: 'RESET', extra: 'x' },
+    { command: 'RESET', host: '10.0.0.1' },
+    { command: 'RESET', password: 'secret' },
+    { command: 'ACK', alarmId: 'a-1', action: 'ok', deviceId: 'esp32-bath' }
+  ]) {
+    const result = await gateway.handleCommand(payload, { requestId: '1001' });
+    assert.equal(result.ok, false, `must reject ${JSON.stringify(payload)}`);
+  }
+  assert.equal(statusSource.published.length, 0);
+  await gateway.stop('T');
+});
+
+/* ----------------------------------------------------------- 13. 正常停止 */
+
+test('stop clears the subscription, timer and pending waiters and is idempotent', async () => {
+  const { gateway, statusSource } = makeGateway();
+  gateway.start();
+  assert.ok(gateway.offlineTimer, 'the offline scan timer is armed');
+
+  await gateway.stop('SIGINT');
+  assert.equal(gateway.running, false);
+  assert.equal(gateway.offlineTimer, null, 'timer must be cleared');
+  assert.equal(statusSource.closed, true, 'local broker connection must be closed');
+  assert.equal(gateway.waiters.size, 0);
+
+  await gateway.stop('SIGINT'); // 幂等
+  assert.equal(gateway.running, false);
+});
+
+test('SIGINT/SIGTERM style shutdown resolves an in-flight command as stopped', async () => {
+  const { gateway } = makeGateway({ gateway: { resetMode: 'self', commandTimeoutMs: 60000 } });
+  gateway.start();
+  await gateway.ingest(JSON.stringify(alarmLine('dayu200-home-gateway', 'a-9-9', 'GAS', '家庭网关')));
+
+  const pending = gateway.handleCommand({ command: 'RESET' }, { requestId: '1' });
+  await settle();
+  await gateway.stop('SIGTERM');
+  const result = await pending;
+  assert.equal(result.ok, false);
+});
+
+test('gateway starts, feeds and stops the trusted backend command sync', async () => {
+  const calls = { start: 0, stop: [], observed: [] };
+  const commandSync = {
+    enabled: true,
+    start() { calls.start += 1; },
+    observe(status) { calls.observed.push(status); return { accepted: true }; },
+    async stop(reason) { calls.stop.push(reason); }
+  };
+  const { gateway } = makeGateway({ gateway: { commandSync } });
+
+  gateway.start();
+  assert.equal(calls.start, 1);
+
+  const valid = statusLine({ state: 'ACKED', alarm: { id: 'a-1-1', type: 'MANUAL_SOS', countToday: 1 } });
+  const accepted = await gateway.ingest(JSON.stringify(valid));
+  assert.equal(accepted.accepted, true);
+  assert.equal(calls.observed.length, 1);
+  assert.equal(calls.observed[0].deviceId, 'dayu200-living');
+
+  const rejected = await gateway.ingest(JSON.stringify(statusLine({ ts: 1791609077 })));
+  assert.equal(rejected.accepted, false);
+  assert.equal(calls.observed.length, 1, 'invalid status must never satisfy an ACK waiter');
+
+  await gateway.stop('SIGTERM');
+  assert.deepEqual(calls.stop, ['SIGTERM']);
+});
+
+/* ------------------------------------------------------------- createGateway */
+
+test('createGateway wires the gateway into transport.handleCommand from env', async () => {
+  const seen = [];
+  const fakeTransport = makeTransport();
+  fakeTransport.setCommandHandler = (handler) => { seen.push(handler); };
+
+  const gateway = createGateway({
+    env: { ONENET_PRODUCT_ID: 'p', ONENET_DEVICE_NAME: 'dayu200-home-gateway', GATEWAY_RESET_MODE: 'local' },
+    transport: fakeTransport,
+    statusSource: makeStatusSource(),
+    now: () => NOW,
+    logger: { info() {}, warn() {}, error() {} }
+  });
+
+  assert.equal(seen.length, 1, 'the gateway command handler must be installed into the transport');
+  assert.equal(gateway.resetMode, 'local');
+  assert.equal(gateway.deviceName, 'dayu200-home-gateway');
+  const result = await seen[0]({ command: 'RESET' }, { requestId: '1' });
+  assert.equal(result.ok, true);
+});
+
+test('createGateway rejects an invalid reset mode rather than guessing', () => {
+  assert.throws(
+    () => createGateway({
+      env: {},
+      transport: makeTransport(),
+      statusSource: makeStatusSource(),
+      resetMode: 'broadcast-everything'
+    }),
+    /resetMode/
+  );
+});
+
+test('createGateway works with the real process.env, which is not a plain object', () => {
+  // 真机/生产入口 `npm run gateway` 走 `createGateway({})`，env 默认取 process.env。
+  // process.env 的原型不是 Object.prototype，若按“纯对象”校验会直接把网关挡在启动之外
+  // （2026-10-10 实测：`[gateway] FATAL code=UNKNOWN message=env must be a plain object`）。
+  const fakeTransport = makeTransport();
+  fakeTransport.setCommandHandler = () => {};
+  const gateway = createGateway({
+    env: process.env,
+    transport: fakeTransport,
+    statusSource: makeStatusSource(),
+    now: () => NOW,
+    logger: { info() {}, warn() {}, error() {} }
+  });
+  assert.ok(gateway instanceof HomeCloudGateway, 'createGateway must accept process.env');
+  assert.equal(gateway.brokerUrl, 'mqtt://127.0.0.1:1883', 'default broker url must apply');
+});
+
+test('createGateway reads gateway settings from the supplied env', () => {
+  const fakeTransport = makeTransport();
+  fakeTransport.setCommandHandler = () => {};
+  const gateway = createGateway({
+    env: {
+      ONENET_DEVICE_NAME: 'dayu200-living',
+      GATEWAY_BROKER_URL: 'mqtt://127.0.0.1:1999',
+      GATEWAY_STATUS_TOPIC: 'home/+/status',
+      GATEWAY_RESET_MODE: 'local'
+    },
+    transport: fakeTransport,
+    statusSource: makeStatusSource(),
+    now: () => NOW,
+    logger: { info() {}, warn() {}, error() {} }
+  });
+  assert.equal(gateway.deviceName, 'dayu200-living');
+  assert.equal(gateway.brokerUrl, 'mqtt://127.0.0.1:1999');
+  assert.equal(gateway.resetMode, 'local');
+});
+
+test('createGateway enables backend command polling only when the ingest key is configured', () => {
+  const fakeTransport = makeTransport();
+  fakeTransport.setCommandHandler = () => {};
+  const disabled = createGateway({
+    env: {},
+    transport: fakeTransport,
+    statusSource: makeStatusSource(),
+    cloudSync: null,
+    logger: { info() {}, warn() {}, error() {} }
+  });
+  assert.equal(disabled.commandSync.enabled, false);
+
+  const enabled = createGateway({
+    env: { BACKEND_INGEST_KEY: 'runtime-secret' },
+    transport: fakeTransport,
+    statusSource: makeStatusSource(),
+    cloudSync: null,
+    logger: { info() {}, warn() {}, error() {} }
+  });
+  assert.equal(enabled.commandSync.enabled, true);
+});
+
+test('createGateway rejects a non-object env rather than starting half-configured', () => {
+  assert.throws(
+    () => createGateway({ env: 'not-an-object', transport: makeTransport(), statusSource: makeStatusSource() }),
+    /env/
+  );
+});
+
+test('transport errors are surfaced as safe cloudError codes instead of being invisible', async () => {
+  const transport = makeTransport();
+  const { gateway } = makeGateway({ transport });
+  const errors = [];
+  const logged = [];
+  gateway.on('cloudError', (info) => errors.push(info.code));
+  gateway.logger = { info() {}, warn: (m) => logged.push(m), error: (m) => logged.push(m) };
+  gateway.start();
+
+  transport.emit('transportError', { code: 'CONNECT_SETUP_FAILED', message: 'raw detail must not leak' });
+
+  assert.deepEqual(errors, ['CONNECT_SETUP_FAILED']);
+  assert.ok(logged.some((l) => l.includes('CONNECT_SETUP_FAILED')), 'the safe code must be logged');
+  assert.ok(!logged.join('\n').includes('raw detail'), 'raw transport detail must not be logged');
+  await gateway.stop('T');
+});
+
+test('assertRequiredEnv fails fast on missing non-secret metadata and never leaks the key', () => {
+  const { assertRequiredEnv } = require('./gateway');
+
+  // 两个都缺：报出两个变量名，并带安全错误码
+  let caught = null;
+  try { assertRequiredEnv({}); } catch (e) { caught = e; }
+  assert.ok(caught, 'missing metadata must throw');
+  assert.equal(caught.code, 'MISSING_CONFIGURATION');
+  assert.ok(caught.message.includes('ONENET_PRODUCT_ID') && caught.message.includes('ONENET_DEVICE_NAME'));
+
+  // 只缺 deviceName：只报缺失的那一个，不误报已提供的
+  let onlyProduct = null;
+  try { assertRequiredEnv({ ONENET_PRODUCT_ID: 'I19NBBq4xe' }); } catch (e) { onlyProduct = e; }
+  assert.ok(onlyProduct.message.includes('ONENET_DEVICE_NAME'));
+
+  // 设备密钥是惰性的：缺失不算配置错误（允许运行期由 Secret 注入）
+  const ok = assertRequiredEnv({ ONENET_PRODUCT_ID: 'I19NBBq4xe', ONENET_DEVICE_NAME: 'dayu200-living' });
+  assert.deepEqual(ok, { productId: 'I19NBBq4xe', deviceName: 'dayu200-living' });
+
+  // 错误信息里绝不能出现密钥值
+  const secret = 'super-secret-device-key-value';
+  let leaked = null;
+  try { assertRequiredEnv({ ONENET_DEVICE_KEY: secret }); } catch (e) { leaked = e; }
+  assert.ok(leaked, 'must throw');
+  assert.ok(!leaked.message.includes(secret), 'the key value must never appear in an error message');
+});
+
+/* ----------------------------------------------------------- 消息 ID 边界 */
+
+test('message ids stay 13-digit-safe and unique under a frozen clock', () => {
+  const { gateway } = makeGateway();
+  const seen = new Set();
+  for (let i = 0; i < 5000; i += 1) {
+    const id = gateway._nextMessageId();
+    assert.match(id, /^\d{1,13}$/, `id out of range: ${id}`);
+    assert.ok(!seen.has(id), `duplicate message id: ${id}`);
+    seen.add(id);
+  }
+});
+
+test('message id space exhaustion is reported loudly instead of silently duplicating', () => {
+  const events = [];
+  const { gateway } = makeGateway({ startMs: 9_999_999_999_999 });
+  gateway.on('messageIdExhausted', (info) => events.push(info.code));
+  gateway._nextMessageId();
+  gateway._nextMessageId();
+  assert.deepEqual(events, ['ID_SPACE_EXHAUSTED']);
+});
+
+
+/* -------------------------------------------------- backend-only valid 合同 */
+
+test('backend cloud sync preserves boolean valid while OneNET payload stays unchanged', async () => {
+  const synced = [];
+  const cloudSync = {
+    enabled: true,
+    publish(status) {
+      synced.push(JSON.parse(JSON.stringify(status)));
+      return Promise.resolve({ ok: true });
+    }
+  };
+  const { gateway, transport } = makeGateway({ gateway: { cloudSync } });
+  gateway.start();
+
+  const withValid = JSON.parse(JSON.stringify(statusLine()));
+  withValid.sensors.climate.valid = true;
+  withValid.sensors.gas.valid = false;
+  withValid.sensors.smoke.valid = true;
+  await gateway.ingest(JSON.stringify(withValid));
+  await settle();
+
+  assert.equal(synced[0].sensors.climate.valid, true);
+  assert.equal(synced[0].sensors.gas.valid, false);
+  assert.equal(synced[0].sensors.smoke.valid, true);
+
+  const oneNet = toPropertyPost(transport.calls.property[0].status, { id: '1', timestampMs: NOW });
+  assert.equal(Object.prototype.hasOwnProperty.call(oneNet.params.gas.value, 'valid'), false);
+  assert.equal(Object.prototype.hasOwnProperty.call(oneNet.params.smoke.value, 'valid'), false);
+
+  const falseValid = JSON.parse(JSON.stringify(withValid));
+  falseValid.sensors.climate.valid = false;
+  await gateway.ingest(JSON.stringify(falseValid));
+  await settle();
+  assert.equal(synced[1].sensors.climate.valid, false);
+
+  const legacy = JSON.parse(JSON.stringify(falseValid));
+  delete legacy.sensors.climate.valid;
+  await gateway.ingest(JSON.stringify(legacy));
+  await settle();
+  assert.equal(Object.prototype.hasOwnProperty.call(synced[2].sensors.climate, 'valid'), false);
+
+  const trueAgain = JSON.parse(JSON.stringify(legacy));
+  trueAgain.sensors.climate.valid = true;
+  await gateway.ingest(JSON.stringify(trueAgain));
+  await settle();
+  assert.equal(synced[3].sensors.climate.valid, true);
+
+  await gateway.stop('T');
+});

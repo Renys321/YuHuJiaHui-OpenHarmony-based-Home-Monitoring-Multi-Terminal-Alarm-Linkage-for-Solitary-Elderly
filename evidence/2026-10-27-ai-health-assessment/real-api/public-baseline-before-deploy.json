@@ -1,0 +1,22 @@
+﻿{
+  "base": "https://api.luxunacc.xyz",
+  "checkedAt": "2026-10-27T06:56:39.840Z",
+  "healthz": {
+    "status": 200,
+    "body": "{\"ok\":true,\"service\":\"eldercare-cloud-backend\"}"
+  },
+  "readyz": {
+    "status": 200,
+    "body": "{\"ok\":true,\"service\":\"eldercare-cloud-backend\"}"
+  },
+  "anonHealthProfile": {
+    "status": 401,
+    "body": "{\"error\":\"unauthorized\"}"
+  },
+  "authedHealthProfile": {
+    "status": 404,
+    "body": "{\"error\":\"not found\"}"
+  },
+  "note": "authed 404 => 生产后端尚未包含健康接口（发布前基线）",
+  "loginStatus": 200
+}

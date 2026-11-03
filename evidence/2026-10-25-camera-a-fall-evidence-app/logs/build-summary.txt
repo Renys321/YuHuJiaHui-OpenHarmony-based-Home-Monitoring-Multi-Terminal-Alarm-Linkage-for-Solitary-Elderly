@@ -1,0 +1,7 @@
+APP Hypium: Tests run 21, Failure 0, Error 0, Pass 21, Ignore 0
+assembleHap: BUILD SUCCESSFUL
+tasks: 33 total, 27 executed, 6 up-to-date
+artifact: guardian-camera-a-fall-evidence-2026-10-25.hap
+size: 2143369 bytes
+sha256: BCAA21B2452D545611E7198FB5CE8C58B27D7863BC799C1BB5D1DB2ADEA54F7C
+signing: unsigned debug (no signingConfigs)

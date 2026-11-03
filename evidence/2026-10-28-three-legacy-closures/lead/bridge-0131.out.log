@@ -1,0 +1,391 @@
+[2026-10-27T16:27:19.732Z] [bridge] 接管陈旧实例锁（原 PID=60896 已退出）
+[2026-10-27T16:27:19.736Z] [bridge] 单实例锁已获取：D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\bridge.lock
+[2026-10-27T16:27:19.737Z] === mqtt_bridge 启动 ===
+[2026-10-27T16:27:19.738Z]   自动恢复  : MQTT/relay 断线自动重连；恢复后补发最后状态；relay keepalive 10s；日志带 ISO 时间戳
+[2026-10-27T16:27:19.738Z]   Broker    : 127.0.0.1:1883
+[2026-10-27T16:27:19.738Z]   上行主题  : home/<deviceId>/status   （设备编号由报文决定）
+[2026-10-27T16:27:19.738Z]   下行主题  : home/<deviceId>/cmd      （按编号路由到对应节点）
+[2026-10-27T16:27:19.739Z]   命令兜底  : D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\control
+[2026-10-27T16:27:19.739Z]   求助播报  : 关闭（未提供 --sos-source / --sos-targets）
+[2026-10-27T16:27:19.740Z]   relay忽略 : esp32-sos（板端连接上该 deviceId 的回灌只忽略：不改名、不发布、不退休）
+[2026-10-27T16:27:19.740Z]   节点数    : 1（10.127.130.131:9000）
+[2026-10-27T16:27:19.741Z]   监听端口  : 9101（等待无线节点接入）
+[2026-10-27T16:27:19.741Z]   转发目标  : 10.127.130.131:9000（其他节点状态注入板上应用）
+[2026-10-27T16:27:19.747Z]   监听端口  : 9101（等待无线节点接入）
+[2026-10-27T16:27:19.748Z] [MQTT] 已连接 127.0.0.1:1883（clientId=bridge-dayu200-living-39736）
+[2026-10-27T16:27:19.750Z] [MQTT] 订阅成功: home/+/cmd
+[2026-10-27T16:27:20.590Z] [bridge] 已连接转发目标 10.127.130.131:9000
+[2026-10-27T16:27:20.590Z] [bridge] 已接入节点 10.127.130.131:9000
+[2026-10-27T16:27:20.852Z] [bridge] 无线节点接入并完成身份绑定：esp32-kitchen（来源 ::ffff:10.127.130.168:60482）
+[2026-10-27T16:27:20.853Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:27:23.318Z] [bridge] 忽略板端连接上的 relay 回灌：esp32-kitchen（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[2026-10-27T16:27:23.319Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:27:26.245Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:27:31.368Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:27:31.750Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:27:31.846Z] [bridge] 忽略板端连接上的 relay 回灌：esp32-kitchen（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[2026-10-27T16:27:31.846Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:27:32.929Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:27:35.401Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:27:37.007Z] [bridge] 忽略未识别的探测连接（::ffff:127.0.0.1:63482，未发送状态行；不计为节点接入）
+[2026-10-27T16:27:37.244Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:27:39.120Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:27:41.217Z] [bridge] 忽略板端连接上的 relay 回灌：esp32-kitchen（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[2026-10-27T16:27:41.217Z] [bridge] 忽略板端连接上的 --relay-ignore 设备回灌：esp32-sos（由板外链路直接注入 homemon，桥接不接管、不退休板端连接）
+[2026-10-27T16:27:41.376Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:27:42.649Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:27:48.168Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:27:53.664Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:27:54.868Z] [bridge] 忽略板端连接上的 relay 回灌：esp32-kitchen（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[2026-10-27T16:27:54.868Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:27:55.250Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:27:55.251Z] [bridge] 忽略板端连接上的 --relay-ignore 设备回灌：esp32-sos（由板外链路直接注入 homemon，桥接不接管、不退休板端连接）
+[2026-10-27T16:27:55.251Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:27:55.253Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:27:59.181Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:28:01.012Z] [bridge] 忽略板端连接上的 relay 回灌：esp32-kitchen（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[2026-10-27T16:28:01.899Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:28:01.900Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:28:02.912Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:28:04.666Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:28:10.075Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:28:11.005Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:28:11.006Z] [bridge] 忽略板端连接上的 relay 回灌：esp32-kitchen（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[2026-10-27T16:28:11.659Z] [bridge] 忽略板端连接上的 --relay-ignore 设备回灌：esp32-sos（由板外链路直接注入 homemon，桥接不接管、不退休板端连接）
+[2026-10-27T16:28:11.660Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:28:11.661Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:28:15.590Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:28:21.093Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:28:26.585Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:28:32.090Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:28:37.483Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:28:43.016Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:28:48.503Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:28:49.968Z] [bridge] 忽略未识别的探测连接（::ffff:127.0.0.1:60914，未发送状态行；不计为节点接入）
+[2026-10-27T16:28:54.008Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:28:59.505Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:29:04.906Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:29:10.434Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:29:15.922Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:29:21.428Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:29:26.926Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:29:32.441Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:29:37.821Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:29:43.345Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:29:48.848Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:29:52.121Z] [bridge] 节点 10.127.130.131:9000 3000 毫秒后重连（连续失败 1 次）
+[2026-10-27T16:29:53.320Z] [bridge] 转发目标断开（连续失败 1 次），3000 毫秒后重连
+[2026-10-27T16:29:54.346Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:29:59.842Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:30:05.240Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:30:05.843Z] [bridge] 已连接转发目标 10.127.130.131:9000
+[2026-10-27T16:30:05.843Z] [bridge] relay 通道已恢复：补发 1 台入站设备的最后状态（只补最新一条，不重复告警）
+[2026-10-27T16:30:05.845Z] [bridge] 已接入节点 10.127.130.131:9000
+[2026-10-27T16:30:07.108Z] [bridge] 转发目标断开（连续失败 1 次），3000 毫秒后重连
+[2026-10-27T16:30:07.108Z] [bridge] 节点 10.127.130.131:9000 6000 毫秒后重连（连续失败 2 次）
+[2026-10-27T16:30:10.501Z] [bridge] 已连接转发目标 10.127.130.131:9000
+[2026-10-27T16:30:10.502Z] [bridge] relay 通道已恢复：补发 1 台入站设备的最后状态（只补最新一条，不重复告警）
+[2026-10-27T16:30:10.725Z] [bridge] 转发目标断开（连续失败 1 次），3000 毫秒后重连
+[2026-10-27T16:30:10.762Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:30:14.233Z] [bridge] 已接入节点 10.127.130.131:9000
+[2026-10-27T16:30:15.041Z] [bridge] 已连接转发目标 10.127.130.131:9000
+[2026-10-27T16:30:15.041Z] [bridge] relay 通道已恢复：补发 1 台入站设备的最后状态（只补最新一条，不重复告警）
+[2026-10-27T16:30:16.259Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:30:16.416Z] [bridge] 节点 10.127.130.131:9000 12000 毫秒后重连（连续失败 3 次）
+[2026-10-27T16:30:21.760Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:30:22.575Z] [bridge] 转发目标断开（连续失败 1 次），3000 毫秒后重连
+[2026-10-27T16:30:27.316Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:30:32.664Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:30:38.180Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:30:43.684Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:30:43.961Z] [bridge] 已接入节点 10.127.130.131:9000
+[2026-10-27T16:30:46.411Z] [bridge] 节点 10.127.130.131:9000 24000 毫秒后重连（连续失败 4 次）
+[2026-10-27T16:30:46.636Z] [bridge] 转发目标断开（连续失败 2 次），6000 毫秒后重连
+[2026-10-27T16:30:49.178Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:30:58.830Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:31:00.181Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:31:05.579Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:31:10.558Z] [bridge] 已接入节点 10.127.130.131:9000
+[2026-10-27T16:31:11.106Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:31:13.707Z] [bridge] 转发目标断开（连续失败 3 次），12000 毫秒后重连
+[2026-10-27T16:31:13.841Z] [bridge] 节点 10.127.130.131:9000 30000 毫秒后重连（连续失败 5 次）
+[2026-10-27T16:31:16.598Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:31:22.102Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:31:27.606Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:31:32.837Z] [bridge] 已连接转发目标 10.127.130.131:9000
+[2026-10-27T16:31:32.837Z] [bridge] relay 通道已恢复：补发 1 台入站设备的最后状态（只补最新一条，不重复告警）
+[2026-10-27T16:31:33.000Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:31:34.104Z] [bridge] 转发目标断开（连续失败 1 次），3000 毫秒后重连
+[2026-10-27T16:31:37.791Z] [bridge] 已连接转发目标 10.127.130.131:9000
+[2026-10-27T16:31:37.791Z] [bridge] relay 通道已恢复：补发 1 台入站设备的最后状态（只补最新一条，不重复告警）
+[2026-10-27T16:31:38.518Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:31:39.035Z] [bridge] 转发目标断开（连续失败 1 次），3000 毫秒后重连
+[2026-10-27T16:31:42.072Z] [bridge] 已连接转发目标 10.127.130.131:9000
+[2026-10-27T16:31:42.072Z] [bridge] relay 通道已恢复：补发 1 台入站设备的最后状态（只补最新一条，不重复告警）
+[2026-10-27T16:31:42.878Z] [bridge] 转发目标断开（连续失败 1 次），3000 毫秒后重连
+[2026-10-27T16:31:44.021Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:31:44.618Z] [bridge] 已接入节点 10.127.130.131:9000
+[2026-10-27T16:31:49.330Z] [bridge] 节点 10.127.130.131:9000 30000 毫秒后重连（连续失败 6 次）
+[2026-10-27T16:31:49.330Z] [bridge] 已连接转发目标 10.127.130.131:9000
+[2026-10-27T16:31:49.330Z] [bridge] relay 通道已恢复：补发 1 台入站设备的最后状态（只补最新一条，不重复告警）
+[2026-10-27T16:31:49.518Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:31:50.925Z] [bridge] 转发目标断开（连续失败 1 次），3000 毫秒后重连
+[2026-10-27T16:31:55.019Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:32:00.424Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:32:05.940Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:32:11.451Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:32:14.150Z] [bridge] 忽略未识别的探测连接（::ffff:127.0.0.1:62175，未发送状态行；不计为节点接入）
+[2026-10-27T16:32:14.993Z] [bridge] 转发目标断开（连续失败 2 次），6000 毫秒后重连
+[2026-10-27T16:32:16.939Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:32:22.443Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:32:27.939Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:32:33.337Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:32:38.855Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:32:40.380Z] [bridge] 节点 10.127.130.131:9000 30000 毫秒后重连（连续失败 7 次）
+[2026-10-27T16:32:42.047Z] [bridge] 转发目标断开（连续失败 3 次），12000 毫秒后重连
+[2026-10-27T16:32:44.359Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:32:49.856Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:32:55.359Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:33:00.771Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:33:06.277Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:33:11.777Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:33:15.109Z] [bridge] 转发目标断开（连续失败 4 次），24000 毫秒后重连
+[2026-10-27T16:33:17.279Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:33:22.782Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:33:28.182Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:33:31.442Z] [bridge] 节点 10.127.130.131:9000 30000 毫秒后重连（连续失败 8 次）
+[2026-10-27T16:33:33.696Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:33:39.195Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:33:44.756Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:33:50.197Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:33:55.697Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:33:56.710Z] [bridge] 已连接转发目标 10.127.130.131:9000
+[2026-10-27T16:33:56.711Z] [bridge] relay 通道已恢复：补发 1 台入站设备的最后状态（只补最新一条，不重复告警）
+[2026-10-27T16:33:57.376Z] [bridge] 转发目标断开（连续失败 1 次），3000 毫秒后重连
+[2026-10-27T16:34:01.098Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:34:06.615Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:34:12.104Z] [bridge] 已连接转发目标 10.127.130.131:9000
+[2026-10-27T16:34:12.105Z] [bridge] relay 通道已恢复：补发 1 台入站设备的最后状态（只补最新一条，不重复告警）
+[2026-10-27T16:34:12.114Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:34:17.614Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:34:22.497Z] [bridge] 节点 10.127.130.131:9000 30000 毫秒后重连（连续失败 9 次）
+[2026-10-27T16:34:23.118Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:34:28.517Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:34:32.194Z] [bridge] 转发目标断开（连续失败 1 次），3000 毫秒后重连
+[2026-10-27T16:34:34.035Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:34:39.541Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:34:45.035Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:34:50.534Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:34:55.934Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:34:56.255Z] [bridge] 转发目标断开（连续失败 2 次），6000 毫秒后重连
+[2026-10-27T16:35:01.458Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:35:06.959Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:35:12.469Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:35:13.552Z] [bridge] 节点 10.127.130.131:9000 30000 毫秒后重连（连续失败 10 次）
+[2026-10-27T16:35:17.954Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:35:23.303Z] [bridge] 转发目标断开（连续失败 3 次），12000 毫秒后重连
+[2026-10-27T16:35:23.455Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:35:28.874Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:35:34.374Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:35:39.878Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:35:45.376Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:35:50.875Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:35:56.273Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:35:56.355Z] [bridge] 转发目标断开（连续失败 4 次），24000 毫秒后重连
+[2026-10-27T16:36:01.795Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:36:04.608Z] [bridge] 节点 10.127.130.131:9000 30000 毫秒后重连（连续失败 11 次）
+[2026-10-27T16:36:07.291Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:36:12.794Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:36:18.293Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:36:23.694Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:36:29.217Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:36:34.713Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:36:40.216Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:36:41.383Z] [bridge] 转发目标断开（连续失败 5 次），30000 毫秒后重连
+[2026-10-27T16:36:45.713Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:36:51.004Z] [bridge] 已接入节点 10.127.130.131:9000
+[2026-10-27T16:36:51.213Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:36:56.618Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:37:02.131Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:37:07.636Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:37:11.109Z] [bridge] 节点 10.127.130.131:9000 30000 毫秒后重连（连续失败 12 次）
+[2026-10-27T16:37:13.132Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:37:18.631Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:37:24.033Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:37:26.526Z] [bridge] 已连接转发目标 10.127.130.131:9000
+[2026-10-27T16:37:26.526Z] [bridge] relay 通道已恢复：补发 1 台入站设备的最后状态（只补最新一条，不重复告警）
+[2026-10-27T16:37:28.012Z] [bridge] 转发目标断开（连续失败 1 次），3000 毫秒后重连
+[2026-10-27T16:37:29.550Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:37:32.801Z] [bridge] 已连接转发目标 10.127.130.131:9000
+[2026-10-27T16:37:32.801Z] [bridge] relay 通道已恢复：补发 1 台入站设备的最后状态（只补最新一条，不重复告警）
+[2026-10-27T16:37:35.069Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:37:40.552Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:37:42.254Z] [bridge] 转发目标断开（连续失败 1 次），3000 毫秒后重连
+[2026-10-27T16:37:42.257Z] [bridge] 已接入节点 10.127.130.131:9000
+[2026-10-27T16:37:46.053Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:37:51.450Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:37:56.973Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:38:02.385Z] [bridge] 节点 10.127.130.131:9000 30000 毫秒后重连（连续失败 13 次）
+[2026-10-27T16:38:02.472Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:38:06.315Z] [bridge] 转发目标断开（连续失败 2 次），6000 毫秒后重连
+[2026-10-27T16:38:07.972Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:38:13.471Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:38:14.602Z] [bridge] 已连接转发目标 10.127.130.131:9000
+[2026-10-27T16:38:14.602Z] [bridge] relay 通道已恢复：补发 1 台入站设备的最后状态（只补最新一条，不重复告警）
+[2026-10-27T16:38:18.721Z] [bridge] 转发目标断开（连续失败 1 次），3000 毫秒后重连
+[2026-10-27T16:38:18.971Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:38:22.785Z] [bridge] 已连接转发目标 10.127.130.131:9000
+[2026-10-27T16:38:22.785Z] [bridge] relay 通道已恢复：补发 1 台入站设备的最后状态（只补最新一条，不重复告警）
+[2026-10-27T16:38:24.374Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:38:29.893Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:38:35.395Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:38:40.898Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:38:42.909Z] [bridge] 转发目标断开（连续失败 1 次），3000 毫秒后重连
+[2026-10-27T16:38:46.390Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:38:48.076Z] [bridge] 已连接转发目标 10.127.130.131:9000
+[2026-10-27T16:38:48.076Z] [bridge] relay 通道已恢复：补发 1 台入站设备的最后状态（只补最新一条，不重复告警）
+[2026-10-27T16:38:48.077Z] [bridge] 已接入节点 10.127.130.131:9000
+[2026-10-27T16:38:51.789Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:38:57.308Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:39:02.820Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:39:08.195Z] [bridge] 节点 10.127.130.131:9000 30000 毫秒后重连（连续失败 14 次）
+[2026-10-27T16:39:08.210Z] [bridge] 转发目标断开（连续失败 1 次），3000 毫秒后重连
+[2026-10-27T16:39:08.312Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:39:13.831Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:39:19.212Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:39:24.742Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:39:30.230Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:39:32.278Z] [bridge] 转发目标断开（连续失败 2 次），6000 毫秒后重连
+[2026-10-27T16:39:35.736Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:39:41.231Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:39:46.732Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:39:52.161Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:39:57.664Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:39:59.236Z] [bridge] 节点 10.127.130.131:9000 30000 毫秒后重连（连续失败 15 次）
+[2026-10-27T16:39:59.314Z] [bridge] 转发目标断开（连续失败 3 次），12000 毫秒后重连
+[2026-10-27T16:40:03.152Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:40:03.387Z] [MQTT] ← home/dayu200-living/cmd: {"cmd":"fall","evidenceId":"fall-1793119202896-na"}
+[2026-10-27T16:40:08.655Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:40:14.147Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:40:19.437Z] [bridge] 已连接转发目标 10.127.130.131:9000
+[2026-10-27T16:40:19.438Z] [bridge] relay 通道已恢复：补发 1 台入站设备的最后状态（只补最新一条，不重复告警）
+[2026-10-27T16:40:19.578Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:40:20.204Z] [bridge] 转发目标断开（连续失败 1 次），3000 毫秒后重连
+[2026-10-27T16:40:25.176Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:40:30.600Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:40:36.072Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:40:41.585Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:40:44.248Z] [bridge] 转发目标断开（连续失败 2 次），6000 毫秒后重连
+[2026-10-27T16:40:46.978Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:40:50.275Z] [bridge] 节点 10.127.130.131:9000 30000 毫秒后重连（连续失败 16 次）
+[2026-10-27T16:40:52.492Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:40:57.991Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:41:03.489Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:41:09.016Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:41:11.312Z] [bridge] 转发目标断开（连续失败 3 次），12000 毫秒后重连
+[2026-10-27T16:41:14.491Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:41:19.889Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:41:23.248Z] [bridge] 已接入节点 10.127.130.131:9000
+[2026-10-27T16:41:25.466Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:41:30.909Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:41:36.408Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:41:41.908Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:41:43.338Z] [bridge] 节点 10.127.130.131:9000 30000 毫秒后重连（连续失败 17 次）
+[2026-10-27T16:41:44.355Z] [bridge] 转发目标断开（连续失败 4 次），24000 毫秒后重连
+[2026-10-27T16:41:47.309Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:41:52.825Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:41:58.329Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:42:03.871Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:42:09.328Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:42:14.726Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:42:20.247Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:42:25.753Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:42:29.421Z] [bridge] 转发目标断开（连续失败 5 次），30000 毫秒后重连
+[2026-10-27T16:42:31.251Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:42:34.398Z] [bridge] 节点 10.127.130.131:9000 30000 毫秒后重连（连续失败 18 次）
+[2026-10-27T16:42:36.748Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:42:42.258Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:42:47.720Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:42:53.184Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:42:58.682Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:43:04.183Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:43:09.669Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:43:10.809Z] [bridge] 已接入节点 10.127.130.131:9000
+[2026-10-27T16:43:15.071Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:43:20.465Z] [bridge] 转发目标断开（连续失败 6 次），30000 毫秒后重连
+[2026-10-27T16:43:20.583Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:43:26.108Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:43:30.937Z] [bridge] 节点 10.127.130.131:9000 30000 毫秒后重连（连续失败 19 次）
+[2026-10-27T16:43:31.583Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:43:37.087Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:43:42.486Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:43:48.030Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:43:53.520Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:43:59.082Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:44:04.504Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:44:10.003Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:44:11.525Z] [bridge] 转发目标断开（连续失败 7 次），30000 毫秒后重连
+[2026-10-27T16:44:15.406Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:44:20.923Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:44:21.986Z] [bridge] 节点 10.127.130.131:9000 30000 毫秒后重连（连续失败 20 次）
+[2026-10-27T16:44:26.425Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:44:31.928Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:44:37.425Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:44:42.828Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:44:45.506Z] [bridge] 忽略未识别的探测连接（::ffff:127.0.0.1:51457，未发送状态行；不计为节点接入）
+[2026-10-27T16:44:48.349Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:44:53.845Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:44:59.344Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:45:02.585Z] [bridge] 转发目标断开（连续失败 8 次），30000 毫秒后重连
+[2026-10-27T16:45:04.849Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:45:10.243Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:45:13.039Z] [bridge] 节点 10.127.130.131:9000 30000 毫秒后重连（连续失败 21 次）
+[2026-10-27T16:45:15.762Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:45:21.263Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:45:26.765Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:45:32.262Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:45:37.764Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:45:43.164Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:45:48.688Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:45:53.635Z] [bridge] 转发目标断开（连续失败 9 次），30000 毫秒后重连
+[2026-10-27T16:45:54.183Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:45:59.705Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:46:04.082Z] [bridge] 节点 10.127.130.131:9000 30000 毫秒后重连（连续失败 22 次）
+[2026-10-27T16:46:05.188Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:46:10.591Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:46:16.106Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:46:21.613Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:46:27.108Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:46:32.620Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:46:38.039Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:46:43.239Z] [bridge] 已接入节点 10.127.130.131:9000
+[2026-10-27T16:46:43.524Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:46:44.709Z] [bridge] 转发目标断开（连续失败 10 次），30000 毫秒后重连
+[2026-10-27T16:46:46.910Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:46:49.021Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:46:50.950Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:46:51.348Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:46:54.522Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:46:56.079Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:46:56.080Z] [bridge] 忽略板端连接上的 --relay-ignore 设备回灌：esp32-sos（由板外链路直接注入 homemon，桥接不接管、不退休板端连接）
+[2026-10-27T16:47:00.020Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:47:00.440Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:47:05.522Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:47:10.919Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:47:16.439Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:47:20.558Z] [bridge] 节点 10.127.130.131:9000 3000 毫秒后重连（连续失败 1 次）
+[2026-10-27T16:47:21.939Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:47:27.444Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:47:32.946Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:47:35.751Z] [bridge] 转发目标断开（连续失败 11 次），30000 毫秒后重连
+[2026-10-27T16:47:38.346Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:47:43.859Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:47:44.605Z] [bridge] 节点 10.127.130.131:9000 6000 毫秒后重连（连续失败 2 次）
+[2026-10-27T16:47:59.577Z] [bridge] 节点 esp32-kitchen 新连接接管，关闭旧连接 listen:60482
+[2026-10-27T16:47:59.577Z] [bridge] 无线节点接入并完成身份绑定：esp32-kitchen（来源 ::ffff:10.127.130.168:53734）
+[2026-10-27T16:47:59.577Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:47:59.579Z] [bridge] 无线节点 esp32-kitchen 断开
+[2026-10-27T16:48:00.908Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:48:06.264Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:48:11.635Z] [bridge] 节点 10.127.130.131:9000 12000 毫秒后重连（连续失败 3 次）
+[2026-10-27T16:48:11.785Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1

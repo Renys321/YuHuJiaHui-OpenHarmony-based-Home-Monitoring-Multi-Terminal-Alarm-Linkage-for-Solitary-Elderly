@@ -1,0 +1,32 @@
+=== 修复后重跑 checks（12:31:03）===
+
+--- deep-check.py
+  + "gw_link.h"
+  + "node_common.h"
+  + "wifi_link.h"
+  + "台架注入要靠语音构建里的命令队列，请同时打开 CONFIG_NODE_VOICE_ENABLED"
+  + "电池采样配置非法：仅 ADC1_CH0..CH9、不得与 MQ 共用通道、MIN_MV 必须 <= MAX_MV"
+
+== #define values ==
+changed: 0, missing: 1, added: 8
+  - I2C_PORT = I2C_AHT_PORT
+  + ANNOUNCE_H = 
+  + BOARD_IO_H = 
+  + CLIMATE_H = 
+  + DOOR_MONITOR_H = 
+  + CMD_LINE_MAX = 1024
+  + GW_LINK_H = 
+  + NODE_COMMON_H = 
+  + WIFI_LINK_H = 
+
+== header inline functions ==
+identical inline functions: 33, differing/missing: 0
+
+--- sim-report.py
+PASS kitchen normal           bytes=555 door.open=False
+PASS kitchen baseline unknown bytes=422 door.open=None
+PASS kitchen SOS              bytes=470 door.open=False
+PASS bathroom water           bytes=489 door.open=True
+PASS battery valid            bytes=544 door.open=False
+PASS battery invalid          bytes=557 door.open=False
+report format identical to baseline; 6 frames parsed

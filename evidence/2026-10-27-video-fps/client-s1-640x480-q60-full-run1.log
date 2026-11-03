@@ -1,0 +1,22 @@
+﻿{
+  "ok": false,
+  "host": "10.127.130.131",
+  "port": 9301,
+  "durationMs": 20004,
+  "width": 640,
+  "height": 480,
+  "quality": 60,
+  "interval": 0,
+  "crop": 0,
+  "frames": 0,
+  "jpegValid": 0,
+  "jpegInvalid": 0,
+  "uniqueFrameHashes": 0,
+  "avgFps": 0,
+  "minFrameBytes": 0,
+  "maxFrameBytes": 0,
+  "avgFrameBytes": 0,
+  "firstFrameAfterHelloMs": -1,
+  "firstFrameAfterStartMs": -1,
+  "controlLines": []
+}

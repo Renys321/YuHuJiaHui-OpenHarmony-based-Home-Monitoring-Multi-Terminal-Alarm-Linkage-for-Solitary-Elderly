@@ -1,0 +1,16 @@
+{
+  "name": "wearable-mirror",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PC-side mirror: 随身 SOS (4G/ECS) state -> DAYU200 homemon relay / local TCP status line",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

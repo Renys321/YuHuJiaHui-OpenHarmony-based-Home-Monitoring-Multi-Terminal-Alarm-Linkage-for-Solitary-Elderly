@@ -1,0 +1,14 @@
+PC_CLEANUP_START=2026-10-10 10:20:35.726 +08:00
+STOP PID=5672 CMD="<USER_HOME>\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\node\bin\node.exe" <WORKSPACE>\competition\bridge\sim_node.js --gw 127.0.0.1:9100 --id esp32-bath --room 卫生间
+STOP PID=15016 CMD="<USER_HOME>\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\node\bin\node.exe" <WORKSPACE>\competition\bridge\mqtt_bridge.js --broker 127.0.0.1:1883 --listen 9100 --relay-to 127.0.0.1:9000 --cmd-out <WORKSPACE>\competition\bridge\_test\control --status-file <WORKSPACE>\competition\bridge\_test\status.json 
+STOP PID=10804 CMD="<USER_HOME>\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\node\bin\node.exe" <WORKSPACE>\competition\bridge\mqtt_broker.js 1883 
+APP_FORCE_STOP=force stop process successfully.
+HOMEMON_STOP=ALIVE=1
+FPORT_REMOVE=Remove forward ruler success, ruler:tcp:9000 tcp:9000 | 
+--- REMAINING TARGET PROCESSES ---
+--- DEVICE PROCESSES ---
+--- PORTS ---
+1883 FREE
+9000 FREE
+9100 FREE
+PC_CLEANUP_END=2026-10-10 10:20:46.653 +08:00

@@ -1,0 +1,24 @@
+﻿capturedAt=2026-10-27 22:43:36 说明：合成现场形态（PID 29048/30608 已不存在，心跳为 7 小时前），证明旧的"文件里写着 HEALTHY"不能再骗过只读健康检查；不修改任何真实运行时文件。 === public-sync-health 对合成陈旧状态的判定 ===
+{
+    "checkedAt":  "2026-10-27 22:43:37",
+    "brokerListening":  true,
+    "bridgeListening":  true,
+    "supervisor":  {
+                       "supervisorPid":  29048,
+                       "supervisorAlive":  false,
+                       "workerPid":  30608,
+                       "workerAlive":  false,
+                       "heartbeatAgeMs":  25200962,
+                       "maxHeartbeatAgeMs":  90000,
+                       "state":  "HEALTHY",
+                       "lockPid":  29048,
+                       "healthy":  false,
+                       "reason":  "STALE_LOCK"
+                   },
+    "supervisorCheckExit":  3,
+    "portsOk":  true,
+    "healthy":  false,
+    "reason":  "SUPERVISOR_STALE_LOCK"
+}
+
+exit_code=3

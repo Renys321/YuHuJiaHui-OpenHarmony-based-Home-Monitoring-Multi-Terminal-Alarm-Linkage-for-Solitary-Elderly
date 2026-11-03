@@ -1,0 +1,24 @@
+[broker] 监听 0.0.0.0:18830（自包含 MQTT broker，Ctrl+C 退出）
+[broker] + 连接来自 ::ffff:127.0.0.1:56623（当前 1 个）
+[broker] CONNACK → bridge-dayu200-living-53799
+[broker] SUBSCRIBE bridge-dayu200-living-53799 → home/+/cmd
+[broker] PUBLISH home/esp32-sos/status (399B) → 转发给 0 个订阅者
+[broker] PUBLISH home/esp32-kitchen/status (397B) → 转发给 0 个订阅者
+[broker] PUBLISH home/esp32-bath/status (397B) → 转发给 0 个订阅者
+[broker] PUBLISH home/esp32-sos/status (425B) → 转发给 0 个订阅者
+[broker] PUBLISH home/esp32-sos/status (425B) → 转发给 0 个订阅者
+[broker] PUBLISH home/esp32-sos/status (425B) → 转发给 0 个订阅者
+[broker] PUBLISH home/esp32-sos/status (425B) → 转发给 0 个订阅者
+[broker] PUBLISH home/esp32-sos/status (425B) → 转发给 0 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:62769（当前 2 个）
+[broker] CONNACK → test-pub-1793030256955
+[broker] PUBLISH home/esp32-sos/cmd (64B) → 转发给 1 个订阅者
+[broker] - 断开 test-pub-1793030256955（当前 1 个）
+[broker] PUBLISH home/esp32-sos/status (425B) → 转发给 0 个订阅者
+[broker] PUBLISH home/esp32-sos/status (425B) → 转发给 0 个订阅者
+[broker] PUBLISH home/esp32-sos/status (425B) → 转发给 0 个订阅者
+[broker] PUBLISH home/esp32-kitchen/status (397B) → 转发给 0 个订阅者
+[broker] PUBLISH home/esp32-sos/status (425B) → 转发给 0 个订阅者
+[broker] PUBLISH home/esp32-kitchen/status (420B) → 转发给 0 个订阅者
+[broker] PUBLISH home/esp32-kitchen/status (397B) → 转发给 0 个订阅者
+[broker] PUBLISH home/esp32-sos/status (425B) → 转发给 0 个订阅者

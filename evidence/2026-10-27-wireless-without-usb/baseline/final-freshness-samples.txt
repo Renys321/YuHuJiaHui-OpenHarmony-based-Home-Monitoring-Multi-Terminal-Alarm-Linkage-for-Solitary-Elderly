@@ -1,0 +1,7 @@
+﻿[23:11:03] esp32-kitchen=4.2s | esp32-bath=4.1s | dayu200-living=1.4s | esp32-sos=16s
+[23:11:33] esp32-kitchen=1.5s | esp32-bath=1.2s | dayu200-living=1.3s | esp32-sos=16.2s
+[23:12:06] esp32-kitchen=7.6s | esp32-bath=6.6s | dayu200-living=3.8s | esp32-sos=19.8s
+[23:12:36] esp32-kitchen=4.9s | esp32-bath=4.8s | dayu200-living=2s | esp32-sos=15.6s
+[23:13:07] esp32-kitchen=2.7s | esp32-bath=2.1s | dayu200-living=2.2s | esp32-sos=20.7s
+[23:13:38] esp32-kitchen=-0.1s | esp32-bath=5.5s | dayu200-living=2.4s | esp32-sos=21s
+[23:14:08] esp32-kitchen=2.9s | esp32-bath=2.6s | dayu200-living=2.9s | esp32-sos=21.1s

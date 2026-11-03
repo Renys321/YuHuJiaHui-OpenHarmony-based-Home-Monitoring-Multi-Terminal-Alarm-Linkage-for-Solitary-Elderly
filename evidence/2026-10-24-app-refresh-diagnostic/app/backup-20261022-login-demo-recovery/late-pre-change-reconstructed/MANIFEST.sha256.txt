@@ -1,0 +1,4 @@
+# Reconstructed pre-change copies for StatsPage/LogPage (late demo-label edits)
+# These reverse the demo-label additions; verify by diff before restoring.
+StatsPage.ets	11376	6AF15C4EAEEE750A01E72B32A18236E2EDBED17C521ECDA1032D1DD48CED696A
+LogPage.ets	10490	D5986F410EDAB9090136A716EF15688B1537E72D1F38FB51D986CD8DCA1EF9D1

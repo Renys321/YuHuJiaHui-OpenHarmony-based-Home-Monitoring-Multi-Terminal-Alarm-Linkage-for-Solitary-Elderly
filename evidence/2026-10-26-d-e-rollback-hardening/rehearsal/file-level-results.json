@@ -1,0 +1,939 @@
+{
+  "kind": "FILE_LEVEL_FAULT_INJECTION",
+  "generatedAt": "2026-10-26T08:02:45.482Z",
+  "txScript": "rollback/rollback-transaction.js",
+  "tempRoot": "C:\\Users\\LENOVO\\AppData\\Local\\Temp\\de-rb-file-Y4QyDb",
+  "evidenceLevel": "FILE-LEVEL：用 Node fs 在临时目录上验证状态机与撤销清单；不代表 Docker 卷/容器语义",
+  "fixtures": {
+    "preArchive": {
+      "path": "C:/Users/LENOVO/AppData/Local/Temp/de-rb-file-Y4QyDb/archives/pre-upgrade.tgz",
+      "bytes": 746,
+      "sha256": "715F89596D1DA70A9C719ECB63C770F8295E7D77742AF1A50E3E8BBFD46C135B",
+      "treeHash": "C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F"
+    },
+    "postArchive": {
+      "path": "C:/Users/LENOVO/AppData/Local/Temp/de-rb-file-Y4QyDb/archives/post-upgrade.tgz",
+      "bytes": 1231,
+      "sha256": "872886913AB45F72589BE80CE5D56C5C450ED085CCFAB5BD77A9CDCE3B147506",
+      "treeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5"
+    },
+    "rollbackCompleteTreeHash": "849A7E4C2E42ED425317373B40F7206A6336857CC0E2C2611A558C8ED639E47D"
+  },
+  "cases": [
+    {
+      "case": "normal-rollback",
+      "injectionPoint": "normal",
+      "expectedState": "COMPLETED",
+      "expectedFinalState": "pre-v5-with-preserved-extras",
+      "actualExitCode": 0,
+      "actualState": "COMPLETED",
+      "serviceStayedStopped": true,
+      "serviceMustStayStopped": false,
+      "finalFileList": [
+        "file:activity-state.json",
+        "file:backend-state.json",
+        "dir:evidence",
+        "file:evidence/index.json",
+        "file:evidence/rehearsal-evidence-1.jpg",
+        "file:evidence/rehearsal-evidence-2.jpg"
+      ],
+      "beforeTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHash": "849A7E4C2E42ED425317373B40F7206A6336857CC0E2C2611A558C8ED639E47D",
+      "afterTreeHashKind": "pre-v5-with-preserved-extras",
+      "expectedPreTreeHash": "C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F",
+      "expectedRollbackCompleteTreeHash": "849A7E4C2E42ED425317373B40F7206A6336857CC0E2C2611A558C8ED639E47D",
+      "preArchiveSha256": "715F89596D1DA70A9C719ECB63C770F8295E7D77742AF1A50E3E8BBFD46C135B",
+      "preArchiveIntact": true,
+      "postArchiveSha256": "872886913AB45F72589BE80CE5D56C5C450ED085CCFAB5BD77A9CDCE3B147506",
+      "postArchiveIntact": true,
+      "mixedState": false,
+      "manualTakeover": false,
+      "passed": true,
+      "checks": {
+        "stateOk": true,
+        "finalOk": true,
+        "manualOk": true
+      },
+      "transactionEvidenceState": "COMPLETED",
+      "transactionEvidenceError": null,
+      "transactionRecovery": null,
+      "resume": null,
+      "durationMs": 281,
+      "stdoutTail": [
+        "[rollback] op=op-normal-rollback state=COMPLETED exit=0",
+        "[rollback] summary: {\"opId\":\"op-normal-rollback\",\"state\":\"COMPLETED\",\"serviceMustStayStopped\":false,\"mixedState\":null,\"manualTakeover\":false,\"originalTreeHash\":\"6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5\",\"stagingTreeHash\":\"C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F\",\"finalTreeHash\":\"849A7E4C2E42ED425317373B40F7206A6336857CC0E2C2611A558C8ED639E47D\",\"preservedExtras\":[\"activity-state.json\",\"evidence/rehearsal-evidence-2.jpg\"]}"
+      ],
+      "stderrTail": [
+        ""
+      ]
+    },
+    {
+      "case": "preflight-only",
+      "injectionPoint": "preflight",
+      "expectedState": "PREFLIGHT_OK",
+      "expectedFinalState": "original-v6",
+      "actualExitCode": 0,
+      "actualState": "PREFLIGHT_OK",
+      "serviceStayedStopped": true,
+      "serviceMustStayStopped": false,
+      "finalFileList": [
+        "file:activity-state.json",
+        "file:backend-state.json",
+        "dir:evidence",
+        "file:evidence/index.json",
+        "file:evidence/rehearsal-evidence-1.jpg",
+        "file:evidence/rehearsal-evidence-2.jpg"
+      ],
+      "beforeTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHashKind": "original-v6",
+      "expectedPreTreeHash": "C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F",
+      "expectedRollbackCompleteTreeHash": "849A7E4C2E42ED425317373B40F7206A6336857CC0E2C2611A558C8ED639E47D",
+      "preArchiveSha256": "715F89596D1DA70A9C719ECB63C770F8295E7D77742AF1A50E3E8BBFD46C135B",
+      "preArchiveIntact": true,
+      "postArchiveSha256": "872886913AB45F72589BE80CE5D56C5C450ED085CCFAB5BD77A9CDCE3B147506",
+      "postArchiveIntact": true,
+      "mixedState": false,
+      "manualTakeover": false,
+      "passed": true,
+      "checks": {
+        "stateOk": true,
+        "finalOk": true,
+        "manualOk": true
+      },
+      "transactionEvidenceState": "PREFLIGHT_OK",
+      "transactionEvidenceError": null,
+      "transactionRecovery": null,
+      "resume": null,
+      "durationMs": 182,
+      "stdoutTail": [
+        "[rollback] op=op-preflight-only state=PREFLIGHT_OK exit=0",
+        "[rollback] summary: {\"opId\":\"op-preflight-only\",\"state\":\"PREFLIGHT_OK\",\"serviceMustStayStopped\":false,\"mixedState\":null,\"manualTakeover\":false,\"originalTreeHash\":\"6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5\",\"stagingTreeHash\":\"C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F\",\"finalTreeHash\":\"6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5\",\"preservedExtras\":[]}"
+      ],
+      "stderrTail": [
+        ""
+      ]
+    },
+    {
+      "case": "corrupt-pre-archive",
+      "injectionPoint": "corrupt-pre-archive",
+      "expectedState": "PREFLIGHT_ABORT",
+      "expectedFinalState": "original-v6",
+      "actualExitCode": 10,
+      "actualState": "PREFLIGHT_ABORT",
+      "serviceStayedStopped": true,
+      "serviceMustStayStopped": false,
+      "finalFileList": [
+        "file:activity-state.json",
+        "file:backend-state.json",
+        "dir:evidence",
+        "file:evidence/index.json",
+        "file:evidence/rehearsal-evidence-1.jpg",
+        "file:evidence/rehearsal-evidence-2.jpg"
+      ],
+      "beforeTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHashKind": "original-v6",
+      "expectedPreTreeHash": "C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F",
+      "expectedRollbackCompleteTreeHash": "849A7E4C2E42ED425317373B40F7206A6336857CC0E2C2611A558C8ED639E47D",
+      "preArchiveSha256": "F9A2EC40A6A312126F512972710491595300108C32F531D5BD68EDDCEAB1F047",
+      "preArchiveIntact": false,
+      "postArchiveSha256": "872886913AB45F72589BE80CE5D56C5C450ED085CCFAB5BD77A9CDCE3B147506",
+      "postArchiveIntact": true,
+      "mixedState": false,
+      "manualTakeover": false,
+      "passed": true,
+      "checks": {
+        "stateOk": true,
+        "finalOk": true,
+        "manualOk": true
+      },
+      "transactionEvidenceState": "PREFLIGHT_ABORT",
+      "transactionEvidenceError": "pre-upgrade archive unreadable: Command failed: tar -tzf C:\\Users\\LENOVO\\AppData\\Local\\Temp\\de-rb-file-Y4QyDb\\case-corrupt-pre-archive\\pre-corrupt.tgz\ntar: Error opening archive: gzip decompression failed\r\n",
+      "transactionRecovery": null,
+      "resume": null,
+      "durationMs": 183,
+      "stdoutTail": [
+        "[rollback] op=op-corrupt-pre-archive state=PREFLIGHT_ABORT exit=10",
+        "[rollback] error=pre-upgrade archive unreadable: Command failed: tar -tzf C:\\Users\\LENOVO\\AppData\\Local\\Temp\\de-rb-file-Y4QyDb\\case-corrupt-pre-archive\\pre-corrupt.tgz",
+        "tar: Error opening archive: gzip decompression failed\r",
+        "",
+        "[rollback] summary: {\"opId\":\"op-corrupt-pre-archive\",\"state\":\"PREFLIGHT_ABORT\",\"serviceMustStayStopped\":false,\"mixedState\":false,\"manualTakeover\":false,\"originalTreeHash\":\"6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5\",\"stagingTreeHash\":null,\"finalTreeHash\":null,\"preservedExtras\":[]}"
+      ],
+      "stderrTail": [
+        "tar: Error opening archive: gzip decompression failed"
+      ]
+    },
+    {
+      "case": "pre-archive-checksum-metadata-mismatch",
+      "injectionPoint": "wrong-expected-pre-hash",
+      "expectedState": "PREFLIGHT_ABORT",
+      "expectedFinalState": "original-v6",
+      "actualExitCode": 10,
+      "actualState": "PREFLIGHT_ABORT",
+      "serviceStayedStopped": true,
+      "serviceMustStayStopped": false,
+      "finalFileList": [
+        "file:activity-state.json",
+        "file:backend-state.json",
+        "dir:evidence",
+        "file:evidence/index.json",
+        "file:evidence/rehearsal-evidence-1.jpg",
+        "file:evidence/rehearsal-evidence-2.jpg"
+      ],
+      "beforeTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHashKind": "original-v6",
+      "expectedPreTreeHash": "C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F",
+      "expectedRollbackCompleteTreeHash": "849A7E4C2E42ED425317373B40F7206A6336857CC0E2C2611A558C8ED639E47D",
+      "preArchiveSha256": "715F89596D1DA70A9C719ECB63C770F8295E7D77742AF1A50E3E8BBFD46C135B",
+      "preArchiveIntact": true,
+      "postArchiveSha256": "872886913AB45F72589BE80CE5D56C5C450ED085CCFAB5BD77A9CDCE3B147506",
+      "postArchiveIntact": true,
+      "mixedState": false,
+      "manualTakeover": false,
+      "passed": true,
+      "checks": {
+        "stateOk": true,
+        "finalOk": true,
+        "manualOk": true
+      },
+      "transactionEvidenceState": "PREFLIGHT_ABORT",
+      "transactionEvidenceError": "staging content mismatch: expected DEADBEEFDEADBEEFDEADBEEFDEADBEEFDEADBEEFDEADBEEFDEADBEEFDEADBEEF, got C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F",
+      "transactionRecovery": null,
+      "resume": null,
+      "durationMs": 231,
+      "stdoutTail": [
+        "[rollback] op=op-pre-archive-checksum-metadata-mismatch state=PREFLIGHT_ABORT exit=10",
+        "[rollback] error=staging content mismatch: expected DEADBEEFDEADBEEFDEADBEEFDEADBEEFDEADBEEFDEADBEEFDEADBEEFDEADBEEF, got C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F",
+        "[rollback] summary: {\"opId\":\"op-pre-archive-checksum-metadata-mismatch\",\"state\":\"PREFLIGHT_ABORT\",\"serviceMustStayStopped\":false,\"mixedState\":false,\"manualTakeover\":false,\"originalTreeHash\":\"6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5\",\"stagingTreeHash\":\"C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F\",\"finalTreeHash\":null,\"preservedExtras\":[]}"
+      ],
+      "stderrTail": [
+        ""
+      ]
+    },
+    {
+      "case": "post-archive-missing",
+      "injectionPoint": "missing-post-archive",
+      "expectedState": "PREFLIGHT_ABORT",
+      "expectedFinalState": "original-v6",
+      "actualExitCode": 10,
+      "actualState": "PREFLIGHT_ABORT",
+      "serviceStayedStopped": true,
+      "serviceMustStayStopped": false,
+      "finalFileList": [
+        "file:activity-state.json",
+        "file:backend-state.json",
+        "dir:evidence",
+        "file:evidence/index.json",
+        "file:evidence/rehearsal-evidence-1.jpg",
+        "file:evidence/rehearsal-evidence-2.jpg"
+      ],
+      "beforeTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHashKind": "original-v6",
+      "expectedPreTreeHash": "C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F",
+      "expectedRollbackCompleteTreeHash": "849A7E4C2E42ED425317373B40F7206A6336857CC0E2C2611A558C8ED639E47D",
+      "preArchiveSha256": "715F89596D1DA70A9C719ECB63C770F8295E7D77742AF1A50E3E8BBFD46C135B",
+      "preArchiveIntact": true,
+      "postArchiveSha256": "872886913AB45F72589BE80CE5D56C5C450ED085CCFAB5BD77A9CDCE3B147506",
+      "postArchiveIntact": true,
+      "mixedState": false,
+      "manualTakeover": false,
+      "passed": true,
+      "checks": {
+        "stateOk": true,
+        "finalOk": true,
+        "manualOk": true
+      },
+      "transactionEvidenceState": "PREFLIGHT_ABORT",
+      "transactionEvidenceError": "post-upgrade archive missing: C:\\Users\\LENOVO\\AppData\\Local\\Temp\\de-rb-file-Y4QyDb\\case-post-archive-missing\\not-present-post.tgz",
+      "transactionRecovery": null,
+      "resume": null,
+      "durationMs": 84,
+      "stdoutTail": [
+        "[rollback] op=op-post-archive-missing state=PREFLIGHT_ABORT exit=10",
+        "[rollback] error=post-upgrade archive missing: C:\\Users\\LENOVO\\AppData\\Local\\Temp\\de-rb-file-Y4QyDb\\case-post-archive-missing\\not-present-post.tgz",
+        "[rollback] summary: {\"opId\":\"op-post-archive-missing\",\"state\":\"PREFLIGHT_ABORT\",\"serviceMustStayStopped\":false,\"mixedState\":false,\"manualTakeover\":false,\"originalTreeHash\":null,\"stagingTreeHash\":null,\"finalTreeHash\":null,\"preservedExtras\":[]}"
+      ],
+      "stderrTail": [
+        ""
+      ]
+    },
+    {
+      "case": "staging-missing-backend-state",
+      "injectionPoint": "--fail-point staging-missing-state",
+      "expectedState": "PREFLIGHT_ABORT",
+      "expectedFinalState": "original-v6",
+      "actualExitCode": 10,
+      "actualState": "PREFLIGHT_ABORT",
+      "serviceStayedStopped": true,
+      "serviceMustStayStopped": false,
+      "finalFileList": [
+        "file:activity-state.json",
+        "file:backend-state.json",
+        "dir:evidence",
+        "file:evidence/index.json",
+        "file:evidence/rehearsal-evidence-1.jpg",
+        "file:evidence/rehearsal-evidence-2.jpg"
+      ],
+      "beforeTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHashKind": "original-v6",
+      "expectedPreTreeHash": "C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F",
+      "expectedRollbackCompleteTreeHash": "849A7E4C2E42ED425317373B40F7206A6336857CC0E2C2611A558C8ED639E47D",
+      "preArchiveSha256": "715F89596D1DA70A9C719ECB63C770F8295E7D77742AF1A50E3E8BBFD46C135B",
+      "preArchiveIntact": true,
+      "postArchiveSha256": "872886913AB45F72589BE80CE5D56C5C450ED085CCFAB5BD77A9CDCE3B147506",
+      "postArchiveIntact": true,
+      "mixedState": false,
+      "manualTakeover": false,
+      "passed": true,
+      "checks": {
+        "stateOk": true,
+        "finalOk": true,
+        "manualOk": true
+      },
+      "transactionEvidenceState": "PREFLIGHT_ABORT",
+      "transactionEvidenceError": "staging is missing backend-state.json",
+      "transactionRecovery": null,
+      "resume": null,
+      "durationMs": 261,
+      "stdoutTail": [
+        "[rollback] op=op-staging-missing-backend-state state=PREFLIGHT_ABORT exit=10",
+        "[rollback] error=staging is missing backend-state.json",
+        "[rollback] summary: {\"opId\":\"op-staging-missing-backend-state\",\"state\":\"PREFLIGHT_ABORT\",\"serviceMustStayStopped\":false,\"mixedState\":false,\"manualTakeover\":false,\"originalTreeHash\":\"6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5\",\"stagingTreeHash\":null,\"finalTreeHash\":null,\"preservedExtras\":[]}"
+      ],
+      "stderrTail": [
+        ""
+      ]
+    },
+    {
+      "case": "staging-content-hash-mismatch",
+      "injectionPoint": "--fail-point staging-tamper",
+      "expectedState": "PREFLIGHT_ABORT",
+      "expectedFinalState": "original-v6",
+      "actualExitCode": 10,
+      "actualState": "PREFLIGHT_ABORT",
+      "serviceStayedStopped": true,
+      "serviceMustStayStopped": false,
+      "finalFileList": [
+        "file:activity-state.json",
+        "file:backend-state.json",
+        "dir:evidence",
+        "file:evidence/index.json",
+        "file:evidence/rehearsal-evidence-1.jpg",
+        "file:evidence/rehearsal-evidence-2.jpg"
+      ],
+      "beforeTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHashKind": "original-v6",
+      "expectedPreTreeHash": "C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F",
+      "expectedRollbackCompleteTreeHash": "849A7E4C2E42ED425317373B40F7206A6336857CC0E2C2611A558C8ED639E47D",
+      "preArchiveSha256": "715F89596D1DA70A9C719ECB63C770F8295E7D77742AF1A50E3E8BBFD46C135B",
+      "preArchiveIntact": true,
+      "postArchiveSha256": "872886913AB45F72589BE80CE5D56C5C450ED085CCFAB5BD77A9CDCE3B147506",
+      "postArchiveIntact": true,
+      "mixedState": false,
+      "manualTakeover": false,
+      "passed": true,
+      "checks": {
+        "stateOk": true,
+        "finalOk": true,
+        "manualOk": true
+      },
+      "transactionEvidenceState": "PREFLIGHT_ABORT",
+      "transactionEvidenceError": "staging content mismatch: expected C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F, got ABD434A09402BA0387D074FDBCC0C040313AE0B04F371CDB29A850A7EE63C629",
+      "transactionRecovery": null,
+      "resume": null,
+      "durationMs": 271,
+      "stdoutTail": [
+        "[rollback] op=op-staging-content-hash-mismatch state=PREFLIGHT_ABORT exit=10",
+        "[rollback] error=staging content mismatch: expected C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F, got ABD434A09402BA0387D074FDBCC0C040313AE0B04F371CDB29A850A7EE63C629",
+        "[rollback] summary: {\"opId\":\"op-staging-content-hash-mismatch\",\"state\":\"PREFLIGHT_ABORT\",\"serviceMustStayStopped\":false,\"mixedState\":false,\"manualTakeover\":false,\"originalTreeHash\":\"6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5\",\"stagingTreeHash\":\"ABD434A09402BA0387D074FDBCC0C040313AE0B04F371CDB29A850A7EE63C629\",\"finalTreeHash\":null,\"preservedExtras\":[]}"
+      ],
+      "stderrTail": [
+        ""
+      ]
+    },
+    {
+      "case": "partial-aside-copy-failure",
+      "injectionPoint": "--fail-point partial-aside-copy --fail-after 1",
+      "expectedState": "PREFLIGHT_ABORT",
+      "expectedFinalState": "original-v6",
+      "actualExitCode": 10,
+      "actualState": "PREFLIGHT_ABORT",
+      "serviceStayedStopped": true,
+      "serviceMustStayStopped": false,
+      "finalFileList": [
+        "file:activity-state.json",
+        "file:backend-state.json",
+        "dir:evidence",
+        "file:evidence/index.json",
+        "file:evidence/rehearsal-evidence-1.jpg",
+        "file:evidence/rehearsal-evidence-2.jpg"
+      ],
+      "beforeTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHashKind": "original-v6",
+      "expectedPreTreeHash": "C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F",
+      "expectedRollbackCompleteTreeHash": "849A7E4C2E42ED425317373B40F7206A6336857CC0E2C2611A558C8ED639E47D",
+      "preArchiveSha256": "715F89596D1DA70A9C719ECB63C770F8295E7D77742AF1A50E3E8BBFD46C135B",
+      "preArchiveIntact": true,
+      "postArchiveSha256": "872886913AB45F72589BE80CE5D56C5C450ED085CCFAB5BD77A9CDCE3B147506",
+      "postArchiveIntact": true,
+      "mixedState": false,
+      "manualTakeover": false,
+      "passed": true,
+      "checks": {
+        "stateOk": true,
+        "finalOk": true,
+        "manualOk": true
+      },
+      "transactionEvidenceState": "PREFLIGHT_ABORT",
+      "transactionEvidenceError": "fail-point injected: partial-aside-copy after 1",
+      "transactionRecovery": null,
+      "resume": null,
+      "durationMs": 192,
+      "stdoutTail": [
+        "[rollback] op=op-partial-aside-copy-failure state=PREFLIGHT_ABORT exit=10",
+        "[rollback] error=fail-point injected: partial-aside-copy after 1",
+        "[rollback] summary: {\"opId\":\"op-partial-aside-copy-failure\",\"state\":\"PREFLIGHT_ABORT\",\"serviceMustStayStopped\":false,\"mixedState\":false,\"manualTakeover\":false,\"originalTreeHash\":\"6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5\",\"stagingTreeHash\":null,\"finalTreeHash\":null,\"preservedExtras\":[]}"
+      ],
+      "stderrTail": [
+        ""
+      ]
+    },
+    {
+      "case": "partial-staging-extract-failure",
+      "injectionPoint": "--fail-point partial-staging-extract",
+      "expectedState": "PREFLIGHT_ABORT",
+      "expectedFinalState": "original-v6",
+      "actualExitCode": 10,
+      "actualState": "PREFLIGHT_ABORT",
+      "serviceStayedStopped": true,
+      "serviceMustStayStopped": false,
+      "finalFileList": [
+        "file:activity-state.json",
+        "file:backend-state.json",
+        "dir:evidence",
+        "file:evidence/index.json",
+        "file:evidence/rehearsal-evidence-1.jpg",
+        "file:evidence/rehearsal-evidence-2.jpg"
+      ],
+      "beforeTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHashKind": "original-v6",
+      "expectedPreTreeHash": "C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F",
+      "expectedRollbackCompleteTreeHash": "849A7E4C2E42ED425317373B40F7206A6336857CC0E2C2611A558C8ED639E47D",
+      "preArchiveSha256": "715F89596D1DA70A9C719ECB63C770F8295E7D77742AF1A50E3E8BBFD46C135B",
+      "preArchiveIntact": true,
+      "postArchiveSha256": "872886913AB45F72589BE80CE5D56C5C450ED085CCFAB5BD77A9CDCE3B147506",
+      "postArchiveIntact": true,
+      "mixedState": false,
+      "manualTakeover": false,
+      "passed": true,
+      "checks": {
+        "stateOk": true,
+        "finalOk": true,
+        "manualOk": true
+      },
+      "transactionEvidenceState": "PREFLIGHT_ABORT",
+      "transactionEvidenceError": "fail-point injected: partial-staging-extract",
+      "transactionRecovery": null,
+      "resume": null,
+      "durationMs": 237,
+      "stdoutTail": [
+        "[rollback] op=op-partial-staging-extract-failure state=PREFLIGHT_ABORT exit=10",
+        "[rollback] error=fail-point injected: partial-staging-extract",
+        "[rollback] summary: {\"opId\":\"op-partial-staging-extract-failure\",\"state\":\"PREFLIGHT_ABORT\",\"serviceMustStayStopped\":false,\"mixedState\":false,\"manualTakeover\":false,\"originalTreeHash\":\"6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5\",\"stagingTreeHash\":null,\"finalTreeHash\":null,\"preservedExtras\":[]}"
+      ],
+      "stderrTail": [
+        ""
+      ]
+    },
+    {
+      "case": "partial-landing-copy-failure",
+      "injectionPoint": "--fail-point partial-landing-copy --fail-after 1",
+      "expectedState": "RECOVERED_TO_V6",
+      "expectedFinalState": "original-v6",
+      "actualExitCode": 20,
+      "actualState": "RECOVERED_TO_V6",
+      "serviceStayedStopped": true,
+      "serviceMustStayStopped": true,
+      "finalFileList": [
+        "file:activity-state.json",
+        "file:backend-state.json",
+        "dir:evidence",
+        "file:evidence/index.json",
+        "file:evidence/rehearsal-evidence-1.jpg",
+        "file:evidence/rehearsal-evidence-2.jpg"
+      ],
+      "beforeTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHashKind": "original-v6",
+      "expectedPreTreeHash": "C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F",
+      "expectedRollbackCompleteTreeHash": "849A7E4C2E42ED425317373B40F7206A6336857CC0E2C2611A558C8ED639E47D",
+      "preArchiveSha256": "715F89596D1DA70A9C719ECB63C770F8295E7D77742AF1A50E3E8BBFD46C135B",
+      "preArchiveIntact": true,
+      "postArchiveSha256": "872886913AB45F72589BE80CE5D56C5C450ED085CCFAB5BD77A9CDCE3B147506",
+      "postArchiveIntact": true,
+      "mixedState": false,
+      "manualTakeover": false,
+      "passed": true,
+      "checks": {
+        "stateOk": true,
+        "finalOk": true,
+        "manualOk": true
+      },
+      "transactionEvidenceState": "RECOVERED_TO_V6",
+      "transactionEvidenceError": "fail-point injected: partial-landing-copy after 1",
+      "transactionRecovery": {
+        "attempted": true,
+        "recovered": true,
+        "error": null,
+        "via": "journal-undo"
+      },
+      "resume": null,
+      "durationMs": 242,
+      "stdoutTail": [
+        "[rollback] op=op-partial-landing-copy-failure state=RECOVERED_TO_V6 exit=20",
+        "[rollback] error=fail-point injected: partial-landing-copy after 1",
+        "[rollback] recovery={\"attempted\":true,\"recovered\":true,\"error\":null,\"via\":\"journal-undo\"}",
+        "[rollback] summary: {\"opId\":\"op-partial-landing-copy-failure\",\"state\":\"RECOVERED_TO_V6\",\"serviceMustStayStopped\":true,\"mixedState\":false,\"manualTakeover\":false,\"originalTreeHash\":\"6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5\",\"stagingTreeHash\":\"C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F\",\"finalTreeHash\":\"6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5\",\"preservedExtras\":[]}"
+      ],
+      "stderrTail": [
+        ""
+      ]
+    },
+    {
+      "case": "partial-landing-move-failure",
+      "injectionPoint": "--fail-point partial-landing --fail-after 1",
+      "expectedState": "RECOVERED_TO_V6",
+      "expectedFinalState": "original-v6",
+      "actualExitCode": 20,
+      "actualState": "RECOVERED_TO_V6",
+      "serviceStayedStopped": true,
+      "serviceMustStayStopped": true,
+      "finalFileList": [
+        "file:activity-state.json",
+        "file:backend-state.json",
+        "dir:evidence",
+        "file:evidence/index.json",
+        "file:evidence/rehearsal-evidence-1.jpg",
+        "file:evidence/rehearsal-evidence-2.jpg"
+      ],
+      "beforeTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHashKind": "original-v6",
+      "expectedPreTreeHash": "C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F",
+      "expectedRollbackCompleteTreeHash": "849A7E4C2E42ED425317373B40F7206A6336857CC0E2C2611A558C8ED639E47D",
+      "preArchiveSha256": "715F89596D1DA70A9C719ECB63C770F8295E7D77742AF1A50E3E8BBFD46C135B",
+      "preArchiveIntact": true,
+      "postArchiveSha256": "872886913AB45F72589BE80CE5D56C5C450ED085CCFAB5BD77A9CDCE3B147506",
+      "postArchiveIntact": true,
+      "mixedState": false,
+      "manualTakeover": false,
+      "passed": true,
+      "checks": {
+        "stateOk": true,
+        "finalOk": true,
+        "manualOk": true
+      },
+      "transactionEvidenceState": "RECOVERED_TO_V6",
+      "transactionEvidenceError": "fail-point injected: partial-landing after 1",
+      "transactionRecovery": {
+        "attempted": true,
+        "recovered": true,
+        "error": null,
+        "via": "journal-undo"
+      },
+      "resume": null,
+      "durationMs": 258,
+      "stdoutTail": [
+        "[rollback] op=op-partial-landing-move-failure state=RECOVERED_TO_V6 exit=20",
+        "[rollback] error=fail-point injected: partial-landing after 1",
+        "[rollback] recovery={\"attempted\":true,\"recovered\":true,\"error\":null,\"via\":\"journal-undo\"}",
+        "[rollback] summary: {\"opId\":\"op-partial-landing-move-failure\",\"state\":\"RECOVERED_TO_V6\",\"serviceMustStayStopped\":true,\"mixedState\":false,\"manualTakeover\":false,\"originalTreeHash\":\"6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5\",\"stagingTreeHash\":\"C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F\",\"finalTreeHash\":\"6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5\",\"preservedExtras\":[]}"
+      ],
+      "stderrTail": [
+        ""
+      ]
+    },
+    {
+      "case": "final-verify-failure",
+      "injectionPoint": "--fail-point final-verify",
+      "expectedState": "RECOVERED_TO_V6",
+      "expectedFinalState": "original-v6",
+      "actualExitCode": 20,
+      "actualState": "RECOVERED_TO_V6",
+      "serviceStayedStopped": true,
+      "serviceMustStayStopped": true,
+      "finalFileList": [
+        "file:activity-state.json",
+        "file:backend-state.json",
+        "dir:evidence",
+        "file:evidence/index.json",
+        "file:evidence/rehearsal-evidence-1.jpg",
+        "file:evidence/rehearsal-evidence-2.jpg"
+      ],
+      "beforeTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHashKind": "original-v6",
+      "expectedPreTreeHash": "C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F",
+      "expectedRollbackCompleteTreeHash": "849A7E4C2E42ED425317373B40F7206A6336857CC0E2C2611A558C8ED639E47D",
+      "preArchiveSha256": "715F89596D1DA70A9C719ECB63C770F8295E7D77742AF1A50E3E8BBFD46C135B",
+      "preArchiveIntact": true,
+      "postArchiveSha256": "872886913AB45F72589BE80CE5D56C5C450ED085CCFAB5BD77A9CDCE3B147506",
+      "postArchiveIntact": true,
+      "mixedState": false,
+      "manualTakeover": false,
+      "passed": true,
+      "checks": {
+        "stateOk": true,
+        "finalOk": true,
+        "manualOk": true
+      },
+      "transactionEvidenceState": "RECOVERED_TO_V6",
+      "transactionEvidenceError": "restored entries mismatch: {\"missing\":[],\"differing\":[{\"path\":\"backend-state.json\",\"expected\":{\"type\":\"file\",\"size\":1572,\"mode\":438,\"sha256\":\"2BD710BB96E350E95B204000E69A5B54907B4C816A3CD06D46286C2A5B99A127\"},\"actual\":{\"type\":\"file\",\"size\":1572,\"mode\":438,\"sha256\":\"36F158F06CC21B2CE63EAE2387E1F4162527403A3575CA7CA5EC91E631B3850A\"}}]}",
+      "transactionRecovery": {
+        "attempted": true,
+        "recovered": true,
+        "error": null,
+        "via": "journal-undo"
+      },
+      "resume": null,
+      "durationMs": 278,
+      "stdoutTail": [
+        "[rollback] op=op-final-verify-failure state=RECOVERED_TO_V6 exit=20",
+        "[rollback] error=restored entries mismatch: {\"missing\":[],\"differing\":[{\"path\":\"backend-state.json\",\"expected\":{\"type\":\"file\",\"size\":1572,\"mode\":438,\"sha256\":\"2BD710BB96E350E95B204000E69A5B54907B4C816A3CD06D46286C2A5B99A127\"},\"actual\":{\"type\":\"file\",\"size\":1572,\"mode\":438,\"sha256\":\"36F158F06CC21B2CE63EAE2387E1F4162527403A3575CA7CA5EC91E631B3850A\"}}]}",
+        "[rollback] recovery={\"attempted\":true,\"recovered\":true,\"error\":null,\"via\":\"journal-undo\"}",
+        "[rollback] summary: {\"opId\":\"op-final-verify-failure\",\"state\":\"RECOVERED_TO_V6\",\"serviceMustStayStopped\":true,\"mixedState\":false,\"manualTakeover\":false,\"originalTreeHash\":\"6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5\",\"stagingTreeHash\":\"C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F\",\"finalTreeHash\":\"6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5\",\"preservedExtras\":[\"activity-state.json\",\"evidence/rehearsal-evidence-2.jpg\"]}"
+      ],
+      "stderrTail": [
+        ""
+      ]
+    },
+    {
+      "case": "recovery-before-undo-then-fallback",
+      "injectionPoint": "--fail-point partial-landing --fail-point recovery-before-undo --fail-after partial-landing=1",
+      "expectedState": "RECOVERED_TO_V6",
+      "expectedFinalState": "original-v6",
+      "actualExitCode": 20,
+      "actualState": "RECOVERED_TO_V6",
+      "serviceStayedStopped": true,
+      "serviceMustStayStopped": true,
+      "finalFileList": [
+        "file:activity-state.json",
+        "file:backend-state.json",
+        "dir:evidence",
+        "file:evidence/index.json",
+        "file:evidence/rehearsal-evidence-1.jpg",
+        "file:evidence/rehearsal-evidence-2.jpg"
+      ],
+      "beforeTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHashKind": "original-v6",
+      "expectedPreTreeHash": "C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F",
+      "expectedRollbackCompleteTreeHash": "849A7E4C2E42ED425317373B40F7206A6336857CC0E2C2611A558C8ED639E47D",
+      "preArchiveSha256": "715F89596D1DA70A9C719ECB63C770F8295E7D77742AF1A50E3E8BBFD46C135B",
+      "preArchiveIntact": true,
+      "postArchiveSha256": "872886913AB45F72589BE80CE5D56C5C450ED085CCFAB5BD77A9CDCE3B147506",
+      "postArchiveIntact": true,
+      "mixedState": false,
+      "manualTakeover": false,
+      "passed": true,
+      "checks": {
+        "stateOk": true,
+        "finalOk": true,
+        "manualOk": true
+      },
+      "transactionEvidenceState": "RECOVERED_TO_V6",
+      "transactionEvidenceError": "fail-point injected: partial-landing after 1",
+      "transactionRecovery": {
+        "attempted": true,
+        "recovered": true,
+        "error": "fail-point injected: recovery-before-undo",
+        "via": "original-copy"
+      },
+      "resume": null,
+      "durationMs": 270,
+      "stdoutTail": [
+        "[rollback] op=op-recovery-before-undo-then-fallback state=RECOVERED_TO_V6 exit=20",
+        "[rollback] error=fail-point injected: partial-landing after 1",
+        "[rollback] recovery={\"attempted\":true,\"recovered\":true,\"error\":\"fail-point injected: recovery-before-undo\",\"via\":\"original-copy\"}",
+        "[rollback] summary: {\"opId\":\"op-recovery-before-undo-then-fallback\",\"state\":\"RECOVERED_TO_V6\",\"serviceMustStayStopped\":true,\"mixedState\":false,\"manualTakeover\":false,\"originalTreeHash\":\"6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5\",\"stagingTreeHash\":\"C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F\",\"finalTreeHash\":\"6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5\",\"preservedExtras\":[]}"
+      ],
+      "stderrTail": [
+        ""
+      ]
+    },
+    {
+      "case": "recovery-mid-undo-then-fallback",
+      "injectionPoint": "--fail-point partial-landing --fail-point recovery-fail --fail-after partial-landing=2 --fail-after recovery-fail=1",
+      "expectedState": "RECOVERED_TO_V6",
+      "expectedFinalState": "original-v6",
+      "actualExitCode": 20,
+      "actualState": "RECOVERED_TO_V6",
+      "serviceStayedStopped": true,
+      "serviceMustStayStopped": true,
+      "finalFileList": [
+        "file:activity-state.json",
+        "file:backend-state.json",
+        "dir:evidence",
+        "file:evidence/index.json",
+        "file:evidence/rehearsal-evidence-1.jpg",
+        "file:evidence/rehearsal-evidence-2.jpg"
+      ],
+      "beforeTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHashKind": "original-v6",
+      "expectedPreTreeHash": "C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F",
+      "expectedRollbackCompleteTreeHash": "849A7E4C2E42ED425317373B40F7206A6336857CC0E2C2611A558C8ED639E47D",
+      "preArchiveSha256": "715F89596D1DA70A9C719ECB63C770F8295E7D77742AF1A50E3E8BBFD46C135B",
+      "preArchiveIntact": true,
+      "postArchiveSha256": "872886913AB45F72589BE80CE5D56C5C450ED085CCFAB5BD77A9CDCE3B147506",
+      "postArchiveIntact": true,
+      "mixedState": false,
+      "manualTakeover": false,
+      "passed": true,
+      "checks": {
+        "stateOk": true,
+        "finalOk": true,
+        "manualOk": true
+      },
+      "transactionEvidenceState": "RECOVERED_TO_V6",
+      "transactionEvidenceError": "fail-point injected: partial-landing after 2",
+      "transactionRecovery": {
+        "attempted": true,
+        "recovered": true,
+        "error": "fail-point injected: recovery-fail after 1",
+        "via": "original-copy"
+      },
+      "resume": null,
+      "durationMs": 322,
+      "stdoutTail": [
+        "[rollback] op=op-recovery-mid-undo-then-fallback state=RECOVERED_TO_V6 exit=20",
+        "[rollback] error=fail-point injected: partial-landing after 2",
+        "[rollback] recovery={\"attempted\":true,\"recovered\":true,\"error\":\"fail-point injected: recovery-fail after 1\",\"via\":\"original-copy\"}",
+        "[rollback] summary: {\"opId\":\"op-recovery-mid-undo-then-fallback\",\"state\":\"RECOVERED_TO_V6\",\"serviceMustStayStopped\":true,\"mixedState\":false,\"manualTakeover\":false,\"originalTreeHash\":\"6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5\",\"stagingTreeHash\":\"C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F\",\"finalTreeHash\":\"6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5\",\"preservedExtras\":[]}"
+      ],
+      "stderrTail": [
+        ""
+      ]
+    },
+    {
+      "case": "recovery-failure-secondary",
+      "injectionPoint": "--fail-point partial-landing --fail-point recovery-before-undo --fail-point corrupt-original-copy --fail-after partial-landing=1",
+      "expectedState": "MANUAL_TAKEOVER_REQUIRED",
+      "expectedFinalState": "not-original-not-pre",
+      "actualExitCode": 30,
+      "actualState": "MANUAL_TAKEOVER_REQUIRED",
+      "serviceStayedStopped": true,
+      "serviceMustStayStopped": true,
+      "finalFileList": [
+        "file:activity-state.json",
+        "file:backend-state.json",
+        "dir:evidence",
+        "file:evidence/index.json",
+        "file:evidence/rehearsal-evidence-1.jpg",
+        "file:evidence/rehearsal-evidence-2.jpg"
+      ],
+      "beforeTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHash": "7CA6704B2F1EE628149D974BCEE281B02306B8EEEB6C12BBD987B090C34F5405",
+      "afterTreeHashKind": "not-original-not-pre",
+      "expectedPreTreeHash": "C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F",
+      "expectedRollbackCompleteTreeHash": "849A7E4C2E42ED425317373B40F7206A6336857CC0E2C2611A558C8ED639E47D",
+      "preArchiveSha256": "715F89596D1DA70A9C719ECB63C770F8295E7D77742AF1A50E3E8BBFD46C135B",
+      "preArchiveIntact": true,
+      "postArchiveSha256": "872886913AB45F72589BE80CE5D56C5C450ED085CCFAB5BD77A9CDCE3B147506",
+      "postArchiveIntact": true,
+      "mixedState": true,
+      "manualTakeover": true,
+      "passed": true,
+      "checks": {
+        "stateOk": true,
+        "finalOk": true,
+        "manualOk": true
+      },
+      "transactionEvidenceState": "MANUAL_TAKEOVER_REQUIRED",
+      "transactionEvidenceError": "fail-point injected: partial-landing after 1",
+      "transactionRecovery": {
+        "attempted": true,
+        "recovered": false,
+        "error": "fail-point injected: recovery-before-undo | fallback: fallback recovery refused: original copy treeHash mismatch (copy=C8F0947C2E0DB4E4D48BA44491F8E1CC029F6A8839B124C66450755AC53A4D66, expected=6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5)",
+        "via": "journal-undo-failed"
+      },
+      "resume": null,
+      "durationMs": 280,
+      "stdoutTail": [
+        "[rollback] op=op-recovery-failure-secondary state=MANUAL_TAKEOVER_REQUIRED exit=30",
+        "[rollback] error=fail-point injected: partial-landing after 1",
+        "[rollback] recovery={\"attempted\":true,\"recovered\":false,\"error\":\"fail-point injected: recovery-before-undo | fallback: fallback recovery refused: original copy treeHash mismatch (copy=C8F0947C2E0DB4E4D48BA44491F8E1CC029F6A8839B124C66450755AC53A4D66, expected=6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5)\",\"via\":\"journal-undo-failed\"}",
+        "[rollback] MANUAL_TAKEOVER_REQUIRED — 保持后端停止，见 evidence",
+        "[rollback] summary: {\"opId\":\"op-recovery-failure-secondary\",\"state\":\"MANUAL_TAKEOVER_REQUIRED\",\"serviceMustStayStopped\":true,\"mixedState\":\"UNKNOWN\",\"manualTakeover\":true,\"originalTreeHash\":\"6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5\",\"stagingTreeHash\":\"C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F\",\"finalTreeHash\":null,\"preservedExtras\":[]}"
+      ],
+      "stderrTail": [
+        ""
+      ]
+    },
+    {
+      "case": "hard-exit-then-resume-recover",
+      "injectionPoint": "resume",
+      "expectedState": "RECOVERED_TO_V6",
+      "expectedFinalState": "original-v6",
+      "actualExitCode": 20,
+      "actualState": "RECOVERED_TO_V6",
+      "serviceStayedStopped": true,
+      "serviceMustStayStopped": true,
+      "finalFileList": [
+        "file:activity-state.json",
+        "file:backend-state.json",
+        "dir:evidence",
+        "file:evidence/index.json",
+        "file:evidence/rehearsal-evidence-1.jpg",
+        "file:evidence/rehearsal-evidence-2.jpg"
+      ],
+      "beforeTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHashKind": "original-v6",
+      "expectedPreTreeHash": "C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F",
+      "expectedRollbackCompleteTreeHash": "849A7E4C2E42ED425317373B40F7206A6336857CC0E2C2611A558C8ED639E47D",
+      "preArchiveSha256": "715F89596D1DA70A9C719ECB63C770F8295E7D77742AF1A50E3E8BBFD46C135B",
+      "preArchiveIntact": true,
+      "postArchiveSha256": "872886913AB45F72589BE80CE5D56C5C450ED085CCFAB5BD77A9CDCE3B147506",
+      "postArchiveIntact": true,
+      "mixedState": false,
+      "manualTakeover": false,
+      "passed": true,
+      "checks": {
+        "stateOk": true,
+        "finalOk": true,
+        "manualOk": true
+      },
+      "transactionEvidenceState": "RECOVERED_TO_V6",
+      "transactionEvidenceError": null,
+      "transactionRecovery": {
+        "attempted": true,
+        "recovered": true,
+        "mode": "resume",
+        "verifiedAgainst": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5"
+      },
+      "resume": {
+        "firstRun": {
+          "exitCode": 2,
+          "hardExit": true,
+          "state": "HARD_EXIT_NO_SUMMARY"
+        },
+        "resumeRun": {
+          "exitCode": 20,
+          "state": "RECOVERED_TO_V6"
+        }
+      },
+      "durationMs": 120,
+      "stdoutTail": [
+        "[rollback] op=op-hard-exit-then-resume-recover state=RECOVERED_TO_V6 exit=20",
+        "[rollback] recovery={\"attempted\":true,\"recovered\":true,\"mode\":\"resume\",\"verifiedAgainst\":\"6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5\"}",
+        "[rollback] summary: {\"opId\":\"op-hard-exit-then-resume-recover\",\"state\":\"RECOVERED_TO_V6\",\"serviceMustStayStopped\":true,\"mixedState\":false,\"manualTakeover\":false,\"originalTreeHash\":null,\"stagingTreeHash\":null,\"finalTreeHash\":\"6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5\",\"preservedExtras\":[]}"
+      ],
+      "stderrTail": [
+        ""
+      ]
+    },
+    {
+      "case": "post-archive-unreadable",
+      "injectionPoint": "corrupt-post-archive",
+      "expectedState": "PREFLIGHT_ABORT",
+      "expectedFinalState": "original-v6",
+      "actualExitCode": 10,
+      "actualState": "PREFLIGHT_ABORT",
+      "serviceStayedStopped": true,
+      "serviceMustStayStopped": false,
+      "finalFileList": [
+        "file:activity-state.json",
+        "file:backend-state.json",
+        "dir:evidence",
+        "file:evidence/index.json",
+        "file:evidence/rehearsal-evidence-1.jpg",
+        "file:evidence/rehearsal-evidence-2.jpg"
+      ],
+      "beforeTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHashKind": "original-v6",
+      "expectedPreTreeHash": "C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F",
+      "expectedRollbackCompleteTreeHash": "849A7E4C2E42ED425317373B40F7206A6336857CC0E2C2611A558C8ED639E47D",
+      "preArchiveSha256": "715F89596D1DA70A9C719ECB63C770F8295E7D77742AF1A50E3E8BBFD46C135B",
+      "preArchiveIntact": true,
+      "postArchiveSha256": "872886913AB45F72589BE80CE5D56C5C450ED085CCFAB5BD77A9CDCE3B147506",
+      "postArchiveIntact": true,
+      "mixedState": false,
+      "manualTakeover": false,
+      "passed": true,
+      "checks": {
+        "stateOk": true,
+        "finalOk": true,
+        "manualOk": true
+      },
+      "transactionEvidenceState": "PREFLIGHT_ABORT",
+      "transactionEvidenceError": "post-upgrade archive unreadable: Command failed: tar -tzf C:\\Users\\LENOVO\\AppData\\Local\\Temp\\de-rb-file-Y4QyDb\\case-post-archive-unreadable\\post-corrupt.tgz\ntar: Error opening archive: gzip decompression failed\r\n",
+      "transactionRecovery": null,
+      "resume": null,
+      "durationMs": 114,
+      "stdoutTail": [
+        "[rollback] op=op-post-archive-unreadable state=PREFLIGHT_ABORT exit=10",
+        "[rollback] error=post-upgrade archive unreadable: Command failed: tar -tzf C:\\Users\\LENOVO\\AppData\\Local\\Temp\\de-rb-file-Y4QyDb\\case-post-archive-unreadable\\post-corrupt.tgz",
+        "tar: Error opening archive: gzip decompression failed\r",
+        "",
+        "[rollback] summary: {\"opId\":\"op-post-archive-unreadable\",\"state\":\"PREFLIGHT_ABORT\",\"serviceMustStayStopped\":false,\"mixedState\":false,\"manualTakeover\":false,\"originalTreeHash\":\"6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5\",\"stagingTreeHash\":null,\"finalTreeHash\":null,\"preservedExtras\":[]}"
+      ],
+      "stderrTail": [
+        "tar: Error opening archive: gzip decompression failed"
+      ]
+    },
+    {
+      "case": "wrong-or-empty-volume-refused",
+      "injectionPoint": "empty-volume",
+      "expectedState": "PREFLIGHT_ABORT",
+      "expectedFinalState": "empty-volume",
+      "actualExitCode": 10,
+      "actualState": "PREFLIGHT_ABORT",
+      "serviceStayedStopped": true,
+      "serviceMustStayStopped": false,
+      "finalFileList": [],
+      "beforeTreeHash": "6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5",
+      "afterTreeHash": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "afterTreeHashKind": "empty-volume",
+      "expectedPreTreeHash": "C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F",
+      "expectedRollbackCompleteTreeHash": "849A7E4C2E42ED425317373B40F7206A6336857CC0E2C2611A558C8ED639E47D",
+      "preArchiveSha256": "715F89596D1DA70A9C719ECB63C770F8295E7D77742AF1A50E3E8BBFD46C135B",
+      "preArchiveIntact": true,
+      "postArchiveSha256": "872886913AB45F72589BE80CE5D56C5C450ED085CCFAB5BD77A9CDCE3B147506",
+      "postArchiveIntact": true,
+      "mixedState": false,
+      "manualTakeover": false,
+      "passed": true,
+      "checks": {
+        "stateOk": true,
+        "finalOk": true,
+        "manualOk": true
+      },
+      "transactionEvidenceState": "PREFLIGHT_ABORT",
+      "transactionEvidenceError": "live volume does not match expected post-upgrade state: expected 6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5, got E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855 (wrong/empty/stale volume? refuse to roll back)",
+      "transactionRecovery": null,
+      "resume": null,
+      "durationMs": 97,
+      "stdoutTail": [
+        "[rollback] op=op-wrong-or-empty-volume-refused state=PREFLIGHT_ABORT exit=10",
+        "[rollback] error=live volume does not match expected post-upgrade state: expected 6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5, got E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855 (wrong/empty/stale volume? refuse to roll back)",
+        "[rollback] summary: {\"opId\":\"op-wrong-or-empty-volume-refused\",\"state\":\"PREFLIGHT_ABORT\",\"serviceMustStayStopped\":false,\"mixedState\":false,\"manualTakeover\":false,\"originalTreeHash\":\"E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855\",\"stagingTreeHash\":null,\"finalTreeHash\":null,\"preservedExtras\":[]}"
+      ],
+      "stderrTail": [
+        ""
+      ]
+    }
+  ],
+  "total": 18,
+  "passed": 18,
+  "failed": 0,
+  "result": "FILE_LEVEL_HARDENING_VERIFIED"
+}

@@ -1,0 +1,88 @@
+# deploy/Caddyfile
+#
+# 公网主机的入站 HTTPS 反向代理（第一阶段 P0）。
+# 只做三件事：自动申请/续期证书、把 80 跳到 443、把请求反代给容器内的 backend。
+#
+# 由 deploy/compose.public.yaml 挂载到 /etc/caddy/Caddyfile（只读）。
+# 两个环境变量由 compose 注入，缺少时 compose 会以变量名报错并拒绝启动：
+#   PUBLIC_DOMAIN  裸主机名，不要带 https:// 、端口、路径或尾部斜杠
+#   ACME_EMAIL     ACME 账户邮箱，用于证书到期通知（不是站点联系方式）
+#
+# ---------------------------------------------------------------------------
+# 自动 HTTPS 的行为（Caddy 默认，无需额外配置）
+# ---------------------------------------------------------------------------
+# - 首次启动时自动完成 ACME 申请，之后自动续期（默认在到期前约 1/3 周期续期）。
+# - HTTP/80 默认 308（永久重定向）跳转到 HTTPS，实测确认；同时用于 ACME HTTP-01 挑战，
+#   因此 80 与 443 都必须对公网放行（若 80 被封，Caddy 仍可回退 TLS-ALPN-01）。
+# - 证书与 ACME 账户存放在容器 /data、/config，已由命名卷持久化；
+#   不要随手 docker compose down -v，否则会清空证书并重新申请，可能触发 CA 限流。
+# - TLS 版本默认 1.2+，不需要在这里额外收紧。
+#
+# ---------------------------------------------------------------------------
+# 关于"日志脱敏"的正确边界（重要，避免误配）
+# ---------------------------------------------------------------------------
+# 这里**不需要**为了保护 WECHAT_APP_SECRET 去裁剪 query 字符串：
+# 后端调用微信 jscode2session 是**从 backend 容器直接出站**到 api.weixin.qq.com
+# （见 cloud/backend/src/auth.js），这个请求根本不经过本反向代理，
+# 入站访问日志看不到它，也不应该假定能看到。
+# 真正的边界在应用侧：应用、APM 与任何出站代理都不得记录完整出站 URL（含 query）。
+# 入站侧仍按默认访问日志记录本站路径（如 /api/v1/alerts/<alarmId>/ack 不含清单内的
+# 敏感值），但**必须**额外删除 x-ingest-key 这类自定义请求头，见下方 log 段。
+#
+# ---------------------------------------------------------------------------
+
+{
+	# ACME 账户邮箱；证书到期提醒发到这里。
+	email {$ACME_EMAIL}
+	# 关闭管理 API（默认监听 :2019），本部署不需要它。
+	# 代价：不能再用 `caddy reload` 热加载；改配置后重启容器生效
+	# （docker compose --env-file deploy/.env.deploy -f deploy/compose.public.yaml restart caddy）。
+	admin off
+}
+
+{$PUBLIC_DOMAIN} {
+	# 压缩 JSON 响应，减小小程序流量。
+	encode zstd gzip
+
+	# 后端最大 JPEG 为 2 MiB；代理层留少量协议余量并提前拒绝异常大请求。
+	request_body {
+		max_size 3MB
+	}
+
+	# API 不需要被网页嵌入，且所有动态响应都不应被浏览器猜测类型或缓存。
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "no-referrer"
+		-Server
+	}
+
+	# 访问日志走 stdout，由 compose 的 json-file 配额轮转
+	# （logging.options.max-size / max-file，见 compose.public.yaml），
+	# 因此不需要在容器内写文件，也不需要额外的 logrotate。
+	#
+	# 【必须过滤 x-ingest-key，否则内部凭据会明文进日志】
+	# Caddy 的默认访问日志会**原样打印所有请求头**，只对
+	# Authorization / Cookie / Proxy-Authorization 做内置脱敏。
+	# 家庭网关调用 /internal/v1/** 时携带的自定义头 x-ingest-key
+	# 不在内置脱敏名单内，会以明文写进 stdout 日志（已实测复现）。
+	# 该密钥可写入设备状态并读取命令队列，落入日志即等于泄漏内部通道凭据。
+	# 因此这里用 filter 编码器包一层 json 并显式删除敏感请求头。
+	log {
+		output stdout
+		format filter {
+			wrap json
+			fields {
+				request>headers>X-Ingest-Key delete
+				request>headers>Authorization delete
+				request>headers>Cookie delete
+			}
+		}
+	}
+
+	# 只反代到 compose 网络内的 backend:8080；backend 没有发布主机端口。
+	# Caddy 会自动带上 X-Forwarded-For / X-Forwarded-Proto；
+	# 后端当前不读取这些头，也不需要 trusted_proxies 配置。
+	reverse_proxy backend:8080
+}

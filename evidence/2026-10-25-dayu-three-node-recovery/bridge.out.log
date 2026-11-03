@@ -1,0 +1,202 @@
+=== mqtt_bridge 启动 ===
+  Broker    : 127.0.0.1:1883
+  上行主题  : home/<deviceId>/status   （设备编号由报文决定）
+  下行主题  : home/<deviceId>/cmd      （按编号路由到对应节点）
+  命令兜底  : D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\control
+  节点数    : 1（127.0.0.1:9001）
+  监听端口  : 9101（等待无线节点接入）
+  转发目标  : 127.0.0.1:9001（其他节点状态注入板上应用）
+  监听端口  : 9101（等待无线节点接入）
+[bridge] 已接入节点 127.0.0.1:9001
+[bridge] 已连接转发目标 127.0.0.1:9001
+[MQTT] 已连接 127.0.0.1:1883（clientId=bridge-dayu200-living-46667）
+[MQTT] 订阅成功: home/+/cmd
+[bridge] 无线节点接入 ::ffff:10.127.130.71:58810
+[bridge] 无线节点接入 ::ffff:10.127.130.168:59889
+[bridge] 无线节点接入 ::ffff:127.0.0.1:52316
+[bridge] 无线节点 listen:52316 断开
+[bridge] 无线节点接入 ::ffff:127.0.0.1:52317
+[bridge] 无线节点 listen:52317 断开
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=0
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=0
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=0
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=0
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=0
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=0
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=0
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=0
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=0
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=1
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=2
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=2
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=3
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-kitchen（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=3
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-kitchen（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=3
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-kitchen（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=3
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-kitchen（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=3
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-kitchen（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=3
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-kitchen（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=3
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=3
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=3
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=3
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=3
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=3
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=3
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=4
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=5
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=5
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=5
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=5
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=5
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=5
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=6
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=6
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=7
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=7
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/dayu200-living/status  state=ALARM room=客厅 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=7
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] 忽略板端连接上的 relay 回灌：esp32-bath（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）

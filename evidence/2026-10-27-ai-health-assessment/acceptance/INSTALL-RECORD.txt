@@ -1,0 +1,11 @@
+﻿device=emulator
+udid=udid of current device is : 454D55057494E05838360C75AE20A24C248DA93C64C02AB0F2A9E00000000000
+version=emulator 7.0.0.107(SP8DEVC00E999R4P11) 
+installedAt=2026-10-27T15:21:14.8508070+08:00
+hapSha256=935A24CCB3FC4F71B30E569E87F1DD7C5BFB31DE1A207D1C09AC7B2B1D8B7C3D
+hapBytes=2980999
+signature=unsigned(debug)
+installCommand=hdc -t 127.0.0.1:5555 install -r "guardian-health-1.0.5-unsigned.hap"
+result=success
+firstInstallTime=fresh install (app was not present on emulator)
+

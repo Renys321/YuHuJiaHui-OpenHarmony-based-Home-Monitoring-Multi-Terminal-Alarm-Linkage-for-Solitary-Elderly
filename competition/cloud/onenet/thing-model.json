@@ -1,0 +1,198 @@
+{
+  "version": "1.0",
+  "profile": {
+    "name": "ElderCare Node",
+    "description": "独居老人居家安全节点 OneJSON 适配物模型；仅描述协议字段，不包含产品、设备或鉴权信息。"
+  },
+  "properties": [
+    {
+      "identifier": "deviceId",
+      "name": "设备编号",
+      "accessMode": "r",
+      "required": true,
+      "dataType": { "type": "string", "specs": { "length": 64 } }
+    },
+    {
+      "identifier": "room",
+      "name": "房间",
+      "accessMode": "r",
+      "required": true,
+      "dataType": { "type": "string", "specs": { "length": 64 } }
+    },
+    {
+      "identifier": "online",
+      "name": "在线状态",
+      "accessMode": "r",
+      "required": true,
+      "dataType": { "type": "bool", "specs": { "false": "离线", "true": "在线" } }
+    },
+    {
+      "identifier": "state",
+      "name": "安全状态",
+      "accessMode": "r",
+      "required": true,
+      "dataType": {
+        "type": "enum",
+        "specs": {
+          "NORMAL": "正常",
+          "WARN": "关注",
+          "ALARM": "告警",
+          "ACKED": "已确认",
+          "OFFLINE": "离线"
+        }
+      }
+    },
+    {
+      "identifier": "motion",
+      "name": "人体活动",
+      "accessMode": "r",
+      "required": false,
+      "dataType": {
+        "type": "struct",
+        "specs": [
+          { "identifier": "lastActiveTs", "name": "最后活动时间", "dataType": { "type": "long", "specs": { "unit": "ms" } } },
+          { "identifier": "countToday", "name": "今日活动次数", "dataType": { "type": "int", "specs": { "min": 0, "max": 1000000000, "step": 1 } } }
+        ]
+      }
+    },
+    {
+      "identifier": "door",
+      "name": "门磁",
+      "accessMode": "r",
+      "required": false,
+      "dataType": {
+        "type": "struct",
+        "specs": [
+          { "identifier": "open", "name": "是否开启", "dataType": { "type": "bool" } },
+          { "identifier": "lastOpenTs", "name": "最后开启时间", "dataType": { "type": "long", "specs": { "unit": "ms" } } }
+        ]
+      }
+    },
+    {
+      "identifier": "temperature",
+      "name": "温度",
+      "accessMode": "r",
+      "required": false,
+      "dataType": { "type": "float", "specs": { "min": -50, "max": 100, "step": 0.1, "unit": "℃" } }
+    },
+    {
+      "identifier": "humidity",
+      "name": "湿度",
+      "accessMode": "r",
+      "required": false,
+      "dataType": { "type": "float", "specs": { "min": 0, "max": 100, "step": 0.1, "unit": "%RH" } }
+    },
+    {
+      "identifier": "gas",
+      "name": "燃气",
+      "accessMode": "r",
+      "required": false,
+      "dataType": {
+        "type": "struct",
+        "specs": [
+          { "identifier": "ok", "name": "是否正常", "dataType": { "type": "bool" } },
+          { "identifier": "raw", "name": "原始值", "dataType": { "type": "float", "specs": { "min": 0, "max": 1000000000 } } }
+        ]
+      }
+    },
+    {
+      "identifier": "smoke",
+      "name": "烟雾",
+      "accessMode": "r",
+      "required": false,
+      "dataType": {
+        "type": "struct",
+        "specs": [
+          { "identifier": "ok", "name": "是否正常", "dataType": { "type": "bool" } },
+          { "identifier": "raw", "name": "原始值", "dataType": { "type": "float", "specs": { "min": 0, "max": 1000000000 } } }
+        ]
+      }
+    },
+    {
+      "identifier": "fall",
+      "name": "跌倒检测",
+      "accessMode": "r",
+      "required": false,
+      "dataType": {
+        "type": "struct",
+        "specs": [
+          { "identifier": "detected", "name": "是否跌倒", "dataType": { "type": "bool" } },
+          { "identifier": "confidence", "name": "置信度", "dataType": { "type": "float", "specs": { "min": 0, "max": 1, "step": 0.001 } } },
+          { "identifier": "detectedAt", "name": "检测时间", "dataType": { "type": "long", "specs": { "unit": "ms" } } }
+        ]
+      }
+    },
+    {
+      "identifier": "alarm",
+      "name": "当前告警",
+      "accessMode": "r",
+      "required": false,
+      "dataType": {
+        "type": "struct",
+        "specs": [
+          { "identifier": "id", "name": "告警编号", "dataType": { "type": "string", "specs": { "length": 96 } } },
+          { "identifier": "type", "name": "告警类型", "dataType": { "type": "string", "specs": { "length": 32 } } },
+          { "identifier": "countToday", "name": "今日告警数", "dataType": { "type": "int", "specs": { "min": 0, "max": 1000000, "step": 1 } } },
+          { "identifier": "detail", "name": "告警说明", "dataType": { "type": "string", "specs": { "length": 256 } } }
+        ]
+      }
+    },
+    {
+      "identifier": "gps",
+      "name": "定位",
+      "accessMode": "r",
+      "required": false,
+      "dataType": {
+        "type": "struct",
+        "specs": [
+          { "identifier": "valid", "name": "定位是否有效", "dataType": { "type": "bool" } },
+          { "identifier": "latitude", "name": "纬度", "dataType": { "type": "double", "specs": { "min": -90, "max": 90, "unit": "°" } } },
+          { "identifier": "longitude", "name": "经度", "dataType": { "type": "double", "specs": { "min": -180, "max": 180, "unit": "°" } } },
+          { "identifier": "altitude", "name": "海拔", "dataType": { "type": "float", "specs": { "min": -1000, "max": 100000, "unit": "m" } } },
+          { "identifier": "fixTime", "name": "定位时间", "dataType": { "type": "long", "specs": { "unit": "ms" } } }
+        ]
+      }
+    },
+    {
+      "identifier": "csq",
+      "name": "蜂窝信号质量",
+      "accessMode": "r",
+      "required": false,
+      "dataType": { "type": "int", "specs": { "min": 0, "max": 99, "step": 1 } }
+    },
+    {
+      "identifier": "control",
+      "name": "受限控制命令",
+      "accessMode": "rw",
+      "required": false,
+      "dataType": {
+        "type": "struct",
+        "description": "仅允许 ACK、RESET、SET_CONFIG；具体结构由 adapter.js 严格校验。",
+        "specs": [
+          { "identifier": "command", "name": "命令", "dataType": { "type": "string", "specs": { "length": 16 } } },
+          { "identifier": "alarmId", "name": "告警编号", "dataType": { "type": "string", "specs": { "length": 96 } } },
+          { "identifier": "action", "name": "处置说明", "dataType": { "type": "string", "specs": { "length": 120 } } },
+          { "identifier": "noMotionSec", "name": "无活动告警秒数", "dataType": { "type": "int", "specs": { "min": 30, "max": 86400, "step": 1, "unit": "s" } } },
+          { "identifier": "reportIntervalSec", "name": "状态上报周期", "dataType": { "type": "int", "specs": { "min": 1, "max": 3600, "step": 1, "unit": "s" } } }
+        ]
+      }
+    }
+  ],
+  "events": [
+    {
+      "identifier": "safetyAlarm",
+      "name": "安全告警事件",
+      "eventType": "alert",
+      "required": false,
+      "outputData": [
+        { "identifier": "deviceId", "name": "设备编号", "dataType": { "type": "string", "specs": { "length": 64 } } },
+        { "identifier": "room", "name": "房间", "dataType": { "type": "string", "specs": { "length": 64 } } },
+        { "identifier": "alarmId", "name": "告警编号", "dataType": { "type": "string", "specs": { "length": 96 } } },
+        { "identifier": "type", "name": "告警类型", "dataType": { "type": "string", "specs": { "length": 32 } } },
+        { "identifier": "countToday", "name": "今日告警数", "dataType": { "type": "int", "specs": { "min": 0, "max": 1000000, "step": 1 } } },
+        { "identifier": "detail", "name": "告警说明", "dataType": { "type": "string", "specs": { "length": 256 } } },
+        { "identifier": "gps", "name": "定位", "dataType": { "type": "struct" } }
+      ]
+    }
+  ]
+}

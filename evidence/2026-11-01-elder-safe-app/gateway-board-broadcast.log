@@ -1,0 +1,3 @@
++    2ms ready {"type":"ready","protocol":1}
++ 2358ms s3_asr {"type":"s3_asr","text":"没事","node":"s3-sim-test","room":"测试","at":1793509322207}
++ 2359ms s3_safe {"type":"s3_safe","text":"老人自述安全：我没事","speakers":2,"node":"s3-sim-test","room":"测试","at":1793509322208}

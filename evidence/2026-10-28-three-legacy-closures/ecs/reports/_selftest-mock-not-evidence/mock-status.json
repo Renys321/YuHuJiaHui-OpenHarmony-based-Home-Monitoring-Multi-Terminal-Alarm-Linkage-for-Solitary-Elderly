@@ -1,0 +1,31 @@
+{
+  "service": "wearable-mqtt",
+  "version": "1.0.1",
+  "startedAt": 1793120401000,
+  "adapter": {
+    "device": {
+      "online": true,
+      "state": "ACKED",
+      "lastSeen": 1793120700000
+    },
+    "link": {
+      "deviceClientId": "wearable-sos-001",
+      "aliveTimeoutMs": 120000,
+      "watchdogArmed": true,
+      "offlineReported": false
+    },
+    "counters": {
+      "sosReceived": 1,
+      "sosDuplicates": 0,
+      "deviceOfflineReports": 1,
+      "parkedRecoveryTriggers": 1,
+      "commandResultOk": 1,
+      "commandsRedelivered": 1
+    },
+    "commands": {
+      "cursor": 7,
+      "inflight": [],
+      "parked": []
+    }
+  }
+}

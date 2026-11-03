@@ -1,0 +1,68 @@
+PC_CLICK_START=2026-10-10 10:10:00 +08:00
+WakeupDevice is called
+No Error
+start ability successfully.
+No Error
+No Error
+No Error
+DumpLayout saved to:/data/local/tmp/third-bath-acked.json
+FileTransfer finish, Size:84888, File count = 1, time:8ms rate:10611.00kB/s
+PC_CAPTURE_TIME=2026-10-10 10:10:31 +08:00
+--- APP HILOG ---
+Mutlti commands can't be used in combination [CODE: -31]
+--- DEVICE HOMEMON ROUTE LOG ---
+[1791586006] ROUTE 本机执行：ack a-1791585986-1 已确认，老人一切正常
+[1791598173] ROUTE 转发远端 esp32-bath：ack wrong-third-001 错误ID测试
+[1791598210] ROUTE 转发远端 esp32-bath：ack sim-1791598053239-1 已确认，老人一切正常
+--- SIM NODE TAIL ---
+[sim-node] → ALARM 活动 0 次
+[sim-node] ← 收到命令: ack wrong-third-001 错误ID测试
+[sim-node] ACK 被拒绝：告警 ID 不匹配（当前=sim-1791598053239-1，收到=wrong-third-001）
+[sim-node] → ALARM 活动 0 次
+[sim-node] → ALARM 活动 0 次
+[sim-node] → ALARM 活动 0 次
+[sim-node] → ALARM 活动 0 次
+[sim-node] → ALARM 活动 0 次
+[sim-node] → ALARM 活动 0 次
+[sim-node] → ALARM 活动 0 次
+[sim-node] → ALARM 活动 0 次
+[sim-node] → ALARM 活动 0 次
+[sim-node] → ALARM 活动 0 次
+[sim-node] → ALARM 活动 0 次
+[sim-node] → ALARM 活动 0 次
+[sim-node] → ALARM 活动 0 次
+[sim-node] ← 收到命令: ack sim-1791598053239-1 已确认，老人一切正常
+[sim-node] ACK 已接受：id=sim-1791598053239-1
+[sim-node] → ACKED 活动 0 次
+[sim-node] → ACKED 活动 0 次
+[sim-node] → ACKED 活动 0 次
+[sim-node] → ACKED 活动 0 次
+[sim-node] → ACKED 活动 0 次
+[sim-node] → ACKED 活动 0 次
+--- BRIDGE TAIL ---
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] 命令已发往节点 esp32-bath: ack wrong-third-001 错误ID测试
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] 命令已发往节点 esp32-bath: ack sim-1791598053239-1 已确认，老人一切正常
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+--- STATUS JSON ---
+{"deviceId":"esp32-bath","room":"卫生间","ts":1791598229,"state":"ACKED","sensors":{"motion":{"lastActiveTs":1791598224,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":0,"rh":0,"ok":true},"gas":{"raw":0,"ok":true},"smoke":{"raw":0,"ok":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"sim-1791598053239-1","type":"GAS","countToday":1}}

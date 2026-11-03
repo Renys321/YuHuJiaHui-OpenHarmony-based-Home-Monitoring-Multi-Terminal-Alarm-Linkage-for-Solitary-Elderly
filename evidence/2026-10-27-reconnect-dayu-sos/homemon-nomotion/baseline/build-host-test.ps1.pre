@@ -1,0 +1,31 @@
+﻿# 构建"PC 测试版本"：time_util.h 的纯逻辑单测（在 PC 上真实运行）。
+# 用途：验证 64 位秒->毫秒、2017 不可信 / 2026 可信、秒毫秒区分、UTC 不重复 +8 小时。
+# 说明：homemon 本体是 Linux/POSIX 守护进程，无法在 Windows 上运行；
+#       能真正跑在 PC 上的是这份纯逻辑测试，真机侧另有 `homemon --selftest`。
+param(
+    [string]$Compiler = ''      # 缺省自动探测 MSYS2 gcc / clang
+)
+
+$ErrorActionPreference = 'Stop'
+$root = $PSScriptRoot
+
+if (-not $Compiler) {
+    foreach ($c in @('D:\MSYS2\ucrt64\bin\gcc.exe', 'gcc', 'clang')) {
+        $cmd = Get-Command $c -ErrorAction SilentlyContinue
+        if ($cmd) { $Compiler = $cmd.Source; break }
+    }
+}
+if (-not $Compiler) { throw 'no host C compiler found (expected MSYS2 gcc or clang)' }
+
+$outDir = Join-Path $root 'out'
+New-Item -ItemType Directory -Force -Path $outDir | Out-Null
+$exe = Join-Path $outDir 'time_util_test.exe'
+$src = Join-Path $root 'tests\time_util_test.c'
+$inc = Join-Path $root 'src'
+
+Write-Host "== Host test build ==  compiler=$Compiler"
+& $Compiler -std=c11 -O2 -Wall -Wextra -Werror -pedantic -I $inc $src -o $exe
+if ($LASTEXITCODE -ne 0) { throw "host test compilation failed (exit=$LASTEXITCODE)" }
+Write-Host "SUCCESS: $exe"
+& $exe
+if ($LASTEXITCODE -ne 0) { throw "host test FAILED (exit=$LASTEXITCODE)" }

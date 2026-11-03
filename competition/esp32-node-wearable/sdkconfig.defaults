@@ -1,0 +1,25 @@
+# 随身 SOS 按钮（ESP32-S3 + M100MG-B1 4G DTU）ESP-IDF 5.1.6 工程默认配置
+# 硬件：ESP32-S3 QFN56 rev0.2 / 16MB flash / 8MB PSRAM（N16R8，PSRAM 本固件不使用）
+# 与 COM8 现役板一致的烧录参数：DIO + 80MHz，16MB flash。
+CONFIG_IDF_TARGET="esp32s3"
+
+CONFIG_ESPTOOLPY_FLASHSIZE_16MB=y
+CONFIG_ESPTOOLPY_FLASHMODE_DIO=y
+CONFIG_ESPTOOLPY_FLASHFREQ_80M=y
+
+# 16MB flash 上把 app 分区放大到 3MB（无 OTA），避免默认 1MB 分区过紧。
+CONFIG_PARTITION_TABLE_SINGLE_APP_LARGE=y
+
+# 主任务栈：JSON 帧（≤512B）+ 行缓冲 + NVS 快照都在栈上，
+# 参考 D:\esp32-sos-build（CONFIG_ESP_MAIN_TASK_STACK_SIZE=8192）的已验证值。
+CONFIG_ESP_MAIN_TASK_STACK_SIZE=8192
+
+# 本固件不初始化 Wi-Fi/BT（网络层是 UART1 -> M100 4G 透传）。
+CONFIG_BT_ENABLED=n
+
+# 行为参数见 main/Kconfig.projbuild。
+# 实测 M100 自己主动上报 GPS 固定格式（经度_纬度），由 ECS 适配器解析；
+# 固件默认不查询 GPS、SOS 的 gps 固定 null，避免配置回包干扰透传。
+CONFIG_WEARABLE_QUERY_GPS_ON_SOS=n
+
+CONFIG_LOG_DEFAULT_LEVEL_INFO=y

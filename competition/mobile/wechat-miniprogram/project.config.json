@@ -1,0 +1,22 @@
+{
+  "description": "独居老人居家安全监测微信小程序",
+  "packOptions": {
+    "ignore": [
+      {
+        "type": "folder",
+        "value": "tests"
+      }
+    ]
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true
+  },
+  "compileType": "miniprogram",
+  "appid": "touristappid",
+  "projectname": "eldercare-wechat-miniprogram",
+  "miniprogramRoot": "./"
+}

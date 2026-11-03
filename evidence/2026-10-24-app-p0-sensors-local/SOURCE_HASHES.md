@@ -1,0 +1,58 @@
+# APP-P0-Sensors 未安装候选哈希清单（2026-10-24）
+
+冻结基线（未改写）：
+
+```text
+<WORKSPACE>\competition\evidence\2026-10-22-monitor-inline-summary-local\guardian-inline-summary-formal.hap
+size=2,077,912 B
+sha256=8A722EB6FDA7BB73EE58F3BDA3D95B5D238401DA8E3CC9179F1286FD5253A985
+```
+
+本轮候选（未安装）：
+
+```text
+<WORKSPACE>\competition\evidence\2026-10-24-app-p0-sensors-local\guardian-app-p0-sensors-candidate.hap
+size=2,086,487 B
+sha256=F91852D055DDD7A11B8207D1E1C14B11D6C018D441331401ADE42D9701FEE819
+bundle=com.example.program_04
+```
+
+候选与冻结包大小差（更正）：
+
+```text
+candidate=2,086,487 B
+frozen=2,077,912 B
+delta=8,575 B
+```
+
+> 早先口头报告中的 `28,575 B` 是算术错误；归档以 `8,575 B` 为准，候选 HAP/哈希本身未受影响。
+
+修改前/后源码：
+
+| 文件 | 修改前 SHA-256 | 修改后 SHA-256 |
+|---|---|---|
+| `pages/DevicePage.ets` | `4BBF75F2E018ED2DBA31B1647EF52AF1E72DF3D513964557D447ED099C71765F` | `0CA037EB9C8F33319E647763A50E2FD7E9914E3DC0AC1EFE561B8EF7A49CE8EB` |
+| `core/api/Contracts.ts` | `775121ACCF3EE5B528021A9A50A572022233BD85082BB12550A9EDC0A2F8D304` | `4CC10AAB040B0F04516C5D9EB2303D61EAA18E94643656709F2AD999FCA72428` |
+| `core/view/ViewMapper.ts` | `249CF090BE4DC12FEA84B35E773343EA092922E69494981A072E8EDCA8ABBF3B` | `432EC89853AEFEE1EC582A38FADE991A984014DBC80F0994F25266B47FB76106` |
+| `test/ValidContract.test.ets` | `62586C6E1515556287F5EFD52F7E41D56276EF1C8D12C094E2D58C48F10C299B` | `918AFE235E80242767FBBA1F9B5223469E7A7825C6C7CB639846BB938C09103A` |
+| `pages/MonitorPage.ets`（未修改） | `16338893F58BE582BA994E39DBD17910C37FF99485D2E06D9BCB1D2350BE7A83` | 同左 |
+
+源码修改前/后副本：
+
+```text
+source-before\
+source-after\
+```
+
+测试结果：
+
+```text
+test-result.txt: Tests run: 21, Failure: 0, Error: 0, Pass: 21, Ignore: 0
+```
+
+构建/测试日志：
+
+```text
+test.log
+build.log
+```

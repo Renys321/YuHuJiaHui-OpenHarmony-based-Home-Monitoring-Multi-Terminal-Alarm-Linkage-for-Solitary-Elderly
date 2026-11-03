@@ -1,0 +1,13 @@
+[2026-10-27 22:51:30.869] [mirror] starting pid=49752 source=api transport=tcp
+[2026-10-27 22:51:30.871] [mirror] {"source":"api","transport":"tcp","mqttHost":"47.76.70.118:1883","mqttClientId":"wearable-mirror-001","upTopic":"eldercare/wearable/sos-001/up","hasMqttCredentials":true,"apiBase":"https://api.luxunacc.xyz","hasGuardianCredentials":true,"guardianSource":"file","apiPollMs":3000,"relay":"127.0.0.1:9001","tcpListen":"127.0.0.1:19002","deviceId":"esp32-sos","room":"随身求助","heartbeatMs":3000,"offlineAfterMs":45000,"runtimeDir":"D:\\OpenHarmony\\tmp\\mirror-script-test"}
+[2026-10-27 22:51:30.902] [tcp] listening 127.0.0.1:19002
+[2026-10-27 22:51:30.907] [mirror] ready (source=api, transport=tcp, heartbeat=3000ms, status=D:\OpenHarmony\tmp\mirror-script-test\mirror-status.json)
+[2026-10-27 22:51:31.634] [source-api] login ok (token cached, value never logged)
+[2026-10-27 22:51:33.050] [mirror] first device data received
+[2026-10-27 22:51:33.186] [mirror] emit(change) state=NORMAL online=true alarm=- gps=none eventTs=- ackTs=-
+[2026-10-27 22:51:48.984] [mirror] emit(change) state=NORMAL online=true alarm=- gps=none eventTs=- ackTs=-
+[2026-10-27 22:52:18.645] [mirror] emit(change) state=NORMAL online=true alarm=- gps=none eventTs=- ackTs=-
+[2026-10-27 22:52:33.910] [mirror] emit(change) state=ALARM online=true alarm=sos-7-b941b638 gps=none eventTs=1793112752478 ackTs=-
+[2026-10-27 22:52:49.284] [mirror] emit(change) state=ALARM online=true alarm=sos-7-b941b638 gps=none eventTs=1793112752478 ackTs=-
+[2026-10-27 22:53:00.561] [mirror] emit(change) state=ACKED online=true alarm=sos-7-b941b638 gps=none eventTs=1793112752478 ackTs=1793112779268
+[2026-10-27 22:53:19.776] [mirror] emit(change) state=ACKED online=true alarm=sos-7-b941b638 gps=none eventTs=1793112752478 ackTs=1793112779268

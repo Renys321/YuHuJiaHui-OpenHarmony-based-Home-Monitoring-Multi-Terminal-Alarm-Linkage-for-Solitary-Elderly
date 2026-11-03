@@ -1,0 +1,45 @@
+﻿# cmd: arp -a
+# captured: 2026-10-27 22:32:31 +08:00
+----------------------------------------------------------------------
+
+Interface: 192.168.201.1 --- 0x5
+  Internet Address      Physical Address      Type
+  192.168.201.254       00-50-56-f8-95-97     dynamic   
+  192.168.201.255       ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+Interface: 192.168.80.1 --- 0xd
+  Internet Address      Physical Address      Type
+  192.168.80.254        00-50-56-fa-37-2d     dynamic   
+  192.168.80.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+Interface: 10.127.130.179 --- 0x15
+  Internet Address      Physical Address      Type
+  10.127.130.71         14-c1-9f-42-dd-b4     dynamic   
+  10.127.130.131        54-78-c9-96-a6-b2     dynamic   
+  10.127.130.168        50-78-7d-16-ed-60     dynamic   
+  10.127.130.217        5a-fe-a0-a6-a3-d7     dynamic   
+  10.127.130.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+Interface: 172.25.64.1 --- 0x2e
+  Internet Address      Physical Address      Type
+  172.25.70.72          00-15-5d-a6-68-2d     dynamic   
+  172.25.79.255         ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+

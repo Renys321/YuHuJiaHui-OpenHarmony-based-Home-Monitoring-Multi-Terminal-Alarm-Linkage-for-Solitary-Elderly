@@ -1,0 +1,18 @@
+{
+  "durationSec": 80,
+  "steps": [
+    {"atSec": 1,  "send": "resume"},
+    {"atSec": 2,  "send": "inj reboot"},
+    {"atSec": 8,  "send": "inj led pol low"},
+    {"atSec": 9,  "send": "inj climate 47.0 95.0"},
+    {"atSec": 10, "send": "inj climate 47.0 95.0"},
+    {"atSec": 17, "send": "stop"},
+    {"atSec": 25, "send": "ack {lastAlarm}"},
+    {"atSec": 33, "send": "inj climate 25.0 50.0"},
+    {"atSec": 34, "send": "inj climate 25.0 50.0"},
+    {"atSec": 42, "send": "inj sos"},
+    {"atSec": 50, "send": "stop"},
+    {"atSec": 58, "send": "ack {lastAlarm}"},
+    {"atSec": 66, "send": "reset"}
+  ]
+}

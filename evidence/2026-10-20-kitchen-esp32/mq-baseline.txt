@@ -1,0 +1,9 @@
+samples=40 window=263s
+MQ5 gas  : n=40 min=260 max=277 mean=270.4 std=4.33 CV=1.6% range=17
+MQ2 smoke: n=40 min=83 max=100 mean=93.1 std=3.35 CV=3.6% range=17
+tempC    : n=40 min=24.8 max=25.2 mean=25.0 std=0.13 CV=0.5% range=0.3999999999999986
+rh       : n=40 min=58.3 max=59.9 mean=59.0 std=0.42 CV=0.7% range=1.6000000000000014
+states={"NORMAL":40}
+alarms={}
+gasFirst10=273,269,273,277,269,271,275,269,261,268 gasLast10=271,275,270,269,260,269,269,276,277,261
+smokeFirst10=94,94,95,100,93,93,95,89,94,89 smokeLast10=92,91,89,92,91,87,98,83,94,93

@@ -1,0 +1,46 @@
+== 2026-10-10 脚本加固与静态复核 ==
+记录时间（Asia/Shanghai）: 2026-10-10 09:52:06 +08:00
+
+范围:
+- materials/demo_start.ps1
+- materials/make_voice.ps1
+- 未运行部署，未调用 HDC，未改变设备状态。
+
+修改前 SHA-256:
+- demo_start.ps1: 3FC93B7E632BDF954E8FE602B787947C229114E96D941C83E08BB4499864A4B3
+- make_voice.ps1: 16DD6FE8614FDF3CB509ADF90B25D4A281287B70C179C0C572C65585484DEFE2
+
+修改内容:
+1. demo_start.ps1 的 Test-Port 在 finally 中关闭并 Dispose TcpClient，覆盖连接异常路径。
+2. make_voice.ps1 增加 Invoke-FfmpegCapture，在调用 FFmpeg 期间临时使用 Continue，
+   避免 Windows PowerShell 5.1 把 FFmpeg 的常规 stderr 包装为终止性 NativeCommandError。
+3. 转换命令显式保存 FFmpeg 输出和退出码；失败时附带末尾日志。
+4. Duration 探测复用同一捕获函数；无输出目标导致的 FFmpeg 非零退出码不被误判，
+   但必须实际解析到 Duration。
+
+静态检查:
+- demo_start.ps1: PowerShell Parser errors = 0
+- make_voice.ps1: PowerShell Parser errors = 0
+
+无文件 FFmpeg 行为测试:
+- 正常用例: lavfi anullsrc -> null muxer；exit=0，捕获 15 行输出，包含 Output #0。
+- 失败用例: 输入文件不存在；exit=1。
+- 测试后 ErrorActionPreference 恢复为 Stop。
+- 完整文件转换自测未执行：包含清理命令的测试启动被执行器策略在进程创建前拒绝，
+  未启动 FFmpeg，也未生成自测文件。
+
+冻结后 SHA-256:
+- demo_start.ps1: 00E032ADF42408682EF9696565804888D25EBDB62C8624C0C0ACD703CC1B5F2B
+- make_voice.ps1: F30ADBF789774B1588D3A11872784B7B2AD8DF813230641B6FC3BCDB4DFED192
+
+未修改的第三轮关键基线:
+- Index.ets: BECABB9CC463270ADC7F96504DEDBAE416B5F915B048BFA83B05DD6AC18B83B2
+- homemon.c: 51AD008B7943862101C0FD344AD74F41CB03C2CA7064BBA027E5B99BC0425E47
+- mqtt_bridge.js: 247CC8AF2360639A566A7F2F418DF7DDC55135D252DF81BF061741EAE48C5705
+- sim_node.js: A7FFA42781A75E65A5DA4606A3803C70BCA086AB3230374ADF1A9B0637C4CB2D
+- eldercare-signed.hap: 202D74EACFC207D1526CD21F3DE1ED827962F29672E89FFE1FEA0E06468E1CCB
+- homemon-arm: 8D5040F395571A0C1E4767354465A833D75ED86AD303C627A7CFD92E8071E7AC
+
+边界:
+- Parser 0 错误和无文件 FFmpeg 测试不等同于 demo_start.ps1 真机运行 PASS。
+- make_voice.ps1 仍需在实际替换语音素材时完成一次文件转换验收。

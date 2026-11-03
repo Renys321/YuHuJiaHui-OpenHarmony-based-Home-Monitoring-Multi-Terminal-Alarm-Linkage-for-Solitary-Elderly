@@ -1,0 +1,124 @@
+﻿{
+    "fetchedAt":  "2026-10-27T18:15:58.4267747+08:00",
+    "device":  {
+                   "id":  "esp32-sos",
+                   "deviceId":  "esp32-sos",
+                   "name":  "随身求助节点",
+                   "roomId":  "随身求助",
+                   "roomName":  "随身求助",
+                   "location":  "",
+                   "online":  true,
+                   "monitorOnline":  -1,
+                   "state":  "ALARM",
+                   "lastSeenTs":  1793096063945,
+                   "sensors":  {
+
+                               },
+                   "csq":  26
+               },
+    "location":  {
+                     "deviceId":  "esp32-sos",
+                     "location":  "32.966713, 112.553276",
+                     "latitude":  32.966713,
+                     "longitude":  112.5532761,
+                     "fixTime":  1793095699142
+                 },
+    "recentAlerts":  [
+                         {
+                             "id":  "sos-5-a865a846",
+                             "alarmId":  "sos-5-a865a846",
+                             "deviceId":  "esp32-sos",
+                             "roomName":  "随身求助",
+                             "type":  "MANUAL_SOS",
+                             "message":  "检测到异常",
+                             "state":  "ALARM",
+                             "ackPending":  true,
+                             "createdAt":  1793096063939,
+                             "acknowledgedAt":  0,
+                             "acknowledgedBy":  "",
+                             "evidence":  {
+                                              "available":  false
+                                          }
+                         },
+                         {
+                             "id":  "sos-4-6c6aed3f",
+                             "alarmId":  "sos-4-6c6aed3f",
+                             "deviceId":  "esp32-sos",
+                             "roomName":  "随身求助",
+                             "type":  "MANUAL_SOS",
+                             "message":  "检测到异常",
+                             "state":  "ACKED",
+                             "ackPending":  false,
+                             "createdAt":  1793095639447,
+                             "acknowledgedAt":  1793095665707,
+                             "acknowledgedBy":  "household-guardian",
+                             "evidence":  {
+                                              "available":  false
+                                          }
+                         },
+                         {
+                             "id":  "sos-3-0555328b",
+                             "alarmId":  "sos-3-0555328b",
+                             "deviceId":  "esp32-sos",
+                             "roomName":  "随身求助",
+                             "type":  "MANUAL_SOS",
+                             "message":  "检测到异常",
+                             "state":  "ACKED",
+                             "ackPending":  false,
+                             "createdAt":  1793095543954,
+                             "acknowledgedAt":  1793095590294,
+                             "acknowledgedBy":  "household-guardian",
+                             "evidence":  {
+                                              "available":  false
+                                          }
+                         },
+                         {
+                             "id":  "sos-2-124737aa",
+                             "alarmId":  "sos-2-124737aa",
+                             "deviceId":  "esp32-sos",
+                             "roomName":  "随身求助",
+                             "type":  "MANUAL_SOS",
+                             "message":  "检测到异常",
+                             "state":  "ACKED",
+                             "ackPending":  false,
+                             "createdAt":  1793095403874,
+                             "acknowledgedAt":  1793095442595,
+                             "acknowledgedBy":  "household-guardian",
+                             "evidence":  {
+                                              "available":  false
+                                          }
+                         },
+                         {
+                             "id":  "e-1793076169-1",
+                             "alarmId":  "e-1793076169-1",
+                             "deviceId":  "esp32-sos",
+                             "roomName":  "随身求助",
+                             "type":  "MANUAL_SOS",
+                             "message":  "检测到异常",
+                             "state":  "ALARM",
+                             "ackPending":  false,
+                             "createdAt":  1793076171966,
+                             "acknowledgedAt":  0,
+                             "acknowledgedBy":  "",
+                             "evidence":  {
+                                              "available":  false
+                                          }
+                         },
+                         {
+                             "id":  "e-1793035292-1",
+                             "alarmId":  "e-1793035292-1",
+                             "deviceId":  "esp32-sos",
+                             "roomName":  "随身求助",
+                             "type":  "MANUAL_SOS",
+                             "message":  "检测到异常",
+                             "state":  "ACKED",
+                             "ackPending":  false,
+                             "createdAt":  1793035292653,
+                             "acknowledgedAt":  1793038991306,
+                             "acknowledgedBy":  "household-guardian",
+                             "evidence":  {
+                                              "available":  false
+                                          }
+                         }
+                     ]
+}

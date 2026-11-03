@@ -1,0 +1,9 @@
+﻿# PS1 AST/syntax + BOM + SHA-256（2026-10-28 00:43:06；powershell 5.1 解析）
+D:\OpenHarmony\competition\materials\demo-autostart\demo-autostart.ps1 | parse=PARSE_OK | BOM=True | sha256=740d20bd035ef9c754931fcdb9548b4d1686b74762072d00893544b2f7b65f83
+D:\OpenHarmony\competition\materials\start-demo-supervisor.ps1 | parse=PARSE_OK | BOM=True | sha256=741fc5f30658a14625354fbf9bb0785d6bbdba14d4c69868dd07a2e00ad98dba
+D:\OpenHarmony\competition\materials\public-sync-health.ps1 | parse=PARSE_OK | BOM=True | sha256=d881b5b6ca7429fd44afcbcb96dccd5a23bf42ff1169e4d8f695d35960da3bc7
+D:\OpenHarmony\competition\materials\verify-p0-health.ps1 | parse=PARSE_OK | BOM=True | sha256=24ca44b3fdbc024cc6d7dd7cd8444a5668a623b95f9eed2e304e745cfb361bc4
+D:\OpenHarmony\competition\materials\resolve-dayu-lan-ip.ps1 | parse=PARSE_OK | BOM=True | sha256=851cde93b54ef0ea64bb86764f81a5973fff7d2dc3bb21251e2756d3ac23e5ed
+D:\OpenHarmony\competition\materials\start-mirror-dayu.ps1 | parse=PARSE_OK | BOM=True | sha256=8a6db9251bb65113a81b1550c8375e0a861393eac95be6c30ea4e36dc720d4d5
+D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\watcher\tests\verify-watcher-recovery.ps1 | parse=PARSE_OK | BOM=True | sha256=bcdcfd595abd1dcc7167c3aa16ef2f22c218a53bd31be3874367400bb9a51c9d
+D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\watcher\tests\capture-homemon-evidence.ps1 | parse=PARSE_OK | BOM=True | sha256=d68d78ac2b5cedacfdfa474ac928765d20597fe252257c27fd04fe098b046038

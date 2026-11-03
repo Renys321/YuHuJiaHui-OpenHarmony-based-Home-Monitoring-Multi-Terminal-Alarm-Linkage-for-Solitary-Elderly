@@ -1,0 +1,144 @@
+[+0000.672s] ESP-ROM:esp32s3-20210327
+[+0000.672s] Build:Mar 27 2021
+[+0000.672s] rst:0x1 (POWERON),boot:0x2b (SPI_FAST_FLASH_BOOT)
+[+0000.672s] SPIWP:0xee
+[+0000.672s] mode:DIO, clock div:1
+[+0000.672s] load:0x3fce3818,len:0x1758
+[+0000.672s] load:0x403c9700,len:0x4
+[+0000.672s] load:0x403c9704,len:0xc00
+[+0000.672s] load:0x403cc700,len:0x2e20
+[+0000.672s] entry 0x403c9908
+[+0000.672s] I (27) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader
+[+0000.672s] I (27) boot: compile time Oct 20 2026 23:16:46
+[+0000.672s] I (27) boot: Multicore bootloader
+[+0000.672s] I (30) boot: chip revision: v0.2
+[+0000.672s] I (34) boot.esp32s3: Boot SPI Speed : 80MHz
+[+0000.672s] I (39) boot.esp32s3: SPI Mode       : DIO
+[+0000.672s] I (44) boot.esp32s3: SPI Flash Size : 2MB
+[+0000.672s] I (49) boot: Enabling RNG early entropy source...
+[+0000.672s] I (54) boot: Partition Table:
+[+0000.672s] I (58) boot: ## Label            Usage          Type ST Offset   Length
+[+0000.672s] I (65) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+[+0000.672s] I (72) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+[+0000.672s] I (80) boot:  2 factory          factory app      00 00 00010000 00100000
+[+0000.672s] I (87) boot: End of partition table
+[+0000.672s] I (91) esp_image: segment 0: paddr=00010020 vaddr=3c090020 size=4dd1ch (318748) map
+[+0000.672s] I (157) esp_image: segment 1: paddr=0005dd44 vaddr=3fc99a00 size=022d4h (  8916) load
+[+0000.672s] I (159) esp_image: segment 2: paddr=00060020 vaddr=42000020 size=8db04h (580356) map
+[+0000.672s] I (267) esp_image: segment 3: paddr=000edb2c vaddr=3fc9bcd4 size=022e8h (  8936) load
+[+0000.672s] I (269) esp_image: segment 4: paddr=000efe1c vaddr=40374000 size=15994h ( 88468) load
+[+0000.672s] I (301) boot: Loaded app from partition at offset 0x10000
+[+0000.672s] I (301) boot: Disabling RNG early entropy source...
+[+0000.672s] I (313) cpu_start: Multicore app
+[+0000.672s] I (313) cpu_start: Pro cpu up.
+[+0000.672s] I (314) cpu_start: Starting app cpu, entry point is 0x40375594
+[+0000.672s] I (0) cpu_start: App cpu up.
+[+0000.672s] I (331) cpu_start: Pro cpu start user code
+[+0000.672s] I (331) cpu_start: cpu freq: 160000000 Hz
+[+0000.672s] I (331) cpu_start: Application information:
+[+0000.672s] I (334) cpu_start: Project name:     esp32_elder_node
+[+0000.672s] I (340) cpu_start: App version:      1
+[+0000.672s] I (344) cpu_start: Compile time:     Oct 26 2026 21:15:57
+[+0000.672s] I (350) cpu_start: ELF file SHA256:  e27909cf30915724...
+[+0000.672s] I (356) cpu_start: ESP-IDF:          v5.1.6-dirty
+[+0000.672s] I (362) cpu_start: Min chip rev:     v0.0
+[+0000.672s] I (367) cpu_start: Max chip rev:     v0.99
+[+0000.672s] I (371) cpu_start: Chip rev:         v0.2
+[+0000.672s] I (376) heap_init: Initializing. RAM available for dynamic allocation:
+[+0000.672s] I (383) heap_init: At 3FCA2478 len 00047298 (284 KiB): DRAM
+[+0000.672s] I (390) heap_init: At 3FCE9710 len 00005724 (21 KiB): STACK/DRAM
+[+0000.672s] I (396) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM
+[+0000.672s] I (402) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM
+[+0000.672s] I (410) spi_flash: detected chip: generic
+[+0000.672s] I (413) spi_flash: flash io: dio
+[+0000.672s] W (417) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+[+0000.672s] W (431) i2s(legacy): legacy i2s driver is deprecated, please migrate to use driver/i2s_std.h, driver/i2s_pdm.h or driver/i2s_tdm.h
+[+0000.672s] I (443) sleep: Configure to isolate all GPIO pins in sleep state
+[+0000.672s] I (450) sleep: Enable automatic switching of GPIO sleep configuration
+[+0000.688s] I (457) app_start: Starting scheduler on CPU0
+[+0000.688s] I (462) app_start: Starting scheduler on CPU1
+[+0000.688s] I (462) main_task: Started on CPU0
+[+0000.688s] I (472) main_task: Calling app_main()
+[+0000.688s] I (492) elder-node: ESP32-S3 无线节点启动：esp32-bath / 卫生间
+[+0000.688s] I (492) elder-node: 监护暂停状态(持久化)=PAUSED
+[+0000.688s] I (492) gpio: GPIO[36]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:0
+[+0000.953s] I (502) gpio: GPIO[15]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0
+[+0000.953s] I (512) gpio: GPIO[1]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0
+[+0000.953s] I (522) local-led: 板载 LED 就绪：GPIO1 单色，低电平有效，启动默认灭（no boot flash）
+[+0000.953s] I (582) elder-node: 板载蜂鸣器就绪（XL9555 P0_3）
+[+0001.485s] I (812) local-voice: READY playback-only 16000Hz IMA-ADPCM; amp standby muted; no boot alarm; clips=6
+[+0001.485s] I (902) elder-node: 温湿度自检 OK: temp=25.9C rh=59.4%
+[+0001.485s] I (902) pp: pp rom version: e7ae62f
+[+0001.485s] I (902) net80211: net80211 rom version: e7ae62f
+[+0001.485s] I (912) wifi:wifi driver task: 3fcb021c, prio:23, stack:6656, core=0
+[+0001.485s] I (922) wifi:wifi firmware version: 02461b5
+[+0001.485s] I (922) wifi:wifi certification version: v7.0
+[+0001.485s] I (922) wifi:config NVS flash: enabled
+[+0001.485s] I (922) wifi:config nano formating: disabled
+[+0001.485s] I (922) wifi:Init data frame dynamic rx buffer num: 32
+[+0001.485s] I (932) wifi:Init static rx mgmt buffer num: 5
+[+0001.485s] I (932) wifi:Init management short buffer num: 32
+[+0001.485s] I (942) wifi:Init dynamic tx buffer num: 32
+[+0001.485s] I (942) wifi:Init static tx FG buffer num: 2
+[+0001.485s] I (942) wifi:Init static rx buffer size: 1600
+[+0001.485s] I (952) wifi:Init static rx buffer num: 10
+[+0001.485s] I (952) wifi:Init dynamic rx buffer num: 32
+[+0001.485s] I (962) wifi_init: rx ba win: 6
+[+0001.485s] I (962) wifi_init: tcpip mbox: 32
+[+0001.485s] I (962) wifi_init: udp mbox: 6
+[+0001.485s] I (972) wifi_init: tcp mbox: 6
+[+0001.485s] I (972) wifi_init: tcp tx win: 5760
+[+0001.485s] I (972) wifi_init: tcp rx win: 5760
+[+0001.485s] I (982) wifi_init: tcp mss: 1440
+[+0001.485s] I (982) wifi_init: WiFi IRAM OP enabled
+[+0001.485s] I (992) wifi_init: WiFi RX IRAM OP enabled
+[+0001.485s] I (992) wifi:Set ps type: 0, coexist: 0
+[+0001.485s] I (1002) phy_init: phy_version 680,a6008b2,Jun  4 2024,16:41:10
+[+0001.485s] I (1102) wifi:mode : sta (14:c1:9f:42:dd:b4)
+[+0001.485s] I (1102) wifi:enable tsf
+[+0001.485s] I (1102) elder-node: 连接 WiFi: ElderCareLab
+[+0004.375s] I (3992) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+[+0004.375s] I (3992) wifi:state: init -> auth (b0)
+[+0004.969s] I (4602) elder-node: 检测到活动（今日第 1 次）
+[+0005.375s] I (5002) wifi:state: auth -> init (200)
+[+0005.375s] I (5002) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+[+0005.375s] W (5002) elder-node: WiFi 断开（reason=2），重连中…
+[+0007.281s] I (6872) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+[+0007.281s] I (6872) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":1},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.8,"rh":59.7,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,1],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+0007.281s] I (6902) elder-node: STACK_FREE task=main bytes=4068
+[+0007.797s] W (7412) elder-node: WiFi 断开（reason=205），重连中…
+[+0010.203s] I (9822) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+[+0010.203s] I (9822) wifi:state: init -> auth (b0)
+[+0010.453s] I (10092) elder-node: 检测到活动（今日第 2 次）
+[+0011.203s] I (10822) wifi:state: auth -> init (200)
+[+0011.203s] I (10832) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+[+0011.203s] W (10832) elder-node: WiFi 断开（reason=2），重连中…
+[+0012.766s] I (12362) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":2},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.8,"rh":59.9,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,2],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+0012.766s] I (12382) elder-node: STACK_FREE task=main bytes=4068
+[+0013.610s] W (13242) elder-node: WiFi 断开（reason=205），重连中…
+[+0016.031s] I (15652) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+[+0016.031s] I (15652) wifi:state: init -> auth (b0)
+[+0017.047s] I (16652) wifi:state: auth -> init (200)
+[+0017.047s] I (16662) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+[+0017.047s] W (16662) elder-node: WiFi 断开（reason=2），重连中…
+[+0018.235s] I (17842) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":2},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.7,"rh":60.2,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,2],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+0018.235s] I (17862) elder-node: STACK_FREE task=main bytes=4068
+[+0019.438s] I (18872) elder-node: 检测到活动（今日第 3 次）
+[+0019.438s] W (19072) elder-node: WiFi 断开（reason=205），重连中…
+[+0021.860s] I (21482) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+[+0021.860s] I (21482) wifi:state: init -> auth (b0)
+[+0022.875s] I (22482) wifi:state: auth -> init (200)
+[+0022.875s] I (22482) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+[+0022.875s] W (22492) elder-node: WiFi 断开（reason=2），重连中…
+[+0023.735s] I (23322) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":3},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.7,"rh":60.3,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,3],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+0023.735s] I (23342) elder-node: STACK_FREE task=main bytes=4068
+[+0025.266s] W (24902) elder-node: WiFi 断开（reason=205），重连中…
+[+0026.891s] I (26532) elder-node: 检测到活动（今日第 4 次）
+[+0027.688s] I (27312) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+[+0027.688s] I (27312) wifi:state: init -> auth (b0)
+[+0028.688s] I (28312) wifi:state: auth -> init (200)
+[+0028.688s] I (28322) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+[+0028.688s] W (28322) elder-node: WiFi 断开（reason=2），重连中…
+[+0029.203s] I (28802) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+[+0029.203s] I (28802) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":4},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.7,"rh":60.4,"ok":true,"valid":true},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,4],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+0029.203s] I (28832) elder-node: STACK_FREE task=main bytes=4068

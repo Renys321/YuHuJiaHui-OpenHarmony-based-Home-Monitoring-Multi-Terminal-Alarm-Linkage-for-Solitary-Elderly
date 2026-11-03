@@ -1,0 +1,14 @@
+TARGET=450100445634303332012847942eca00
+APP_VERSION=1.0.2/1000002
+APP_HAP_SHA256=a696698a627cfeee1ee90d4f94a3faf49b4a2f1bb8a2d813ca3ad245324daffe
+PREF=scalePct=130,widthPct=60
+NODES=dayu200-living:??,esp32-kitchen:??,esp32-bath:???
+BROKER=1883 pid 8244
+BRIDGE=9101 pid 33688 peers 2
+SUPERVISOR=11632 HEALTHY
+WORKER=9908 restartCount=0
+FPORT=tcp:9001->tcp:9000
+STABILITY=10 samples/30s over 5min; all 3 bridge+cloud-sync increasing
+ALARM=preserved; no ACK
+CODE_CHANGES=none
+APP_RESTART=no

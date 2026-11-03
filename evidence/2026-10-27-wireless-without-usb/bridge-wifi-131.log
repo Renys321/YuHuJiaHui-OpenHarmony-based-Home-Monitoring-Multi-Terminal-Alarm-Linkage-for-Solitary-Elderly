@@ -1,0 +1,114 @@
+[2026-10-27T16:24:40.103Z] [bridge] 接管陈旧实例锁（原 PID=48108 已退出）
+[2026-10-27T16:24:40.110Z] [bridge] 单实例锁已获取：D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\bridge.lock
+[2026-10-27T16:24:40.113Z] === mqtt_bridge 启动 ===
+[2026-10-27T16:24:40.116Z]   自动恢复  : MQTT/relay 断线自动重连；恢复后补发最后状态；relay keepalive 10s；日志带 ISO 时间戳
+[2026-10-27T16:24:40.118Z]   Broker    : 127.0.0.1:1883
+[2026-10-27T16:24:40.120Z]   上行主题  : home/<deviceId>/status   （设备编号由报文决定）
+[2026-10-27T16:24:40.121Z]   下行主题  : home/<deviceId>/cmd      （按编号路由到对应节点）
+[2026-10-27T16:24:40.123Z]   命令兜底  : D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\control
+[2026-10-27T16:24:40.123Z]   求助播报  : 关闭（未提供 --sos-source / --sos-targets）
+[2026-10-27T16:24:40.124Z]   relay忽略 : esp32-sos（板端连接上该 deviceId 的回灌只忽略：不改名、不发布、不退休）
+[2026-10-27T16:24:40.124Z]   节点数    : 1（10.127.130.131:9000）
+[2026-10-27T16:24:40.125Z]   监听端口  : 9101（等待无线节点接入）
+[2026-10-27T16:24:40.125Z]   转发目标  : 10.127.130.131:9000（其他节点状态注入板上应用）
+[2026-10-27T16:24:40.131Z]   监听端口  : 9101（等待无线节点接入）
+[2026-10-27T16:24:40.132Z] [MQTT] 已连接 127.0.0.1:1883（clientId=bridge-dayu200-living-80112）
+[2026-10-27T16:24:40.133Z] [MQTT] 订阅成功: home/+/cmd
+[2026-10-27T16:24:41.245Z] [bridge] 已接入节点 10.127.130.131:9000
+[2026-10-27T16:24:41.247Z] [bridge] 已连接转发目标 10.127.130.131:9000
+[2026-10-27T16:24:41.562Z] [bridge] 无线节点接入并完成身份绑定：esp32-kitchen（来源 ::ffff:10.127.130.168:52133）
+[2026-10-27T16:24:41.565Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:24:46.963Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:24:51.555Z] [bridge] 忽略板端连接上的 relay 回灌：esp32-kitchen（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[2026-10-27T16:24:52.174Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:24:52.177Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:24:52.178Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:24:52.465Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:24:53.715Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:24:57.041Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:24:58.001Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:25:00.094Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:25:00.097Z] [bridge] 忽略板端连接上的 relay 回灌：esp32-kitchen（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[2026-10-27T16:25:02.253Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:25:03.462Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:25:05.395Z] [bridge] 忽略板端连接上的 relay 回灌：esp32-kitchen（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[2026-10-27T16:25:05.396Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:25:08.301Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:25:08.856Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:25:11.903Z] [bridge] 忽略板端连接上的 relay 回灌：esp32-kitchen（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[2026-10-27T16:25:11.904Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:25:14.373Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:25:14.590Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:25:19.647Z] [bridge] 忽略板端连接上的 relay 回灌：esp32-kitchen（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[2026-10-27T16:25:19.662Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:25:19.872Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:25:25.384Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:25:26.160Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:25:26.530Z] [bridge] 忽略板端连接上的 relay 回灌：esp32-kitchen（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[2026-10-27T16:25:26.531Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:25:26.533Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:25:30.879Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:25:33.385Z] [bridge] 忽略板端连接上的 relay 回灌：esp32-kitchen（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[2026-10-27T16:25:34.145Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:25:34.147Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:25:35.408Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:25:36.367Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:25:39.381Z] [bridge] 忽略板端连接上的 relay 回灌：esp32-kitchen（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[2026-10-27T16:25:39.383Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:25:41.757Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:25:41.786Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:25:45.840Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:25:47.286Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:25:47.639Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:25:52.794Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:25:55.282Z] [bridge] 忽略板端连接上的 relay 回灌：esp32-kitchen（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[2026-10-27T16:25:55.283Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:25:58.288Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:26:02.386Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:26:02.388Z] [bridge] 忽略板端连接上的 relay 回灌：esp32-kitchen（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[2026-10-27T16:26:02.388Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:26:03.569Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:26:03.570Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:26:03.786Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:26:06.188Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:26:09.206Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:26:11.276Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:26:12.242Z] [bridge] 忽略板端连接上的 relay 回灌：esp32-kitchen（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[2026-10-27T16:26:12.243Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:26:14.555Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:26:14.705Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:26:17.683Z] [bridge] 忽略板端连接上的 relay 回灌：esp32-kitchen（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[2026-10-27T16:26:17.684Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:26:20.207Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:26:20.784Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:26:25.711Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:26:25.765Z] [bridge] 忽略未识别的探测连接（::ffff:127.0.0.1:54026，未发送状态行；不计为节点接入）
+[2026-10-27T16:26:26.652Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:26:26.802Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:26:29.536Z] [bridge] 忽略板端连接上的 relay 回灌：esp32-kitchen（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[2026-10-27T16:26:30.434Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:26:31.207Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:26:34.187Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:26:36.614Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:26:36.660Z] [bridge] 忽略板端连接上的 relay 回灌：esp32-kitchen（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[2026-10-27T16:26:36.662Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:26:40.790Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:26:42.128Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:26:47.626Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:26:53.448Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:27:04.013Z] [bridge] 无线节点 esp32-kitchen 断开
+[2026-10-27T16:27:04.021Z] [bridge] 无线节点接入并完成身份绑定：esp32-kitchen（来源 ::ffff:10.127.130.168:60481）
+[2026-10-27T16:27:04.022Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:27:04.327Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:27:08.253Z] [bridge] 忽略板端连接上的 relay 回灌：esp32-kitchen（该 ID 由入站节点持有/刚被本机注入，不在此重复发布）
+[2026-10-27T16:27:08.254Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:27:08.255Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:27:09.636Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:27:09.638Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:27:09.639Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:27:09.641Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:27:09.642Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:27:09.644Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:27:09.817Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1
+[2026-10-27T16:27:10.158Z] [bridge] → home/dayu200-living/status  state=NORMAL room=客厅 countToday=0
+[2026-10-27T16:27:15.217Z] [bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=1

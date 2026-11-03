@@ -1,0 +1,12 @@
+﻿bridge-conn local=10.127.130.179:9101 remote=10.127.130.168:64159
+bridge-conn local=10.127.130.179:9101 remote=10.127.130.71:53982
+capturedAt=2026-10-26T18:36:16.2540799+08:00
+--- public-sync-supervisor.log tail (natural 202 for both ESP32 nodes) ---
+2026-10-26T10:34:33.171Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1793010873081 deviceTs=1793010873022 path=/internal/v1/device-status status=202 at=2026-10-26T10:34:33.171Z
+2026-10-26T10:34:45.870Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793010885754 deviceTs=1793010885671 path=/internal/v1/device-status status=202 at=2026-10-26T10:34:45.864Z
+2026-10-26T10:35:06.145Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1793010906024 deviceTs=1793010905922 path=/internal/v1/device-status status=202 at=2026-10-26T10:35:06.143Z
+2026-10-26T10:35:18.708Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793010918575 deviceTs=1793010918581 path=/internal/v1/device-status status=202 at=2026-10-26T10:35:18.699Z
+2026-10-26T10:35:25.270Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-26T10:35:25.256Z
+2026-10-26T10:35:38.978Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1793010938830 deviceTs=1793010938832 path=/internal/v1/device-status status=202 at=2026-10-26T10:35:38.975Z
+2026-10-26T10:35:51.697Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793010951537 deviceTs=1793010951491 path=/internal/v1/device-status status=202 at=2026-10-26T10:35:51.697Z
+2026-10-26T10:36:11.823Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1793010971723 deviceTs=0 path=/internal/v1/device-status status=202 at=2026-10-26T10:36:11.823Z

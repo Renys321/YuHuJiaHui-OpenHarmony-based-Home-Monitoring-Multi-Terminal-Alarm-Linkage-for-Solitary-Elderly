@@ -1,0 +1,959 @@
+{
+  "kind": "verify-report",
+  "generatedAt": "2026-10-28T00:52:37.658+08:00",
+  "samplesFile": "D:\\OpenHarmony\\competition\\evidence\\2026-10-28-three-legacy-closures\\ecs\\snapshots\\samples-ack-window-20261028-003456.ndjson",
+  "baselineFile": "D:\\OpenHarmony\\competition\\evidence\\2026-10-28-three-legacy-closures\\ecs\\snapshots\\samples-pre-upgrade-20261028-003201.ndjson",
+  "markersFile": "D:\\OpenHarmony\\competition\\evidence\\2026-10-28-three-legacy-closures\\ecs\\ecs-output\\markers.json",
+  "statusFiles": [
+    "status-after.json",
+    "status-final.json"
+  ],
+  "logsFile": "logs-final.txt",
+  "overall": "BLOCKED",
+  "criteria": [
+    {
+      "id": "C0_DEPLOY_VERSION",
+      "title": "ECS 已部署 1.0.1（version=1.0.1 / deviceAliveTimeoutMs=120000 / watchdogArmed=true）",
+      "verdict": "PASS",
+      "detail": "version=1.0.1（期望 1.0.1）; link.aliveTimeoutMs=120000（期望 120000）; watchdogArmed=true（期望 true）; brokerClientOk=true",
+      "evidence": [
+        "status-after.json",
+        "status-final.json",
+        "watchdogArmed=true（1.0.1 应 true）",
+        "broker.clients=[\"wearable-sos-001\"]"
+      ]
+    },
+    {
+      "id": "C1_ACK_RESTART_WINDOW",
+      "title": "ACK 重启窗口：PENDING→设备重启→真实回执→ACKED（≤30s）",
+      "verdict": "PASS",
+      "detail": "ACKED 在恢复点后 2.8s 内出现（阈值 ≤30s）；无需 docker restart。",
+      "evidence": [
+        "已按升级前基线排除历史告警 13 条；只评估升级后新告警。",
+        "alarmId=sos-12-1a1003dc createdAt=2026-10-28T00:35:45.905+08:00 acknowledgedAt=2026-10-28T00:38:32.754+08:00",
+        "ACK 点击标记=2026-10-28T00:37:55.000+08:00（人工近似值）",
+        "设备断电标记=2026-10-28T00:36:46.980+08:00",
+        "设备上电标记=2026-10-28T00:38:30.000+08:00",
+        "设备重启标记=2026-10-28T00:38:30.000+08:00",
+        "自恢复点(2026-10-28T00:38:30.000+08:00)到 ACKED 观测：2.8s",
+        "ECS counters: commandResultOk=1, commandsParked=0, commandsRedelivered=1, parkedRecoveryTriggers=1, ackReceipts=0",
+        "**修复核心生效**：存在 parkedRecoveryTriggers/commandsRedelivered ≥1（链路恢复/业务上行触发了 parked ACK 事件驱动重投，不再依赖 docker restart）",
+        "ECS 日志链: COMMAND_ACCEPTED=2026-10-28T00:37:45.274+08:00 → COMMAND_PARKED=2026-10-28T00:37:55.281+08:00 → PARKED_RECOVERY_TRIGGERED=2026-10-28T00:38:32.301+08:00 → COMMAND_RECEIPT_ACCEPTED=2026-10-28T00:38:32.758+08:00 → COMMAND_RESULT_ACKED=2026-10-28T00:38:32.777+08:00"
+      ]
+    },
+    {
+      "id": "C2_OFFLINE_2MIN",
+      "title": "断电 >120s 后 API online=false（120s 阈值），恢复后 online=true + lastSeen 推进",
+      "verdict": "PASS",
+      "detail": "online=false 在参照点后 128.9s 出现；恢复后 online=true 且 lastSeen 推进。",
+      "evidence": [
+        "首次 online=false 观测=2026-10-28T00:41:01.278+08:00（lastSeen=2026-10-28T00:40:52.373+08:00）",
+        "断电标记=2026-10-28T00:38:52.370+08:00",
+        "最后一次 lastSeen 推进=2026-10-28T00:38:52.370+08:00",
+        "自参照点到 online=false 的延迟=128.9s（阈值 120s）",
+        "ECS /status 显示 offline 证据: true（deviceOfflineReports=1）",
+        "ECS 日志 DEVICE_UPLINK_TIMEOUT=2026-10-28T00:40:52.371+08:00（silentMs≈120002，与断电信时刻吻合）",
+        "上电标记=2026-10-28T00:41:32.000+08:00（距 online=false 检测 30.7s）",
+        "恢复 online=true 观测=2026-10-28T00:41:35.572+08:00（lastSeen=2026-10-28T00:41:32.698+08:00，是否推进=true）",
+        "上电→online=true 恢复延迟=3.6s"
+      ]
+    },
+    {
+      "id": "C3_NO_DUPLICATE_ALARM",
+      "title": "同一 alarmId 在 /api/v1/alerts 只有 1 条，数量不因重连增加",
+      "verdict": "PASS",
+      "detail": "每个 alarmId 在告警列表里唯一；数量只在出现新 alarmId 时增加。",
+      "evidence": [
+        "采样条数=83；esp32-sos 告警 total/末次=14",
+        "alarmId 集合=[\"sos-11-686d1dee\",\"sos-10-4a2b38da\",\"sos-9-729e65b9\",\"sos-8-fc452df6\",\"sos-7-b941b638\",\"sos-6-49732005\",\"sos-5-a865a846\",\"sos-4-6c6aed3f\",\"sos-3-0555328b\",\"sos-2-124737aa\",\"e-1793076169-1\",\"e-1793035292-1\",\"e-1793022476-1\",\"sos-12-1a1003dc\"]",
+        "每条 alarmId 出现次数=[{\"id\":\"sos-11-686d1dee\",\"n\":83},{\"id\":\"sos-10-4a2b38da\",\"n\":83},{\"id\":\"sos-9-729e65b9\",\"n\":83},{\"id\":\"sos-8-fc452df6\",\"n\":83},{\"id\":\"sos-7-b941b638\",\"n\":83},{\"id\":\"sos-6-49732005\",\"n\":83},{\"id\":\"sos-5-a865a846\",\"n\":83},{\"id\":\"sos-4-6c6aed3f\",\"n\":83},{\"id\":\"sos-3-0555328b\",\"n\":83},{\"id\":\"sos-2-124737aa\",\"n\":83},{\"id\":\"e-1793076169-1\",\"n\":83},{\"id\":\"e-1793035292-1\",\"n\":83},{\"id\":\"e-1793022476-1\",\"n\":83},{\"id\":\"sos-12-1a1003dc\",\"n\":78}]",
+        "ECS counters sosReceived=8 sosDuplicates=7"
+      ]
+    },
+    {
+      "id": "C4_LOCATION_INTACT",
+      "title": "位置/GPS 不因升级丢失（与升级前基线对比；无 fix 时 valid=false，不用 (0,0) 冒充）",
+      "verdict": "BLOCKED",
+      "detail": "升级前后 API 都**没有** esp32-sos 的位置数据（/api/v1/devices 无 gps 字段、/api/v1/location 无 esp32-sos 记录，告警无坐标）：既没丢也没有写入不实坐标/非 (0,0) 假坐标，无法用该判据证明升级影响。Lead 2026-10-28 00:31 已裁决：按“现网无有效 fix（非本次回滚造成）”记 BLOCKED，不阻塞升级、不改后端/APP。与 DESIGN-CONTRACT §5.2“现网已支持”的记录不一致，属文档/实现对账问题，另行登记。",
+      "evidence": [
+        "本次采样中位置记录=0；gps.valid=true 出现=false；gps 字段缺失=true；gps.valid=false 且无坐标=false",
+        "升级前基线：位置记录=0；gps.valid=true=false（基线样本数=1）"
+      ]
+    },
+    {
+      "id": "C5_NO_FAKE_ACK",
+      "title": "不代报 ACK：ACKED 只能来自设备真实回执（commandResultOk 增长）",
+      "verdict": "PASS",
+      "detail": "ACKED 与 commandResultOk≥1 同时成立；未见伪造路径。",
+      "evidence": [
+        "ACKED 告警数=1；带 counters 的 /status 文件数=1；commandResultOk≥1=true",
+        "counters={\"sosReceived\":8,\"sosDuplicates\":7,\"deviceOfflineReports\":1,\"parkedRecoveryTriggers\":1,\"commandResultOk\":1,\"commandsRedelivered\":1,\"deviceLinkUps\":1,\"deviceLinkDowns\":0,\"activeEventClearedByDevice\":0}",
+        "脚本本身从不 POST /alerts/{id}/ack、从不写 device-status（代码级边界）"
+      ]
+    },
+    {
+      "id": "C6_NO_DOCKER_RESTART",
+      "title": "验收全程未执行 docker restart（自愈靠事件驱动重投）",
+      "verdict": "PASS",
+      "detail": "markers 声明 no_docker_restart=true 且日志无额外启动。",
+      "evidence": [
+        "docker logs 中 SERVICE_STARTED 次数=1（升级自身会重建容器 1 次）",
+        "日志短码命中: PARKED_RECOVERY_TRIGGERED=true COMMAND_RECEIPT_ACCEPTED=true DEVICE_UPLINK_TIMEOUT=true"
+      ]
+    }
+  ],
+  "timeline": {
+    "device": [
+      {
+        "at": "2026-10-28T00:34:57.727+08:00",
+        "epochMs": 1793118897727,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793118887030,
+        "lastSeenIso": "2026-10-28T00:34:47.030+08:00",
+        "lastSeenAgeSec": 11
+      },
+      {
+        "at": "2026-10-28T00:35:09.131+08:00",
+        "epochMs": 1793118909131,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793118887030,
+        "lastSeenIso": "2026-10-28T00:34:47.030+08:00",
+        "lastSeenAgeSec": 22
+      },
+      {
+        "at": "2026-10-28T00:35:19.900+08:00",
+        "epochMs": 1793118919900,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793118917082,
+        "lastSeenIso": "2026-10-28T00:35:17.082+08:00",
+        "lastSeenAgeSec": 3
+      },
+      {
+        "at": "2026-10-28T00:35:30.608+08:00",
+        "epochMs": 1793118930608,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793118917082,
+        "lastSeenIso": "2026-10-28T00:35:17.082+08:00",
+        "lastSeenAgeSec": 14
+      },
+      {
+        "at": "2026-10-28T00:35:41.722+08:00",
+        "epochMs": 1793118941722,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793118917082,
+        "lastSeenIso": "2026-10-28T00:35:17.082+08:00",
+        "lastSeenAgeSec": 25
+      },
+      {
+        "at": "2026-10-28T00:35:52.144+08:00",
+        "epochMs": 1793118952144,
+        "online": true,
+        "state": "ALARM",
+        "lastSeenTs": 1793118946957,
+        "lastSeenIso": "2026-10-28T00:35:46.957+08:00",
+        "lastSeenAgeSec": 5
+      },
+      {
+        "at": "2026-10-28T00:36:03.647+08:00",
+        "epochMs": 1793118963647,
+        "online": true,
+        "state": "ALARM",
+        "lastSeenTs": 1793118946957,
+        "lastSeenIso": "2026-10-28T00:35:46.957+08:00",
+        "lastSeenAgeSec": 17
+      },
+      {
+        "at": "2026-10-28T00:36:14.124+08:00",
+        "epochMs": 1793118974124,
+        "online": true,
+        "state": "ALARM",
+        "lastSeenTs": 1793118946957,
+        "lastSeenIso": "2026-10-28T00:35:46.957+08:00",
+        "lastSeenAgeSec": 27
+      },
+      {
+        "at": "2026-10-28T00:36:25.602+08:00",
+        "epochMs": 1793118985602,
+        "online": true,
+        "state": "ALARM",
+        "lastSeenTs": 1793118976944,
+        "lastSeenIso": "2026-10-28T00:36:16.944+08:00",
+        "lastSeenAgeSec": 9
+      },
+      {
+        "at": "2026-10-28T00:36:36.000+08:00",
+        "epochMs": 1793118996000,
+        "online": true,
+        "state": "ALARM",
+        "lastSeenTs": 1793118976944,
+        "lastSeenIso": "2026-10-28T00:36:16.944+08:00",
+        "lastSeenAgeSec": 19
+      },
+      {
+        "at": "2026-10-28T00:36:47.156+08:00",
+        "epochMs": 1793119007156,
+        "online": true,
+        "state": "ALARM",
+        "lastSeenTs": 1793119006984,
+        "lastSeenIso": "2026-10-28T00:36:46.984+08:00",
+        "lastSeenAgeSec": 0
+      },
+      {
+        "at": "2026-10-28T00:36:58.242+08:00",
+        "epochMs": 1793119018242,
+        "online": true,
+        "state": "ALARM",
+        "lastSeenTs": 1793119006984,
+        "lastSeenIso": "2026-10-28T00:36:46.984+08:00",
+        "lastSeenAgeSec": 11
+      },
+      {
+        "at": "2026-10-28T00:37:08.764+08:00",
+        "epochMs": 1793119028764,
+        "online": true,
+        "state": "ALARM",
+        "lastSeenTs": 1793119006984,
+        "lastSeenIso": "2026-10-28T00:36:46.984+08:00",
+        "lastSeenAgeSec": 22
+      },
+      {
+        "at": "2026-10-28T00:37:19.203+08:00",
+        "epochMs": 1793119039203,
+        "online": true,
+        "state": "ALARM",
+        "lastSeenTs": 1793119006984,
+        "lastSeenIso": "2026-10-28T00:36:46.984+08:00",
+        "lastSeenAgeSec": 32
+      },
+      {
+        "at": "2026-10-28T00:37:30.400+08:00",
+        "epochMs": 1793119050400,
+        "online": true,
+        "state": "ALARM",
+        "lastSeenTs": 1793119006984,
+        "lastSeenIso": "2026-10-28T00:36:46.984+08:00",
+        "lastSeenAgeSec": 43
+      },
+      {
+        "at": "2026-10-28T00:37:41.587+08:00",
+        "epochMs": 1793119061587,
+        "online": true,
+        "state": "ALARM",
+        "lastSeenTs": 1793119006984,
+        "lastSeenIso": "2026-10-28T00:36:46.984+08:00",
+        "lastSeenAgeSec": 55
+      },
+      {
+        "at": "2026-10-28T00:37:52.865+08:00",
+        "epochMs": 1793119072865,
+        "online": true,
+        "state": "ALARM",
+        "lastSeenTs": 1793119006984,
+        "lastSeenIso": "2026-10-28T00:36:46.984+08:00",
+        "lastSeenAgeSec": 66
+      },
+      {
+        "at": "2026-10-28T00:38:04.594+08:00",
+        "epochMs": 1793119084594,
+        "online": true,
+        "state": "ALARM",
+        "lastSeenTs": 1793119006984,
+        "lastSeenIso": "2026-10-28T00:36:46.984+08:00",
+        "lastSeenAgeSec": 78
+      },
+      {
+        "at": "2026-10-28T00:38:15.367+08:00",
+        "epochMs": 1793119095367,
+        "online": true,
+        "state": "ALARM",
+        "lastSeenTs": 1793119006984,
+        "lastSeenIso": "2026-10-28T00:36:46.984+08:00",
+        "lastSeenAgeSec": 88
+      },
+      {
+        "at": "2026-10-28T00:38:25.765+08:00",
+        "epochMs": 1793119105765,
+        "online": true,
+        "state": "ALARM",
+        "lastSeenTs": 1793119006984,
+        "lastSeenIso": "2026-10-28T00:36:46.984+08:00",
+        "lastSeenAgeSec": 99
+      },
+      {
+        "at": "2026-10-28T00:38:37.170+08:00",
+        "epochMs": 1793119117170,
+        "online": true,
+        "state": "ACKED",
+        "lastSeenTs": 1793119112769,
+        "lastSeenIso": "2026-10-28T00:38:32.769+08:00",
+        "lastSeenAgeSec": 4
+      },
+      {
+        "at": "2026-10-28T00:38:47.543+08:00",
+        "epochMs": 1793119127543,
+        "online": true,
+        "state": "ACKED",
+        "lastSeenTs": 1793119112769,
+        "lastSeenIso": "2026-10-28T00:38:32.769+08:00",
+        "lastSeenAgeSec": 15
+      },
+      {
+        "at": "2026-10-28T00:38:59.116+08:00",
+        "epochMs": 1793119139116,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119132370,
+        "lastSeenIso": "2026-10-28T00:38:52.370+08:00",
+        "lastSeenAgeSec": 7
+      },
+      {
+        "at": "2026-10-28T00:39:10.836+08:00",
+        "epochMs": 1793119150836,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119132370,
+        "lastSeenIso": "2026-10-28T00:38:52.370+08:00",
+        "lastSeenAgeSec": 18
+      },
+      {
+        "at": "2026-10-28T00:39:21.242+08:00",
+        "epochMs": 1793119161242,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119132370,
+        "lastSeenIso": "2026-10-28T00:38:52.370+08:00",
+        "lastSeenAgeSec": 29
+      },
+      {
+        "at": "2026-10-28T00:39:33.271+08:00",
+        "epochMs": 1793119173271,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119132370,
+        "lastSeenIso": "2026-10-28T00:38:52.370+08:00",
+        "lastSeenAgeSec": 41
+      },
+      {
+        "at": "2026-10-28T00:39:44.238+08:00",
+        "epochMs": 1793119184238,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119132370,
+        "lastSeenIso": "2026-10-28T00:38:52.370+08:00",
+        "lastSeenAgeSec": 52
+      },
+      {
+        "at": "2026-10-28T00:39:55.712+08:00",
+        "epochMs": 1793119195712,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119132370,
+        "lastSeenIso": "2026-10-28T00:38:52.370+08:00",
+        "lastSeenAgeSec": 63
+      },
+      {
+        "at": "2026-10-28T00:40:06.255+08:00",
+        "epochMs": 1793119206255,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119132370,
+        "lastSeenIso": "2026-10-28T00:38:52.370+08:00",
+        "lastSeenAgeSec": 74
+      },
+      {
+        "at": "2026-10-28T00:40:17.634+08:00",
+        "epochMs": 1793119217635,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119132370,
+        "lastSeenIso": "2026-10-28T00:38:52.370+08:00",
+        "lastSeenAgeSec": 85
+      },
+      {
+        "at": "2026-10-28T00:40:28.896+08:00",
+        "epochMs": 1793119228896,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119132370,
+        "lastSeenIso": "2026-10-28T00:38:52.370+08:00",
+        "lastSeenAgeSec": 97
+      },
+      {
+        "at": "2026-10-28T00:40:39.374+08:00",
+        "epochMs": 1793119239374,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119132370,
+        "lastSeenIso": "2026-10-28T00:38:52.370+08:00",
+        "lastSeenAgeSec": 107
+      },
+      {
+        "at": "2026-10-28T00:40:50.855+08:00",
+        "epochMs": 1793119250855,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119132370,
+        "lastSeenIso": "2026-10-28T00:38:52.370+08:00",
+        "lastSeenAgeSec": 118
+      },
+      {
+        "at": "2026-10-28T00:41:01.278+08:00",
+        "epochMs": 1793119261278,
+        "online": false,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119252373,
+        "lastSeenIso": "2026-10-28T00:40:52.373+08:00",
+        "lastSeenAgeSec": 9
+      },
+      {
+        "at": "2026-10-28T00:41:12.333+08:00",
+        "epochMs": 1793119272333,
+        "online": false,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119252373,
+        "lastSeenIso": "2026-10-28T00:40:52.373+08:00",
+        "lastSeenAgeSec": 20
+      },
+      {
+        "at": "2026-10-28T00:41:24.960+08:00",
+        "epochMs": 1793119284960,
+        "online": false,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119252373,
+        "lastSeenIso": "2026-10-28T00:40:52.373+08:00",
+        "lastSeenAgeSec": 33
+      },
+      {
+        "at": "2026-10-28T00:41:35.572+08:00",
+        "epochMs": 1793119295572,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119292698,
+        "lastSeenIso": "2026-10-28T00:41:32.698+08:00",
+        "lastSeenAgeSec": 3
+      },
+      {
+        "at": "2026-10-28T00:41:46.887+08:00",
+        "epochMs": 1793119306887,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119292698,
+        "lastSeenIso": "2026-10-28T00:41:32.698+08:00",
+        "lastSeenAgeSec": 14
+      },
+      {
+        "at": "2026-10-28T00:41:57.298+08:00",
+        "epochMs": 1793119317298,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119292698,
+        "lastSeenIso": "2026-10-28T00:41:32.698+08:00",
+        "lastSeenAgeSec": 25
+      },
+      {
+        "at": "2026-10-28T00:42:09.341+08:00",
+        "epochMs": 1793119329341,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119322719,
+        "lastSeenIso": "2026-10-28T00:42:02.719+08:00",
+        "lastSeenAgeSec": 7
+      },
+      {
+        "at": "2026-10-28T00:42:20.048+08:00",
+        "epochMs": 1793119340048,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119322719,
+        "lastSeenIso": "2026-10-28T00:42:02.719+08:00",
+        "lastSeenAgeSec": 17
+      },
+      {
+        "at": "2026-10-28T00:42:31.272+08:00",
+        "epochMs": 1793119351272,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119322719,
+        "lastSeenIso": "2026-10-28T00:42:02.719+08:00",
+        "lastSeenAgeSec": 29
+      },
+      {
+        "at": "2026-10-28T00:42:42.512+08:00",
+        "epochMs": 1793119362512,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119352633,
+        "lastSeenIso": "2026-10-28T00:42:32.633+08:00",
+        "lastSeenAgeSec": 10
+      },
+      {
+        "at": "2026-10-28T00:42:52.944+08:00",
+        "epochMs": 1793119372944,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119352633,
+        "lastSeenIso": "2026-10-28T00:42:32.633+08:00",
+        "lastSeenAgeSec": 20
+      },
+      {
+        "at": "2026-10-28T00:43:04.444+08:00",
+        "epochMs": 1793119384444,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119382656,
+        "lastSeenIso": "2026-10-28T00:43:02.656+08:00",
+        "lastSeenAgeSec": 2
+      },
+      {
+        "at": "2026-10-28T00:43:14.837+08:00",
+        "epochMs": 1793119394837,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119382656,
+        "lastSeenIso": "2026-10-28T00:43:02.656+08:00",
+        "lastSeenAgeSec": 12
+      },
+      {
+        "at": "2026-10-28T00:43:25.948+08:00",
+        "epochMs": 1793119405948,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119382656,
+        "lastSeenIso": "2026-10-28T00:43:02.656+08:00",
+        "lastSeenAgeSec": 23
+      },
+      {
+        "at": "2026-10-28T00:43:36.388+08:00",
+        "epochMs": 1793119416388,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119412643,
+        "lastSeenIso": "2026-10-28T00:43:32.643+08:00",
+        "lastSeenAgeSec": 4
+      },
+      {
+        "at": "2026-10-28T00:43:47.794+08:00",
+        "epochMs": 1793119427794,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119412643,
+        "lastSeenIso": "2026-10-28T00:43:32.643+08:00",
+        "lastSeenAgeSec": 15
+      },
+      {
+        "at": "2026-10-28T00:43:58.264+08:00",
+        "epochMs": 1793119438264,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119412643,
+        "lastSeenIso": "2026-10-28T00:43:32.643+08:00",
+        "lastSeenAgeSec": 26
+      },
+      {
+        "at": "2026-10-28T00:44:09.256+08:00",
+        "epochMs": 1793119449256,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119442672,
+        "lastSeenIso": "2026-10-28T00:44:02.672+08:00",
+        "lastSeenAgeSec": 7
+      },
+      {
+        "at": "2026-10-28T00:44:20.012+08:00",
+        "epochMs": 1793119460012,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119442672,
+        "lastSeenIso": "2026-10-28T00:44:02.672+08:00",
+        "lastSeenAgeSec": 17
+      },
+      {
+        "at": "2026-10-28T00:44:30.399+08:00",
+        "epochMs": 1793119470399,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119442672,
+        "lastSeenIso": "2026-10-28T00:44:02.672+08:00",
+        "lastSeenAgeSec": 28
+      },
+      {
+        "at": "2026-10-28T00:44:42.084+08:00",
+        "epochMs": 1793119482084,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119472624,
+        "lastSeenIso": "2026-10-28T00:44:32.624+08:00",
+        "lastSeenAgeSec": 9
+      },
+      {
+        "at": "2026-10-28T00:44:52.465+08:00",
+        "epochMs": 1793119492465,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119472624,
+        "lastSeenIso": "2026-10-28T00:44:32.624+08:00",
+        "lastSeenAgeSec": 20
+      },
+      {
+        "at": "2026-10-28T00:45:04.758+08:00",
+        "epochMs": 1793119504758,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119502659,
+        "lastSeenIso": "2026-10-28T00:45:02.659+08:00",
+        "lastSeenAgeSec": 2
+      },
+      {
+        "at": "2026-10-28T00:45:15.999+08:00",
+        "epochMs": 1793119515999,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119502659,
+        "lastSeenIso": "2026-10-28T00:45:02.659+08:00",
+        "lastSeenAgeSec": 13
+      },
+      {
+        "at": "2026-10-28T00:45:26.402+08:00",
+        "epochMs": 1793119526403,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119502659,
+        "lastSeenIso": "2026-10-28T00:45:02.659+08:00",
+        "lastSeenAgeSec": 24
+      },
+      {
+        "at": "2026-10-28T00:45:37.964+08:00",
+        "epochMs": 1793119537964,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119532645,
+        "lastSeenIso": "2026-10-28T00:45:32.645+08:00",
+        "lastSeenAgeSec": 5
+      },
+      {
+        "at": "2026-10-28T00:45:48.409+08:00",
+        "epochMs": 1793119548409,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119532645,
+        "lastSeenIso": "2026-10-28T00:45:32.645+08:00",
+        "lastSeenAgeSec": 16
+      },
+      {
+        "at": "2026-10-28T00:45:59.895+08:00",
+        "epochMs": 1793119559896,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119532645,
+        "lastSeenIso": "2026-10-28T00:45:32.645+08:00",
+        "lastSeenAgeSec": 27
+      },
+      {
+        "at": "2026-10-28T00:46:10.685+08:00",
+        "epochMs": 1793119570685,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119562664,
+        "lastSeenIso": "2026-10-28T00:46:02.664+08:00",
+        "lastSeenAgeSec": 8
+      },
+      {
+        "at": "2026-10-28T00:46:21.790+08:00",
+        "epochMs": 1793119581790,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119562664,
+        "lastSeenIso": "2026-10-28T00:46:02.664+08:00",
+        "lastSeenAgeSec": 19
+      },
+      {
+        "at": "2026-10-28T00:46:33.023+08:00",
+        "epochMs": 1793119593023,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119592680,
+        "lastSeenIso": "2026-10-28T00:46:32.680+08:00",
+        "lastSeenAgeSec": 0
+      },
+      {
+        "at": "2026-10-28T00:46:43.373+08:00",
+        "epochMs": 1793119603373,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119592680,
+        "lastSeenIso": "2026-10-28T00:46:32.680+08:00",
+        "lastSeenAgeSec": 11
+      },
+      {
+        "at": "2026-10-28T00:46:54.432+08:00",
+        "epochMs": 1793119614432,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119592680,
+        "lastSeenIso": "2026-10-28T00:46:32.680+08:00",
+        "lastSeenAgeSec": 22
+      },
+      {
+        "at": "2026-10-28T00:47:04.844+08:00",
+        "epochMs": 1793119624844,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119622645,
+        "lastSeenIso": "2026-10-28T00:47:02.645+08:00",
+        "lastSeenAgeSec": 2
+      },
+      {
+        "at": "2026-10-28T00:47:16.344+08:00",
+        "epochMs": 1793119636344,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119622645,
+        "lastSeenIso": "2026-10-28T00:47:02.645+08:00",
+        "lastSeenAgeSec": 14
+      },
+      {
+        "at": "2026-10-28T00:47:27.175+08:00",
+        "epochMs": 1793119647175,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119622645,
+        "lastSeenIso": "2026-10-28T00:47:02.645+08:00",
+        "lastSeenAgeSec": 25
+      },
+      {
+        "at": "2026-10-28T00:47:37.548+08:00",
+        "epochMs": 1793119657548,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119652635,
+        "lastSeenIso": "2026-10-28T00:47:32.635+08:00",
+        "lastSeenAgeSec": 5
+      },
+      {
+        "at": "2026-10-28T00:47:48.560+08:00",
+        "epochMs": 1793119668560,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119652635,
+        "lastSeenIso": "2026-10-28T00:47:32.635+08:00",
+        "lastSeenAgeSec": 16
+      },
+      {
+        "at": "2026-10-28T00:47:58.959+08:00",
+        "epochMs": 1793119678959,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119652635,
+        "lastSeenIso": "2026-10-28T00:47:32.635+08:00",
+        "lastSeenAgeSec": 26
+      },
+      {
+        "at": "2026-10-28T00:48:10.413+08:00",
+        "epochMs": 1793119690413,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119682643,
+        "lastSeenIso": "2026-10-28T00:48:02.643+08:00",
+        "lastSeenAgeSec": 8
+      },
+      {
+        "at": "2026-10-28T00:48:20.837+08:00",
+        "epochMs": 1793119700838,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119682643,
+        "lastSeenIso": "2026-10-28T00:48:02.643+08:00",
+        "lastSeenAgeSec": 18
+      },
+      {
+        "at": "2026-10-28T00:48:31.513+08:00",
+        "epochMs": 1793119711513,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119682643,
+        "lastSeenIso": "2026-10-28T00:48:02.643+08:00",
+        "lastSeenAgeSec": 29
+      },
+      {
+        "at": "2026-10-28T00:48:42.438+08:00",
+        "epochMs": 1793119722438,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119712670,
+        "lastSeenIso": "2026-10-28T00:48:32.670+08:00",
+        "lastSeenAgeSec": 10
+      },
+      {
+        "at": "2026-10-28T00:48:52.842+08:00",
+        "epochMs": 1793119732842,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119712670,
+        "lastSeenIso": "2026-10-28T00:48:32.670+08:00",
+        "lastSeenAgeSec": 20
+      },
+      {
+        "at": "2026-10-28T00:49:03.972+08:00",
+        "epochMs": 1793119743972,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119742664,
+        "lastSeenIso": "2026-10-28T00:49:02.664+08:00",
+        "lastSeenAgeSec": 1
+      },
+      {
+        "at": "2026-10-28T00:49:14.347+08:00",
+        "epochMs": 1793119754347,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119742664,
+        "lastSeenIso": "2026-10-28T00:49:02.664+08:00",
+        "lastSeenAgeSec": 12
+      },
+      {
+        "at": "2026-10-28T00:49:25.385+08:00",
+        "epochMs": 1793119765385,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119742664,
+        "lastSeenIso": "2026-10-28T00:49:02.664+08:00",
+        "lastSeenAgeSec": 23
+      },
+      {
+        "at": "2026-10-28T00:49:36.064+08:00",
+        "epochMs": 1793119776064,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119772669,
+        "lastSeenIso": "2026-10-28T00:49:32.669+08:00",
+        "lastSeenAgeSec": 3
+      },
+      {
+        "at": "2026-10-28T00:49:46.556+08:00",
+        "epochMs": 1793119786556,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119772669,
+        "lastSeenIso": "2026-10-28T00:49:32.669+08:00",
+        "lastSeenAgeSec": 14
+      },
+      {
+        "at": "2026-10-28T00:49:58.388+08:00",
+        "epochMs": 1793119798388,
+        "online": true,
+        "state": "NORMAL",
+        "lastSeenTs": 1793119772669,
+        "lastSeenIso": "2026-10-28T00:49:32.669+08:00",
+        "lastSeenAgeSec": 26
+      }
+    ],
+    "alerts": [
+      {
+        "alarmId": "sos-11-686d1dee",
+        "firstSeenAt": "2026-10-28T00:34:57.727+08:00",
+        "createdAtIso": "2026-10-27T23:52:11.119+08:00",
+        "acknowledgedAtIso": "2026-10-27T23:52:42.948+08:00",
+        "state": "ACKED"
+      },
+      {
+        "alarmId": "sos-10-4a2b38da",
+        "firstSeenAt": "2026-10-28T00:34:57.727+08:00",
+        "createdAtIso": "2026-10-27T23:47:00.138+08:00",
+        "acknowledgedAtIso": "2026-10-27T23:49:22.218+08:00",
+        "state": "ACKED"
+      },
+      {
+        "alarmId": "sos-9-729e65b9",
+        "firstSeenAt": "2026-10-28T00:34:57.727+08:00",
+        "createdAtIso": "2026-10-27T23:45:09.368+08:00",
+        "acknowledgedAtIso": "2026-10-27T23:45:43.453+08:00",
+        "state": "ACKED"
+      },
+      {
+        "alarmId": "sos-8-fc452df6",
+        "firstSeenAt": "2026-10-28T00:34:57.727+08:00",
+        "createdAtIso": "2026-10-27T23:09:07.338+08:00",
+        "acknowledgedAtIso": "2026-10-27T23:12:21.303+08:00",
+        "state": "ACKED"
+      },
+      {
+        "alarmId": "sos-7-b941b638",
+        "firstSeenAt": "2026-10-28T00:34:57.727+08:00",
+        "createdAtIso": "2026-10-27T22:52:32.478+08:00",
+        "acknowledgedAtIso": "2026-10-27T22:52:59.268+08:00",
+        "state": "ACKED"
+      },
+      {
+        "alarmId": "sos-6-49732005",
+        "firstSeenAt": "2026-10-28T00:34:57.727+08:00",
+        "createdAtIso": "2026-10-27T22:06:44.756+08:00",
+        "acknowledgedAtIso": "2026-10-27T22:07:09.191+08:00",
+        "state": "ACKED"
+      },
+      {
+        "alarmId": "sos-5-a865a846",
+        "firstSeenAt": "2026-10-28T00:34:57.727+08:00",
+        "createdAtIso": "2026-10-27T18:14:23.939+08:00",
+        "acknowledgedAtIso": "2026-10-27T18:27:54.004+08:00",
+        "state": "ACKED"
+      },
+      {
+        "alarmId": "sos-4-6c6aed3f",
+        "firstSeenAt": "2026-10-28T00:34:57.727+08:00",
+        "createdAtIso": "2026-10-27T18:07:19.447+08:00",
+        "acknowledgedAtIso": "2026-10-27T18:07:45.707+08:00",
+        "state": "ACKED"
+      },
+      {
+        "alarmId": "sos-3-0555328b",
+        "firstSeenAt": "2026-10-28T00:34:57.727+08:00",
+        "createdAtIso": "2026-10-27T18:05:43.954+08:00",
+        "acknowledgedAtIso": "2026-10-27T18:06:30.294+08:00",
+        "state": "ACKED"
+      },
+      {
+        "alarmId": "sos-2-124737aa",
+        "firstSeenAt": "2026-10-28T00:34:57.727+08:00",
+        "createdAtIso": "2026-10-27T18:03:23.874+08:00",
+        "acknowledgedAtIso": "2026-10-27T18:04:02.595+08:00",
+        "state": "ACKED"
+      },
+      {
+        "alarmId": "e-1793076169-1",
+        "firstSeenAt": "2026-10-28T00:34:57.727+08:00",
+        "createdAtIso": "2026-10-27T12:42:51.966+08:00",
+        "acknowledgedAtIso": null,
+        "state": "ALARM"
+      },
+      {
+        "alarmId": "e-1793035292-1",
+        "firstSeenAt": "2026-10-28T00:34:57.727+08:00",
+        "createdAtIso": "2026-10-27T01:21:32.653+08:00",
+        "acknowledgedAtIso": "2026-10-27T02:23:11.306+08:00",
+        "state": "ACKED"
+      },
+      {
+        "alarmId": "e-1793022476-1",
+        "firstSeenAt": "2026-10-28T00:34:57.727+08:00",
+        "createdAtIso": "2026-10-26T21:49:36.411+08:00",
+        "acknowledgedAtIso": null,
+        "state": "ALARM"
+      },
+      {
+        "alarmId": "sos-12-1a1003dc",
+        "firstSeenAt": "2026-10-28T00:35:52.144+08:00",
+        "createdAtIso": "2026-10-28T00:35:45.905+08:00",
+        "acknowledgedAtIso": "2026-10-28T00:38:32.754+08:00",
+        "state": "ACKED"
+      }
+    ]
+  },
+  "evidenceHints": [
+    "最新 /status counters: {\"sosReceived\":8,\"sosDuplicates\":7,\"deviceOfflineReports\":1,\"parkedRecoveryTriggers\":1,\"commandResultOk\":1,\"commandsRedelivered\":1,\"deviceLinkUps\":1,\"deviceLinkDowns\":0,\"activeEventClearedByDevice\":0}"
+  ]
+}

@@ -1,0 +1,12 @@
+﻿=== start-mirror.ps1 self-test (tcp, PC 监听 19003, 无 rport/无注入) ===
+[start-mirror] node = D:\Node\node.exe
+[start-mirror] 未指定/未发现 DAYU target，跳过 hdc 端口准备
+[start-mirror] 已启动 pid=62956，日志: D:\OpenHarmony\tmp\mirror-script-test2\mirror.log
+[start-mirror] 运行中：source=api hasData=False phase=NORMAL online=False emitCount=0
+[start-mirror] 完成。停止: .\stop-mirror.ps1    查看: Get-Content 
+
+=== stop-mirror.ps1 self-test ===
+[stop-mirror] 停止镜像进程 pid=62956
+[stop-mirror] 清理单实例锁
+[stop-mirror] 完成
+

@@ -1,0 +1,78 @@
+{
+  "kind": "mqtt-connack-probe",
+  "at": "2026-10-28T00:25:03.144+08:00",
+  "epochMs": 1793118303145,
+  "host": "47.76.70.118",
+  "port": 1883,
+  "whitelistClientIdNeverUsed": true,
+  "note": "仅 CONNECT/CONNACK/DISCONNECT；未 PUBLISH、未 SUBSCRIBE、未使用白名单 clientId。",
+  "results": [
+    {
+      "case": "valid-credentials+non-whitelist-clientId",
+      "expectedReturnCode": 5,
+      "pass": true,
+      "at": "2026-10-28T00:25:01.728+08:00",
+      "epochMs": 1793118301728,
+      "host": "47.76.70.118",
+      "port": 1883,
+      "clientId": "probe-readonly-7bedd195",
+      "tcpConnected": true,
+      "tcpConnectMs": 84,
+      "connack": {
+        "sessionPresent": false,
+        "returnCode": 5
+      },
+      "returnCode": 5,
+      "returnCodeMeaning": "REFUSED_NOT_AUTHORIZED (本项目 = clientId 不在白名单)",
+      "sessionPresent": false,
+      "closedByServer": false,
+      "error": null,
+      "durationMs": 165
+    },
+    {
+      "case": "wrong-password+non-whitelist-clientId(control)",
+      "expectedReturnCode": 4,
+      "pass": true,
+      "at": "2026-10-28T00:25:02.196+08:00",
+      "epochMs": 1793118302196,
+      "host": "47.76.70.118",
+      "port": 1883,
+      "clientId": "probe-readonly-7bedd195",
+      "tcpConnected": true,
+      "tcpConnectMs": 97,
+      "connack": {
+        "sessionPresent": false,
+        "returnCode": 4
+      },
+      "returnCode": 4,
+      "returnCodeMeaning": "REFUSED_BAD_USERNAME_OR_PASSWORD",
+      "sessionPresent": false,
+      "closedByServer": false,
+      "error": null,
+      "durationMs": 178
+    },
+    {
+      "case": "valid-credentials+empty-clientId",
+      "expectedReturnCode": 2,
+      "pass": true,
+      "at": "2026-10-28T00:25:02.679+08:00",
+      "epochMs": 1793118302679,
+      "host": "47.76.70.118",
+      "port": 1883,
+      "clientId": "",
+      "tcpConnected": true,
+      "tcpConnectMs": 77,
+      "connack": {
+        "sessionPresent": false,
+        "returnCode": 2
+      },
+      "returnCode": 2,
+      "returnCodeMeaning": "REFUSED_IDENTIFIER_REJECTED",
+      "sessionPresent": false,
+      "closedByServer": false,
+      "error": null,
+      "durationMs": 156
+    }
+  ],
+  "verdict": "PASS"
+}

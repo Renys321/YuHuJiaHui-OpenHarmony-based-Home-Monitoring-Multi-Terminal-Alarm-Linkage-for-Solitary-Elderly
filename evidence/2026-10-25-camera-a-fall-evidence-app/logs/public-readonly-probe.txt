@@ -1,0 +1,7 @@
+2026-10-25 Asia/Shanghai
+GET https://api.luxunacc.xyz/healthz -> 200 application/json
+GET https://api.luxunacc.xyz/api/v1/alerts without session -> 401 application/json
+GET https://api.luxunacc.xyz/api/v1/alerts/camera-a-probe/evidence/content without session -> 401
+Response cache-control for unauthorized evidence probe: no-store
+No credentials, cookies, bearer tokens, authorization values, or response bodies were recorded.
+Conclusion: HTTPS and the common authentication gate are reachable. Evidence-route deployment is NOT PROVEN.

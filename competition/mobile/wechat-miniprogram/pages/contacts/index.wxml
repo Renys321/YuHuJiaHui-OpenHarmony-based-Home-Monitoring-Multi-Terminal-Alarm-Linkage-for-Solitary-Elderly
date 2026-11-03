@@ -1,0 +1,20 @@
+<view class="page">
+  <view class="page-title">紧急联系人</view>
+  <view class="page-subtitle">需要时由用户主动发起电话联系</view>
+  <view class="connection-banner {{banner.bannerClass}}">
+    <view><view class="connection-title">{{banner.title}}</view><view class="connection-detail">{{banner.detail}}</view></view>
+    <view wx:if="{{mode === 'demo'}}" class="demo-badge">演示数据</view>
+  </view>
+  <view wx:if="{{loading}}" class="state-view"><view class="state-title">正在加载</view></view>
+  <view wx:elif="{{contacts.length === 0}}" class="state-view"><view class="state-title">暂无联系人</view><view class="state-message">联系人由受信后端提供。小程序不会自动拨号。</view></view>
+  <view wx:else>
+    <view wx:for="{{contacts}}" wx:key="id" class="panel contact-card">
+      <view class="contact-main">
+        <view class="contact-details"><view class="contact-name">{{item.name}}</view><view class="muted contact-meta">{{item.relation || '关系未设置'}} · {{item.phone}}</view></view>
+        <view wx:if="{{item.primary}}" class="tag">首要联系人</view>
+      </view>
+      <button class="primary-button" data-phone="{{item.phone}}" bindtap="callContact">拨打电话</button>
+    </view>
+    <view wx:if="{{mode === 'demo'}}" class="demo-call-warning">演示号码仅用于界面测试，请勿实际拨打。</view>
+  </view>
+</view>

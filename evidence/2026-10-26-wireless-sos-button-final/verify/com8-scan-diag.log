@@ -1,0 +1,50 @@
+# bench-serial.py start 2026-10-26T21:10:19.747+08:00
+# com=COM8 baud=115200 dtr=False rts=False log=D:\OpenHarmony\competition\evidence\2026-10-26-wireless-sos-button-final\verify\com8-scan-diag.log
+[+00000000.063s] [2026-10-26T21:10:19.811+08:00] W (932) elder-node: SCAN DIAG: 目标 SSID 长度=12，开始全信道扫描
+[+00000002.594s] [2026-10-26T21:10:22.336+08:00] W (3432) elder-node: SCAN DIAG: round=0 aps=2
+[+00000002.594s] [2026-10-26T21:10:22.336+08:00] W (3432) elder-node: SCAN DIAG: ap[0] ssid=26*** rssi=-55 ch=11 auth=3 hidden=0 target=0
+[+00000002.594s] [2026-10-26T21:10:22.336+08:00] W (3432) elder-node: SCAN DIAG: ap[1] ssid=AI*** rssi=-60 ch=11 auth=0 hidden=0 target=0
+[+00000002.594s] [2026-10-26T21:10:22.336+08:00] W (3442) elder-node: SCAN DIAG: round=0 total=2 targetVisible=0
+[+00000009.094s] [2026-10-26T21:10:28.845+08:00] W (9942) elder-node: SCAN DIAG: round=1 aps=3
+[+00000009.094s] [2026-10-26T21:10:28.845+08:00] W (9942) elder-node: SCAN DIAG: ap[0] ssid=26*** rssi=-53 ch=11 auth=3 hidden=0 target=0
+[+00000009.094s] [2026-10-26T21:10:28.845+08:00] W (9942) elder-node: SCAN DIAG: ap[1] ssid=ny*** rssi=-68 ch=6 auth=3 hidden=0 target=0
+[+00000009.094s] [2026-10-26T21:10:28.845+08:00] W (9952) elder-node: SCAN DIAG: ap[2] ssid=AI*** rssi=-76 ch=11 auth=0 hidden=0 target=0
+[+00000009.094s] [2026-10-26T21:10:28.845+08:00] W (9962) elder-node: SCAN DIAG: round=1 total=3 targetVisible=0
+[+00000015.625s] [2026-10-26T21:10:35.366+08:00] W (16462) elder-node: SCAN DIAG: round=2 aps=3
+[+00000015.625s] [2026-10-26T21:10:35.366+08:00] W (16462) elder-node: SCAN DIAG: ap[0] ssid=26*** rssi=-59 ch=11 auth=3 hidden=0 target=0
+[+00000015.625s] [2026-10-26T21:10:35.366+08:00] W (16462) elder-node: SCAN DIAG: ap[1] ssid=AI*** rssi=-61 ch=11 auth=0 hidden=0 target=0
+[+00000015.625s] [2026-10-26T21:10:35.366+08:00] W (16472) elder-node: SCAN DIAG: ap[2] ssid=ny*** rssi=-72 ch=6 auth=3 hidden=0 target=0
+[+00000015.625s] [2026-10-26T21:10:35.367+08:00] W (16482) elder-node: SCAN DIAG: round=2 total=3 targetVisible=0
+[+00000022.172s] [2026-10-26T21:10:41.916+08:00] W (22982) elder-node: SCAN DIAG: round=3 aps=6
+[+00000022.172s] [2026-10-26T21:10:41.916+08:00] W (22982) elder-node: SCAN DIAG: ap[0] ssid=26*** rssi=-55 ch=11 auth=3 hidden=0 target=0
+[+00000022.172s] [2026-10-26T21:10:41.916+08:00] W (22982) elder-node: SCAN DIAG: ap[1] ssid=AI*** rssi=-69 ch=11 auth=0 hidden=0 target=0
+[+00000022.172s] [2026-10-26T21:10:41.916+08:00] W (22992) elder-node: SCAN DIAG: ap[2] ssid=ny*** rssi=-70 ch=6 auth=3 hidden=0 target=0
+[+00000022.172s] [2026-10-26T21:10:41.916+08:00] W (23002) elder-node: SCAN DIAG: ap[3] ssid=ny*** rssi=-76 ch=6 auth=0 hidden=0 target=0
+[+00000022.172s] [2026-10-26T21:10:41.916+08:00] W (23012) elder-node: SCAN DIAG: ap[4] ssid=ny*** rssi=-77 ch=6 auth=0 hidden=0 target=0
+[+00000022.172s] [2026-10-26T21:10:41.916+08:00] W (23012) elder-node: SCAN DIAG: ap[5] ssid=ny*** rssi=-77 ch=6 auth=0 hidden=0 target=0
+[+00000022.172s] [2026-10-26T21:10:41.916+08:00] W (23022) elder-node: SCAN DIAG: round=3 total=6 targetVisible=0
+[+00000028.703s] [2026-10-26T21:10:48.446+08:00] W (29532) elder-node: SCAN DIAG: round=4 aps=3
+[+00000028.703s] [2026-10-26T21:10:48.446+08:00] W (29532) elder-node: SCAN DIAG: ap[0] ssid=26*** rssi=-55 ch=11 auth=3 hidden=0 target=0
+[+00000028.703s] [2026-10-26T21:10:48.446+08:00] W (29532) elder-node: SCAN DIAG: ap[1] ssid=AI*** rssi=-64 ch=11 auth=0 hidden=0 target=0
+[+00000028.703s] [2026-10-26T21:10:48.446+08:00] W (29542) elder-node: SCAN DIAG: ap[2] ssid=ny*** rssi=-66 ch=6 auth=3 hidden=0 target=0
+[+00000028.703s] [2026-10-26T21:10:48.446+08:00] W (29552) elder-node: SCAN DIAG: round=4 total=3 targetVisible=0
+[+00000035.219s] [2026-10-26T21:10:54.959+08:00] W (36052) elder-node: SCAN DIAG: round=5 aps=2
+[+00000035.219s] [2026-10-26T21:10:54.959+08:00] W (36052) elder-node: SCAN DIAG: ap[0] ssid=26*** rssi=-56 ch=11 auth=3 hidden=0 target=0
+[+00000035.219s] [2026-10-26T21:10:54.959+08:00] W (36052) elder-node: SCAN DIAG: ap[1] ssid=AI*** rssi=-61 ch=11 auth=0 hidden=0 target=0
+[+00000035.219s] [2026-10-26T21:10:54.959+08:00] W (36062) elder-node: SCAN DIAG: round=5 total=2 targetVisible=0
+[+00000041.735s] [2026-10-26T21:11:01.474+08:00] W (42562) elder-node: SCAN DIAG: round=6 aps=3
+[+00000041.735s] [2026-10-26T21:11:01.474+08:00] W (42562) elder-node: SCAN DIAG: ap[0] ssid=26*** rssi=-54 ch=11 auth=3 hidden=0 target=0
+[+00000041.735s] [2026-10-26T21:11:01.474+08:00] W (42562) elder-node: SCAN DIAG: ap[1] ssid=ny*** rssi=-65 ch=6 auth=3 hidden=0 target=0
+[+00000041.735s] [2026-10-26T21:11:01.474+08:00] W (42572) elder-node: SCAN DIAG: ap[2] ssid=AI*** rssi=-71 ch=11 auth=0 hidden=0 target=0
+[+00000041.735s] [2026-10-26T21:11:01.474+08:00] W (42582) elder-node: SCAN DIAG: round=6 total=3 targetVisible=0
+[+00000048.250s] [2026-10-26T21:11:07.988+08:00] W (49082) elder-node: SCAN DIAG: round=7 aps=3
+[+00000048.250s] [2026-10-26T21:11:07.988+08:00] W (49082) elder-node: SCAN DIAG: ap[0] ssid=26*** rssi=-59 ch=11 auth=3 hidden=0 target=0
+[+00000048.250s] [2026-10-26T21:11:07.988+08:00] W (49082) elder-node: SCAN DIAG: ap[1] ssid=AI*** rssi=-67 ch=11 auth=0 hidden=0 target=0
+[+00000048.250s] [2026-10-26T21:11:07.989+08:00] W (49092) elder-node: SCAN DIAG: ap[2] ssid=�*** rssi=-72 ch=10 auth=3 hidden=0 target=0
+[+00000048.250s] [2026-10-26T21:11:07.989+08:00] W (49102) elder-node: SCAN DIAG: round=7 total=3 targetVisible=0
+[+00000054.766s] [2026-10-26T21:11:14.512+08:00] W (55602) elder-node: SCAN DIAG: round=8 aps=3
+[+00000054.766s] [2026-10-26T21:11:14.512+08:00] W (55602) elder-node: SCAN DIAG: ap[0] ssid=26*** rssi=-56 ch=11 auth=3 hidden=0 target=0
+[+00000054.766s] [2026-10-26T21:11:14.512+08:00] W (55602) elder-node: SCAN DIAG: ap[1] ssid=AI*** rssi=-69 ch=11 auth=0 hidden=0 target=0
+[+00000054.766s] [2026-10-26T21:11:14.512+08:00] W (55612) elder-node: SCAN DIAG: ap[2] ssid=Xi*** rssi=-73 ch=1 auth=3 hidden=0 target=0
+[+00000054.766s] [2026-10-26T21:11:14.512+08:00] W (55622) elder-node: SCAN DIAG: round=8 total=3 targetVisible=0
+# BENCH_SERIAL SUMMARY lines=47 bytes=4151 sent=0 duration=55.047s markers={}

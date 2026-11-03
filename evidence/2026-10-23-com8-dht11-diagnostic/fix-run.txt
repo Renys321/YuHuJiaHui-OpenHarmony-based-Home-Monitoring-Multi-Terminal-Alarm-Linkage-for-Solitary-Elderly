@@ -1,0 +1,8 @@
+﻿[0;33mW (6543) elder-node: WiFi 断开（reason=201），重连中…[0m
+[0;33mW (8953) elder-node: WiFi 断开（reason=201），重连中…[0m
+[0;33mW (11363) elder-node: WiFi 断开（reason=201），重连中…[0m
+[0;33mW (13773) elder-node: WiFi 断开（reason=201），重连中…[0m
+[0;33mW (16183) elder-node: WiFi 断开（reason=201），重连中…[0m
+[0;33mW (18593) elder-node: WiFi 断开（reason=201），重连中…[0m
+[0;33mW (21003) elder-node: WiFi 断开（reason=201），重连中…[0m
+

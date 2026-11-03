@@ -1,0 +1,190 @@
+﻿# diff demo-autostart.ps1 (current, 2026-10-27 22:41 修复版) vs .bak-20261027 (修复前)
+# 生成时间: 
+2026-10-28 00:29:10
+ Asia/Shanghai
+# 说明：仅记录脚本差异；diff 内容不含任何密钥。
+
+diff --git a/D:/OpenHarmony/competition/materials/demo-autostart/demo-autostart.ps1.bak-20261027 b/D:/OpenHarmony/competition/materials/demo-autostart/demo-autostart.ps1
+index 775d4ba..0de1004 100644
+--- a/D:/OpenHarmony/competition/materials/demo-autostart/demo-autostart.ps1.bak-20261027
++++ b/D:/OpenHarmony/competition/materials/demo-autostart/demo-autostart.ps1
+@@ -1,4 +1,4 @@
+-param(
++﻿param(
+   [string]$Target = '450100445634303332012847942eca00',
+   [switch]$NoP0Launch
+ )
+@@ -23,6 +23,10 @@ $script:userStop = Test-Path $StopFlag
+ $script:userPaused = $false
+ $script:lastHdcRepair = [datetime]::MinValue
+ $script:lastP0Launch = [datetime]::MinValue
++$script:lastP0Reason = ''
++$script:lastP0HealthReason = ''
++$script:p0LaunchAttempts = 0
++$script:p0LaunchWindowStart = [datetime]::MinValue
+ $script:lastAppStart = [datetime]::MinValue
+ $script:lastEventCount = -1
+ $script:lastEventAt = [datetime]::MinValue
+@@ -107,32 +111,115 @@ function Get-DayuShell([string]$Command) {
+   return @(Invoke-Hdc @('-t',$Target,'shell',$Command))
+ }
+ 
++function Test-PidAlive([int]$ProcessId) {
++  if ($ProcessId -le 0) { return $false }
++  try {
++    $p = Get-Process -Id $ProcessId -ErrorAction Stop
++    return -not $p.HasExited
++  } catch { return $false }
++}
++
++function Read-P0State {
++  if (-not (Test-Path $P0State)) { return $null }
++  try { return (Get-Content -LiteralPath $P0State -Raw | ConvertFrom-Json) } catch { return $null }
++}
++
++function Read-P0LockPid {
++  if (-not (Test-Path $P0Lock)) { return 0 }
++  try {
++    $v = 0
++    if ([int]::TryParse((Get-Content -LiteralPath $P0Lock -Raw).Trim(), [ref]$v)) { return $v }
++    return 0
++  } catch { return 0 }
++}
++
++# P0 = Broker + Bridge + public-sync supervisor/worker。
++# 2026-10-27 事故：supervisor/worker 在 16:25 一起被杀，但 state.json 一直停在
++# 16:24 的 HEALTHY、lock 里也是死 PID。旧实现只看文件里的字符串，于是 P0 被永久
++# 判成 healthy，监视器从不拉起，手机端数据停在旧值。现在必须同时满足：
++#   端口在监听 + supervisor PID 存活 + worker PID 存活 + 状态 HEALTHY + heartbeat 新鲜。
+ function Get-P0Health {
+   $ports = (Test-Tcp 1883) -and (Test-Tcp 9101)
+-  $stateOk = $false
+-  if (Test-Path $P0State) {
+-    try {
+-      $j = Get-Content -LiteralPath $P0State -Raw | ConvertFrom-Json
+-      if ($j.state -eq 'HEALTHY' -and $j.supervisorPid -gt 0) { $stateOk = $true }
+-    } catch { }
++  $state = Read-P0State
++  $lockPid = Read-P0LockPid
++  $statePid = 0
++  $workerPid = 0
++  $stateName = 'MISSING'
++  $heartbeatAgeSec = -1
++  if ($state) {
++    if ($null -ne $state.supervisorPid) { $statePid = [int]$state.supervisorPid }
++    if ($null -ne $state.workerPid) { $workerPid = [int]$state.workerPid }
++    if ($state.state) { $stateName = [string]$state.state }
++    if ($null -ne $state.heartbeatAt -and [long]$state.heartbeatAt -gt 0) {
++      $hb = [DateTimeOffset]::FromUnixTimeMilliseconds([long]$state.heartbeatAt)
++      $heartbeatAgeSec = [int][math]::Round(((Get-Date).ToUniversalTime() - $hb.UtcDateTime).TotalSeconds)
++    }
++  }
++  $supervisorPid = if ($lockPid -gt 0) { $lockPid } else { $statePid }
++  $supervisorAlive = Test-PidAlive $supervisorPid
++  $workerAlive = Test-PidAlive $workerPid
++  $heartbeatFresh = ($heartbeatAgeSec -ge 0 -and $heartbeatAgeSec -le 90)
++  $stateOk = ($stateName -eq 'HEALTHY' -and $heartbeatFresh)
++  $healthy = $ports -and $supervisorAlive -and $workerAlive -and $stateOk
++  $reason = 'HEALTHY'
++  if (-not $healthy) {
++    if (-not $ports) { $reason = 'PORTS_DOWN' }
++    elseif ($lockPid -gt 0 -and -not $supervisorAlive) { $reason = 'STALE_LOCK' }
++    elseif (-not $supervisorAlive) { $reason = 'SUPERVISOR_DEAD' }
++    elseif (-not $workerAlive) { $reason = 'WORKER_DEAD' }
++    elseif ($stateName -eq 'CIRCUIT_OPEN') { $reason = 'CIRCUIT_OPEN' }
++    elseif ($stateName -ne 'HEALTHY') { $reason = "STATE_$stateName" }
++    elseif (-not $heartbeatFresh) { $reason = 'STALE_HEARTBEAT' }
++  }
++  return [pscustomobject]@{
++    Healthy = $healthy; Reason = $reason; Ports = $ports; State = $stateOk
++    StateName = $stateName; SupervisorPid = $supervisorPid; SupervisorAlive = $supervisorAlive
++    WorkerPid = $workerPid; WorkerAlive = $workerAlive; LockPid = $lockPid
++    HeartbeatAgeSec = $heartbeatAgeSec
+   }
+-  return [pscustomobject]@{ Healthy = ($ports -and $stateOk); Ports = $ports; State = $stateOk }
+ }
+ 
+ function Ensure-P0 {
+   $h = Get-P0Health
+   if ($h.Healthy) { return $true }
+   if ($NoP0Launch) { return $false }
+-  $hasLock = Test-Path $P0Lock
++  # 只有"活着的"锁才阻止拉起。陈旧锁（PID 已退出）必须允许 P0 入口重新接管；
++  # 否则一个死 PID 的锁文件会把自动拉起永久卡死（2026-10-27 事故的直接原因之一）。
++  $liveLock = ($h.LockPid -gt 0) -and (Test-PidAlive $h.LockPid)
++  if ($liveLock) {
++    $tag = 'live-lock:' + $h.Reason
++    if ($script:lastP0Reason -ne $tag) {
++      $script:lastP0Reason = $tag
++      Write-Log ("P0 不健康（{0}）但 supervisor 进程仍存活 PID={1}；不重复拉起，等待其自身重启/熔断恢复" -f $h.Reason, $h.LockPid)
++    }
++    return $false
++  }
++  if ($h.LockPid -gt 0 -and -not (Test-PidAlive $h.LockPid)) {
++    if ($script:lastP0Reason -ne 'stale-lock') {
++      $script:lastP0Reason = 'stale-lock'
++      Write-Log ("检测到 STALE supervisor lock PID={0}（进程已退出）、陈旧 state={1}；允许重新拉起 P0 入口（INGEST_KEY 需由用户在该可见窗口输入）" -f $h.LockPid, $h.StateName)
++    }
++  }
+   $now = Get-Date
+-  if (-not $hasLock -and (($now - $script:lastP0Launch).TotalSeconds -ge 60)) {
+-    $script:lastP0Launch = $now
+-    Write-Log 'P0 not healthy; launching existing formal P0 entry in a visible window (key is entered there, never read here).'
+-    Write-Host '[WAIT] P0 entry is opening. Enter INGEST_KEY only in that visible window.' -ForegroundColor Yellow
+-    try {
+-      Start-Process -FilePath 'cmd.exe' -ArgumentList '/c', ('"'+$P0Cmd+'"') -WorkingDirectory (Split-Path -Parent $P0Cmd) | Out-Null
+-    } catch { Write-Log "P0 launch failed: $($_.Exception.Message)" }
++  if ($script:p0LaunchWindowStart -eq [datetime]::MinValue -or (($now - $script:p0LaunchWindowStart).TotalMinutes -ge 30)) {
++    $script:p0LaunchWindowStart = $now
++    $script:p0LaunchAttempts = 0
+   }
++  if ($script:p0LaunchAttempts -ge 6) {
++    if ($script:lastP0Reason -ne 'launch-capped') {
++      $script:lastP0Reason = 'launch-capped'
++      Write-Log 'P0 入口 30 分钟内已尝试拉起 6 次仍未恢复；为避免反复弹窗暂停自动拉起，请人工运行 start-demo-supervisor.cmd'
++    }
++    return $false
++  }
++  if (($now - $script:lastP0Launch).TotalSeconds -lt 60) { return $false }
++  $script:lastP0Launch = $now
++  $script:p0LaunchAttempts += 1
++  Write-Log ("P0 不健康（reason={0} state={1} heartbeatAgeSec={2} supervisorAlive={3} workerAlive={4}）；拉起既有正式 P0 入口（key 由用户在该可见窗口输入，本脚本从不读取）" -f $h.Reason, $h.StateName, $h.HeartbeatAgeSec, $h.SupervisorAlive, $h.WorkerAlive)
++  Write-Host '[WAIT] P0 entry is opening. Enter INGEST_KEY only in that visible window.' -ForegroundColor Yellow
++  try {
++    Start-Process -FilePath 'cmd.exe' -ArgumentList '/c', ('"'+$P0Cmd+'"') -WorkingDirectory (Split-Path -Parent $P0Cmd) | Out-Null
++  } catch { Write-Log "P0 launch failed: $($_.Exception.Message)" }
+   return $false
+ }
+ 
+@@ -374,6 +461,7 @@ function Get-StatusObject([string]$P0, [string]$App, [string]$Inf, [string]$Came
+     target = $Target
+     targetConnected = $TargetOk
+     p0 = $P0
++    p0Reason = $script:lastP0HealthReason
+     app = $App
+     inference = $Inf
+     cameraFrames = $Camera
+@@ -393,6 +481,9 @@ function Print-Status($S) {
+   $nodes = '?'
+   if ($S.nodes) { $nodes = $S.nodes }
+   Write-Host ("[{0}] P0={1} target={2} app={3} detect={4} frames={5} nodes={6} stop={7} paused={8}" -f $S.timestamp,$S.p0,$tgt,$S.app,$S.inference,$S.cameraFrames,$nodes,$S.userStop,$S.userPaused) -ForegroundColor $color
++  if ($S.p0 -ne 'healthy' -and $S.p0Reason) {
++    Write-Host ("        P0 detail: reason={0}" -f $S.p0Reason) -ForegroundColor Yellow
++  }
+ }
+ 
+ Write-Host '============================================================' -ForegroundColor Cyan
+@@ -439,11 +530,13 @@ try {
+     $targetOk = $false
+ 
+     $p0Health = Get-P0Health
++    $script:lastP0HealthReason = $p0Health.Reason
+     if ($p0Health.Healthy) { $p0 = 'healthy' }
+     else {
+       $p0 = 'starting'
+       Ensure-P0 | Out-Null
+       $p0Health = Get-P0Health
++      $script:lastP0HealthReason = $p0Health.Reason
+       if ($p0Health.Healthy) { $p0 = 'healthy' }
+     }
+ 

@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>随身求助定位</title>
+<!--
+  纯本地自绘 slippy 瓦片地图（无地图 SDK、无 Key、不加载任何远程 JS / CDN）。
+  瓦片图片来自高德栅格服务（GCJ-02）。坐标由 ArkTS 侧 **只转换一次** 后以 JSON 传入：
+  本文件不做任何 WGS84→GCJ-02 转换，只做墨卡托投影与绘制。
+  update(jsonString) 的字段见 core/location/SosLocation.ts 的 SosMapPayload。
+-->
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { width: 100%; height: 100%; overflow: hidden; background: #E9EEF5; }
+  body { font-family: -apple-system, "HarmonyOS Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; }
+  #map { position: relative; width: 100%; height: 100%; overflow: hidden; touch-action: none; user-select: none; }
+  #tiles { position: absolute; left: 0; top: 0; right: 0; bottom: 0; will-change: transform; }
+  .tile { position: absolute; width: 256px; height: 256px; overflow: hidden; }
+  .tile img { width: 256px; height: 256px; display: block; -webkit-user-drag: none; }
+  .tile-fail {
+    background-color: #E3E9F2;
+    background-image:
+      linear-gradient(rgba(148, 163, 184, 0.35) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.35) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  #marker { position: absolute; width: 22px; height: 22px; margin: -22px 0 0 -11px; z-index: 5; pointer-events: none; }
+  #marker .pin {
+    width: 22px; height: 22px; border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    background: #EF4444; border: 2px solid #FFFFFF;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.35);
+  }
+  #marker .dot {
+    position: absolute; left: 8px; top: 8px; width: 6px; height: 6px; border-radius: 50%;
+    background: #FFFFFF;
+  }
+  #hud { position: absolute; left: 10px; top: 10px; right: 10px; display: flex; align-items: center; gap: 6px; z-index: 8; pointer-events: none; }
+  #badge { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 999px; background: #F1F5F9; color: #475569; }
+  #badge.LOCATED { background: #D1FAE5; color: #047857; }
+  #badge.STALE { background: #FEF3C7; color: #B45309; }
+  #badge.RECENT { background: #E0F2FE; color: #0369A1; }
+  #source { font-size: 10px; font-weight: 600; padding: 3px 7px; border-radius: 999px; background: rgba(255,255,255,0.9); color: #334155; }
+  #update-chip { font-size: 10px; font-weight: 700; padding: 3px 7px; border-radius: 999px; background: #FFEDD5; color: #C2410C; }
+  #info {
+    position: absolute; left: 10px; right: 10px; bottom: 10px; z-index: 8;
+    background: rgba(255, 255, 255, 0.94); border-radius: 12px; padding: 8px 10px;
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.12);
+  }
+  #coord { font-size: 12px; font-weight: 700; color: #0F172A; letter-spacing: 0.2px; }
+  #time, #received, #age, #note { font-size: 10px; color: #64748B; margin-top: 2px; line-height: 1.35; }
+  #note { color: #B45309; }
+  #controls { position: absolute; right: 10px; bottom: 86px; display: flex; flex-direction: column; gap: 6px; z-index: 9; align-items: flex-end; }
+  #controls button {
+    border: 1px solid #CBD5E1; background: rgba(255,255,255,0.96); color: #0F172A;
+    border-radius: 10px; font-size: 14px; font-weight: 700; width: 38px; height: 38px;
+    box-shadow: 0 1px 6px rgba(15, 23, 42, 0.12);
+  }
+  #controls button#recenter { width: auto; padding: 0 12px; font-size: 12px; height: 38px; }
+  #controls button:disabled { color: #94A3B8; }
+  #empty {
+    position: absolute; left: 12px; right: 12px; top: 50%; transform: translateY(-50%); z-index: 7;
+    background: rgba(255, 255, 255, 0.96); border: 1px solid #E2E8F0; border-radius: 14px;
+    padding: 16px 14px; text-align: center;
+  }
+  #empty .title { font-size: 13px; font-weight: 700; color: #334155; }
+  #empty .desc { font-size: 11px; color: #64748B; margin-top: 6px; line-height: 1.5; word-break: break-all; }
+  #hint {
+    position: absolute; left: 10px; right: 10px; top: 44px; z-index: 8;
+    background: #FEF3C7; color: #92400E; font-size: 10px; line-height: 1.4;
+    border-radius: 8px; padding: 5px 8px;
+  }
+  .hidden { display: none !important; }
+  #grid-fallback {
+    position: absolute; left: 0; top: 0; right: 0; bottom: 0; z-index: 1;
+    background-color: #E3E9F2;
+    background-image:
+      linear-gradient(rgba(148, 163, 184, 0.30) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.30) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+</style>
+</head>
+<body>
+<div id="map">
+  <div id="grid-fallback" class="hidden"></div>
+  <div id="tiles"></div>
+  <div id="marker" class="hidden"><div class="pin"></div><div class="dot"></div></div>
+  <div id="hud">
+    <span id="badge">暂无定位</span>
+    <span id="source" class="hidden"></span>
+    <span id="update-chip" class="hidden">求助后更新</span>
+  </div>
+  <div id="hint" class="hidden"></div>
+  <div id="empty" class="hidden">
+    <div class="title" id="empty-title">暂无定位</div>
+    <div class="desc" id="empty-desc"></div>
+  </div>
+  <div id="controls">
+    <button id="zoom-in" type="button" aria-label="放大地图">+</button>
+    <button id="zoom-out" type="button" aria-label="缩小地图">−</button>
+    <button id="recenter" type="button" aria-label="回到求助位置">回到求助位置</button>
+  </div>
+  <div id="info">
+    <div id="coord">--</div>
+    <div id="time">定位时间未知</div>
+    <div id="received" class="hidden"></div>
+    <div id="age"></div>
+    <div id="note" class="hidden"></div>
+  </div>
+</div>
+<script>
+(function () {
+  'use strict';
+
+  var TILE_SIZE = 256;
+  var MIN_ZOOM = 3;
+  var MAX_ZOOM = 18;
+  var DEFAULT_ZOOM = 16;
+  // 高德栅格瓦片（GCJ-02）。只加载图片，不引用任何远程 JS。
+  var TILE_URL = 'https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}';
+
+  var mapEl = document.getElementById('map');
+  var tilesEl = document.getElementById('tiles');
+  var gridEl = document.getElementById('grid-fallback');
+  var markerEl = document.getElementById('marker');
+  var badgeEl = document.getElementById('badge');
+  var sourceEl = document.getElementById('source');
+  var updateChipEl = document.getElementById('update-chip');
+  var hintEl = document.getElementById('hint');
+  var emptyEl = document.getElementById('empty');
+  var emptyTitleEl = document.getElementById('empty-title');
+  var emptyDescEl = document.getElementById('empty-desc');
+  var coordEl = document.getElementById('coord');
+  var timeEl = document.getElementById('time');
+  var receivedEl = document.getElementById('received');
+  var ageEl = document.getElementById('age');
+  var noteEl = document.getElementById('note');
+  var zoomInEl = document.getElementById('zoom-in');
+  var zoomOutEl = document.getElementById('zoom-out');
+  var recenterEl = document.getElementById('recenter');
+
+  var state = {
+    data: null,
+    hasMarker: false,
+    markerLat: 0,
+    markerLng: 0,
+    centerLat: 0,
+    centerLng: 0,
+    zoom: DEFAULT_ZOOM,
+    centered: false,
+    userMoved: false
+  };
+  var drag = null;
+
+  function viewW() { return mapEl.clientWidth || 320; }
+  function viewH() { return mapEl.clientHeight || 240; }
+  function worldSize(z) { return TILE_SIZE * Math.pow(2, z); }
+
+  function project(lat, lng, z) {
+    var size = worldSize(z);
+    var clampedLat = Math.max(-85.05112878, Math.min(85.05112878, lat));
+    var sinLat = Math.sin(clampedLat * Math.PI / 180);
+    return {
+      x: (lng + 180) / 360 * size,
+      y: (0.5 - Math.log((1 + sinLat) / (1 - sinLat)) / (4 * Math.PI)) * size
+    };
+  }
+
+  function unproject(x, y, z) {
+    var size = worldSize(z);
+    var lng = x / size * 360 - 180;
+    var n = Math.PI - 2 * Math.PI * y / size;
+    var lat = 180 / Math.PI * Math.atan(0.5 * (Math.exp(n) - Math.exp(-n)));
+    return { lat: lat, lng: lng };
+  }
+
+  function wrapTileX(x, n) {
+    var wrapped = x % n;
+    return wrapped < 0 ? wrapped + n : wrapped;
+  }
+
+  function tileUrl(x, y, z) {
+    var sub = 1 + ((x + y) % 4);
+    return TILE_URL
+      .replace('{s}', String(sub))
+      .replace('{x}', String(x))
+      .replace('{y}', String(y))
+      .replace('{z}', String(z));
+  }
+
+  function fmt(v) {
+    return (typeof v === 'number' && isFinite(v)) ? v.toFixed(6) : '--';
+  }
+
+  function showHint(text) {
+    if (text) { hintEl.textContent = text; hintEl.classList.remove('hidden'); }
+    else { hintEl.textContent = ''; hintEl.classList.add('hidden'); }
+  }
+
+  function showEmpty(title, desc) {
+    emptyTitleEl.textContent = title || '暂无定位';
+    emptyDescEl.textContent = desc || '';
+    emptyEl.classList.remove('hidden');
+    tilesEl.innerHTML = '';
+    markerEl.classList.add('hidden');
+    gridEl.classList.remove('hidden');
+    setControlsEnabled(false);
+  }
+
+  function hideEmpty() {
+    emptyEl.classList.add('hidden');
+    gridEl.classList.add('hidden');
+    setControlsEnabled(true);
+  }
+
+  function setControlsEnabled(enabled) {
+    zoomInEl.disabled = !enabled;
+    zoomOutEl.disabled = !enabled;
+    recenterEl.disabled = !enabled;
+  }
+
+  /** 下方信息区：定位时间/接收时间/年龄/说明（时间文案由 ArkTS 用本地时区格式化后传入）。 */
+  function updateInfo(payload) {
+    badgeEl.textContent = payload.statusText || '暂无定位';
+    badgeEl.className = '';
+    if (payload.status === 'LOCATED' || payload.status === 'STALE' || payload.status === 'RECENT') {
+      badgeEl.className = payload.status;
+    }
+    if (payload.sourceText) {
+      sourceEl.textContent = payload.sourceText;
+      sourceEl.classList.remove('hidden');
+    } else {
+      sourceEl.textContent = '';
+      sourceEl.classList.add('hidden');
+    }
+    if (payload.updatedAfterSos === true) {
+      updateChipEl.textContent = payload.updateText || '求助后更新';
+      updateChipEl.classList.remove('hidden');
+    } else {
+      updateChipEl.classList.add('hidden');
+    }
+    coordEl.textContent = payload.available === true ? (payload.coordText || '--') : '--';
+    timeEl.textContent = payload.timeText || '定位时间未知';
+    if (payload.receivedText) {
+      receivedEl.textContent = payload.receivedText;
+      receivedEl.classList.remove('hidden');
+    } else {
+      receivedEl.classList.add('hidden');
+    }
+    ageEl.textContent = payload.ageText || '';
+    if (payload.noteText) {
+      noteEl.textContent = payload.noteText;
+      noteEl.classList.remove('hidden');
+    } else {
+      noteEl.textContent = '';
+      noteEl.classList.add('hidden');
+    }
+  }
+
+  function placeMarker(offsetX, offsetY) {
+    if (!state.hasMarker) { markerEl.classList.add('hidden'); return; }
+    var m = project(state.markerLat, state.markerLng, state.zoom);
+    var c = project(state.centerLat, state.centerLng, state.zoom);
+    var left = m.x - c.x + viewW() / 2 + (offsetX || 0);
+    var top = m.y - c.y + viewH() / 2 + (offsetY || 0);
+    markerEl.style.left = left + 'px';
+    markerEl.style.top = top + 'px';
+    markerEl.classList.remove('hidden');
+  }
+
+  function render() {
+    if (!state.hasMarker) return;
+    var z = state.zoom;
+    var n = Math.pow(2, z);
+    var center = project(state.centerLat, state.centerLng, z);
+    var left = center.x - viewW() / 2;
+    var top = center.y - viewH() / 2;
+    var startX = Math.floor(left / TILE_SIZE);
+    var endX = Math.floor((left + viewW()) / TILE_SIZE);
+    var startY = Math.floor(top / TILE_SIZE);
+    var endY = Math.floor((top + viewH()) / TILE_SIZE);
+
+    tilesEl.style.transform = 'translate(0px, 0px)';
+    tilesEl.innerHTML = '';
+    var okCount = 0;
+    var failCount = 0;
+
+    for (var ty = startY; ty <= endY; ty++) {
+      if (ty < 0 || ty >= n) continue;
+      for (var tx = startX; tx <= endX; tx++) {
+        var tile = document.createElement('div');
+        tile.className = 'tile';
+        tile.style.left = (tx * TILE_SIZE - left) + 'px';
+        tile.style.top = (ty * TILE_SIZE - top) + 'px';
+        var img = document.createElement('img');
+        img.alt = '';
+        img.draggable = false;
+        (function (node, tileEl, wrappedX, rawY) {
+          node.onload = function () { okCount += 1; if (okCount > 0) showHint(''); };
+          node.onerror = function () {
+            failCount += 1;
+            node.style.display = 'none';
+            tileEl.className = 'tile tile-fail';
+            if (okCount === 0) {
+              showHint('地图瓦片加载失败，已显示占位网格与经纬度文字');
+            }
+          };
+          node.src = tileUrl(wrappedX, rawY, z);
+        })(img, tile, wrapTileX(tx, n), ty);
+        tile.appendChild(img);
+        tilesEl.appendChild(tile);
+      }
+    }
+    placeMarker(0, 0);
+    coordEl.textContent = state.data && state.data.available === true
+      ? (state.data.coordText || (fmt(state.markerLat) + ', ' + fmt(state.markerLng)))
+      : '--';
+  }
+
+  function setCenterFromMarker() {
+    state.centerLat = state.markerLat;
+    state.centerLng = state.markerLng;
+    state.centered = true;
+  }
+
+  function zoomBy(delta) {
+    if (!state.hasMarker) return;
+    var next = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, state.zoom + delta));
+    if (next === state.zoom) return;
+    state.zoom = next;
+    state.userMoved = true;
+    render();
+  }
+
+  function recenter() {
+    if (!state.hasMarker) return;
+    setCenterFromMarker();
+    state.userMoved = false;
+    render();
+  }
+
+  function applyDragOffset(dx, dy) {
+    tilesEl.style.transform = 'translate(' + dx + 'px, ' + dy + 'px)';
+    placeMarker(dx, dy);
+  }
+
+  function beginDrag(clientX, clientY) {
+    if (!state.hasMarker) return;
+    drag = { x: clientX, y: clientY, dx: 0, dy: 0 };
+  }
+
+  function moveDrag(clientX, clientY) {
+    if (!drag) return;
+    drag.dx = clientX - drag.x;
+    drag.dy = clientY - drag.y;
+    applyDragOffset(drag.dx, drag.dy);
+  }
+
+  function endDrag() {
+    if (!drag) return;
+    var dx = drag.dx;
+    var dy = drag.dy;
+    drag = null;
+    tilesEl.style.transform = 'translate(0px, 0px)';
+    if (dx === 0 && dy === 0) return;
+    var z = state.zoom;
+    var center = project(state.centerLat, state.centerLng, z);
+    var next = unproject(center.x - dx, center.y - dy, z);
+    state.centerLat = next.lat;
+    state.centerLng = next.lng;
+    state.userMoved = true;
+    render();
+  }
+
+  mapEl.addEventListener('pointerdown', function (e) {
+    beginDrag(e.clientX, e.clientY);
+    if (drag) { try { mapEl.setPointerCapture(e.pointerId); } catch (_) {} }
+  });
+  mapEl.addEventListener('pointermove', function (e) {
+    if (drag) { moveDrag(e.clientX, e.clientY); }
+  });
+  mapEl.addEventListener('pointerup', function () { endDrag(); });
+  mapEl.addEventListener('pointercancel', function () { endDrag(); });
+  mapEl.addEventListener('pointerleave', function () { if (drag) endDrag(); });
+  // 阻止 WebView 内页面滚动/回弹干扰拖拽
+  mapEl.addEventListener('touchmove', function (e) { e.preventDefault(); }, { passive: false });
+
+  zoomInEl.addEventListener('click', function () { zoomBy(1); });
+  zoomOutEl.addEventListener('click', function () { zoomBy(-1); });
+  recenterEl.addEventListener('click', function () { recenter(); });
+
+  function showFatal(desc) {
+    showEmpty('地图不可用', desc || '地图初始化失败；告警文本、经纬度与 ACK 不受影响。');
+  }
+
+  window.SosMap = {
+    /**
+     * ArkTS 侧在 onPageEnd 后调用：update(jsonString)。
+     * jsonString 里的 lat/lng 已经是 GCJ-02（由 core/location/SosLocation.ts 转换一次），
+     * 本函数不再做任何坐标系转换。
+     */
+    update: function (jsonString) {
+      var payload = null;
+      try {
+        payload = JSON.parse(jsonString);
+      } catch (err) {
+        showFatal('地图数据解析失败；告警文本与 ACK 不受影响。');
+        return false;
+      }
+      if (!payload || typeof payload !== 'object') {
+        showFatal('地图数据无效；告警文本与 ACK 不受影响。');
+        return false;
+      }
+      state.data = payload;
+      state.hasMarker = payload.available === true &&
+        typeof payload.lat === 'number' && isFinite(payload.lat) &&
+        typeof payload.lng === 'number' && isFinite(payload.lng);
+      updateInfo(payload);
+      if (!state.hasMarker) {
+        showEmpty('暂无定位', (payload.noteText || '当前没有可用的定位坐标') +
+          '。地图不显示推测位置；告警详情、确认（ACK）与处置登记不受影响。');
+        return false;
+      }
+      hideEmpty();
+      state.markerLat = payload.lat;
+      state.markerLng = payload.lng;
+      if (!state.centered || !state.userMoved) {
+        setCenterFromMarker();
+      }
+      render();
+      return true;
+    },
+    zoomIn: function () { zoomBy(1); },
+    zoomOut: function () { zoomBy(-1); },
+    recenter: function () { recenter(); },
+    /** 仅供诊断：返回当前状态摘要（不含任何凭据）。 */
+    debugState: function () {
+      return JSON.stringify({
+        available: state.hasMarker,
+        status: state.data ? state.data.status : '',
+        zoom: state.zoom,
+        centerLat: state.centerLat,
+        centerLng: state.centerLng
+      });
+    }
+  };
+
+  // 初始空状态：等待 ArkTS 侧 update()；不显示任何猜测位置。
+  showEmpty('暂无定位', '正在等待定位数据；地图不显示推测位置。');
+  showHint('');
+})();
+</script>
+</body>
+</html>

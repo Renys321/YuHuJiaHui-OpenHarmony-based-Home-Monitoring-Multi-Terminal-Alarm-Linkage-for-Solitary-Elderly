@@ -1,0 +1,62 @@
+warning: in the working copy of 'a/competition/cloud/onenet/adapter.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'b/competition/cloud/onenet/adapter.js', LF will be replaced by CRLF the next time Git touches it
+diff --git a/competition/cloud/onenet/adapter.js b/competition/cloud/onenet/adapter.js
+index 0ba9968..e1e537b 100644
+--- a/competition/cloud/onenet/adapter.js
++++ b/competition/cloud/onenet/adapter.js
+@@ -7,6 +7,8 @@ const ALARM_TYPES = new Set([
+   'NO_MOTION', 'MANUAL_SOS', 'CLIMATE', 'GAS', 'SMOKE', 'FALL'
+ ]);
+ const MAX_PAYLOAD_BYTES = 16 * 1024;
++/* 门磁补传缓存上限：固件 NODE_DOOR_CACHE_MAX 默认 8 条，这里留一倍余量并防无界数组。 */
++const MAX_DOOR_EVENTS = 16;
+ 
+ function fail(message) {
+   throw new TypeError(message);
+@@ -150,11 +152,43 @@ function normalizeDoor(status) {
+       ? requirePlainObject(sensors.door, 'status.sensors.door')
+       : undefined;
+   if (!door) return undefined;
+-  requireExactKeys(door, ['open', 'lastOpenTs'], 'door');
+-  return {
+-    open: requireBoolean(door.open, 'door.open'),
++  /* 门磁 v7 契约（后端 schema v7）：旧格式 open/lastOpenTs 必须保留，
++   * 新增 lastCloseTs/seq/events 为可选项。旧固件不传扩展字段时行为与 v6 完全一致；
++   * 扩展字段只做严格类型校验后透传，绝不默认值、绝不猜测状态。 */
++  requireExactKeys(
++    door,
++    ['open', 'lastOpenTs', 'lastCloseTs', 'seq', 'events'],
++    'door',
++    ['open', 'lastOpenTs']
++  );
++  const normalized = {
++    /* open 允许 null：固件上电基线未知时明确表达“未知”，不得默认成关闭。 */
++    open: door.open === null ? null : requireBoolean(door.open, 'door.open'),
+     lastOpenTs: requireTimestampMs(door.lastOpenTs, 'door.lastOpenTs', true)
+   };
++  if (door.lastCloseTs !== undefined) {
++    normalized.lastCloseTs = requireTimestampMs(door.lastCloseTs, 'door.lastCloseTs', true);
++  }
++  if (door.seq !== undefined) {
++    normalized.seq = requireInteger(door.seq, 'door.seq', 1, Number.MAX_SAFE_INTEGER);
++  }
++  if (door.events !== undefined) {
++    if (!Array.isArray(door.events)) fail('door.events must be an array');
++    if (door.events.length > MAX_DOOR_EVENTS) {
++      fail(`door.events must contain at most ${MAX_DOOR_EVENTS} entries`);
++    }
++    normalized.events = door.events.map((event, index) => {
++      const name = `door.events[${index}]`;
++      requirePlainObject(event, name);
++      requireExactKeys(event, ['seq', 'open', 'ts'], name);
++      return {
++        seq: requireInteger(event.seq, `${name}.seq`, 1, Number.MAX_SAFE_INTEGER),
++        open: requireBoolean(event.open, `${name}.open`),
++        ts: requireTimestampMs(event.ts, `${name}.ts`, true)
++      };
++    });
++  }
++  return normalized;
+ }
+ 
+ function normalizeOkSensor(status, key) {

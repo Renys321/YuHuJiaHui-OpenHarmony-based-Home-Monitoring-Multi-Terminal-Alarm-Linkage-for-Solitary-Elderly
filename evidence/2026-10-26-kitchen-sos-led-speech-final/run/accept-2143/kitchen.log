@@ -1,0 +1,299 @@
+# dual-serial-capture.ps1 start 2026-10-26T21:41:29.482+08:00
+# serial=COM5 baud=115200 8N1 dtr=False rts=False expect deviceId=esp32-kitchen
+[2026-10-26T21:41:31.469+08:00] [0;32mI (61674) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022091541,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":61.8,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":120,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:41:31.476+08:00] [0m
+[2026-10-26T21:41:31.476+08:00] [0;32mI (61684) elder-node: STACK_FREE task=gateway-net bytes=2896[0m
+[2026-10-26T21:41:31.477+08:00] [0;32mI (61704) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:41:37.004+08:00] [0;32mI (67164) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022097031,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":61.8,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":119,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:41:37.005+08:00] [0m
+[2026-10-26T21:41:37.008+08:00] [0;32mI (67184) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:41:37.010+08:00] [0;32mI (67204) elder-node: STACK_FREE task=gateway-net bytes=2896[0m
+[2026-10-26T21:41:42.442+08:00] [0;32mI (72644) elder-node: ADC raw: MQ2(CH5)=115 valid=1 danger=0 | MQ5(CH6)=4095 valid=1 danger=0[0m
+[2026-10-26T21:41:42.444+08:00] [0;32mI (72644) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022102511,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":61.7,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":115,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:41:42.445+08:00] [0m
+[2026-10-26T21:41:42.447+08:00] [0;32mI (72674) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:41:42.448+08:00] [0;32mI (72704) elder-node: STACK_FREE task=gateway-net bytes=2896[0m
+[2026-10-26T21:41:47.952+08:00] [0;32mI (78134) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022108001,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":61.8,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":120,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:41:47.955+08:00] [0m
+[2026-10-26T21:41:47.956+08:00] [0;32mI (78154) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:41:47.957+08:00] [0;32mI (78204) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:41:53.450+08:00] [0;32mI (83614) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022113481,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":61.9,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":120,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:41:53.452+08:00] [0m
+[2026-10-26T21:41:53.453+08:00] [0;32mI (83634) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:41:53.454+08:00] [0;32mI (83704) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:41:58.883+08:00] [0;32mI (89094) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022118961,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":61.9,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":124,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:41:58.885+08:00] [0m
+[2026-10-26T21:41:58.887+08:00] [0;32mI (89104) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:41:58.888+08:00] [0;32mI (89124) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:42:04.383+08:00] [0;32mI (94584) elder-node: ADC raw: MQ2(CH5)=119 valid=1 danger=0 | MQ5(CH6)=4095 valid=1 danger=0[0m
+[2026-10-26T21:42:04.385+08:00] [0;32mI (94584) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022124451,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":62.0,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":119,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:42:04.387+08:00] [0m
+[2026-10-26T21:42:04.389+08:00] [0;32mI (94614) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:42:04.390+08:00] [0;32mI (94624) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:42:09.883+08:00] [0;32mI (100084) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022129951,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":61.9,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":119,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:42:09.885+08:00] [0m
+[2026-10-26T21:42:09.888+08:00] [0;32mI (100104) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:42:09.889+08:00] [0;32mI (100134) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:42:15.385+08:00] [0;32mI (105564) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022135431,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":61.8,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":112,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:42:15.386+08:00] [0m
+[2026-10-26T21:42:15.387+08:00] [0;32mI (105584) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:42:15.388+08:00] [0;32mI (105634) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:42:20.822+08:00] [0;32mI (111044) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022140911,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":61.6,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":139,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:42:20.823+08:00] [0m
+[2026-10-26T21:42:20.824+08:00] [0;32mI (111064) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:42:20.932+08:00] [0;32mI (111134) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:42:26.322+08:00] [0;32mI (116524) elder-node: ADC raw: MQ2(CH5)=125 valid=1 danger=0 | MQ5(CH6)=4095 valid=1 danger=0[0m
+[2026-10-26T21:42:26.325+08:00] [0;32mI (116524) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022146391,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":61.6,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":125,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:42:26.327+08:00] [0m
+[2026-10-26T21:42:26.329+08:00] [0;32mI (116534) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:42:26.330+08:00] [0;32mI (116564) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:42:31.814+08:00] [0;32mI (122024) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022151891,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":61.6,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":119,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:42:31.815+08:00] [0m
+[2026-10-26T21:42:31.816+08:00] [0;32mI (122044) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:42:31.817+08:00] [0;32mI (122064) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:42:37.315+08:00] [0;32mI (127504) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022157371,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":61.6,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":87,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:42:37.317+08:00] [0m
+[2026-10-26T21:42:37.319+08:00] [0;32mI (127524) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:42:37.319+08:00] [0;32mI (127564) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:42:42.814+08:00] [0;32mI (132984) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022162851,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":61.5,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":117,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:42:42.817+08:00] [0m
+[2026-10-26T21:42:42.818+08:00] [0;32mI (133004) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:42:42.819+08:00] [0;32mI (133064) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:42:48.252+08:00] [0;32mI (138464) elder-node: ADC raw: MQ2(CH5)=117 valid=1 danger=0 | MQ5(CH6)=4095 valid=1 danger=0[0m
+[2026-10-26T21:42:48.254+08:00] [0;32mI (138464) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022168331,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":61.4,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":117,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:42:48.257+08:00] [0m
+[2026-10-26T21:42:48.257+08:00] [0;32mI (138494) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:42:48.377+08:00] [0;32mI (138564) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:42:53.741+08:00] [0;32mI (143954) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022173821,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":61.5,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":127,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:42:53.743+08:00] [0m
+[2026-10-26T21:42:53.745+08:00] [0;32mI (143964) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:42:53.746+08:00] [0;32mI (143984) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:42:59.243+08:00] [0;32mI (149444) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022179311,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":61.5,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":118,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:42:59.245+08:00] [0m
+[2026-10-26T21:42:59.246+08:00] [0;32mI (149464) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:42:59.248+08:00] [0;32mI (149484) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:43:04.728+08:00] [0;32mI (154924) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022184791,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":61.5,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":120,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:43:04.729+08:00] [0m
+[2026-10-26T21:43:04.730+08:00] [0;32mI (154944) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:43:04.731+08:00] [0;32mI (154984) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:43:10.228+08:00] [0;32mI (160404) elder-node: ADC raw: MQ2(CH5)=117 valid=1 danger=0 | MQ5(CH6)=4095 valid=1 danger=0[0m
+[2026-10-26T21:43:10.230+08:00] [0;32mI (160404) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022190271,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":61.5,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":117,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:43:10.231+08:00] [0m
+[2026-10-26T21:43:10.232+08:00] [0;32mI (160434) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:43:10.234+08:00] [0;32mI (160484) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:43:15.733+08:00] [0;32mI (165894) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022195761,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":61.4,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":118,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:43:15.735+08:00] [0m
+[2026-10-26T21:43:15.736+08:00] [0;32mI (165914) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:43:15.737+08:00] [0;32mI (165984) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:43:21.164+08:00] [0;32mI (171374) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022201241,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":61.4,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":118,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:43:21.167+08:00] [0m
+[2026-10-26T21:43:21.168+08:00] [0;32mI (171384) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:43:21.171+08:00] [0;32mI (171404) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:43:26.654+08:00] [0;32mI (176864) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022206731,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":61.4,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":119,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:43:26.657+08:00] [0m
+[2026-10-26T21:43:26.658+08:00] [0;32mI (176884) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:43:26.659+08:00] [0;32mI (176904) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:43:32.156+08:00] [0;32mI (182344) elder-node: ADC raw: MQ2(CH5)=118 valid=1 danger=0 | MQ5(CH6)=4095 valid=1 danger=0[0m
+[2026-10-26T21:43:32.158+08:00] [0;32mI (182344) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022212211,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":61.4,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":118,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:43:32.162+08:00] [0m
+[2026-10-26T21:43:32.164+08:00] [0;32mI (182374) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:43:32.165+08:00] [0;32mI (182404) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:43:37.661+08:00] [0;32mI (187834) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022217701,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":61.3,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":120,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:43:37.663+08:00] [0m
+[2026-10-26T21:43:37.664+08:00] [0;32mI (187854) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:43:37.665+08:00] [0;32mI (187904) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:43:43.159+08:00] [0;32mI (193314) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022223181,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":61.3,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":117,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:43:43.162+08:00] [0m
+[2026-10-26T21:43:43.163+08:00] [0;32mI (193334) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:43:43.164+08:00] [0;32mI (193404) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:43:48.590+08:00] [0;32mI (198794) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022228661,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":61.2,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":120,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:43:48.591+08:00] [0m
+[2026-10-26T21:43:48.593+08:00] [0;32mI (198804) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:43:48.594+08:00] [0;32mI (198824) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:43:54.084+08:00] [0;32mI (204284) elder-node: ADC raw: MQ2(CH5)=127 valid=1 danger=0 | MQ5(CH6)=4095 valid=1 danger=0[0m
+[2026-10-26T21:43:54.086+08:00] [0;32mI (204284) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022234151,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":61.4,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":127,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:43:54.088+08:00] [0m
+[2026-10-26T21:43:54.089+08:00] [0;32mI (204314) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:43:54.090+08:00] [0;32mI (204324) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:43:59.585+08:00] [0;32mI (209784) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022239651,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":61.5,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":112,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:43:59.587+08:00] [0m
+[2026-10-26T21:43:59.587+08:00] [0;32mI (209804) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:43:59.589+08:00] [0;32mI (209834) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:44:05.085+08:00] [0;32mI (215264) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022245131,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":61.5,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":117,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:44:05.087+08:00] [0m
+[2026-10-26T21:44:05.088+08:00] [0;32mI (215284) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:44:05.090+08:00] [0;32mI (215334) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:44:10.529+08:00] [0;32mI (220744) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022250611,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":61.5,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":119,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:44:10.531+08:00] [0m
+[2026-10-26T21:44:10.532+08:00] [0;32mI (220764) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:44:10.654+08:00] [0;32mI (220834) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:44:16.027+08:00] [0;32mI (226224) elder-node: ADC raw: MQ2(CH5)=123 valid=1 danger=0 | MQ5(CH6)=4095 valid=1 danger=0[0m
+[2026-10-26T21:44:16.029+08:00] [0;32mI (226224) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022256091,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":61.5,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":123,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:44:16.032+08:00] [0m
+[2026-10-26T21:44:16.033+08:00] [0;32mI (226234) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:44:16.035+08:00] [0;32mI (226264) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:44:21.544+08:00] [0;32mI (231724) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022261591,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":61.4,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":159,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:44:21.546+08:00] [0m
+[2026-10-26T21:44:21.547+08:00] [0;32mI (231744) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:44:21.549+08:00] [0;32mI (231764) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:44:27.021+08:00] [0;32mI (237204) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022267071,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":61.5,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":116,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:44:27.023+08:00] [0m
+[2026-10-26T21:44:27.024+08:00] [0;32mI (237224) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:44:27.025+08:00] [0;32mI (237264) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:44:32.468+08:00] [0;32mI (242684) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022272551,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":61.6,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":110,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:44:32.469+08:00] [0m
+[2026-10-26T21:44:32.471+08:00] [0;32mI (242704) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:44:32.590+08:00] [0;32mI (242764) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:44:37.958+08:00] [0;32mI (248164) elder-node: ADC raw: MQ2(CH5)=119 valid=1 danger=0 | MQ5(CH6)=4095 valid=1 danger=0[0m
+[2026-10-26T21:44:37.959+08:00] [0;32mI (248164) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022278032,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":61.7,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":119,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:44:37.962+08:00] [0m
+[2026-10-26T21:44:37.963+08:00] [0;32mI (248194) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:44:38.086+08:00] [0;32mI (248264) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:44:43.454+08:00] [0;32mI (253654) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022283521,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":61.9,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":125,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:44:43.455+08:00] [0m
+[2026-10-26T21:44:43.456+08:00] [0;32mI (253664) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:44:43.457+08:00] [0;32mI (253684) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:44:48.965+08:00] [0;32mI (259144) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022289011,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":61.9,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":121,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:44:48.967+08:00] [0m
+[2026-10-26T21:44:48.968+08:00] [0;32mI (259164) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:44:48.969+08:00] [0;32mI (259184) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:44:54.440+08:00] [0;32mI (264624) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022294491,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":61.8,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":119,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:44:54.442+08:00] [0m
+[2026-10-26T21:44:54.444+08:00] [0;32mI (264644) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:44:54.447+08:00] [0;32mI (264684) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:44:59.941+08:00] [0;32mI (270104) elder-node: ADC raw: MQ2(CH5)=120 valid=1 danger=0 | MQ5(CH6)=4095 valid=1 danger=0[0m
+[2026-10-26T21:44:59.943+08:00] [0;32mI (270104) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022299971,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":61.7,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":120,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:44:59.944+08:00] [0m
+[2026-10-26T21:44:59.945+08:00] [0;32mI (270134) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:44:59.945+08:00] [0;32mI (270184) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:45:05.431+08:00] [0;32mI (275594) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022305461,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":61.7,"ok":true,"valid":true},"gas":{"raw":268,"ok":true,"valid":true},"smoke":{"raw":110,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:45:05.433+08:00] [0m
+[2026-10-26T21:45:05.434+08:00] [0;32mI (275614) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:45:05.436+08:00] [0;32mI (275684) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:45:10.903+08:00] [0;32mI (281074) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022310941,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":61.8,"ok":true,"valid":true},"gas":{"raw":326,"ok":true,"valid":true},"smoke":{"raw":170,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:45:10.905+08:00] [0m
+[2026-10-26T21:45:10.905+08:00] [0;32mI (281084) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:45:10.906+08:00] [0;32mI (281104) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:45:16.367+08:00] [0;32mI (286564) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022316431,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":61.9,"ok":true,"valid":true},"gas":{"raw":294,"ok":true,"valid":true},"smoke":{"raw":119,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:45:16.369+08:00] [0m
+[2026-10-26T21:45:16.370+08:00] [0;32mI (286584) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:45:16.370+08:00] [0;32mI (286604) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:45:21.855+08:00] [0;32mI (292044) elder-node: ADC raw: MQ2(CH5)=135 valid=1 danger=0 | MQ5(CH6)=4095 valid=1 danger=0[0m
+[2026-10-26T21:45:21.858+08:00] [0;32mI (292044) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022321912,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":61.9,"ok":true,"valid":true},"gas":{"raw":4095,"ok":true,"valid":true},"smoke":{"raw":135,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:45:21.860+08:00] [0m
+[2026-10-26T21:45:21.861+08:00] [0;32mI (292074) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:45:21.863+08:00] [0;32mI (292104) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:45:27.349+08:00] [0;32mI (297534) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022327401,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":62.0,"ok":true,"valid":true},"gas":{"raw":268,"ok":true,"valid":true},"smoke":{"raw":117,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:45:27.351+08:00] [0m
+[2026-10-26T21:45:27.352+08:00] [0;32mI (297554) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:45:27.354+08:00] [0;32mI (297604) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:45:32.806+08:00] [0;32mI (303014) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022332881,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":62.1,"ok":true,"valid":true},"gas":{"raw":265,"ok":true,"valid":true},"smoke":{"raw":116,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:45:32.809+08:00] [0m
+[2026-10-26T21:45:32.812+08:00] [0;32mI (303034) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:45:32.947+08:00] [0;32mI (303104) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:45:38.305+08:00] [0;32mI (308494) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022338361,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":62.3,"ok":true,"valid":true},"gas":{"raw":270,"ok":true,"valid":true},"smoke":{"raw":118,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:45:38.306+08:00] [0m
+[2026-10-26T21:45:38.308+08:00] [0;32mI (308504) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:45:38.310+08:00] [0;32mI (308524) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:45:43.785+08:00] [0;32mI (313984) elder-node: ADC raw: MQ2(CH5)=115 valid=1 danger=0 | MQ5(CH6)=252 valid=1 danger=0[0m
+[2026-10-26T21:45:43.788+08:00] [0;32mI (313984) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022343851,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":62.4,"ok":true,"valid":true},"gas":{"raw":252,"ok":true,"valid":true},"smoke":{"raw":115,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[2026-10-26T21:45:43.789+08:00] [0m
+[2026-10-26T21:45:43.790+08:00] [0;32mI (314014) elder-node: STACK_FREE task=main bytes=4052[0m
+[2026-10-26T21:45:43.791+08:00] [0;32mI (314024) elder-node: STACK_FREE task=gateway-net bytes=2864[0m
+[2026-10-26T21:45:45.678+08:00] [0;32mI (315924) elder-node: KEY0 原始电平变化：按下(低)（XL9555 P1=0x7F）[0m
+[2026-10-26T21:45:45.894+08:00] [0;33mW (316024) elder-node: SOS 本地已触发：厨房设备板载 KEY0 被按下（来源设备=esp32-kitchen / 房间=厨房，厨房设备实体按键）；状态=正在发送，尚未收到监护人确认[0m
+[2026-10-26T21:45:45.895+08:00] [0;33mW (316034) elder-node: 告警提示音开始：3 声，间隔 100 ms；随后播报 clip=1（我需要帮助，请尽快过来。）[0m
+[2026-10-26T21:45:45.896+08:00] [0;33mW (316044) elder-node: 厨房设备板载 KEY0 被按下 -> ALARM（e-1793022345-1，type=MANUAL_SOS）语音+蜂鸣已请求[0m
+[2026-10-26T21:45:45.898+08:00] [0;32mI (316054) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022345923,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":62.4,"ok":true,"valid":true},"gas":{"raw":269,"ok":true,"valid":true},"smoke":{"raw":116,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-1793022345-1","type":"MANUAL_SOS","countToday":1}}
+[2026-10-26T21:45:45.899+08:00] [0m
+[2026-10-26T21:45:45.900+08:00] [0;32mI (316094) elder-node: STACK_FREE task=main bytes=3940[0m
+[2026-10-26T21:45:45.902+08:00] [0;32mI (316094) local-led: LED 模式=SOS_TRIPLE type=MANUAL_SOS（低电平有效；告警期间不被普通联网提示覆盖）[0m
+[2026-10-26T21:45:45.903+08:00] [0;32mI (316134) elder-node: STACK_FREE task=gateway-net bytes=2768[0m
+[2026-10-26T21:45:46.022+08:00] [0;32mI (316214) elder-node: KEY0 原始电平变化：松开(高)（XL9555 P1=0xFF）[0m
+[2026-10-26T21:45:46.024+08:00] [0;32mI (316214) elder-node: SOS 上报已送达 Bridge（alarmId=e-1793022345-1）；平台 202/监护人确认另见云端与 APP，设备此时仍视作“未确认”并继续本地提示[0m
+[2026-10-26T21:45:46.832+08:00] [0;33mW (317014) elder-node: 语音播报开始：clip=1（我需要帮助，请尽快过来。）[0m
+[2026-10-26T21:45:46.834+08:00] [0;32mI (317074) local-voice: PLAY clip=1 bytes=27791 text=我需要帮助，请尽快过来。[0m
+[2026-10-26T21:45:49.394+08:00] [0;32mI (319584) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022349451,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":62.5,"ok":true,"valid":true},"gas":{"raw":264,"ok":true,"valid":true},"smoke":{"raw":119,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-1793022345-1","type":"MANUAL_SOS","countToday":1}}
+[2026-10-26T21:45:49.396+08:00] [0m
+[2026-10-26T21:45:49.396+08:00] [0;32mI (319614) elder-node: STACK_FREE task=main bytes=3748[0m
+[2026-10-26T21:45:49.398+08:00] [0;32mI (319634) elder-node: STACK_FREE task=gateway-net bytes=2768[0m
+[2026-10-26T21:45:50.373+08:00] [0;32mI (320614) local-voice: STOP clip=1 result=ESP_OK cancelled=0[0m
+[2026-10-26T21:45:50.376+08:00] [0;32mI (320614) local-voice: STACK_FREE task=local-voice bytes=1056[0m
+[2026-10-26T21:45:54.895+08:00] [0;32mI (325064) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022354931,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.1,"rh":62.6,"ok":true,"valid":true},"gas":{"raw":248,"ok":true,"valid":true},"smoke":{"raw":119,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-1793022345-1","type":"MANUAL_SOS","countToday":1}}
+[2026-10-26T21:45:54.897+08:00] [0m
+[2026-10-26T21:45:54.898+08:00] [0;32mI (325094) elder-node: STACK_FREE task=main bytes=3748[0m
+[2026-10-26T21:45:54.899+08:00] [0;32mI (325134) elder-node: STACK_FREE task=gateway-net bytes=2768[0m
+[2026-10-26T21:46:00.385+08:00] [0;32mI (330544) elder-node: ADC raw: MQ2(CH5)=115 valid=1 danger=0 | MQ5(CH6)=267 valid=1 danger=0[0m
+[2026-10-26T21:46:00.387+08:00] [0;32mI (330544) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022360411,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.2,"rh":62.7,"ok":true,"valid":true},"gas":{"raw":267,"ok":true,"valid":true},"smoke":{"raw":115,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-1793022345-1","type":"MANUAL_SOS","countToday":1}}
+[2026-10-26T21:46:00.390+08:00] [0m
+[2026-10-26T21:46:00.391+08:00] [0;32mI (330584) elder-node: STACK_FREE task=main bytes=3748[0m
+[2026-10-26T21:46:00.392+08:00] [0;32mI (330634) elder-node: STACK_FREE task=gateway-net bytes=2768[0m
+[2026-10-26T21:46:05.825+08:00] [0;32mI (336034) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022365901,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.2,"rh":62.7,"ok":true,"valid":true},"gas":{"raw":275,"ok":true,"valid":true},"smoke":{"raw":143,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-1793022345-1","type":"MANUAL_SOS","countToday":1}}
+[2026-10-26T21:46:05.828+08:00] [0m
+[2026-10-26T21:46:05.830+08:00] [0;32mI (336064) elder-node: STACK_FREE task=main bytes=3748[0m
+[2026-10-26T21:46:05.966+08:00] [0;32mI (336134) elder-node: STACK_FREE task=gateway-net bytes=2768[0m
+[2026-10-26T21:46:11.306+08:00] [0;32mI (341514) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022371381,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.2,"rh":62.8,"ok":true,"valid":true},"gas":{"raw":265,"ok":true,"valid":true},"smoke":{"raw":115,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-1793022345-1","type":"MANUAL_SOS","countToday":1}}
+[2026-10-26T21:46:11.309+08:00] [0m
+[2026-10-26T21:46:11.311+08:00] [0;32mI (341534) elder-node: STACK_FREE task=gateway-net bytes=2768[0m
+[2026-10-26T21:46:11.312+08:00] [0;32mI (341544) elder-node: STACK_FREE task=main bytes=3748[0m
+[2026-10-26T21:46:16.835+08:00] [0;32mI (347004) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022376871,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.2,"rh":62.7,"ok":true,"valid":true},"gas":{"raw":268,"ok":true,"valid":true},"smoke":{"raw":114,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-1793022345-1","type":"MANUAL_SOS","countToday":1}}
+[2026-10-26T21:46:16.838+08:00] [0m
+[2026-10-26T21:46:16.840+08:00] [0;32mI (347034) elder-node: STACK_FREE task=main bytes=3748[0m
+[2026-10-26T21:46:16.842+08:00] [0;32mI (347044) elder-node: STACK_FREE task=gateway-net bytes=2768[0m
+[2026-10-26T21:46:22.305+08:00] [0;32mI (352484) elder-node: ADC raw: MQ2(CH5)=115 valid=1 danger=0 | MQ5(CH6)=265 valid=1 danger=0[0m
+[2026-10-26T21:46:22.306+08:00] [0;32mI (352484) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022382351,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.2,"rh":62.5,"ok":true,"valid":true},"gas":{"raw":265,"ok":true,"valid":true},"smoke":{"raw":115,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-1793022345-1","type":"MANUAL_SOS","countToday":1}}
+[2026-10-26T21:46:22.307+08:00] [0m
+[2026-10-26T21:46:22.309+08:00] [0;32mI (352524) elder-node: STACK_FREE task=main bytes=3748[0m
+[2026-10-26T21:46:22.310+08:00] [0;32mI (352544) elder-node: STACK_FREE task=gateway-net bytes=2768[0m
+[2026-10-26T21:46:27.795+08:00] [0;32mI (357974) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022387841,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.3,"rh":62.3,"ok":true,"valid":true},"gas":{"raw":268,"ok":true,"valid":true},"smoke":{"raw":117,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-1793022345-1","type":"MANUAL_SOS","countToday":1}}
+[2026-10-26T21:46:27.798+08:00] [0m
+[2026-10-26T21:46:27.800+08:00] [0;32mI (358004) elder-node: STACK_FREE task=main bytes=3748[0m
+[2026-10-26T21:46:27.802+08:00] [0;32mI (358044) elder-node: STACK_FREE task=gateway-net bytes=2768[0m
+[2026-10-26T21:46:33.244+08:00] [0;32mI (363454) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022393321,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.3,"rh":62.3,"ok":true,"valid":true},"gas":{"raw":267,"ok":true,"valid":true},"smoke":{"raw":119,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-1793022345-1","type":"MANUAL_SOS","countToday":1}}
+[2026-10-26T21:46:33.248+08:00] [0m
+[2026-10-26T21:46:33.249+08:00] [0;32mI (363484) elder-node: STACK_FREE task=main bytes=3748[0m
+[2026-10-26T21:46:33.369+08:00] [0;32mI (363544) elder-node: STACK_FREE task=gateway-net bytes=2768[0m
+[2026-10-26T21:46:38.730+08:00] [0;32mI (368934) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022398801,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.3,"rh":62.2,"ok":true,"valid":true},"gas":{"raw":267,"ok":true,"valid":true},"smoke":{"raw":110,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-1793022345-1","type":"MANUAL_SOS","countToday":1}}
+[2026-10-26T21:46:38.733+08:00] [0m
+[2026-10-26T21:46:38.737+08:00] [0;32mI (368944) elder-node: STACK_FREE task=gateway-net bytes=2768[0m
+[2026-10-26T21:46:38.738+08:00] [0;32mI (368964) elder-node: STACK_FREE task=main bytes=3748[0m
+[2026-10-26T21:46:44.238+08:00] [0;32mI (374424) elder-node: ADC raw: MQ2(CH5)=116 valid=1 danger=0 | MQ5(CH6)=275 valid=1 danger=0[0m
+[2026-10-26T21:46:44.240+08:00] [0;32mI (374424) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022404291,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.3,"rh":62.2,"ok":true,"valid":true},"gas":{"raw":275,"ok":true,"valid":true},"smoke":{"raw":116,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-1793022345-1","type":"MANUAL_SOS","countToday":1}}
+[2026-10-26T21:46:44.243+08:00] [0m
+[2026-10-26T21:46:44.244+08:00] [0;32mI (374464) elder-node: STACK_FREE task=gateway-net bytes=2768[0m
+[2026-10-26T21:46:44.245+08:00] [0;32mI (374464) elder-node: STACK_FREE task=main bytes=3748[0m
+[2026-10-26T21:46:49.721+08:00] [0;32mI (379924) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022409791,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.3,"rh":62.2,"ok":true,"valid":true},"gas":{"raw":269,"ok":true,"valid":true},"smoke":{"raw":93,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-1793022345-1","type":"MANUAL_SOS","countToday":1}}
+[2026-10-26T21:46:49.722+08:00] [0m
+[2026-10-26T21:46:49.724+08:00] [0;32mI (379954) elder-node: STACK_FREE task=main bytes=3748[0m
+[2026-10-26T21:46:49.724+08:00] [0;32mI (379964) elder-node: STACK_FREE task=gateway-net bytes=2768[0m
+[2026-10-26T21:46:55.214+08:00] [0;32mI (385404) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022415271,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.3,"rh":62.1,"ok":true,"valid":true},"gas":{"raw":271,"ok":true,"valid":true},"smoke":{"raw":115,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-1793022345-1","type":"MANUAL_SOS","countToday":1}}
+[2026-10-26T21:46:55.217+08:00] [0m
+[2026-10-26T21:46:55.219+08:00] [0;32mI (385434) elder-node: STACK_FREE task=main bytes=3748[0m
+[2026-10-26T21:46:55.220+08:00] [0;32mI (385464) elder-node: STACK_FREE task=gateway-net bytes=2768[0m
+[2026-10-26T21:47:00.725+08:00] [0;32mI (390884) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022420751,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.3,"rh":62.0,"ok":true,"valid":true},"gas":{"raw":262,"ok":true,"valid":true},"smoke":{"raw":55,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-1793022345-1","type":"MANUAL_SOS","countToday":1}}
+[2026-10-26T21:47:00.727+08:00] [0m
+[2026-10-26T21:47:00.729+08:00] [0;32mI (390914) elder-node: STACK_FREE task=main bytes=3748[0m
+[2026-10-26T21:47:00.730+08:00] [0;32mI (390964) elder-node: STACK_FREE task=gateway-net bytes=2768[0m
+[2026-10-26T21:47:06.168+08:00] [0;32mI (396364) elder-node: ADC raw: MQ2(CH5)=112 valid=1 danger=0 | MQ5(CH6)=270 valid=1 danger=0[0m
+[2026-10-26T21:47:06.169+08:00] [0;32mI (396364) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022426231,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.3,"rh":62.0,"ok":true,"valid":true},"gas":{"raw":270,"ok":true,"valid":true},"smoke":{"raw":112,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-1793022345-1","type":"MANUAL_SOS","countToday":1}}
+[2026-10-26T21:47:06.171+08:00] [0m
+[2026-10-26T21:47:06.172+08:00] [0;32mI (396404) elder-node: STACK_FREE task=main bytes=3748[0m
+[2026-10-26T21:47:06.292+08:00] [0;32mI (396464) elder-node: STACK_FREE task=gateway-net bytes=2768[0m
+[2026-10-26T21:47:11.659+08:00] [0;32mI (401854) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022431721,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.3,"rh":62.0,"ok":true,"valid":true},"gas":{"raw":263,"ok":true,"valid":true},"smoke":{"raw":118,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-1793022345-1","type":"MANUAL_SOS","countToday":1}}
+[2026-10-26T21:47:11.661+08:00] [0m
+[2026-10-26T21:47:11.663+08:00] [0;32mI (401864) elder-node: STACK_FREE task=gateway-net bytes=2768[0m
+[2026-10-26T21:47:11.664+08:00] [0;32mI (401884) elder-node: STACK_FREE task=main bytes=3748[0m
+[2026-10-26T21:47:17.153+08:00] [0;32mI (407344) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022437211,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.3,"rh":62.1,"ok":true,"valid":true},"gas":{"raw":264,"ok":true,"valid":true},"smoke":{"raw":116,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-1793022345-1","type":"MANUAL_SOS","countToday":1}}
+[2026-10-26T21:47:17.154+08:00] [0m
+[2026-10-26T21:47:17.155+08:00] [0;32mI (407374) elder-node: STACK_FREE task=main bytes=3748[0m
+[2026-10-26T21:47:17.156+08:00] [0;32mI (407384) elder-node: STACK_FREE task=gateway-net bytes=2768[0m
+[2026-10-26T21:47:22.646+08:00] [0;32mI (412824) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022442691,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.3,"rh":62.2,"ok":true,"valid":true},"gas":{"raw":269,"ok":true,"valid":true},"smoke":{"raw":117,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-1793022345-1","type":"MANUAL_SOS","countToday":1}}
+[2026-10-26T21:47:22.649+08:00] [0m
+[2026-10-26T21:47:22.650+08:00] [0;32mI (412854) elder-node: STACK_FREE task=main bytes=3748[0m
+[2026-10-26T21:47:22.652+08:00] [0;32mI (412884) elder-node: STACK_FREE task=gateway-net bytes=2768[0m
+[2026-10-26T21:47:28.147+08:00] [0;32mI (418304) elder-node: ADC raw: MQ2(CH5)=118 valid=1 danger=0 | MQ5(CH6)=308 valid=1 danger=0[0m
+[2026-10-26T21:47:28.149+08:00] [0;32mI (418304) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":1793022448171,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.3,"rh":62.1,"ok":true,"valid":true},"gas":{"raw":308,"ok":true,"valid":true},"smoke":{"raw":118,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-1793022345-1","type":"MANUAL_SOS","countToday":1}}
+[2026-10-26T21:47:28.150+08:00] [0m
+[2026-10-26T21:47:28.154+08:00] [0;32mI (418344) elder-node: STACK_FREE task=main bytes=3748[0m
+[2026-10-26T21:47:28.155+08:00] [0;32mI (418384) elder-node: STACK_FREE task=gateway-net bytes=2768[0m
+# DUAL_SERIAL stop duration=360.076s bathLines=307 bathBytes=43666 kitchenLines=296 kitchenBytes=42794 out=D:\OpenHarmony\competition\evidence\2026-10-26-kitchen-sos-led-speech-final\run\accept-2143

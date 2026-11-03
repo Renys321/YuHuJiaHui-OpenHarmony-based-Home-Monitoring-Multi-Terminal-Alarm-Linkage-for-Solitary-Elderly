@@ -1,0 +1,3 @@
+{"door":{"open":null,"lastOpenTs":0,"lastCloseTs":0,"seq":0}}
+{"door":{"open":true,"lastOpenTs":1761500000000,"lastCloseTs":1761499000000,"seq":7,"events":[{"seq":6,"open":false,"ts":1761499000000},{"seq":7,"open":true,"ts":1761500000000}]}}
+{"door":{"open":false,"lastOpenTs":0,"lastCloseTs":0,"seq":8}}

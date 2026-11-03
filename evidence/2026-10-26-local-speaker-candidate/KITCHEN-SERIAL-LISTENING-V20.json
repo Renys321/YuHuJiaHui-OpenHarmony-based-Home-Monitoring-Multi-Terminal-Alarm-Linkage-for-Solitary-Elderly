@@ -1,0 +1,466 @@
+{
+  "stage": "listening-v20",
+  "port": "COM5",
+  "startedAt": "2026-10-26T01:24:46.034945+08:00",
+  "rawUARTSaved": false,
+  "serialCommandsSent": false,
+  "hardwareRestart": true,
+  "samples": [
+    {
+      "observedAt": "2026-10-26T01:24:53.052566+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 0,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.6,
+        "rh": 59.0,
+        "valid": true
+      },
+      "gas": {
+        "raw": 275,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 116,
+        "valid": true
+      }
+    },
+    {
+      "observedAt": "2026-10-26T01:24:58.533662+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 0,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.7,
+        "rh": 59.0,
+        "valid": true
+      },
+      "gas": {
+        "raw": 330,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 117,
+        "valid": true
+      }
+    },
+    {
+      "observedAt": "2026-10-26T01:25:04.023708+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 0,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.7,
+        "rh": 59.0,
+        "valid": true
+      },
+      "gas": {
+        "raw": 285,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 87,
+        "valid": true
+      }
+    },
+    {
+      "observedAt": "2026-10-26T01:25:09.503477+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 0,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.7,
+        "rh": 58.9,
+        "valid": true
+      },
+      "gas": {
+        "raw": 269,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 111,
+        "valid": true
+      }
+    },
+    {
+      "observedAt": "2026-10-26T01:25:14.992399+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 0,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.7,
+        "rh": 58.9,
+        "valid": true
+      },
+      "gas": {
+        "raw": 282,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 111,
+        "valid": true
+      }
+    },
+    {
+      "observedAt": "2026-10-26T01:25:20.473680+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 1792949120559,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.7,
+        "rh": 58.8,
+        "valid": true
+      },
+      "gas": {
+        "raw": 270,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 133,
+        "valid": true
+      }
+    },
+    {
+      "observedAt": "2026-10-26T01:25:25.953938+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 1792949126039,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.7,
+        "rh": 58.9,
+        "valid": true
+      },
+      "gas": {
+        "raw": 239,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 136,
+        "valid": true
+      }
+    },
+    {
+      "observedAt": "2026-10-26T01:25:31.443251+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 1792949131529,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.7,
+        "rh": 58.9,
+        "valid": true
+      },
+      "gas": {
+        "raw": 297,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 104,
+        "valid": true
+      }
+    },
+    {
+      "observedAt": "2026-10-26T01:25:36.931351+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 1792949137009,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.7,
+        "rh": 59.1,
+        "valid": true
+      },
+      "gas": {
+        "raw": 295,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 89,
+        "valid": true
+      }
+    },
+    {
+      "observedAt": "2026-10-26T01:25:42.413648+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 1792949142499,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.7,
+        "rh": 59.2,
+        "valid": true
+      },
+      "gas": {
+        "raw": 291,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 115,
+        "valid": true
+      }
+    },
+    {
+      "observedAt": "2026-10-26T01:25:47.892939+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 1792949147979,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.7,
+        "rh": 59.1,
+        "valid": true
+      },
+      "gas": {
+        "raw": 294,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 109,
+        "valid": true
+      }
+    },
+    {
+      "observedAt": "2026-10-26T01:25:53.373059+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 1792949153459,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.7,
+        "rh": 59.2,
+        "valid": true
+      },
+      "gas": {
+        "raw": 349,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 146,
+        "valid": true
+      }
+    },
+    {
+      "observedAt": "2026-10-26T01:25:58.870697+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 1792949158949,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.7,
+        "rh": 59.2,
+        "valid": true
+      },
+      "gas": {
+        "raw": 296,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 110,
+        "valid": true
+      }
+    },
+    {
+      "observedAt": "2026-10-26T01:26:04.362308+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 1792949164449,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.7,
+        "rh": 59.2,
+        "valid": true
+      },
+      "gas": {
+        "raw": 294,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 114,
+        "valid": true
+      }
+    },
+    {
+      "observedAt": "2026-10-26T01:26:09.842274+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 1792949169929,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.8,
+        "rh": 59.3,
+        "valid": true
+      },
+      "gas": {
+        "raw": 283,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 123,
+        "valid": true
+      }
+    },
+    {
+      "observedAt": "2026-10-26T01:26:15.322235+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 1792949175409,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.8,
+        "rh": 59.3,
+        "valid": true
+      },
+      "gas": {
+        "raw": 299,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 91,
+        "valid": true
+      }
+    },
+    {
+      "observedAt": "2026-10-26T01:26:20.810470+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 1792949180889,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.8,
+        "rh": 59.3,
+        "valid": true
+      },
+      "gas": {
+        "raw": 299,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 111,
+        "valid": true
+      }
+    },
+    {
+      "observedAt": "2026-10-26T01:26:26.302369+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 1792949186389,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.8,
+        "rh": 59.2,
+        "valid": true
+      },
+      "gas": {
+        "raw": 291,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 126,
+        "valid": true
+      }
+    },
+    {
+      "observedAt": "2026-10-26T01:26:31.782483+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 1792949191869,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.8,
+        "rh": 59.2,
+        "valid": true
+      },
+      "gas": {
+        "raw": 282,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 169,
+        "valid": true
+      }
+    },
+    {
+      "observedAt": "2026-10-26T01:26:37.261995+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 1792949197349,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.8,
+        "rh": 59.3,
+        "valid": true
+      },
+      "gas": {
+        "raw": 292,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 110,
+        "valid": true
+      }
+    },
+    {
+      "observedAt": "2026-10-26T01:26:42.750177+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 1792949202829,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.8,
+        "rh": 59.2,
+        "valid": true
+      },
+      "gas": {
+        "raw": 284,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 115,
+        "valid": true
+      }
+    }
+  ],
+  "voice": [
+    "READY",
+    "PLAY clip=3",
+    "STOP result=ESP_OK cancelled=0"
+  ],
+  "network": [
+    "WIFI_DISCONNECTED",
+    "WIFI_DISCONNECTED",
+    "WIFI_GOT_IP",
+    "GATEWAY_CONNECTED"
+  ],
+  "diagnostics": [
+    "rst:0x1 (POWERON)",
+    "STACK_FREE task=local-voice bytes=1100",
+    "STACK_FREE task=main bytes=4060",
+    "STACK_FREE task=gateway-net bytes=2908",
+    "STACK_FREE task=gateway-net bytes=2908",
+    "STACK_FREE task=main bytes=4060",
+    "STACK_FREE task=main bytes=4060",
+    "STACK_FREE task=gateway-net bytes=2908",
+    "STACK_FREE task=main bytes=4060",
+    "STACK_FREE task=gateway-net bytes=2908",
+    "STACK_FREE task=main bytes=4060",
+    "STACK_FREE task=gateway-net bytes=2908",
+    "STACK_FREE task=main bytes=4060",
+    "STACK_FREE task=gateway-net bytes=2732",
+    "STACK_FREE task=gateway-net bytes=2732",
+    "STACK_FREE task=main bytes=4060",
+    "STACK_FREE task=main bytes=4060",
+    "STACK_FREE task=gateway-net bytes=2732",
+    "STACK_FREE task=main bytes=4060",
+    "STACK_FREE task=gateway-net bytes=2732",
+    "STACK_FREE task=main bytes=4060",
+    "STACK_FREE task=gateway-net bytes=2732",
+    "STACK_FREE task=main bytes=4060",
+    "STACK_FREE task=gateway-net bytes=2732",
+    "STACK_FREE task=gateway-net bytes=2732",
+    "STACK_FREE task=main bytes=4060",
+    "STACK_FREE task=main bytes=4060",
+    "STACK_FREE task=gateway-net bytes=2732",
+    "STACK_FREE task=main bytes=4060",
+    "STACK_FREE task=gateway-net bytes=2732",
+    "STACK_FREE task=main bytes=4060",
+    "STACK_FREE task=gateway-net bytes=2732",
+    "STACK_FREE task=main bytes=4060",
+    "STACK_FREE task=gateway-net bytes=2732",
+    "STACK_FREE task=gateway-net bytes=2732",
+    "STACK_FREE task=main bytes=4060",
+    "STACK_FREE task=main bytes=4060",
+    "STACK_FREE task=gateway-net bytes=2732",
+    "STACK_FREE task=main bytes=4060",
+    "STACK_FREE task=gateway-net bytes=2732",
+    "STACK_FREE task=main bytes=4060",
+    "STACK_FREE task=gateway-net bytes=2732",
+    "STACK_FREE task=main bytes=4060",
+    "STACK_FREE task=gateway-net bytes=2732"
+  ]
+}

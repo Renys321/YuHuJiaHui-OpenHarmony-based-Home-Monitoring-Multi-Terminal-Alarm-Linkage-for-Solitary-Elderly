@@ -1,0 +1,171 @@
+{
+  "startedAt": "2026-10-27T06:32:56.078Z",
+  "finishedAt": "2026-10-27T06:32:56.080Z",
+  "keyConfigured": true,
+  "keyLength": 35,
+  "keyLeakFiles": [],
+  "endpoint": "https://api.deepseek.com/chat/completions",
+  "model": "deepseek-chat",
+  "steps": [
+    {
+      "step": "backend_healthy",
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "step": "anonymous_get_401",
+      "result": {
+        "status": 401,
+        "body": {
+          "error": "unauthorized"
+        }
+      }
+    },
+    {
+      "step": "anonymous_put_401",
+      "result": {
+        "status": 401,
+        "body": {
+          "error": "unauthorized"
+        }
+      }
+    },
+    {
+      "step": "login",
+      "result": {
+        "status": 200,
+        "tokenLength": 136
+      }
+    },
+    {
+      "step": "empty_profile",
+      "result": {
+        "status": 200,
+        "profile": null
+      }
+    },
+    {
+      "step": "save_profile",
+      "result": {
+        "status": 200,
+        "fields": [
+          "age",
+          "alcohol",
+          "bowel",
+          "diet",
+          "exercise",
+          "fastingGlucose",
+          "hearing",
+          "heightCm",
+          "medicalHistory",
+          "medications",
+          "mood",
+          "restingBloodPressure",
+          "sleep",
+          "smoking",
+          "updatedAt",
+          "vision",
+          "weightKg"
+        ],
+        "hasUpdatedAt": true
+      }
+    },
+    {
+      "step": "read_profile",
+      "result": {
+        "status": 200,
+        "age": 72
+      }
+    },
+    {
+      "step": "real_advice_complete",
+      "result": {
+        "status": 200,
+        "ms": 8240,
+        "model": "deepseek-chat",
+        "summaryChars": 276,
+        "dietCount": 7,
+        "exerciseAndSleepCount": 8,
+        "warningSignsCount": 6,
+        "disclaimerFixed": true
+      }
+    },
+    {
+      "step": "save_thin_profile",
+      "result": {
+        "status": 200
+      }
+    },
+    {
+      "step": "real_advice_incomplete",
+      "result": {
+        "status": 200,
+        "ms": 5120,
+        "mentionsInsufficient": true,
+        "disclaimerFixed": true,
+        "noDiagnosisWords": true
+      }
+    },
+    {
+      "step": "unknown_identity_field_400",
+      "result": {
+        "status": 400,
+        "fields": [
+          "unknown field: idCard",
+          "unknown field: phone",
+          "unknown field: address"
+        ]
+      }
+    },
+    {
+      "step": "persisted_file_has_no_identity",
+      "result": {
+        "fileExists": true,
+        "containsIdCard": false,
+        "containsPhone": false,
+        "containsAddress": false,
+        "containsToken": false
+      }
+    },
+    {
+      "step": "restart_persistence",
+      "result": {
+        "status": 200,
+        "age": 72,
+        "medicalHistory": "高血压（长期服药控制）"
+      }
+    },
+    {
+      "step": "real_timeout_504",
+      "result": {
+        "status": 504,
+        "ms": 2032,
+        "body": {
+          "error": "ai service timeout",
+          "code": "AI_TIMEOUT"
+        },
+        "noAdvice": true
+      }
+    },
+    {
+      "step": "empty_profile_409",
+      "result": {
+        "status": 409,
+        "body": {
+          "error": "health profile is empty",
+          "code": "HEALTH_PROFILE_EMPTY"
+        }
+      }
+    },
+    {
+      "step": "query_params_rejected_400",
+      "result": {
+        "status": 400,
+        "body": {
+          "error": "query parameters are not allowed"
+        }
+      }
+    }
+  ]
+}

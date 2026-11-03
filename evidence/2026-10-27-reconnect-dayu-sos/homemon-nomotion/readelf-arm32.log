@@ -1,0 +1,6 @@
+﻿
+  Class:                             ELF32
+  Machine:                           ARM
+      [Requesting program interpreter: /lib/ld-musl-arm.so.1]
+
+

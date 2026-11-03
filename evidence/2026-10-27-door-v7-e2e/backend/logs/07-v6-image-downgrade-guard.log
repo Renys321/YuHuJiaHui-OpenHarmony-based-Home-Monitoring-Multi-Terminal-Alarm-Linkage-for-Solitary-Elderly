@@ -1,0 +1,8 @@
+﻿# v6 镜像对 v7 快照的降级保护验证（只读挂载，未写任何卷）
+# image tag: eldercare-cloud-backend:de-2026-10-26
+# image id : sha256:ed481503ff4883e83cd7f485d07768f7a29b69282f67d81439c9d79238fdada0
+# schema  : 6
+# control: load ORIGINAL v6 snapshot with v6 image (expect OK)
+  CONTROL_LOADED devices=1 alerts=1
+# guard  : load UPGRADED v7 snapshot with v6 image (expect fail-closed)
+  REJECTED: persistent store corrupt: unknown top-level field doorEvents

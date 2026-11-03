@@ -1,0 +1,20 @@
+﻿== 步骤 05：跨设备（非UI）+ 离线/重连 ==
+时间: 2026-10-09 22:48:07
+
+--- 1) bridge 收到 sim_node(esp32-bath) 状态 ---
+
+
+--- 2) 经 bridge 下发 home/esp32-bath/cmd -> gas ---
+  [tool] 错误: connect ECONNREFUSED 127.0.0.1:1883
+
+
+--- 3) 精确停止 sim_node PID 26748，等 16 秒 ---
+已停止 PID 26748
+
+
+--- 4) 同 ID 重启 sim_node ---
+新 sim_node PID = 28172
+
+
+--- 5) 板端 DAYU 状态 ---
+/bin/sh: no closing quote

@@ -1,0 +1,300 @@
+# 南向 `homemon` — 构建与上板说明
+
+对应赛题四要求：**南向数据采集与控制** + **本地声光预警与自助求助**。
+
+## 控制文件命令（`<dir>/control`，每行一条）
+
+| 命令 | 作用 |
+|---|---|
+| `ack <告警ID> <处置说明>` | 事件闭环：确认告警并把处置结果写入 `safety.log` |
+| `sos` | 触发主动求助（与实体按钮同一条路径：声光 + 语音） |
+| `motion` | 模拟一次人体活动（计入日统计与时段分布） |
+| `gas` / `smoke` / `climate` | 触发对应类型告警（传感器未接入时用于联调与演示） |
+| `reset` | 状态复位为正常 |
+
+> 用法示例：`echo gas >> /data/homemon/control`
+> 这些命令**走的是与真实传感器完全相同的判定/执行路径**，仅触发源不同。
+
+## 一、编译
+
+```powershell
+# 刷 OH 7.0 之后（32 位用户态）
+powershell -ExecutionPolicy Bypass -File D:\OpenHarmony\competition\southbound\build.ps1
+
+# 仅用于其他 64 位用户态环境的参考产物；当前 OH 7.0 真机不要使用
+powershell -ExecutionPolicy Bypass -File ...\build.ps1 -Arch arm64
+```
+
+产物：`out\homemon-arm` / `out\homemon-arm64`。
+用 OH NDK 交叉编译（`--target=arm-linux-ohos` / `aarch64-linux-ohos`），
+**不需要在板子上装编译器**——这也正是我们已验证过的"NDK 秒级编译 + hdc 推送即跑"路径。
+
+## 二、部署与运行
+
+```powershell
+$h = 'D:\OpenHarmony\tools\hdc\hdc.exe'
+& $h shell "mkdir -p /data/homemon"
+& $h file send out\homemon-arm /data/homemon/homemon
+& $h file send homemon.conf  /data/homemon/homemon.conf
+& $h shell "chmod 755 /data/homemon/homemon"
+& $h shell "/data/homemon/homemon /data/homemon/homemon.conf"
+```
+
+查看自检（不启动主循环，只打印解析到的配置）：
+```powershell
+& $h shell "/data/homemon/homemon /data/homemon/homemon.conf --print-config"
+```
+
+## 三、配置项（`homemon.conf`）
+
+```ini
+# --- 传感器 GPIO 编号（必须上板实测，见第四节）---
+motion_gpio=100,101          # 红外人体，逗号分隔可多个
+door_gpio=102                # 门磁
+button_gpio=103              # 随身求助按钮
+buzzer_gpio=104              # 有源蜂鸣器（输出）
+
+# --- 温湿度（I2C / SHT30）---
+i2c_dev=/dev/i2c-3
+i2c_addr=0x44
+
+# --- 三色灯：写 /sys/class/leds/<名字>/brightness ---
+led_red=/sys/class/leds/red
+led_green=/sys/class/leds/green
+led_blue=/sys/class/leds/blue
+
+# --- 语音播报：%s 会被替换为播报文本 ---
+# say.sh 启动 com.dsh.eldercare 的 SosVoiceAbility
+say_cmd=/data/homemon/say.sh "%s"
+
+# --- 阈值（基础阈值算法）---
+no_motion_sec=1800           # 30 分钟无活动 → ALARM
+warn_ratio=60                # 达到阈值 60% 先 WARN（黄灯慢闪）
+temp_high=30
+temp_low=10
+rh_high=75
+rh_low=25
+
+# --- 运行参数 ---
+tick_sec=1
+report_every_sec=10
+dir=/data/homemon
+```
+
+## 四、板载接口实测结论（2026-10-09，已在真机上确认）
+
+### 4.1 扩展口 J9903（P101-2x10SGF01，20Pin）— 官方原理图
+
+| 引脚 | 信号 | 我们的用途 | sysfs 编号 |
+|---|---|---|---|
+| 5 | **GPIO3_C5** | 红外人体 #1 | **gpio 117**（3×32+21） |
+| 12 | **GPIO3_C2** | 红外人体 #2 | **gpio 114**（3×32+18） |
+| 15 | **GPIO0_D5** | 门磁 | **gpio 29**（0×32+29） |
+| 2 | GPIO3_B2（UART4_TX） | 求助按钮（需 pinmux 为 GPIO） | gpio 106 |
+| 4 | GPIO3_B1（UART4_RX） | 备用 | gpio 105 |
+| 7 | PWM0_M0 | 蜂鸣器（或改用 GPIO 开关） | pwmchip |
+| 6 / 8 / 10 | **SARADC_VIN4 / VIN5 / VIN6** | 燃气 MQ-2 / 烟雾 MQ-5 | `in_voltage4/5/6_raw` |
+| 11 / 13 | **I2C3_SCL / SDA** | 温湿度 SHT30 | `/dev/i2c-3`，地址 `0x44` |
+| 16 / 19 / 20 | VCC3V3_SYS / VCC5V0_SYS / VCC12V_DCIN | 供电 | — |
+| 9 | GPIO0_C0 | ⚠️ **已被 work 灯占用，勿用** | gpio 16 |
+
+> GPIO 全局号规则（实测 `gpiochip0/32/64/96/128`，各 32 脚）：`全局号 = bank*32 + (组*8 + 序号)`，
+> 例：GPIO3_C5 = 3*32 + (2*8+5) = 117。
+
+### 4.2 GPIO 占用表（来自 `/sys/kernel/debug/gpio`，实测）
+
+| 已被占用的 GPIO | 用途 |
+|---|---|
+| 5 / 6 / 17 / 21 / 23 / 28 | OTG/HOST 5V 使能、摄像头供电、LCD 供电、PCIe 3V3 |
+| 16 | `work`（系统心跳灯） |
+| 30 / 94 / 125 | reset 类 |
+| 73 / 89 / 91 / 96 / 97 / 98 | 蓝牙相关 |
+| 109 / 140 | enable / pwdn |
+| **146 / 147 / 149** | **三色灯 blue / red / green** |
+
+**结论：117 / 114 / 29 / 105 / 106 均空闲可用**，gpiochip1（32–63）整组也基本空闲，可作扩展。
+
+### 4.3 三色灯（光报警）—— 开箱即用，与代码默认配置一致
+
+```
+/sys/class/leds/red     → gpio-147
+/sys/class/leds/green   → gpio-149
+/sys/class/leds/blue    → gpio-146
+（另有 mmc0:: 、work 两个系统灯，勿动）
+```
+
+### 4.4 语音播报（"我需要帮助"）—— 已实现 ArkTS AVPlayer 路径
+
+- homemon 在 `alarm_raise()` 中调用配置的 `say_cmd`，所有 SOS 来源走同一入口。
+- `/data/homemon/say.sh` 使用 `aa start` 启动 `com.dsh.eldercare` 的 `SosVoiceAbility`。
+- Ability 将 HAP 内的 `resources/rawfile/sos.wav` 写入应用沙箱，再以只读 fd 和 `fd://` 播放。
+- 音频用途设置为 `STREAM_USAGE_ALARM`，音量设置为 1.0。
+- 真机日志已出现 `SPEAKER`、`playing` 和 `completed`，只证明软件播放链路完成；其中
+  `SPEAKER` 是软件音频用途/路由描述，不证明裸板存在可听外放。
+- 2026-10-15 现场确认未插耳机时听不到声音。实体输出效果必须连接耳机或有源音箱后进行
+  人工听觉确认，软件路由日志不能替代声学验收。随后插耳机重播用药提醒，现场确认
+  “听到了”，因此耳机通道单条可听输出 PASS；文字、音量、清晰度、破音和其余四句仍待确认。
+
+## 五、与北向/云端的接口（已实现）
+
+| 方向 | 载体 | 内容 |
+|---|---|---|
+| 上行 | stdout + `$dir/status.json` | 每 `report_every_sec` 秒一行 JSON（见 `competition/README.md` 第 3.1 节协议） |
+| 下行 | `$dir/control` | 每行一条命令：`ack <alarmId> <处置说明>`、`reset` |
+| 闭环 | `$dir/safety.log` | 每次 ack 追加一行 → 对应赛题"居家安全日志" |
+| 运行日志 | `$dir/homemon.log` | 全部状态迁移与告警记录 |
+
+**桥接进程**（P4 阶段）负责：读 stdout 的 JSON → MQTT 上云；订阅云端 `ack` 命令 → 追加到 `control` 文件。
+
+## 六、状态机（代码已实现）
+
+```
+NORMAL ──活动间隔 ≥ warn_ratio%──▶ WARN ──≥ 100%──▶ ALARM ──ack──▶ ACKED
+   ▲                                  │              │              │
+   └────────── 检测到活动 ◀────────────┘              │              │
+                                                      └── reset ─────┘
+```
+- **NORMAL** 绿灯常亮 ｜ **WARN** 黄灯慢闪 ｜ **ALARM** 红闪 + 蜂鸣（SOS 时另加语音播报）｜ **ACKED** 蓝灯
+- 告警类型：`MANUAL_SOS`（主动求助）、`NO_MOTION`（长时间无活动）、温湿度越界（WARN）
+
+## 七、远程交流代理（第一阶段，2026-10-14 新增）
+
+`comms-agent.js` + `comms-run.js` 实现"监护人留言 → DAYU 播报预置语音 → 老人确认"的**设备侧**软件链路。
+它们是**独立的一次性轮询进程**，不修改 homemon，也不占用 control 文件协议。
+
+### 播放完成回执协议（第二阶段，本工作包的核心）
+
+**问题**：`aa start` 的退出码只说明 Ability 被拉起，**不能**说明声音播完了。
+Ability 结束后父进程也读不到它的返回值。
+
+**方案**：本地回环 HTTP 回执 + 一次性 nonce。
+
+```text
+southbound 代理                                    DAYU200 上的 HAP
+──────────────                                    ─────────────────
+1. 在 127.0.0.1:0 起一次性监听器
+   （系统分配临时端口，绝不监听 0.0.0.0）
+2. 生成 256-bit 一次性 nonce
+3. aa start ... --ps voiceResource       ────────►  4. 校验参数（白名单 + 黑名单字符）
+   --ps playbackMessageId cmsg-xxxx                  5. 从 rawfile 取资源并播放
+   --ps callbackPort <动态端口>                      6. AVPlayer 进入 completed
+   --ps callbackNonce <nonce>                            → 触发回执（唯一触发点）
+7. 核对 messageId + nonce（常量时间）  ◄────────   POST http://127.0.0.1:<port>/playback-result
+                                                      {playbackMessageId, callbackNonce,
+8. 只有此时才回报 PLAYED                                result:"COMPLETED"|"FAILED", errorCode}
+9. 关闭监听器
+```
+
+回执正文固定 4 个字段且有界（4 KiB 上限）；路径固定为 `/playback-result`，
+HAP **不接受**任意 callback URL——地址完全由端口拼出。
+
+### 为什么可以宣称"只有真正播完才回报 PLAYED"
+
+| 反例 | 本实现如何排除 |
+|---|---|
+| 用 `aa start` 退出码当成功 | 退出码为 0 仍必须等待正确回执；非零退出立即 `PLAYER_FAILED`，不空等回执超时 |
+| 固定 sleep 后当成功 | 参与"是否播完"判断的路径里没有任何 `setTimeout`/`setInterval` |
+| 只看"Ability 已启动" | 只有 AVPlayer 的 `completed` 分支会发出 `COMPLETED` |
+| 回执被伪造 | 必须同时匹配 messageId 与 nonce（`crypto.timingSafeEqual`） |
+| 重复回执覆盖结果 | 首次成功即关闭；重复回执返回 409 |
+| 播放器报错却当成功 | `error` 走重试/失败路径，回执 `FAILED` + 稳定失败码 |
+| 未知资源播 sos.wav 冒充 | 远程留言模式候选列表只有一个元素；未知资源直接 `UNKNOWN_VOICE` 失败 |
+
+失败码：HAP 侧 `UNKNOWN_VOICE` / `CALLBACK_CONTEXT_INVALID` / `RESOURCE_MISSING` /
+`PREPARE_FAILED` / `PLAYER_CREATE_FAILED` / `PLAYER_FAILED`；
+代理侧 `PLAYER_TIMEOUT`（无回执）/ `PLAY_REPORT_FAILED`（回执成功但后端写入失败）。
+
+### 测试替身（不是真机证据）
+
+`southbound/fixtures/fake-aa.js` 是 `aa` 的替身：解析 `--ps` 参数，按 `CALLBACK_MODE`
+决定回执内容（`complete` / `failed` / `silent` / `badnonce` / `badmessageid` /
+`http500` / `twice` / `exit1`），用于在没有 DAYU200 的机器上端到端验证协议。
+**它不播放任何音频**，因此只能作为 C 级（本地模拟集成）证据。
+
+### 运行
+
+```bash
+# dry-run：只走协议，不调用播放器（无 HAP 时用于本地验证）
+node southbound/comms-run.js --base-url http://127.0.0.1:8080 \
+     --device-id dayu200-room-1 --ingest-key <内部设备密钥> --dry-run --json
+
+# 真实播放：去掉 --dry-run（会执行 aa start -a SosVoiceAbility -b com.dsh.eldercare --ps voiceResource <file>）
+
+# Windows PC 经 USB 运行真实 DAYU 播放验收：显式指定 HDC。代理会自动选择唯一的
+# USB Connected 目标，为一次性回执建立 rport，并在成功或失败后删除映射。
+node southbound/comms-run.js --base-url http://127.0.0.1:8080 \
+     --device-id dayu200-room-1 --hdc 'D:\OpenHarmony\tools\hdc\hdc.exe'
+```
+
+退出码：`0` 全部成功/无待处理消息；`2` 部分失败；`1` 领取失败或全部失败；`64` 用法错误。
+
+### 安全边界（重要）
+
+| 约束 | 实现方式 |
+|---|---|
+| voiceId → 固定资源 | 设备端**独立持有** `VOICE_RESOURCES` 白名单（5 个 ID），不信任后端传来的值 |
+| 客户端不能指定路径/命令 | 客户端只提交 voiceId；资源名、Ability 名、包名都是代码内常量 |
+| 无命令注入 | 播放用 `spawn('aa', args, { shell:false })`，参数以 argv 数组传递，**不做任何字符串拼接** |
+| 资源名校验 | `isAllowedResourceName()`：必须是白名单中的纯文件名，拒绝 `/`、`\`、`..`、`:?#%` |
+| 不泄露密钥 | ingest key 只进请求头；日志过滤 token/openid/ingestKey |
+| 租约与失败恢复 | DELIVERED/PLAYED/FAILED 回报携带领取时的 leaseId；DELIVERED 回报失败时不播放，PLAYED 回报失败时不虚报成功；租约超时后可重新领取 |
+| 不驻留 | CLI 没有 `--watch`/`--daemon`/`--interval`，并拒绝这些参数 |
+
+### 与 homemon 的关系
+
+- **homemon.c 未做任何修改。** 现有 `alarm_raise()` → `say_cmd` → `SosVoiceAbility` 的求助播报路径保持原样。
+- 远程交流走独立通道：代理自己 `aa start` 拉起 `SosVoiceAbility`，并额外传 `--ps voiceResource <file>`。
+- `SosVoiceAbility` 已读取并严格校验 `voiceResource`、`playbackMessageId`、`callbackPort`、
+  `callbackNonce`；任一远程参数出现但上下文不完整时返回 `CALLBACK_CONTEXT_INVALID`，不会误播 `sos.wav`。
+- HAP 侧资源选择和回执代码已编译通过，但五个资源文件尚不存在；真机调用会得到
+  `RESOURCE_MISSING`，不能据此宣称预置语音已经播放。
+- 老人确认：后端已提供 ACKED 上报（`reportAcknowledged()`），但**实体按钮 → ACKED 的本机路径尚未接入**，
+  也未在真机验证。
+
+### 预置语音资源（已入 HAP 并完成真机验证）
+
+| voiceId | 资源文件 | 中文标签 |
+|---|---|---|
+| `CHECK_IN` | `check_in.wav` | 日常问候 |
+| `PLEASE_RESPOND` | `please_respond.wav` | 请回应 |
+| `MEDICINE_REMINDER` | `medicine_reminder.wav` | 用药提醒 |
+| `FAMILY_MESSAGE` | `family_message.wav` | 家人留言 |
+| `EMERGENCY_CONTACTING` | `emergency_contacting.wav` | 正在联系家人 |
+
+> **五个 WAV 已生成、已校验、已随 HAP 打包**（16 kHz / 单声道 / 16-bit PCM，
+> 3.7–4.9 s，五个哈希互不相同）。生成路线见 `tools/tts/README.md`
+> （无密钥在线 TTS + 系统自带 Media Foundation 解码；本机 SAPI 已确认不可用）。
+> HAP 侧的资源选择、白名单校验与回执协议代码已完成并编译通过
+> （`SosVoiceAbility.ets` 会读 `want.parameters.voiceResource`，未知资源直接
+> `UNKNOWN_VOICE` 失败且**绝不回退** `sos.wav`）。
+>
+> 当前语音版 HAP 已签名、验签、安装；五种资源均在真实 DAYU 上达到
+> `playing -> completed` 并返回 HTTP 200，未知资源正确失败。另有一条真实本地后端留言
+> 完成 `QUEUED -> DELIVERED -> PLAYED`。证据见
+> `docs/evidence/2026-10-15-dayu-preset-voice-playback.md` 与
+> `docs/evidence/2026-10-15-real-backend-dayu-played.md`。人工听觉内容与实体按钮 `ACKED`
+> 仍未验收。
+
+### 测试
+
+```bash
+node --test southbound/comms-agent.test.js           # 40 项：映射/参数/回执协议/租约链路/失败恢复/脱敏 + 真实后端端到端
+node --test southbound/comms-run.test.js             # 6 项：CLI 参数与退出码
+node --test southbound/hdc-player.test.js             # 6 项：USB 目标、rport、真机 aa 与清理
+node --test southbound/comms-cli-integration.test.js # 4 项：CLI 级端到端
+node --test northbound/tests/sosvoiceability-guard.test.js  # 11 项：HAP 源码守卫
+node --test tools/tts/wav.test.js                    # 11 项：WAV 校验与归一化
+```
+
+> 注意：本机沙箱下 `node --test` 的**嵌套子进程**无法访问父进程的回环 HTTP 服务
+> （已用最小化诊断确认：父进程 fetch 200，子进程 fetch 与裸 `http.get` 都超时）。
+> 因此 CLI 端到端测试**在进程内**调用 `main()` 并注入输出流，覆盖同一套代码路径。
+> 回执协议测试则在**进程内**用 `fake-aa.js` 作为 `aa` 替身，真实走回环 HTTP。
+
+## 八、已知待办（按优先级）
+
+1. **实体输出确认**：软件语音链路已完成，仍需对实际输出效果做人工验收。
+2. **门磁超时规则**：赛题要求"辅助判断老人是否外出或异常出入"，当前只记录状态；
+   建议补一条"夜间开门"或"长时间敞开"规则。
+3. **看门狗/自启动**：确认 OH 的应用/服务自启方式（init cfg 或 hdc 拉起），实现上电自启。
+4. **GPIO 中断优化**：当前 1 秒轮询；如需更低功耗可改 `poll()` on `/sys/class/gpio/gpioN/value`。

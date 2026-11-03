@@ -1,0 +1,71 @@
+2026-10-25T14:27:27.558Z [supervisor] LOCK_ACQUIRED pid=11632
+2026-10-25T14:27:27.563Z [supervisor] WAITING_FOR_KEY
+2026-10-25T14:27:41.662Z [supervisor] KEY_READ ok=set
+2026-10-25T14:27:41.677Z [supervisor] WORKER_START pid=9908
+2026-10-25T14:27:41.910Z [worker:stdout] [public-sync] CONFIG backend=https://api.luxunacc.xyz
+2026-10-25T14:27:41.911Z [worker:stdout] [public-sync] CONFIG broker=mqtt://127.0.0.1:1883
+2026-10-25T14:27:41.911Z [worker:stdout] [public-sync] CONFIG ingestKey=set
+2026-10-25T14:27:41.911Z [worker:stdout] [gateway] START mode=self device=-
+2026-10-25T14:27:41.929Z [supervisor] HEALTHY pid=9908
+2026-10-25T14:27:41.936Z [worker:stdout] [gateway] LOCAL_SUBSCRIBED topic=home/+/status
+2026-10-25T14:27:42.635Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-25T14:27:42.633Z
+2026-10-25T14:27:42.637Z [worker:stderr] [command-sync] COMMAND_IGNORED code=COMMAND_NOT_PENDING
+2026-10-25T14:27:42.637Z [worker:stderr] [command-sync] COMMAND_IGNORED code=COMMAND_NOT_PENDING
+2026-10-25T14:27:42.637Z [worker:stderr] [command-sync] COMMAND_IGNORED code=COMMAND_NOT_PENDING
+2026-10-25T14:27:42.637Z [worker:stderr] [command-sync] COMMAND_IGNORED code=COMMAND_NOT_PENDING
+2026-10-25T14:27:42.637Z [worker:stderr] [command-sync] COMMAND_IGNORED code=COMMAND_NOT_PENDING
+2026-10-25T14:27:42.637Z [worker:stderr] [command-sync] COMMAND_IGNORED code=COMMAND_NOT_PENDING
+2026-10-25T14:27:42.637Z [worker:stderr] [command-sync] COMMAND_IGNORED code=COMMAND_NOT_PENDING
+2026-10-25T14:27:42.967Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1792938462746 deviceTs=1792938461985 path=/internal/v1/device-status status=202 at=2026-10-25T14:27:42.967Z
+2026-10-25T14:27:43.436Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1792938463336 deviceTs=1792938463539 path=/internal/v1/device-status status=202 at=2026-10-25T14:27:43.436Z
+2026-10-25T14:27:43.927Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1792938463817 deviceTs=1792938463978 path=/internal/v1/device-status status=202 at=2026-10-25T14:27:43.926Z
+2026-10-25T14:28:15.930Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1792938495783 deviceTs=1792938495031 path=/internal/v1/device-status status=202 at=2026-10-25T14:28:15.929Z
+2026-10-25T14:28:16.357Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1792938496218 deviceTs=1792938496419 path=/internal/v1/device-status status=202 at=2026-10-25T14:28:16.356Z
+2026-10-25T14:28:17.054Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1792938496632 deviceTs=1792938496858 path=/internal/v1/device-status status=202 at=2026-10-25T14:28:17.054Z
+2026-10-25T14:28:43.747Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-25T14:28:43.746Z
+2026-10-25T14:28:45.970Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1792938525851 deviceTs=1792938525098 path=/internal/v1/device-status status=202 at=2026-10-25T14:28:45.968Z
+2026-10-25T14:28:49.197Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1792938529095 deviceTs=1792938529299 path=/internal/v1/device-status status=202 at=2026-10-25T14:28:49.196Z
+2026-10-25T14:28:49.671Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1792938529583 deviceTs=1792938529738 path=/internal/v1/device-status status=202 at=2026-10-25T14:28:49.669Z
+2026-10-25T14:29:16.011Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1792938555903 deviceTs=1792938555148 path=/internal/v1/device-status status=202 at=2026-10-25T14:29:16.010Z
+2026-10-25T14:29:22.128Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1792938561991 deviceTs=1792938562179 path=/internal/v1/device-status status=202 at=2026-10-25T14:29:22.127Z
+2026-10-25T14:29:22.500Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1792938562389 deviceTs=1792938562618 path=/internal/v1/device-status status=202 at=2026-10-25T14:29:22.499Z
+2026-10-25T14:29:43.986Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-25T14:29:43.985Z
+2026-10-25T14:29:46.075Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1792938585967 deviceTs=1792938585210 path=/internal/v1/device-status status=202 at=2026-10-25T14:29:46.075Z
+2026-10-25T14:29:55.038Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1792938594930 deviceTs=1792938595059 path=/internal/v1/device-status status=202 at=2026-10-25T14:29:55.038Z
+2026-10-25T14:29:55.392Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1792938595271 deviceTs=1792938595498 path=/internal/v1/device-status status=202 at=2026-10-25T14:29:55.392Z
+2026-10-25T14:30:16.156Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1792938616025 deviceTs=1792938615266 path=/internal/v1/device-status status=202 at=2026-10-25T14:30:16.155Z
+2026-10-25T14:30:27.908Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1792938627778 deviceTs=1792938627939 path=/internal/v1/device-status status=202 at=2026-10-25T14:30:27.907Z
+2026-10-25T14:30:28.334Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1792938628214 deviceTs=1792938628378 path=/internal/v1/device-status status=202 at=2026-10-25T14:30:28.334Z
+2026-10-25T14:30:44.570Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-25T14:30:44.570Z
+2026-10-25T14:30:46.295Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1792938646082 deviceTs=1792938645318 path=/internal/v1/device-status status=202 at=2026-10-25T14:30:46.295Z
+2026-10-25T14:31:00.714Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1792938660614 deviceTs=1792938660819 path=/internal/v1/device-status status=202 at=2026-10-25T14:31:00.714Z
+2026-10-25T14:31:01.149Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1792938661059 deviceTs=1792938661258 path=/internal/v1/device-status status=202 at=2026-10-25T14:31:01.149Z
+2026-10-25T14:31:16.324Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1792938676121 deviceTs=1792938675359 path=/internal/v1/device-status status=202 at=2026-10-25T14:31:16.324Z
+2026-10-25T14:31:33.636Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1792938693515 deviceTs=1792938693699 path=/internal/v1/device-status status=202 at=2026-10-25T14:31:33.635Z
+2026-10-25T14:31:34.085Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1792938693911 deviceTs=1792938694139 path=/internal/v1/device-status status=202 at=2026-10-25T14:31:34.084Z
+2026-10-25T14:31:45.461Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-25T14:31:45.460Z
+2026-10-25T14:31:49.287Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1792938709184 deviceTs=1792938708414 path=/internal/v1/device-status status=202 at=2026-10-25T14:31:49.286Z
+2026-10-25T14:32:06.464Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1792938726371 deviceTs=1792938726581 path=/internal/v1/device-status status=202 at=2026-10-25T14:32:06.463Z
+2026-10-25T14:32:06.903Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1792938726795 deviceTs=1792938727018 path=/internal/v1/device-status status=202 at=2026-10-25T14:32:06.902Z
+2026-10-25T14:32:19.341Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1792938739218 deviceTs=1792938738451 path=/internal/v1/device-status status=202 at=2026-10-25T14:32:19.341Z
+2026-10-25T14:32:39.349Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1792938759251 deviceTs=1792938759461 path=/internal/v1/device-status status=202 at=2026-10-25T14:32:39.349Z
+2026-10-25T14:32:39.802Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1792938759664 deviceTs=1792938759870 path=/internal/v1/device-status status=202 at=2026-10-25T14:32:39.801Z
+2026-10-25T14:32:46.408Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-25T14:32:46.408Z
+2026-10-25T14:32:49.403Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1792938769260 deviceTs=1792938768492 path=/internal/v1/device-status status=202 at=2026-10-25T14:32:49.402Z
+2026-10-25T14:33:12.265Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1792938792166 deviceTs=1792938792341 path=/internal/v1/device-status status=202 at=2026-10-25T14:33:12.265Z
+2026-10-25T14:33:12.813Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1792938792547 deviceTs=1792938792750 path=/internal/v1/device-status status=202 at=2026-10-25T14:33:12.813Z
+2026-10-25T14:33:19.424Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1792938799332 deviceTs=1792938798561 path=/internal/v1/device-status status=202 at=2026-10-25T14:33:19.424Z
+2026-10-25T14:33:45.149Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1792938825049 deviceTs=1792938825261 path=/internal/v1/device-status status=202 at=2026-10-25T14:33:45.148Z
+2026-10-25T14:33:45.571Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1792938825421 deviceTs=1792938825630 path=/internal/v1/device-status status=202 at=2026-10-25T14:33:45.569Z
+2026-10-25T14:33:46.902Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-25T14:33:46.901Z
+2026-10-25T14:33:49.526Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1792938829381 deviceTs=1792938828609 path=/internal/v1/device-status status=202 at=2026-10-25T14:33:49.525Z
+2026-10-25T14:34:18.117Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1792938857986 deviceTs=1792938858151 path=/internal/v1/device-status status=202 at=2026-10-25T14:34:18.116Z
+2026-10-25T14:34:18.430Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1792938858324 deviceTs=1792938858510 path=/internal/v1/device-status status=202 at=2026-10-25T14:34:18.429Z
+2026-10-25T14:34:19.558Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1792938859434 deviceTs=1792938858662 path=/internal/v1/device-status status=202 at=2026-10-25T14:34:19.557Z
+2026-10-25T14:34:48.022Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-25T14:34:48.021Z
+2026-10-25T14:34:49.628Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1792938889482 deviceTs=1792938888706 path=/internal/v1/device-status status=202 at=2026-10-25T14:34:49.628Z
+2026-10-25T14:34:50.948Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1792938890848 deviceTs=1792938891051 path=/internal/v1/device-status status=202 at=2026-10-25T14:34:50.947Z
+2026-10-25T14:34:51.313Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1792938891188 deviceTs=1792938891390 path=/internal/v1/device-status status=202 at=2026-10-25T14:34:51.312Z
+2026-10-25T14:35:19.670Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1792938919535 deviceTs=1792938918757 path=/internal/v1/device-status status=202 at=2026-10-25T14:35:19.669Z
+2026-10-25T14:35:23.831Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1792938923726 deviceTs=1792938923941 path=/internal/v1/device-status status=202 at=2026-10-25T14:35:23.830Z
+2026-10-25T14:35:24.140Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1792938924057 deviceTs=1792938924270 path=/internal/v1/device-status status=202 at=2026-10-25T14:35:24.139Z

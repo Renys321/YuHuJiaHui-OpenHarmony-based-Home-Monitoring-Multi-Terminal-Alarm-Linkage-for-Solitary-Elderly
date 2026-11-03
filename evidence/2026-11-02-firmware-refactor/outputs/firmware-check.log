@@ -1,0 +1,140 @@
+=== 生成时间: 2026-11-02 12:27:34（使用归档后的 checks/ 与 hostsim/）===
+
+=== host tests ===
+--- alarm_test
+PASS=141 FAIL=0
+[exit=0]
+--- battery_test
+PASS=35 FAIL=0
+[exit=0]
+--- notice_test
+PASS=18 FAIL=0
+[exit=0]
+--- adpcm_test
+(需要 <clip.adpcm> <clip.refpcm>；本轮未留存参考 PCM，未重跑)
+
+=== deep-check.py ===
+== function bodies (comments/whitespace ignored) ==
+identical: 34, differing: 18, no counterpart: 1
+no counterpart: now_ms
+
+[DIFF] aht20_read -> aht20_read (climate.c) tokens old=305 new=284 first=0
+  old: ... # if CONFIG_NODE_AHT20_ENABLED const uint8_t trigger
+  new: ... const uint8_t trigger [ ] =
+
+[DIFF] app_main -> app_main (node_main.c) tokens old=1001 new=882 first=106
+  old: ... # endif board_gpio_start ( ) ; local_led_start ( ) ; sensors_start (
+  new: ... # endif board_gpio_start ( ) ; door_monitor_start ( ) ; local_led_start (
+
+[DIFF] buzzer -> board_buzzer (board_io.c) tokens old=34 new=87 first=3
+  old: ... # if CONFIG_NODE_BUZZER_XL9555 board_buzzer ( on ) ; #
+  new: ... # if CONFIG_NODE_BUZZER_XL9555 uint8_t out = 0 ; if
+
+[DIFF] door_event_enqueue -> door_event_enqueue (door_monitor.c) tokens old=121 new=121 first=2
+  old: ... if ( s_door_event_count < CONFIG_NODE_DOOR_CACHE_MAX ) { int
+  new: ... if ( s_event_count < CONFIG_NODE_DOOR_CACHE_MAX ) { int
+
+[DIFF] door_event_expire -> door_event_expire (door_monitor.c) tokens old=83 new=83 first=2
+  old: ... if ( s_door_event_count = = 0 ) return
+  new: ... if ( s_event_count = = 0 ) return
+
+[DIFF] door_state_load -> door_state_load (door_monitor.c) tokens old=180 new=180 first=45
+  old: ... & & seq > 0 ) s_door_seq = ( int ) seq
+  new: ... & & seq > 0 ) s_seq = ( int ) seq
+
+[DIFF] door_state_save -> door_state_save (door_monitor.c) tokens old=164 new=164 first=62
+  old: ... . count = ( uint32_t ) s_door_event_count ; doc . head =
+  new: ... . count = ( uint32_t ) s_event_count ; doc . head =
+
+[DIFF] gateway_task -> gateway_task (gw_link.c) tokens old=248 new=243 first=17
+  old: ... ; ) { if ( ! ( xEventGroupGetBits ( s_wifi_events ) &
+  new: ... ; ) { if ( ! wifi_connected ( ) ) { if
+
+[DIFF] gpio_start -> board_gpio_start (board_io.c) tokens old=347 new=241 first=58
+  old: ... ; } # endif # if CONFIG_NODE_DOOR_GPIO > = 0 { gpio_config_t
+  new: ... ; } # endif # if CONFIG_NODE_SOS_GPIO > = 0 { gpio_config_t
+
+[DIFF] gw_poll -> gw_poll (gw_link.c) tokens old=251 new=255 first=203
+  old: ... , "command mailbox full; command rejected" ) ; # else handle_command ( p ) ; #
+  new: ... , "command mailbox full; command rejected" ) ; # else if ( s_command_handler ) s_command_handler (
+
+[DIFF] gw_send -> gw_send (gw_link.c) tokens old=92 new=92 first=84
+  old: ... - 1 ; } else { s_gw_sent_count + + ; } }
+  new: ... - 1 ; } else { s_sent_count + + ; } }
+
+[DIFF] raise_alarm -> raise_alarm (node_main.c) tokens old=181 new=183 first=81
+  old: ... node_now_ms ( ) ; s_sos_mark = s_gw_sent_count ; s_sos_pending_since = ( strcmp
+  new: ... node_now_ms ( ) ; s_sos_mark = gw_sent_count ( ) ; s_sos_pending_since =
+
+[DIFF] report -> report (node_main.c) tokens old=761 new=524 first=53
+  old: ... [ 700 ] = "" ; # if CONFIG_NODE_DOOR_GPIO > = 0
+  new: ... [ 700 ] = "" ; door_report_json ( door_json , sizeof (
+
+[DIFF] sample -> sample (node_main.c) tokens old=789 new=636 first=174
+  old: ... # if CONFIG_NODE_DOOR_GPIO > = 0 { int door_raw ; # if
+  new: ... # if CONFIG_NODE_DOOR_GPIO > = 0 # if CONFIG_NODE_ALARM_BENCH_INJECT door_monitor_poll ( s_time_synced
+
+[DIFF] serial_command_task -> serial_command_task (gw_link.c) tokens old=293 new=309 first=213
+  old: ... [ len ] = '\0' ; command_message_t command = { 0 }
+  new: ... [ len ] = '\0' ; # if CONFIG_NODE_VOICE_ENABLED command_message_t command =
+
+[DIFF] sos_handle_fast -> sos_handle_fast (node_main.c) tokens old=322 new=239 first=45
+  old: ... # endif # if CONFIG_NODE_SOS_KEY0_ENABLED { uint8_t in [ 2 ] =
+  new: ... # endif # if CONFIG_NODE_SOS_KEY0_ENABLED { int key0 = board_key0_poll ( )
+
+[DIFF] xl9555_beep -> board_buzzer (board_io.c) tokens old=58 new=87 first=0
+  old: ... uint8_t out = 0 ; if
+  new: ... # if CONFIG_NODE_BUZZER_XL9555 uint8_t out =
+
+[DIFF] xl9555_key0_init -> key0_init (board_io.c) tokens old=183 new=184 first=144
+  old: ... "SOS 按键：读取 KEY0 基线失败（下次轮询重试，不触发求助）" ) ; return ; } s_key0_baseline = ( ( in [
+  new: ... "SOS 按键：读取 KEY0 基线失败（下次轮询重试，不触发求助）" ) ; return ; } int baseline = ( ( in
+
+== string literals ==
+baseline distinct=414 current distinct=418
+missing in current (8):
+  - "NODE_ALARM_BENCH_INJECT 依赖语音构建的命令队列（CONFIG_NODE_VOICE_ENABLED=y）"
+  - "NODE_BATTERY_ADC_CHANNEL 不得与 NODE_MQ2_ADC_CHANNEL / NODE_MQ5_ADC_CHANNEL 复用同一 ADC1 通道"
+  - "NODE_BATTERY_ADC_CHANNEL 只允许 ADC1_CH0..CH9（-1=未接电池采样）"
+  - "NODE_BATTERY_MIN_MV 必须 <= NODE_BATTERY_MAX_MV"
+  - "VOICE_PIN_CONFLICT: AHT20 bus overlaps ES8388 I2S; do not flash"
+  - "VOICE_PIN_CONFLICT: MQ2 ADC1 pin overlaps ES8388 I2S; do not flash"
+  - "VOICE_PIN_CONFLICT: MQ5 ADC1 pin overlaps ES8388 I2S (kitchen GPIO9); do not flash"
+  - "VOICE_PIN_CONFLICT: sensor GPIO overlaps ES8388 I2S; do not flash"
+new in current (12):
+  + "VOICE_PIN_CONFLICT: a sensor/ADC pin collides with the ES8388 I2S pins; do not flash"
+  + "announce.h"
+  + "board_io.h"
+  + "climate.h"
+  + "door_monitor.h"
+  + "esp_err.h"
+  + "esp_netif.h"
+  + "gw_link.h"
+  + "node_common.h"
+  + "wifi_link.h"
+  + "台架注入要靠语音构建里的命令队列，请同时打开 CONFIG_NODE_VOICE_ENABLED"
+  + "电池采样配置非法：仅 ADC1_CH0..CH9、不得与 MQ 共用通道、MIN_MV 必须 <= MAX_MV"
+
+== #define values ==
+changed: 0, missing: 1, added: 8
+  - I2C_PORT = I2C_AHT_PORT
+  + ANNOUNCE_H = 
+  + BOARD_IO_H = 
+  + CLIMATE_H = 
+  + DOOR_MONITOR_H = 
+  + CMD_LINE_MAX = 1024
+  + GW_LINK_H = 
+  + NODE_COMMON_H = 
+  + WIFI_LINK_H = 
+
+== header inline functions ==
+identical inline functions: 33, differing/missing: 0
+
+=== sim-report.py ===
+PASS kitchen normal           bytes=555 door.open=False
+PASS kitchen baseline unknown bytes=422 door.open=None
+PASS kitchen SOS              bytes=470 door.open=False
+PASS bathroom water           bytes=489 door.open=True
+PASS battery valid            bytes=544 door.open=False
+PASS battery invalid          bytes=557 door.open=False
+report format identical to baseline; 6 frames parsed

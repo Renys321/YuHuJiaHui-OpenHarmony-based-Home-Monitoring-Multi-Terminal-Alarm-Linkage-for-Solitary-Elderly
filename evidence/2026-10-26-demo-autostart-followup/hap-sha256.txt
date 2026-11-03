@@ -1,0 +1,1 @@
+﻿a696698a627cfeee1ee90d4f94a3faf49b4a2f1bb8a2d813ca3ad245324daffe  /data/app/el1/bundle/public/com.dsh.eldercare/entry.hap

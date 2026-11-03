@@ -1,0 +1,4 @@
+[gateway] START mode=self device=dayu200-home-gateway
+[harness] gateway started, broker=mqtt://127.0.0.1:1883, events=D:\OpenHarmony\competition\evidence\2026-10-10-onenet-gateway-real-device\gateway-events.jsonl, lifetime=150s
+[harness] deviceName=dayu200-home-gateway resetMode=self
+[gateway] LOCAL_SUBSCRIBED topic=home/+/status

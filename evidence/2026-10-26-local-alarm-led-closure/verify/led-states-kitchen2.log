@@ -1,0 +1,576 @@
+# bench-serial.py start 2026-10-26T20:28:07.944+08:00
+# com=COM5 baud=115200 dtr=False rts=False log=D:\OpenHarmony\competition\evidence\2026-10-26-local-alarm-led-closure\verify\led-states-kitchen2.log
+# plan atSec=2 send=resume
+# plan atSec=5 send=inj reboot
+# plan atSec=7 send=pause
+# plan atSec=8 send=inj climate 47.0 95.0
+# plan atSec=9 send=inj climate 47.0 95.0
+# plan atSec=16 send=stop
+# plan atSec=24 send=ack {lastAlarm}
+# plan atSec=32 send=inj climate 25.0 50.0
+# plan atSec=33 send=inj climate 25.0 50.0
+# plan atSec=40 send=inj sos
+# plan atSec=48 send=stop
+# plan atSec=56 send=ack {lastAlarm}
+# plan atSec=64 send=reset
+# plan atSec=81 send=inj reboot
+# plan atSec=83 send=pause
+# plan atSec=84 send=inj climate 47.0 95.0
+# plan atSec=85 send=inj climate 47.0 95.0
+# plan atSec=92 send=stop
+# plan atSec=100 send=ack {lastAlarm}
+# plan atSec=108 send=inj climate 25.0 50.0
+# plan atSec=109 send=inj climate 25.0 50.0
+# plan atSec=116 send=inj sos
+# plan atSec=124 send=stop
+# plan atSec=132 send=ack {lastAlarm}
+# plan atSec=140 send=reset
+# plan atSec=157 send=inj reboot
+# plan atSec=159 send=pause
+# plan atSec=160 send=inj climate 47.0 95.0
+# plan atSec=161 send=inj climate 47.0 95.0
+# plan atSec=168 send=stop
+# plan atSec=176 send=ack {lastAlarm}
+# plan atSec=184 send=inj climate 25.0 50.0
+# plan atSec=185 send=inj climate 25.0 50.0
+# plan atSec=192 send=inj sos
+# plan atSec=200 send=stop
+# plan atSec=208 send=ack {lastAlarm}
+# plan atSec=216 send=reset
+# plan atSec=232 send=resume
+[+00000002.110s] [2026-10-26T20:28:10.061+08:00] SEND -> resume (atSec=2, elapsed=2.047s)
+[+00000002.313s] [2026-10-26T20:28:10.266+08:00] I (49718) elder-node: CMD 收到: resume
+[+00000002.641s] [2026-10-26T20:28:10.591+08:00] I (50008) elder-node: ADC raw: MQ2(CH5)=109 valid=1 danger=0 | MQ5(CH6)=265 valid=1 danger=0
+[+00000002.641s] [2026-10-26T20:28:10.591+08:00] I (50008) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":24.4,"rh":63.9,"ok":true,"valid":true},"gas":{"raw":265,"ok":true,"valid":true},"smoke":{"raw":109,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000002.641s] [2026-10-26T20:28:10.591+08:00] 
+[+00000002.641s] [2026-10-26T20:28:10.591+08:00] I (50038) elder-node: STACK_FREE task=main bytes=4052
+[+00000005.078s] [2026-10-26T20:28:13.025+08:00] SEND -> inj reboot (atSec=5, elapsed=5.016s)
+[+00000005.328s] [2026-10-26T20:28:13.276+08:00] I (52728) elder-node: CMD 收到: inj reboot
+[+00000005.328s] [2026-10-26T20:28:13.276+08:00] W (52728) elder-node: INJ 重启：验证重启后不重放历史声音（NVS 暂停状态应保持）
+[+00000005.875s] [2026-10-26T20:28:13.822+08:00] ESP-ROM:esp32s3-20210327
+[+00000005.875s] [2026-10-26T20:28:13.822+08:00] Build:Mar 27 2021
+[+00000005.875s] [2026-10-26T20:28:13.822+08:00] rst:0x3 (RTC_SW_SYS_RST),boot:0x2b (SPI_FAST_FLASH_BOOT)
+[+00000005.875s] [2026-10-26T20:28:13.822+08:00] Saved PC:0x403758a4
+[+00000005.875s] [2026-10-26T20:28:13.822+08:00] SPIWP:0xee
+[+00000005.875s] [2026-10-26T20:28:13.822+08:00] mode:DIO, clock div:1
+[+00000005.875s] [2026-10-26T20:28:13.822+08:00] load:0x3fce3818,len:0x1758
+[+00000005.875s] [2026-10-26T20:28:13.823+08:00] load:0x403c9700,len:0x4
+[+00000005.875s] [2026-10-26T20:28:13.823+08:00] load:0x403c9704,len:0xc00
+[+00000005.875s] [2026-10-26T20:28:13.823+08:00] load:0x403cc700,len:0x2e20
+[+00000005.875s] [2026-10-26T20:28:13.823+08:00] entry 0x403c9908
+[+00000005.875s] [2026-10-26T20:28:13.823+08:00] I (31) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader
+[+00000005.875s] [2026-10-26T20:28:13.823+08:00] I (31) boot: compile time Oct 20 2026 19:51:15
+[+00000005.875s] [2026-10-26T20:28:13.823+08:00] I (31) boot: Multicore bootloader
+[+00000005.875s] [2026-10-26T20:28:13.823+08:00] I (35) boot: chip revision: v0.2
+[+00000005.875s] [2026-10-26T20:28:13.823+08:00] I (39) boot.esp32s3: Boot SPI Speed : 80MHz
+[+00000005.875s] [2026-10-26T20:28:13.823+08:00] I (44) boot.esp32s3: SPI Mode       : DIO
+[+00000005.875s] [2026-10-26T20:28:13.823+08:00] I (48) boot.esp32s3: SPI Flash Size : 2MB
+[+00000005.875s] [2026-10-26T20:28:13.823+08:00] I (53) boot: Enabling RNG early entropy source...
+[+00000005.875s] [2026-10-26T20:28:13.823+08:00] I (58) boot: Partition Table:
+[+00000005.875s] [2026-10-26T20:28:13.823+08:00] I (62) boot: ## Label            Usage          Type ST Offset   Length
+[+00000005.875s] [2026-10-26T20:28:13.823+08:00] I (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+[+00000005.875s] [2026-10-26T20:28:13.823+08:00] I (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+[+00000005.875s] [2026-10-26T20:28:13.823+08:00] I (84) boot:  2 factory          factory app      00 00 00010000 00100000
+[+00000005.875s] [2026-10-26T20:28:13.823+08:00] I (92) boot: End of partition table
+[+00000005.875s] [2026-10-26T20:28:13.824+08:00] I (96) esp_image: segment 0: paddr=00010020 vaddr=3c040020 size=309a0h (199072) map
+[+00000005.875s] [2026-10-26T20:28:13.824+08:00] I (140) esp_image: segment 1: paddr=000409c8 vaddr=3fc93300 size=028fch ( 10492) load
+[+00000005.875s] [2026-10-26T20:28:13.824+08:00] I (143) esp_image: segment 2: paddr=000432cc vaddr=40374000 size=0cd4ch ( 52556) load
+[+00000005.875s] [2026-10-26T20:28:13.824+08:00] I (158) esp_image: segment 3: paddr=00050020 vaddr=42000020 size=32f18h (208664) map
+[+00000005.875s] [2026-10-26T20:28:13.824+08:00] I (195) esp_image: segment 4: paddr=00082f40 vaddr=40380d4c size=02560h (  9568) load
+[+00000005.875s] [2026-10-26T20:28:13.824+08:00] I (198) esp_image: segment 5: paddr=000854a8 vaddr=600fe010 size=00004h (     4) load
+[+00000005.875s] [2026-10-26T20:28:13.824+08:00] I (207) boot: Loaded app from partition at offset 0x10000
+[+00000005.875s] [2026-10-26T20:28:13.824+08:00] I (207) boot: Disabling RNG early entropy source...
+[+00000005.875s] [2026-10-26T20:28:13.824+08:00] I (224) cpu_start: Multicore app
+[+00000005.875s] [2026-10-26T20:28:13.824+08:00] I (225) cpu_start: Pro cpu up.
+[+00000005.875s] [2026-10-26T20:28:13.824+08:00] I (225) cpu_start: Starting app cpu, entry point is 0x403754ac
+[+00000005.875s] [2026-10-26T20:28:13.824+08:00] I (0) cpu_start: App cpu up.
+[+00000005.875s] [2026-10-26T20:28:13.824+08:00] I (242) cpu_start: Pro cpu start user code
+[+00000005.875s] [2026-10-26T20:28:13.824+08:00] I (242) cpu_start: cpu freq: 160000000 Hz
+[+00000005.875s] [2026-10-26T20:28:13.824+08:00] I (242) cpu_start: Application information:
+[+00000005.875s] [2026-10-26T20:28:13.824+08:00] I (245) cpu_start: Project name:     esp32_elder_node
+[+00000005.875s] [2026-10-26T20:28:13.825+08:00] I (251) cpu_start: App version:      1
+[+00000005.875s] [2026-10-26T20:28:13.825+08:00] I (256) cpu_start: Compile time:     Oct 26 2026 20:03:52
+[+00000005.875s] [2026-10-26T20:28:13.825+08:00] I (262) cpu_start: ELF file SHA256:  5fd894b7af5931f0...
+[+00000005.875s] [2026-10-26T20:28:13.825+08:00] I (268) cpu_start: ESP-IDF:          v5.1.6-dirty
+[+00000005.875s] [2026-10-26T20:28:13.825+08:00] I (273) cpu_start: Min chip rev:     v0.0
+[+00000005.875s] [2026-10-26T20:28:13.825+08:00] I (278) cpu_start: Max chip rev:     v0.99 
+[+00000005.875s] [2026-10-26T20:28:13.825+08:00] I (283) cpu_start: Chip rev:         v0.2
+[+00000005.875s] [2026-10-26T20:28:13.825+08:00] I (287) heap_init: Initializing. RAM available for dynamic allocation:
+[+00000005.875s] [2026-10-26T20:28:13.825+08:00] I (295) heap_init: At 3FC96668 len 000530A8 (332 KiB): DRAM
+[+00000005.875s] [2026-10-26T20:28:13.825+08:00] I (301) heap_init: At 3FCE9710 len 00005724 (21 KiB): STACK/DRAM
+[+00000005.875s] [2026-10-26T20:28:13.825+08:00] I (307) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM
+[+00000005.875s] [2026-10-26T20:28:13.825+08:00] I (314) heap_init: At 600FE014 len 00001FD4 (7 KiB): RTCRAM
+[+00000005.875s] [2026-10-26T20:28:13.825+08:00] I (321) spi_flash: detected chip: boya
+[+00000005.875s] [2026-10-26T20:28:13.825+08:00] I (324) spi_flash: flash io: dio
+[+00000005.875s] [2026-10-26T20:28:13.825+08:00] W (328) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+[+00000005.875s] [2026-10-26T20:28:13.825+08:00] W (342) i2s(legacy): legacy i2s driver is deprecated, please migrate to use driver/i2s_std.h, driver/i2s_pdm.h or driver/i2s_tdm.h
+[+00000005.875s] [2026-10-26T20:28:13.825+08:00] I (354) sleep: Configure to isolate all GPIO pins in sleep state
+[+00000005.875s] [2026-10-26T20:28:13.825+08:00] I (361) sleep: Enable automatic switching of GPIO sleep configuration
+[+00000005.875s] [2026-10-26T20:28:13.825+08:00] I (368) app_start: Starting scheduler on CPU0
+[+00000005.875s] [2026-10-26T20:28:13.826+08:00] I (373) app_start: Starting scheduler on CPU1
+[+00000005.875s] [2026-10-26T20:28:13.826+08:00] I (373) main_task: Started on CPU0
+[+00000005.875s] [2026-10-26T20:28:13.826+08:00] I (383) main_task: Calling app_main()
+[+00000005.875s] [2026-10-26T20:28:13.826+08:00] I (393) elder-node: ESP32-S3 无线节点启动：esp32-kitchen / 厨房
+[+00000005.875s] [2026-10-26T20:28:13.826+08:00] W (393) elder-node: BENCH INJECT MODE：仅隔离台架验收（gw_port=9101 无活动=20s 重复提醒=10s 温湿度确认=2/2）
+[+00000006.016s] [2026-10-26T20:28:13.959+08:00] I (403) gpio: GPIO[1]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 
+[+00000006.016s] [2026-10-26T20:28:13.959+08:00] I (413) local-led: 板载 LED 就绪：GPIO1 单色，低电平有效，启动默认灭（no boot flash）
+[+00000006.016s] [2026-10-26T20:28:13.959+08:00] I (473) elder-node: 板载蜂鸣器就绪（XL9555 P0_3）
+[+00000006.016s] [2026-10-26T20:28:13.959+08:00] I (473) elder-node: SOS 按键就绪：板载 KEY0 = XL9555 P1_7（低电平按下，输入方向），上电基线=松开，P1=0xFF；需先见到松开才允许触发
+[+00000006.235s] [2026-10-26T20:28:14.179+08:00] I (713) local-voice: READY playback-only 16000Hz; amp standby muted; no boot alarm
+[+00000006.328s] [2026-10-26T20:28:14.274+08:00] I�W (803) elder-node: BENCH: UART0 命令通道就绪（115200 8N1，逐行命令）
+[+00000006.328s] [2026-10-26T20:28:14.274+08:00] I (803) elder-node: KEY0 原始电平变化：松开(高)（XL9555 P1=0xFF）
+[+00000007.078s] [2026-10-26T20:28:15.021+08:00] SEND -> pause (atSec=7, elapsed=7.016s)
+[+00000007.360s] [2026-10-26T20:28:15.317+08:00] I (1793) elder-node: CMD 收到: pause
+[+00000007.375s] [2026-10-26T20:28:15.317+08:00] I (1793) elder-node: PAUSE 已接受并持久化：暂停监护（仅抑制无活动提醒；SOS/环境告警不受影响）
+[+00000007.375s] [2026-10-26T20:28:15.318+08:00] I (1793) elder-node: ADC raw: MQ2(CH5)=106 valid=1 danger=0 | MQ5(CH6)=274 valid=1 danger=0
+[+00000007.375s] [2026-10-26T20:28:15.318+08:00] I (1803) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":24.4,"rh":64.0,"ok":true,"valid":true},"gas":{"raw":274,"ok":true,"valid":true},"smoke":{"raw":106,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000007.375s] [2026-10-26T20:28:15.318+08:00] 
+[+00000007.375s] [2026-10-26T20:28:15.318+08:00] I (1843) elder-node: STACK_FREE task=main bytes=3956
+[+00000008.110s] [2026-10-26T20:28:16.061+08:00] SEND -> inj climate 47.0 95.0 (atSec=8, elapsed=8.047s)
+[+00000008.453s] [2026-10-26T20:28:16.402+08:00] I (2933) elder-node: CMD 收到: inj climate 47.0 95.0
+[+00000008.453s] [2026-10-26T20:28:16.402+08:00] W (2933) elder-node: INJ 温湿度=47.0C/95.0%
+[+00000009.078s] [2026-10-26T20:28:17.026+08:00] SEND -> inj climate 47.0 95.0 (atSec=9, elapsed=9.016s)
+[+00000009.250s] [2026-10-26T20:28:17.198+08:00] I (3733) elder-node: CMD 收到: inj climate 47.0 95.0
+[+00000009.250s] [2026-10-26T20:28:17.198+08:00] W (3733) elder-node: INJ 温湿度=47.0C/95.0%
+[+00000010.469s] [2026-10-26T20:28:18.414+08:00] W (4933) elder-node: AHT20 温湿度越界 -> ALARM（e-u60940751-1，type=CLIMATE）语音+蜂鸣已请求
+[+00000010.469s] [2026-10-26T20:28:18.415+08:00] I (4933) local-led: LED 模式=ALARM_BLINK type=CLIMATE（低电平有效；告警期间不被普通联网提示覆盖）
+[+00000010.469s] [2026-10-26T20:28:18.415+08:00] I (4933) local-voice: PLAY clip=2
+[+00000011.500s] [2026-10-26T20:28:19.453+08:00] I (5943) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":47.0,"rh":95.0,"ok":false,"valid":true},"gas":{"raw":247,"ok":true,"valid":true},"smoke":{"raw":101,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u60940751-1","type":"CLIMATE","countToday":1}}
+[+00000011.500s] [2026-10-26T20:28:19.453+08:00] 
+[+00000011.500s] [2026-10-26T20:28:19.453+08:00] I (5963) elder-node: STACK_FREE task=main bytes=3956
+[+00000013.344s] [2026-10-26T20:28:21.301+08:00] I (7823) local-voice: STOP result=ESP_OK cancelled=0
+[+00000013.344s] [2026-10-26T20:28:21.301+08:00] I (7823) local-voice: STACK_FREE task=local-voice bytes=1100
+[+00000015.500s] [2026-10-26T20:28:23.446+08:00] I (9973) elder-node: 告警鸣响到时，自动静音（告警状态保留）
+[+00000016.063s] [2026-10-26T20:28:24.008+08:00] SEND -> stop (atSec=16, elapsed=16.000s)
+[+00000016.344s] [2026-10-26T20:28:24.288+08:00] I (10773) elder-node: CMD 收到: stop
+[+00000016.344s] [2026-10-26T20:28:24.288+08:00] I (10773) elder-node: STOP 已接受并生效：本轮声音停止，state 保持 ALARM id=e-u60940751-1 type=CLIMATE；同一持续事件不再重复拉响
+[+00000016.344s] [2026-10-26T20:28:24.288+08:00] I (10773) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":47.0,"rh":95.0,"ok":false,"valid":true},"gas":{"raw":261,"ok":true,"valid":true},"smoke":{"raw":108,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u60940751-1","type":"CLIMATE","countToday":1}}
+[+00000016.344s] [2026-10-26T20:28:24.288+08:00] 
+[+00000016.344s] [2026-10-26T20:28:24.288+08:00] I (10813) elder-node: STACK_FREE task=main bytes=3956
+[+00000016.578s] [2026-10-26T20:28:24.521+08:00] I (11023) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":47.0,"rh":95.0,"ok":false,"valid":true},"gas":{"raw":285,"ok":true,"valid":true},"smoke":{"raw":87,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u60940751-1","type":"CLIMATE","countToday":1}}
+[+00000016.578s] [2026-10-26T20:28:24.521+08:00] 
+[+00000016.578s] [2026-10-26T20:28:24.521+08:00] I (11043) elder-node: STACK_FREE task=main bytes=3956
+[+00000021.625s] [2026-10-26T20:28:29.569+08:00] I (16053) elder-node: ADC raw: MQ2(CH5)=108 valid=1 danger=0 | MQ5(CH6)=252 valid=1 danger=0
+[+00000021.625s] [2026-10-26T20:28:29.569+08:00] I (16053) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":47.0,"rh":95.0,"ok":false,"valid":true},"gas":{"raw":252,"ok":true,"valid":true},"smoke":{"raw":108,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u60940751-1","type":"CLIMATE","countToday":1}}
+[+00000021.625s] [2026-10-26T20:28:29.569+08:00] 
+[+00000021.625s] [2026-10-26T20:28:29.569+08:00] I (16083) elder-node: STACK_FREE task=main bytes=3956
+[+00000024.110s] [2026-10-26T20:28:32.062+08:00] SEND -> ack e-u60940751-1 (atSec=24, elapsed=24.047s)
+[+00000024.360s] [2026-10-26T20:28:32.314+08:00] I (18793) elder-node: CMD 收到: ack e-u60940751-1
+[+00000024.360s] [2026-10-26T20:28:32.314+08:00] I (18793) elder-node: ACK 回执已接受并生效（阶段③：监护人已确认）：id=e-u60940751-1 type=CLIMATE -> state=ACKED，蜂鸣器已停，语音已取消
+[+00000024.360s] [2026-10-26T20:28:32.314+08:00] I (18803) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ACKED","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":47.0,"rh":95.0,"ok":false,"valid":true},"gas":{"raw":270,"ok":true,"valid":true},"smoke":{"raw":107,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u60940751-1","type":"CLIMATE","countToday":1}}
+[+00000024.360s] [2026-10-26T20:28:32.314+08:00] 
+[+00000024.360s] [2026-10-26T20:28:32.314+08:00] I (18843) elder-node: STACK_FREE task=main bytes=3956
+[+00000024.453s] [2026-10-26T20:28:32.408+08:00] I (18943) local-led: LED 模式=ACKED_SLOW_PULSE type=CLIMATE（低电平有效；告警期间不被普通联网提示覆盖）
+[+00000026.688s] [2026-10-26T20:28:34.640+08:00] I (21143) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ACKED","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":47.0,"rh":95.0,"ok":false,"valid":true},"gas":{"raw":261,"ok":true,"valid":true},"smoke":{"raw":108,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u60940751-1","type":"CLIMATE","countToday":1}}
+[+00000026.688s] [2026-10-26T20:28:34.640+08:00] 
+[+00000026.688s] [2026-10-26T20:28:34.640+08:00] I (21163) elder-node: STACK_FREE task=main bytes=3956
+[+00000031.719s] [2026-10-26T20:28:39.673+08:00] I (26173) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ACKED","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":47.0,"rh":95.0,"ok":false,"valid":true},"gas":{"raw":266,"ok":true,"valid":true},"smoke":{"raw":105,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u60940751-1","type":"CLIMATE","countToday":1}}
+[+00000031.719s] [2026-10-26T20:28:39.673+08:00] 
+[+00000031.719s] [2026-10-26T20:28:39.673+08:00] I (26193) elder-node: STACK_FREE task=main bytes=3956
+[+00000032.094s] [2026-10-26T20:28:40.046+08:00] SEND -> inj climate 25.0 50.0 (atSec=32, elapsed=32.032s)
+[+00000032.313s] [2026-10-26T20:28:40.265+08:00] I (26803) elder-node: CMD 收到: inj climate 25.0 50.0
+[+00000032.313s] [2026-10-26T20:28:40.265+08:00] W (26803) elder-node: INJ 温湿度=25.0C/50.0%
+[+00000033.063s] [2026-10-26T20:28:41.014+08:00] SEND -> inj climate 25.0 50.0 (atSec=33, elapsed=33.000s)
+[+00000033.313s] [2026-10-26T20:28:41.266+08:00] I (27803) elder-node: CMD 收到: inj climate 25.0 50.0
+[+00000033.313s] [2026-10-26T20:28:41.266+08:00] W (27803) elder-node: INJ 温湿度=25.0C/50.0%
+[+00000036.766s] [2026-10-26T20:28:44.718+08:00] I (31203) elder-node: ADC raw: MQ2(CH5)=108 valid=1 danger=0 | MQ5(CH6)=265 valid=1 danger=0
+[+00000036.766s] [2026-10-26T20:28:44.718+08:00] I (31203) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ACKED","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":50.0,"ok":true,"valid":true},"gas":{"raw":265,"ok":true,"valid":true},"smoke":{"raw":108,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u60940751-1","type":"CLIMATE","countToday":1}}
+[+00000036.766s] [2026-10-26T20:28:44.718+08:00] 
+[+00000036.766s] [2026-10-26T20:28:44.718+08:00] I (31233) elder-node: STACK_FREE task=main bytes=3956
+[+00000040.078s] [2026-10-26T20:28:48.024+08:00] SEND -> inj sos (atSec=40, elapsed=40.016s)
+[+00000040.344s] [2026-10-26T20:28:48.287+08:00] I (34743) elder-node: CMD 收到: inj sos
+[+00000040.344s] [2026-10-26T20:28:48.287+08:00] W (34743) elder-node: INJ SOS（台架注入事件）
+[+00000040.344s] [2026-10-26T20:28:48.287+08:00] W (34743) elder-node: SOS 本地已触发：台架注入 SOS（来源设备=esp32-kitchen / 房间=厨房，厨房设备实体按键）；状态=正在发送，尚未收到监护人确认
+[+00000040.344s] [2026-10-26T20:28:48.287+08:00] W (34753) elder-node: 台架注入 SOS -> ALARM（e-u60940751-2，type=MANUAL_SOS）语音+蜂鸣已请求
+[+00000040.344s] [2026-10-26T20:28:48.287+08:00] I (34763) local-voice: PLAY clip=1
+[+00000040.344s] [2026-10-26T20:28:48.287+08:00] I (34773) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":50.0,"ok":true,"valid":true},"gas":{"raw":260,"ok":true,"valid":true},"smoke":{"raw":109,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u60940751-2","type":"MANUAL_SOS","countToday":1}}
+[+00000040.344s] [2026-10-26T20:28:48.287+08:00] 
+[+00000040.344s] [2026-10-26T20:28:48.287+08:00] I (34813) elder-node: STACK_FREE task=main bytes=3908
+[+00000040.438s] [2026-10-26T20:28:48.381+08:00] I (34913) local-led: LED 模式=SOS_TRIPLE type=MANUAL_SOS（低电平有效；告警期间不被普通联网提示覆盖）
+[+00000041.563s] [2026-10-26T20:28:49.508+08:00] I (36033) local-voice: STOP result=ESP_OK cancelled=0
+[+00000041.563s] [2026-10-26T20:28:49.508+08:00] I (36033) local-voice: STACK_FREE task=local-voice bytes=1100
+[+00000041.875s] [2026-10-26T20:28:49.821+08:00] I (36313) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":50.0,"ok":true,"valid":true},"gas":{"raw":271,"ok":true,"valid":true},"smoke":{"raw":103,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u60940751-2","type":"MANUAL_SOS","countToday":1}}
+[+00000041.875s] [2026-10-26T20:28:49.821+08:00] 
+[+00000041.875s] [2026-10-26T20:28:49.821+08:00] I (36343) elder-node: STACK_FREE task=main bytes=3908
+[+00000045.360s] [2026-10-26T20:28:53.304+08:00] I (39843) elder-node: 告警鸣响到时，自动静音（告警状态保留）
+[+00000046.891s] [2026-10-26T20:28:54.839+08:00] I (41343) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":50.0,"ok":true,"valid":true},"gas":{"raw":265,"ok":true,"valid":true},"smoke":{"raw":123,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u60940751-2","type":"MANUAL_SOS","countToday":1}}
+[+00000046.891s] [2026-10-26T20:28:54.840+08:00] 
+[+00000046.891s] [2026-10-26T20:28:54.840+08:00] I (41363) elder-node: STACK_FREE task=main bytes=3908
+[+00000048.078s] [2026-10-26T20:28:56.022+08:00] SEND -> stop (atSec=48, elapsed=48.016s)
+[+00000048.360s] [2026-10-26T20:28:56.305+08:00] I (42773) elder-node: CMD 收到: stop
+[+00000048.360s] [2026-10-26T20:28:56.305+08:00] I (42773) elder-node: STOP 已接受并生效：本轮声音停止，state 保持 ALARM id=e-u60940751-2 type=MANUAL_SOS；同一持续事件不再重复拉响
+[+00000048.360s] [2026-10-26T20:28:56.305+08:00] I (42773) elder-node: ADC raw: MQ2(CH5)=120 valid=1 danger=0 | MQ5(CH6)=270 valid=1 danger=0
+[+00000048.360s] [2026-10-26T20:28:56.305+08:00] I (42783) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":50.0,"ok":true,"valid":true},"gas":{"raw":270,"ok":true,"valid":true},"smoke":{"raw":120,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u60940751-2","type":"MANUAL_SOS","countToday":1}}
+[+00000048.360s] [2026-10-26T20:28:56.305+08:00] 
+[+00000048.360s] [2026-10-26T20:28:56.305+08:00] I (42823) elder-node: STACK_FREE task=main bytes=3908
+[+00000051.985s] [2026-10-26T20:28:59.941+08:00] I (46433) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":50.0,"ok":true,"valid":true},"gas":{"raw":283,"ok":true,"valid":true},"smoke":{"raw":119,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u60940751-2","type":"MANUAL_SOS","countToday":1}}
+[+00000051.985s] [2026-10-26T20:28:59.941+08:00] 
+[+00000051.985s] [2026-10-26T20:28:59.941+08:00] I (46453) elder-node: STACK_FREE task=main bytes=3908
+[+00000055.297s] [2026-10-26T20:29:03.244+08:00] W (49763) elder-node: SOS 尚未送达 Bridge（网络/网关不可用）：本地求助已触发并保留，alarmId=e-u60940751-2 不变，重连后重发同一 ID
+[+00000056.110s] [2026-10-26T20:29:04.056+08:00] SEND -> ack e-u60940751-2 (atSec=56, elapsed=56.047s)
+[+00000056.344s] [2026-10-26T20:29:04.291+08:00] I (50763) elder-node: CMD 收到: ack e-u60940751-2
+[+00000056.344s] [2026-10-26T20:29:04.291+08:00] I (50763) elder-node: ACK 回执已接受并生效（阶段③：监护人已确认）：id=e-u60940751-2 type=MANUAL_SOS -> state=ACKED，蜂鸣器已停，语音已取消
+[+00000056.344s] [2026-10-26T20:29:04.291+08:00] I (50773) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ACKED","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":50.0,"ok":true,"valid":true},"gas":{"raw":271,"ok":true,"valid":true},"smoke":{"raw":119,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u60940751-2","type":"MANUAL_SOS","countToday":1}}
+[+00000056.344s] [2026-10-26T20:29:04.291+08:00] 
+[+00000056.344s] [2026-10-26T20:29:04.291+08:00] I (50813) elder-node: STACK_FREE task=main bytes=3908
+[+00000056.438s] [2026-10-26T20:29:04.383+08:00] I (50913) local-led: LED 模式=ACKED_SLOW_PULSE type=MANUAL_SOS（低电平有效；告警期间不被普通联网提示覆盖）
+[+00000057.078s] [2026-10-26T20:29:05.024+08:00] I (51513) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ACKED","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":50.0,"ok":true,"valid":true},"gas":{"raw":269,"ok":true,"valid":true},"smoke":{"raw":117,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u60940751-2","type":"MANUAL_SOS","countToday":1}}
+[+00000057.078s] [2026-10-26T20:29:05.024+08:00] 
+[+00000057.078s] [2026-10-26T20:29:05.024+08:00] I (51533) elder-node: STACK_FREE task=main bytes=3908
+[+00000062.094s] [2026-10-26T20:29:10.048+08:00] I (56543) elder-node: ADC raw: MQ2(CH5)=119 valid=1 danger=0 | MQ5(CH6)=269 valid=1 danger=0
+[+00000062.094s] [2026-10-26T20:29:10.048+08:00] I (56543) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ACKED","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":50.0,"ok":true,"valid":true},"gas":{"raw":269,"ok":true,"valid":true},"smoke":{"raw":119,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u60940751-2","type":"MANUAL_SOS","countToday":1}}
+[+00000062.094s] [2026-10-26T20:29:10.048+08:00] 
+[+00000062.094s] [2026-10-26T20:29:10.048+08:00] I (56573) elder-node: STACK_FREE task=main bytes=3908
+[+00000064.078s] [2026-10-26T20:29:12.035+08:00] SEND -> reset (atSec=64, elapsed=64.016s)
+[+00000064.344s] [2026-10-26T20:29:12.299+08:00] I (58783) elder-node: CMD 收到: reset
+[+00000064.344s] [2026-10-26T20:29:12.299+08:00] I (58783) elder-node: 状态复位 -> NORMAL（warning: reset 不会解除监护暂停）
+[+00000064.344s] [2026-10-26T20:29:12.299+08:00] I (58783) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":50.0,"ok":true,"valid":true},"gas":{"raw":296,"ok":true,"valid":true},"smoke":{"raw":122,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000064.344s] [2026-10-26T20:29:12.299+08:00] 
+[+00000064.344s] [2026-10-26T20:29:12.300+08:00] I (58823) elder-node: STACK_FREE task=main bytes=3908
+[+00000064.438s] [2026-10-26T20:29:12.392+08:00] I (58923) local-led: LED 模式=OFF type=-（低电平有效；告警期间不被普通联网提示覆盖）
+[+00000067.172s] [2026-10-26T20:29:15.121+08:00] I (61623) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":50.0,"ok":true,"valid":true},"gas":{"raw":274,"ok":true,"valid":true},"smoke":{"raw":117,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000067.172s] [2026-10-26T20:29:15.121+08:00] 
+[+00000067.172s] [2026-10-26T20:29:15.121+08:00] I (61643) elder-node: STACK_FREE task=main bytes=3908
+[+00000072.203s] [2026-10-26T20:29:20.149+08:00] I (66653) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":50.0,"ok":true,"valid":true},"gas":{"raw":276,"ok":true,"valid":true},"smoke":{"raw":125,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000072.203s] [2026-10-26T20:29:20.149+08:00] 
+[+00000072.203s] [2026-10-26T20:29:20.149+08:00] I (66673) elder-node: STACK_FREE task=main bytes=3908
+[+00000077.235s] [2026-10-26T20:29:25.191+08:00] I (71683) elder-node: ADC raw: MQ2(CH5)=115 valid=1 danger=0 | MQ5(CH6)=265 valid=1 danger=0
+[+00000077.235s] [2026-10-26T20:29:25.191+08:00] I (71683) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":50.0,"ok":true,"valid":true},"gas":{"raw":265,"ok":true,"valid":true},"smoke":{"raw":115,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000077.235s] [2026-10-26T20:29:25.191+08:00] 
+[+00000077.235s] [2026-10-26T20:29:25.191+08:00] I (71713) elder-node: STACK_FREE task=main bytes=3908
+[+00000081.110s] [2026-10-26T20:29:29.053+08:00] SEND -> inj reboot (atSec=81, elapsed=81.047s)
+[+00000081.344s] [2026-10-26T20:29:29.302+08:00] I (75823) elder-node: CMD 收到: inj reboot
+[+00000081.344s] [2026-10-26T20:29:29.302+08:00] W (75823) elder-node: INJ 重启：验证重启后不重放历史声音（NVS 暂停状态应保持）
+[+00000081.891s] [2026-10-26T20:29:29.838+08:00] ESP-ROM:esp32s3-20210327
+[+00000081.891s] [2026-10-26T20:29:29.838+08:00] Build:Mar 27 2021
+[+00000081.891s] [2026-10-26T20:29:29.838+08:00] rst:0x3 (RTC_SW_SYS_RST),boot:0x2b (SPI_FAST_FLASH_BOOT)
+[+00000081.891s] [2026-10-26T20:29:29.838+08:00] Saved PC:0x403758a4
+[+00000081.891s] [2026-10-26T20:29:29.838+08:00] SPIWP:0xee
+[+00000081.891s] [2026-10-26T20:29:29.839+08:00] mode:DIO, clock div:1
+[+00000081.891s] [2026-10-26T20:29:29.839+08:00] load:0x3fce3818,len:0x1758
+[+00000081.891s] [2026-10-26T20:29:29.839+08:00] load:0x403c9700,len:0x4
+[+00000081.891s] [2026-10-26T20:29:29.839+08:00] load:0x403c9704,len:0xc00
+[+00000081.891s] [2026-10-26T20:29:29.839+08:00] load:0x403cc700,len:0x2e20
+[+00000081.891s] [2026-10-26T20:29:29.839+08:00] entry 0x403c9908
+[+00000081.891s] [2026-10-26T20:29:29.839+08:00] I (31) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader
+[+00000081.891s] [2026-10-26T20:29:29.839+08:00] I (31) boot: compile time Oct 20 2026 19:51:15
+[+00000081.891s] [2026-10-26T20:29:29.839+08:00] I (31) boot: Multicore bootloader
+[+00000081.891s] [2026-10-26T20:29:29.839+08:00] I (35) boot: chip revision: v0.2
+[+00000081.891s] [2026-10-26T20:29:29.839+08:00] I (39) boot.esp32s3: Boot SPI Speed : 80MHz
+[+00000081.891s] [2026-10-26T20:29:29.839+08:00] I (44) boot.esp32s3: SPI Mode       : DIO
+[+00000081.891s] [2026-10-26T20:29:29.839+08:00] I (48) boot.esp32s3: SPI Flash Size : 2MB
+[+00000081.891s] [2026-10-26T20:29:29.839+08:00] I (53) boot: Enabling RNG early entropy source...
+[+00000081.891s] [2026-10-26T20:29:29.839+08:00] I (58) boot: Partition Table:
+[+00000081.891s] [2026-10-26T20:29:29.839+08:00] I (62) boot: ## Label            Usage          Type ST Offset   Length
+[+00000081.891s] [2026-10-26T20:29:29.839+08:00] I (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+[+00000081.891s] [2026-10-26T20:29:29.839+08:00] I (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+[+00000081.891s] [2026-10-26T20:29:29.839+08:00] I (84) boot:  2 factory          factory app      00 00 00010000 00100000
+[+00000081.891s] [2026-10-26T20:29:29.841+08:00] I (92) boot: End of partition table
+[+00000081.891s] [2026-10-26T20:29:29.841+08:00] I (96) esp_image: segment 0: paddr=00010020 vaddr=3c040020 size=309a0h (199072) map
+[+00000081.891s] [2026-10-26T20:29:29.841+08:00] I (140) esp_image: segment 1: paddr=000409c8 vaddr=3fc93300 size=028fch ( 10492) load
+[+00000081.891s] [2026-10-26T20:29:29.841+08:00] I (143) esp_image: segment 2: paddr=000432cc vaddr=40374000 size=0cd4ch ( 52556) load
+[+00000081.891s] [2026-10-26T20:29:29.841+08:00] I (158) esp_image: segment 3: paddr=00050020 vaddr=42000020 size=32f18h (208664) map
+[+00000081.891s] [2026-10-26T20:29:29.841+08:00] I (195) esp_image: segment 4: paddr=00082f40 vaddr=40380d4c size=02560h (  9568) load
+[+00000081.891s] [2026-10-26T20:29:29.841+08:00] I (198) esp_image: segment 5: paddr=000854a8 vaddr=600fe010 size=00004h (     4) load
+[+00000081.891s] [2026-10-26T20:29:29.841+08:00] I (207) boot: Loaded app from partition at offset 0x10000
+[+00000081.891s] [2026-10-26T20:29:29.841+08:00] I (207) boot: Disabling RNG early entropy source...
+[+00000081.891s] [2026-10-26T20:29:29.841+08:00] I (224) cpu_start: Multicore app
+[+00000081.891s] [2026-10-26T20:29:29.841+08:00] I (225) cpu_start: Pro cpu up.
+[+00000081.891s] [2026-10-26T20:29:29.841+08:00] I (225) cpu_start: Starting app cpu, entry point is 0x403754ac
+[+00000081.891s] [2026-10-26T20:29:29.841+08:00] I (0) cpu_start: App cpu up.
+[+00000081.891s] [2026-10-26T20:29:29.841+08:00] I (242) cpu_start: Pro cpu start user code
+[+00000081.891s] [2026-10-26T20:29:29.841+08:00] I (242) cpu_start: cpu freq: 160000000 Hz
+[+00000081.891s] [2026-10-26T20:29:29.841+08:00] I (242) cpu_start: Application information:
+[+00000081.891s] [2026-10-26T20:29:29.842+08:00] I (245) cpu_start: Project name:     esp32_elder_node
+[+00000081.891s] [2026-10-26T20:29:29.842+08:00] I (251) cpu_start: App version:      1
+[+00000081.891s] [2026-10-26T20:29:29.842+08:00] I (256) cpu_start: Compile time:     Oct 26 2026 20:03:52
+[+00000081.891s] [2026-10-26T20:29:29.842+08:00] I (262) cpu_start: ELF file SHA256:  5fd894b7af5931f0...
+[+00000081.891s] [2026-10-26T20:29:29.842+08:00] I (268) cpu_start: ESP-IDF:          v5.1.6-dirty
+[+00000081.891s] [2026-10-26T20:29:29.842+08:00] I (273) cpu_start: Min chip rev:     v0.0
+[+00000081.891s] [2026-10-26T20:29:29.842+08:00] I (278) cpu_start: Max chip rev:     v0.99 
+[+00000081.891s] [2026-10-26T20:29:29.842+08:00] I (283) cpu_start: Chip rev:         v0.2
+[+00000081.891s] [2026-10-26T20:29:29.842+08:00] I (287) heap_init: Initializing. RAM available for dynamic allocation:
+[+00000081.891s] [2026-10-26T20:29:29.842+08:00] I (295) heap_init: At 3FC96668 len 000530A8 (332 KiB): DRAM
+[+00000081.891s] [2026-10-26T20:29:29.842+08:00] I (301) heap_init: At 3FCE9710 len 00005724 (21 KiB): STACK/DRAM
+[+00000081.891s] [2026-10-26T20:29:29.842+08:00] I (307) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM
+[+00000081.891s] [2026-10-26T20:29:29.842+08:00] I (314) heap_init: At 600FE014 len 00001FD4 (7 KiB): RTCRAM
+[+00000081.891s] [2026-10-26T20:29:29.843+08:00] I (321) spi_flash: detected chip: boya
+[+00000081.891s] [2026-10-26T20:29:29.843+08:00] I (324) spi_flash: flash io: dio
+[+00000081.891s] [2026-10-26T20:29:29.843+08:00] W (328) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+[+00000081.891s] [2026-10-26T20:29:29.843+08:00] W (342) i2s(legacy): legacy i2s driver is deprecated, please migrate to use driver/i2s_std.h, driver/i2s_pdm.h or driver/i2s_tdm.h
+[+00000081.891s] [2026-10-26T20:29:29.843+08:00] I (354) sleep: Configure to isolate all GPIO pins in sleep state
+[+00000081.891s] [2026-10-26T20:29:29.843+08:00] I (361) sleep: Enable automatic switching of GPIO sleep configuration
+[+00000081.891s] [2026-10-26T20:29:29.843+08:00] I (368) app_start: Starting scheduler on CPU0
+[+00000081.891s] [2026-10-26T20:29:29.843+08:00] I (373) app_start: Starting scheduler on CPU1
+[+00000081.891s] [2026-10-26T20:29:29.843+08:00] I (373) main_task: Started on CPU0
+[+00000081.891s] [2026-10-26T20:29:29.843+08:00] I (383) main_task: Calling app_main()
+[+00000081.891s] [2026-10-26T20:29:29.843+08:00] I (393) elder-node: ESP32-S3 无线节点启动：esp32-kitchen / 厨房
+[+00000081.891s] [2026-10-26T20:29:29.844+08:00] I (393) elder-node: 监护暂停状态(持久化)=PAUSED
+[+00000082.032s] [2026-10-26T20:29:29.985+08:00] W (403) elder-node: BENCH INJECT MODE：仅隔离台架验收（gw_port=9101 无活动=20s 重复提醒=10s 温湿度确认=2/2）
+[+00000082.032s] [2026-10-26T20:29:29.985+08:00] I (413) gpio: GPIO[1]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 
+[+00000082.032s] [2026-10-26T20:29:29.985+08:00] I (423) local-led: 板载 LED 就绪：GPIO1 单色，低电平有效，启动默认灭（no boot flash）
+[+00000082.032s] [2026-10-26T20:29:29.985+08:00] I (483) elder-node: 板载蜂鸣器就绪（XL9555 P0_3）
+[+00000082.032s] [2026-10-26T20:29:29.985+08:00] I (483) elder-node: SOS 按键就绪：板载 KEY0 = XL9555 P1_7（低电平按下，输入方向），上电基线=松开，P1=0xFF；需先见到松开才允许触发
+[+00000082.250s] [2026-10-26T20:29:30.205+08:00] I (723) local-voice: READY playback-only 16000Hz; amp standby muted; no boot alarm
+[+00000082.344s] [2026-10-26T20:29:30.299+08:00] I �W (813) elder-node: BENCH: UART0 命令通道就绪（115200 8N1，逐行命令）
+[+00000082.344s] [2026-10-26T20:29:30.300+08:00] I (813) elder-node: KEY0 原始电平变化：松开(高)（XL9555 P1=0xFF）
+[+00000083.094s] [2026-10-26T20:29:31.048+08:00] SEND -> pause (atSec=83, elapsed=83.032s)
+[+00000083.328s] [2026-10-26T20:29:31.282+08:00] I (1803) elder-node: CMD 收到: pause
+[+00000084.078s] [2026-10-26T20:29:32.026+08:00] SEND -> inj climate 47.0 95.0 (atSec=84, elapsed=84.016s)
+[+00000084.438s] [2026-10-26T20:29:32.384+08:00] I (2893) elder-node: CMD 收到: inj climate 47.0 95.0
+[+00000084.438s] [2026-10-26T20:29:32.384+08:00] W (2893) elder-node: INJ 温湿度=47.0C/95.0%
+[+00000085.125s] [2026-10-26T20:29:33.068+08:00] SEND -> inj climate 47.0 95.0 (atSec=85, elapsed=85.063s)
+[+00000085.328s] [2026-10-26T20:29:33.285+08:00] I (3793) elder-node: CMD 收到: inj climate 47.0 95.0
+[+00000085.328s] [2026-10-26T20:29:33.285+08:00] W (3793) elder-node: INJ 温湿度=47.0C/95.0%
+[+00000086.438s] [2026-10-26T20:29:34.388+08:00] W (4893) elder-node: AHT20 温湿度越界 -> ALARM（e-u71530602-1，type=CLIMATE）语音+蜂鸣已请求
+[+00000086.438s] [2026-10-26T20:29:34.388+08:00] I (4893) local-led: LED 模式=ALARM_BLINK type=CLIMATE（低电平有效；告警期间不被普通联网提示覆盖）
+[+00000086.438s] [2026-10-26T20:29:34.388+08:00] I (4893) local-voice: PLAY clip=2
+[+00000087.485s] [2026-10-26T20:29:35.428+08:00] I (5903) elder-node: ADC raw: MQ2(CH5)=111 valid=1 danger=0 | MQ5(CH6)=255 valid=1 danger=0
+[+00000087.485s] [2026-10-26T20:29:35.428+08:00] I (5903) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":47.0,"rh":95.0,"ok":false,"valid":true},"gas":{"raw":255,"ok":true,"valid":true},"smoke":{"raw":111,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u71530602-1","type":"CLIMATE","countToday":1}}
+[+00000087.485s] [2026-10-26T20:29:35.428+08:00] 
+[+00000087.485s] [2026-10-26T20:29:35.428+08:00] I (5933) elder-node: STACK_FREE task=main bytes=4052
+[+00000089.328s] [2026-10-26T20:29:37.276+08:00] I (7783) local-voice: STOP result=ESP_OK cancelled=0
+[+00000089.328s] [2026-10-26T20:29:37.277+08:00] I (7783) local-voice: STACK_FREE task=local-voice bytes=1100
+[+00000091.485s] [2026-10-26T20:29:39.429+08:00] I (9943) elder-node: 告警鸣响到时，自动静音（告警状态保留）
+[+00000092.110s] [2026-10-26T20:29:40.053+08:00] SEND -> stop (atSec=92, elapsed=92.047s)
+[+00000092.344s] [2026-10-26T20:29:40.287+08:00] I (10743) elder-node: CMD 收到: stop
+[+00000092.344s] [2026-10-26T20:29:40.287+08:00] I (10743) elder-node: STOP 已接受并生效：本轮声音停止，state 保持 ALARM id=e-u71530602-1 type=CLIMATE；同一持续事件不再重复拉响
+[+00000092.344s] [2026-10-26T20:29:40.287+08:00] I (10743) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":47.0,"rh":95.0,"ok":false,"valid":true},"gas":{"raw":267,"ok":true,"valid":true},"smoke":{"raw":118,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u71530602-1","type":"CLIMATE","countToday":1}}
+[+00000092.344s] [2026-10-26T20:29:40.287+08:00] 
+[+00000092.344s] [2026-10-26T20:29:40.287+08:00] I (10783) elder-node: STACK_FREE task=main bytes=3956
+[+00000092.563s] [2026-10-26T20:29:40.507+08:00] I (10993) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":47.0,"rh":95.0,"ok":false,"valid":true},"gas":{"raw":267,"ok":true,"valid":true},"smoke":{"raw":124,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u71530602-1","type":"CLIMATE","countToday":1}}
+[+00000092.563s] [2026-10-26T20:29:40.507+08:00] 
+[+00000092.563s] [2026-10-26T20:29:40.507+08:00] I (11013) elder-node: STACK_FREE task=main bytes=3956
+[+00000097.594s] [2026-10-26T20:29:45.543+08:00] I (16023) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":47.0,"rh":95.0,"ok":false,"valid":true},"gas":{"raw":255,"ok":true,"valid":true},"smoke":{"raw":115,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u71530602-1","type":"CLIMATE","countToday":1}}
+[+00000097.594s] [2026-10-26T20:29:45.543+08:00] 
+[+00000097.594s] [2026-10-26T20:29:45.543+08:00] I (16043) elder-node: STACK_FREE task=main bytes=3956
+[+00000100.078s] [2026-10-26T20:29:48.024+08:00] SEND -> ack e-u71530602-1 (atSec=100, elapsed=100.016s)
+[+00000100.360s] [2026-10-26T20:29:48.304+08:00] I (18753) elder-node: CMD 收到: ack e-u71530602-1
+[+00000100.360s] [2026-10-26T20:29:48.304+08:00] I (18753) elder-node: ACK 回执已接受并生效（阶段③：监护人已确认）：id=e-u71530602-1 type=CLIMATE -> state=ACKED，蜂鸣器已停，语音已取消
+[+00000100.360s] [2026-10-26T20:29:48.304+08:00] I (18763) elder-node: ADC raw: MQ2(CH5)=117 valid=1 danger=0 | MQ5(CH6)=267 valid=1 danger=0
+[+00000100.360s] [2026-10-26T20:29:48.304+08:00] I (18773) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ACKED","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":47.0,"rh":95.0,"ok":false,"valid":true},"gas":{"raw":267,"ok":true,"valid":true},"smoke":{"raw":117,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u71530602-1","type":"CLIMATE","countToday":1}}
+[+00000100.360s] [2026-10-26T20:29:48.304+08:00] 
+[+00000100.360s] [2026-10-26T20:29:48.304+08:00] I (18803) elder-node: STACK_FREE task=main bytes=3956
+[+00000100.453s] [2026-10-26T20:29:48.398+08:00] I (18913) local-led: LED 模式=ACKED_SLOW_PULSE type=CLIMATE（低电平有效；告警期间不被普通联网提示覆盖）
+[+00000102.688s] [2026-10-26T20:29:50.638+08:00] I (21113) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ACKED","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":47.0,"rh":95.0,"ok":false,"valid":true},"gas":{"raw":267,"ok":true,"valid":true},"smoke":{"raw":123,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u71530602-1","type":"CLIMATE","countToday":1}}
+[+00000102.688s] [2026-10-26T20:29:50.638+08:00] 
+[+00000102.688s] [2026-10-26T20:29:50.638+08:00] I (21133) elder-node: STACK_FREE task=main bytes=3956
+[+00000107.719s] [2026-10-26T20:29:55.665+08:00] I (26143) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ACKED","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":47.0,"rh":95.0,"ok":false,"valid":true},"gas":{"raw":267,"ok":true,"valid":true},"smoke":{"raw":111,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u71530602-1","type":"CLIMATE","countToday":1}}
+[+00000107.719s] [2026-10-26T20:29:55.665+08:00] 
+[+00000107.719s] [2026-10-26T20:29:55.665+08:00] I (26163) elder-node: STACK_FREE task=main bytes=3956
+[+00000108.094s] [2026-10-26T20:29:56.039+08:00] SEND -> inj climate 25.0 50.0 (atSec=108, elapsed=108.032s)
+[+00000108.313s] [2026-10-26T20:29:56.256+08:00] I (26773) elder-node: CMD 收到: inj climate 25.0 50.0
+[+00000108.313s] [2026-10-26T20:29:56.256+08:00] W (26773) elder-node: INJ 温湿度=25.0C/50.0%
+[+00000109.063s] [2026-10-26T20:29:57.005+08:00] SEND -> inj climate 25.0 50.0 (atSec=109, elapsed=109.000s)
+[+00000109.297s] [2026-10-26T20:29:57.255+08:00] I (27773) elder-node: CMD 收到: inj climate 25.0 50.0
+[+00000109.297s] [2026-10-26T20:29:57.255+08:00] W (27773) elder-node: INJ 温湿度=25.0C/50.0%
+[+00000112.750s] [2026-10-26T20:30:00.699+08:00] I (31173) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ACKED","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":50.0,"ok":true,"valid":true},"gas":{"raw":267,"ok":true,"valid":true},"smoke":{"raw":142,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u71530602-1","type":"CLIMATE","countToday":1}}
+[+00000112.750s] [2026-10-26T20:30:00.699+08:00] 
+[+00000112.750s] [2026-10-26T20:30:00.699+08:00] I (31193) elder-node: STACK_FREE task=main bytes=3956
+[+00000116.110s] [2026-10-26T20:30:04.057+08:00] SEND -> inj sos (atSec=116, elapsed=116.047s)
+[+00000116.422s] [2026-10-26T20:30:04.370+08:00] I (34803) elder-node: CMD 收到: inj sos
+[+00000116.422s] [2026-10-26T20:30:04.370+08:00] W (34803) elder-node: INJ SOS（台架注入事件）
+[+00000116.422s] [2026-10-26T20:30:04.370+08:00] W (34803) elder-node: SOS 本地已触发：台架注入 SOS（来源设备=esp32-kitchen / 房间=厨房，厨房设备实体按键）；状态=正在发送，尚未收到监护人确认
+[+00000116.422s] [2026-10-26T20:30:04.370+08:00] W (34813) elder-node: 台架注入 SOS -> ALARM（e-u71530602-2，type=MANUAL_SOS）语音+蜂鸣已请求
+[+00000116.422s] [2026-10-26T20:30:04.371+08:00] I (34823) local-voice: PLAY clip=1
+[+00000116.422s] [2026-10-26T20:30:04.371+08:00] I (34833) elder-node: ADC raw: MQ2(CH5)=114 valid=1 danger=0 | MQ5(CH6)=264 valid=1 danger=0
+[+00000116.422s] [2026-10-26T20:30:04.371+08:00] I (34843) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":50.0,"ok":true,"valid":true},"gas":{"raw":264,"ok":true,"valid":true},"smoke":{"raw":114,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u71530602-2","type":"MANUAL_SOS","countToday":1}}
+[+00000116.422s] [2026-10-26T20:30:04.371+08:00] 
+[+00000116.422s] [2026-10-26T20:30:04.371+08:00] I (34883) elder-node: STACK_FREE task=main bytes=3908
+[+00000116.516s] [2026-10-26T20:30:04.465+08:00] I (34983) local-led: LED 模式=SOS_TRIPLE type=MANUAL_SOS（低电平有效；告警期间不被普通联网提示覆盖）
+[+00000117.625s] [2026-10-26T20:30:05.574+08:00] I (36093) local-voice: STOP result=ESP_OK cancelled=0
+[+00000117.625s] [2026-10-26T20:30:05.574+08:00] I (36093) local-voice: STACK_FREE task=local-voice bytes=1100
+[+00000117.860s] [2026-10-26T20:30:05.809+08:00] I (36283) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":50.0,"ok":true,"valid":true},"gas":{"raw":253,"ok":true,"valid":true},"smoke":{"raw":104,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u71530602-2","type":"MANUAL_SOS","countToday":1}}
+[+00000117.860s] [2026-10-26T20:30:05.809+08:00] 
+[+00000117.860s] [2026-10-26T20:30:05.809+08:00] I (36313) elder-node: STACK_FREE task=main bytes=3908
+[+00000121.453s] [2026-10-26T20:30:09.399+08:00] I (39913) elder-node: 告警鸣响到时，自动静音（告警状态保留）
+[+00000122.875s] [2026-10-26T20:30:10.825+08:00] I (41313) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":50.0,"ok":true,"valid":true},"gas":{"raw":293,"ok":true,"valid":true},"smoke":{"raw":117,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u71530602-2","type":"MANUAL_SOS","countToday":1}}
+[+00000122.875s] [2026-10-26T20:30:10.825+08:00] 
+[+00000122.875s] [2026-10-26T20:30:10.825+08:00] I (41333) elder-node: STACK_FREE task=main bytes=3908
+[+00000124.063s] [2026-10-26T20:30:12.007+08:00] SEND -> stop (atSec=124, elapsed=124.000s)
+[+00000124.344s] [2026-10-26T20:30:12.287+08:00] I (42743) elder-node: CMD 收到: stop
+[+00000124.344s] [2026-10-26T20:30:12.287+08:00] I (42743) elder-node: STOP 已接受并生效：本轮声音停止，state 保持 ALARM id=e-u71530602-2 type=MANUAL_SOS；同一持续事件不再重复拉响
+[+00000124.344s] [2026-10-26T20:30:12.287+08:00] I (42743) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":50.0,"ok":true,"valid":true},"gas":{"raw":263,"ok":true,"valid":true},"smoke":{"raw":111,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u71530602-2","type":"MANUAL_SOS","countToday":1}}
+[+00000124.344s] [2026-10-26T20:30:12.287+08:00] 
+[+00000124.344s] [2026-10-26T20:30:12.287+08:00] I (42783) elder-node: STACK_FREE task=main bytes=3908
+[+00000127.969s] [2026-10-26T20:30:15.916+08:00] I (46393) elder-node: ADC raw: MQ2(CH5)=119 valid=1 danger=0 | MQ5(CH6)=270 valid=1 danger=0
+[+00000127.969s] [2026-10-26T20:30:15.916+08:00] I (46393) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":50.0,"ok":true,"valid":true},"gas":{"raw":270,"ok":true,"valid":true},"smoke":{"raw":119,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u71530602-2","type":"MANUAL_SOS","countToday":1}}
+[+00000127.969s] [2026-10-26T20:30:15.916+08:00] 
+[+00000127.969s] [2026-10-26T20:30:15.916+08:00] I (46423) elder-node: STACK_FREE task=main bytes=3908
+[+00000131.375s] [2026-10-26T20:30:19.319+08:00] W (49833) elder-node: SOS 尚未送达 Bridge（网络/网关不可用）：本地求助已触发并保留，alarmId=e-u71530602-2 不变，重连后重发同一 ID
+[+00000132.063s] [2026-10-26T20:30:20.006+08:00] SEND -> ack e-u71530602-2 (atSec=132, elapsed=132.000s)
+[+00000132.328s] [2026-10-26T20:30:20.271+08:00] I (50733) elder-node: CMD 收到: ack e-u71530602-2
+[+00000132.328s] [2026-10-26T20:30:20.271+08:00] I (50733) elder-node: ACK 回执已接受并生效（阶段③：监护人已确认）：id=e-u71530602-2 type=MANUAL_SOS -> state=ACKED，蜂鸣器已停，语音已取消
+[+00000132.328s] [2026-10-26T20:30:20.271+08:00] I (50743) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ACKED","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":50.0,"ok":true,"valid":true},"gas":{"raw":268,"ok":true,"valid":true},"smoke":{"raw":110,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u71530602-2","type":"MANUAL_SOS","countToday":1}}
+[+00000132.328s] [2026-10-26T20:30:20.271+08:00] 
+[+00000132.328s] [2026-10-26T20:30:20.271+08:00] I (50783) elder-node: STACK_FREE task=main bytes=3908
+[+00000132.422s] [2026-10-26T20:30:20.365+08:00] I (50883) local-led: LED 模式=ACKED_SLOW_PULSE type=MANUAL_SOS（低电平有效；告警期间不被普通联网提示覆盖）
+[+00000133.047s] [2026-10-26T20:30:21.003+08:00] I (51483) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ACKED","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":50.0,"ok":true,"valid":true},"gas":{"raw":266,"ok":true,"valid":true},"smoke":{"raw":115,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u71530602-2","type":"MANUAL_SOS","countToday":1}}
+[+00000133.047s] [2026-10-26T20:30:21.003+08:00] 
+[+00000133.047s] [2026-10-26T20:30:21.003+08:00] I (51503) elder-node: STACK_FREE task=main bytes=3908
+[+00000138.094s] [2026-10-26T20:30:26.038+08:00] I (56513) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ACKED","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":50.0,"ok":true,"valid":true},"gas":{"raw":265,"ok":true,"valid":true},"smoke":{"raw":109,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u71530602-2","type":"MANUAL_SOS","countToday":1}}
+[+00000138.094s] [2026-10-26T20:30:26.038+08:00] 
+[+00000138.094s] [2026-10-26T20:30:26.038+08:00] I (56533) elder-node: STACK_FREE task=main bytes=3908
+[+00000140.078s] [2026-10-26T20:30:28.033+08:00] SEND -> reset (atSec=140, elapsed=140.016s)
+[+00000140.328s] [2026-10-26T20:30:28.278+08:00] I (58743) elder-node: CMD 收到: reset
+[+00000140.328s] [2026-10-26T20:30:28.278+08:00] I (58743) elder-node: 状态复位 -> NORMAL（warning: reset 不会解除监护暂停）
+[+00000140.328s] [2026-10-26T20:30:28.278+08:00] I (58743) elder-node: ADC raw: MQ2(CH5)=141 valid=1 danger=0 | MQ5(CH6)=263 valid=1 danger=0
+[+00000140.328s] [2026-10-26T20:30:28.278+08:00] I (58753) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":50.0,"ok":true,"valid":true},"gas":{"raw":263,"ok":true,"valid":true},"smoke":{"raw":141,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000140.328s] [2026-10-26T20:30:28.278+08:00] 
+[+00000140.328s] [2026-10-26T20:30:28.278+08:00] I (58783) elder-node: STACK_FREE task=main bytes=3908
+[+00000140.422s] [2026-10-26T20:30:28.370+08:00] I (58893) local-led: LED 模式=OFF type=-（低电平有效；告警期间不被普通联网提示覆盖）
+[+00000143.157s] [2026-10-26T20:30:31.105+08:00] I (61593) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":50.0,"ok":true,"valid":true},"gas":{"raw":266,"ok":true,"valid":true},"smoke":{"raw":112,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000143.157s] [2026-10-26T20:30:31.105+08:00] 
+[+00000143.157s] [2026-10-26T20:30:31.105+08:00] I (61613) elder-node: STACK_FREE task=main bytes=3908
+[+00000148.203s] [2026-10-26T20:30:36.145+08:00] I (66623) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":50.0,"ok":true,"valid":true},"gas":{"raw":261,"ok":true,"valid":true},"smoke":{"raw":120,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000148.203s] [2026-10-26T20:30:36.145+08:00] 
+[+00000148.203s] [2026-10-26T20:30:36.145+08:00] I (66643) elder-node: STACK_FREE task=main bytes=3908
+[+00000153.235s] [2026-10-26T20:30:41.177+08:00] I (71653) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":50.0,"ok":true,"valid":true},"gas":{"raw":253,"ok":true,"valid":true},"smoke":{"raw":109,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000153.235s] [2026-10-26T20:30:41.177+08:00] 
+[+00000153.235s] [2026-10-26T20:30:41.177+08:00] I (71673) elder-node: STACK_FREE task=main bytes=3908
+[+00000157.078s] [2026-10-26T20:30:45.030+08:00] SEND -> inj reboot (atSec=157, elapsed=157.016s)
+[+00000157.313s] [2026-10-26T20:30:45.265+08:00] I (75783) elder-node: CMD 收到: inj reboot
+[+00000157.313s] [2026-10-26T20:30:45.265+08:00] W (75783) elder-node: INJ 重启：验证重启后不重放历史声音（NVS 暂停状态应保持）
+[+00000157.860s] [2026-10-26T20:30:45.814+08:00] ESP-ROM:esp32s3-20210327
+[+00000157.860s] [2026-10-26T20:30:45.814+08:00] Build:Mar 27 2021
+[+00000157.860s] [2026-10-26T20:30:45.814+08:00] rst:0x3 (RTC_SW_SYS_RST),boot:0x2b (SPI_FAST_FLASH_BOOT)
+[+00000157.860s] [2026-10-26T20:30:45.814+08:00] Saved PC:0x403758a4
+[+00000157.860s] [2026-10-26T20:30:45.814+08:00] SPIWP:0xee
+[+00000157.860s] [2026-10-26T20:30:45.815+08:00] mode:DIO, clock div:1
+[+00000157.860s] [2026-10-26T20:30:45.815+08:00] load:0x3fce3818,len:0x1758
+[+00000157.860s] [2026-10-26T20:30:45.815+08:00] load:0x403c9700,len:0x4
+[+00000157.860s] [2026-10-26T20:30:45.815+08:00] load:0x403c9704,len:0xc00
+[+00000157.860s] [2026-10-26T20:30:45.815+08:00] load:0x403cc700,len:0x2e20
+[+00000157.860s] [2026-10-26T20:30:45.815+08:00] entry 0x403c9908
+[+00000157.860s] [2026-10-26T20:30:45.815+08:00] I (31) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader
+[+00000157.860s] [2026-10-26T20:30:45.815+08:00] I (31) boot: compile time Oct 20 2026 19:51:15
+[+00000157.860s] [2026-10-26T20:30:45.815+08:00] I (31) boot: Multicore bootloader
+[+00000157.860s] [2026-10-26T20:30:45.815+08:00] I (35) boot: chip revision: v0.2
+[+00000157.860s] [2026-10-26T20:30:45.815+08:00] I (39) boot.esp32s3: Boot SPI Speed : 80MHz
+[+00000157.860s] [2026-10-26T20:30:45.815+08:00] I (44) boot.esp32s3: SPI Mode       : DIO
+[+00000157.860s] [2026-10-26T20:30:45.815+08:00] I (48) boot.esp32s3: SPI Flash Size : 2MB
+[+00000157.860s] [2026-10-26T20:30:45.815+08:00] I (53) boot: Enabling RNG early entropy source...
+[+00000157.860s] [2026-10-26T20:30:45.815+08:00] I (58) boot: Partition Table:
+[+00000157.860s] [2026-10-26T20:30:45.815+08:00] I (62) boot: ## Label            Usage          Type ST Offset   Length
+[+00000157.860s] [2026-10-26T20:30:45.815+08:00] I (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+[+00000157.860s] [2026-10-26T20:30:45.816+08:00] I (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+[+00000157.860s] [2026-10-26T20:30:45.816+08:00] I (84) boot:  2 factory          factory app      00 00 00010000 00100000
+[+00000157.860s] [2026-10-26T20:30:45.816+08:00] I (92) boot: End of partition table
+[+00000157.860s] [2026-10-26T20:30:45.816+08:00] I (96) esp_image: segment 0: paddr=00010020 vaddr=3c040020 size=309a0h (199072) map
+[+00000157.860s] [2026-10-26T20:30:45.816+08:00] I (140) esp_image: segment 1: paddr=000409c8 vaddr=3fc93300 size=028fch ( 10492) load
+[+00000157.860s] [2026-10-26T20:30:45.816+08:00] I (143) esp_image: segment 2: paddr=000432cc vaddr=40374000 size=0cd4ch ( 52556) load
+[+00000157.860s] [2026-10-26T20:30:45.816+08:00] I (158) esp_image: segment 3: paddr=00050020 vaddr=42000020 size=32f18h (208664) map
+[+00000157.860s] [2026-10-26T20:30:45.816+08:00] I (195) esp_image: segment 4: paddr=00082f40 vaddr=40380d4c size=02560h (  9568) load
+[+00000157.860s] [2026-10-26T20:30:45.816+08:00] I (198) esp_image: segment 5: paddr=000854a8 vaddr=600fe010 size=00004h (     4) load
+[+00000157.860s] [2026-10-26T20:30:45.816+08:00] I (207) boot: Loaded app from partition at offset 0x10000
+[+00000157.860s] [2026-10-26T20:30:45.816+08:00] I (207) boot: Disabling RNG early entropy source...
+[+00000157.860s] [2026-10-26T20:30:45.816+08:00] I (224) cpu_start: Multicore app
+[+00000157.860s] [2026-10-26T20:30:45.816+08:00] I (225) cpu_start: Pro cpu up.
+[+00000157.860s] [2026-10-26T20:30:45.816+08:00] I (225) cpu_start: Starting app cpu, entry point is 0x403754ac
+[+00000157.860s] [2026-10-26T20:30:45.816+08:00] I (0) cpu_start: App cpu up.
+[+00000157.860s] [2026-10-26T20:30:45.816+08:00] I (242) cpu_start: Pro cpu start user code
+[+00000157.860s] [2026-10-26T20:30:45.816+08:00] I (242) cpu_start: cpu freq: 160000000 Hz
+[+00000157.875s] [2026-10-26T20:30:45.817+08:00] I (242) cpu_start: Application information:
+[+00000157.875s] [2026-10-26T20:30:45.817+08:00] I (245) cpu_start: Project name:     esp32_elder_node
+[+00000157.875s] [2026-10-26T20:30:45.817+08:00] I (251) cpu_start: App version:      1
+[+00000157.875s] [2026-10-26T20:30:45.817+08:00] I (256) cpu_start: Compile time:     Oct 26 2026 20:03:52
+[+00000157.875s] [2026-10-26T20:30:45.817+08:00] I (262) cpu_start: ELF file SHA256:  5fd894b7af5931f0...
+[+00000157.875s] [2026-10-26T20:30:45.817+08:00] I (268) cpu_start: ESP-IDF:          v5.1.6-dirty
+[+00000157.875s] [2026-10-26T20:30:45.817+08:00] I (273) cpu_start: Min chip rev:     v0.0
+[+00000157.875s] [2026-10-26T20:30:45.817+08:00] I (278) cpu_start: Max chip rev:     v0.99 
+[+00000157.875s] [2026-10-26T20:30:45.817+08:00] I (283) cpu_start: Chip rev:         v0.2
+[+00000157.875s] [2026-10-26T20:30:45.817+08:00] I (287) heap_init: Initializing. RAM available for dynamic allocation:
+[+00000157.875s] [2026-10-26T20:30:45.817+08:00] I (295) heap_init: At 3FC96668 len 000530A8 (332 KiB): DRAM
+[+00000157.875s] [2026-10-26T20:30:45.817+08:00] I (301) heap_init: At 3FCE9710 len 00005724 (21 KiB): STACK/DRAM
+[+00000157.875s] [2026-10-26T20:30:45.817+08:00] I (307) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM
+[+00000157.875s] [2026-10-26T20:30:45.817+08:00] I (314) heap_init: At 600FE014 len 00001FD4 (7 KiB): RTCRAM
+[+00000157.875s] [2026-10-26T20:30:45.817+08:00] I (321) spi_flash: detected chip: boya
+[+00000157.875s] [2026-10-26T20:30:45.817+08:00] I (324) spi_flash: flash io: dio
+[+00000157.875s] [2026-10-26T20:30:45.817+08:00] W (328) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+[+00000157.875s] [2026-10-26T20:30:45.817+08:00] W (342) i2s(legacy): legacy i2s driver is deprecated, please migrate to use driver/i2s_std.h, driver/i2s_pdm.h or driver/i2s_tdm.h
+[+00000157.875s] [2026-10-26T20:30:45.817+08:00] I (354) sleep: Configure to isolate all GPIO pins in sleep state
+[+00000157.875s] [2026-10-26T20:30:45.817+08:00] I (361) sleep: Enable automatic switching of GPIO sleep configuration
+[+00000157.875s] [2026-10-26T20:30:45.817+08:00] I (368) app_start: Starting scheduler on CPU0
+[+00000157.875s] [2026-10-26T20:30:45.818+08:00] I (373) app_start: Starting scheduler on CPU1
+[+00000157.875s] [2026-10-26T20:30:45.818+08:00] I (373) main_task: Started on CPU0
+[+00000157.875s] [2026-10-26T20:30:45.818+08:00] I (383) main_task: Calling app_main()
+[+00000157.875s] [2026-10-26T20:30:45.818+08:00] I (393) elder-node: ESP32-S3 无线节点启动：esp32-kitchen / 厨房
+[+00000157.875s] [2026-10-26T20:30:45.818+08:00] I (393) elder-node: 监护暂停状态(持久化)=PAUSED
+[+00000158.000s] [2026-10-26T20:30:45.950+08:00] W (403) elder-node: BENCH INJECT MODE：仅隔离台架验收（gw_port=9101 无活动=20s 重复提醒=10s 温湿度确认=2/2）
+[+00000158.000s] [2026-10-26T20:30:45.950+08:00] I (413) gpio: GPIO[1]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 
+[+00000158.000s] [2026-10-26T20:30:45.950+08:00] I (423) local-led: 板载 LED 就绪：GPIO1 单色，低电平有效，启动默认灭（no boot flash）
+[+00000158.000s] [2026-10-26T20:30:45.950+08:00] I (483) elder-node: 板载蜂鸣器就绪（XL9555 P0_3）
+[+00000158.000s] [2026-10-26T20:30:45.950+08:00] I (483) elder-node: SOS 按键就绪：板载 KEY0 = XL9555 P1_7（低电平按下，输入方向），上电基线=松开，P1=0xFF；需先见到松开才允许触发
+[+00000158.235s] [2026-10-26T20:30:46.183+08:00] I (723) local-voice: READY playback-only 16000Hz; amp standby muted; no boot alarm
+[+00000158.328s] [2026-10-26T20:30:46.278+08:00] I�W (813) elder-node: BENCH: UART0 命令通道就绪（115200 8N1，逐行命令）
+[+00000158.328s] [2026-10-26T20:30:46.278+08:00] I (813) elder-node: KEY0 原始电平变化：松开(高)（XL9555 P1=0xFF）
+[+00000159.078s] [2026-10-26T20:30:47.024+08:00] SEND -> pause (atSec=159, elapsed=159.016s)
+[+00000159.313s] [2026-10-26T20:30:47.259+08:00] I (1803) elder-node: CMD 收到: pause
+[+00000160.063s] [2026-10-26T20:30:48.008+08:00] SEND -> inj climate 47.0 95.0 (atSec=160, elapsed=160.000s)
+[+00000160.407s] [2026-10-26T20:30:48.349+08:00] I (2893) elder-node: CMD 收到: inj climate 47.0 95.0
+[+00000160.407s] [2026-10-26T20:30:48.349+08:00] W (2893) elder-node: INJ 温湿度=47.0C/95.0%
+[+00000161.078s] [2026-10-26T20:30:49.033+08:00] SEND -> inj climate 47.0 95.0 (atSec=161, elapsed=161.016s)
+[+00000161.297s] [2026-10-26T20:30:49.252+08:00] I (3793) elder-node: CMD 收到: inj climate 47.0 95.0
+[+00000161.297s] [2026-10-26T20:30:49.252+08:00] W (3793) elder-node: INJ 温湿度=47.0C/95.0%
+[+00000162.422s] [2026-10-26T20:30:50.371+08:00] W (4893) elder-node: AHT20 温湿度越界 -> ALARM（e-u9e138ea6-1，type=CLIMATE）语音+蜂鸣已请求
+[+00000162.422s] [2026-10-26T20:30:50.371+08:00] I (4893) local-led: LED 模式=ALARM_BLINK type=CLIMATE（低电平有效；告警期间不被普通联网提示覆盖）
+[+00000162.422s] [2026-10-26T20:30:50.371+08:00] I (4893) local-voice: PLAY clip=2
+[+00000163.469s] [2026-10-26T20:30:51.411+08:00] I (5903) elder-node: ADC raw: MQ2(CH5)=107 valid=1 danger=0 | MQ5(CH6)=253 valid=1 danger=0
+[+00000163.469s] [2026-10-26T20:30:51.411+08:00] I (5903) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":47.0,"rh":95.0,"ok":false,"valid":true},"gas":{"raw":253,"ok":true,"valid":true},"smoke":{"raw":107,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u9e138ea6-1","type":"CLIMATE","countToday":1}}
+[+00000163.469s] [2026-10-26T20:30:51.411+08:00] 
+[+00000163.469s] [2026-10-26T20:30:51.411+08:00] I (5933) elder-node: STACK_FREE task=main bytes=4052
+[+00000165.297s] [2026-10-26T20:30:53.249+08:00] I (7783) local-voice: STOP result=ESP_OK cancelled=0
+[+00000165.297s] [2026-10-26T20:30:53.249+08:00] I (7783) local-voice: STACK_FREE task=local-voice bytes=1100
+[+00000167.453s] [2026-10-26T20:30:55.399+08:00] I (9943) elder-node: 告警鸣响到时，自动静音（告警状态保留）
+[+00000168.078s] [2026-10-26T20:30:56.022+08:00] SEND -> stop (atSec=168, elapsed=168.016s)
+[+00000168.313s] [2026-10-26T20:30:56.257+08:00] I (10743) elder-node: CMD 收到: stop
+[+00000168.313s] [2026-10-26T20:30:56.257+08:00] I (10743) elder-node: STOP 已接受并生效：本轮声音停止，state 保持 ALARM id=e-u9e138ea6-1 type=CLIMATE；同一持续事件不再重复拉响
+[+00000168.313s] [2026-10-26T20:30:56.257+08:00] I (10743) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":47.0,"rh":95.0,"ok":false,"valid":true},"gas":{"raw":261,"ok":true,"valid":true},"smoke":{"raw":111,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u9e138ea6-1","type":"CLIMATE","countToday":1}}
+[+00000168.313s] [2026-10-26T20:30:56.257+08:00] 
+[+00000168.313s] [2026-10-26T20:30:56.257+08:00] I (10783) elder-node: STACK_FREE task=main bytes=3956
+[+00000168.547s] [2026-10-26T20:30:56.490+08:00] I (10993) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":47.0,"rh":95.0,"ok":false,"valid":true},"gas":{"raw":255,"ok":true,"valid":true},"smoke":{"raw":116,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u9e138ea6-1","type":"CLIMATE","countToday":1}}
+[+00000168.547s] [2026-10-26T20:30:56.491+08:00] 
+[+00000168.547s] [2026-10-26T20:30:56.491+08:00] I (11013) elder-node: STACK_FREE task=main bytes=3956
+[+00000173.578s] [2026-10-26T20:31:01.526+08:00] I (16023) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":47.0,"rh":95.0,"ok":false,"valid":true},"gas":{"raw":266,"ok":true,"valid":true},"smoke":{"raw":115,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u9e138ea6-1","type":"CLIMATE","countToday":1}}
+[+00000173.578s] [2026-10-26T20:31:01.526+08:00] 
+[+00000173.578s] [2026-10-26T20:31:01.526+08:00] I (16043) elder-node: STACK_FREE task=main bytes=3956
+[+00000176.078s] [2026-10-26T20:31:04.021+08:00] SEND -> ack e-u9e138ea6-1 (atSec=176, elapsed=176.016s)
+[+00000176.328s] [2026-10-26T20:31:04.285+08:00] I (18753) elder-node: CMD 收到: ack e-u9e138ea6-1
+[+00000176.328s] [2026-10-26T20:31:04.285+08:00] I (18753) elder-node: ACK 回执已接受并生效（阶段③：监护人已确认）：id=e-u9e138ea6-1 type=CLIMATE -> state=ACKED，蜂鸣器已停，语音已取消
+[+00000176.328s] [2026-10-26T20:31:04.285+08:00] I (18763) elder-node: ADC raw: MQ2(CH5)=111 valid=1 danger=0 | MQ5(CH6)=264 valid=1 danger=0
+[+00000176.328s] [2026-10-26T20:31:04.285+08:00] I (18773) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ACKED","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":47.0,"rh":95.0,"ok":false,"valid":true},"gas":{"raw":264,"ok":true,"valid":true},"smoke":{"raw":111,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u9e138ea6-1","type":"CLIMATE","countToday":1}}
+[+00000176.344s] [2026-10-26T20:31:04.286+08:00] 
+[+00000176.344s] [2026-10-26T20:31:04.286+08:00] I (18803) elder-node: STACK_FREE task=main bytes=3956
+[+00000176.422s] [2026-10-26T20:31:04.377+08:00] I (18913) local-led: LED 模式=ACKED_SLOW_PULSE type=CLIMATE（低电平有效；告警期间不被普通联网提示覆盖）
+[+00000178.672s] [2026-10-26T20:31:06.616+08:00] I (21113) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ACKED","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":47.0,"rh":95.0,"ok":false,"valid":true},"gas":{"raw":263,"ok":true,"valid":true},"smoke":{"raw":111,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u9e138ea6-1","type":"CLIMATE","countToday":1}}
+[+00000178.672s] [2026-10-26T20:31:06.616+08:00] 
+[+00000178.672s] [2026-10-26T20:31:06.616+08:00] I (21133) elder-node: STACK_FREE task=main bytes=3956
+[+00000183.688s] [2026-10-26T20:31:11.632+08:00] I (26143) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ACKED","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":47.0,"rh":95.0,"ok":false,"valid":true},"gas":{"raw":261,"ok":true,"valid":true},"smoke":{"raw":91,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u9e138ea6-1","type":"CLIMATE","countToday":1}}
+[+00000183.688s] [2026-10-26T20:31:11.632+08:00] 
+[+00000183.688s] [2026-10-26T20:31:11.632+08:00] I (26163) elder-node: STACK_FREE task=main bytes=3956
+[+00000184.110s] [2026-10-26T20:31:12.067+08:00] SEND -> inj climate 25.0 50.0 (atSec=184, elapsed=184.047s)
+[+00000184.282s] [2026-10-26T20:31:12.238+08:00] I (26773) elder-node: CMD 收到: inj climate 25.0 50.0
+[+00000184.282s] [2026-10-26T20:31:12.238+08:00] W (26773) elder-node: INJ 温湿度=25.0C/50.0%
+[+00000185.110s] [2026-10-26T20:31:13.052+08:00] SEND -> inj climate 25.0 50.0 (atSec=185, elapsed=185.047s)
+[+00000185.282s] [2026-10-26T20:31:13.236+08:00] I (27773) elder-node: CMD 收到: inj climate 25.0 50.0
+[+00000185.282s] [2026-10-26T20:31:13.236+08:00] W (27773) elder-node: INJ 温湿度=25.0C/50.0%
+[+00000188.735s] [2026-10-26T20:31:16.678+08:00] I (31173) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ACKED","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":50.0,"ok":true,"valid":true},"gas":{"raw":263,"ok":true,"valid":true},"smoke":{"raw":110,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u9e138ea6-1","type":"CLIMATE","countToday":1}}
+[+00000188.735s] [2026-10-26T20:31:16.678+08:00] 
+[+00000188.735s] [2026-10-26T20:31:16.678+08:00] I (31193) elder-node: STACK_FREE task=main bytes=3956
+[+00000192.094s] [2026-10-26T20:31:20.043+08:00] SEND -> inj sos (atSec=192, elapsed=192.032s)
+[+00000192.407s] [2026-10-26T20:31:20.356+08:00] I (34803) elder-node: CMD 收到: inj sos
+[+00000192.407s] [2026-10-26T20:31:20.356+08:00] W (34803) elder-node: INJ SOS（台架注入事件）
+[+00000192.407s] [2026-10-26T20:31:20.356+08:00] W (34803) elder-node: SOS 本地已触发：台架注入 SOS（来源设备=esp32-kitchen / 房间=厨房，厨房设备实体按键）；状态=正在发送，尚未收到监护人确认
+[+00000192.407s] [2026-10-26T20:31:20.356+08:00] W (34813) elder-node: 台架注入 SOS -> ALARM（e-u9e138ea6-2，type=MANUAL_SOS）语音+蜂鸣已请求
+[+00000192.407s] [2026-10-26T20:31:20.356+08:00] I (34823) local-voice: PLAY clip=1
+[+00000192.407s] [2026-10-26T20:31:20.356+08:00] I (34833) elder-node: ADC raw: MQ2(CH5)=111 valid=1 danger=0 | MQ5(CH6)=262 valid=1 danger=0
+[+00000192.407s] [2026-10-26T20:31:20.356+08:00] I (34843) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":50.0,"ok":true,"valid":true},"gas":{"raw":262,"ok":true,"valid":true},"smoke":{"raw":111,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u9e138ea6-2","type":"MANUAL_SOS","countToday":1}}
+[+00000192.407s] [2026-10-26T20:31:20.356+08:00] 
+[+00000192.407s] [2026-10-26T20:31:20.357+08:00] I (34883) elder-node: STACK_FREE task=main bytes=3908
+[+00000192.500s] [2026-10-26T20:31:20.449+08:00] I (34983) local-led: LED 模式=SOS_TRIPLE type=MANUAL_SOS（低电平有效；告警期间不被普通联网提示覆盖）
+[+00000193.610s] [2026-10-26T20:31:21.553+08:00] I (36093) local-voice: STOP result=ESP_OK cancelled=0
+[+00000193.610s] [2026-10-26T20:31:21.553+08:00] I (36093) local-voice: STACK_FREE task=local-voice bytes=1100
+[+00000193.844s] [2026-10-26T20:31:21.787+08:00] I (36283) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"ALARM","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":25.0,"rh":50.0,"ok":true,"valid":true},"gas":{"raw":251,"ok":true,"valid":true},"smoke":{"raw":106,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"e-u9e138ea6-2","type":"MANUAL_SOS","countToday":1}}
+[+00000193.844s] [2026-10-26T20:31:21.787+08:00] 
+[+00000193.844s] [2026-10-26T20:31:21.787+08:00] I (36313) elder-node: STACK_FREE task=main bytes=3908
+[+00000197.422s] [2026-10-26T20:31:25.372+08:00] I (39913) elder-node: 告警鸣响到时，自动静音（告警状态保留）

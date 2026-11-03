@@ -1,0 +1,24 @@
+============================================================
+ DAYU demo autostart: P0 + formal camera + DAYU local inference
+ Keep this window open. P0 may open a second visible window for INGEST_KEY.
+ Keys: [S] stop auto care  [R] resume  [Q] quit watcher (leave services)
+============================================================
+[WAIT] formal app is backgrounded; bringing it to foreground.
+[2026-10-26 00:20:22] P0=healthy target=OK app=foregrounding detect=running frames=LIVE nodes=? stop=False paused=False
+[2026-10-26 00:20:31] P0=healthy target=OK app=present detect=running frames=LIVE nodes=? stop=False paused=False
+[WAIT] starting DAYU local P1-B 320 inference (conf=0.7, rotate=0).
+[2026-10-26 00:21:02] P0=healthy target=OK app=present detect=running frames=LIVE nodes=? stop=False paused=False
+[WAIT] restoring hdc fport tcp:9001 -> tcp:9000.
+[2026-10-26 00:21:11] P0=healthy target=OK app=present detect=running frames=LIVE nodes=? stop=False paused=False
+[2026-10-26 00:21:21] P0=healthy target=OK app=present detect=running frames=LIVE nodes=? stop=False paused=False
+[2026-10-26 00:21:31] P0=healthy target=OK app=present detect=running frames=LIVE nodes=? stop=False paused=False
+[2026-10-26 00:21:44] P0=healthy target=OK app=present detect=running frames=LIVE nodes=? stop=False paused=False
+[2026-10-26 00:21:49] P0=healthy target=OK app=present detect=running frames=LIVE nodes=? stop=False paused=False
+[2026-10-26 00:21:59] P0=healthy target=OK app=present detect=running frames=LIVE nodes=? stop=False paused=False
+[2026-10-26 00:22:08] P0=healthy target=OK app=present detect=running frames=LIVE nodes=? stop=False paused=False
+[2026-10-26 00:22:15] P0=healthy target=OK app=present detect=running frames=LIVE nodes=? stop=False paused=False
+[WAIT] formal app is backgrounded; bringing it to foreground.
+[2026-10-26 00:22:23] P0=healthy target=OK app=foregrounding detect=running frames=WAIT-FRAMES nodes=? stop=False paused=False
+[2026-10-26 00:22:30] P0=healthy target=OK app=foregrounding detect=running frames=WAIT-FRAMES nodes=? stop=False paused=False
+[WAIT] formal app is backgrounded; bringing it to foreground.
+[2026-10-26 00:22:40] P0=healthy target=OK app=foregrounding detect=running frames=WAIT-FRAMES nodes=? stop=False paused=False

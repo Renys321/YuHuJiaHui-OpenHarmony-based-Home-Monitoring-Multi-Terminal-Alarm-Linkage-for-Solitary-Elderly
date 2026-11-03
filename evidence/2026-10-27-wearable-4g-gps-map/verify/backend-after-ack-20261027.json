@@ -1,0 +1,103 @@
+﻿{
+    "fetchedAt":  "2026-10-27T18:04:35.5059480+08:00",
+    "alerts":  [
+                   {
+                       "id":  "sos-2-124737aa",
+                       "alarmId":  "sos-2-124737aa",
+                       "deviceId":  "esp32-sos",
+                       "roomName":  "随身求助",
+                       "type":  "MANUAL_SOS",
+                       "message":  "检测到异常",
+                       "state":  "ACKED",
+                       "ackPending":  false,
+                       "createdAt":  1793095403874,
+                       "acknowledgedAt":  1793095442595,
+                       "acknowledgedBy":  "household-guardian",
+                       "evidence":  {
+                                        "available":  false
+                                    }
+                   },
+                   {
+                       "id":  "e-1793076169-1",
+                       "alarmId":  "e-1793076169-1",
+                       "deviceId":  "esp32-sos",
+                       "roomName":  "随身求助",
+                       "type":  "MANUAL_SOS",
+                       "message":  "检测到异常",
+                       "state":  "ALARM",
+                       "ackPending":  false,
+                       "createdAt":  1793076171966,
+                       "acknowledgedAt":  0,
+                       "acknowledgedBy":  "",
+                       "evidence":  {
+                                        "available":  false
+                                    }
+                   },
+                   {
+                       "id":  "e-1793035292-1",
+                       "alarmId":  "e-1793035292-1",
+                       "deviceId":  "esp32-sos",
+                       "roomName":  "随身求助",
+                       "type":  "MANUAL_SOS",
+                       "message":  "检测到异常",
+                       "state":  "ACKED",
+                       "ackPending":  false,
+                       "createdAt":  1793035292653,
+                       "acknowledgedAt":  1793038991306,
+                       "acknowledgedBy":  "household-guardian",
+                       "evidence":  {
+                                        "available":  false
+                                    }
+                   }
+               ],
+    "devices":  {
+                    "id":  "esp32-sos",
+                    "deviceId":  "esp32-sos",
+                    "name":  "随身求助节点",
+                    "roomId":  "随身求助",
+                    "roomName":  "随身求助",
+                    "location":  "",
+                    "online":  true,
+                    "monitorOnline":  -1,
+                    "state":  "NORMAL",
+                    "lastSeenTs":  1793095470947,
+                    "sensors":  {
+
+                                },
+                    "csq":  26
+                },
+    "location":  {
+                     "deviceId":  "esp32-sos",
+                     "location":  "32.966816, 112.553276",
+                     "latitude":  32.9668159,
+                     "longitude":  112.5532761,
+                     "fixTime":  1793095430199
+                 },
+    "overview":  {
+                     "generatedAt":  1793095476158,
+                     "deviceCount":  8,
+                     "onlineCount":  3,
+                     "monitorOfflineCount":  0,
+                     "activeAlertCount":  45,
+                     "latestAlert":  {
+                                         "id":  "sos-2-124737aa",
+                                         "alarmId":  "sos-2-124737aa",
+                                         "deviceId":  "esp32-sos",
+                                         "roomName":  "随身求助",
+                                         "type":  "MANUAL_SOS",
+                                         "message":  "检测到异常",
+                                         "state":  "ACKED",
+                                         "ackPending":  false,
+                                         "createdAt":  1793095403874,
+                                         "acknowledgedAt":  1793095442595,
+                                         "acknowledgedBy":  "household-guardian",
+                                         "evidenceId":  ""
+                                     },
+                     "location":  {
+                                      "valid":  true,
+                                      "latitude":  32.9668159,
+                                      "longitude":  112.5532761,
+                                      "fixTime":  1793095430199
+                                  }
+                 }
+}

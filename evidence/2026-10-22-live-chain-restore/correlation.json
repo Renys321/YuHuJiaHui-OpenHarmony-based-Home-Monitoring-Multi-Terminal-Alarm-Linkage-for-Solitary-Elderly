@@ -1,0 +1,157 @@
+{
+  "observerRows": 128,
+  "observerFirst": {
+    "recvAt": "2026-10-22T07:33:52.712Z",
+    "topic": "home/dayu200-living/status",
+    "deviceId": "dayu200-living",
+    "ts": 1792654431839,
+    "state": "ALARM",
+    "room": "客厅",
+    "validJson": true
+  },
+  "observerLast": {
+    "recvAt": "2026-10-22T07:37:51.651Z",
+    "topic": "home/esp32-bath/status",
+    "deviceId": "esp32-bath",
+    "ts": 1792654672139,
+    "state": "ALARM",
+    "room": "卫生间",
+    "validJson": true
+  },
+  "matchedPairs": 16,
+  "byDevice": {
+    "dayu200-living": 8,
+    "esp32-bath": 8
+  },
+  "httpBeforeMqtt": 0,
+  "rows": [
+    {
+      "device": "esp32-bath",
+      "deviceTs": 1792654455739,
+      "mqttRecvAt": "2026-10-22T07:34:15.250Z",
+      "http202At": "2026-10-22T07:34:15.345Z",
+      "deltaMs": 95,
+      "state": "ALARM"
+    },
+    {
+      "device": "dayu200-living",
+      "deviceTs": 1792654458864,
+      "mqttRecvAt": "2026-10-22T07:34:19.737Z",
+      "http202At": "2026-10-22T07:34:19.833Z",
+      "deltaMs": 96,
+      "state": "ALARM"
+    },
+    {
+      "device": "esp32-bath",
+      "deviceTs": 1792654485929,
+      "mqttRecvAt": "2026-10-22T07:34:45.445Z",
+      "http202At": "2026-10-22T07:34:45.535Z",
+      "deltaMs": 90,
+      "state": "ALARM"
+    },
+    {
+      "device": "dayu200-living",
+      "deviceTs": 1792654488888,
+      "mqttRecvAt": "2026-10-22T07:34:49.763Z",
+      "http202At": "2026-10-22T07:34:49.855Z",
+      "deltaMs": 92,
+      "state": "ALARM"
+    },
+    {
+      "device": "esp32-bath",
+      "deviceTs": 1792654516129,
+      "mqttRecvAt": "2026-10-22T07:35:15.637Z",
+      "http202At": "2026-10-22T07:35:15.724Z",
+      "deltaMs": 87,
+      "state": "ALARM"
+    },
+    {
+      "device": "dayu200-living",
+      "deviceTs": 1792654518915,
+      "mqttRecvAt": "2026-10-22T07:35:19.791Z",
+      "http202At": "2026-10-22T07:35:19.876Z",
+      "deltaMs": 85,
+      "state": "ALARM"
+    },
+    {
+      "device": "esp32-bath",
+      "deviceTs": 1792654546319,
+      "mqttRecvAt": "2026-10-22T07:35:45.827Z",
+      "http202At": "2026-10-22T07:35:45.912Z",
+      "deltaMs": 85,
+      "state": "ALARM"
+    },
+    {
+      "device": "dayu200-living",
+      "deviceTs": 1792654548938,
+      "mqttRecvAt": "2026-10-22T07:35:49.816Z",
+      "http202At": "2026-10-22T07:35:49.948Z",
+      "deltaMs": 132,
+      "state": "ALARM"
+    },
+    {
+      "device": "esp32-bath",
+      "deviceTs": 1792654576519,
+      "mqttRecvAt": "2026-10-22T07:36:16.030Z",
+      "http202At": "2026-10-22T07:36:16.274Z",
+      "deltaMs": 244,
+      "state": "ALARM"
+    },
+    {
+      "device": "dayu200-living",
+      "deviceTs": 1792654578964,
+      "mqttRecvAt": "2026-10-22T07:36:19.844Z",
+      "http202At": "2026-10-22T07:36:19.957Z",
+      "deltaMs": 113,
+      "state": "ALARM"
+    },
+    {
+      "device": "esp32-bath",
+      "deviceTs": 1792654606709,
+      "mqttRecvAt": "2026-10-22T07:36:46.218Z",
+      "http202At": "2026-10-22T07:36:46.488Z",
+      "deltaMs": 270,
+      "state": "ALARM"
+    },
+    {
+      "device": "dayu200-living",
+      "deviceTs": 1792654608990,
+      "mqttRecvAt": "2026-10-22T07:36:49.872Z",
+      "http202At": "2026-10-22T07:36:49.965Z",
+      "deltaMs": 93,
+      "state": "ALARM"
+    },
+    {
+      "device": "esp32-bath",
+      "deviceTs": 1792654636909,
+      "mqttRecvAt": "2026-10-22T07:37:16.416Z",
+      "http202At": "2026-10-22T07:37:16.508Z",
+      "deltaMs": 92,
+      "state": "ALARM"
+    },
+    {
+      "device": "dayu200-living",
+      "deviceTs": 1792654639013,
+      "mqttRecvAt": "2026-10-22T07:37:19.897Z",
+      "http202At": "2026-10-22T07:37:19.992Z",
+      "deltaMs": 95,
+      "state": "ALARM"
+    },
+    {
+      "device": "esp32-bath",
+      "deviceTs": 1792654667099,
+      "mqttRecvAt": "2026-10-22T07:37:46.610Z",
+      "http202At": "2026-10-22T07:37:46.704Z",
+      "deltaMs": 94,
+      "state": "ALARM"
+    },
+    {
+      "device": "dayu200-living",
+      "deviceTs": 1792654669037,
+      "mqttRecvAt": "2026-10-22T07:37:49.922Z",
+      "http202At": "2026-10-22T07:37:50.010Z",
+      "deltaMs": 88,
+      "state": "ALARM"
+    }
+  ]
+}

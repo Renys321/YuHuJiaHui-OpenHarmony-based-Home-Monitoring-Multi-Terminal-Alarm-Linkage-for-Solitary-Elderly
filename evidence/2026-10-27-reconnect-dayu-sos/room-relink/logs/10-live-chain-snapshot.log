@@ -1,0 +1,120 @@
+﻿capturedAt=2026-10-27 22:41:30
+=== node processes (command lines) ===
+PID=61072 started=10/27/2026 22:25:23 :: "D:\Node\node.exe" mqtt_bridge.js --broker 127.0.0.1:1883 --status-tcp 10.127.130.131:9000 --listen 9101 --relay-to 10.127.130.131:9000 --cmd-out D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\control --status-file D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\status.json
+PID=27820 started=10/27/2026 22:29:42 :: "D:\Node\node.exe" D:\OpenHarmony\competition\bridge\mqtt_broker.js 1883 
+PID=39628 started=10/27/2026 22:29:56 :: "D:\Node\node.exe" D:\OpenHarmony\competition\cloud\onenet\public-sync-supervisor.js --public-sync-entry D:\OpenHarmony\competition\cloud\onenet\public-sync.js --worker-script D:\OpenHarmony\competition\cloud\onenet\public-sync-worker.js --state-file D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\public-sync-supervisor.state.json --lock-file D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\public-sync-supervisor.lock --log-file D:\OpenHarmony\competition\bridge\_test\current-runtime\supervisor\public-sync-supervisor.log
+PID=53752 started=10/27/2026 22:30:04 :: D:\Node\node.exe D:\OpenHarmony\competition\cloud\onenet\public-sync-worker.js
+PID=11028 started=10/27/2026 22:41:21 :: D:\Node\node.exe D:\OpenHarmony\competition\bridge\mqtt_broker.js 64184
+PID=25504 started=10/27/2026 22:41:22 :: D:\Node\node.exe D:\OpenHarmony\competition\bridge\mqtt_bridge.js --broker 127.0.0.1:64184 --listen 64185 --relay-to 127.0.0.1:64186 --status-file C:\Users\LENOVO\AppData\Local\Temp\elder-bridge-recovery-i4It2D\relay-status.json --cmd-out C:\Users\LENOVO\AppData\Local\Temp\elder-bridge-recovery-i4It2D\relay-control
+PID=47560 started=10/27/2026 22:41:26 :: D:\Node\node.exe D:\OpenHarmony\competition\bridge\mqtt_broker.js 64296
+PID=40484 started=10/27/2026 22:41:27 :: D:\Node\node.exe D:\OpenHarmony\competition\bridge\mqtt_bridge.js --broker 127.0.0.1:64296 --status-tcp 127.0.0.1:64298 --listen 64297 --relay-to 127.0.0.1:64299 --relay-ignore esp32-sos --status-file C:\Users\LENOVO\AppData\Local\Temp\elder-bridge-recovery-i4It2D\scope-status.json --cmd-out C:\Users\LENOVO\AppData\Local\Temp\elder-bridge-recovery-i4It2D\scope-control
+PID=32628 started=10/27/2026 22:41:27 :: D:\Node\node.exe D:\OpenHarmony\competition\bridge\mqtt_bridge.js --broker 127.0.0.1:64316 --status-tcp 127.0.0.1:64318 --listen 64317 --status-file C:\Users\LENOVO\AppData\Local\Temp\elder-bridge-recovery-i4It2D\mqtt-status.json --cmd-out C:\Users\LENOVO\AppData\Local\Temp\elder-bridge-recovery-i4It2D\mqtt-control
+PID=28976 started=10/27/2026 22:41:27 :: D:\Node\node.exe D:\OpenHarmony\competition\bridge\mqtt_broker.js 64316
+=== netstat 1883/9101/9000 ===
+TCP    0.0.0.0:1883           0.0.0.0:0              LISTENING       27820
+TCP    0.0.0.0:9101           0.0.0.0:0              LISTENING       61072
+TCP    10.127.130.179:9101    10.127.130.71:64774    ESTABLISHED     61072
+TCP    10.127.130.179:9101    10.127.130.168:62213   ESTABLISHED     61072
+TCP    10.127.130.179:55331   10.127.130.131:9000    ESTABLISHED     61072
+TCP    10.127.130.179:55332   10.127.130.131:9000    ESTABLISHED     61072
+TCP    10.127.130.179:62447   47.76.70.118:1883      TIME_WAIT       0
+TCP    127.0.0.1:1883         127.0.0.1:63504        ESTABLISHED     27820
+TCP    127.0.0.1:1883         127.0.0.1:64547        ESTABLISHED     27820
+TCP    127.0.0.1:1883         127.0.0.1:65433        ESTABLISHED     27820
+TCP    127.0.0.1:51844        127.0.0.1:1883         TIME_WAIT       0
+TCP    127.0.0.1:51845        127.0.0.1:9101         TIME_WAIT       0
+TCP    127.0.0.1:53169        127.0.0.1:1883         TIME_WAIT       0
+TCP    127.0.0.1:53170        127.0.0.1:9101         TIME_WAIT       0
+TCP    127.0.0.1:53784        127.0.0.1:1883         TIME_WAIT       0
+TCP    127.0.0.1:53785        127.0.0.1:9101         TIME_WAIT       0
+TCP    127.0.0.1:54072        127.0.0.1:1883         TIME_WAIT       0
+TCP    127.0.0.1:54073        127.0.0.1:9101         TIME_WAIT       0
+TCP    127.0.0.1:56583        127.0.0.1:1883         TIME_WAIT       0
+TCP    127.0.0.1:56584        127.0.0.1:9101         TIME_WAIT       0
+TCP    127.0.0.1:58124        127.0.0.1:1883         TIME_WAIT       0
+TCP    127.0.0.1:58125        127.0.0.1:9101         TIME_WAIT       0
+TCP    127.0.0.1:58126        127.0.0.1:1883         TIME_WAIT       0
+TCP    127.0.0.1:58127        127.0.0.1:9101         TIME_WAIT       0
+TCP    127.0.0.1:58129        127.0.0.1:1883         TIME_WAIT       0
+TCP    127.0.0.1:58130        127.0.0.1:9101         TIME_WAIT       0
+TCP    127.0.0.1:58131        127.0.0.1:1883         TIME_WAIT       0
+TCP    127.0.0.1:58132        127.0.0.1:9101         TIME_WAIT       0
+TCP    127.0.0.1:58286        127.0.0.1:1883         TIME_WAIT       0
+TCP    127.0.0.1:58287        127.0.0.1:9101         TIME_WAIT       0
+TCP    127.0.0.1:58551        127.0.0.1:1883         TIME_WAIT       0
+TCP    127.0.0.1:58552        127.0.0.1:9101         TIME_WAIT       0
+TCP    127.0.0.1:58574        127.0.0.1:1883         TIME_WAIT       0
+TCP    127.0.0.1:58575        127.0.0.1:9101         TIME_WAIT       0
+TCP    127.0.0.1:58626        127.0.0.1:1883         TIME_WAIT       0
+TCP    127.0.0.1:58628        127.0.0.1:9101         TIME_WAIT       0
+TCP    127.0.0.1:62699        127.0.0.1:1883         TIME_WAIT       0
+TCP    127.0.0.1:62700        127.0.0.1:9101         TIME_WAIT       0
+TCP    127.0.0.1:63504        127.0.0.1:1883         ESTABLISHED     53752
+TCP    127.0.0.1:64120        127.0.0.1:1883         TIME_WAIT       0
+TCP    127.0.0.1:64121        127.0.0.1:9101         TIME_WAIT       0
+TCP    127.0.0.1:64309        127.0.0.1:1883         TIME_WAIT       0
+TCP    127.0.0.1:64310        127.0.0.1:9101         TIME_WAIT       0
+TCP    127.0.0.1:64547        127.0.0.1:1883         ESTABLISHED     61072
+TCP    127.0.0.1:65433        127.0.0.1:1883         ESTABLISHED     54948
+TCP    [::]:1883              [::]:0                 LISTENING       27820
+TCP    [::]:9101              [::]:0                 LISTENING       61072
+=== watcher-state.json ===
+{
+    "timestamp":  "2026-10-27 22:41:25",
+    "target":  "450100445634303332012847942eca00",
+    "targetConnected":  true,
+    "p0":  "healthy",
+    "app":  "present",
+    "inference":  "running",
+    "cameraFrames":  "LIVE",
+    "nodes":  "3/3",
+    "userStop":  false,
+    "userPaused":  false,
+    "lastEventCount":  146941,
+    "watcherPid":  58052
+}
+
+=== DAYU UI node text (uitest dump, read-only) ===
+全屋在线 3/3 台设备
+=== public-sync-health (read-only) ===
+{
+    "checkedAt":  "2026-10-27 22:41:31",
+    "brokerListening":  true,
+    "bridgeListening":  true,
+    "supervisor":  {
+                       "supervisorPid":  39628,
+                       "supervisorAlive":  true,
+                       "workerPid":  53752,
+                       "workerAlive":  true,
+                       "heartbeatAgeMs":  27520,
+                       "maxHeartbeatAgeMs":  90000,
+                       "state":  "HEALTHY",
+                       "lockPid":  39628,
+                       "healthy":  true,
+                       "reason":  "HEALTHY"
+                   },
+    "supervisorCheckExit":  0,
+    "portsOk":  true,
+    "healthy":  true,
+    "reason":  "HEALTHY"
+}
+
+=== supervisor log: WORKER_EXIT / CIRCUIT / SIGNAL history (old incident) ===
+2026-10-27T03:58:29.111Z [supervisor] STALE_LOCK_TAKEOVER dead_pid=32356
+2026-10-27T03:58:47.527Z [supervisor] WORKER_START pid=30608
+2026-10-27T03:58:47.856Z [supervisor] HEALTHY pid=30608
+2026-10-27T08:25:04.738Z [supervisor] WORKER_EXIT code=3221225786 signal=null durationMs=15977210
+2026-10-27T14:26:18.380Z [supervisor] LOCK_ACQUIRED pid=11412
+2026-10-27T14:26:18.388Z [supervisor] STALE_LOCK_TAKEOVER dead_pid=29048
+2026-10-27T14:26:33.386Z [supervisor] WORKER_START pid=27904
+2026-10-27T14:26:33.665Z [supervisor] HEALTHY pid=27904
+2026-10-27T14:29:56.851Z [supervisor] LOCK_ACQUIRED pid=39628
+2026-10-27T14:29:56.857Z [supervisor] STALE_LOCK_TAKEOVER dead_pid=11412
+2026-10-27T14:30:04.399Z [supervisor] WORKER_START pid=53752
+2026-10-27T14:30:04.669Z [supervisor] HEALTHY pid=53752
+=== supervisor log tail 5 ===
+2026-10-27T14:40:39.816Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793112039378 deviceTs=1793112039390 path=/internal/v1/device-status status=202 at=2026-10-27T14:40:39.815Z
+2026-10-27T14:41:07.724Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1793112066168 deviceTs=1793112064938 path=/internal/v1/device-status status=202 at=2026-10-27T14:41:07.723Z
+2026-10-27T14:41:10.310Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1793112070219 deviceTs=1793112070227 path=/internal/v1/device-status status=202 at=2026-10-27T14:41:10.310Z
+2026-10-27T14:41:12.452Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793112072336 deviceTs=1793112072350 path=/internal/v1/device-status status=202 at=2026-10-27T14:41:12.432Z
+2026-10-27T14:41:13.980Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-27T14:41:13.980Z

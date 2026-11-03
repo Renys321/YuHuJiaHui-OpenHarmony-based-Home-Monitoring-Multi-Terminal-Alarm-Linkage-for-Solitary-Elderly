@@ -1,0 +1,6 @@
+.contact-main { display: flex; align-items: flex-start; justify-content: space-between; gap: 18rpx; }
+.contact-details { min-width: 0; flex: 1; }
+.contact-name { margin-bottom: 8rpx; font-size: 32rpx; font-weight: 700; overflow-wrap: anywhere; }
+.contact-meta { line-height: 1.5; overflow-wrap: anywhere; }
+.contact-main .tag { flex: none; max-width: 180rpx; white-space: normal; text-align: center; }
+.demo-call-warning { padding: 18rpx; border-left: 8rpx solid #b54708; background: #fffaeb; color: #934f00; }

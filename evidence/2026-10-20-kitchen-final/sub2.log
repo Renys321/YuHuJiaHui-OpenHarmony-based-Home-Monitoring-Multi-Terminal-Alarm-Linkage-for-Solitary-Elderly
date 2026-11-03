@@ -1,0 +1,16 @@
+READY utc=2026-10-20T14:38:05.751Z
+MSG utc=2026-10-20T14:38:09.957Z topic=home/esp32-kitchen/status deviceId=esp32-kitchen ts=1792507090008
+MSG utc=2026-10-20T14:38:15.540Z topic=home/esp32-kitchen/status deviceId=esp32-kitchen ts=1792507095488
+MSG utc=2026-10-20T14:38:20.916Z topic=home/esp32-kitchen/status deviceId=esp32-kitchen ts=1792507100968
+MSG utc=2026-10-20T14:38:26.397Z topic=home/esp32-kitchen/status deviceId=esp32-kitchen ts=1792507106448
+MSG utc=2026-10-20T14:38:31.875Z topic=home/esp32-kitchen/status deviceId=esp32-kitchen ts=1792507111928
+MSG utc=2026-10-20T14:38:37.434Z topic=home/esp32-kitchen/status deviceId=esp32-kitchen ts=1792507117408
+MSG utc=2026-10-20T14:38:42.857Z topic=home/esp32-kitchen/status deviceId=esp32-kitchen ts=1792507122888
+MSG utc=2026-10-20T14:38:48.318Z topic=home/esp32-kitchen/status deviceId=esp32-kitchen ts=1792507128368
+MSG utc=2026-10-20T14:38:53.797Z topic=home/esp32-kitchen/status deviceId=esp32-kitchen ts=1792507133848
+MSG utc=2026-10-20T14:38:59.282Z topic=home/esp32-kitchen/status deviceId=esp32-kitchen ts=1792507139328
+MSG utc=2026-10-20T14:39:04.757Z topic=home/esp32-kitchen/status deviceId=esp32-kitchen ts=1792507144808
+MSG utc=2026-10-20T14:39:10.240Z topic=home/esp32-kitchen/status deviceId=esp32-kitchen ts=1792507150288
+MSG utc=2026-10-20T14:39:15.716Z topic=home/esp32-kitchen/status deviceId=esp32-kitchen ts=1792507155768
+MSG utc=2026-10-20T14:39:21.194Z topic=home/esp32-kitchen/status deviceId=esp32-kitchen ts=1792507161248
+MSG utc=2026-10-20T14:39:26.675Z topic=home/esp32-kitchen/status deviceId=esp32-kitchen ts=1792507166728

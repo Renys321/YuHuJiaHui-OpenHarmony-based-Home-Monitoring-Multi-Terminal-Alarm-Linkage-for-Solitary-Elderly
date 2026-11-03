@@ -1,0 +1,24 @@
+{
+  "_comment": "LOCAL-ALARM-SPEECH-FINAL kitchen bench scenario: verify all 6 Chinese clips, the short-chirp-then-speech order (no overlap), reason-specific clip mapping via the real CLIMATE path, SOS 3-chirp + clip1, and stop/ACK cancelling playback. Bench firmware only: no WiFi, no cloud events.",
+  "durationSec": 115,
+  "steps": [
+    {"atSec": 1,   "send": "resume"},
+    {"atSec": 2,   "send": "inj reboot"},
+    {"atSec": 9,   "send": "inj voice 1"},
+    {"atSec": 17,  "send": "inj voice 2"},
+    {"atSec": 25,  "send": "inj voice 3"},
+    {"atSec": 33,  "send": "inj voice 4"},
+    {"atSec": 41,  "send": "inj voice 5"},
+    {"atSec": 49,  "send": "inj voice 6"},
+    {"atSec": 57,  "send": "inj climate 50.0 60.0"},
+    {"atSec": 58,  "send": "inj climate 50.0 60.0"},
+    {"atSec": 67,  "send": "stop"},
+    {"atSec": 69,  "send": "ack {lastAlarm}"},
+    {"atSec": 76,  "send": "inj climate 25.0 60.0"},
+    {"atSec": 77,  "send": "inj climate 25.0 60.0"},
+    {"atSec": 84,  "send": "inj sos"},
+    {"atSec": 93,  "send": "stop"},
+    {"atSec": 95,  "send": "ack {lastAlarm}"},
+    {"atSec": 104, "send": "reset"}
+  ]
+}

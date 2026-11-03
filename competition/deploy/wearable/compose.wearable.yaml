@@ -1,0 +1,76 @@
+# deploy/wearable/compose.wearable.yaml
+#
+# 随身 SOS 公网适配服务（wearable-mqtt）的 compose override。
+#
+# 设计取舍（2026-10-27 Lead 决策）：
+#   1) 不新建镜像：直接复用 ECS 上已有的 eldercare-cloud-backend:local
+#      （含 node 24 运行时），用 entrypoint 覆盖成 node /opt/wearable/server.js；
+#      wearable-mqtt 零 npm 依赖，源码只读挂载即可运行。
+#   2) 只发布 1883/tcp 一个端口；绝不暴露 8080/9000/9001/9100/9101。
+#   3) 所有密钥/配置都在 /opt/eldercare/deploy/wearable.env（600），
+#      由 install-on-ecs.sh 从 .env.deploy 抽取 INGEST_KEY 并注入 MQTT 凭据；
+#      本文件只写非密钥的容器内固定值。
+#   4) 必须与 compose.public.yaml 一起使用（同一 project: eldercare-public）：
+#        docker compose --env-file /opt/eldercare/deploy/.env.deploy \
+#          -f /opt/eldercare/deploy/compose.public.yaml \
+#          -f /opt/eldercare/deploy/compose.wearable.yaml \
+#          up -d wearable-mqtt
+#
+# 注意：本文件是 override，不定义 backend/caddy，也不会重建它们。
+
+name: eldercare-public
+
+services:
+  wearable-mqtt:
+    # 复用已有后端镜像，避免新镜像构建/拉取失败；entrypoint 指向只读挂载的源码。
+    image: eldercare-cloud-backend:local
+    init: true
+    restart: unless-stopped
+    entrypoint: ["node", "/opt/wearable/server.js"]
+    working_dir: /opt/wearable
+    read_only: true
+    env_file:
+      - ${WEARABLE_ENV_FILE:-/opt/eldercare/deploy/wearable.env}
+    environment:
+      # 容器内固定值（非密钥）；其余变量全部来自 wearable.env。
+      MQTT_PORT: "1883"
+      DATA_DIR: "/data"
+      STATUS_HOST: "127.0.0.1"
+      STATUS_PORT: "8099"
+      NODE_ENV: "production"
+    # 唯一对外端口：1883/tcp。
+    ports:
+      - "1883:1883"
+    volumes:
+      # 代码只读挂载（install-on-ecs.sh 同步到 /opt/eldercare/wearable）。
+      - ${WEARABLE_SOURCE_DIR:-/opt/eldercare/wearable}:/opt/wearable:ro
+      # seq / 命令游标 / 当日 SOS 计数持久化卷。
+      - wearable-data:/data
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=8m
+    security_opt:
+      - no-new-privileges:true
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - wearable-public-edge
+    healthcheck:
+      # 诊断端口只在容器内 127.0.0.1:8099，不能用它对外做探针。
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8099/healthz').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
+
+networks:
+  # 加入 backend/caddy 所在的 public-edge 网络（真实名称由 install-on-ecs.sh
+  # 探测后通过 WEARABLE_PUBLIC_NETWORK 注入；默认值适用于标准部署）。
+  wearable-public-edge:
+    external: true
+    name: ${WEARABLE_PUBLIC_NETWORK:-eldercare-public_public-edge}
+
+volumes:
+  wearable-data:

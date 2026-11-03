@@ -1,0 +1,108 @@
+# bench-serial.py start 2026-10-26T21:30:11.750+08:00
+# com=COM8 baud=115200 dtr=False rts=False log=D:\OpenHarmony\competition\evidence\2026-10-26-wireless-sos-button-final\verify\com8-scan2.log
+[+00000000.343s] [2026-10-26T21:30:12.099+08:00] rrr�[0m
+[+00000000.359s] [2026-10-26T21:30:12.100+08:00] I (310) cpu_start: ESP-IDF:          v5.1.6-dirty
+[+00000000.359s] [2026-10-26T21:30:12.100+08:00] I (315) cpu_start: Min chip rev:     v0.0
+[+00000000.359s] [2026-10-26T21:30:12.100+08:00] I (320) cpu_start: Max chip rev:     v0.99 
+[+00000000.359s] [2026-10-26T21:30:12.100+08:00] I (325) cpu_start: Chip rev:         v0.2
+[+00000000.359s] [2026-10-26T21:30:12.100+08:00] I (329) heap_init: Initializing. RAM available for dynamic allocation:
+[+00000000.359s] [2026-10-26T21:30:12.101+08:00] I (337) heap_init: At 3FCA03F0 len 00049320 (292 KiB): DRAM
+[+00000000.359s] [2026-10-26T21:30:12.101+08:00] I (343) heap_init: At 3FCE9710 len 00005724 (21 KiB): STACK/DRAM
+[+00000000.359s] [2026-10-26T21:30:12.101+08:00] I (350) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM
+[+00000000.359s] [2026-10-26T21:30:12.101+08:00] I (356) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM
+[+00000000.359s] [2026-10-26T21:30:12.101+08:00] I (363) spi_flash: detected chip: boya
+[+00000000.359s] [2026-10-26T21:30:12.101+08:00] I (366) spi_flash: flash io: dio
+[+00000000.359s] [2026-10-26T21:30:12.101+08:00] W (370) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+[+00000000.359s] [2026-10-26T21:30:12.101+08:00] I (384) sleep: Configure to isolate all GPIO pins in sleep state
+[+00000000.359s] [2026-10-26T21:30:12.101+08:00] I (390) sleep: Enable automatic switching of GPIO sleep configuration
+[+00000000.359s] [2026-10-26T21:30:12.101+08:00] I (398) app_start: Starting scheduler on CPU0
+[+00000000.359s] [2026-10-26T21:30:12.101+08:00] I (402) app_start: Starting scheduler on CPU1
+[+00000000.359s] [2026-10-26T21:30:12.101+08:00] I (402) main_task: Started on CPU0
+[+00000000.359s] [2026-10-26T21:30:12.101+08:00] I (412) main_task: Calling app_main()
+[+00000000.359s] [2026-10-26T21:30:12.101+08:00] I (422) elder-node: ESP32-S3 无线节点启动：esp32-sos / 随身求助
+[+00000000.359s] [2026-10-26T21:30:12.101+08:00] I (422) gpio: GPIO[4]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 
+[+00000000.359s] [2026-10-26T21:30:12.101+08:00] I (432) gpio: GPIO[6]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 
+[+00000000.359s] [2026-10-26T21:30:12.101+08:00] W (442) elder-node: 温湿度自检失败：未接/接线错误/校验失败
+[+00000000.359s] [2026-10-26T21:30:12.101+08:00] I (452) pp: pp rom version: e7ae62f
+[+00000000.359s] [2026-10-26T21:30:12.101+08:00] I (452) net80211: net80211 rom version: e7ae62f
+[+00000000.359s] [2026-10-26T21:30:12.101+08:00] I (472) wifi:wifi driver task: 3fcaa574, prio:23, stack:6656, core=0
+[+00000000.359s] [2026-10-26T21:30:12.101+08:00] I (472) wifi:wifi firmware version: 02461b5
+[+00000000.359s] [2026-10-26T21:30:12.101+08:00] I (472) wifi:wifi certification version: v7.0
+[+00000000.359s] [2026-10-26T21:30:12.101+08:00] I (472) wifi:config NVS flash: enabled
+[+00000000.359s] [2026-10-26T21:30:12.101+08:00] I (472) wifi:config nano formating: disabled
+[+00000000.359s] [2026-10-26T21:30:12.101+08:00] I (482) wifi:Init data frame dynamic rx buffer num: 32
+[+00000000.359s] [2026-10-26T21:30:12.101+08:00] I (482) wifi:Init static rx mgmt buffer num: 5
+[+00000000.359s] [2026-10-26T21:30:12.101+08:00] I (492) wifi:Init management short buffer num: 32
+[+00000000.359s] [2026-10-26T21:30:12.101+08:00] I (492) wifi:Init dynamic tx buffer num: 32
+[+00000000.359s] [2026-10-26T21:30:12.102+08:00] I (502) wifi:Init static tx FG buffer num: 2
+[+00000000.359s] [2026-10-26T21:30:12.102+08:00] I (502) wifi:Init static rx buffer size: 1600
+[+00000000.359s] [2026-10-26T21:30:12.102+08:00] I (502) wifi:Init static rx buffer num: 10
+[+00000000.359s] [2026-10-26T21:30:12.102+08:00] I (512) wifi:Init dynamic rx buffer num: 32
+[+00000000.359s] [2026-10-26T21:30:12.102+08:00] I (512) wifi_init: rx ba win: 6
+[+00000000.359s] [2026-10-26T21:30:12.102+08:00] I (522) wifi_init: tcpip mbox: 32
+[+00000000.359s] [2026-10-26T21:30:12.102+08:00] I (522) wifi_init: udp mbox: 6
+[+00000000.359s] [2026-10-26T21:30:12.102+08:00] I (522) wifi_init: tcp mbox: 6
+[+00000000.359s] [2026-10-26T21:30:12.102+08:00] I (532) wifi_init: tcp tx win: 5760
+[+00000000.359s] [2026-10-26T21:30:12.102+08:00] I (532) wifi_init: tcp rx win: 5760
+[+00000000.359s] [2026-10-26T21:30:12.102+08:00] I (532) wifi_init: tcp mss: 1440
+[+00000000.359s] [2026-10-26T21:30:12.102+08:00] I (542) wifi_init: WiFi IRAM OP enabled
+[+00000000.359s] [2026-10-26T21:30:12.102+08:00] I (542) wifi_init: WiFi RX IRAM OP enabled
+[+00000000.359s] [2026-10-26T21:30:12.102+08:00] I (552) wifi:Set ps type: 0, coexist: 0
+[+00000000.359s] [2026-10-26T21:30:12.102+08:00] 
+[+00000000.359s] [2026-10-26T21:30:12.102+08:00] I (552) phy_init: phy_version 680,a6008b2,Jun  4 2024,16:41:10
+[+00000000.359s] [2026-10-26T21:30:12.102+08:00] I (602) wifi:mode : sta (30:30:f9:08:76:84)
+[+00000000.359s] [2026-10-26T21:30:12.102+08:00] I (612) wifi:enable tsf
+[+00000000.359s] [2026-10-26T21:30:12.102+08:00] I (612) elder-node: 连接 WiFi: ElderCareLab
+[+00000000.640s] [2026-10-26T21:30:12.393+08:00] W (912) elder-node: SCAN DIAG: 目标 SSID 长度=12，开始全信道扫描
+[+00000003.203s] [2026-10-26T21:30:14.945+08:00] W (3412) elder-node: SCAN DIAG: round=0 aps=5
+[+00000003.203s] [2026-10-26T21:30:14.945+08:00] W (3412) elder-node: SCAN DIAG: ap[0] ssid=ElderCareLab rssi=-22 ch=1 auth=3 hidden=0 target=1
+[+00000003.203s] [2026-10-26T21:30:14.945+08:00] W (3412) elder-node: SCAN DIAG: ap[1] ssid=ny*** rssi=-48 ch=6 auth=3 hidden=0 target=0
+[+00000003.203s] [2026-10-26T21:30:14.945+08:00] W (3422) elder-node: SCAN DIAG: ap[2] ssid=On*** rssi=-61 ch=1 auth=7 hidden=0 target=0
+[+00000003.203s] [2026-10-26T21:30:14.945+08:00] W (3432) elder-node: SCAN DIAG: ap[3] ssid=�*** rssi=-69 ch=10 auth=3 hidden=0 target=0
+[+00000003.203s] [2026-10-26T21:30:14.946+08:00] W (3442) elder-node: SCAN DIAG: ap[4] ssid=ny*** rssi=-80 ch=11 auth=0 hidden=0 target=0
+[+00000003.203s] [2026-10-26T21:30:14.946+08:00] W (3442) elder-node: SCAN DIAG: round=0 total=5 targetVisible=1
+[+00000009.734s] [2026-10-26T21:30:21.482+08:00] W (9952) elder-node: SCAN DIAG: round=1 aps=4
+[+00000009.734s] [2026-10-26T21:30:21.482+08:00] W (9952) elder-node: SCAN DIAG: ap[0] ssid=ElderCareLab rssi=-22 ch=1 auth=3 hidden=0 target=1
+[+00000009.734s] [2026-10-26T21:30:21.482+08:00] W (9952) elder-node: SCAN DIAG: ap[1] ssid=ny*** rssi=-50 ch=6 auth=3 hidden=0 target=0
+[+00000009.734s] [2026-10-26T21:30:21.482+08:00] W (9962) elder-node: SCAN DIAG: ap[2] ssid=On*** rssi=-61 ch=1 auth=7 hidden=0 target=0
+[+00000009.734s] [2026-10-26T21:30:21.482+08:00] W (9972) elder-node: SCAN DIAG: ap[3] ssid=ny*** rssi=-77 ch=11 auth=0 hidden=0 target=0
+[+00000009.734s] [2026-10-26T21:30:21.482+08:00] W (9982) elder-node: SCAN DIAG: round=1 total=4 targetVisible=1
+[+00000016.281s] [2026-10-26T21:30:28.025+08:00] W (16482) elder-node: SCAN DIAG: round=2 aps=6
+[+00000016.281s] [2026-10-26T21:30:28.025+08:00] W (16482) elder-node: SCAN DIAG: ap[0] ssid=ElderCareLab rssi=-24 ch=1 auth=3 hidden=0 target=1
+[+00000016.281s] [2026-10-26T21:30:28.025+08:00] W (16482) elder-node: SCAN DIAG: ap[1] ssid=ny*** rssi=-50 ch=6 auth=3 hidden=0 target=0
+[+00000016.281s] [2026-10-26T21:30:28.025+08:00] W (16492) elder-node: SCAN DIAG: ap[2] ssid=On*** rssi=-62 ch=1 auth=7 hidden=0 target=0
+[+00000016.281s] [2026-10-26T21:30:28.025+08:00] W (16502) elder-node: SCAN DIAG: ap[3] ssid=�*** rssi=-69 ch=10 auth=3 hidden=0 target=0
+[+00000016.281s] [2026-10-26T21:30:28.025+08:00] W (16512) elder-node: SCAN DIAG: ap[4] ssid=ny*** rssi=-74 ch=11 auth=0 hidden=0 target=0
+[+00000016.281s] [2026-10-26T21:30:28.025+08:00] W (16512) elder-node: SCAN DIAG: ap[5] ssid=ny*** rssi=-74 ch=11 auth=0 hidden=0 target=0
+[+00000016.281s] [2026-10-26T21:30:28.025+08:00] W (16522) elder-node: SCAN DIAG: round=2 total=6 targetVisible=1
+[+00000022.812s] [2026-10-26T21:30:34.566+08:00] W (23032) elder-node: SCAN DIAG: round=3 aps=4
+[+00000022.812s] [2026-10-26T21:30:34.566+08:00] W (23032) elder-node: SCAN DIAG: ap[0] ssid=ElderCareLab rssi=-24 ch=1 auth=3 hidden=0 target=1
+[+00000022.812s] [2026-10-26T21:30:34.566+08:00] W (23032) elder-node: SCAN DIAG: ap[1] ssid=ny*** rssi=-50 ch=6 auth=3 hidden=0 target=0
+[+00000022.812s] [2026-10-26T21:30:34.566+08:00] W (23042) elder-node: SCAN DIAG: ap[2] ssid=On*** rssi=-61 ch=1 auth=7 hidden=0 target=0
+[+00000022.812s] [2026-10-26T21:30:34.566+08:00] W (23052) elder-node: SCAN DIAG: ap[3] ssid=ny*** rssi=-75 ch=11 auth=0 hidden=0 target=0
+[+00000022.812s] [2026-10-26T21:30:34.567+08:00] W (23062) elder-node: SCAN DIAG: round=3 total=4 targetVisible=1
+[+00000029.343s] [2026-10-26T21:30:41.092+08:00] W (29562) elder-node: SCAN DIAG: round=4 aps=4
+[+00000029.343s] [2026-10-26T21:30:41.092+08:00] W (29562) elder-node: SCAN DIAG: ap[0] ssid=ElderCareLab rssi=-23 ch=1 auth=3 hidden=0 target=1
+[+00000029.343s] [2026-10-26T21:30:41.092+08:00] W (29562) elder-node: SCAN DIAG: ap[1] ssid=ny*** rssi=-52 ch=6 auth=3 hidden=0 target=0
+[+00000029.343s] [2026-10-26T21:30:41.092+08:00] W (29572) elder-node: SCAN DIAG: ap[2] ssid=On*** rssi=-60 ch=1 auth=7 hidden=0 target=0
+[+00000029.343s] [2026-10-26T21:30:41.092+08:00] W (29582) elder-node: SCAN DIAG: ap[3] ssid=ny*** rssi=-78 ch=11 auth=0 hidden=0 target=0
+[+00000029.343s] [2026-10-26T21:30:41.092+08:00] W (29592) elder-node: SCAN DIAG: round=4 total=4 targetVisible=1
+[+00000035.890s] [2026-10-26T21:30:47.643+08:00] W (36092) elder-node: SCAN DIAG: round=5 aps=6
+[+00000035.890s] [2026-10-26T21:30:47.643+08:00] W (36092) elder-node: SCAN DIAG: ap[0] ssid=ElderCareLab rssi=-24 ch=1 auth=3 hidden=0 target=1
+[+00000035.890s] [2026-10-26T21:30:47.643+08:00] W (36092) elder-node: SCAN DIAG: ap[1] ssid=ny*** rssi=-47 ch=6 auth=3 hidden=0 target=0
+[+00000035.890s] [2026-10-26T21:30:47.643+08:00] W (36102) elder-node: SCAN DIAG: ap[2] ssid=On*** rssi=-60 ch=1 auth=7 hidden=0 target=0
+[+00000035.890s] [2026-10-26T21:30:47.643+08:00] W (36112) elder-node: SCAN DIAG: ap[3] ssid=�*** rssi=-72 ch=10 auth=3 hidden=0 target=0
+[+00000035.890s] [2026-10-26T21:30:47.643+08:00] W (36122) elder-node: SCAN DIAG: ap[4] ssid=ny*** rssi=-75 ch=11 auth=0 hidden=0 target=0
+[+00000035.890s] [2026-10-26T21:30:47.643+08:00] W (36122) elder-node: SCAN DIAG: ap[5] ssid=ny*** rssi=-75 ch=11 auth=0 hidden=0 target=0
+[+00000035.890s] [2026-10-26T21:30:47.643+08:00] W (36132) elder-node: SCAN DIAG: round=5 total=6 targetVisible=1
+[+00000042.406s] [2026-10-26T21:30:54.151+08:00] W (42642) elder-node: SCAN DIAG: round=6 aps=2
+[+00000042.406s] [2026-10-26T21:30:54.151+08:00] W (42642) elder-node: SCAN DIAG: ap[0] ssid=ElderCareLab rssi=-30 ch=1 auth=3 hidden=0 target=1
+[+00000042.406s] [2026-10-26T21:30:54.151+08:00] W (42642) elder-node: SCAN DIAG: ap[1] ssid=ny*** rssi=-47 ch=6 auth=3 hidden=0 target=0
+[+00000042.406s] [2026-10-26T21:30:54.151+08:00] W (42652) elder-node: SCAN DIAG: round=6 total=2 targetVisible=1
+[+00000048.937s] [2026-10-26T21:31:00.689+08:00] W (49162) elder-node: SCAN DIAG: round=7 aps=4
+[+00000048.937s] [2026-10-26T21:31:00.689+08:00] W (49162) elder-node: SCAN DIAG: ap[0] ssid=ElderCareLab rssi=-25 ch=1 auth=3 hidden=0 target=1
+[+00000048.937s] [2026-10-26T21:31:00.689+08:00] W (49162) elder-node: SCAN DIAG: ap[1] ssid=ny*** rssi=-48 ch=6 auth=3 hidden=0 target=0
+[+00000048.937s] [2026-10-26T21:31:00.689+08:00] W (49172) elder-node: SCAN DIAG: ap[2] ssid=On*** rssi=-60 ch=1 auth=7 hidden=0 target=0
+[+00000048.937s] [2026-10-26T21:31:00.689+08:00] W (49182) elder-node: SCAN DIAG: ap[3] ssid=ny*** rssi=-75 ch=11 auth=0 hidden=0 target=0
+[+00000048.937s] [2026-10-26T21:31:00.689+08:00] W (49192) elder-node: SCAN DIAG: round=7 total=4 targetVisible=1
+# BENCH_SERIAL SUMMARY lines=105 bytes=7793 sent=0 duration=50.031s markers={}

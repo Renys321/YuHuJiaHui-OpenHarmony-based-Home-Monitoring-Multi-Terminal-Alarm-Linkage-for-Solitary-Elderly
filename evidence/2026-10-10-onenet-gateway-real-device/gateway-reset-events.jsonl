@@ -1,0 +1,17 @@
+{"at":"2026-10-10T15:37:43.270Z","kind":"start","broker":"mqtt://127.0.0.1:1883","node":"v24.19.0","deviceName":"dayu200-living","resetMode":"self"}
+{"at":"2026-10-10T15:37:43.274Z","kind":"log","level":"info","message":"[gateway] START mode=self device=dayu200-living"}
+{"at":"2026-10-10T15:37:43.287Z","kind":"triggerSubscribed","topic":"onenet/test/property-set","ok":true}
+{"at":"2026-10-10T15:37:44.299Z","kind":"property","id":"1791646664299","timestampMs":1791646664299,"deviceId":"dayu200-living","room":"客厅","state":"NORMAL","alarmId":"a-1609505308-17"}
+{"at":"2026-10-10T15:37:44.300Z","kind":"status","deviceId":"dayu200-living","room":"客厅","state":"NORMAL","alarmId":"a-1609505308-17","stateChanged":true}
+{"at":"2026-10-10T15:37:45.739Z","kind":"property","id":"1791646665739","timestampMs":1791646665739,"deviceId":"dayu200-living","room":"客厅","state":"ALARM","alarmId":"a-1609505334-18"}
+{"at":"2026-10-10T15:37:45.740Z","kind":"alarm","id":"1791646665740","timestampMs":1791646665739,"deviceId":"dayu200-living","alarmId":"a-1609505334-18","type":"MANUAL_SOS","countToday":18}
+{"at":"2026-10-10T15:37:45.740Z","kind":"status","deviceId":"dayu200-living","room":"客厅","state":"ALARM","alarmId":"a-1609505334-18","stateChanged":true}
+{"at":"2026-10-10T15:37:46.364Z","kind":"triggerReceived"}
+{"at":"2026-10-10T15:37:46.745Z","kind":"property","id":"1791646666745","timestampMs":1791646666745,"deviceId":"dayu200-living","room":"客厅","state":"NORMAL","alarmId":"a-1609505308-17"}
+{"at":"2026-10-10T15:37:46.746Z","kind":"status","deviceId":"dayu200-living","room":"客厅","state":"NORMAL","alarmId":"a-1609505308-17","stateChanged":true}
+{"at":"2026-10-10T15:37:46.746Z","kind":"log","level":"info","message":"[gateway] RESET scope=self device=dayu200-living result=OK baselineSeq=2 seenSeq=3 seenState=NORMAL"}
+{"at":"2026-10-10T15:37:46.746Z","kind":"resetResult","ok":true,"message":"reset confirmed by device"}
+{"at":"2026-10-10T15:37:48.749Z","kind":"property","id":"1791646668749","timestampMs":1791646668749,"deviceId":"dayu200-living","room":"客厅","state":"ALARM","alarmId":"a-1609505334-18"}
+{"at":"2026-10-10T15:37:48.750Z","kind":"status","deviceId":"dayu200-living","room":"客厅","state":"ALARM","alarmId":"a-1609505334-18","stateChanged":true}
+{"at":"2026-10-10T15:37:48.751Z","kind":"property","id":"1791646668751","timestampMs":1791646668751,"deviceId":"dayu200-living","room":"客厅","state":"NORMAL","alarmId":"a-1609505334-18"}
+{"at":"2026-10-10T15:37:48.751Z","kind":"status","deviceId":"dayu200-living","room":"客厅","state":"NORMAL","alarmId":"a-1609505334-18","stateChanged":true}

@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "command": "node bridge/test_duplicate_device.js",
+  "results": [
+    { "name": "首个同 ID 节点可接收定向命令", "ok": true },
+    { "name": "同 ID 新连接关闭旧连接", "ok": true },
+    { "name": "替换后的命令只发往新连接", "ok": true },
+    { "name": "旧连接关闭不会清除新映射", "ok": true },
+    { "name": "状态文件保持新连接状态", "ok": true },
+    { "name": "不同 deviceId 仍能独立路由", "ok": true },
+    { "name": "同一连接不可中途更换 deviceId", "ok": true },
+    { "name": "非法 deviceId 被拒绝", "ok": true },
+    { "name": "非法 deviceId 不覆盖状态文件", "ok": true },
+    { "name": "活动连接关闭后不向旧连接回退", "ok": true }
+  ]
+}

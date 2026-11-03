@@ -1,0 +1,64 @@
+﻿
+=== deploy/video 本地静态校验（2026-10-27）===
+
+## 1) bash syntax check
+install-on-ecs.sh -n exit=0 (0=OK)
+rollback.sh -n exit=0 (0=OK)
+## 2) Caddyfile patch 逻辑（用真实 deploy/Caddyfile 跑 patch_caddyfile）
+[video-relay] Caddyfile 已更新（备份在 C:/Users/LENOVO/AppData/Local/Temp/video-deploy-verify/backup）
+caddyfile_changed=1
+[video-relay] Caddyfile 已包含 /video/* 反代，跳过路由插入
+[video-relay] Caddyfile 已包含 query 脱敏，跳过
+[video-relay] Caddyfile 无需修改（已是目标状态）
+second_run_changed=0
+92:	reverse_proxy /video/* video-relay:9443
+77:				request>uri query {
+78-					delete ticket
+79-					delete key
+80-				}
+1
+bash_patch_exit=0
+## 3) caddy validate（caddy:2-alpine, --network none）
+{"level":"info","ts":1793104570.4502048,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
+{"level":"info","ts":1793104570.4539378,"msg":"adapted config to JSON","adapter":"caddyfile"}
+{"level":"warn","ts":1793104570.4540005,"msg":"Caddyfile input is not formatted; run 'caddy fmt --overwrite' to fix inconsistencies","adapter":"caddyfile","file":"/etc/caddy/Caddyfile","line":33}
+{"level":"info","ts":1793104570.4551222,"logger":"http.auto_https","msg":"server is listening only on the HTTPS port but has no TLS connection policies; adding one to enable TLS","server_name":"srv0","https_port":443}
+{"level":"info","ts":1793104570.4551947,"logger":"http.auto_https","msg":"enabling automatic HTTP->HTTPS redirects","server_name":"srv0"}
+{"level":"info","ts":1793104570.4553778,"logger":"tls.cache.maintenance","msg":"started background certificate maintenance","cache":"0x13bc421c4b00"}
+{"level":"info","ts":1793104570.45568,"logger":"tls.cache.maintenance","msg":"stopped background certificate maintenance","cache":"0x13bc421c4b00"}
+{"level":"info","ts":1793104570.455726,"logger":"http","msg":"servers shutting down with eternal grace period"}
+Valid configuration
+caddy_validate_exit=0
+## 4) 合并 compose config（compose.public.yaml + video/compose.video.yaml）
+compose_config_exit=0
+{
+  "services": [
+    "backend",
+    "caddy",
+    "video-relay"
+  ],
+  "hasPorts": false,
+  "expose": [
+    "9443"
+  ],
+  "read_only": true,
+  "image": "eldercare-cloud-backend:local",
+  "entrypoint": [
+    "node",
+    "/opt/video-relay/server.js"
+  ],
+  "networks": [
+    "video-public-edge"
+  ]
+}
+
+## 5) --help 可用性
+用法: sudo bash install-on-ecs.sh [选项]
+
+选项:
+用法: sudo bash rollback.sh [选项]
+
+选项:
+
+## 6) 追加加固后复检（compose() 缺文件容错 / 容器 label 兜底清理）
+install-on-ecs.sh bash -n exit=0 (0=OK)；rollback.sh bash -n exit=0 (0=OK)

@@ -1,0 +1,65 @@
+# 独立无线随身求助按钮节点（esp32-sos）— 硬件参数（不含网络凭据）
+# 对应大赛赛题四：求助按钮（MANUAL_SOS）真实硬件交付验收
+# 板型：ESP32-S3-DevKitC-1（或任意 ESP32-S3 板）
+# 外设：2 脚常开求助按钮（GPIO4 -> GND，内部上拉，低电平按下）
+#       3 针低电流有源蜂鸣器模块（GPIO5，低电平触发：I/O=0 鸣响）
+#       注意：原 GPIO6 在本 16MB-flash 板上是 SPI flash 脚，固件电平被底层覆盖，
+#       导致蜂鸣器不受控长鸣，故改到空闲脚 GPIO5。
+# 说明：WiFi SSID/密码/网关 IP/端口 由烧录脚本注入 .local 配置文件，不写入源码。
+CONFIG_IDF_TARGET="esp32s3"
+
+# 身份（唯一，决定云端主题 home/<deviceId>/status）
+CONFIG_NODE_ID="esp32-sos"
+CONFIG_NODE_ROOM="随身求助"
+
+# 本设备是独立求助按钮：无 PIR / 门磁 / 水漏 / 温湿度 / MQ，全部禁用
+CONFIG_NODE_MOTION_GPIO=-1
+CONFIG_NODE_MOTION_DEBOUNCE_CONFIRM=2
+CONFIG_NODE_SOS_GPIO=4
+CONFIG_NODE_SOS_DEBOUNCE_CONFIRM=2
+CONFIG_NODE_WATER_GPIO=-1
+CONFIG_NODE_DOOR_GPIO=-1
+
+# 外接有源蜂鸣器（非板载 XL9555）
+CONFIG_NODE_BUZZER_XL9555=n
+CONFIG_NODE_BUZZER_GPIO=5
+# 现场模块标注 “high level”（高电平触发）：I/O=1 鸣响、I/O=0 静音。
+# 因此不启用 ACTIVE_LOW，固件待机输出 0 = 静音。
+# （GPIO6 在本 16MB-flash 板上是 SPI flash 脚，电平被底层覆盖会导致长鸣，已改 GPIO5）
+CONFIG_NODE_BUZZER_ACTIVE_LOW=n
+
+# 无温湿度传感器
+CONFIG_NODE_AHT20_ENABLED=n
+CONFIG_NODE_MQ2_ADC_CHANNEL=-1
+CONFIG_NODE_MQ5_ADC_CHANNEL=-1
+
+# ---------------- 电池电压采样（契约 BATTERY-CHAIN-CONTRACT.md §1/§2） ----------------
+# GPIO2 = ADC1_CH1（ESP32-S3），不与按钮 GPIO4 / 蜂鸣器 GPIO5 / flash GPIO6 冲突；
+# 接线：电池+ -> 100k(R1) -> 节点A -> 100k(R2) -> GND；节点A -> 100nF -> GND；
+#       节点A -> 1k -> GPIO2。分压 2:1，4.2V 满充时 ADC 看到 2.1V（12dB 量程 ~3.1V 内）。
+# ⚠ 本期实物未接电池/分压：固件只会输出 battery.valid=false + mv=null + reason=OUT_OF_RANGE，
+#    绝不伪报电压/百分比。接好电池并完成 BENCH-CALIBRATION.md 两点校准后，再把
+#    CONFIG_NODE_BATTERY_CALIBRATED 改为 y 并填入 gain/offset。
+CONFIG_NODE_BATTERY_ADC_CHANNEL=2
+CONFIG_NODE_BATTERY_DIVIDER_NUM=2
+CONFIG_NODE_BATTERY_DIVIDER_DEN=1
+CONFIG_NODE_BATTERY_CAL_GAIN_PERMILLE=1000
+CONFIG_NODE_BATTERY_CAL_OFFSET_MV=0
+CONFIG_NODE_BATTERY_LOW_MV=3500
+CONFIG_NODE_BATTERY_MIN_MV=2500
+CONFIG_NODE_BATTERY_MAX_MV=4350
+CONFIG_NODE_BATTERY_CALIBRATED=n
+CONFIG_NODE_BATTERY_SAMPLE_SEC=30
+
+# 上报与告警参数（沿用卫生间/客厅节点已验证值）
+# 主任务栈：report() 里 900 字节 JSON + ESP_LOGI 的 vprintf 缓冲在默认 3584 下
+# 会触发 "A stack overflow in task main has been detected" 而每 5 秒 panic 重启
+# （表现为 Wi-Fi 反复上下线、AP 侧 reason=202、网关收不到报文）。
+# 厨房/卫生间语音固件使用同一已验证值 8192。
+CONFIG_ESP_MAIN_TASK_STACK_SIZE=8192
+
+CONFIG_NODE_REPORT_SEC=5
+CONFIG_NODE_NO_MOTION_SEC=1800
+CONFIG_NODE_ALARM_REPEAT_SEC=120
+CONFIG_NODE_ALARM_BEEP_SEC=10
+CONFIG_NODE_BOOT_BEEP_MS=0

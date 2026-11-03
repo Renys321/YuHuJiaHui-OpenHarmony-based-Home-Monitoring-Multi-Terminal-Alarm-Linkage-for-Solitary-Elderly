@@ -1,0 +1,12 @@
+﻿10-27 00:06:06.585  INFO - Start verify-app
+java.exe : 10-27 00:06:06.660  WARN - Missing parameter: outproof
+所在位置 行:10 字符: 1
++ & $j -jar $jar verify-app -inFile "D:\OpenHarmony\competition\evidenc ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (10-27 00:06:06....meter: outproof:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+10-27 00:06:06.669  ERROR - Verify Hap failed, signature not found.
+10-27 00:06:06.670  ERROR - verify: No Hap Signing Block before ZIP Central Directory
+10-27 00:06:06.671  ERROR - Write certificate chain error
+10-27 00:06:06.672  INFO - verify-app failed

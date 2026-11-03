@@ -1,0 +1,105 @@
+{
+  "stage": "before",
+  "port": "COM5",
+  "startedAt": "2026-10-26T01:07:04.129751+08:00",
+  "rawUARTSaved": false,
+  "serialCommandsSent": false,
+  "samples": [
+    {
+      "observedAt": "2026-10-26T01:07:05.385724+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 1792948025296,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.5,
+        "rh": 58.3,
+        "valid": true
+      },
+      "gas": {
+        "raw": 4095,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 123,
+        "valid": true
+      }
+    },
+    {
+      "observedAt": "2026-10-26T01:07:10.858484+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 1792948030776,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.5,
+        "rh": 58.3,
+        "valid": true
+      },
+      "gas": {
+        "raw": 4095,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 127,
+        "valid": true
+      }
+    },
+    {
+      "observedAt": "2026-10-26T01:07:16.338510+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 1792948036256,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.5,
+        "rh": 58.2,
+        "valid": true
+      },
+      "gas": {
+        "raw": 4095,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 128,
+        "valid": true
+      }
+    },
+    {
+      "observedAt": "2026-10-26T01:07:21.819170+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 1792948041736,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.5,
+        "rh": 58.3,
+        "valid": true
+      },
+      "gas": {
+        "raw": 4095,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 134,
+        "valid": true
+      }
+    },
+    {
+      "observedAt": "2026-10-26T01:07:27.305106+08:00",
+      "deviceId": "esp32-kitchen",
+      "deviceTs": 1792948047216,
+      "state": "NORMAL",
+      "climate": {
+        "tempC": 24.4,
+        "rh": 58.4,
+        "valid": true
+      },
+      "gas": {
+        "raw": 4095,
+        "valid": true
+      },
+      "smoke": {
+        "raw": 137,
+        "valid": true
+      }
+    }
+  ],
+  "voice": []
+}

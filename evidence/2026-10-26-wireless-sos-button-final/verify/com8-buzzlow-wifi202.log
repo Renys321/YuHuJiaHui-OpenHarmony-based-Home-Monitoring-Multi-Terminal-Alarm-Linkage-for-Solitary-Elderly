@@ -1,0 +1,772 @@
+# bench-serial.py start 2026-10-26T21:27:07.861+08:00
+# com=COM8 baud=115200 dtr=False rts=False log=D:\OpenHarmony\competition\evidence\2026-10-26-wireless-sos-button-final\verify\com8-buzzlow-wifi202.log
+[+00000000.359s] [2026-10-26T21:27:08.212+08:00] bad90b9c9740c...
+[+00000000.359s] [2026-10-26T21:27:08.212+08:00] I (315) cpu_start: ESP-IDF:          v5.1.6-dirty
+[+00000000.359s] [2026-10-26T21:27:08.212+08:00] I (320) cpu_start: Min chip rev:     v0.0
+[+00000000.359s] [2026-10-26T21:27:08.212+08:00] I (325) cpu_start: Max chip rev:     v0.99 
+[+00000000.359s] [2026-10-26T21:27:08.212+08:00] I (330) cpu_start: Chip rev:         v0.2
+[+00000000.359s] [2026-10-26T21:27:08.213+08:00] I (334) heap_init: Initializing. RAM available for dynamic allocation:
+[+00000000.359s] [2026-10-26T21:27:08.214+08:00] I (342) heap_init: At 3FCA0EC8 len 00048848 (290 KiB): DRAM
+[+00000000.359s] [2026-10-26T21:27:08.214+08:00] I (348) heap_init: At 3FCE9710 len 00005724 (21 KiB): STACK/DRAM
+[+00000000.359s] [2026-10-26T21:27:08.214+08:00] I (354) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM
+[+00000000.359s] [2026-10-26T21:27:08.214+08:00] I (361) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM
+[+00000000.359s] [2026-10-26T21:27:08.214+08:00] I (368) spi_flash: detected chip: boya
+[+00000000.359s] [2026-10-26T21:27:08.214+08:00] I (371) spi_flash: flash io: dio
+[+00000000.359s] [2026-10-26T21:27:08.214+08:00] W (375) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+[+00000000.359s] [2026-10-26T21:27:08.214+08:00] I (389) sleep: Configure to isolate all GPIO pins in sleep state
+[+00000000.359s] [2026-10-26T21:27:08.214+08:00] I (395) sleep: Enable automatic switching of GPIO sleep configuration
+[+00000000.359s] [2026-10-26T21:27:08.214+08:00] I (403) app_start: Starting scheduler on CPU0
+[+00000000.359s] [2026-10-26T21:27:08.214+08:00] I (407) app_start: Starting scheduler on CPU1
+[+00000000.359s] [2026-10-26T21:27:08.214+08:00] I (407) main_task: Started on CPU0
+[+00000000.359s] [2026-10-26T21:27:08.214+08:00] I (417) main_task: Calling app_main()
+[+00000000.359s] [2026-10-26T21:27:08.215+08:00] I (427) elder-node: ESP32-S3 无线节点启动：esp32-sos / 随身求助
+[+00000000.359s] [2026-10-26T21:27:08.215+08:00] I (427) gpio: GPIO[4]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 
+[+00000000.359s] [2026-10-26T21:27:08.215+08:00] I (437) gpio: GPIO[6]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 
+[+00000000.359s] [2026-10-26T21:27:08.215+08:00] W (447) elder-node: 温湿度自检失败：未接/接线错误/校验失败
+[+00000000.359s] [2026-10-26T21:27:08.215+08:00] I (457) pp: pp rom version: e7ae62f
+[+00000000.359s] [2026-10-26T21:27:08.215+08:00] I (457) net80211: net80211 rom version: e7ae62f
+[+00000000.359s] [2026-10-26T21:27:08.215+08:00] I (477) wifi:wifi driver task: 3fcab04c, prio:23, stack:6656, core=0
+[+00000000.359s] [2026-10-26T21:27:08.215+08:00] I (477) wifi:wifi firmware version: 02461b5
+[+00000000.359s] [2026-10-26T21:27:08.215+08:00] I (477) wifi:wifi certification version: v7.0
+[+00000000.359s] [2026-10-26T21:27:08.215+08:00] I (477) wifi:config NVS flash: enabled
+[+00000000.359s] [2026-10-26T21:27:08.215+08:00] I (477) wifi:config nano formating: disabled
+[+00000000.359s] [2026-10-26T21:27:08.215+08:00] I (487) wifi:Init data frame dynamic rx buffer num: 32
+[+00000000.359s] [2026-10-26T21:27:08.215+08:00] I (487) wifi:Init static rx mgmt buffer num: 5
+[+00000000.359s] [2026-10-26T21:27:08.215+08:00] I (497) wifi:Init management short buffer num: 32
+[+00000000.359s] [2026-10-26T21:27:08.215+08:00] I (497) wifi:Init dynamic tx buffer num: 32
+[+00000000.359s] [2026-10-26T21:27:08.215+08:00] I (507) wifi:Init static tx FG buffer num: 2
+[+00000000.359s] [2026-10-26T21:27:08.215+08:00] I (507) wifi:Init static rx buffer size: 1600
+[+00000000.359s] [2026-10-26T21:27:08.215+08:00] I (507) wifi:Init static rx buffer num: 10
+[+00000000.359s] [2026-10-26T21:27:08.215+08:00] I (517) wifi:Init dynamic rx buffer num: 32
+[+00000000.359s] [2026-10-26T21:27:08.215+08:00] I (517) wifi_init: rx ba win: 6
+[+00000000.359s] [2026-10-26T21:27:08.215+08:00] I (527) wifi_init: tcpip mbox: 32
+[+00000000.359s] [2026-10-26T21:27:08.215+08:00] I (527) wifi_init: udp mbox: 6
+[+00000000.359s] [2026-10-26T21:27:08.215+08:00] I (527) wifi_init: tcp mbox: 6
+[+00000000.359s] [2026-10-26T21:27:08.215+08:00] I (537) wifi_init: tcp tx win: 5760
+[+00000000.359s] [2026-10-26T21:27:08.215+08:00] I (537) wifi_init: tcp rx win: 5760
+[+00000000.359s] [2026-10-26T21:27:08.215+08:00] I (537) wifi_init: tcp mss: 1440
+[+00000000.359s] [2026-10-26T21:27:08.215+08:00] I (547) wifi_init: WiFi IRAM OP enabled
+[+00000000.359s] [2026-10-26T21:27:08.215+08:00] I (547) wifi_init: WiFi RX IRAM OP enabled
+[+00000000.359s] [2026-10-26T21:27:08.215+08:00] I (557) wifi:Set ps type: 0, coexist: 0
+[+00000000.359s] [2026-10-26T21:27:08.216+08:00] 
+[+00000000.359s] [2026-10-26T21:27:08.216+08:00] I (557) phy_init: phy_version 680,a6008b2,Jun  4 2024,16:41:10
+[+00000000.359s] [2026-10-26T21:27:08.216+08:00] I (607) wifi:mode : sta (30:30:f9:08:76:84)
+[+00000000.359s] [2026-10-26T21:27:08.216+08:00] I (617) wifi:enable tsf
+[+00000000.359s] [2026-10-26T21:27:08.216+08:00] I (617) elder-node: 连接 WiFi: ElderCareLab
+[+00000003.297s] [2026-10-26T21:27:11.158+08:00] I (3507) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+[+00000003.297s] [2026-10-26T21:27:11.158+08:00] I (3507) wifi:state: init -> auth (b0)
+[+00000003.297s] [2026-10-26T21:27:11.158+08:00] I (3517) wifi:state: auth -> assoc (0)
+[+00000003.297s] [2026-10-26T21:27:11.159+08:00] I (3567) wifi:state: assoc -> run (10)
+[+00000003.437s] [2026-10-26T21:27:11.299+08:00] I (3617) wifi:connected with ElderCareLab, aid = 3, channel 1, BW20, bssid = 5a:fe:a0:a6:a3:d7
+[+00000003.437s] [2026-10-26T21:27:11.299+08:00] I (3617) wifi:security: WPA2-PSK, phy: bgn, rssi: -22
+[+00000003.437s] [2026-10-26T21:27:11.299+08:00] I (3627) wifi:pm start, type: 0
+[+00000003.437s] [2026-10-26T21:27:11.299+08:00] 
+[+00000003.437s] [2026-10-26T21:27:11.299+08:00] I (3627) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us
+[+00000003.437s] [2026-10-26T21:27:11.299+08:00] I (3637) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000
+[+00000003.437s] [2026-10-26T21:27:11.299+08:00] I (3687) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us
+[+00000003.437s] [2026-10-26T21:27:11.299+08:00] I (3687) wifi:AP's beacon interval = 102400 us, DTIM period = 2
+[+00000003.437s] [2026-10-26T21:27:11.299+08:00] I (3697) wifi:<ba-add>idx:0 (ifx:0, 5a:fe:a0:a6:a3:d7), tid:0, ssn:1, winSize:64
+[+00000004.390s] [2026-10-26T21:27:12.247+08:00] I (4647) esp_netif_handlers: sta ip: 10.127.130.91, mask: 255.255.255.0, gw: 10.127.130.217
+[+00000004.390s] [2026-10-26T21:27:12.247+08:00] I (4647) elder-node: 已获取 IP: 10.127.130.91
+[+00000004.578s] [2026-10-26T21:27:12.434+08:00] I (4837) elder-node: 已连接网关 10.127.130.179:9101
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] I (5907) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] I (5907) elder-node: → {"deviceId":"esp32-sos","room":"随身求助","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":0.0,"rh":0.0,"ok":true,"valid":false},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,0],"s
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] ***ERROR*** A stack overflow in task main has been detected.
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] 
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] 
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] Backtrace: 0x40375a32:0x3fca3c00 0x4037c321:0x3fca3c20 0x4037ee7a:0x3fca3c40 0x4037daf7:0x3fca3cc0 0x4037ef88:0x3fca3ce0 0x4037ef7e:0x3fca42e0 0x00060520:0x00000000 |<-CORRUPTED
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] 
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] 
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] 
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] 
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] ELF file SHA256: bc5bad90b9c9740c
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] 
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] Rebooting...
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] ESP-ROM:esp32s3-20210327
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] Build:Mar 27 2021
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] rst:0x3 (RTC_SW_SYS_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] Saved PC:0x40375898
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] SPIWP:0xee
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] mode:DIO, clock div:1
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] load:0x3fce3818,len:0x1758
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] load:0x403c9700,len:0x4
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] load:0x403c9704,len:0xc00
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] load:0x403cc700,len:0x2e20
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] entry 0x403c9908
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] I (31) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] I (31) boot: compile time Oct 26 2026 18:35:57
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] I (31) boot: Multicore bootloader
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] I (35) boot: chip revision: v0.2
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] I (39) boot.esp32s3: Boot SPI Speed : 80MHz
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] I (43) boot.esp32s3: SPI Mode       : DIO
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] I (48) boot.esp32s3: SPI Flash Size : 2MB
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] I (53) boot: Enabling RNG early entropy source...
+[+00000005.890s] [2026-10-26T21:27:13.754+08:00] I (58) boot: Partition Table:
+[+00000005.890s] [2026-10-26T21:27:13.755+08:00] I (62) boot: ## Label            Usage          Type ST Offset   Length
+[+00000005.890s] [2026-10-26T21:27:13.755+08:00] I (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+[+00000005.890s] [2026-10-26T21:27:13.755+08:00] I (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+[+00000005.890s] [2026-10-26T21:27:13.755+08:00] I (84) boot:  2 factory          factory app      00 00 00010000 00100000
+[+00000005.890s] [2026-10-26T21:27:13.755+08:00] I (92) boot: End of partition table
+[+00000005.890s] [2026-10-26T21:27:13.755+08:00] I (96) esp_image: segment 0: paddr=00010020 vaddr=3c090020 size=1b1d0h (111056) map
+[+00000005.890s] [2026-10-26T21:27:13.755+08:00] I (124) esp_image: segment 1: paddr=0002b1f8 vaddr=3fc98500 size=0457ch ( 17788) load
+[+00000005.890s] [2026-10-26T21:27:13.755+08:00] I (128) esp_image: segment 2: paddr=0002f77c vaddr=40374000 size=0089ch (  2204) load
+[+00000005.890s] [2026-10-26T21:27:13.755+08:00] I (130) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=867c4h (550852) map
+[+00000006.359s] [2026-10-26T21:27:14.222+08:00] I (237) esp_image: segment 4: paddr=000b67ec vaddr=4037489c size=13b78h ( 80760) load
+[+00000006.359s] [2026-10-26T21:27:14.222+08:00] I (264) boot: Loaded app from partition at offset 0x10000
+[+00000006.359s] [2026-10-26T21:27:14.222+08:00] I (264) boot: Disabling RNG early entropy source...
+[+00000006.359s] [2026-10-26T21:27:14.222+08:00] I (275) cpu_start: Multicore app
+[+00000006.359s] [2026-10-26T21:27:14.222+08:00] I (276) cpu_start: Pro cpu up.
+[+00000006.359s] [2026-10-26T21:27:14.222+08:00] I (276) cpu_start: Starting app cpu, entry point is 0x403754a0
+[+00000006.359s] [2026-10-26T21:27:14.222+08:00] I (0) cpu_start: App cpu up.
+[+00000006.359s] [2026-10-26T21:27:14.223+08:00] I (294) cpu_start: Pro cpu start user code
+[+00000006.359s] [2026-10-26T21:27:14.223+08:00] I (294) cpu_start: cpu freq: 160000000 Hz
+[+00000006.359s] [2026-10-26T21:27:14.223+08:00] I (294) cpu_start: Application information:
+[+00000006.359s] [2026-10-26T21:27:14.223+08:00] I (297) cpu_start: Project name:     esp32_elder_node
+[+00000006.359s] [2026-10-26T21:27:14.223+08:00] I (303) cpu_start: App version:      1
+[+00000006.359s] [2026-10-26T21:27:14.223+08:00] I (307) cpu_start: Compile time:     Oct 26 2026 21:25:38
+[+00000006.359s] [2026-10-26T21:27:14.223+08:00] I (313) cpu_start: ELF file SHA256:  bc5bad90b9c9740c...
+[+00000006.359s] [2026-10-26T21:27:14.223+08:00] I (319) cpu_start: ESP-IDF:          v5.1.6-dirty
+[+00000006.359s] [2026-10-26T21:27:14.223+08:00] I (324) cpu_start: Min chip rev:     v0.0
+[+00000006.359s] [2026-10-26T21:27:14.223+08:00] I (329) cpu_start: Max chip rev:     v0.99 
+[+00000006.359s] [2026-10-26T21:27:14.223+08:00] I (334) cpu_start: Chip rev:         v0.2
+[+00000006.359s] [2026-10-26T21:27:14.223+08:00] I (339) heap_init: Initializing. RAM available for dynamic allocation:
+[+00000006.359s] [2026-10-26T21:27:14.223+08:00] I (346) heap_init: At 3FCA0EC8 len 00048848 (290 KiB): DRAM
+[+00000006.359s] [2026-10-26T21:27:14.223+08:00] I (352) heap_init: At 3FCE9710 len 00005724 (21 KiB): STACK/DRAM
+[+00000006.359s] [2026-10-26T21:27:14.223+08:00] I (359) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM
+[+00000006.359s] [2026-10-26T21:27:14.223+08:00] I (365) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM
+[+00000006.359s] [2026-10-26T21:27:14.223+08:00] I (372) spi_flash: detected chip: boya
+[+00000006.359s] [2026-10-26T21:27:14.223+08:00] I (376) spi_flash: flash io: dio
+[+00000006.359s] [2026-10-26T21:27:14.223+08:00] W (380) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+[+00000006.359s] [2026-10-26T21:27:14.223+08:00] I (393) sleep: Configure to isolate all GPIO pins in sleep state
+[+00000006.359s] [2026-10-26T21:27:14.223+08:00] I (400) sleep: Enable automatic switching of GPIO sleep configuration
+[+00000006.359s] [2026-10-26T21:27:14.223+08:00] I (407) app_start: Starting scheduler on CPU0
+[+00000006.359s] [2026-10-26T21:27:14.223+08:00] I (412) app_start: Starting scheduler on CPU1
+[+00000006.359s] [2026-10-26T21:27:14.223+08:00] I (412) main_task: Started on CPU0
+[+00000006.359s] [2026-10-26T21:27:14.223+08:00] I (422) main_task: Calling app_main()
+[+00000006.359s] [2026-10-26T21:27:14.223+08:00] I (432) elder-node: ESP32-S3 无线节点启动：esp32-sos / 随身求助
+[+00000006.359s] [2026-10-26T21:27:14.224+08:00] I (432) gpio: GPIO[4]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 
+[+00000006.359s] [2026-10-26T21:27:14.224+08:00] I (442) gpio: GPIO[6]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 
+[+00000006.359s] [2026-10-26T21:27:14.224+08:00] W (452) elder-node: 温湿度自检失败：未接/接线错误/校验失败
+[+00000006.359s] [2026-10-26T21:27:14.224+08:00] I (462) pp: pp rom version: e7ae62f
+[+00000006.359s] [2026-10-26T21:27:14.224+08:00] I (462) net80211: net80211 rom version: e7ae62f
+[+00000006.359s] [2026-10-26T21:27:14.224+08:00] I (482) wifi:wifi driver task: 3fcab04c, prio:23, stack:6656, core=0
+[+00000006.359s] [2026-10-26T21:27:14.224+08:00] I (482) wifi:wifi firmware version: 02461b5
+[+00000006.359s] [2026-10-26T21:27:14.224+08:00] I (482) wifi:wifi certification version: v7.0
+[+00000006.359s] [2026-10-26T21:27:14.224+08:00] I (482) wifi:config NVS flash: enabled
+[+00000006.359s] [2026-10-26T21:27:14.224+08:00] I (482) wifi:config nano formating: disabled
+[+00000006.359s] [2026-10-26T21:27:14.224+08:00] I (492) wifi:Init data frame dynamic rx buffer num: 32
+[+00000006.359s] [2026-10-26T21:27:14.224+08:00] I (492) wifi:Init static rx mgmt buffer num: 5
+[+00000006.359s] [2026-10-26T21:27:14.224+08:00] I (502) wifi:Init management short buffer num: 32
+[+00000006.359s] [2026-10-26T21:27:14.224+08:00] I (502) wifi:Init dynamic tx buffer num: 32
+[+00000006.359s] [2026-10-26T21:27:14.224+08:00] I (512) wifi:Init static tx FG buffer num: 2
+[+00000006.359s] [2026-10-26T21:27:14.224+08:00] I (512) wifi:Init static rx buffer size: 1600
+[+00000006.359s] [2026-10-26T21:27:14.224+08:00] I (512) wifi:Init static rx buffer num: 10
+[+00000006.359s] [2026-10-26T21:27:14.224+08:00] I (522) wifi:Init dynamic rx buffer num: 32
+[+00000006.359s] [2026-10-26T21:27:14.224+08:00] I (522) wifi_init: rx ba win: 6
+[+00000006.359s] [2026-10-26T21:27:14.224+08:00] I (532) wifi_init: tcpip mbox: 32
+[+00000006.359s] [2026-10-26T21:27:14.224+08:00] I (532) wifi_init: udp mbox: 6
+[+00000006.359s] [2026-10-26T21:27:14.224+08:00] I (532) wifi_init: tcp mbox: 6
+[+00000006.359s] [2026-10-26T21:27:14.224+08:00] I (542) wifi_init: tcp tx win: 5760
+[+00000006.359s] [2026-10-26T21:27:14.224+08:00] I (542) wifi_init: tcp rx win: 5760
+[+00000006.359s] [2026-10-26T21:27:14.224+08:00] I (542) wifi_init: tcp mss: 1440
+[+00000006.359s] [2026-10-26T21:27:14.224+08:00] I (552) wifi_init: WiFi IRAM OP enabled
+[+00000006.359s] [2026-10-26T21:27:14.225+08:00] I (552) wifi_init: WiFi RX IRAM OP enabled
+[+00000006.359s] [2026-10-26T21:27:14.225+08:00] I (562) wifi:Set ps type: 0, coexist: 0
+[+00000006.359s] [2026-10-26T21:27:14.225+08:00] 
+[+00000006.359s] [2026-10-26T21:27:14.225+08:00] I (562) phy_init: phy_version 680,a6008b2,Jun  4 2024,16:41:10
+[+00000006.359s] [2026-10-26T21:27:14.225+08:00] I (612) wifi:mode : sta (30:30:f9:08:76:84)
+[+00000006.359s] [2026-10-26T21:27:14.225+08:00] I (612) wifi:enable tsf
+[+00000006.359s] [2026-10-26T21:27:14.225+08:00] I (622) elder-node: 连接 WiFi: ElderCareLab
+[+00000009.265s] [2026-10-26T21:27:17.119+08:00] I (3512) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+[+00000009.265s] [2026-10-26T21:27:17.119+08:00] I (3512) wifi:state: init -> auth (b0)
+[+00000009.359s] [2026-10-26T21:27:17.215+08:00] I (3592) wifi:state: auth -> init (1c0)
+[+00000009.359s] [2026-10-26T21:27:17.215+08:00] I (3592) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+[+00000009.359s] [2026-10-26T21:27:17.215+08:00] W (3592) elder-node: WiFi 断开（reason=202），重连中…
+[+00000011.906s] [2026-10-26T21:27:19.773+08:00] I (5912) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+[+00000011.906s] [2026-10-26T21:27:19.773+08:00] I (5912) elder-node: → {"deviceId":"esp32-sos","room":"随身求助","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":0.0,"rh":0.0,"ok":true,"valid":false},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000011.906s] [2026-10-26T21:27:19.773+08:00] 
+[+00000011.906s] [2026-10-26T21:27:19.773+08:00] 
+[+00000011.906s] [2026-10-26T21:27:19.773+08:00] ***ERROR*** A stack overflow in task main has been detected.
+[+00000011.906s] [2026-10-26T21:27:19.773+08:00] 
+[+00000011.906s] [2026-10-26T21:27:19.773+08:00] 
+[+00000011.906s] [2026-10-26T21:27:19.773+08:00] Backtrace: 0x40375a32:0x3fca4530 0x4037c321:0x3fca4550 0x4037ee7a:0x3fca4570 0x4037daf7:0x3fca45f0 0x4037ef88:0x3fca4610 0x4037ef7e:0x3fca4630 0x403775e8:0x0000000a |<-CORRUPTED
+[+00000011.906s] [2026-10-26T21:27:19.773+08:00] 
+[+00000011.922s] [2026-10-26T21:27:19.774+08:00] 
+[+00000011.922s] [2026-10-26T21:27:19.774+08:00] 
+[+00000011.922s] [2026-10-26T21:27:19.774+08:00] 
+[+00000011.922s] [2026-10-26T21:27:19.774+08:00] ELF file SHA256: bc5bad90b9c9740c
+[+00000011.922s] [2026-10-26T21:27:19.774+08:00] 
+[+00000011.922s] [2026-10-26T21:27:19.774+08:00] Rebooting...
+[+00000011.922s] [2026-10-26T21:27:19.774+08:00] ESP-ROM:esp32s3-20210327
+[+00000011.922s] [2026-10-26T21:27:19.774+08:00] Build:Mar 27 2021
+[+00000011.922s] [2026-10-26T21:27:19.774+08:00] rst:0x3 (RTC_SW_SYS_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+[+00000011.922s] [2026-10-26T21:27:19.774+08:00] Saved PC:0x40375898
+[+00000011.922s] [2026-10-26T21:27:19.774+08:00] SPIWP:0xee
+[+00000011.922s] [2026-10-26T21:27:19.774+08:00] mode:DIO, clock div:1
+[+00000011.922s] [2026-10-26T21:27:19.774+08:00] load:0x3fce3818,len:0x1758
+[+00000011.922s] [2026-10-26T21:27:19.774+08:00] load:0x403c9700,len:0x4
+[+00000011.922s] [2026-10-26T21:27:19.774+08:00] load:0x403c9704,len:0xc00
+[+00000011.922s] [2026-10-26T21:27:19.774+08:00] load:0x403cc700,len:0x2e20
+[+00000011.922s] [2026-10-26T21:27:19.774+08:00] entry 0x403c9908
+[+00000011.922s] [2026-10-26T21:27:19.774+08:00] I (31) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader
+[+00000011.922s] [2026-10-26T21:27:19.774+08:00] I (31) boot: compile time Oct 26 2026 18:35:57
+[+00000011.922s] [2026-10-26T21:27:19.774+08:00] I (31) boot: Multicore bootloader
+[+00000011.922s] [2026-10-26T21:27:19.774+08:00] I (35) boot: chip revision: v0.2
+[+00000011.922s] [2026-10-26T21:27:19.774+08:00] I (39) boot.esp32s3: Boot SPI Speed : 80MHz
+[+00000011.922s] [2026-10-26T21:27:19.775+08:00] I (43) boot.esp32s3: SPI Mode       : DIO
+[+00000011.922s] [2026-10-26T21:27:19.775+08:00] I (48) boot.esp32s3: SPI Flash Size : 2MB
+[+00000011.922s] [2026-10-26T21:27:19.775+08:00] I (53) boot: Enabling RNG early entropy source...
+[+00000011.922s] [2026-10-26T21:27:19.775+08:00] I (58) boot: Partition Table:
+[+00000011.922s] [2026-10-26T21:27:19.775+08:00] I (62) boot: ## Label            Usage          Type ST Offset   Length
+[+00000011.922s] [2026-10-26T21:27:19.775+08:00] I (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+[+00000011.922s] [2026-10-26T21:27:19.775+08:00] I (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+[+00000011.922s] [2026-10-26T21:27:19.775+08:00] I (84) boot:  2 factory          factory app      00 00 00010000 00100000
+[+00000011.922s] [2026-10-26T21:27:19.775+08:00] I (92) boot: End of partition table
+[+00000011.922s] [2026-10-26T21:27:19.775+08:00] I (96) esp_image: segment 0: paddr=00010020 vaddr=3c090020 size=1b1d0h (111056) map
+[+00000011.922s] [2026-10-26T21:27:19.775+08:00] I (124) esp_image: segment 1: paddr=0002b1f8 vaddr=3fc98500 size=0457ch ( 17788) load
+[+00000011.922s] [2026-10-26T21:27:19.775+08:00] I (128) esp_image: segment 2: paddr=0002f77c vaddr=40374000 size=0089ch (  2204) load
+[+00000011.922s] [2026-10-26T21:27:19.775+08:00] I (130) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=867c4h (550852) map
+[+00000012.390s] [2026-10-26T21:27:20.254+08:00] I (237) esp_image: segment 4: paddr=000b67ec vaddr=4037489c size=13b78h ( 80760) load
+[+00000012.390s] [2026-10-26T21:27:20.254+08:00] I (264) boot: Loaded app from partition at offset 0x10000
+[+00000012.390s] [2026-10-26T21:27:20.254+08:00] I (264) boot: Disabling RNG early entropy source...
+[+00000012.390s] [2026-10-26T21:27:20.254+08:00] I (275) cpu_start: Multicore app
+[+00000012.390s] [2026-10-26T21:27:20.255+08:00] I (276) cpu_start: Pro cpu up.
+[+00000012.390s] [2026-10-26T21:27:20.255+08:00] I (276) cpu_start: Starting app cpu, entry point is 0x403754a0
+[+00000012.390s] [2026-10-26T21:27:20.255+08:00] I (0) cpu_start: App cpu up.
+[+00000012.390s] [2026-10-26T21:27:20.255+08:00] I (294) cpu_start: Pro cpu start user code
+[+00000012.390s] [2026-10-26T21:27:20.255+08:00] I (294) cpu_start: cpu freq: 160000000 Hz
+[+00000012.390s] [2026-10-26T21:27:20.255+08:00] I (294) cpu_start: Application information:
+[+00000012.390s] [2026-10-26T21:27:20.255+08:00] I (297) cpu_start: Project name:     esp32_elder_node
+[+00000012.390s] [2026-10-26T21:27:20.255+08:00] I (303) cpu_start: App version:      1
+[+00000012.390s] [2026-10-26T21:27:20.255+08:00] I (307) cpu_start: Compile time:     Oct 26 2026 21:25:38
+[+00000012.390s] [2026-10-26T21:27:20.255+08:00] I (313) cpu_start: ELF file SHA256:  bc5bad90b9c9740c...
+[+00000012.390s] [2026-10-26T21:27:20.255+08:00] I (319) cpu_start: ESP-IDF:          v5.1.6-dirty
+[+00000012.390s] [2026-10-26T21:27:20.255+08:00] I (324) cpu_start: Min chip rev:     v0.0
+[+00000012.390s] [2026-10-26T21:27:20.255+08:00] I (329) cpu_start: Max chip rev:     v0.99 
+[+00000012.390s] [2026-10-26T21:27:20.255+08:00] I (334) cpu_start: Chip rev:         v0.2
+[+00000012.390s] [2026-10-26T21:27:20.255+08:00] I (339) heap_init: Initializing. RAM available for dynamic allocation:
+[+00000012.390s] [2026-10-26T21:27:20.255+08:00] I (346) heap_init: At 3FCA0EC8 len 00048848 (290 KiB): DRAM
+[+00000012.390s] [2026-10-26T21:27:20.255+08:00] I (352) heap_init: At 3FCE9710 len 00005724 (21 KiB): STACK/DRAM
+[+00000012.390s] [2026-10-26T21:27:20.255+08:00] I (359) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM
+[+00000012.390s] [2026-10-26T21:27:20.255+08:00] I (365) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM
+[+00000012.390s] [2026-10-26T21:27:20.255+08:00] I (372) spi_flash: detected chip: boya
+[+00000012.390s] [2026-10-26T21:27:20.255+08:00] I (376) spi_flash: flash io: dio
+[+00000012.390s] [2026-10-26T21:27:20.255+08:00] W (380) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (393) sleep: Configure to isolate all GPIO pins in sleep state
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (400) sleep: Enable automatic switching of GPIO sleep configuration
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (407) app_start: Starting scheduler on CPU0
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (412) app_start: Starting scheduler on CPU1
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (412) main_task: Started on CPU0
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (422) main_task: Calling app_main()
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (432) elder-node: ESP32-S3 无线节点启动：esp32-sos / 随身求助
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (432) gpio: GPIO[4]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (442) gpio: GPIO[6]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] W (452) elder-node: 温湿度自检失败：未接/接线错误/校验失败
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (462) pp: pp rom version: e7ae62f
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (462) net80211: net80211 rom version: e7ae62f
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (482) wifi:wifi driver task: 3fcab04c, prio:23, stack:6656, core=0
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (482) wifi:wifi firmware version: 02461b5
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (482) wifi:wifi certification version: v7.0
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (482) wifi:config NVS flash: enabled
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (482) wifi:config nano formating: disabled
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (492) wifi:Init data frame dynamic rx buffer num: 32
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (492) wifi:Init static rx mgmt buffer num: 5
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (502) wifi:Init management short buffer num: 32
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (502) wifi:Init dynamic tx buffer num: 32
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (512) wifi:Init static tx FG buffer num: 2
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (512) wifi:Init static rx buffer size: 1600
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (512) wifi:Init static rx buffer num: 10
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (522) wifi:Init dynamic rx buffer num: 32
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (522) wifi_init: rx ba win: 6
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (532) wifi_init: tcpip mbox: 32
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (532) wifi_init: udp mbox: 6
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (532) wifi_init: tcp mbox: 6
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (542) wifi_init: tcp tx win: 5760
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (542) wifi_init: tcp rx win: 5760
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (542) wifi_init: tcp mss: 1440
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (552) wifi_init: WiFi IRAM OP enabled
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (552) wifi_init: WiFi RX IRAM OP enabled
+[+00000012.390s] [2026-10-26T21:27:20.257+08:00] I (562) wifi:Set ps type: 0, coexist: 0
+[+00000012.406s] [2026-10-26T21:27:20.258+08:00] 
+[+00000012.406s] [2026-10-26T21:27:20.258+08:00] I (562) phy_init: phy_version 680,a6008b2,Jun  4 2024,16:41:10
+[+00000012.406s] [2026-10-26T21:27:20.258+08:00] I (622) wifi:mode : sta (30:30:f9:08:76:84)
+[+00000012.406s] [2026-10-26T21:27:20.258+08:00] I (622) wifi:enable tsf
+[+00000012.406s] [2026-10-26T21:27:20.258+08:00] I (622) elder-node: 连接 WiFi: ElderCareLab
+[+00000014.797s] [2026-10-26T21:27:22.657+08:00] W (3032) elder-node: WiFi 断开（reason=201），重连中…
+[+00000017.922s] [2026-10-26T21:27:25.779+08:00] I (5922) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+[+00000017.922s] [2026-10-26T21:27:25.779+08:00] I (5922) wifi:state: init -> auth (b0)
+[+00000017.922s] [2026-10-26T21:27:25.779+08:00] I (5932) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+[+00000017.922s] [2026-10-26T21:27:25.779+08:00] I (5932) elder-node: �
+[+00000017.922s] [2026-10-26T21:27:25.779+08:00] ***ERROR*** A stack overflow in task main has been detected.
+[+00000017.922s] [2026-10-26T21:27:25.779+08:00] 
+[+00000017.922s] [2026-10-26T21:27:25.779+08:00] 
+[+00000017.922s] [2026-10-26T21:27:25.779+08:00] Backtrace: 0x40375a32:0x3fca3bb0 0x4037c321:0x3fca3bd0 0x4037ee7a:0x3fca3bf0 0x4037daaf:0x3fca3c70 0x4037ef88:0x3fca3c90 0x4037ef7e:0x3f000001 |<-CORRUPTED
+[+00000017.922s] [2026-10-26T21:27:25.779+08:00] 
+[+00000017.922s] [2026-10-26T21:27:25.779+08:00] 
+[+00000017.922s] [2026-10-26T21:27:25.779+08:00] 
+[+00000017.922s] [2026-10-26T21:27:25.779+08:00] 
+[+00000017.922s] [2026-10-26T21:27:25.781+08:00] ELF file SHA256: bc5bad90b9c9740c
+[+00000017.922s] [2026-10-26T21:27:25.781+08:00] 
+[+00000017.922s] [2026-10-26T21:27:25.781+08:00] Rebooting...
+[+00000017.922s] [2026-10-26T21:27:25.781+08:00] ESP-ROM:esp32s3-20210327
+[+00000017.922s] [2026-10-26T21:27:25.781+08:00] Build:Mar 27 2021
+[+00000017.922s] [2026-10-26T21:27:25.781+08:00] rst:0x3 (RTC_SW_SYS_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+[+00000017.922s] [2026-10-26T21:27:25.781+08:00] Saved PC:0x40375898
+[+00000017.922s] [2026-10-26T21:27:25.781+08:00] SPIWP:0xee
+[+00000017.922s] [2026-10-26T21:27:25.781+08:00] mode:DIO, clock div:1
+[+00000017.922s] [2026-10-26T21:27:25.781+08:00] load:0x3fce3818,len:0x1758
+[+00000017.922s] [2026-10-26T21:27:25.781+08:00] load:0x403c9700,len:0x4
+[+00000017.922s] [2026-10-26T21:27:25.781+08:00] load:0x403c9704,len:0xc00
+[+00000017.922s] [2026-10-26T21:27:25.781+08:00] load:0x403cc700,len:0x2e20
+[+00000017.922s] [2026-10-26T21:27:25.781+08:00] entry 0x403c9908
+[+00000017.922s] [2026-10-26T21:27:25.781+08:00] I (31) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader
+[+00000017.922s] [2026-10-26T21:27:25.781+08:00] I (31) boot: compile time Oct 26 2026 18:35:57
+[+00000017.922s] [2026-10-26T21:27:25.782+08:00] I (31) boot: Multicore bootloader
+[+00000017.922s] [2026-10-26T21:27:25.782+08:00] I (35) boot: chip revision: v0.2
+[+00000017.922s] [2026-10-26T21:27:25.782+08:00] I (39) boot.esp32s3: Boot SPI Speed : 80MHz
+[+00000017.922s] [2026-10-26T21:27:25.782+08:00] I (43) boot.esp32s3: SPI Mode       : DIO
+[+00000017.922s] [2026-10-26T21:27:25.782+08:00] I (48) boot.esp32s3: SPI Flash Size : 2MB
+[+00000017.922s] [2026-10-26T21:27:25.782+08:00] I (53) boot: Enabling RNG early entropy source...
+[+00000017.922s] [2026-10-26T21:27:25.782+08:00] I (58) boot: Partition Table:
+[+00000017.922s] [2026-10-26T21:27:25.782+08:00] I (62) boot: ## Label            Usage          Type ST Offset   Length
+[+00000017.922s] [2026-10-26T21:27:25.782+08:00] I (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+[+00000017.922s] [2026-10-26T21:27:25.782+08:00] I (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+[+00000017.922s] [2026-10-26T21:27:25.782+08:00] I (84) boot:  2 factory          factory app      00 00 00010000 00100000
+[+00000017.922s] [2026-10-26T21:27:25.782+08:00] I (92) boot: End of partition table
+[+00000017.922s] [2026-10-26T21:27:25.782+08:00] I (96) esp_image: segment 0: paddr=00010020 vaddr=3c090020 size=1b1d0h (111056) map
+[+00000017.922s] [2026-10-26T21:27:25.782+08:00] I (124) esp_image: segment 1: paddr=0002b1f8 vaddr=3fc98500 size=0457ch ( 17788) load
+[+00000017.922s] [2026-10-26T21:27:25.782+08:00] I (128) esp_image: segment 2: paddr=0002f77c vaddr=40374000 size=0089ch (  2204) load
+[+00000017.922s] [2026-10-26T21:27:25.782+08:00] I (130) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=867c4h (550852) map
+[+00000018.406s] [2026-10-26T21:27:26.263+08:00] I (237) esp_image: segment 4: paddr=000b67ec vaddr=4037489c size=13b78h ( 80760) load
+[+00000018.406s] [2026-10-26T21:27:26.263+08:00] I (264) boot: Loaded app from partition at offset 0x10000
+[+00000018.406s] [2026-10-26T21:27:26.263+08:00] I (264) boot: Disabling RNG early entropy source...
+[+00000018.406s] [2026-10-26T21:27:26.263+08:00] I (275) cpu_start: Multicore app
+[+00000018.406s] [2026-10-26T21:27:26.263+08:00] I (276) cpu_start: Pro cpu up.
+[+00000018.406s] [2026-10-26T21:27:26.263+08:00] I (276) cpu_start: Starting app cpu, entry point is 0x403754a0
+[+00000018.406s] [2026-10-26T21:27:26.263+08:00] I (0) cpu_start: App cpu up.
+[+00000018.406s] [2026-10-26T21:27:26.263+08:00] I (294) cpu_start: Pro cpu start user code
+[+00000018.406s] [2026-10-26T21:27:26.263+08:00] I (294) cpu_start: cpu freq: 160000000 Hz
+[+00000018.406s] [2026-10-26T21:27:26.263+08:00] I (294) cpu_start: Application information:
+[+00000018.406s] [2026-10-26T21:27:26.263+08:00] I (297) cpu_start: Project name:     esp32_elder_node
+[+00000018.406s] [2026-10-26T21:27:26.263+08:00] I (303) cpu_start: App version:      1
+[+00000018.406s] [2026-10-26T21:27:26.263+08:00] I (307) cpu_start: Compile time:     Oct 26 2026 21:25:38
+[+00000018.406s] [2026-10-26T21:27:26.263+08:00] I (313) cpu_start: ELF file SHA256:  bc5bad90b9c9740c...
+[+00000018.406s] [2026-10-26T21:27:26.263+08:00] I (319) cpu_start: ESP-IDF:          v5.1.6-dirty
+[+00000018.406s] [2026-10-26T21:27:26.263+08:00] I (324) cpu_start: Min chip rev:     v0.0
+[+00000018.406s] [2026-10-26T21:27:26.263+08:00] I (329) cpu_start: Max chip rev:     v0.99 
+[+00000018.406s] [2026-10-26T21:27:26.263+08:00] I (334) cpu_start: Chip rev:         v0.2
+[+00000018.406s] [2026-10-26T21:27:26.263+08:00] I (339) heap_init: Initializing. RAM available for dynamic allocation:
+[+00000018.406s] [2026-10-26T21:27:26.263+08:00] I (346) heap_init: At 3FCA0EC8 len 00048848 (290 KiB): DRAM
+[+00000018.406s] [2026-10-26T21:27:26.263+08:00] I (352) heap_init: At 3FCE9710 len 00005724 (21 KiB): STACK/DRAM
+[+00000018.406s] [2026-10-26T21:27:26.263+08:00] I (359) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM
+[+00000018.406s] [2026-10-26T21:27:26.263+08:00] I (365) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM
+[+00000018.406s] [2026-10-26T21:27:26.263+08:00] I (372) spi_flash: detected chip: boya
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (376) spi_flash: flash io: dio
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] W (380) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (393) sleep: Configure to isolate all GPIO pins in sleep state
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (400) sleep: Enable automatic switching of GPIO sleep configuration
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (407) app_start: Starting scheduler on CPU0
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (412) app_start: Starting scheduler on CPU1
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (412) main_task: Started on CPU0
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (422) main_task: Calling app_main()
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (432) elder-node: ESP32-S3 无线节点启动：esp32-sos / 随身求助
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (432) gpio: GPIO[4]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (442) gpio: GPIO[6]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] W (452) elder-node: 温湿度自检失败：未接/接线错误/校验失败
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (462) pp: pp rom version: e7ae62f
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (462) net80211: net80211 rom version: e7ae62f
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (482) wifi:wifi driver task: 3fcab04c, prio:23, stack:6656, core=0
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (482) wifi:wifi firmware version: 02461b5
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (482) wifi:wifi certification version: v7.0
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (482) wifi:config NVS flash: enabled
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (482) wifi:config nano formating: disabled
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (492) wifi:Init data frame dynamic rx buffer num: 32
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (492) wifi:Init static rx mgmt buffer num: 5
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (502) wifi:Init management short buffer num: 32
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (502) wifi:Init dynamic tx buffer num: 32
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (512) wifi:Init static tx FG buffer num: 2
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (512) wifi:Init static rx buffer size: 1600
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (512) wifi:Init static rx buffer num: 10
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (522) wifi:Init dynamic rx buffer num: 32
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (522) wifi_init: rx ba win: 6
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (532) wifi_init: tcpip mbox: 32
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (532) wifi_init: udp mbox: 6
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (532) wifi_init: tcp mbox: 6
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (542) wifi_init: tcp tx win: 5760
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (542) wifi_init: tcp rx win: 5760
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (542) wifi_init: tcp mss: 1440
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (552) wifi_init: WiFi IRAM OP enabled
+[+00000018.406s] [2026-10-26T21:27:26.265+08:00] I (552) wifi_init: WiFi RX IRAM OP enabled
+[+00000018.406s] [2026-10-26T21:27:26.266+08:00] I (562) wifi:Set ps type: 0, coexist: 0
+[+00000018.406s] [2026-10-26T21:27:26.266+08:00] 
+[+00000018.406s] [2026-10-26T21:27:26.266+08:00] I (562) phy_init: phy_version 680,a6008b2,Jun  4 2024,16:41:10
+[+00000018.406s] [2026-10-26T21:27:26.266+08:00] I (622) wifi:mode : sta (30:30:f9:08:76:84)
+[+00000018.406s] [2026-10-26T21:27:26.266+08:00] I (622) wifi:enable tsf
+[+00000018.406s] [2026-10-26T21:27:26.266+08:00] I (622) elder-node: 连接 WiFi: ElderCareLab
+[+00000021.343s] [2026-10-26T21:27:29.197+08:00] I (3512) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+[+00000021.343s] [2026-10-26T21:27:29.197+08:00] I (3512) wifi:state: init -> auth (b0)
+[+00000021.343s] [2026-10-26T21:27:29.197+08:00] I (3512) wifi:state: auth -> assoc (0)
+[+00000021.343s] [2026-10-26T21:27:29.197+08:00] I (3562) wifi:state: assoc -> run (10)
+[+00000021.453s] [2026-10-26T21:27:29.308+08:00] I (3622) wifi:connected with ElderCareLab, aid = 8, channel 1, BW20, bssid = 5a:fe:a0:a6:a3:d7
+[+00000021.453s] [2026-10-26T21:27:29.308+08:00] I (3622) wifi:security: WPA2-PSK, phy: bgn, rssi: -23
+[+00000021.453s] [2026-10-26T21:27:29.308+08:00] I (3622) wifi:pm start, type: 0
+[+00000021.453s] [2026-10-26T21:27:29.308+08:00] 
+[+00000021.453s] [2026-10-26T21:27:29.308+08:00] I (3622) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us
+[+00000021.453s] [2026-10-26T21:27:29.308+08:00] I (3632) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000
+[+00000021.453s] [2026-10-26T21:27:29.308+08:00] I (3662) wifi:<ba-add>idx:0 (ifx:0, 5a:fe:a0:a6:a3:d7), tid:0, ssn:0, winSize:64
+[+00000021.453s] [2026-10-26T21:27:29.308+08:00] I (3672) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us
+[+00000021.453s] [2026-10-26T21:27:29.308+08:00] I (3672) wifi:AP's beacon interval = 102400 us, DTIM period = 2
+[+00000022.437s] [2026-10-26T21:27:30.291+08:00] I (4642) esp_netif_handlers: sta ip: 10.127.130.91, mask: 255.255.255.0, gw: 10.127.130.217
+[+00000022.437s] [2026-10-26T21:27:30.291+08:00] I (4642) elder-node: 已获取 IP: 10.127.130.91
+[+00000022.640s] [2026-10-26T21:27:30.496+08:00] I (4862) elder-node: 已连接网关 10.127.130.179:9101
+[+00000023.922s] [2026-10-26T21:27:31.775+08:00] I (5912) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+[+00000023.922s] [2026-10-26T21:27:31.775+08:00] I (5912) elder-node: → {"deviceId":"esp32-sos","room":"随身求助","ts":0,"state":"NORMAL","sensors":{"motion
+[+00000023.922s] [2026-10-26T21:27:31.775+08:00] ***ERROR*** A stack overflow in task main has been detected.
+[+00000023.922s] [2026-10-26T21:27:31.775+08:00] 
+[+00000023.922s] [2026-10-26T21:27:31.775+08:00] 
+[+00000023.922s] [2026-10-26T21:27:31.775+08:00] Backtrace: 0x40375a32:0x3fca3bb0 0x4037c321:0x3fca3bd0 0x4037ee7a:0x3fca3bf0 0x4037daaf:0x3fca3c70 0x4037ef88:0x3fca3c90 0x4037ef7e:0x3f000001 |<-CORRUPTED
+[+00000023.922s] [2026-10-26T21:27:31.775+08:00] 
+[+00000023.922s] [2026-10-26T21:27:31.776+08:00] 
+[+00000023.922s] [2026-10-26T21:27:31.776+08:00] 
+[+00000023.922s] [2026-10-26T21:27:31.776+08:00] 
+[+00000023.922s] [2026-10-26T21:27:31.776+08:00] ELF file SHA256: bc5bad90b9c9740c
+[+00000023.922s] [2026-10-26T21:27:31.776+08:00] 
+[+00000023.922s] [2026-10-26T21:27:31.776+08:00] Rebooting...
+[+00000023.922s] [2026-10-26T21:27:31.776+08:00] ESP-ROM:esp32s3-20210327
+[+00000023.922s] [2026-10-26T21:27:31.776+08:00] Build:Mar 27 2021
+[+00000023.922s] [2026-10-26T21:27:31.776+08:00] rst:0x3 (RTC_SW_SYS_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+[+00000023.922s] [2026-10-26T21:27:31.776+08:00] Saved PC:0x40375898
+[+00000023.922s] [2026-10-26T21:27:31.776+08:00] SPIWP:0xee
+[+00000023.922s] [2026-10-26T21:27:31.776+08:00] mode:DIO, clock div:1
+[+00000023.922s] [2026-10-26T21:27:31.776+08:00] load:0x3fce3818,len:0x1758
+[+00000023.922s] [2026-10-26T21:27:31.776+08:00] load:0x403c9700,len:0x4
+[+00000023.922s] [2026-10-26T21:27:31.776+08:00] load:0x403c9704,len:0xc00
+[+00000023.922s] [2026-10-26T21:27:31.776+08:00] load:0x403cc700,len:0x2e20
+[+00000023.922s] [2026-10-26T21:27:31.776+08:00] entry 0x403c9908
+[+00000023.922s] [2026-10-26T21:27:31.776+08:00] I (31) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader
+[+00000023.922s] [2026-10-26T21:27:31.776+08:00] I (31) boot: compile time Oct 26 2026 18:35:57
+[+00000023.922s] [2026-10-26T21:27:31.776+08:00] I (31) boot: Multicore bootloader
+[+00000023.922s] [2026-10-26T21:27:31.776+08:00] I (35) boot: chip revision: v0.2
+[+00000023.922s] [2026-10-26T21:27:31.776+08:00] I (39) boot.esp32s3: Boot SPI Speed : 80MHz
+[+00000023.922s] [2026-10-26T21:27:31.777+08:00] I (43) boot.esp32s3: SPI Mode       : DIO
+[+00000023.922s] [2026-10-26T21:27:31.777+08:00] I (48) boot.esp32s3: SPI Flash Size : 2MB
+[+00000023.922s] [2026-10-26T21:27:31.777+08:00] I (53) boot: Enabling RNG early entropy source...
+[+00000023.922s] [2026-10-26T21:27:31.777+08:00] I (58) boot: Partition Table:
+[+00000023.922s] [2026-10-26T21:27:31.777+08:00] I (62) boot: ## Label            Usage          Type ST Offset   Length
+[+00000023.922s] [2026-10-26T21:27:31.777+08:00] I (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+[+00000023.922s] [2026-10-26T21:27:31.777+08:00] I (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+[+00000023.922s] [2026-10-26T21:27:31.777+08:00] I (84) boot:  2 factory          factory app      00 00 00010000 00100000
+[+00000023.922s] [2026-10-26T21:27:31.777+08:00] I (92) boot: End of partition table
+[+00000023.922s] [2026-10-26T21:27:31.777+08:00] I (96) esp_image: segment 0: paddr=00010020 vaddr=3c090020 size=1b1d0h (111056) map
+[+00000023.922s] [2026-10-26T21:27:31.777+08:00] I (124) esp_image: segment 1: paddr=0002b1f8 vaddr=3fc98500 size=0457ch ( 17788) load
+[+00000023.922s] [2026-10-26T21:27:31.777+08:00] I (128) esp_image: segment 2: paddr=0002f77c vaddr=40374000 size=0089ch (  2204) load
+[+00000023.922s] [2026-10-26T21:27:31.777+08:00] I (130) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=867c4h (550852) map
+[+00000024.390s] [2026-10-26T21:27:32.258+08:00] I (237) esp_image: segment 4: paddr=000b67ec vaddr=4037489c size=13b78h ( 80760) load
+[+00000024.390s] [2026-10-26T21:27:32.258+08:00] I (264) boot: Loaded app from partition at offset 0x10000
+[+00000024.390s] [2026-10-26T21:27:32.258+08:00] I (264) boot: Disabling RNG early entropy source...
+[+00000024.390s] [2026-10-26T21:27:32.258+08:00] I (275) cpu_start: Multicore app
+[+00000024.390s] [2026-10-26T21:27:32.258+08:00] I (276) cpu_start: Pro cpu up.
+[+00000024.390s] [2026-10-26T21:27:32.258+08:00] I (276) cpu_start: Starting app cpu, entry point is 0x403754a0
+[+00000024.390s] [2026-10-26T21:27:32.258+08:00] I (0) cpu_start: App cpu up.
+[+00000024.390s] [2026-10-26T21:27:32.258+08:00] I (294) cpu_start: Pro cpu start user code
+[+00000024.390s] [2026-10-26T21:27:32.258+08:00] I (294) cpu_start: cpu freq: 160000000 Hz
+[+00000024.390s] [2026-10-26T21:27:32.258+08:00] I (294) cpu_start: Application information:
+[+00000024.390s] [2026-10-26T21:27:32.258+08:00] I (297) cpu_start: Project name:     esp32_elder_node
+[+00000024.390s] [2026-10-26T21:27:32.258+08:00] I (303) cpu_start: App version:      1
+[+00000024.390s] [2026-10-26T21:27:32.258+08:00] I (307) cpu_start: Compile time:     Oct 26 2026 21:25:38
+[+00000024.390s] [2026-10-26T21:27:32.258+08:00] I (313) cpu_start: ELF file SHA256:  bc5bad90b9c9740c...
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] I (319) cpu_start: ESP-IDF:          v5.1.6-dirty
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] I (324) cpu_start: Min chip rev:     v0.0
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] I (329) cpu_start: Max chip rev:     v0.99 
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] I (334) cpu_start: Chip rev:         v0.2
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] I (339) heap_init: Initializing. RAM available for dynamic allocation:
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] I (346) heap_init: At 3FCA0EC8 len 00048848 (290 KiB): DRAM
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] I (352) heap_init: At 3FCE9710 len 00005724 (21 KiB): STACK/DRAM
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] I (359) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] I (365) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] I (372) spi_flash: detected chip: boya
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] I (376) spi_flash: flash io: dio
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] W (380) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] I (393) sleep: Configure to isolate all GPIO pins in sleep state
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] I (400) sleep: Enable automatic switching of GPIO sleep configuration
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] I (407) app_start: Starting scheduler on CPU0
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] I (412) app_start: Starting scheduler on CPU1
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] I (412) main_task: Started on CPU0
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] I (422) main_task: Calling app_main()
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] I (432) elder-node: ESP32-S3 无线节点启动：esp32-sos / 随身求助
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] I (432) gpio: GPIO[4]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] I (442) gpio: GPIO[6]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] W (452) elder-node: 温湿度自检失败：未接/接线错误/校验失败
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] I (462) pp: pp rom version: e7ae62f
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] I (462) net80211: net80211 rom version: e7ae62f
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] I (482) wifi:wifi driver task: 3fcab04c, prio:23, stack:6656, core=0
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] I (482) wifi:wifi firmware version: 02461b5
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] I (482) wifi:wifi certification version: v7.0
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] I (482) wifi:config NVS flash: enabled
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] I (482) wifi:config nano formating: disabled
+[+00000024.406s] [2026-10-26T21:27:32.259+08:00] I (492) wifi:Init data frame dynamic rx buffer num: 32
+[+00000024.406s] [2026-10-26T21:27:32.261+08:00] I (492) wifi:Init static rx mgmt buffer num: 5
+[+00000024.406s] [2026-10-26T21:27:32.261+08:00] I (502) wifi:Init management short buffer num: 32
+[+00000024.406s] [2026-10-26T21:27:32.261+08:00] I (502) wifi:Init dynamic tx buffer num: 32
+[+00000024.406s] [2026-10-26T21:27:32.261+08:00] I (512) wifi:Init static tx FG buffer num: 2
+[+00000024.406s] [2026-10-26T21:27:32.261+08:00] I (512) wifi:Init static rx buffer size: 1600
+[+00000024.406s] [2026-10-26T21:27:32.261+08:00] I (512) wifi:Init static rx buffer num: 10
+[+00000024.406s] [2026-10-26T21:27:32.261+08:00] I (522) wifi:Init dynamic rx buffer num: 32
+[+00000024.406s] [2026-10-26T21:27:32.261+08:00] I (522) wifi_init: rx ba win: 6
+[+00000024.406s] [2026-10-26T21:27:32.261+08:00] I (532) wifi_init: tcpip mbox: 32
+[+00000024.406s] [2026-10-26T21:27:32.261+08:00] I (532) wifi_init: udp mbox: 6
+[+00000024.406s] [2026-10-26T21:27:32.261+08:00] I (532) wifi_init: tcp mbox: 6
+[+00000024.406s] [2026-10-26T21:27:32.261+08:00] I (542) wifi_init: tcp tx win: 5760
+[+00000024.406s] [2026-10-26T21:27:32.261+08:00] I (542) wifi_init: tcp rx win: 5760
+[+00000024.406s] [2026-10-26T21:27:32.261+08:00] I (542) wifi_init: tcp mss: 1440
+[+00000024.406s] [2026-10-26T21:27:32.261+08:00] I (552) wifi_init: WiFi IRAM OP enabled
+[+00000024.406s] [2026-10-26T21:27:32.261+08:00] I (552) wifi_init: WiFi RX IRAM OP enabled
+[+00000024.406s] [2026-10-26T21:27:32.261+08:00] I (562) wifi:Set ps type: 0, coexist: 0
+[+00000024.406s] [2026-10-26T21:27:32.261+08:00] 
+[+00000024.406s] [2026-10-26T21:27:32.261+08:00] I (562) phy_init: phy_version 680,a6008b2,Jun  4 2024,16:41:10
+[+00000024.406s] [2026-10-26T21:27:32.261+08:00] I (622) wifi:mode : sta (30:30:f9:08:76:84)
+[+00000024.406s] [2026-10-26T21:27:32.261+08:00] I (622) wifi:enable tsf
+[+00000024.406s] [2026-10-26T21:27:32.261+08:00] I (622) elder-node: 连接 WiFi: ElderCareLab
+[+00000027.312s] [2026-10-26T21:27:35.168+08:00] I (3512) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+[+00000027.312s] [2026-10-26T21:27:35.168+08:00] I (3512) wifi:state: init -> auth (b0)
+[+00000027.312s] [2026-10-26T21:27:35.168+08:00] I (3532) wifi:state: auth -> init (1c0)
+[+00000027.312s] [2026-10-26T21:27:35.168+08:00] I (3532) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+[+00000027.312s] [2026-10-26T21:27:35.168+08:00] W (3532) elder-node: WiFi 断开（reason=202），重连中…
+[+00000029.937s] [2026-10-26T21:27:37.798+08:00] I (5922) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+[+00000029.937s] [2026-10-26T21:27:37.798+08:00] I (5922) elder-node: → {"deviceId":"esp32-sos","room":"随身求助","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":0.0,"rh":0.0,"ok":true,"valid":false},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"
+[+00000029.937s] [2026-10-26T21:27:37.798+08:00] ***ERROR*** A stack overflow in task main has been detected.
+[+00000029.937s] [2026-10-26T21:27:37.798+08:00] 
+[+00000029.937s] [2026-10-26T21:27:37.798+08:00] 
+[+00000029.937s] [2026-10-26T21:27:37.798+08:00] Backtrace: 0x40375a32:0x3fca3c00 0x4037c321:0x3fca3c20 0x4037ee7a:0x3fca3c40 0x4037daf7:0x3fca3cc0 0x4037ef88:0x3fca3ce0 0x4037ef7e:0x3fca42e0 0x00060b20:0x00000000 |<-CORRUPTED
+[+00000029.937s] [2026-10-26T21:27:37.798+08:00] 
+[+00000029.937s] [2026-10-26T21:27:37.798+08:00] 
+[+00000029.937s] [2026-10-26T21:27:37.798+08:00] 
+[+00000029.937s] [2026-10-26T21:27:37.799+08:00] 
+[+00000029.937s] [2026-10-26T21:27:37.799+08:00] ELF file SHA256: bc5bad90b9c9740c
+[+00000029.937s] [2026-10-26T21:27:37.799+08:00] 
+[+00000029.937s] [2026-10-26T21:27:37.799+08:00] Rebooting...
+[+00000029.937s] [2026-10-26T21:27:37.799+08:00] ESP-ROM:esp32s3-20210327
+[+00000029.937s] [2026-10-26T21:27:37.799+08:00] Build:Mar 27 2021
+[+00000029.937s] [2026-10-26T21:27:37.799+08:00] rst:0x3 (RTC_SW_SYS_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+[+00000029.937s] [2026-10-26T21:27:37.799+08:00] Saved PC:0x40375898
+[+00000029.937s] [2026-10-26T21:27:37.799+08:00] SPIWP:0xee
+[+00000029.937s] [2026-10-26T21:27:37.799+08:00] mode:DIO, clock div:1
+[+00000029.937s] [2026-10-26T21:27:37.799+08:00] load:0x3fce3818,len:0x1758
+[+00000029.937s] [2026-10-26T21:27:37.799+08:00] load:0x403c9700,len:0x4
+[+00000029.937s] [2026-10-26T21:27:37.799+08:00] load:0x403c9704,len:0xc00
+[+00000029.937s] [2026-10-26T21:27:37.799+08:00] load:0x403cc700,len:0x2e20
+[+00000029.937s] [2026-10-26T21:27:37.799+08:00] entry 0x403c9908
+[+00000029.937s] [2026-10-26T21:27:37.799+08:00] I (31) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader
+[+00000029.937s] [2026-10-26T21:27:37.799+08:00] I (31) boot: compile time Oct 26 2026 18:35:57
+[+00000029.937s] [2026-10-26T21:27:37.799+08:00] I (31) boot: Multicore bootloader
+[+00000029.937s] [2026-10-26T21:27:37.800+08:00] I (35) boot: chip revision: v0.2
+[+00000029.937s] [2026-10-26T21:27:37.800+08:00] I (39) boot.esp32s3: Boot SPI Speed : 80MHz
+[+00000029.937s] [2026-10-26T21:27:37.800+08:00] I (43) boot.esp32s3: SPI Mode       : DIO
+[+00000029.937s] [2026-10-26T21:27:37.800+08:00] I (48) boot.esp32s3: SPI Flash Size : 2MB
+[+00000029.937s] [2026-10-26T21:27:37.800+08:00] I (53) boot: Enabling RNG early entropy source...
+[+00000029.937s] [2026-10-26T21:27:37.800+08:00] I (58) boot: Partition Table:
+[+00000029.937s] [2026-10-26T21:27:37.800+08:00] I (62) boot: ## Label            Usage          Type ST Offset   Length
+[+00000029.937s] [2026-10-26T21:27:37.800+08:00] I (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+[+00000029.937s] [2026-10-26T21:27:37.800+08:00] I (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+[+00000029.937s] [2026-10-26T21:27:37.800+08:00] I (84) boot:  2 factory          factory app      00 00 00010000 00100000
+[+00000029.937s] [2026-10-26T21:27:37.800+08:00] I (92) boot: End of partition table
+[+00000029.937s] [2026-10-26T21:27:37.800+08:00] I (96) esp_image: segment 0: paddr=00010020 vaddr=3c090020 size=1b1d0h (111056) map
+[+00000029.937s] [2026-10-26T21:27:37.800+08:00] I (124) esp_image: segment 1: paddr=0002b1f8 vaddr=3fc98500 size=0457ch ( 17788) load
+[+00000029.937s] [2026-10-26T21:27:37.800+08:00] I (128) esp_image: segment 2: paddr=0002f77c vaddr=40374000 size=0089ch (  2204) load
+[+00000029.937s] [2026-10-26T21:27:37.800+08:00] I (130) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=867c4h (550852) map
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (237) esp_image: segment 4: paddr=000b67ec vaddr=4037489c size=13b78h ( 80760) load
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (264) boot: Loaded app from partition at offset 0x10000
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (264) boot: Disabling RNG early entropy source...
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (275) cpu_start: Multicore app
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (276) cpu_start: Pro cpu up.
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (276) cpu_start: Starting app cpu, entry point is 0x403754a0
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (0) cpu_start: App cpu up.
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (294) cpu_start: Pro cpu start user code
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (294) cpu_start: cpu freq: 160000000 Hz
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (294) cpu_start: Application information:
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (297) cpu_start: Project name:     esp32_elder_node
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (303) cpu_start: App version:      1
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (307) cpu_start: Compile time:     Oct 26 2026 21:25:38
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (313) cpu_start: ELF file SHA256:  bc5bad90b9c9740c...
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (319) cpu_start: ESP-IDF:          v5.1.6-dirty
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (324) cpu_start: Min chip rev:     v0.0
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (329) cpu_start: Max chip rev:     v0.99 
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (334) cpu_start: Chip rev:         v0.2
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (339) heap_init: Initializing. RAM available for dynamic allocation:
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (346) heap_init: At 3FCA0EC8 len 00048848 (290 KiB): DRAM
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (352) heap_init: At 3FCE9710 len 00005724 (21 KiB): STACK/DRAM
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (359) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (365) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (372) spi_flash: detected chip: boya
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (376) spi_flash: flash io: dio
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] W (380) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (393) sleep: Configure to isolate all GPIO pins in sleep state
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (400) sleep: Enable automatic switching of GPIO sleep configuration
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (407) app_start: Starting scheduler on CPU0
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (412) app_start: Starting scheduler on CPU1
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (412) main_task: Started on CPU0
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (422) main_task: Calling app_main()
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (432) elder-node: ESP32-S3 无线节点启动：esp32-sos / 随身求助
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (432) gpio: GPIO[4]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 
+[+00000030.422s] [2026-10-26T21:27:38.281+08:00] I (442) gpio: GPIO[6]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 
+[+00000030.422s] [2026-10-26T21:27:38.283+08:00] W (452) elder-node: 温湿度自检失败：未接/接线错误/校验失败
+[+00000030.422s] [2026-10-26T21:27:38.283+08:00] I (462) pp: pp rom version: e7ae62f
+[+00000030.422s] [2026-10-26T21:27:38.283+08:00] I (462) net80211: net80211 rom version: e7ae62f
+[+00000030.422s] [2026-10-26T21:27:38.283+08:00] I (482) wifi:wifi driver task: 3fcab04c, prio:23, stack:6656, core=0
+[+00000030.422s] [2026-10-26T21:27:38.283+08:00] I (482) wifi:wifi firmware version: 02461b5
+[+00000030.422s] [2026-10-26T21:27:38.283+08:00] I (482) wifi:wifi certification version: v7.0
+[+00000030.422s] [2026-10-26T21:27:38.283+08:00] I (482) wifi:config NVS flash: enabled
+[+00000030.422s] [2026-10-26T21:27:38.283+08:00] I (482) wifi:config nano formating: disabled
+[+00000030.422s] [2026-10-26T21:27:38.283+08:00] I (492) wifi:Init data frame dynamic rx buffer num: 32
+[+00000030.422s] [2026-10-26T21:27:38.283+08:00] I (492) wifi:Init static rx mgmt buffer num: 5
+[+00000030.422s] [2026-10-26T21:27:38.283+08:00] I (502) wifi:Init management short buffer num: 32
+[+00000030.422s] [2026-10-26T21:27:38.283+08:00] I (502) wifi:Init dynamic tx buffer num: 32
+[+00000030.422s] [2026-10-26T21:27:38.283+08:00] I (512) wifi:Init static tx FG buffer num: 2
+[+00000030.422s] [2026-10-26T21:27:38.283+08:00] I (512) wifi:Init static rx buffer size: 1600
+[+00000030.422s] [2026-10-26T21:27:38.283+08:00] I (512) wifi:Init static rx buffer num: 10
+[+00000030.422s] [2026-10-26T21:27:38.283+08:00] I (522) wifi:Init dynamic rx buffer num: 32
+[+00000030.422s] [2026-10-26T21:27:38.283+08:00] I (522) wifi_init: rx ba win: 6
+[+00000030.422s] [2026-10-26T21:27:38.283+08:00] I (532) wifi_init: tcpip mbox: 32
+[+00000030.422s] [2026-10-26T21:27:38.283+08:00] I (532) wifi_init: udp mbox: 6
+[+00000030.422s] [2026-10-26T21:27:38.283+08:00] I (532) wifi_init: tcp mbox: 6
+[+00000030.422s] [2026-10-26T21:27:38.284+08:00] I (542) wifi_init: tcp tx win: 5760
+[+00000030.422s] [2026-10-26T21:27:38.284+08:00] I (542) wifi_init: tcp rx win: 5760
+[+00000030.422s] [2026-10-26T21:27:38.284+08:00] I (542) wifi_init: tcp mss: 1440
+[+00000030.422s] [2026-10-26T21:27:38.284+08:00] I (552) wifi_init: WiFi IRAM OP enabled
+[+00000030.422s] [2026-10-26T21:27:38.284+08:00] I (552) wifi_init: WiFi RX IRAM OP enabled
+[+00000030.422s] [2026-10-26T21:27:38.284+08:00] I (562) wifi:Set ps type: 0, coexist: 0
+[+00000030.422s] [2026-10-26T21:27:38.284+08:00] 
+[+00000030.422s] [2026-10-26T21:27:38.284+08:00] I (562) phy_init: phy_version 680,a6008b2,Jun  4 2024,16:41:10
+[+00000030.422s] [2026-10-26T21:27:38.284+08:00] I (612) wifi:mode : sta (30:30:f9:08:76:84)
+[+00000030.422s] [2026-10-26T21:27:38.284+08:00] I (612) wifi:enable tsf
+[+00000030.422s] [2026-10-26T21:27:38.284+08:00] I (622) elder-node: 连接 WiFi: ElderCareLab
+[+00000033.531s] [2026-10-26T21:27:41.395+08:00] I (3512) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+[+00000033.531s] [2026-10-26T21:27:41.395+08:00] I (3512) wifi:state: init -> auth (b0)
+[+00000033.531s] [2026-10-26T21:27:41.395+08:00] I (3562) wifi:state: auth -> assoc (0)
+[+00000033.531s] [2026-10-26T21:27:41.395+08:00] I (3602) wifi:state: assoc -> run (10)
+[+00000033.531s] [2026-10-26T21:27:41.395+08:00] I (3652) wifi:connected with ElderCareLab, aid = 1, channel 1, BW20, bssid = 5a:fe:a0:a6:a3:d7
+[+00000033.531s] [2026-10-26T21:27:41.395+08:00] I (3652) wifi:security: WPA2-PSK, phy: bgn, rssi: -20
+[+00000033.531s] [2026-10-26T21:27:41.395+08:00] I (3652) wifi:pm start, type: 0
+[+00000033.531s] [2026-10-26T21:27:41.395+08:00] 
+[+00000033.531s] [2026-10-26T21:27:41.395+08:00] I (3652) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us
+[+00000033.531s] [2026-10-26T21:27:41.395+08:00] I (3662) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000
+[+00000033.531s] [2026-10-26T21:27:41.395+08:00] I (3682) wifi:<ba-add>idx:0 (ifx:0, 5a:fe:a0:a6:a3:d7), tid:0, ssn:0, winSize:64
+[+00000033.531s] [2026-10-26T21:27:41.395+08:00] I (3742) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us
+[+00000033.531s] [2026-10-26T21:27:41.395+08:00] I (3742) wifi:AP's beacon interval = 102400 us, DTIM period = 2
+[+00000034.468s] [2026-10-26T21:27:42.332+08:00] I (4672) esp_netif_handlers: sta ip: 10.127.130.91, mask: 255.255.255.0, gw: 10.127.130.217
+[+00000034.468s] [2026-10-26T21:27:42.332+08:00] I (4672) elder-node: 已获取 IP: 10.127.130.91
+[+00000034.687s] [2026-10-26T21:27:42.547+08:00] I (4902) elder-node: 已连接网关 10.127.130.179:9101
+[+00000035.922s] [2026-10-26T21:27:43.787+08:00] I (5912) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0
+[+00000035.922s] [2026-10-26T21:27:43.787+08:00] I (5912) elder-node: → {"deviceId":"esp32-sos","room":"随身求助","ts":0,"state":"NORMAL","s
+[+00000035.922s] [2026-10-26T21:27:43.788+08:00] ***ERROR*** A stack overflow in task main has been detected.
+[+00000035.922s] [2026-10-26T21:27:43.788+08:00] 
+[+00000035.922s] [2026-10-26T21:27:43.788+08:00] 
+[+00000035.922s] [2026-10-26T21:27:43.788+08:00] Backtrace: 0x40375a32:0x3fca3bb0 0x4037c321:0x3fca3bd0 0x4037ee7a:0x3fca3bf0 0x4037daaf:0x3fca3c70 0x4037ef88:0x3fca3c90 0x4037ef7e:0x3f000001 |<-CORRUPTED
+[+00000035.922s] [2026-10-26T21:27:43.788+08:00] 
+[+00000035.922s] [2026-10-26T21:27:43.788+08:00] 
+[+00000035.922s] [2026-10-26T21:27:43.788+08:00] 
+[+00000035.922s] [2026-10-26T21:27:43.788+08:00] 
+[+00000035.922s] [2026-10-26T21:27:43.788+08:00] ELF file SHA256: bc5bad90b9c9740c
+[+00000035.922s] [2026-10-26T21:27:43.788+08:00] 
+[+00000035.922s] [2026-10-26T21:27:43.788+08:00] Rebooting...
+[+00000035.922s] [2026-10-26T21:27:43.788+08:00] ESP-ROM:esp32s3-20210327
+[+00000035.922s] [2026-10-26T21:27:43.789+08:00] Build:Mar 27 2021
+[+00000035.922s] [2026-10-26T21:27:43.789+08:00] rst:0x3 (RTC_SW_SYS_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+[+00000035.922s] [2026-10-26T21:27:43.789+08:00] Saved PC:0x40375898
+[+00000035.922s] [2026-10-26T21:27:43.789+08:00] SPIWP:0xee
+[+00000035.922s] [2026-10-26T21:27:43.789+08:00] mode:DIO, clock div:1
+[+00000035.922s] [2026-10-26T21:27:43.789+08:00] load:0x3fce3818,len:0x1758
+[+00000035.922s] [2026-10-26T21:27:43.789+08:00] load:0x403c9700,len:0x4
+[+00000035.922s] [2026-10-26T21:27:43.789+08:00] load:0x403c9704,len:0xc00
+[+00000035.922s] [2026-10-26T21:27:43.789+08:00] load:0x403cc700,len:0x2e20
+[+00000035.922s] [2026-10-26T21:27:43.789+08:00] entry 0x403c9908
+[+00000035.922s] [2026-10-26T21:27:43.789+08:00] I (31) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader
+[+00000035.922s] [2026-10-26T21:27:43.789+08:00] I (31) boot: compile time Oct 26 2026 18:35:57
+[+00000035.922s] [2026-10-26T21:27:43.789+08:00] I (31) boot: Multicore bootloader
+[+00000035.922s] [2026-10-26T21:27:43.789+08:00] I (35) boot: chip revision: v0.2
+[+00000035.922s] [2026-10-26T21:27:43.789+08:00] I (39) boot.esp32s3: Boot SPI Speed : 80MHz
+[+00000035.922s] [2026-10-26T21:27:43.789+08:00] I (43) boot.esp32s3: SPI Mode       : DIO
+[+00000035.922s] [2026-10-26T21:27:43.789+08:00] I (48) boot.esp32s3: SPI Flash Size : 2MB
+[+00000035.922s] [2026-10-26T21:27:43.789+08:00] I (53) boot: Enabling RNG early entropy source...
+[+00000035.922s] [2026-10-26T21:27:43.789+08:00] I (58) boot: Partition Table:
+[+00000035.922s] [2026-10-26T21:27:43.789+08:00] I (62) boot: ## Label            Usage          Type ST Offset   Length
+[+00000035.922s] [2026-10-26T21:27:43.789+08:00] I (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+[+00000035.922s] [2026-10-26T21:27:43.789+08:00] I (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+[+00000035.922s] [2026-10-26T21:27:43.789+08:00] I (84) boot:  2 factory          factory app      00 00 00010000 00100000
+[+00000035.922s] [2026-10-26T21:27:43.789+08:00] I (92) boot: End of partition table
+[+00000035.922s] [2026-10-26T21:27:43.789+08:00] I (96) esp_image: segment 0: paddr=00010020 vaddr=3c090020 size=1b1d0h (111056) map
+[+00000035.922s] [2026-10-26T21:27:43.789+08:00] I (124) esp_image: segment 1: paddr=0002b1f8 vaddr=3fc98500 size=0457ch ( 17788) load
+[+00000035.922s] [2026-10-26T21:27:43.789+08:00] I (128) esp_image: segment 2: paddr=0002f77c vaddr=40374000 size=0089ch (  2204) load
+[+00000035.922s] [2026-10-26T21:27:43.789+08:00] I (130) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=867c4h (550852) map
+[+00000036.406s] [2026-10-26T21:27:44.268+08:00] I (237) esp_image: segment 4: paddr=000b67ec vaddr=4037489c size=13b78h ( 80760) load
+[+00000036.406s] [2026-10-26T21:27:44.268+08:00] I (264) boot: Loaded app from partition at offset 0x10000
+[+00000036.406s] [2026-10-26T21:27:44.268+08:00] I (264) boot: Disabling RNG early entropy source...
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (275) cpu_start: Multicore app
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (276) cpu_start: Pro cpu up.
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (276) cpu_start: Starting app cpu, entry point is 0x403754a0
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (0) cpu_start: App cpu up.
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (294) cpu_start: Pro cpu start user code
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (294) cpu_start: cpu freq: 160000000 Hz
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (294) cpu_start: Application information:
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (297) cpu_start: Project name:     esp32_elder_node
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (303) cpu_start: App version:      1
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (307) cpu_start: Compile time:     Oct 26 2026 21:25:38
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (313) cpu_start: ELF file SHA256:  bc5bad90b9c9740c...
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (319) cpu_start: ESP-IDF:          v5.1.6-dirty
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (324) cpu_start: Min chip rev:     v0.0
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (329) cpu_start: Max chip rev:     v0.99 
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (334) cpu_start: Chip rev:         v0.2
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (339) heap_init: Initializing. RAM available for dynamic allocation:
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (346) heap_init: At 3FCA0EC8 len 00048848 (290 KiB): DRAM
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (352) heap_init: At 3FCE9710 len 00005724 (21 KiB): STACK/DRAM
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (359) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (365) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (372) spi_flash: detected chip: boya
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (376) spi_flash: flash io: dio
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] W (380) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (393) sleep: Configure to isolate all GPIO pins in sleep state
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (400) sleep: Enable automatic switching of GPIO sleep configuration
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (407) app_start: Starting scheduler on CPU0
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (412) app_start: Starting scheduler on CPU1
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (412) main_task: Started on CPU0
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (422) main_task: Calling app_main()
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (432) elder-node: ESP32-S3 无线节点启动：esp32-sos / 随身求助
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (432) gpio: GPIO[4]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 
+[+00000036.406s] [2026-10-26T21:27:44.269+08:00] I (442) gpio: GPIO[6]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 
+[+00000036.406s] [2026-10-26T21:27:44.271+08:00] W (452) elder-node: 温湿度自检失败：未接/接线错误/校验失败
+[+00000036.406s] [2026-10-26T21:27:44.271+08:00] I (462) pp: pp rom version: e7ae62f
+[+00000036.406s] [2026-10-26T21:27:44.271+08:00] I (462) net80211: net80211 rom version: e7ae62f
+[+00000036.406s] [2026-10-26T21:27:44.271+08:00] I (482) wifi:wifi driver task: 3fcab04c, prio:23, stack:6656, core=0
+[+00000036.406s] [2026-10-26T21:27:44.271+08:00] I (482) wifi:wifi firmware version: 02461b5
+[+00000036.406s] [2026-10-26T21:27:44.271+08:00] I (482) wifi:wifi certification version: v7.0
+[+00000036.406s] [2026-10-26T21:27:44.271+08:00] I (482) wifi:config NVS flash: enabled
+[+00000036.406s] [2026-10-26T21:27:44.271+08:00] I (482) wifi:config nano formating: disabled
+[+00000036.406s] [2026-10-26T21:27:44.271+08:00] I (492) wifi:Init data frame dynamic rx buffer num: 32
+[+00000036.406s] [2026-10-26T21:27:44.271+08:00] I (492) wifi:Init static rx mgmt buffer num: 5
+[+00000036.406s] [2026-10-26T21:27:44.271+08:00] I (502) wifi:Init management short buffer num: 32
+[+00000036.406s] [2026-10-26T21:27:44.271+08:00] I (502) wifi:Init dynamic tx buffer num: 32
+[+00000036.406s] [2026-10-26T21:27:44.271+08:00] I (512) wifi:Init static tx FG buffer num: 2
+[+00000036.406s] [2026-10-26T21:27:44.271+08:00] I (512) wifi:Init static rx buffer size: 1600
+[+00000036.406s] [2026-10-26T21:27:44.271+08:00] I (512) wifi:Init static rx buffer num: 10
+[+00000036.406s] [2026-10-26T21:27:44.271+08:00] I (522) wifi:Init dynamic rx buffer num: 32
+[+00000036.406s] [2026-10-26T21:27:44.271+08:00] I (522) wifi_init: rx ba win: 6
+[+00000036.406s] [2026-10-26T21:27:44.271+08:00] I (532) wifi_init: tcpip mbox: 32
+[+00000036.406s] [2026-10-26T21:27:44.271+08:00] I (532) wifi_init: udp mbox: 6
+[+00000036.406s] [2026-10-26T21:27:44.271+08:00] I (532) wifi_init: tcp mbox: 6
+[+00000036.406s] [2026-10-26T21:27:44.271+08:00] I (542) wifi_init: tcp tx win: 5760
+[+00000036.406s] [2026-10-26T21:27:44.272+08:00] I (542) wifi_init: tcp rx win: 5760
+[+00000036.406s] [2026-10-26T21:27:44.272+08:00] I (542) wifi_init: tcp mss: 1440
+[+00000036.406s] [2026-10-26T21:27:44.272+08:00] I (552) wifi_init: WiFi IRAM OP enabled
+[+00000036.406s] [2026-10-26T21:27:44.272+08:00] I (552) wifi_init: WiFi RX IRAM OP enabled
+[+00000036.406s] [2026-10-26T21:27:44.272+08:00] I (562) wifi:Set ps type: 0, coexist: 0
+[+00000036.406s] [2026-10-26T21:27:44.272+08:00] 
+[+00000036.406s] [2026-10-26T21:27:44.272+08:00] I (562) phy_init: phy_version 680,a6008b2,Jun  4 2024,16:41:10
+[+00000036.406s] [2026-10-26T21:27:44.272+08:00] I (612) wifi:mode : sta (30:30:f9:08:76:84)
+[+00000036.406s] [2026-10-26T21:27:44.272+08:00] I (612) wifi:enable tsf
+[+00000036.406s] [2026-10-26T21:27:44.272+08:00] I (622) elder-node: 连接 WiFi: ElderCareLab
+[+00000039.312s] [2026-10-26T21:27:47.168+08:00] I (3512) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+[+00000039.312s] [2026-10-26T21:27:47.168+08:00] I (3512) wifi:state: init -> auth (b0)
+[+00000039.312s] [2026-10-26T21:27:47.168+08:00] I (3512) wifi:state: auth -> init (1c0)
+[+00000039.312s] [2026-10-26T21:27:47.168+08:00] I (3512) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+[+00000039.312s] [2026-10-26T21:27:47.168+08:00] W (3512) elder-node: WiFi 断开（reason=202），重连中…
+# BENCH_SERIAL SUMMARY lines=769 bytes=43499 sent=0 duration=40.078s markers={→ {=5}

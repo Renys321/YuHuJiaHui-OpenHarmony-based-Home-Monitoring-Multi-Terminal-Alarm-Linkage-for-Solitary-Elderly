@@ -1,0 +1,62 @@
+# 本轮最终源码 SHA-256（构建/验收时点）
+
+- 采集时间：2026-10-26 02:00 前后（Asia/Shanghai）
+- 构建/测试时点：APP 源码最后写入 01:58:04（并行会话 E 类测试）之前；D 类最后写入 01:55。
+- 说明：`Contracts.ts`、`ApiClient.ts`、`Models.ts`、`Outcomes.ts`、`GuardianService.ets` 为 D（本任务）与并行会话 E（活动报告）共享文件；哈希包含两者的最终内容。
+
+## D 类（本任务）源码与文档
+
+| 文件 | 字节 | SHA-256 |
+|---|---:|---|
+| competition/cloud/backend/src/safety-log.js | 9350 | `D34D376A59E5432F21000994B1231244BFBEFE4C6F3164A201FD02C8A7473A3D` |
+| competition/cloud/backend/src/store.js | 18385 | `0594285BD8E7727EA06DDAF97B34D0B68971716B5391311BECBDD4282B3AD8AC` |
+| competition/cloud/backend/src/persistent-store.js | 67044 | `11C7E46250F3D96F942F040D8E6BD52DD5BFE9C7D2698DFDF786D8149C467057` |
+| competition/cloud/backend/src/server.js（D/E 共享） | 37008 | `A7FAD1E52979A045F844BE390EF6F9892B228AA5D4E4B34A0E8C724A53E65443` |
+| competition/cloud/backend/package.json（D/E 共享） | 897 | `14C8355210C07E7FCAA48157B195D6451550F1A1C3E0AE29DB0D6B1003091677` |
+| competition/cloud/backend/README.md | 20201 | `89940399A56AD4EDC7385595A8C82CC06E926926FC60159A399C6DEBE26B0163` |
+| competition/docs/APP-API-v1.md | 10318 | `1E8D94ADF2B953B5914156D82504F38C5E37D85031C869645BFE0C80C24B9AF8` |
+| APP/.../core/api/Contracts.ts（D/E 共享） | 32564 | `9B1B8AA4E360D0426986B75F1F7BD57C64127D9B9DBB32377602415A5177428B` |
+| APP/.../core/api/ApiClient.ts（D/E 共享） | 18994 | `E7C8D312DEAEF5501B5FC0B72D3EDC2D7F8F97F3DEEFCDDE40E34B6C362C4937` |
+| APP/.../core/view/Models.ts（D/E 共享） | 6231 | `F830566F877386B2B248C7700B5B7B0E023CE7490B5151D97C1422A60D20EFAA` |
+| APP/.../core/view/ViewMapper.ts | 29794 | `BA08405A2B1B44E8AE3AD1924D2AB369E19D00D005EE8491FE3EB249A261AAED` |
+| APP/.../core/service/Outcomes.ts（D/E 共享） | 2425 | `08F660C8227AC671481A0880E7ABA15DAC52A62F14A188C59FC49BAB27858250` |
+| APP/.../service/GuardianService.ets（D/E 共享） | 57039 | `ABE34D0A2511627E09FFADB749A6DEDEDA121D5A3BF6AF2D4BDB2EB0F9D2CAFF` |
+| APP/.../pages/AlertDetailPage.ets | 54927 | `3000A11C62F78E13EBFB39F1D4BA9644F2A52596C53B47EACB1257369117F6D7` |
+| APP/.../pages/LogPage.ets | 22825 | `87F51C08BC1726D699C21D40383707CF5F069B7BD7113639ABE8F75CA09F2205` |
+| APP/.../test/Disposition.test.ets | 15596 | `9BBF41EBD6E942F9F36993AE0EDD5EECE72C5BB7C747C8828F6749C2CC206B01` |
+| APP/.../test/List.test.ets | 254 | `41C4984586C836EB56AC29410166AE12870524B8B02132B45C4AE0B06AB11BE0` |
+| APP/tests/disposition.test.mjs | 26422 | `31DED2692464FB729B5616BC72C26B1999D0B32788CDEBCC4A79D2880FF36DF8` |
+
+## 构建后漂移说明（2026-10-26 02:01 采集）
+
+并行会话（E 类活动报告，不属于本任务）在 HAP 构建（01:59:34）之后继续修改了 3 个文件：`core/api/Contracts.ts`（32,564→33,822 B，SHA-256 `E73D842981619C4BA0B3F2676F23DD62DD869DFBAD8C79D1757E32151EC0F05C`）、`core/activity/ActivityReport.ts`、`pages/ActivityReportPage.ets`。
+
+- 上表“构建时点”哈希与当前工作树在 **D 类文件上完全一致**（`safety-log.js`、`store.js`、`persistent-store.js`、`server.js`、`AlertDetailPage.ets`、`LogPage.ets`、`ViewMapper.ts`、`Disposition.test.ets`、`disposition.test.mjs` 逐个复算相同）。
+- 唯一漂移的共享文件是 `Contracts.ts`，其 D 类段落未被并行会话修改（app-dev 复核；漂移仅为 E 类 `parseActivityReport` 等追加段）。
+- 因此 HAP 的 D 类行为与当前 D 源码一致；HAP 内 E 类代码是 01:59 的旧版，若要求“最终 HAP 与工作树完全一致”需等 E 冻结后重建（不属于本任务验收范围）。
+- 构建后 02:01:22 的 `Contracts.ts` 当前哈希：`E73D842981619C4BA0B3F2676F23DD62DD869DFBAD8C79D1757E32151EC0F05C`（33,822 B）。
+
+## 制品
+
+| 制品 | 字节 | SHA-256 |
+|---|---:|---|
+| `entry-default-unsigned.hap`（D+并行 E 代码，未签名） | 2,613,947 | `2CFB890880274AFD946E9C0E87427E2E60FA099DA7F6AD15A1F5899EDEAF91DF` |
+
+## 改动前基线（用于差异核对，来自 2026-10-26 01:46 工作区快照）
+
+| 文件 | 基线字节 | 基线 SHA-256 |
+|---|---:|---|
+| backend/src/store.js | 12710 | `F097615763F2F82CD64FF13CD2D22AE394BA8F6000E0D454A6629A4A606E4523` |
+| backend/src/persistent-store.js | 58781 | `FA55606B7A0B36077685A435C890CE81F8E036747A48AE3ED82CE83D22B094B4` |
+| backend/src/server.js | 30140 | `3B246310F41EA21E79ABEE2813D9238FF26EB836EB5A5AFE4FEDFAB668C18537` |
+| APP/.../core/api/ApiClient.ts | 10225 | `2047685A17C605B8DCF1DBA2A74741F6C5ED30D2478E78388A313ECBFD8A1AB7` |
+| APP/.../core/api/Contracts.ts | 12315 | `4CC10AAB040B0F04516C5D9EB2303D61EAA18E94643656709F2AD999FCA72428` |
+| APP/.../service/GuardianService.ets | 38251 | `C10AB3639E91655A6CC0B215E738C4E3D5098A2A0376B03E88F7D048773C95E4` |
+| APP/.../pages/AlertDetailPage.ets | 37269 | `E24D796934EFCBDD891F4C5EA74E248D8A46A607C2CBE5135173BF0D3430209C` |
+| APP/.../pages/LogPage.ets | 10706 | `1BAEB3698F3C259C046A6663EC1F4D97D1B3E3D36780BF710450AD4A46E7F124` |
+| APP/.../core/view/Models.ts | 4972 | `6152444AEB337A0828AFFF2C8D98CB0925A7779C9FC22DBF741762C6CF3ADD4D` |
+| APP/.../core/view/ViewMapper.ts | 26466 | `432EC89853AEFEE1EC582A38FADE991A984014DBC80F0994F25266B47FB76106` |
+| competition/docs/APP-API-v1.md | 5606 | （原始合同 1.0.0，本轮升 1.1.0 增量） |
+
+- 本任务新增文件（基线不存在）：`backend/src/safety-log.js`、`backend/test/safety-log*.test.js`、`backend/test/safety-log-isolated.integration.js`、`APP/.../test/Disposition.test.ets`、`APP/tests/disposition.test.mjs`、`app/UI-CHANGES.md`/`TEST-RESULTS.txt`/`SOURCE-HASHES.txt`。
+- D 与并行 E 共享文件的完整回退步骤见 `backend/D-E-SCOPE-SPLIT.md` 与任务目录 `DEPLOY-DIFF-AND-ROLLBACK.md`。

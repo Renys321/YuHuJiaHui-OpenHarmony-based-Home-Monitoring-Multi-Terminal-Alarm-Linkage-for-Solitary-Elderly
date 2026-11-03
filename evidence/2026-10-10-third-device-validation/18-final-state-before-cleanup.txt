@@ -1,0 +1,40 @@
+PC_TIME=2026-10-10 10:20:03 +08:00
+DEVICE_TIME=Sat Oct 10 10:20:02 CST 2026
+TARGETS=450100445634303332012847942eca00
+--- DEVICE PROCESSES ---
+20010044      2422   194 1 09:57:54 ?     00:00:17 com.dsh.eldercare
+root          2879     1 0 10:02:11 ?     00:00:01 homemon /data/local/tmp/demo.conf
+--- DEVICE STATUS ---
+{"deviceId":"dayu200-living","room":"客厅","ts":1791598802,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1791598802,"countToday":1163},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":0.0,"rh":0.0,"ok":true},"gas":{"raw":0,"ok":true},"smoke":{"raw":0,"ok":true}},"history":[0,0,0,0,0,2854,1163],"slots":[0,1163,0,0],"alarm":{"id":"a-1791598742-1","type":"GAS","countToday":1}}
+--- DEVICE SAFETY LOG ---
+1791586036,a-1791586031-2,本机正确ID处置
+
+1791598751,a-1791598742-1,第三轮正确ID处置
+--- DEVICE SAFETY PHYSICAL/NONEMPTY COUNTS ---
+PHYSICAL=3
+NONEMPTY=2
+--- LOCAL PROCESSES ---
+
+ProcessId   : 10804
+Name        : node.exe
+CommandLine : "<USER_HOME>\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\node\bin\node.exe" <WORKSPACE>\competition\bridge\mqtt_broker.js 1883 
+
+ProcessId   : 15016
+Name        : node.exe
+CommandLine : "<USER_HOME>\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\node\bin\node.exe" <WORKSPACE>\competition\bridge\mqtt_bridge.js --broker 127.0.0.1:1883 --listen 9100 --relay-to 127.0.0.1:9000 --cmd-out <WORKSPACE>\competition\bridge\_test\control --status-file <WORKSPACE>\competition\bridge\_test\status.json 
+
+ProcessId   : 5672
+Name        : node.exe
+CommandLine : "<USER_HOME>\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\node\bin\node.exe" <WORKSPACE>\competition\bridge\sim_node.js --gw 127.0.0.1:9100 --id esp32-bath --room 卫生间
+
+--- PORTS ---
+1883 LISTENING
+9000 LISTENING
+9100 LISTENING
+--- FINAL LOG HASHES ---
+demo-bridge.err.log 0 E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855
+demo-bridge.out.log 24876 71F90F4C1E10777789497DA7F3B11D2440FE9C2EDBE98672B76B64C8F6024AB9
+demo-broker.err.log 0 E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855
+demo-broker.out.log 24147 CF1A6ED13F6D0D7ACE5B330AC2C29A6357A53EB58C84F5A66C0F01881DC3C197
+demo-simnode.err.log 0 E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855
+demo-simnode.out.log 7487 5FAE8AC1A19FCD9DF0B5977C876F06D09F02F55C2DD93857B185C034F2A9A25B

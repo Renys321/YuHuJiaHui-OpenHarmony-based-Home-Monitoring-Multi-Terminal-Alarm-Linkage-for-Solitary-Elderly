@@ -1,0 +1,12 @@
+﻿# cmd: Get-NetFirewallProfile | Select-Object Name,Enabled,DefaultInboundAction | Format-Table -AutoSize
+# captured: 2026-10-27 22:32:33 +08:00
+----------------------------------------------------------------------
+
+Name    Enabled DefaultInboundAction
+----    ------- --------------------
+Domain     True        NotConfigured
+Private    True        NotConfigured
+Public     True        NotConfigured
+
+
+

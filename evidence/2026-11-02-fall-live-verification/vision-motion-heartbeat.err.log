@@ -1,0 +1,14 @@
+[vision] frame rotation locked: 0
+[vision] HTTP JPEG ingest listening on 127.0.0.1:9200
+[vision] monitor watchdog: timeout=10000ms startup-grace=15000ms heartbeat=60000ms
+[vision] monitor online: first_frame
+[vision] FALL command published
+[vision] monitor offline: no_frame
+[vision] monitor online: frames_resumed
+[vision] FALL command published
+[vision] monitor offline: no_frame
+[vision] monitor online: frames_resumed
+[vision] FALL command published
+[vision] FALL command published
+[vision] monitor offline: no_frame
+[vision] monitor publish failed: Command '['node', 'D:\\OpenHarmony\\competition\\bridge\\mqtt_tool.js', 'pub', '--broker', '127.0.0.1:1883', '--topic', 'home/dayu200-living/cmd', '--msg', '{"cmd":"monitor","state":"offline","reason":"no_frame","source":"yolo-pose"}']' timed out after 8 seconds

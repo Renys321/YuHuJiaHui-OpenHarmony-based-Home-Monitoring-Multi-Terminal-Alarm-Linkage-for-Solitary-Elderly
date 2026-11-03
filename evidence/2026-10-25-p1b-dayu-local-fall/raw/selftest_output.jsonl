@@ -1,0 +1,15 @@
+{"selftest":"p1b-fall-core","version":"p1b-2026-10-25"}
+{"case":"standing_stable","pass":true}
+{"case":"sitting","pass":true}
+{"case":"bending","pass":true}
+{"case":"squatting","pass":true}
+{"case":"slow_lying","pass":true}
+{"case":"fast_descent_recovery","pass":true}
+{"case":"fast_descent_persistent_horizontal","pass":true}
+{"case":"kpt_loss_grace","pass":true}
+{"case":"camera_and_inference_invalid","pass":true}
+{"case":"multi_person_primary_switch","pass":true}
+{"case":"single_frame_horizontal_not_fall","pass":true}
+{"case":"recovery_then_new_event","pass":true}
+{"case":"no_person_and_non_monotonic_time","pass":true}
+{"summary":{"cases":13,"failures":0,"pass":true}}

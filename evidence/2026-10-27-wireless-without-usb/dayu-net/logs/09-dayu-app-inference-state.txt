@@ -1,0 +1,10 @@
+﻿$ hdc -t 450100445634303332012847942eca00 shell "ls -l /data/local/tmp/dayu-demo-autostart-2026-10-26/evidence/; echo ---SERVERLOG---; cat /data/local/tmp/dayu-demo-autostart-2026-10-26/evidence/demo-server.log"
+# captured: 2026-10-27 22:32:12 +08:00
+----------------------------------------------------------------------
+total 180847616
+-rw-r--r-- 1 root root 180657255 2026-10-27 22:32 demo-events.jsonl
+-rw-r--r-- 1 root root       105 2026-10-27 11:57 demo-server.log
+-rw-r--r-- 1 root root      5145 2026-10-26 00:53 demo-stats.jsonl
+---SERVERLOG---
+[p1b] listening 127.0.0.1:9200 model=yolo11n-pose-ncnn-320-static-p1b size=320 threads=4 duration=86400s
+

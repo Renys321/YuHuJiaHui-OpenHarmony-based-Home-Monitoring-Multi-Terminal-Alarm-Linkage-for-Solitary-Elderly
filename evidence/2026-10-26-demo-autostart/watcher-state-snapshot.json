@@ -1,0 +1,14 @@
+﻿{
+    "timestamp":  "2026-10-26 00:38:24",
+    "target":  "450100445634303332012847942eca00",
+    "targetConnected":  true,
+    "p0":  "healthy",
+    "app":  "active",
+    "inference":  "running",
+    "cameraFrames":  "LIVE",
+    "nodes":  "3/3",
+    "userStop":  false,
+    "userPaused":  false,
+    "lastEventCount":  1501,
+    "watcherPid":  54708
+}

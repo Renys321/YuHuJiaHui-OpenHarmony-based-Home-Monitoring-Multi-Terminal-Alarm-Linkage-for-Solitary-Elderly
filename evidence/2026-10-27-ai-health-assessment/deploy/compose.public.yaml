@@ -1,0 +1,134 @@
+# deploy/compose.public.yaml
+#
+# 公网主机上的最小部署单元（第一阶段 P0）。
+#
+# 这台主机只运行两个服务：
+#   backend  可信 API（监护人 APP 查询 + 家庭网关写入 / 命令队列）
+#   caddy    入站 HTTPS 反向代理（自动申请与续期证书）
+#
+# 家庭侧的 Broker / Bridge / 常驻 OneNET 网关**不在**本文件内：
+# 它们在本地 Windows/Node 主机运行，只主动出站访问本机的 443。
+# 拓扑、变量与回滚步骤见 docs/PUBLIC-DEPLOY.md。
+#
+# ---------------------------------------------------------------------------
+# 硬性约束（不要为了"方便"放宽）
+# ---------------------------------------------------------------------------
+# 1. backend 不发布任何主机端口，只能经 caddy 访问。
+# 2. 本文件禁止出现 1883 / 9000 / 9001 / 9002 / 9100 / 9101 的 ports 映射。
+#    这些端口属于家庭局域网链路，而 bridge/mqtt_broker.js 与
+#    bridge/mqtt_bridge.js 无鉴权、无 TLS、监听 0.0.0.0，
+#    一旦暴露到公网即为漏洞。
+# 3. 本文件只引用环境变量名，不写任何真实密钥。
+#
+# ---------------------------------------------------------------------------
+# 启动（--env-file 是必须的，用于把真实值注入容器）
+# ---------------------------------------------------------------------------
+#   cp deploy/.env.deploy.example deploy/.env.deploy
+#   chmod 600 deploy/.env.deploy
+#   $EDITOR deploy/.env.deploy          # 填入真实值，不要把值写进任何日志
+#   docker compose --env-file deploy/.env.deploy -f deploy/compose.public.yaml up -d
+#
+# 缺少必需变量时 compose 会以变量名报错并拒绝启动（:? 语法），这是刻意的 fail-fast。
+#
+# 注意：docker compose config 会打印"解析后"的变量值（含密钥），
+# 不要把它重定向到日志、CI 输出或聊天窗口。
+
+name: eldercare-public
+
+services:
+  backend:
+    build:
+      context: ../cloud/backend
+      dockerfile: Dockerfile
+    image: eldercare-cloud-backend:local
+    # PID 1 由 init 代管，信号与僵尸进程回收更可预期。
+    init: true
+    restart: unless-stopped
+    read_only: true
+    # 只注入后端真正需要的变量；HOST/PORT/BACKEND_DATA_FILE 已由 Dockerfile 的 ENV 提供。
+    environment:
+      API_TOKEN_SECRET: "${API_TOKEN_SECRET:?API_TOKEN_SECRET is required in deploy/.env.deploy}"
+      INGEST_KEY: "${INGEST_KEY:?INGEST_KEY is required in deploy/.env.deploy}"
+      APP_GUARDIAN_ID: "${APP_GUARDIAN_ID:?APP_GUARDIAN_ID is required in deploy/.env.deploy}"
+      APP_GUARDIAN_PASSWORD: "${APP_GUARDIAN_PASSWORD:?APP_GUARDIAN_PASSWORD is required in deploy/.env.deploy}"
+      CONTACTS_JSON: "${CONTACTS_JSON:?CONTACTS_JSON is required in deploy/.env.deploy}"
+      # 微信小程序已改为可选兼容通道；没有正式账号时保持为空，不阻塞 APP 后端上线。
+      WECHAT_APP_ID: "${WECHAT_APP_ID:-}"
+      WECHAT_APP_SECRET: "${WECHAT_APP_SECRET:-}"
+      WECHAT_ALLOWED_OPENIDS: "${WECHAT_ALLOWED_OPENIDS:-}"
+      WECHAT_SUBSCRIBE_TEMPLATE_ID: "${WECHAT_SUBSCRIBE_TEMPLATE_ID:-}"
+      WECHAT_SUBSCRIBE_PAGE: "${WECHAT_SUBSCRIBE_PAGE:-}"
+      # 健康科普建议（DeepSeek）：KEY 只在主机 deploy/.env.deploy 中配置，绝不写入镜像/源码。
+      # 未配置 KEY 时接口返回 503 AI_NOT_CONFIGURED（功能关闭），其余既有功能不受影响。
+      DEEPSEEK_API_KEY: "${DEEPSEEK_API_KEY:-}"
+      DEEPSEEK_BASE_URL: "${DEEPSEEK_BASE_URL:-https://api.deepseek.com}"
+      DEEPSEEK_MODEL: "${DEEPSEEK_MODEL:-deepseek-chat}"
+      DEEPSEEK_TIMEOUT_MS: "${DEEPSEEK_TIMEOUT_MS:-12000}"
+      DEEPSEEK_MAX_RETRIES: "${DEEPSEEK_MAX_RETRIES:-1}"
+      HEALTH_ADVICE_CACHE_TTL_MS: "${HEALTH_ADVICE_CACHE_TTL_MS:-300000}"
+      HEALTH_ADVICE_CACHE_MAX: "${HEALTH_ADVICE_CACHE_MAX:-64}"
+    # 仅声明容器内端口，不做主机端口映射：对外只经 caddy。
+    expose:
+      - "8080"
+    volumes:
+      - backend-data:/data
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m
+    # 后端在 SIGTERM 后有 10 秒强制退出兜底（cloud/backend/src/main.js）；
+    # 给 Docker 留出略长于它的窗口，避免被 SIGKILL 打断落盘。
+    stop_grace_period: 15s
+    security_opt:
+      - no-new-privileges:true
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - public-edge
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8080/readyz').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
+
+  caddy:
+    image: caddy:2-alpine
+    init: true
+    restart: unless-stopped
+    depends_on:
+      backend:
+        condition: service_healthy
+    # 只注入反向代理需要的两个变量；后端密钥不会进入本容器进程环境。
+    environment:
+      PUBLIC_DOMAIN: "${PUBLIC_DOMAIN:?PUBLIC_DOMAIN is required in deploy/.env.deploy}"
+      ACME_EMAIL: "${ACME_EMAIL:?ACME_EMAIL is required in deploy/.env.deploy}"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      # 证书与 ACME 账户必须持久化，否则容器重建会重新申请并触发 CA 限流。
+      - caddy-data:/data
+      - caddy-config:/config
+    security_opt:
+      - no-new-privileges:true
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - public-edge
+
+networks:
+  public-edge:
+    driver: bridge
+
+volumes:
+  # 后端单进程版本化 JSON 快照；后续备份/恢复脚本按此名引用。
+  backend-data:
+  caddy-data:
+  caddy-config:

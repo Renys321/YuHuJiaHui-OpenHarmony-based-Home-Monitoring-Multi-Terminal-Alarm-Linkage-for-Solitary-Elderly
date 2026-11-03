@@ -1,0 +1,9 @@
+﻿capturedAt=2026-10-27 22:43:45
+mqtt_bridge.js node_check_exit=0
+bridge_auto_recovery.test.js node_check_exit=0
+command-sync.js node_check_exit=0
+public-sync.js node_check_exit=0
+public-sync-supervisor.js node_check_exit=0
+public-sync-supervisor.test.js node_check_exit=0
+command-sync-scope.test.js node_check_exit=0
+public-sync-fake-worker.js node_check_exit=0

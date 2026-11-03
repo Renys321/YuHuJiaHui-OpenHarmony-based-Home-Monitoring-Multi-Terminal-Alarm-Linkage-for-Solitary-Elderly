@@ -1,0 +1,44 @@
+{
+  "opId": "op-post-archive-missing-de-rb-69db87",
+  "mode": "rollback",
+  "state": "PREFLIGHT_ABORT",
+  "exitCode": 10,
+  "startedAt": "2026-10-26T08:03:12.551Z",
+  "finishedAt": "2026-10-26T08:03:12.574Z",
+  "dataRoot": "/data",
+  "volumeName": "de-rb-69db87-vol-case-postarchivem",
+  "backendStoppedAsserted": true,
+  "failPoints": [],
+  "failAfterGlobal": 0,
+  "failAfterByPoint": {},
+  "expectedPreTreeHash": "E2218F85E09F0D24E0B711DFDD296253AF342EE27E218DB746B5EA6ED53E107B",
+  "expectedPostTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+  "expectedOriginalTreeHash": "",
+  "preArchive": null,
+  "postArchive": null,
+  "original": null,
+  "staging": null,
+  "final": null,
+  "recovery": null,
+  "mixedState": false,
+  "manualTakeover": false,
+  "serviceMustStayStopped": false,
+  "stages": [
+    {
+      "stage": "S0_PREFLIGHT",
+      "at": "2026-10-26T08:03:12.553Z"
+    },
+    {
+      "stage": "S1_PREFLIGHT_CHECKS",
+      "at": "2026-10-26T08:03:12.562Z"
+    }
+  ],
+  "landingOpCount": 0,
+  "preservedExtras": [],
+  "error": {
+    "message": "post-upgrade archive missing: /backup/absent-post.tgz",
+    "code": "ASSERT",
+    "stage": "S1_PREFLIGHT_CHECKS"
+  },
+  "journalPath": "/data/.de-rollback/op-post-archive-missing-de-rb-69db87/journal.jsonl"
+}

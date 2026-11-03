@@ -1,0 +1,13 @@
+{
+  "durationSec": 60,
+  "steps": [
+    { "atSec": 1, "send": "inj pir 1" },
+    { "atSec": 3, "send": "inj climate 35.0 80" },
+    { "atSec": 8, "send": "inj climate invalid" },
+    { "atSec": 12, "send": "inj sos" },
+    { "atSec": 20, "send": "pause" },
+    { "atSec": 22, "send": "resume" },
+    { "atSec": 30, "send": "stop" },
+    { "atSec": 45, "send": "reset" }
+  ]
+}

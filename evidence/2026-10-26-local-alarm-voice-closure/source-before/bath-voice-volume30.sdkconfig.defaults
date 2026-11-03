@@ -1,0 +1,6 @@
+# Audited level for the bathroom ESP32-S3 onboard speaker (2026-10-26).
+# ES8388 speaker path LOUT2/ROUT2 (registers 0x30/0x31) = 30 (0x1E) = 0 dB.
+# This is a register value, not a percentage; the +4.5 dB maximum is 33 (0x21).
+# Must stay paired with the full-scale PCM playback change in local_voice.c;
+# do not raise further without new listening evidence (values >0 dB may clip).
+CONFIG_NODE_VOICE_VOLUME=30

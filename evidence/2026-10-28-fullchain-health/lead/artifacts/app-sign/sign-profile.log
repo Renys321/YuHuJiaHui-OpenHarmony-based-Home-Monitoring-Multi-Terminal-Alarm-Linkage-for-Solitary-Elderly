@@ -1,0 +1,3 @@
+﻿10-28 02:30:34.443  INFO - Start sign-profile
+10-28 02:30:34.503  INFO - D:\DevEcoStudio\DevEco Studio\sdk\default\openharmony\toolchains\lib\OpenHarmony.p12 is exist. Try to load it with given passwd
+10-28 02:30:35.103  INFO - sign-profile success

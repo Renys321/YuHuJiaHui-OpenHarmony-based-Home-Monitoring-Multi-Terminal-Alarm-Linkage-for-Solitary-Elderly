@@ -1,0 +1,163 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0xb (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce3818,len:0x1758
+load:0x403c9700,len:0x4
+load:0x403c9704,len:0xc00
+load:0x403cc700,len:0x2e20
+entry 0x403c9908
+[0;32mI (27) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Oct 31 2026 18:26:08[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v0.2[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (39) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (49) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (58) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (65) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (72) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (80) boot:  2 factory          factory app      00 00 00010000 00400000[0m
+[0;32mI (87) boot: End of partition table[0m
+[0;32mI (91) esp_image: segment 0: paddr=00010020 vaddr=3c0a0020 size=6d20ch (446988) map[0m
+[0;32mI (180) esp_image: segment 1: paddr=0007d234 vaddr=3fc99b00 size=02de4h ( 11748) load[0m
+[0;32mI (183) esp_image: segment 2: paddr=00080020 vaddr=42000020 size=937c0h (604096) map[0m
+[0;32mI (294) esp_image: segment 3: paddr=001137e8 vaddr=3fc9c8e4 size=017d8h (  6104) load[0m
+[0;32mI (296) esp_image: segment 4: paddr=00114fc8 vaddr=40374000 size=15a78h ( 88696) load[0m
+[0;32mI (328) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (329) boot: Disabling RNG early entropy source...[0m
+[0;32mI (340) cpu_start: Multicore app[0m
+[0;32mI (341) cpu_start: Pro cpu up.[0m
+[0;32mI (341) cpu_start: Starting app cpu, entry point is 0x403755a4[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (359) cpu_start: Pro cpu start user code[0m
+[0;32mI (359) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (359) cpu_start: Application information:[0m
+[0;32mI (362) cpu_start: Project name:     esp32_elder_node[0m
+[0;32mI (367) cpu_start: App version:      1[0m
+[0;32mI (372) cpu_start: Compile time:     Nov  1 2026 22:14:10[0m
+[0;32mI (378) cpu_start: ELF file SHA256:  76eddfa73f939f91...[0m
+[0;32mI (384) cpu_start: ESP-IDF:          v5.1.6-dirty[0m
+[0;32mI (389) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (394) cpu_start: Max chip rev:     v0.99 [0m
+[0;32mI (399) cpu_start: Chip rev:         v0.2[0m
+[0;32mI (404) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (411) heap_init: At 3FCABE48 len 0003D8C8 (246 KiB): DRAM[0m
+[0;32mI (417) heap_init: At 3FCE9710 len 00005724 (21 KiB): STACK/DRAM[0m
+[0;32mI (424) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (430) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM[0m
+[0;32mI (437) spi_flash: detected chip: generic[0m
+[0;32mI (441) spi_flash: flash io: dio[0m
+[0;33mW (445) i2s(legacy): legacy i2s driver is deprecated, please migrate to use driver/i2s_std.h, driver/i2s_pdm.h or driver/i2s_tdm.h[0m
+[0;32mI (457) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (464) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (471) app_start: Starting scheduler on CPU0[0m
+[0;32mI (476) app_start: Starting scheduler on CPU1[0m
+[0;32mI (476) main_task: Started on CPU0[0m
+[0;32mI (486) main_task: Calling app_main()[0m
+[0;32mI (506) elder-node: ESP32-S3 无线节点启动：esp32-bath / 卫生间[0m
+[0;32mI (506) elder-node: 监护暂停状态(持久化)=PAUSED[0m
+[0;32mI (506) gpio: GPIO[36]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:0 [0m
+[0;32mI (516) gpio: GPIO[15]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (526) gpio: GPIO[37]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (536) elder-node: 门磁序号恢复 seq=52 待补传事件=0[0m
+[0;32mI (546) elder-node: 门磁已配置 GPIO37（开启电平=1，去抖确认=2 次，缓存=8 条/300s）[0m
+[0;32mI (556) gpio: GPIO[1]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (566) local-led: 板载 LED 就绪：GPIO1 单色，低电平有效，启动默认灭（no boot flash）[0m
+[0;32mI (626) elder-node: 板载蜂鸣器就绪（XL9555 P0_3）[0m
+[0;33mW (726) elder-node: AHT20 初始化命令失败: ESP_FAIL[0m
+[0;32mI (856) local-voice: READY playback+mic 16000Hz IMA-ADPCM; amp standby muted; no boot alarm; clips=9[0m
+[0;33mW (856) elder-node: 温湿度自检失败：未接/接线错误/校验失败[0m
+[0;32mI (856) pp: pp rom version: e7ae62f[0m
+[0;32mI (866) net80211: net80211 rom version: e7ae62f[0m
+I (876) wifi:wifi driver task: 3fcb982c, prio:23, stack:6656, core=0
+I (886) wifi:wifi firmware version: 02461b5
+I (886) wifi:wifi certification version: v7.0
+I (886) wifi:config NVS flash: enabled
+I (886) wifi:config nano formating: disabled
+I (886) wifi:Init data frame dynamic rx buffer num: 32
+I (896) wifi:Init static rx mgmt buffer num: 5
+I (896) wifi:Init management short buffer num: 32
+I (906) wifi:Init dynamic tx buffer num: 32
+I (906) wifi:Init static tx FG buffer num: 2
+I (916) wifi:Init static rx buffer size: 1600
+I (916) wifi:Init static rx buffer num: 10
+I (916) wifi:Init dynamic rx buffer num: 32
+[0;32mI (926) wifi_init: rx ba win: 6[0m
+[0;32mI (926) wifi_init: tcpip mbox: 32[0m
+[0;32mI (926) wifi_init: udp mbox: 6[0m
+[0;32mI (936) wifi_init: tcp mbox: 6[0m
+[0;32mI (936) wifi_init: tcp tx win: 5760[0m
+[0;32mI (946) wifi_init: tcp rx win: 5760[0m
+[0;32mI (946) wifi_init: tcp mss: 1440[0m
+[0;32mI (946) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (956) wifi_init: WiFi RX IRAM OP enabled[0m
+I (956) wifi:Set ps type: 0, coexist: 0
+
+[0;32mI (966) phy_init: phy_version 680,a6008b2,Jun  4 2024,16:41:10[0m
+I (1016) wifi:mode : sta (14:c1:9f:42:dd:b4)
+I (1016) wifi:enable tsf
+[0;32mI (1016)P�[0;33mW (1026) elder-node: 串口命令通道就绪（UART0 115200 8N1，逐行命令）[0m
+[0;33mW (1926) elder-node: 温湿度本次读取无效（valid=false，保持上次有效判定）[0m
+[0;32mI (2926) elder-node: 门磁基线建立：当前状态=开启（不生成历史事件）[0m
+[0;33mW (2926) elder-node: 温湿度本次读取无效（valid=false，保持上次有效判定）[0m
+I (3916) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1
+I (3916) wifi:state: init -> auth (b0)
+I (3916) wifi:state: auth -> assoc (0)
+I (3946) wifi:state: assoc -> run (10)
+I (3976) wifi:connected with ElderCareLab, aid = 2, channel 11, BW20, bssid = 5a:fe:a0:a6:a3:d7
+I (3976) wifi:security: WPA2-PSK, phy: bgn, rssi: -39
+I (3976) wifi:pm start, type: 0
+
+I (3976) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us
+I (3986) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000
+I (4026) wifi:<ba-add>idx:0 (ifx:0, 5a:fe:a0:a6:a3:d7), tid:0, ssn:0, winSize:64
+I (4066) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us
+I (4066) wifi:AP's beacon interval = 102400 us, DTIM period = 2
+[0;33mW (4316) elder-node: 温湿度本次读取无效（valid=false，保持上次有效判定）[0m
+[0;32mI (4996) esp_netif_handlers: sta ip: 10.127.130.71, mask: 255.255.255.0, gw: 10.127.130.217[0m
+[0;32mI (4996) elder-node: 已获取 IP: 10.127.130.71[0m
+[0;32mI (5356) elder-node: 已连接网关 10.127.130.179:9101[0m
+[0;32mI (6316) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0[0m
+[0;32mI (6316) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":true,"lastOpenTs":0,"lastCloseTs":0,"seq":52},"climate":{"tempC":0.0,"rh":0.0,"ok":true,"valid":false},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[0m
+[0;32mI (6346) elder-node: STACK_FREE task=main bytes=2980[0m
+[0;32mI (6356) elder-node: STACK_FREE task=gateway-net bytes=2212[0m
+[0;32mI (7036) speaker-net: connected to 10.127.130.179:9102[0m
+[0;32mI (7266) speaker-net: rx {"type":"ping"}[0m
+[0;32mI (11366) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":true,"lastOpenTs":0,"lastCloseTs":0,"seq":52},"climate":{"tempC":0.0,"rh":0.0,"ok":true,"valid":false},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[0m
+[0;32mI (11386) elder-node: STACK_FREE task=main bytes=2980[0m
+[0;32mI (11466) elder-node: STACK_FREE task=gateway-net bytes=2212[0m
+[0;32mI (16396) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":true,"lastOpenTs":0,"lastCloseTs":0,"seq":52},"climate":{"tempC":0.0,"rh":0.0,"ok":true,"valid":false},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[0m
+[0;32mI (16416) elder-node: STACK_FREE task=main bytes=2980[0m
+[0;32mI (16466) elder-node: STACK_FREE task=gateway-net bytes=2212[0m
+[0;32mI (17276) speaker-net: rx {"type":"ping"}[0m
+[0;32mI (21426) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":true,"lastOpenTs":0,"lastCloseTs":0,"seq":52},"climate":{"tempC":0.0,"rh":0.0,"ok":true,"valid":false},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[0m
+[0;32mI (21446) elder-node: STACK_FREE task=main bytes=2980[0m
+[0;32mI (21466) elder-node: STACK_FREE task=gateway-net bytes=2212[0m
+[0;32mI (26456) elder-node: ADC raw: MQ2(CH-1)=0 valid=0 danger=0 | MQ5(CH-1)=0 valid=0 danger=0[0m
+[0;32mI (26456) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":true,"lastOpenTs":0,"lastCloseTs":0,"seq":52},"climate":{"tempC":0.0,"rh":0.0,"ok":true,"valid":false},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[0m
+[0;32mI (26466) elder-node: STACK_FREE task=gateway-net bytes=2212[0m
+[0;32mI (26496) elder-node: STACK_FREE task=main bytes=2980[0m
+[0;32mI (27286) speaker-net: rx {"type":"ping"}[0m
+[0;32mI (31506) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":true,"lastOpenTs":0,"lastCloseTs":0,"seq":52},"climate":{"tempC":0.0,"rh":0.0,"ok":true,"valid":false},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[0m
+[0;32mI (31526) elder-node: STACK_FREE task=main bytes=2980[0m
+[0;32mI (31596) elder-node: STACK_FREE task=gateway-net bytes=2212[0m
+[0;32mI (33936) elder-node: 时间已同步（不改动环境告警状态）[0m
+[0;32mI (36536) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1793595672666,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1793595670065,"countToday":0},"door":{"open":true,"lastOpenTs":0,"lastCloseTs":0,"seq":52},"climate":{"tempC":0.0,"rh":0.0,"ok":true,"valid":false},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[0m
+[0;32mI (36566) elder-node: STACK_FREE task=main bytes=2980[0m
+[0;32mI (36596) elder-node: STACK_FREE task=gateway-net bytes=2212[0m
+[0;32mI (37306) speaker-net: rx {"type":"ping"}[0m
+[0;32mI (41566) elder-node: → {"deviceId":"esp32-bath","room":"卫生间","ts":1793595677696,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1793595670065,"countToday":0},"door":{"open":true,"lastOpenTs":0,"lastCloseTs":0,"seq":52},"climate":{"tempC":0.0,"rh":0.0,"ok":true,"valid":false},"gas":{"raw":0,"ok":true,"valid":false},"smoke":{"raw":0,"ok":true,"valid":false}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[0m
+[0;32mI (41596) elder-node: STACK_FREE task=gateway-net bytes=2212[0m
+[0;32mI (41596) elder-node: STACK_FREE task=main bytes=2980[0m

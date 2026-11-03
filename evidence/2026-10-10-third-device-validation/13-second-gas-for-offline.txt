@@ -1,0 +1,38 @@
+PC_PUBLISH_TIME=2026-10-10 10:12:06 +08:00
+[tool] 已连接 127.0.0.1:1883
+[tool] 已发布 → home/esp32-bath/cmd: {"cmd":"gas"}
+PUBLISH_EXIT=0
+DEVICE_ID=esp32-bath
+STATE=ALARM
+ALARM_ID=sim-1791598326971-2
+ALARM_TYPE=GAS
+--- SIM NODE TAIL ---
+[sim-node] → ACKED 活动 0 次
+[sim-node] → ACKED 活动 0 次
+[sim-node] → ACKED 活动 0 次
+[sim-node] → ACKED 活动 0 次
+[sim-node] → ACKED 活动 0 次
+[sim-node] → ACKED 活动 0 次
+[sim-node] → ACKED 活动 0 次
+[sim-node] → ACKED 活动 0 次
+[sim-node] → ACKED 活动 0 次
+[sim-node] → ACKED 活动 0 次
+[sim-node] → ACKED 活动 0 次
+[sim-node] ← 收到命令: gas
+[sim-node] → ALARM 活动 0 次
+[sim-node] → ALARM 活动 0 次
+--- BRIDGE TAIL ---
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[MQTT] ← home/esp32-bath/cmd: {"cmd":"gas"}
+[bridge] 命令已发往节点 esp32-bath: gas
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0

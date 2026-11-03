@@ -1,0 +1,23 @@
+﻿capturedAt=2026-10-27 22:46:08 === 现场只读健康检查（当前真实状态）===
+{
+    "checkedAt":  "2026-10-27 22:46:07",
+    "brokerListening":  true,
+    "bridgeListening":  true,
+    "supervisor":  {
+                       "supervisorPid":  39628,
+                       "supervisorAlive":  true,
+                       "workerPid":  53752,
+                       "workerAlive":  true,
+                       "heartbeatAgeMs":  3527,
+                       "maxHeartbeatAgeMs":  90000,
+                       "state":  "HEALTHY",
+                       "lockPid":  39628,
+                       "healthy":  true,
+                       "reason":  "HEALTHY"
+                   },
+    "supervisorCheckExit":  0,
+    "portsOk":  true,
+    "healthy":  true,
+    "reason":  "HEALTHY"
+}
+

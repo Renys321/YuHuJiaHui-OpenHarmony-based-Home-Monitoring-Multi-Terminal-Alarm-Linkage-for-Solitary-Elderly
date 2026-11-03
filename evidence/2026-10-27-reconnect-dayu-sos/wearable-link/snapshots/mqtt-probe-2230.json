@@ -1,0 +1,42 @@
+{
+  "probedAt": "2026-10-27T14:27:12.137Z",
+  "probedAtLocal": "2026-10-27 22:27:12 +08:00",
+  "envFile": "D:\\OpenHarmony\\competition\\.secrets\\wearable-mqtt.env",
+  "envKeysPresent": {
+    "MQTT_USER": "set",
+    "MQTT_PASS": "(redacted)",
+    "MQTT_CLIENT_ID": "set",
+    "UP_TOPIC": "set",
+    "DOWN_TOPIC": "set"
+  },
+  "requiredKeysMissing": [],
+  "target": {
+    "host": "47.76.70.118",
+    "port": 1883
+  },
+  "safety": {
+    "publishedAnyMessage": false,
+    "takeoverAttempted": false,
+    "note": "白名单 clientId 只有一个；以它连接会接管现场 M100 连接，故只做非白名单 CONNECT 存活探测"
+  },
+  "tcp1883": {
+    "ok": true,
+    "elapsedMs": 84
+  },
+  "mqttConnectNonWhitelistedClientId": {
+    "elapsedMs": 167,
+    "connected": true,
+    "connackType": 2,
+    "connackReturnCode": 5,
+    "sessionPresent": false
+  },
+  "mqttConnectWhitelistedClientId": {
+    "attempted": false,
+    "reason": "以白名单 clientId 连接会接管现场 M100 生产连接（当前设备在线，hb 30s/条），按安全边界不执行"
+  },
+  "httpHealthz8099": {
+    "ok": false,
+    "elapsedMs": 4006,
+    "error": "TIMEOUT"
+  }
+}

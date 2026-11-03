@@ -1,0 +1,514 @@
+{
+ "totalLines": 607,
+ "parsed": 583,
+ "badLines": 24,
+ "cameraActiveFromMs": 1792859737842,
+ "cameraActiveToMs": 1792860879530,
+ "cameraActiveSec": 1141.7,
+ "received": 2775,
+ "inferred": 583,
+ "dropped": 2192,
+ "droppedRatio": 0.79,
+ "inferMsP50": 1844,
+ "inferMsP95": 1890,
+ "inferMsMin": 1792,
+ "inferMsMax": 2737,
+ "captureFps": 2.43,
+ "inferFps": 0.51,
+ "rssKbMin": 109204,
+ "rssKbMax": 122132,
+ "tempCMin": 48.3,
+ "tempCMax": 60.6,
+ "cpuSecondsStart": 2.29,
+ "cpuSecondsEnd": 1113.58,
+ "cpuUtilPercent": 97.3,
+ "errors": 0,
+ "personCountGe2Events": 1,
+ "personCountDistribution": {
+  "0": 369,
+  "1": 213,
+  "2": 1
+ },
+ "transitions": [
+  {
+   "eventTsMs": 1792859737842,
+   "from": null,
+   "to": 0,
+   "inferMs": 2364
+  },
+  {
+   "eventTsMs": 1792859739809,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1933
+  },
+  {
+   "eventTsMs": 1792859741656,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1816
+  },
+  {
+   "eventTsMs": 1792860066985,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1831
+  },
+  {
+   "eventTsMs": 1792860074620,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1876
+  },
+  {
+   "eventTsMs": 1792860082108,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1812
+  },
+  {
+   "eventTsMs": 1792860093369,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1820
+  },
+  {
+   "eventTsMs": 1792860097136,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1848
+  },
+  {
+   "eventTsMs": 1792860174414,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1848
+  },
+  {
+   "eventTsMs": 1792860178158,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1846
+  },
+  {
+   "eventTsMs": 1792860366482,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1903
+  },
+  {
+   "eventTsMs": 1792860368338,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1823
+  },
+  {
+   "eventTsMs": 1792860389013,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1824
+  },
+  {
+   "eventTsMs": 1792860392743,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1829
+  },
+  {
+   "eventTsMs": 1792860396472,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1820
+  },
+  {
+   "eventTsMs": 1792860398359,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1854
+  },
+  {
+   "eventTsMs": 1792860413381,
+   "from": 1,
+   "to": 2,
+   "inferMs": 1886
+  },
+  {
+   "eventTsMs": 1792860415246,
+   "from": 2,
+   "to": 1,
+   "inferMs": 1833
+  },
+  {
+   "eventTsMs": 1792860426521,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1843
+  },
+  {
+   "eventTsMs": 1792860428386,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1833
+  },
+  {
+   "eventTsMs": 1792860430259,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1834
+  },
+  {
+   "eventTsMs": 1792860434033,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1836
+  },
+  {
+   "eventTsMs": 1792860435921,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1857
+  },
+  {
+   "eventTsMs": 1792860450931,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1828
+  },
+  {
+   "eventTsMs": 1792860452829,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1860
+  },
+  {
+   "eventTsMs": 1792860454703,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1841
+  },
+  {
+   "eventTsMs": 1792860456565,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1829
+  },
+  {
+   "eventTsMs": 1792860462246,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1838
+  },
+  {
+   "eventTsMs": 1792860471727,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1823
+  },
+  {
+   "eventTsMs": 1792860473612,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1848
+  },
+  {
+   "eventTsMs": 1792860477420,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1870
+  },
+  {
+   "eventTsMs": 1792860479317,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1864
+  },
+  {
+   "eventTsMs": 1792860485002,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1889
+  },
+  {
+   "eventTsMs": 1792860488793,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1858
+  },
+  {
+   "eventTsMs": 1792860494415,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1838
+  },
+  {
+   "eventTsMs": 1792860503875,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1860
+  },
+  {
+   "eventTsMs": 1792860511420,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1834
+  },
+  {
+   "eventTsMs": 1792860518955,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1870
+  },
+  {
+   "eventTsMs": 1792860520893,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1905
+  },
+  {
+   "eventTsMs": 1792860537866,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1822
+  },
+  {
+   "eventTsMs": 1792860539729,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1830
+  },
+  {
+   "eventTsMs": 1792860562352,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1862
+  },
+  {
+   "eventTsMs": 1792860564226,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1843
+  },
+  {
+   "eventTsMs": 1792860590631,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1865
+  },
+  {
+   "eventTsMs": 1792860592517,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1850
+  },
+  {
+   "eventTsMs": 1792860606483,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1856
+  },
+  {
+   "eventTsMs": 1792860608379,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1862
+  },
+  {
+   "eventTsMs": 1792860627343,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1847
+  },
+  {
+   "eventTsMs": 1792860629243,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1869
+  },
+  {
+   "eventTsMs": 1792860631068,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1794
+  },
+  {
+   "eventTsMs": 1792860638500,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1815
+  },
+  {
+   "eventTsMs": 1792860640365,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1831
+  },
+  {
+   "eventTsMs": 1792860644116,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1837
+  },
+  {
+   "eventTsMs": 1792860647794,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1798
+  },
+  {
+   "eventTsMs": 1792860649670,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1838
+  },
+  {
+   "eventTsMs": 1792860653387,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1857
+  },
+  {
+   "eventTsMs": 1792860655239,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1819
+  },
+  {
+   "eventTsMs": 1792860658973,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1843
+  },
+  {
+   "eventTsMs": 1792860660841,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1832
+  },
+  {
+   "eventTsMs": 1792860664546,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1842
+  },
+  {
+   "eventTsMs": 1792860668265,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1830
+  },
+  {
+   "eventTsMs": 1792860671960,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1819
+  },
+  {
+   "eventTsMs": 1792860675648,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1826
+  },
+  {
+   "eventTsMs": 1792860679347,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1835
+  },
+  {
+   "eventTsMs": 1792860681209,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1828
+  },
+  {
+   "eventTsMs": 1792860684884,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1812
+  },
+  {
+   "eventTsMs": 1792860686749,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1829
+  },
+  {
+   "eventTsMs": 1792860688577,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1794
+  },
+  {
+   "eventTsMs": 1792860690490,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1873
+  },
+  {
+   "eventTsMs": 1792860696265,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1986
+  },
+  {
+   "eventTsMs": 1792860698563,
+   "from": 1,
+   "to": 0,
+   "inferMs": 2254
+  },
+  {
+   "eventTsMs": 1792860781393,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1848
+  },
+  {
+   "eventTsMs": 1792860783308,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1881
+  },
+  {
+   "eventTsMs": 1792860851194,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1841
+  },
+  {
+   "eventTsMs": 1792860853084,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1857
+  },
+  {
+   "eventTsMs": 1792860858769,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1868
+  },
+  {
+   "eventTsMs": 1792860860656,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1852
+  },
+  {
+   "eventTsMs": 1792860862536,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1847
+  },
+  {
+   "eventTsMs": 1792860864452,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1883
+  },
+  {
+   "eventTsMs": 1792860879530,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1884
+  }
+ ]
+}

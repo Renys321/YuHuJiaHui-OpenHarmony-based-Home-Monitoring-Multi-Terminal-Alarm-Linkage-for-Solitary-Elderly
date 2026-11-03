@@ -1,0 +1,14 @@
+﻿10-28 02:30:35.770  INFO - Start sign-app
+10-28 02:30:36.055  INFO - certificate in profile: OpenHarmony Application Release
+10-28 02:30:36.132  INFO - Start to sign code.
+10-28 02:30:36.138  INFO - profile type is: debug
+10-28 02:30:36.182  INFO - D:\OpenHarmony\competition\experiments\dayu-previewtest-2026-10-25\signing\previewtest.p12 is exist. Try to load it with given passwd
+10-28 02:30:36.341  INFO - Create a sign info successfully.
+10-28 02:30:36.357  INFO - Create a sign info successfully.
+10-28 02:30:36.364  INFO - No native libs.
+10-28 02:30:36.367  INFO - Sign successfully.
+10-28 02:30:36.367  INFO - Start permission signing.
+10-28 02:30:36.389  INFO - Add sign data in sign info list success.
+10-28 02:30:36.396  INFO - Generate signing block success, begin write it to output file
+10-28 02:30:36.398  INFO - Sign Hap success!
+10-28 02:30:36.398  INFO - sign-app success

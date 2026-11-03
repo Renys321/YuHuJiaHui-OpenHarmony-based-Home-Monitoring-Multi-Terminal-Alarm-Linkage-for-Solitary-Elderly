@@ -1,0 +1,10 @@
+﻿$ hdc -t 450100445634303332012847942eca00 shell "hilog -x 2>&1 | grep -iE 'dport:9200' | tail -6"
+# captured: 2026-10-27 22:32:13 +08:00
+----------------------------------------------------------------------
+10-27 22:32:10.270  8411  9741 I C015b0/NETSTACK: [http_exec.cpp:584] taskid=-2147467719, size:38952, dns:0.153, connect:0.915, tls:0.000, firstSend:0.728, firstRecv:2.807, total:5.909, redirect:0.000, reuse:1, inactivityMs:0, no handover, errCode:0, RespCode:200, httpVer:2, method:POST, osErr:0, saddr:127.0.*.*, sport:45784, daddr:127.0.*.*, dport:9200
+10-27 22:32:10.824  8411  9741 I C015b0/NETSTACK: [http_exec.cpp:584] taskid=-2147467718, size:39619, dns:0.144, connect:1.579, tls:0.000, firstSend:3.207, firstRecv:0.646, total:5.825, redirect:0.000, reuse:1, inactivityMs:0, no handover, errCode:0, RespCode:200, httpVer:2, method:POST, osErr:0, saddr:127.0.*.*, sport:45792, daddr:127.0.*.*, dport:9200
+10-27 22:32:11.404  8411  9741 I C015b0/NETSTACK: [http_exec.cpp:584] taskid=-2147467717, size:39077, dns:0.161, connect:0.916, tls:0.000, firstSend:2.641, firstRecv:1.419, total:5.521, redirect:0.000, reuse:1, inactivityMs:0, no handover, errCode:0, RespCode:200, httpVer:2, method:POST, osErr:0, saddr:127.0.*.*, sport:45808, daddr:127.0.*.*, dport:9200
+10-27 22:32:11.901  8411  9741 I C015b0/NETSTACK: [http_exec.cpp:584] taskid=-2147467716, size:38819, dns:0.154, connect:1.012, tls:0.000, firstSend:0.999, firstRecv:2.764, total:5.510, redirect:0.000, reuse:1, inactivityMs:0, no handover, errCode:0, RespCode:200, httpVer:2, method:POST, osErr:0, saddr:127.0.*.*, sport:45824, daddr:127.0.*.*, dport:9200
+10-27 22:32:12.269   720  2320 I C02d13/HDC_LOG: [async_cmd.cpp:251] ExecuteCommand cmd:hilog -x 2>&1 | grep -iE 'dport:9200' | tail -6 fd:32 pid:12915
+10-27 22:32:12.477  8411  9741 I C015b0/NETSTACK: [http_exec.cpp:584] taskid=-2147467715, size:38694, dns:0.140, connect:0.851, tls:0.000, firstSend:2.287, firstRecv:2.266, total:5.813, redirect:0.000, reuse:1, inactivityMs:0, no handover, errCode:0, RespCode:200, httpVer:2, method:POST, osErr:0, saddr:127.0.*.*, sport:45834, daddr:127.0.*.*, dport:9200
+

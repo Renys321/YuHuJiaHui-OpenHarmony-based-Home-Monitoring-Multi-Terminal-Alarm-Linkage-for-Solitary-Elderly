@@ -1,0 +1,20 @@
+PC_PUBLISH_TIME=2026-10-10 10:16:07 +08:00
+[tool] 已连接 127.0.0.1:1883
+[tool] 已发布 → home/esp32-bath/cmd: {"cmd":"gas"}
+PUBLISH_EXIT=0
+STATE=ALARM
+ALARM_ID=sim-1791598567900-1
+ALARM_TYPE=GAS
+RECOVERY_PID_ALIVE=True
+[sim-node] → NORMAL 活动 0 次
+[sim-node] → NORMAL 活动 0 次
+[sim-node] → NORMAL 活动 0 次
+[sim-node] → NORMAL 活动 0 次
+[sim-node] → NORMAL 活动 0 次
+[sim-node] → NORMAL 活动 0 次
+[sim-node] → NORMAL 活动 0 次
+[sim-node] → NORMAL 活动 0 次
+[sim-node] → NORMAL 活动 0 次
+[sim-node] → NORMAL 活动 0 次
+[sim-node] ← 收到命令: gas
+[sim-node] → ALARM 活动 0 次

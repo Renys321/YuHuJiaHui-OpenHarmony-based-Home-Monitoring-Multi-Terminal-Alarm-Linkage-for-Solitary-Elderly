@@ -1,0 +1,135 @@
+{
+  "tool": "verify-adapter-door-v7",
+  "patchedAdapter": "D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\_work\\onenet-adapter\\adapter.js",
+  "originalAdapter": "D:\\OpenHarmony\\competition\\cloud\\onenet\\adapter.js",
+  "checks": [
+    {
+      "name": "A1 legacy {open:false,lastOpenTs:0} accepted, output keys unchanged",
+      "pass": true,
+      "detail": "keys=lastOpenTs,open open=false lastOpenTs=0"
+    },
+    {
+      "name": "A2 legacy {open:true,lastOpenTs:13-digit} accepted",
+      "pass": true,
+      "detail": "{\"open\":true,\"lastOpenTs\":1793036599000}"
+    },
+    {
+      "name": "B1 extended v7 door accepted (open:null,lastCloseTs,seq,events)",
+      "pass": true,
+      "detail": "{\"open\":null,\"lastOpenTs\":0,\"lastCloseTs\":1793036590000,\"seq\":7,\"events\":[{\"seq\":5,\"open\":false,\"ts\":1793036580000},{\"seq\":6,\"open\":true,\"ts\":0},{\"seq\":7,\"open\":false,\"ts\":1793036590000}]}"
+    },
+    {
+      "name": "B2 extended output preserves every v7 field",
+      "pass": true,
+      "detail": "see B1"
+    },
+    {
+      "name": "B3 extended fields passed through property params exactly (no coercion)",
+      "pass": true,
+      "detail": "{\"open\":null,\"lastOpenTs\":0,\"lastCloseTs\":1793036590000,\"seq\":7,\"events\":[{\"seq\":5,\"open\":false,\"ts\":1793036580000},{\"seq\":6,\"open\":true,\"ts\":0},{\"seq\":7,\"open\":false,\"ts\":1793036590000}]}"
+    },
+    {
+      "name": "B4 extended variants: events=[] / open boolean + full fields",
+      "pass": true,
+      "detail": "{\"open\":false,\"lastOpenTs\":0,\"lastCloseTs\":0,\"seq\":1,\"events\":[]}"
+    },
+    {
+      "name": "C1 adapter output -> cloud-sync ingest payload keeps v7 door fields",
+      "pass": true,
+      "detail": "{\"open\":null,\"lastOpenTs\":0,\"lastCloseTs\":1793036590000,\"seq\":7,\"events\":[{\"seq\":5,\"open\":false,\"ts\":1793036580000},{\"seq\":6,\"open\":true,\"ts\":0},{\"seq\":7,\"open\":false,\"ts\":1793036590000}]}"
+    },
+    {
+      "name": "C2 legacy path through cloud-sync unchanged",
+      "pass": true,
+      "detail": "{\"open\":false,\"lastOpenTs\":0}"
+    },
+    {
+      "name": "E1 unknown door field rejected",
+      "pass": true,
+      "detail": "rejected: door contains unknown field: foo"
+    },
+    {
+      "name": "E2 open as string rejected",
+      "pass": true,
+      "detail": "rejected: door.open must be a boolean"
+    },
+    {
+      "name": "E3 open undefined (missing) rejected",
+      "pass": true,
+      "detail": "rejected: door.open is required"
+    },
+    {
+      "name": "E4 lastOpenTs 10-digit seconds rejected",
+      "pass": true,
+      "detail": "rejected: door.lastOpenTs must be a 13-digit UTC Unix timestamp in milliseconds"
+    },
+    {
+      "name": "E5 lastCloseTs 10-digit seconds rejected",
+      "pass": true,
+      "detail": "rejected: door.lastCloseTs must be a 13-digit UTC Unix timestamp in milliseconds"
+    },
+    {
+      "name": "E6 seq=0 rejected",
+      "pass": true,
+      "detail": "rejected: door.seq must be an integer in [1, 9007199254740991]"
+    },
+    {
+      "name": "E7 seq negative rejected",
+      "pass": true,
+      "detail": "rejected: door.seq must be an integer in [1, 9007199254740991]"
+    },
+    {
+      "name": "E8 seq non-integer rejected",
+      "pass": true,
+      "detail": "rejected: door.seq must be an integer in [1, 9007199254740991]"
+    },
+    {
+      "name": "E9 events non-array rejected",
+      "pass": true,
+      "detail": "rejected: door.events must be an array"
+    },
+    {
+      "name": "E10 events element unknown field rejected",
+      "pass": true,
+      "detail": "rejected: door.events[0] contains unknown field: foo"
+    },
+    {
+      "name": "E11 events element missing ts rejected",
+      "pass": true,
+      "detail": "rejected: door.events[0].ts is required"
+    },
+    {
+      "name": "E12 events element seq=0 rejected",
+      "pass": true,
+      "detail": "rejected: door.events[0].seq must be an integer in [1, 9007199254740991]"
+    },
+    {
+      "name": "E13 events element open null rejected (events are real transitions)",
+      "pass": true,
+      "detail": "rejected: door.events[0].open must be a boolean"
+    },
+    {
+      "name": "E14 events element ts 10-digit rejected",
+      "pass": true,
+      "detail": "rejected: door.events[0].ts must be a 13-digit UTC Unix timestamp in milliseconds"
+    },
+    {
+      "name": "E15 events length over cap (17 > 16) rejected",
+      "pass": true,
+      "detail": "rejected: door.events must contain at most 16 entries"
+    },
+    {
+      "name": "F1 ORIGINAL adapter rejects extended door (patch necessary)",
+      "pass": true,
+      "detail": "original rejected: door contains unknown field: lastCloseTs"
+    },
+    {
+      "name": "F2 ORIGINAL adapter rejects open:null (patch necessary)",
+      "pass": true,
+      "detail": "original rejected: door.open must be a boolean"
+    }
+  ],
+  "passed": 25,
+  "failed": 0,
+  "verdict": "ADAPTER_PATCH_PASS"
+}

@@ -1,0 +1,4 @@
+﻿probe=OK
+capturedAt=2026-10-24T22:47:36.7832904+08:00
+whitelist=<WORKSPACE>\competition\evidence\2026-10-24-public-sync-supervisor-candidate\runtime\api-lastseen-20261024-224316.json
+lastSeenAdvanced={"esp32-kitchen":true,"esp32-bath":true,"dayu200-living":true}

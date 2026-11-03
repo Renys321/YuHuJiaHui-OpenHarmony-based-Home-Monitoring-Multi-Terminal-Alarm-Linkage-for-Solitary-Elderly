@@ -1,0 +1,20 @@
+2026-10-27T09:21:51.850Z MQTT connected; listening 60s
+2026-10-27T09:21:58.052Z MQTT<< eldercare/wearable/sos-001/up "{\"v\":1,\"dev\":\"esp32-sos\",\"t\":\"hb\",\"state\":\"ALARM\",\"alarm\":\"sos-1-95ce218c\",\"uptimeMs\":720644}"
+2026-10-27T09:21:58.632Z MQTT<< eldercare/wearable/sos-001/up "{\"v\":1,\"dev\":\"esp32-sos\",\"t\":\"sos\",\"alarm\":\"sos-1-95ce218c\",\"uptimeMs\":721145,\"seq\":73,\"gps\":null}"
+2026-10-27T09:21:58.633Z SOS detected alarm=sos-1-95ce218c attempt=1
+2026-10-27T09:22:03.874Z ACK publish ok {"v":1,"t":"ack","alarm":"sos-1-95ce218c","cmd":"test1"}
+2026-10-27T09:22:03.874Z MQTT<< eldercare/wearable/sos-001/down "{\"v\":1,\"t\":\"ack\",\"alarm\":\"sos-1-95ce218c\",\"cmd\":\"test1\"}"
+2026-10-27T09:22:05.174Z MQTT<< eldercare/wearable/sos-001/up "112.55323028600_32.966724396000"
+2026-10-27T09:22:08.711Z MQTT<< eldercare/wearable/sos-001/up "{\"v\":1,\"dev\":\"esp32-sos\",\"t\":\"sos\",\"alarm\":\"sos-1-95ce218c\",\"uptimeMs\":731155,\"seq\":74,\"gps\":null}"
+2026-10-27T09:22:08.711Z SOS detected alarm=sos-1-95ce218c attempt=2
+2026-10-27T09:22:13.895Z ACK retry ok
+2026-10-27T09:22:13.895Z MQTT<< eldercare/wearable/sos-001/down "{\"v\":1,\"t\":\"ack\",\"alarm\":\"sos-1-95ce218c\",\"cmd\":\"test1\"}"
+2026-10-27T09:22:18.832Z MQTT<< eldercare/wearable/sos-001/up "{\"v\":1,\"dev\":\"esp32-sos\",\"t\":\"sos\",\"alarm\":\"sos-1-95ce218c\",\"uptimeMs\":741165,\"seq\":75,\"gps\":null}"
+2026-10-27T09:22:18.833Z SOS detected alarm=sos-1-95ce218c attempt=3
+2026-10-27T09:22:28.165Z MQTT<< eldercare/wearable/sos-001/up "{\"v\":1,\"dev\":\"esp32-sos\",\"t\":\"hb\",\"state\":\"ALARM\",\"alarm\":\"sos-1-95ce218c\",\"uptimeMs\":750654}"
+2026-10-27T09:22:28.627Z MQTT<< eldercare/wearable/sos-001/up "{\"v\":1,\"dev\":\"esp32-sos\",\"t\":\"sos\",\"alarm\":\"sos-1-95ce218c\",\"uptimeMs\":751175,\"seq\":76,\"gps\":null}"
+2026-10-27T09:22:28.627Z SOS detected alarm=sos-1-95ce218c attempt=4
+2026-10-27T09:22:39.078Z MQTT<< eldercare/wearable/sos-001/up "{\"v\":1,\"dev\":\"esp32-sos\",\"t\":\"sos\",\"alarm\":\"sos-1-95ce218c\",\"uptimeMs\":761185,\"seq\":77,\"gps\":null}"
+2026-10-27T09:22:39.078Z SOS detected alarm=sos-1-95ce218c attempt=5
+2026-10-27T09:22:48.974Z MQTT<< eldercare/wearable/sos-001/up "{\"v\":1,\"dev\":\"esp32-sos\",\"t\":\"sos\",\"alarm\":\"sos-1-95ce218c\",\"uptimeMs\":771195,\"seq\":78,\"gps\":null}"
+2026-10-27T09:22:48.974Z SOS detected alarm=sos-1-95ce218c attempt=6

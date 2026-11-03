@@ -1,0 +1,13 @@
+{
+  "durationSec": 80,
+  "steps": [
+    {"atSec": 3,  "send": "inj sos"},
+    {"atSec": 14, "send": "ack e-wrong-id-99"},
+    {"atSec": 22, "send": "ack {lastAlarm}"},
+    {"atSec": 34, "send": "inj sos"},
+    {"atSec": 46, "send": "stop"},
+    {"atSec": 54, "send": "inj sos"},
+    {"atSec": 64, "send": "reset"},
+    {"atSec": 70, "send": "inj reboot"}
+  ]
+}

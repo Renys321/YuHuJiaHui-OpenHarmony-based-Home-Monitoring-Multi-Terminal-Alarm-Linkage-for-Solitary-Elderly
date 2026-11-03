@@ -1,0 +1,28 @@
+[vision] HTTP JPEG ingest listening on 127.0.0.1:9200
+[vision] monitor watchdog: timeout=10000ms startup-grace=15000ms heartbeat=60000ms
+[vision] HTTP JPEG ingest listening on 127.0.0.1:9200
+[vision] monitor watchdog: timeout=10000ms startup-grace=15000ms heartbeat=60000ms
+[vision] monitor offline: no_first_frame
+[vision] HTTP JPEG ingest listening on 127.0.0.1:9200
+[vision] monitor watchdog: timeout=10000ms startup-grace=15000ms heartbeat=60000ms
+[vision] monitor offline: no_first_frame
+[vision] monitor online: frames_resumed
+[vision] HTTP JPEG ingest listening on 127.0.0.1:9200
+[vision] monitor watchdog: timeout=10000ms startup-grace=15000ms heartbeat=60000ms
+[vision] monitor online: first_frame
+[vision] monitor offline: no_frame
+[vision] monitor online: frames_resumed
+[vision] monitor offline: no_frame
+[vision] monitor online: frames_resumed
+[vision] monitor offline: no_frame
+[vision] monitor online: frames_resumed
+[vision] monitor offline: no_frame
+[vision] monitor online: frames_resumed
+[vision] monitor offline: no_frame
+[vision] monitor online: frames_resumed
+[vision] monitor offline: no_frame
+[vision] monitor online: frames_resumed
+[vision] monitor offline: no_frame
+[vision] monitor online: frames_resumed
+[vision] monitor offline: no_frame
+[vision] monitor online: frames_resumed

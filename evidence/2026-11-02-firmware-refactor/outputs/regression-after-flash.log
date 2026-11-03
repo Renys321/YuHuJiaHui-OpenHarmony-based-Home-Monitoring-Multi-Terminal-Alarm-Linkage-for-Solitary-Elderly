@@ -1,0 +1,27 @@
+=== stability-test -Cycles 3 -SpeakerTarget esp32-bath 13:21:30 ===
+    2 DAYU hdc mapping             True 9001+9302                            0
+    2 text query + answer<=40      True 27 ×Ö: ÎÒ²é²»µ½ÊµÊ±ÌìÆø£¬Äú¿´´°Íâ»òÎÊ¼ÒÈË¡£³öÃÅ¼ÇµÃÌíÒÂ·À»¬¡£  885
+    2 target speaker push          True matched esp32-bath                   0
+    2 speaker done ok=1            True esp32-bath ÒÑ»ØÖ´                       0
+    2 no cross-node playback       True ½ö esp32-bath                         0
+    2 cloud healthz                True ok(node)                             0
+    3 gateway ports 9302/9303/9102 True listening                            0
+    3 DAYU hdc mapping             True 9001+9302                            0
+    3 text query + answer<=40      True 27 ×Ö: ÎÒ²é²»µ½ÊµÊ±ÌìÆø£¬Äú¿´´°Íâ»òÎÊ¼ÒÈË¡£³öÃÅ¼ÇµÃÌíÒÂ·À»¬¡£  670
+    3 target speaker push          True matched esp32-bath                   0
+    3 speaker done ok=1            True esp32-bath ÒÑ»ØÖ´                       0
+    3 no cross-node playback       True ½ö esp32-bath                         0
+    3 cloud healthz                True ok(node)                             0
+
+
+cycles=3 target=esp32-bath pass=21 fail=0
+
+=== voice-chain-test -Cycles 2 -Target esp32-bath ===
+
+-- è¯­éŸ³é“¾è·¯ ç¬¬ 1 è½® --
+  [PASS] asr=True answer=True clip=True (9092ms)
+
+-- è¯­éŸ³é“¾è·¯ ç¬¬ 2 è½® --
+  [PASS] asr=True answer=True clip=True (9088ms)
+
+voice-chain cycles=2 pass=2 fail=0

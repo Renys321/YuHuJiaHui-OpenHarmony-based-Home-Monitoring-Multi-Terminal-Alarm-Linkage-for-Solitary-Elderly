@@ -1,0 +1,124 @@
+﻿10-24 01:00:49.348  2037  2037 I A00001/AppRefreshDiag: r1792774849348-1-auto|pid=2037|refresh.enter|origin=auto|singleFlight=NEW|inFlight=false|inFlightScope=-1|sessionGeneration=1|apiBase=https://api.luxunacc.xyz
+10-24 01:00:49.349  2037  2037 I A00001/AppRefreshDiag: r1792774849348-1-auto|pid=2037|refresh.do|sessionGeneration=1|tokenPresent=true|startedAt=1792774849349
+10-24 01:00:49.350  2037  2037 I A00001/AppRefreshDiag: r1792774849348-1-auto|pid=2037|http.start|method=GET|path=/api/v1/overview|cache=false|origin=https://api.luxunacc.xyz
+10-24 01:00:49.377  2037  2037 I A00001/AppRefreshDiag: r1792774849348-1-auto|pid=2037|http.start|method=GET|path=/api/v1/rooms|cache=false|origin=https://api.luxunacc.xyz
+10-24 01:00:49.380  2037  2037 I A00001/AppRefreshDiag: r1792774849348-1-auto|pid=2037|devices.fetch.start|sessionGeneration=1|tokenPresent=true
+10-24 01:00:49.380  2037  2037 I A00001/AppRefreshDiag: r1792774849348-1-auto|pid=2037|http.start|method=GET|path=/api/v1/devices|cache=false|origin=https://api.luxunacc.xyz
+10-24 01:00:49.386  2037  2037 I A00001/AppRefreshDiag: r1792774849348-1-auto|pid=2037|http.start|method=GET|path=/api/v1/alerts|cache=false|origin=https://api.luxunacc.xyz
+10-24 01:00:49.912  2037  2037 I A00001/AppRefreshDiag: r1792774849348-1-auto|pid=2037|http.end|path=/api/v1/alerts|status=200|elapsedMs=526
+10-24 01:00:49.927  2037  2037 I A00001/AppRefreshDiag: r1792774849348-1-auto|pid=2037|http.end|path=/api/v1/devices|status=200|elapsedMs=547
+10-24 01:00:49.928  2037  2037 I A00001/AppRefreshDiag: r1792774849348-1-auto|pid=2037|devices.fetch.end|ok=true|status=200|kind=
+10-24 01:00:49.928  2037  2037 I A00001/AppRefreshDiag: r1792774849348-1-auto|pid=2037|devices.dto|count=5|kitchen=lastSeen:1792774666564,gasRaw:233,gasValid:true,smokeRaw:329,smokeValid:true,bath=lastSeen:1792774667387,motionLast:1792774594673,motionCount:22
+10-24 01:00:49.930  2037  2037 I A00001/AppRefreshDiag: r1792774849348-1-auto|pid=2037|devices.mapped|count=5|kitchen=gas:上次读数 原始 ADC 233/offline/valid|smoke:上次读数 原始 ADC 329/offline/valid|,bath=motion:上次读数 最近活动 4 分钟前/设备离线，展示上次读数，不代表当前状态；今日 22 次 · 长时间无活动会触发 NO_MOTION 告警/offline
+10-24 01:00:49.930  2037  2037 I A00001/AppRefreshDiag: r1792774849348-1-auto|pid=2037|devices.storage.before|count=0|kitchen=absent,bath=absent
+10-24 01:00:49.930  2037  2037 I A00001/AppRefreshDiag: r1792774849348-1-auto|pid=2037|devices.storage.after|count=5|kitchen=gas:上次读数 原始 ADC 233/offline/valid|smoke:上次读数 原始 ADC 329/offline/valid|,bath=motion:上次读数 最近活动 4 分钟前/设备离线，展示上次读数，不代表当前状态；今日 22 次 · 长时间无活动会触发 NO_MOTION 告警/offline
+10-24 01:00:50.108  2037  2037 I A00001/AppRefreshDiag: r1792774849348-1-auto|pid=2037|http.end|path=/api/v1/overview|status=200|elapsedMs=758
+10-24 01:00:50.109  2037  2037 I A00001/AppRefreshDiag: r1792774849348-1-auto|pid=2037|http.end|path=/api/v1/rooms|status=200|elapsedMs=732
+10-24 01:00:50.110  2037  2037 I A00001/AppRefreshDiag: r1792774849348-1-auto|pid=2037|refresh.report|index=0|ok=true|stale=false|kind=|status=0|rooms=-1|devices=-1
+10-24 01:00:50.110  2037  2037 I A00001/AppRefreshDiag: r1792774849348-1-auto|pid=2037|refresh.report|index=1|ok=true|stale=false|kind=|status=0|rooms=4|devices=-1
+10-24 01:00:50.110  2037  2037 I A00001/AppRefreshDiag: r1792774849348-1-auto|pid=2037|refresh.report|index=2|ok=true|stale=false|kind=|status=0|rooms=-1|devices=5
+10-24 01:00:50.110  2037  2037 I A00001/AppRefreshDiag: r1792774849348-1-auto|pid=2037|refresh.report|index=3|ok=true|stale=false|kind=|status=0|rooms=-1|devices=-1
+10-24 01:00:50.110  2037  2037 I A00001/AppRefreshDiag: r1792774849348-1-auto|pid=2037|refresh.aggregate|success=4|total=4|stale=0|relogin=false|devicesView=5
+10-24 01:00:50.111  2037  2037 I A00001/AppRefreshDiag: r1792774849348-1-auto|pid=2037|refresh.lastUpdated|before=0|after=1792774850111|devicesInStorage=5
+10-24 01:00:50.111  2037  2037 I A00001/AppRefreshDiag: r1792774849348-1-auto|pid=2037|refresh.return|ok=true|partial=false|stale=false|unauthorized=false|updatedAt=1792774850111
+10-24 01:00:50.111  2037  2037 I A00001/AppRefreshDiag: r1792774849348-1-auto|pid=2037|refresh.finally|lock-released
+10-24 01:01:19.393  2037  2037 I A00001/AppRefreshDiag: r1792774879393-2-auto|pid=2037|refresh.enter|origin=auto|singleFlight=NEW|inFlight=false|inFlightScope=-1|sessionGeneration=1|apiBase=https://api.luxunacc.xyz
+10-24 01:01:19.394  2037  2037 I A00001/AppRefreshDiag: r1792774879393-2-auto|pid=2037|refresh.do|sessionGeneration=1|tokenPresent=true|startedAt=1792774879394
+10-24 01:01:19.395  2037  2037 I A00001/AppRefreshDiag: r1792774879393-2-auto|pid=2037|http.start|method=GET|path=/api/v1/overview|cache=false|origin=https://api.luxunacc.xyz
+10-24 01:01:19.399  2037  2037 I A00001/AppRefreshDiag: r1792774879393-2-auto|pid=2037|http.start|method=GET|path=/api/v1/rooms|cache=false|origin=https://api.luxunacc.xyz
+10-24 01:01:19.402  2037  2037 I A00001/AppRefreshDiag: r1792774879393-2-auto|pid=2037|devices.fetch.start|sessionGeneration=1|tokenPresent=true
+10-24 01:01:19.403  2037  2037 I A00001/AppRefreshDiag: r1792774879393-2-auto|pid=2037|http.start|method=GET|path=/api/v1/devices|cache=false|origin=https://api.luxunacc.xyz
+10-24 01:01:19.406  2037  2037 I A00001/AppRefreshDiag: r1792774879393-2-auto|pid=2037|http.start|method=GET|path=/api/v1/alerts|cache=false|origin=https://api.luxunacc.xyz
+10-24 01:01:19.502  2037  2037 I A00001/AppRefreshDiag: r1792774879393-2-auto|pid=2037|http.end|path=/api/v1/devices|status=200|elapsedMs=99
+10-24 01:01:19.502  2037  2037 I A00001/AppRefreshDiag: r1792774879393-2-auto|pid=2037|devices.fetch.end|ok=true|status=200|kind=
+10-24 01:01:19.502  2037  2037 I A00001/AppRefreshDiag: r1792774879393-2-auto|pid=2037|devices.dto|count=5|kitchen=lastSeen:1792774666564,gasRaw:233,gasValid:true,smokeRaw:329,smokeValid:true,bath=lastSeen:1792774667387,motionLast:1792774594673,motionCount:22
+10-24 01:01:19.503  2037  2037 I A00001/AppRefreshDiag: r1792774879393-2-auto|pid=2037|devices.mapped|count=5|kitchen=gas:上次读数 原始 ADC 233/offline/valid|smoke:上次读数 原始 ADC 329/offline/valid|,bath=motion:上次读数 最近活动 4 分钟前/设备离线，展示上次读数，不代表当前状态；今日 22 次 · 长时间无活动会触发 NO_MOTION 告警/offline
+10-24 01:01:19.503  2037  2037 I A00001/AppRefreshDiag: r1792774879393-2-auto|pid=2037|devices.storage.before|count=5|kitchen=gas:上次读数 原始 ADC 233/offline/valid|smoke:上次读数 原始 ADC 329/offline/valid|,bath=motion:上次读数 最近活动 4 分钟前/设备离线，展示上次读数，不代表当前状态；今日 22 次 · 长时间无活动会触发 NO_MOTION 告警/offline
+10-24 01:01:19.504  2037  2037 I A00001/AppRefreshDiag: r1792774879393-2-auto|pid=2037|devices.storage.after|count=5|kitchen=gas:上次读数 原始 ADC 233/offline/valid|smoke:上次读数 原始 ADC 329/offline/valid|,bath=motion:上次读数 最近活动 4 分钟前/设备离线，展示上次读数，不代表当前状态；今日 22 次 · 长时间无活动会触发 NO_MOTION 告警/offline
+10-24 01:01:19.520  2037  2037 I A00001/AppRefreshDiag: r1792774879393-2-auto|pid=2037|http.end|path=/api/v1/rooms|status=200|elapsedMs=121
+10-24 01:01:19.521  2037  2037 I A00001/AppRefreshDiag: r1792774879393-2-auto|pid=2037|http.end|path=/api/v1/overview|status=200|elapsedMs=126
+10-24 01:01:19.591  2037  2037 I A00001/AppRefreshDiag: r1792774879393-2-auto|pid=2037|http.end|path=/api/v1/alerts|status=200|elapsedMs=185
+10-24 01:01:19.593  2037  2037 I A00001/AppRefreshDiag: r1792774879393-2-auto|pid=2037|refresh.report|index=0|ok=true|stale=false|kind=|status=0|rooms=-1|devices=-1
+10-24 01:01:19.593  2037  2037 I A00001/AppRefreshDiag: r1792774879393-2-auto|pid=2037|refresh.report|index=1|ok=true|stale=false|kind=|status=0|rooms=4|devices=-1
+10-24 01:01:19.593  2037  2037 I A00001/AppRefreshDiag: r1792774879393-2-auto|pid=2037|refresh.report|index=2|ok=true|stale=false|kind=|status=0|rooms=-1|devices=5
+10-24 01:01:19.593  2037  2037 I A00001/AppRefreshDiag: r1792774879393-2-auto|pid=2037|refresh.report|index=3|ok=true|stale=false|kind=|status=0|rooms=-1|devices=-1
+10-24 01:01:19.593  2037  2037 I A00001/AppRefreshDiag: r1792774879393-2-auto|pid=2037|refresh.aggregate|success=4|total=4|stale=0|relogin=false|devicesView=5
+10-24 01:01:19.594  2037  2037 I A00001/AppRefreshDiag: r1792774879393-2-auto|pid=2037|refresh.lastUpdated|before=1792774850111|after=1792774879594|devicesInStorage=5
+10-24 01:01:19.594  2037  2037 I A00001/AppRefreshDiag: r1792774879393-2-auto|pid=2037|refresh.return|ok=true|partial=false|stale=false|unauthorized=false|updatedAt=1792774879594
+10-24 01:01:19.594  2037  2037 I A00001/AppRefreshDiag: r1792774879393-2-auto|pid=2037|refresh.finally|lock-released
+10-24 01:01:49.595  2037  2037 I A00001/AppRefreshDiag: r1792774909595-3-auto|pid=2037|refresh.enter|origin=auto|singleFlight=NEW|inFlight=false|inFlightScope=-1|sessionGeneration=1|apiBase=https://api.luxunacc.xyz
+10-24 01:01:49.596  2037  2037 I A00001/AppRefreshDiag: r1792774909595-3-auto|pid=2037|refresh.do|sessionGeneration=1|tokenPresent=true|startedAt=1792774909596
+10-24 01:01:49.597  2037  2037 I A00001/AppRefreshDiag: r1792774909595-3-auto|pid=2037|http.start|method=GET|path=/api/v1/overview|cache=false|origin=https://api.luxunacc.xyz
+10-24 01:01:49.600  2037  2037 I A00001/AppRefreshDiag: r1792774909595-3-auto|pid=2037|http.start|method=GET|path=/api/v1/rooms|cache=false|origin=https://api.luxunacc.xyz
+10-24 01:01:49.604  2037  2037 I A00001/AppRefreshDiag: r1792774909595-3-auto|pid=2037|devices.fetch.start|sessionGeneration=1|tokenPresent=true
+10-24 01:01:49.604  2037  2037 I A00001/AppRefreshDiag: r1792774909595-3-auto|pid=2037|http.start|method=GET|path=/api/v1/devices|cache=false|origin=https://api.luxunacc.xyz
+10-24 01:01:49.609  2037  2037 I A00001/AppRefreshDiag: r1792774909595-3-auto|pid=2037|http.start|method=GET|path=/api/v1/alerts|cache=false|origin=https://api.luxunacc.xyz
+10-24 01:01:49.789  2037  2037 I A00001/AppRefreshDiag: r1792774909595-3-auto|pid=2037|http.end|path=/api/v1/alerts|status=200|elapsedMs=180
+10-24 01:01:49.791  2037  2037 I A00001/AppRefreshDiag: r1792774909595-3-auto|pid=2037|http.end|path=/api/v1/rooms|status=200|elapsedMs=191
+10-24 01:01:49.794  2037  2037 I A00001/AppRefreshDiag: r1792774909595-3-auto|pid=2037|http.end|path=/api/v1/devices|status=200|elapsedMs=190
+10-24 01:01:49.794  2037  2037 I A00001/AppRefreshDiag: r1792774909595-3-auto|pid=2037|devices.fetch.end|ok=true|status=200|kind=
+10-24 01:01:49.794  2037  2037 I A00001/AppRefreshDiag: r1792774909595-3-auto|pid=2037|devices.dto|count=5|kitchen=lastSeen:1792774666564,gasRaw:233,gasValid:true,smokeRaw:329,smokeValid:true,bath=lastSeen:1792774667387,motionLast:1792774594673,motionCount:22
+10-24 01:01:49.795  2037  2037 I A00001/AppRefreshDiag: r1792774909595-3-auto|pid=2037|devices.mapped|count=5|kitchen=gas:上次读数 原始 ADC 233/offline/valid|smoke:上次读数 原始 ADC 329/offline/valid|,bath=motion:上次读数 最近活动 5 分钟前/设备离线，展示上次读数，不代表当前状态；今日 22 次 · 长时间无活动会触发 NO_MOTION 告警/offline
+10-24 01:01:49.795  2037  2037 I A00001/AppRefreshDiag: r1792774909595-3-auto|pid=2037|devices.storage.before|count=5|kitchen=gas:上次读数 原始 ADC 233/offline/valid|smoke:上次读数 原始 ADC 329/offline/valid|,bath=motion:上次读数 最近活动 4 分钟前/设备离线，展示上次读数，不代表当前状态；今日 22 次 · 长时间无活动会触发 NO_MOTION 告警/offline
+10-24 01:01:49.795  2037  2037 I A00001/AppRefreshDiag: r1792774909595-3-auto|pid=2037|devices.storage.after|count=5|kitchen=gas:上次读数 原始 ADC 233/offline/valid|smoke:上次读数 原始 ADC 329/offline/valid|,bath=motion:上次读数 最近活动 5 分钟前/设备离线，展示上次读数，不代表当前状态；今日 22 次 · 长时间无活动会触发 NO_MOTION 告警/offline
+10-24 01:01:49.855  2037  2037 I A00001/AppRefreshDiag: r1792774909595-3-auto|pid=2037|http.end|path=/api/v1/overview|status=200|elapsedMs=259
+10-24 01:01:49.856  2037  2037 I A00001/AppRefreshDiag: r1792774909595-3-auto|pid=2037|refresh.report|index=0|ok=true|stale=false|kind=|status=0|rooms=-1|devices=-1
+10-24 01:01:49.856  2037  2037 I A00001/AppRefreshDiag: r1792774909595-3-auto|pid=2037|refresh.report|index=1|ok=true|stale=false|kind=|status=0|rooms=4|devices=-1
+10-24 01:01:49.856  2037  2037 I A00001/AppRefreshDiag: r1792774909595-3-auto|pid=2037|refresh.report|index=2|ok=true|stale=false|kind=|status=0|rooms=-1|devices=5
+10-24 01:01:49.856  2037  2037 I A00001/AppRefreshDiag: r1792774909595-3-auto|pid=2037|refresh.report|index=3|ok=true|stale=false|kind=|status=0|rooms=-1|devices=-1
+10-24 01:01:49.856  2037  2037 I A00001/AppRefreshDiag: r1792774909595-3-auto|pid=2037|refresh.aggregate|success=4|total=4|stale=0|relogin=false|devicesView=5
+10-24 01:01:49.856  2037  2037 I A00001/AppRefreshDiag: r1792774909595-3-auto|pid=2037|refresh.lastUpdated|before=1792774879594|after=1792774909856|devicesInStorage=5
+10-24 01:01:49.856  2037  2037 I A00001/AppRefreshDiag: r1792774909595-3-auto|pid=2037|refresh.return|ok=true|partial=false|stale=false|unauthorized=false|updatedAt=1792774909856
+10-24 01:01:49.856  2037  2037 I A00001/AppRefreshDiag: r1792774909595-3-auto|pid=2037|refresh.finally|lock-released
+10-24 01:02:19.859  2037  2037 I A00001/AppRefreshDiag: r1792774939859-4-auto|pid=2037|refresh.enter|origin=auto|singleFlight=NEW|inFlight=false|inFlightScope=-1|sessionGeneration=1|apiBase=https://api.luxunacc.xyz
+10-24 01:02:19.859  2037  2037 I A00001/AppRefreshDiag: r1792774939859-4-auto|pid=2037|refresh.do|sessionGeneration=1|tokenPresent=true|startedAt=1792774939859
+10-24 01:02:19.860  2037  2037 I A00001/AppRefreshDiag: r1792774939859-4-auto|pid=2037|http.start|method=GET|path=/api/v1/overview|cache=false|origin=https://api.luxunacc.xyz
+10-24 01:02:19.863  2037  2037 I A00001/AppRefreshDiag: r1792774939859-4-auto|pid=2037|http.start|method=GET|path=/api/v1/rooms|cache=false|origin=https://api.luxunacc.xyz
+10-24 01:02:19.866  2037  2037 I A00001/AppRefreshDiag: r1792774939859-4-auto|pid=2037|devices.fetch.start|sessionGeneration=1|tokenPresent=true
+10-24 01:02:19.866  2037  2037 I A00001/AppRefreshDiag: r1792774939859-4-auto|pid=2037|http.start|method=GET|path=/api/v1/devices|cache=false|origin=https://api.luxunacc.xyz
+10-24 01:02:19.868  2037  2037 I A00001/AppRefreshDiag: r1792774939859-4-auto|pid=2037|http.start|method=GET|path=/api/v1/alerts|cache=false|origin=https://api.luxunacc.xyz
+10-24 01:02:19.987  2037  2037 I A00001/AppRefreshDiag: r1792774939859-4-auto|pid=2037|http.end|path=/api/v1/alerts|status=200|elapsedMs=119
+10-24 01:02:19.990  2037  2037 I A00001/AppRefreshDiag: r1792774939859-4-auto|pid=2037|http.end|path=/api/v1/overview|status=200|elapsedMs=130
+10-24 01:02:20.012  2037  2037 I A00001/AppRefreshDiag: r1792774939859-4-auto|pid=2037|http.end|path=/api/v1/devices|status=200|elapsedMs=146
+10-24 01:02:20.013  2037  2037 I A00001/AppRefreshDiag: r1792774939859-4-auto|pid=2037|devices.fetch.end|ok=true|status=200|kind=
+10-24 01:02:20.013  2037  2037 I A00001/AppRefreshDiag: r1792774939859-4-auto|pid=2037|devices.dto|count=5|kitchen=lastSeen:1792774666564,gasRaw:233,gasValid:true,smokeRaw:329,smokeValid:true,bath=lastSeen:1792774667387,motionLast:1792774594673,motionCount:22
+10-24 01:02:20.013  2037  2037 I A00001/AppRefreshDiag: r1792774939859-4-auto|pid=2037|devices.mapped|count=5|kitchen=gas:上次读数 原始 ADC 233/offline/valid|smoke:上次读数 原始 ADC 329/offline/valid|,bath=motion:上次读数 最近活动 5 分钟前/设备离线，展示上次读数，不代表当前状态；今日 22 次 · 长时间无活动会触发 NO_MOTION 告警/offline
+10-24 01:02:20.013  2037  2037 I A00001/AppRefreshDiag: r1792774939859-4-auto|pid=2037|devices.storage.before|count=5|kitchen=gas:上次读数 原始 ADC 233/offline/valid|smoke:上次读数 原始 ADC 329/offline/valid|,bath=motion:上次读数 最近活动 5 分钟前/设备离线，展示上次读数，不代表当前状态；今日 22 次 · 长时间无活动会触发 NO_MOTION 告警/offline
+10-24 01:02:20.014  2037  2037 I A00001/AppRefreshDiag: r1792774939859-4-auto|pid=2037|devices.storage.after|count=5|kitchen=gas:上次读数 原始 ADC 233/offline/valid|smoke:上次读数 原始 ADC 329/offline/valid|,bath=motion:上次读数 最近活动 5 分钟前/设备离线，展示上次读数，不代表当前状态；今日 22 次 · 长时间无活动会触发 NO_MOTION 告警/offline
+10-24 01:02:20.014  2037  2037 I A00001/AppRefreshDiag: r1792774939859-4-auto|pid=2037|http.end|path=/api/v1/rooms|status=200|elapsedMs=151
+10-24 01:02:20.015  2037  2037 I A00001/AppRefreshDiag: r1792774939859-4-auto|pid=2037|refresh.report|index=0|ok=true|stale=false|kind=|status=0|rooms=-1|devices=-1
+10-24 01:02:20.015  2037  2037 I A00001/AppRefreshDiag: r1792774939859-4-auto|pid=2037|refresh.report|index=1|ok=true|stale=false|kind=|status=0|rooms=4|devices=-1
+10-24 01:02:20.015  2037  2037 I A00001/AppRefreshDiag: r1792774939859-4-auto|pid=2037|refresh.report|index=2|ok=true|stale=false|kind=|status=0|rooms=-1|devices=5
+10-24 01:02:20.015  2037  2037 I A00001/AppRefreshDiag: r1792774939859-4-auto|pid=2037|refresh.report|index=3|ok=true|stale=false|kind=|status=0|rooms=-1|devices=-1
+10-24 01:02:20.015  2037  2037 I A00001/AppRefreshDiag: r1792774939859-4-auto|pid=2037|refresh.aggregate|success=4|total=4|stale=0|relogin=false|devicesView=5
+10-24 01:02:20.015  2037  2037 I A00001/AppRefreshDiag: r1792774939859-4-auto|pid=2037|refresh.lastUpdated|before=1792774909856|after=1792774940015|devicesInStorage=5
+10-24 01:02:20.015  2037  2037 I A00001/AppRefreshDiag: r1792774939859-4-auto|pid=2037|refresh.return|ok=true|partial=false|stale=false|unauthorized=false|updatedAt=1792774940015
+10-24 01:02:20.015  2037  2037 I A00001/AppRefreshDiag: r1792774939859-4-auto|pid=2037|refresh.finally|lock-released
+10-24 01:02:23.485  2037  2037 I A00001/AppRefreshDiag: r1792774939859-4-auto|pid=2037|page.mount|page=monitor-1792774943484|deviceCount=5|lastUpdatedAt=1792774940015|netStatus=ok|kitchen=gas:上次读数 原始 ADC 233/offline/valid|smoke:上次读数 原始 ADC 329/offline/valid|,bath=motion:上次读数 最近活动 5 分钟前/设备离线，展示上次读数，不代表当前状态；今日 22 次 · 长时间无活动会触发 NO_MOTION 告警/offline
+10-24 01:02:31.908  2037  2037 I A00001/AppRefreshDiag: r1792774951908-5-manual|pid=2037|refresh.enter|origin=manual|singleFlight=NEW|inFlight=false|inFlightScope=-1|sessionGeneration=1|apiBase=https://api.luxunacc.xyz
+10-24 01:02:31.908  2037  2037 I A00001/AppRefreshDiag: r1792774951908-5-manual|pid=2037|refresh.do|sessionGeneration=1|tokenPresent=true|startedAt=1792774951908
+10-24 01:02:31.909  2037  2037 I A00001/AppRefreshDiag: r1792774951908-5-manual|pid=2037|http.start|method=GET|path=/api/v1/overview|cache=false|origin=https://api.luxunacc.xyz
+10-24 01:02:31.911  2037  2037 I A00001/AppRefreshDiag: r1792774951908-5-manual|pid=2037|http.start|method=GET|path=/api/v1/rooms|cache=false|origin=https://api.luxunacc.xyz
+10-24 01:02:31.913  2037  2037 I A00001/AppRefreshDiag: r1792774951908-5-manual|pid=2037|devices.fetch.start|sessionGeneration=1|tokenPresent=true
+10-24 01:02:31.913  2037  2037 I A00001/AppRefreshDiag: r1792774951908-5-manual|pid=2037|http.start|method=GET|path=/api/v1/devices|cache=false|origin=https://api.luxunacc.xyz
+10-24 01:02:31.916  2037  2037 I A00001/AppRefreshDiag: r1792774951908-5-manual|pid=2037|http.start|method=GET|path=/api/v1/alerts|cache=false|origin=https://api.luxunacc.xyz
+10-24 01:02:32.191  2037  2037 I A00001/AppRefreshDiag: r1792774951908-5-manual|pid=2037|http.end|path=/api/v1/devices|status=200|elapsedMs=278
+10-24 01:02:32.192  2037  2037 I A00001/AppRefreshDiag: r1792774951908-5-manual|pid=2037|devices.fetch.end|ok=true|status=200|kind=
+10-24 01:02:32.192  2037  2037 I A00001/AppRefreshDiag: r1792774951908-5-manual|pid=2037|devices.dto|count=5|kitchen=lastSeen:1792774666564,gasRaw:233,gasValid:true,smokeRaw:329,smokeValid:true,bath=lastSeen:1792774667387,motionLast:1792774594673,motionCount:22
+10-24 01:02:32.193  2037  2037 I A00001/AppRefreshDiag: r1792774951908-5-manual|pid=2037|devices.mapped|count=5|kitchen=gas:上次读数 原始 ADC 233/offline/valid|smoke:上次读数 原始 ADC 329/offline/valid|,bath=motion:上次读数 最近活动 5 分钟前/设备离线，展示上次读数，不代表当前状态；今日 22 次 · 长时间无活动会触发 NO_MOTION 告警/offline
+10-24 01:02:32.193  2037  2037 I A00001/AppRefreshDiag: r1792774951908-5-manual|pid=2037|devices.storage.before|count=5|kitchen=gas:上次读数 原始 ADC 233/offline/valid|smoke:上次读数 原始 ADC 329/offline/valid|,bath=motion:上次读数 最近活动 5 分钟前/设备离线，展示上次读数，不代表当前状态；今日 22 次 · 长时间无活动会触发 NO_MOTION 告警/offline
+10-24 01:02:32.193  2037  2037 I A00001/AppRefreshDiag: r1792774951908-5-manual|pid=2037|devices.storage.after|count=5|kitchen=gas:上次读数 原始 ADC 233/offline/valid|smoke:上次读数 原始 ADC 329/offline/valid|,bath=motion:上次读数 最近活动 5 分钟前/设备离线，展示上次读数，不代表当前状态；今日 22 次 · 长时间无活动会触发 NO_MOTION 告警/offline
+10-24 01:02:32.194  2037  2037 I A00001/AppRefreshDiag: r1792774951908-5-manual|pid=2037|http.end|path=/api/v1/alerts|status=200|elapsedMs=278
+10-24 01:02:32.200  2037  2037 I A00001/AppRefreshDiag: r1792774951908-5-manual|pid=2037|http.end|path=/api/v1/rooms|status=200|elapsedMs=289
+10-24 01:02:32.201  2037  2037 I A00001/AppRefreshDiag: r1792774951908-5-manual|pid=2037|http.end|path=/api/v1/overview|status=200|elapsedMs=292
+10-24 01:02:32.202  2037  2037 I A00001/AppRefreshDiag: r1792774951908-5-manual|pid=2037|refresh.report|index=0|ok=true|stale=false|kind=|status=0|rooms=-1|devices=-1
+10-24 01:02:32.203  2037  2037 I A00001/AppRefreshDiag: r1792774951908-5-manual|pid=2037|refresh.report|index=1|ok=true|stale=false|kind=|status=0|rooms=4|devices=-1
+10-24 01:02:32.203  2037  2037 I A00001/AppRefreshDiag: r1792774951908-5-manual|pid=2037|refresh.report|index=2|ok=true|stale=false|kind=|status=0|rooms=-1|devices=5
+10-24 01:02:32.203  2037  2037 I A00001/AppRefreshDiag: r1792774951908-5-manual|pid=2037|refresh.report|index=3|ok=true|stale=false|kind=|status=0|rooms=-1|devices=-1
+10-24 01:02:32.203  2037  2037 I A00001/AppRefreshDiag: r1792774951908-5-manual|pid=2037|refresh.aggregate|success=4|total=4|stale=0|relogin=false|devicesView=5
+10-24 01:02:32.204  2037  2037 I A00001/AppRefreshDiag: r1792774951908-5-manual|pid=2037|refresh.lastUpdated|before=1792774940015|after=1792774952204|devicesInStorage=5
+10-24 01:02:32.204  2037  2037 I A00001/AppRefreshDiag: r1792774951908-5-manual|pid=2037|refresh.return|ok=true|partial=false|stale=false|unauthorized=false|updatedAt=1792774952204
+10-24 01:02:32.204  2037  2037 I A00001/AppRefreshDiag: r1792774951908-5-manual|pid=2037|refresh.finally|lock-released
+10-24 01:02:32.204  2037  2037 I A00001/AppRefreshDiag: r1792774951908-5-manual|pid=2037|page.manual.outcome|page=monitor-1792774943484|ok=true|partial=false|stale=false|unauthorized=false|updatedAt=1792774952204
+10-24 01:02:32.204  2037  2037 I A00001/AppRefreshDiag: r1792774951908-5-manual|pid=2037|page.afterManualRefresh|page=monitor-1792774943484|deviceCount=5|lastUpdatedAt=1792774952204|netStatus=ok|kitchen=gas:上次读数 原始 ADC 233/offline/valid|smoke:上次读数 原始 ADC 329/offline/valid|,bath=motion:上次读数 最近活动 5 分钟前/设备离线，展示上次读数，不代表当前状态；今日 22 次 · 长时间无活动会触发 NO_MOTION 告警/offline
+10-24 01:02:32.205  2037  2037 I A00001/AppRefreshDiag: r1792774951908-5-manual|pid=2037|page.toast|toast=success

@@ -1,0 +1,11 @@
+# 本文件为只读字段结构核查输出（UTF-8）；不含坐标数值、不含凭据。
+# 生成: 2026-10-28 Asia/Shanghai（ecs-verify）
+
+now=2026-10-27T16:26:52.391Z
+devices_count=8 ids=esp32-kitchen,esp32-sos-isolated-test,esp32-sos-isolated-test2,yed-home-gateway,dayu200-living,dayu200-01,esp32-sos,esp32-bath
+esp32_sos_keys=id,deviceId,name,roomId,roomName,location,online,monitorOnline,state,lastSeenTs,sensors,csq
+esp32_sos_gps_field=null
+location_keys=locations
+locations_count=1
+location_deviceIds=yed-home-gateway
+loc yed-home-gateway hasCoords=true fixTime=2026-10-16T07:56:36.000Z

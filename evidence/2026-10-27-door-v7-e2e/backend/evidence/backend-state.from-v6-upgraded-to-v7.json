@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 7,
+  "savedAt": 1793036658237,
+  "devices": [
+    {
+      "deviceId": "esp32-kitchen",
+      "room": "厨房",
+      "online": true,
+      "monitorOnline": -1,
+      "state": "NORMAL",
+      "ts": 1793036658226,
+      "receivedAt": 1793036659226,
+      "sensors": {
+        "door": {
+          "open": true,
+          "lastOpenTs": 1793036657226,
+          "lastCloseTs": 1793036655226,
+          "seq": 102,
+          "events": [
+            {
+              "seq": 101,
+              "open": false,
+              "ts": 1793036652226
+            },
+            {
+              "seq": 102,
+              "open": true,
+              "ts": 1793036657226
+            }
+          ]
+        }
+      },
+      "alarm": {
+        "id": "",
+        "type": "",
+        "countToday": 0,
+        "evidenceId": ""
+      },
+      "gps": {
+        "valid": false,
+        "latitude": null,
+        "longitude": null,
+        "fixTime": 0
+      },
+      "csq": null
+    }
+  ],
+  "alerts": [
+    {
+      "alarmId": "e-smoke-1793026800-1",
+      "deviceId": "esp32-kitchen",
+      "room": "厨房",
+      "type": "MANUAL_SOS",
+      "createdAt": 1793029626663,
+      "status": "ALARM",
+      "ackPending": false,
+      "acknowledgedAt": 0,
+      "acknowledgedBy": "",
+      "action": "",
+      "evidenceId": ""
+    }
+  ],
+  "commands": [],
+  "contacts": [],
+  "notifications": [],
+  "subscriptions": [],
+  "communications": [],
+  "safetyLogs": [
+    {
+      "dispositionId": "dsp-1",
+      "clientDispositionId": "disp-smoke-1793026800-a1b2",
+      "alarmId": "e-smoke-1793026800-1",
+      "deviceId": "esp32-kitchen",
+      "room": "厨房",
+      "type": "MANUAL_SOS",
+      "outcome": "CONTACTED_FAMILY",
+      "note": "本地镜像冒烟：已联系家属（合成数据，非生产）",
+      "actor": "household-guardian",
+      "serverTime": 1793029627878
+    }
+  ],
+  "doorEvents": [
+    {
+      "eventId": "dr-1",
+      "deviceId": "esp32-kitchen",
+      "room": "厨房",
+      "open": false,
+      "occurredAt": 1793036652226,
+      "timeSource": "device",
+      "seq": 101,
+      "source": "device-cache"
+    },
+    {
+      "eventId": "dr-2",
+      "deviceId": "esp32-kitchen",
+      "room": "厨房",
+      "open": true,
+      "occurredAt": 1793036657226,
+      "timeSource": "device",
+      "seq": 102,
+      "source": "device-cache"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+﻿
+> wearable-mqtt@1.0.1 test
+> node --test "test/*.test.js"
+
+✔ SOS 上行 -> device-status（ALARM/MANUAL_SOS），位置取 M100 最新定位快照 (208.6826ms)
+✔ SOS 无任何定位时 gps.valid=false（绝不用 0,0 冒充） (103.2764ms)
+✔ 事件未 ACK 前：后续 GPS 不覆盖求助时刻位置；设备 ACK 后恢复最新位置 (219.5761ms)
+✔ 同一 alarmId 重复 SOS 不重复建告警（本地短时去重），新 alarmId 正常建告警 (645.2217ms)
+✔ hb / boot 上行更新设备在线状态（NORMAL + lastSeen），带最新位置 (110.5029ms)
+✔ GPS 固定格式：十进制/度分双兼容，解析失败只记诊断不改最新位置 (305.7842ms)
+✔ GPS 帧计数（seq）持久化：重启后继续递增 (67.0835ms)
+✔ 未知/其他设备报文只记诊断，不调用后端 (277.4415ms)
+✔ HTTP 失败按指数退避重试：device-status 先 500 后成功 (92.3911ms)
+✔ SOS 包自带有效 gps 时优先使用（fixTime 用 ageMs 回推） (51.265ms)
+✔ ACK 命令下发到 down 主题；3 次重发；无设备回执绝不 POST result（保持 PENDING） (1030.6535ms)
+✔ 设备真实回执（alarm/cmd 匹配）后才 POST result，字段符合真实后端 schema (595.6446ms)
+✔ alarm/cmd 不匹配的设备回执被拒绝，不写 result (529.6685ms)
+✔ 只处理 deviceId=esp32-sos & command=ACK & PENDING；其他设备命令只推进游标 (374.8884ms)
+✔ 重启 after 续读：已结算命令不重复下发，GET 使用持久化游标 (701.3956ms)
+✔ 3 次无回执后 parked，后端仍 PENDING；本地超时后迟到回执仍真实上报 (1041.9649ms)
+✔ 官方固定格式 经度_纬度（十进制度） (1.7986ms)
+✔ 真机实测样例：112.55326080300_32.966827393000（WGS84 十进制度，无时间字段） (0.5883ms)
+✔ 行尾 CRLF / NUL / 空白不影响解析 (0.1474ms)
+✔ 兼容 GPS: / GPS_ 前缀 (0.13ms)
+✔ 度分 ddmm.mmmm 转十进制度（经度 11358.4220 -> 113.9737） (0.5221ms)
+✔ 度分分钟数 >= 60 判非法 (0.2377ms)
+✔ 自定义半球格式 GPS_E_lon_N_lat_END (0.3327ms)
+✔ WGS84 范围校验：纬度超 90、经度超 180 均拒绝 (0.3328ms)
+✔ (0,0) 不是有效定位（不写假坐标） (0.234ms)
+✔ 坏报文/非 GPS 行一律降级为错误码，不返回坐标 (0.6781ms)
+✔ parseCoordinate 边界：90/180 合法，91/181 非法 (1.2343ms)
+▶ MQTT Broker 基础能力
+  ✔ 用户名/密码错误被拒绝（CONNACK rc=4） (11.4652ms)
+  ✔ Client ID 不在白名单被拒绝（CONNACK rc=5） (4.6788ms)
+  ✔ 正确凭据 + 白名单 Client ID 连接成功（CONNACK rc=0） (49.746ms)
+  ✔ SUBSCRIBE/SUBACK + PUBLISH QoS1 + PUBACK + 通配符 (33.8935ms)
+  ✔ QoS0 发布不回 PUBACK，QoS1 回 PUBACK (4.6804ms)
+  ✔ PINGREQ -> PINGRESP (5.1296ms)
+  ✔ retain 报文可接受且不崩（不保存 retained 消息） (83.5688ms)
+  ✔ Keep Alive 1.5 倍超时断开（keepAlive=1s -> 约 1.5s） (1511.3598ms)
+  ✔ 畸形报文只断开该连接，broker 继续服务 (5.8499ms)
+  ✔ 同 Client ID 新连接接管旧连接 (6.8488ms)
+  ✔ broker.publish() 内部投递到订阅者（适配器下行通道） (4.117ms)
+✔ MQTT Broker 基础能力 (1798.2182ms)
+✔ ① 设备链路恢复（clientConnect）后 PENDING ACK 立即重投：<10s，无需重启容器 (594.7812ms)
+✔ ①b 设备重启（boot 上行）后 parked ACK 自动重投，无需人工重启容器 (784.5922ms)
+✔ ② 同一 alarmId 跨断连重连不重复告警；只有新 alarmId 才新告警 (543.0284ms)
+✔ ③ 业务上行静默 > 阈值才 online=false（去抖），恢复首个上行立即 true；不伪造设备时间/坐标 (1794.5719ms)
+✔ ③b 离线判定去抖：阈值内的心跳只刷新、绝不让 APP 闪“离线” (2197.2601ms)
+✔ ④ 容器重启（内存态丢失）：持久化最后已知状态不含坐标，不丢未确认求助、不代报 ACKED (1308.441ms)
+✔ ④b 容器重启不回退 ACKED：不重复 result、不重复告警 (1806.2116ms)
+✔ ⑤ 后端响应暂时缺少 parked 命令：不得静默丢弃 ACK，恢复后继续重投 (2522.1623ms)
+✔ node server.js 完整进程：启动 -> MQTT SOS/GPS -> /healthz -> SIGTERM (651.1686ms)
+✔ 诊断端口：healthz/status/metrics 正常且不泄露密钥 (163.3863ms)
+ℹ tests 49
+ℹ suites 0
+ℹ pass 49
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11888.1314

@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-27T10:51:58.281Z",
+  "probes": [
+    {
+      "path": "/healthz",
+      "status": 200,
+      "body": "{\"ok\":true,\"service\":\"eldercare-cloud-backend\"}"
+    },
+    {
+      "path": "/api/v1/devices",
+      "status": 401,
+      "body": "{\"error\":\"unauthorized\"}"
+    },
+    {
+      "path": "/api/v1/rooms",
+      "status": 401,
+      "body": "{\"error\":\"unauthorized\"}"
+    },
+    {
+      "path": "/api/v1/health-profile",
+      "status": 401,
+      "body": "{\"error\":\"unauthorized\"}"
+    }
+  ]
+}

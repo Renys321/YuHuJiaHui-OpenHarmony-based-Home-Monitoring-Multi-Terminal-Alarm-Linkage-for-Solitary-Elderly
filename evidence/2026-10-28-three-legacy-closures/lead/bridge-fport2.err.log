@@ -1,0 +1,13 @@
+[2026-10-27T16:48:37.080Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793119710605,"state":"NORMAL","onlin
+[2026-10-27T16:50:10.489Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793119804386,"state":"NORMAL","onlin
+[2026-10-27T16:50:38.619Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793119831702,"state":"NORMAL","onlin
+[2026-10-27T16:52:10.935Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793119924627,"state":"NORMAL","onlin
+[2026-10-27T16:52:38.014Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793119951867,"state":"NORMAL","onlin
+[2026-10-27T16:53:41.269Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793120014501,"state":"NORMAL","onlin
+[2026-10-27T16:54:09.389Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793120042786,"state":"NORMAL","onlin
+[2026-10-27T16:55:44.784Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793120134750,"state":"NORMAL","onlin
+[2026-10-27T16:56:17.959Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793120171119,"state":"NORMAL","onlin
+[2026-10-27T16:57:40.295Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793120253947,"state":"NORMAL","onlin
+[2026-10-27T16:58:07.411Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793120281194,"state":"NORMAL","onlin
+[2026-10-27T16:58:39.663Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793120313542,"state":"NORMAL","onlin
+^C

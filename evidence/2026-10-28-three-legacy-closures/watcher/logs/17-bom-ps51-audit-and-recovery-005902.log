@@ -1,0 +1,61 @@
+﻿# BOM / Windows PowerShell 5.1 AST audit + runtime recovery snapshot (2026-10-28 00:59:02 +08:00)
+# Trigger: Lead 00:56 报告 P0 窗口因 BOM/解析问题退出；本文件是**只读审计**结果，未写任何 materials 文件。
+## materials *.ps1 BOM + PS5.1 parse
+file | mtime | bytes | BOM | PS5.1
+D:\OpenHarmony\competition\materials\demo_recover.ps1 | 2026/10/28 0:56:25 | 15937 | True | PARSE_OK
+D:\OpenHarmony\competition\materials\demo_start.ps1 | 2026/10/28 0:53:30 | 18448 | True | PARSE_OK
+D:\OpenHarmony\competition\materials\device-preflight.ps1 | 2026/10/28 0:53:30 | 8401 | True | PARSE_OK
+D:\OpenHarmony\competition\materials\make_voice.ps1 | 2026/10/10 10:28:04 | 4698 | True | PARSE_OK
+D:\OpenHarmony\competition\materials\public-sync-health.ps1 | 2026/10/27 22:41:04 | 4444 | True | PARSE_OK
+D:\OpenHarmony\competition\materials\resolve-dayu-lan-ip.ps1 | 2026/10/28 0:31:54 | 9374 | True | PARSE_OK
+D:\OpenHarmony\competition\materials\start-demo-supervisor.ps1 | 2026/10/28 0:56:25 | 22924 | True | PARSE_OK
+D:\OpenHarmony\competition\materials\start-mirror-dayu.ps1 | 2026/10/28 0:32:40 | 5666 | True | PARSE_OK
+D:\OpenHarmony\competition\materials\verify-p0-health.ps1 | 2026/10/27 22:41:04 | 5319 | True | PARSE_OK
+D:\OpenHarmony\competition\materials\verify-supervisor-acceptance.ps1 | 2026/10/24 22:57:29 | 8696 | True | PARSE_OK
+D:\OpenHarmony\competition\materials\demo-autostart\demo-autostart.ps1 | 2026/10/27 22:41:04 | 24170 | True | PARSE_OK
+## evidence tests *.ps1 BOM + PS5.1 parse
+capture-homemon-evidence.ps1 | 2791 | True | PARSE_OK
+verify-watcher-recovery.ps1 | 16127 | True | PARSE_OK
+## demo-preflight.js node --check
+exit=0 out=
+## start-demo-supervisor.ps1 identity
+mtime=2026/10/28 0:56:25 bytes=22924 BOM=True sha256=176AD3357E71FE53E70528264DFB6492DE758F5EF39E07C42243C44AC9CA5712
+$HomemonSha = 'a5f355c2d5e9f4e7330282f1856411927eb54ad743b5acb7c599be7c2d6ed9ea'
+## runtime snapshot (read-only)
+PID 27820 start=10/27/2026 22:29:42 "D:\Node\node.exe" D:\OpenHarmony\competition\bridge\mqtt_broker.js 1883 
+watcher PID 67784 start=10/28/2026 00:59:02
+{
+  "supervisorPid": 67276,
+  "workerPid": 61132,
+  "state": "HEALTHY",
+  "startedAt": 1793120258768,
+  "heartbeatAt": 1793120295839,
+  "restartCount": 0,
+  "lastWorkerStartedAt": 1793120265851,
+  "lastWorkerExit": null,
+  "lastHealthyAt": 1793120266095
+}
+
+{
+    "timestamp":  "2026-10-28 00:58:42",
+    "target":  "450100445634303332012847942eca00",
+    "targetConnected":  true,
+    "p0":  "healthy",
+    "p0Reason":  "HEALTHY",
+    "app":  "present",
+    "inference":  "running",
+    "cameraFrames":  "LIVE",
+    "nodes":  "4/4",
+    "userStop":  false,
+    "userPaused":  false,
+    "lastEventCount":  159193,
+    "watcherPid":  63720
+}
+
+dayu200-living: 2026-10-27T16:58:17.573Z [worker:stdout] [cloud-sync] OK device=dayu200-living ts=1793120297471 deviceTs=1793120296534 path=/internal/v1/device-status status=202 at=2026-10-27T16:58:17.572Z
+esp32-kitchen: 2026-10-27T16:58:20.683Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793120300579 deviceTs=1793120300720 path=/internal/v1/device-status status=202 at=2026-10-27T16:58:20.682Z
+esp32-bath: 2026-10-27T16:58:18.904Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1793120298809 deviceTs=0 path=/internal/v1/device-status status=202 at=2026-10-27T16:58:18.903Z
+mirror pid=65784 relay=127.0.0.1:9001 connected=True connects=1 disconnects=0
+## PowerShell 5.1 health scripts (read-only runs captured separately)
+verify-p0-health.ps1: 6/6 PASS (logs/16-verify-p0-health-after-watcher.log)
+public-sync-health.ps1: exit 0 HEALTHY (logs/16b-public-sync-health-after-watcher.log)

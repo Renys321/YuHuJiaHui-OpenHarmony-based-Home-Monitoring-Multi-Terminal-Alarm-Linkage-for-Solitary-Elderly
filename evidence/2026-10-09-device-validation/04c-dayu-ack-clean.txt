@@ -1,0 +1,20 @@
+﻿== 步骤 04c：ACK 三态（干净重做，排除外部 ACK 干扰）==
+时间: 2026-10-09 22:47:08
+
+新告警: id=a-1791586031-2  初始状态="state":"ALARM"
+
+=== A) 错误 alarmId（期望：拒绝 + 保持 ALARM）===
+日志: [1791586034] ACK 被拒绝：告警 ID 不匹配（当前=a-1791586031-2，收到=a-WRONG-ID-999）
+状态: "state":"ALARM"
+sh: <stdin>[15]: can't open /data/homemon/safety.log: No such file or directory
+safety.log 行数: 0
+
+=== B) 正确 alarmId（期望：ACKED + 写日志）===
+日志: [1791586036] ACK 已接受：id=a-1791586031-2 处置=本机正确ID处置
+状态: "state":"ACKED"
+safety.log: 1791586036,a-1791586031-2,本机正确ID处置
+
+=== C) 重复同一 ID（期望：拒绝 + 日志不增加）===
+日志: [1791586038] ACK 被拒绝：该告警已被确认过（当前状态=ACKED，id=a-1791586031-2）
+状态: "state":"ACKED"
+safety.log 行数: 2

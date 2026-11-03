@@ -1,0 +1,41 @@
+﻿# post-homemon-recovery watch (2026-10-28 00:47:55, read-only)
+## deployed homemon
+23655
+a5f355c2d5e9f4e7330282f1856411927eb54ad743b5acb7c599be7c2d6ed9ea  /data/homemon/homemon
+[1793119486] TCP 状态通道已监听 0.0.0.0:9000（最多 8 路客户端）
+## start-demo-supervisor.ps1 HomemonSha (must match deployed after Lead update)
+$HomemonSha = 'a5f355c2d5e9f4e7330282f1856411927eb54ad743b5acb7c599be7c2d6ed9ea'
+t=00:47:56 mirror.connected=False connects=27 disconnects=50 lastError=ETIMEDOUT dayuLast202=2026-10-27T16:46:47.291Z boardEstFromPC=2 boardSYN_RECV=1 bridgeReconnectLines=0
+t=00:48:07 mirror.connected=False connects=27 disconnects=50 lastError=ETIMEDOUT dayuLast202=2026-10-27T16:46:47.291Z boardEstFromPC=2 boardSYN_RECV=1 bridgeReconnectLines=0
+t=00:48:17 mirror.connected=False connects=27 disconnects=51 lastError=ETIMEDOUT dayuLast202=2026-10-27T16:46:47.291Z boardEstFromPC=2 boardSYN_RECV=0 bridgeReconnectLines=0
+t=00:48:28 mirror.connected=False connects=27 disconnects=51 lastError=ETIMEDOUT dayuLast202=2026-10-27T16:48:18.128Z boardEstFromPC=2 boardSYN_RECV=0 bridgeReconnectLines=0
+t=00:48:38 mirror.connected=True connects=1 disconnects=0 lastError= dayuLast202=2026-10-27T16:48:18.128Z boardEstFromPC=2 boardSYN_RECV=0 bridgeReconnectLines=0
+t=00:48:49 mirror.connected=True connects=1 disconnects=0 lastError= dayuLast202=2026-10-27T16:48:48.406Z boardEstFromPC=2 boardSYN_RECV=0 bridgeReconnectLines=0
+t=00:49:00 mirror.connected=True connects=1 disconnects=0 lastError= dayuLast202=2026-10-27T16:48:48.406Z boardEstFromPC=2 boardSYN_RECV=0 bridgeReconnectLines=0
+t=00:49:10 mirror.connected=True connects=1 disconnects=0 lastError= dayuLast202=2026-10-27T16:48:48.406Z boardEstFromPC=2 boardSYN_RECV=0 bridgeReconnectLines=0
+## board 9000 connections at end
+tcp        0      0 0.0.0.0:9000            0.0.0.0:*               LISTEN      23655/homemon
+tcp        0  36710 10.127.130.131:9000     10.127.130.179:64469    ESTABLISHED 23655/homemon
+tcp        0      0 127.0.0.1:47276         127.0.0.1:9000          ESTABLISHED 720/hdcd
+tcp      307      0 127.0.0.1:9000          127.0.0.1:35824         ESTABLISHED 23655/homemon
+tcp        0      0 127.0.0.1:9000          127.0.0.1:50398         ESTABLISHED 23655/homemon
+tcp        0      0 127.0.0.1:47286         127.0.0.1:9000          ESTABLISHED 720/hdcd
+tcp        0      0 127.0.0.1:35824         127.0.0.1:9000          ESTABLISHED 720/hdcd
+tcp        0  36710 10.127.130.131:9000     10.127.130.179:64483    ESTABLISHED 23655/homemon
+tcp        0      0 127.0.0.1:9000          127.0.0.1:47276         ESTABLISHED 23655/homemon
+tcp        0      0 127.0.0.1:9000          127.0.0.1:47286         ESTABLISHED 23655/homemon
+tcp        0      0 127.0.0.1:50398         127.0.0.1:9000          ESTABLISHED 27321/com.dsh.eldercare
+## bridge log tail 6
+[2026-10-27T16:47:59.577Z] [bridge] 鏃犵嚎鑺傜偣鎺ュ叆骞跺畬鎴愯韩浠界粦瀹氾細esp32-kitchen锛堟潵婧?::ffff:10.127.130.168:53734锛?[2026-10-27T16:47:59.577Z] [bridge] 鈫?home/esp32-kitchen/status  state=NORMAL room=鍘ㄦ埧 countToday=1
+[2026-10-27T16:47:59.579Z] [bridge] 鏃犵嚎鑺傜偣 esp32-kitchen 鏂紑
+[2026-10-27T16:48:00.908Z] [bridge] 鈫?home/esp32-kitchen/status  state=NORMAL room=鍘ㄦ埧 countToday=1
+[2026-10-27T16:48:06.264Z] [bridge] 鈫?home/esp32-kitchen/status  state=NORMAL room=鍘ㄦ埧 countToday=1
+[2026-10-27T16:48:11.635Z] [bridge] 鑺傜偣 10.127.130.131:9000 12000 姣鍚庨噸杩烇紙杩炵画澶辫触 3 娆★級
+[2026-10-27T16:48:11.785Z] [bridge] 鈫?home/esp32-kitchen/status  state=NORMAL room=鍘ㄦ埧 countToday=1
+## mirror log tail 6
+[2026-10-28 00:48:29.439] [relay] connected 127.0.0.1:9001
+[2026-10-28 00:48:29.763] [source-api] login ok (token cached, value never logged)
+[2026-10-28 00:48:30.472] [mirror] first device data received
+[2026-10-28 00:48:30.606] [mirror] emit(change) state=NORMAL online=true alarm=- gps=none eventTs=- ackTs=-
+[2026-10-28 00:48:32.931] [mirror] emit(change) state=NORMAL online=true alarm=- gps=none eventTs=- ackTs=-
+[2026-10-28 00:49:03.079] [mirror] emit(change) state=NORMAL online=true alarm=- gps=none eventTs=- ackTs=-

@@ -1,0 +1,391 @@
+﻿git : warning: in the working copy of 'D:\OpenHarmony\competition\evidence\2026-10-27-reconnect-dayu-sos\homemon-nomoti
+on\baseline\homemon.c.pre', LF will be replaced by CRLF the next time Git touches it
+所在位置 行:1 字符: 221
++ ... -nomotion'; git diff --no-index -- "$base\baseline\homemon.c.pre" 'D: ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (warning: in the... Git touches it:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+warning: in the working copy of 'D:\OpenHarmony\competition\southbound\src\homemon.c', LF will be replaced by CRLF the 
+next time Git touches it
+diff --git "a/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-reconnect-dayu-sos\\homemon-nomotion\\baseline\\homemon.c.pre" "b/D:\\OpenHarmony\\competition\\southbound\\src\\homemon.c"
+index d89bebb..8a9d523 100644
+--- "a/D:\\OpenHarmony\\competition\\evidence\\2026-10-27-reconnect-dayu-sos\\homemon-nomotion\\baseline\\homemon.c.pre"
++++ "b/D:\\OpenHarmony\\competition\\southbound\\src\\homemon.c"
+@@ -30,6 +30,8 @@
+ #include <arpa/inet.h>
+ #include "time_util.h"   /* 可信时间判定 + 64 位毫秒/UTC 换算（纯逻辑，可单测） */
+ #include "climate_valid.h" /* 本次温湿度读取有效性（纯逻辑，可单测） */
++#include "motion_gate.h"   /* 活动监测能力/有效性/时钟跳变（纯逻辑，可单测） */
++#include "judge_logic.h"   /* 判定段优先级与无 PIR 门控（纯逻辑，可单测） */
+ 
+ #define I2C_SLAVE       0x0703
+ 
+@@ -60,6 +62,7 @@ typedef struct {
+     int   gas_alarm_raw;                         /* 原始值 ≥ 该值判为燃气泄漏（实测后校准） */
+     int   smoke_alarm_raw;
+     char  dir[160];                              /* 运行目录：日志/控制/状态 */
++    char  gpio_root[128];                        /* GPIO sysfs 根目录；仅台架模拟时改，默认 /sys/class/gpio */
+ } cfg_t;
+ 
+ /* ------------------------------------------------------------------ 状态 */
+@@ -108,6 +111,20 @@ static int   g_door_last = -1;   /* 门磁消抖 */
+ static int   g_door_cnt = 0;
+ static int   g_sos_cnt = 0;      /* 求助按钮消抖 */
+ 
++/* ---------------------------------------- 活动监测能力（2026-10-27 修复）
++ * PIR 是否真的“存在且可读”必须在启动时确认，并用它门控 NO_MOTION
++ * 与“活动间隔 WARN”。无 PIR 时（客厅只有摄像头，没有 PIR）：
++ *   - 绝不产生新的 NO_MOTION；
++ *   - 绝不因“无活动数据”进入 WARN；
++ *   - JSON 里 sensors.motion.supported=false，UI 显示“未配置 PIR 无活动监测”。
++ * 摄像头/监护链路（monitorOnline/monitorReason）是另一套字段，与此无关。 */
++static int   g_motion_configured_cnt = 0;  /* 配置中有效（>=0）的 PIR 路数 */
++static int   g_motion_usable_cnt     = 0;  /* 启动自检可读的 PIR 路数 */
++static int   g_motion_readable_now   = 0;  /* 本 tick 成功读取的 PIR 路数 */
++static int   g_motion_read_fail_ticks = 0; /* 连续无有效读数的 tick 数（仅日志去抖） */
++static int   g_motion_monitor_enabled = 0; /* = mg_monitor_enabled(configured, usable) */
++static ms_t  g_prev_tick_ms = 0;           /* 上一 tick 的墙钟，用于时钟跳变检测 */
++
+ /* ------------------------------------------------------------------ 基础 */
+ static ms_t wall_ms(void)
+ {
+@@ -170,26 +187,29 @@ static int read_file(const char *path, char *buf, size_t n)
+ }
+ 
+ /* --------------------------------------------------------------- GPIO */
+-/* 统一走 sysfs：/sys/class/gpio/export → gpio<N>/{direction,value}
+- * 上板后用 `cat /sys/kernel/debug/gpio` 或原理图确认编号。 */
++/* 统一走 sysfs：<gpio_root>/gpio<N>/{direction,value}，默认 /sys/class/gpio。
++ * 上板后用 `cat /sys/kernel/debug/gpio` 或原理图确认编号。
++ * gpio_root 只用于 PC 台架模拟（指向假的 GPIO 目录），正式部署保持默认。 */
+ static int gpio_prepare(int pin, const char *dir)
+ {
+     char path[256];
+-    snprintf(path, sizeof(path), "/sys/class/gpio/gpio%d", pin);
++    snprintf(path, sizeof(path), "%s/gpio%d", g_cfg.gpio_root, pin);
+     if (access(path, F_OK) != 0) {
+         char num[16];
+         snprintf(num, sizeof(num), "%d", pin);
+-        write_file("/sys/class/gpio/export", num);
++        char exp[256];
++        snprintf(exp, sizeof(exp), "%s/export", g_cfg.gpio_root);
++        write_file(exp, num);
+         usleep(60000);
+     }
+-    snprintf(path, sizeof(path), "/sys/class/gpio/gpio%d/direction", pin);
++    snprintf(path, sizeof(path), "%s/gpio%d/direction", g_cfg.gpio_root, pin);
+     return write_file(path, dir);
+ }
+ 
+ static int gpio_read_pin(int pin)
+ {
+     char path[256], buf[8];
+-    snprintf(path, sizeof(path), "/sys/class/gpio/gpio%d/value", pin);
++    snprintf(path, sizeof(path), "%s/gpio%d/value", g_cfg.gpio_root, pin);
+     if (read_file(path, buf, sizeof(buf)) != 0) return -1;
+     return buf[0] == '1' ? 1 : 0;
+ }
+@@ -197,7 +217,7 @@ static int gpio_read_pin(int pin)
+ static int gpio_write_pin(int pin, int val)
+ {
+     char path[256];
+-    snprintf(path, sizeof(path), "/sys/class/gpio/gpio%d/value", pin);
++    snprintf(path, sizeof(path), "%s/gpio%d/value", g_cfg.gpio_root, pin);
+     return write_file(path, val ? "1" : "0");
+ }
+ 
+@@ -438,6 +458,7 @@ static void apply_trusted_time(const char *arg)
+                (long long)ms);
+         return;
+     }
++    ms_t before = wall_ms();
+     struct timeval tv;
+     tv.tv_sec  = (time_t)(ms / 1000);
+     tv.tv_usec = (suseconds_t)((ms % 1000) * 1000);
+@@ -452,6 +473,20 @@ static void apply_trusted_time(const char *arg)
+                (long long)ms, (long long)back);
+         return;
+     }
++    /* 校时限时整体跳变墙钟：同步平移历史时间戳，避免“9 年无活动”的假 NO_MOTION；
++       同时把主循环的上一 tick 基准刷新到新时钟，防止下一 tick 再按跳变重复平移。 */
++    {
++        ms_t delta = back - before;
++        ms_t tick_ms = (ms_t)(g_cfg.tick_sec > 0 ? g_cfg.tick_sec : 1) * 1000;
++        if (mg_clock_jumped(delta, tick_ms)) {
++            g_rt.last_motion_ms = mg_resync_ms(g_rt.last_motion_ms, delta);
++            g_rt.last_door_ms   = mg_resync_ms(g_rt.last_door_ms, delta);
++            g_rt.alarm_start_ms = mg_resync_ms(g_rt.alarm_start_ms, delta);
++            logmsg("校时跳变 %+lld ms：历史时间戳已平移（不据此判定无活动）",
++                   (long long)delta);
++        }
++        g_prev_tick_ms = back;
++    }
+     log_utc((int64_t)back, "TIME 已接受，系统时钟已校准：");
+     report_status(1);                 /* 立即用新时间广播一条，避免 APP 继续看到 2017 */
+ }
+@@ -802,11 +837,21 @@ static void report_status(int force)
+     }
+     if (!force && t - last < (ms_t)g_cfg.report_every_sec * 1000) return;
+     last = t;
+-    char json[1200];
++    char json[1400];
+     const char *mreason = g_rt.monitor_reason[0] ? g_rt.monitor_reason : "unknown";
++    /* 活动监测能力/数据（2026-10-27 新增，纯增量合同）：
++       supported=false 表示本机没有可用的 PIR —— UI 应显示“未配置 PIR 无活动监测”，
++       不能据此推导“无人活动”；reported=false 表示最近一次采样无有效读数。
++       两者与摄像头监护字段 monitorOnline/monitorReason 完全独立。 */
++    const char *motion_reason = mg_reason(g_motion_configured_cnt,
++                                          g_motion_usable_cnt,
++                                          g_motion_readable_now);
++    long long last_active_ts = g_rt.last_motion_ms > 0
++                               ? (long long)g_rt.last_motion_ms : 0;
+     snprintf(json, sizeof(json),
+         "{\"deviceId\":\"%s\",\"room\":\"%s\",\"ts\":%lld,\"state\":\"%s\","
+-        "\"sensors\":{\"motion\":{\"lastActiveTs\":%lld,\"countToday\":%ld},"
++        "\"sensors\":{\"motion\":{\"lastActiveTs\":%lld,\"countToday\":%ld,"
++        "\"supported\":%s,\"reported\":%s,\"reason\":\"%s\"},"
+         "\"door\":{\"open\":%s,\"lastOpenTs\":%lld},"
+         "\"climate\":{\"tempC\":%.1f,\"rh\":%.1f,\"ok\":%s,\"valid\":%s},"
+         "\"gas\":{\"raw\":%d,\"ok\":%s},"
+@@ -817,7 +862,10 @@ static void report_status(int force)
+         "\"alarm\":{\"id\":\"%s\",\"type\":\"%s\",\"countToday\":%ld,"
+         "\"evidenceId\":\"%s\"}}",
+         g_cfg.device_id, g_cfg.room, (long long)ts_ms, st_name(g_rt.state),
+-        (long long)(ts_ms - (t - g_rt.last_motion_ms)), g_rt.motion_count_today,
++        last_active_ts, g_rt.motion_count_today,
++        g_motion_monitor_enabled ? "true" : "false",
++        (g_motion_readable_now > 0) ? "true" : "false",
++        motion_reason,
+         g_rt.door_open ? "true" : "false",
+         (long long)(g_rt.last_door_ms > 0 ? ts_ms - (t - g_rt.last_door_ms) : 0),
+         g_rt.temp_c, g_rt.rh, g_rt.climate_ok ? "true" : "false",
+@@ -863,6 +911,7 @@ static void cfg_default(cfg_t *c)
+     c->gas_alarm_raw = 800;       /* 待接上 MQ-2 后按洁净空气基线校准 */
+     c->smoke_alarm_raw = 800;
+     snprintf(c->dir, sizeof(c->dir), "/data/homemon");
++    snprintf(c->gpio_root, sizeof(c->gpio_root), "/sys/class/gpio");
+ }
+ 
+ static void cfg_load(cfg_t *c, const char *path)
+@@ -874,9 +923,15 @@ static void cfg_load(cfg_t *c, const char *path)
+         char k[64], v[160];
+         if (line[0] == '#' || line[0] == '\n') continue;
+         if (sscanf(line, "%63[^=]=%159s", k, v) != 2) continue;
+-        if (!strcmp(k, "motion_gpio")) {           /* 逗号分隔的多个编号 */
++        if (!strcmp(k, "motion_gpio")) {           /* 逗号分隔的多个编号；-1=禁用 */
+             char *p = strtok(v, ",;");
+-            while (p && c->motion_cnt < 4) { c->motion_gpio[c->motion_cnt++] = atoi(p); p = strtok(NULL, ",;"); }
++            while (p && c->motion_cnt < 4) {
++                int pin = atoi(p);
++                /* ⚠ motion_gpio=-1 是“本路禁用”（与 ESP32 节点约定一致），
++                   不能当成“第 -1 号引脚”去 export，更不能用它参与能力判定。 */
++                if (pin >= 0) c->motion_gpio[c->motion_cnt++] = pin;
++                p = strtok(NULL, ",;");
++            }
+         }
+         else if (!strcmp(k, "door_gpio"))    c->door_gpio = atoi(v);
+         else if (!strcmp(k, "button_gpio"))  c->button_gpio = atoi(v);
+@@ -906,6 +961,7 @@ static void cfg_load(cfg_t *c, const char *path)
+         else if (!strcmp(k, "gas_alarm_raw")) c->gas_alarm_raw = atoi(v);
+         else if (!strcmp(k, "smoke_alarm_raw")) c->smoke_alarm_raw = atoi(v);
+         else if (!strcmp(k, "dir"))          snprintf(c->dir, sizeof(c->dir), "%s", v);
++        else if (!strcmp(k, "gpio_root"))    snprintf(c->gpio_root, sizeof(c->gpio_root), "%s", v);
+     }
+     fclose(f);
+ }
+@@ -964,17 +1020,31 @@ int main(int argc, char **argv)
+         printf("leds=%s,%s,%s no_motion_sec=%d say_cmd=%s\n",
+                g_cfg.led_red, g_cfg.led_green, g_cfg.led_blue,
+                g_cfg.no_motion_sec, g_cfg.say_cmd);
++        printf("gpio_root=%s\n", g_cfg.gpio_root);
+         return 0;
+     }
+ 
+-    /* 初始化 GPIO 方向 */
+-    for (int i = 0; i < g_cfg.motion_cnt; i++) gpio_prepare(g_cfg.motion_gpio[i], "in");
++    /* 初始化 GPIO 方向；同时确认 PIR 是否真的可用（能力判定，见 motion_gate.h） */
++    g_motion_configured_cnt = 0;
++    g_motion_usable_cnt = 0;
++    for (int i = 0; i < g_cfg.motion_cnt; i++) {
++        if (g_cfg.motion_gpio[i] < 0) continue;       /* 防御：-1 已在 cfg_load 过滤 */
++        g_motion_configured_cnt++;
++        gpio_prepare(g_cfg.motion_gpio[i], "in");
++        /* 能读到值才算“这一路 PIR 可用”；导出失败/无权限/引脚不存在都不算。 */
++        if (gpio_read_pin(g_cfg.motion_gpio[i]) >= 0) g_motion_usable_cnt++;
++    }
++    g_motion_monitor_enabled =
++        mg_monitor_enabled(g_motion_configured_cnt, g_motion_usable_cnt);
+     if (g_cfg.door_gpio   >= 0) gpio_prepare(g_cfg.door_gpio, "in");
+     if (g_cfg.button_gpio >= 0) gpio_prepare(g_cfg.button_gpio, "in");
+     if (g_cfg.buzzer_gpio >= 0) gpio_prepare(g_cfg.buzzer_gpio, "out");
+ 
+     g_rt.state = ST_NORMAL;
+-    g_rt.last_motion_ms = wall_ms();
++    /* ⚠ last_motion 只在“真的有活动监测能力”时用启动时刻喂一次初值，
++       给 1800s 宽限；无 PIR（客厅）时保持 0 = 从未活动，
++       绝不能让“启动时刻”被当成“最近一次活动”。 */
++    g_rt.last_motion_ms = g_motion_monitor_enabled ? wall_ms() : 0;
+     g_rt.climate_ok = 1;
+     g_rt.climate_valid = 0;      /* 首帧尚未读到本次有效温湿度 */
+     g_rt.gas_ok = 1;
+@@ -988,6 +1058,10 @@ int main(int argc, char **argv)
+ 
+     logmsg("homemon 启动（tick=%ds, 无活动阈值=%ds, 目录=%s）",
+            g_cfg.tick_sec, g_cfg.no_motion_sec, g_cfg.dir);
++    logmsg("活动监测能力：配置 %d 路 PIR，启动自检可读 %d 路 → NO_MOTION=%s%s",
++           g_motion_configured_cnt, g_motion_usable_cnt,
++           g_motion_monitor_enabled ? "启用" : "关闭",
++           g_motion_monitor_enabled ? "" : "（无有效 PIR：不产生 NO_MOTION，也不因活动间隔进 WARN）");
+     /* 开机第一件事就说清时间可信性：RTC 掉电后 ts 会退到 2017，
+        必须留痕，不能让"13 位毫秒"被误当成正确时间。 */
+     if (wall_time_trusted()) log_utc((int64_t)wall_ms(), "启动时系统时间可信：");
+@@ -1000,37 +1074,68 @@ int main(int argc, char **argv)
+     int debounce = g_cfg.debounce_ticks > 0 ? g_cfg.debounce_ticks : 1;
+     int motion_prev[4] = {0, 0, 0, 0};
+     int tick = 0;
++    int tick_sec = g_cfg.tick_sec > 0 ? g_cfg.tick_sec : 1;
++    ms_t tick_ms = (ms_t)tick_sec * 1000;
++    g_prev_tick_ms = wall_ms();
+     for (;;) {
+         tick++;
+         ms_t t = wall_ms();      /* 64 位，避免 ARM32 溢出 */
+ 
++        /* --- 时钟跳变检测（RTC 掉电回退到 2017 / PC 网关校时 / 手动 date -s）---
++         * 墙钟整体跳变时，若不动历史时间戳，idle 会瞬间变成“9 年无活动”→ 假 NO_MOTION。
++         * 这里把历史时间戳按同一 delta 平移，保持“已经过去多久”的语义。 */
++        ms_t delta = t - g_prev_tick_ms;
++        int clock_jumped = 0;
++        if (mg_clock_jumped(delta, tick_ms)) {
++            clock_jumped = 1;
++            g_rt.last_motion_ms = mg_resync_ms(g_rt.last_motion_ms, delta);
++            g_rt.last_door_ms   = mg_resync_ms(g_rt.last_door_ms, delta);
++            g_rt.alarm_start_ms = mg_resync_ms(g_rt.alarm_start_ms, delta);
++            log_utc((int64_t)t, "检测到系统时钟跳变，已平移历史时间戳（不据此判定无活动）：");
++        }
++        g_prev_tick_ms = t;
++
+         /* 启动宽限期：真机实测悬空输入会浮高，必须先忽略一段时间再判定 */
+-        {
+-            int tick_sec = g_cfg.tick_sec > 0 ? g_cfg.tick_sec : 1;
+-            if (g_cfg.warmup_sec > 0 && tick <= g_cfg.warmup_sec / tick_sec) {
+-                state_tick(tick);
+-                report_status(0);
+-                sleep(tick_sec);
+-                continue;
+-            }
++        if (g_cfg.warmup_sec > 0 && tick <= g_cfg.warmup_sec / tick_sec) {
++            state_tick(tick);
++            report_status(0);
++            sleep(tick_sec);
++            continue;
+         }
+ 
+         /* --- 采集 --- */
+         int motion = 0;
+         int motion_events = 0;
++        int motion_readable = 0;              /* 本 tick 成功读到的 PIR 路数 */
+         for (int i = 0; i < g_cfg.motion_cnt; i++) {
+             int v = gpio_read_pin(g_cfg.motion_gpio[i]);
+             if (v < 0) continue;
++            motion_readable++;
+             int active = (g_cfg.motion_active_high && v == 1) ||
+                          (!g_cfg.motion_active_high && v == 0);
+             if (active) motion = 1;
+             if (active && !motion_prev[i]) motion_events++;
+             motion_prev[i] = active;
+         }
++        g_motion_readable_now = motion_readable;
+         if (motion) {
+             g_rt.last_motion_ms = t;
+             if (g_rt.state == ST_WARN) { g_rt.state = ST_NORMAL; logmsg("活动恢复 -> NORMAL"); }
+         }
++        /* 无有效 PIR 数据的 tick：暂停 idle 计时（盲区不计入“无活动时长”），
++           恢复后不会因为“刚才没数据”而立刻告警。无 PIR 设备不做任何判定。 */
++        if (g_motion_monitor_enabled && motion_readable == 0 && !clock_jumped) {
++            g_rt.last_motion_ms = mg_pause_idle_ms(g_rt.last_motion_ms, delta);
++            if (g_motion_read_fail_ticks == 0) {
++                logmsg("⚠ PIR 本次读取无有效数据：暂停活动判定（无数据不判定“无活动”）");
++            }
++            g_motion_read_fail_ticks++;
++        } else if (g_motion_monitor_enabled && motion_readable > 0 &&
++                   g_motion_read_fail_ticks > 0) {
++            logmsg("PIR 读数恢复：继续活动判定（此前 %d 个 tick 的盲区未计入无活动时长）",
++                   g_motion_read_fail_ticks);
++            g_motion_read_fail_ticks = 0;
++        }
+         for (int i = 0; i < motion_events; i++) {
+             hist_bump((long)time(NULL));            /* 每路传感器的激活沿只计一次 */
+         }
+@@ -1084,30 +1189,52 @@ int main(int argc, char **argv)
+             g_rt.smoke_ok = (av < g_cfg.smoke_alarm_raw);
+         }
+ 
+-        /* --- 判定（基础阈值算法） --- */
+-        ms_t idle = t - g_rt.last_motion_ms;
++        /* --- 判定（基础阈值算法；纯逻辑在 judge_logic.h，优先级与门控可单测） --- */
++        int judge_allowed = mg_judge_allowed(g_motion_monitor_enabled, motion_readable);
++        ms_t idle = 0;
++        if (g_rt.last_motion_ms > 0) idle = t - g_rt.last_motion_ms;
+         ms_t limit = (ms_t)g_cfg.no_motion_sec * 1000;
+         ms_t warn_at = limit * g_cfg.warn_ratio / 100;
+ 
+-        if (!g_rt.gas_ok) {                           /* 燃气优先级最高 */
+-            if (strcmp(g_rt.alarm_type, "GAS"))
+-                alarm_raise("GAS", "检测到燃气泄漏，请立即开窗通风并撤离");
+-        } else if (!g_rt.smoke_ok) {
+-            if (strcmp(g_rt.alarm_type, "SMOKE"))
+-                alarm_raise("SMOKE", "检测到烟雾，疑似火情");
+-        } else if (sos) {
+-            if (g_rt.state != ST_ALARM || strcmp(g_rt.alarm_type, "MANUAL_SOS")) {
+-                alarm_raise("MANUAL_SOS", "老人主动按下随身求助按钮");
+-                /* 播报已在 alarm_raise() 内统一触发，此处不再重复 */
+-            }
+-        } else if (idle >= limit) {
+-            if (g_rt.state != ST_ALARM || strcmp(g_rt.alarm_type, "NO_MOTION"))
+-                alarm_raise("NO_MOTION", "长时间未检测到人体活动");
+-        } else if (!g_rt.climate_ok) {
+-            if (g_rt.state == ST_NORMAL) { g_rt.state = ST_WARN; logmsg("温湿度越界 -> WARN"); }
+-        } else if (idle >= warn_at && g_rt.state == ST_NORMAL) {
++        jg_input_t jin;
++        memset(&jin, 0, sizeof(jin));
++        jin.gas_ok = g_rt.gas_ok;
++        jin.smoke_ok = g_rt.smoke_ok;
++        jin.sos_pressed = sos;
++        jin.motion_judge_allowed = judge_allowed;
++        jin.idle_ms = idle;
++        jin.no_motion_limit_ms = limit;
++        jin.warn_at_ms = warn_at;
++        jin.climate_ok = g_rt.climate_ok;
++        jin.state_is_alarm = (g_rt.state == ST_ALARM);
++        jin.state_is_normal = (g_rt.state == ST_NORMAL);
++        jin.alarm_type = g_rt.alarm_type;
++
++        switch (judge_decide(&jin)) {
++        case JG_RAISE_GAS:                           /* 燃气优先级最高 */
++            alarm_raise("GAS", "检测到燃气泄漏，请立即开窗通风并撤离");
++            break;
++        case JG_RAISE_SMOKE:
++            alarm_raise("SMOKE", "检测到烟雾，疑似火情");
++            break;
++        case JG_RAISE_SOS:
++            /* 播报已在 alarm_raise() 内统一触发，此处不再重复 */
++            alarm_raise("MANUAL_SOS", "老人主动按下随身求助按钮");
++            break;
++        case JG_RAISE_NO_MOTION:
++            alarm_raise("NO_MOTION", "长时间未检测到人体活动");
++            break;
++        case JG_CLIMATE_WARN:
++            g_rt.state = ST_WARN;
++            logmsg("温湿度越界 -> WARN");
++            break;
++        case JG_IDLE_WARN:
+             g_rt.state = ST_WARN;
+             logmsg("活动间隔达阈值 %d%% -> WARN", g_cfg.warn_ratio);
++            break;
++        case JG_NONE:
++        default:
++            break;
+         }
+ 
+         /* --- 执行 + 上报 + 闭环 --- */

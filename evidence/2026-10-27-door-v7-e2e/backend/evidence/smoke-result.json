@@ -1,0 +1,117 @@
+﻿{
+    "tool":  "smoke-door-v7",
+    "timestamp":  "2026-10-27T01:51:03.0167812+08:00",
+    "image":  "eldercare-cloud-backend:door-v7-2026-10-27",
+    "imageId":  "sha256:5a02edcfaa42db6360068ceb6b09b9c0fa53a9128caa698a0e73521a3813ccb9",
+    "endpoint":  "http://127.0.0.1:18087 (127.0.0.1 only)",
+    "checks":  [
+                   {
+                       "name":  "image identity resolved",
+                       "pass":  true,
+                       "detail":  "imageId=sha256:5a02edcfaa42db6360068ceb6b09b9c0fa53a9128caa698a0e73521a3813ccb9"
+                   },
+                   {
+                       "name":  "temp named volume created",
+                       "pass":  true,
+                       "detail":  "volume=de-door-v7-smoke-20261027015059"
+                   },
+                   {
+                       "name":  "container started",
+                       "pass":  true,
+                       "detail":  "dockerRunExit=0"
+                   },
+                   {
+                       "name":  "container healthy (/healthz 200)",
+                       "pass":  true,
+                       "detail":  "attempts=1 status=200"
+                   },
+                   {
+                       "name":  "/readyz 200",
+                       "pass":  true,
+                       "detail":  "status=200"
+                   },
+                   {
+                       "name":  "anonymous /api/v1/overview -\u003e 401",
+                       "pass":  true,
+                       "detail":  "status=401"
+                   },
+                   {
+                       "name":  "anonymous /api/v1/door-events -\u003e 401",
+                       "pass":  true,
+                       "detail":  "status=401"
+                   },
+                   {
+                       "name":  "anonymous /internal/v1/device-status -\u003e 401",
+                       "pass":  true,
+                       "detail":  "status=401"
+                   },
+                   {
+                       "name":  "wrong guardian password -\u003e 401",
+                       "pass":  true,
+                       "detail":  "status=401"
+                   },
+                   {
+                       "name":  "guardian login 200 (synthetic credentials)",
+                       "pass":  true,
+                       "detail":  "status=200 tokenType=Bearer tokenLen=135"
+                   },
+                   {
+                       "name":  "door-events with valid session -\u003e 200 {events:[]}",
+                       "pass":  true,
+                       "detail":  "status=200 events=0"
+                   },
+                   {
+                       "name":  "extended v7 door ingest -\u003e 202",
+                       "pass":  true,
+                       "detail":  "status=202"
+                   },
+                   {
+                       "name":  "door-events shows ingested events (newest first, seq 102/101)",
+                       "pass":  true,
+                       "detail":  "status=200 count=2 seqs=102,101 open=True,False timeSource=device,device eventIds=dr-2,dr-1"
+                   },
+                   {
+                       "name":  "legacy v6 two-key door ingest -\u003e 202 (old format accepted)",
+                       "pass":  true,
+                       "detail":  "status=202"
+                   },
+                   {
+                       "name":  "legacy change recorded by server fallback (seq=0 state-change)",
+                       "pass":  true,
+                       "detail":  "status=200 count=3 stateChange=1"
+                   },
+                   {
+                       "name":  "in-container snapshot upgraded to schemaVersion 7",
+                       "pass":  true,
+                       "detail":  "dockerExecExit=0 snapshot={\"schemaVersion\":7,\"doorEvents\":3,\"devices\":1}"
+                   },
+                   {
+                       "name":  "data volume contains backend-state.json",
+                       "pass":  true,
+                       "detail":  "files=backend-state.json,evidence"
+                   },
+                   {
+                       "name":  "no credential/token leakage in container logs",
+                       "pass":  true,
+                       "detail":  "secretMatches=0"
+                   },
+                   {
+                       "name":  "temp container + temp volume removed (cleanup)",
+                       "pass":  true,
+                       "detail":  "dockerRmExit=0 dockerVolumeRmExit=0"
+                   },
+                   {
+                       "name":  "no de-door-v7-smoke leftovers",
+                       "pass":  true,
+                       "detail":  "containers=0 volumes=0"
+                   },
+                   {
+                       "name":  "demo volumes eldercare-public_* untouched (3 present)",
+                       "pass":  true,
+                       "detail":  "volumes=eldercare-public_backend-data,eldercare-public_caddy-config,eldercare-public_caddy-data"
+                   }
+               ],
+    "passed":  21,
+    "failed":  0,
+    "verdict":  "SMOKE_PASS"
+}

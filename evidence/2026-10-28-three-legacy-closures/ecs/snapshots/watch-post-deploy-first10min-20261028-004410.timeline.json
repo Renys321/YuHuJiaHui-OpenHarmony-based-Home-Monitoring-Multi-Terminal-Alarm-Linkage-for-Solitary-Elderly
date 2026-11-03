@@ -1,0 +1,162 @@
+{
+  "kind": "watch-summary",
+  "label": "post-deploy-first10min",
+  "samples": "D:\\OpenHarmony\\competition\\evidence\\2026-10-28-three-legacy-closures\\ecs\\snapshots\\samples-post-deploy-first10min-20261028-003409.ndjson",
+  "timeline": [
+    {
+      "at": "2026-10-28T00:34:11.988+08:00",
+      "epochMs": 1793118851988,
+      "kind": "WATCH_STARTED",
+      "online": true,
+      "state": "NORMAL",
+      "lastSeenIso": "2026-10-28T00:33:47.019+08:00",
+      "lastSeenAgeSec": 25
+    },
+    {
+      "at": "2026-10-28T00:34:11.988+08:00",
+      "epochMs": 1793118851988,
+      "kind": "NEW_ALARM",
+      "alarmId": "sos-11-686d1dee",
+      "createdAtIso": "2026-10-27T23:52:11.119+08:00",
+      "state": "ACKED",
+      "ackPending": false
+    },
+    {
+      "at": "2026-10-28T00:34:11.988+08:00",
+      "epochMs": 1793118851988,
+      "kind": "NEW_ALARM",
+      "alarmId": "sos-10-4a2b38da",
+      "createdAtIso": "2026-10-27T23:47:00.138+08:00",
+      "state": "ACKED",
+      "ackPending": false
+    },
+    {
+      "at": "2026-10-28T00:34:11.989+08:00",
+      "epochMs": 1793118851989,
+      "kind": "NEW_ALARM",
+      "alarmId": "sos-9-729e65b9",
+      "createdAtIso": "2026-10-27T23:45:09.368+08:00",
+      "state": "ACKED",
+      "ackPending": false
+    },
+    {
+      "at": "2026-10-28T00:34:11.989+08:00",
+      "epochMs": 1793118851989,
+      "kind": "NEW_ALARM",
+      "alarmId": "sos-8-fc452df6",
+      "createdAtIso": "2026-10-27T23:09:07.338+08:00",
+      "state": "ACKED",
+      "ackPending": false
+    },
+    {
+      "at": "2026-10-28T00:34:11.989+08:00",
+      "epochMs": 1793118851989,
+      "kind": "NEW_ALARM",
+      "alarmId": "sos-7-b941b638",
+      "createdAtIso": "2026-10-27T22:52:32.478+08:00",
+      "state": "ACKED",
+      "ackPending": false
+    },
+    {
+      "at": "2026-10-28T00:34:11.989+08:00",
+      "epochMs": 1793118851989,
+      "kind": "NEW_ALARM",
+      "alarmId": "sos-6-49732005",
+      "createdAtIso": "2026-10-27T22:06:44.756+08:00",
+      "state": "ACKED",
+      "ackPending": false
+    },
+    {
+      "at": "2026-10-28T00:34:11.989+08:00",
+      "epochMs": 1793118851989,
+      "kind": "NEW_ALARM",
+      "alarmId": "sos-5-a865a846",
+      "createdAtIso": "2026-10-27T18:14:23.939+08:00",
+      "state": "ACKED",
+      "ackPending": false
+    },
+    {
+      "at": "2026-10-28T00:34:11.989+08:00",
+      "epochMs": 1793118851989,
+      "kind": "NEW_ALARM",
+      "alarmId": "sos-4-6c6aed3f",
+      "createdAtIso": "2026-10-27T18:07:19.447+08:00",
+      "state": "ACKED",
+      "ackPending": false
+    },
+    {
+      "at": "2026-10-28T00:34:11.989+08:00",
+      "epochMs": 1793118851989,
+      "kind": "NEW_ALARM",
+      "alarmId": "sos-3-0555328b",
+      "createdAtIso": "2026-10-27T18:05:43.954+08:00",
+      "state": "ACKED",
+      "ackPending": false
+    },
+    {
+      "at": "2026-10-28T00:34:11.989+08:00",
+      "epochMs": 1793118851989,
+      "kind": "NEW_ALARM",
+      "alarmId": "sos-2-124737aa",
+      "createdAtIso": "2026-10-27T18:03:23.874+08:00",
+      "state": "ACKED",
+      "ackPending": false
+    },
+    {
+      "at": "2026-10-28T00:34:11.989+08:00",
+      "epochMs": 1793118851989,
+      "kind": "NEW_ALARM",
+      "alarmId": "e-1793076169-1",
+      "createdAtIso": "2026-10-27T12:42:51.966+08:00",
+      "state": "ALARM",
+      "ackPending": false
+    },
+    {
+      "at": "2026-10-28T00:34:11.989+08:00",
+      "epochMs": 1793118851989,
+      "kind": "NEW_ALARM",
+      "alarmId": "e-1793035292-1",
+      "createdAtIso": "2026-10-27T01:21:32.653+08:00",
+      "state": "ACKED",
+      "ackPending": false
+    },
+    {
+      "at": "2026-10-28T00:34:11.989+08:00",
+      "epochMs": 1793118851989,
+      "kind": "NEW_ALARM",
+      "alarmId": "e-1793022476-1",
+      "createdAtIso": "2026-10-26T21:49:36.411+08:00",
+      "state": "ALARM",
+      "ackPending": false
+    },
+    {
+      "at": "2026-10-28T00:35:55.695+08:00",
+      "epochMs": 1793118955695,
+      "kind": "NEW_ALARM",
+      "alarmId": "sos-12-1a1003dc",
+      "createdAtIso": "2026-10-28T00:35:45.905+08:00",
+      "state": "ALARM",
+      "ackPending": false
+    },
+    {
+      "at": "2026-10-28T00:38:45.477+08:00",
+      "epochMs": 1793119125477,
+      "kind": "ALERT_ACKNOWLEDGED",
+      "alarmId": "sos-12-1a1003dc",
+      "ackPendingBefore": true,
+      "ackPendingAfter": false,
+      "acknowledgedAtIso": "2026-10-28T00:38:32.754+08:00",
+      "acknowledgedBy": "household-guardian",
+      "fromCreatedSec": 166.8,
+      "sinceLastSampleSec": -0.3
+    },
+    {
+      "at": "2026-10-28T00:38:45.477+08:00",
+      "epochMs": 1793119125477,
+      "kind": "ALERT_STATE_CHANGED",
+      "alarmId": "sos-12-1a1003dc",
+      "from": "ALARM",
+      "to": "ACKED"
+    }
+  ]
+}

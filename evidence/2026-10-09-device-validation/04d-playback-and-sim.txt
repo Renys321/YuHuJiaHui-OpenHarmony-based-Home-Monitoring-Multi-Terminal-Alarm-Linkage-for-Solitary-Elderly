@@ -1,0 +1,30 @@
+﻿== 步骤 04d：safety.log 复核 + 播放全序列 + 步骤04 非UI部分 ==
+时间: 2026-10-09 22:47:31
+
+--- safety.log 全文（核实 2 行来源）---
+
+
+--- ACK 相关全部日志 ---
+[1791586006] ACK 已接受：id=a-1791585986-1 处置=已确认，老人一切正常
+[1791586008] ACK 被拒绝：告警 ID 不匹配（当前=a-1791585986-1，收到=a-WRONG-ID-999）
+[1791586011] ACK 被拒绝：该告警已被确认过（当前状态=ACKED，id=a-1791585986-1）
+[1791586014] ACK 被拒绝：该告警已被确认过（当前状态=ACKED，id=a-1791585986-1）
+[1791586034] ACK 被拒绝：告警 ID 不匹配（当前=a-1791586031-2，收到=a-WRONG-ID-999）
+[1791586036] ACK 已接受：id=a-1791586031-2 处置=本机正确ID处置
+[1791586038] ACK 被拒绝：该告警已被确认过（当前状态=ACKED，id=a-1791586031-2）
+
+--- 重新播放一次并抓全序列 ---
+10-10 06:47:33.861 29227 29227 I A00000/SosVoice: [a92ab16f05bd656, 2f16085, 24c6463] SosVoiceAbility onCreate：开始播放求助语音
+10-10 06:47:33.948 29227 29227 I A00000/SosVoice: [a92ab16f05bd656, 34600be, efe5d5] 语音已就绪: /data/storage/el2/base/haps/entry/files/sos.wav (574286 字节, fd=47)
+10-10 06:47:33.968 29227 29227 I A00000/SosVoice: [a92ab16f05bd656, 3ef19b0, 274f11f] 音频流已设为 STREAM_USAGE_ALARM（强制扬声器）
+10-10 06:47:33.979 29227 29227 I A00000/SosVoice: AVPlayer state = initialized (attempt=0)
+10-10 06:47:34.093 29227 29227 I A00000/SosVoice: AVPlayer state = prepared (attempt=0)
+10-10 06:47:34.094 29227 29227 I A00000/SosVoice: 播放音量已设为 1.0
+10-10 06:47:34.119   276   947 I C02b87/AudioRouterCenter: [FetchOutputDevicesInner][GetDeviceForVolumeByStreamType] usage:24 uid:-1 size:[1], 1st device:[SPEAKER], id:[1], router:1 
+10-10 06:47:34.154 29227 29227 I A00000/SosVoice: AVPlayer state = playing (attempt=0)
+10-10 06:47:34.154 29227 29227 I A00000/SosVoice: 开始播报…
+10-10 06:47:39.890 29227 29227 I A00000/SosVoice: AVPlayer state = completed (attempt=0)
+
+--- 步骤04 非UI：启动 sim_node(id=esp32-bath) ---
+sim_node PID = 26748
+{"deviceId":"dayu200-living","room":"客厅","ts":1791586069,"state":"ALARM","sensors":{"motion":{"lastActiveTs":1791586069,"countToday":1932},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":0

@@ -1,0 +1,353 @@
+{
+  "checks": [
+    {
+      "name": "D0 alarm fixture ingest accepted 202",
+      "ok": true
+    },
+    {
+      "name": "E3 ingest accepted 202",
+      "ok": true
+    },
+    {
+      "name": "E3 duplicate ingest accepted 202",
+      "ok": true
+    },
+    {
+      "name": "E3 increment ingest accepted 202",
+      "ok": true
+    },
+    {
+      "name": "E3 rollback ingest accepted 202",
+      "ok": true
+    },
+    {
+      "name": "E4 PIR-less ingest accepted 202",
+      "ok": true
+    },
+    {
+      "name": "E1 day report 200",
+      "ok": true
+    },
+    {
+      "name": "E1 dataSince is a positive integer (epoch ms), not a string",
+      "ok": true
+    },
+    {
+      "name": "E1 server does NOT return dataSinceMs / dataSinceText",
+      "ok": true
+    },
+    {
+      "name": "E3 first sample only establishes baseline: count is 4+2=6 (not 5+9+2)",
+      "ok": true
+    },
+    {
+      "name": "E3 counter rollback recorded as reset without negative delta",
+      "ok": true
+    },
+    {
+      "name": "E1 field inventory matches documented contract",
+      "ok": true
+    },
+    {
+      "name": "E1 day range is exactly one day",
+      "ok": true
+    },
+    {
+      "name": "E5 no-data hours stay null, never 0",
+      "ok": true
+    },
+    {
+      "name": "E8 disclaimer is the PIR trigger-count wording",
+      "ok": true
+    },
+    {
+      "name": "E4 PIR-less device row: count null + hasMotionSensor false",
+      "ok": true
+    },
+    {
+      "name": "E2 week = rolling 7 days ending on selected date",
+      "ok": true
+    },
+    {
+      "name": "E2 month = rolling 30 days ending on selected date (NOT a calendar month)",
+      "ok": true
+    },
+    {
+      "name": "E2 previous window is the previous equal-length window",
+      "ok": true
+    },
+    {
+      "name": "E5 insufficient history does not fabricate a trend",
+      "ok": true
+    },
+    {
+      "name": "E4 summary counts only the selected window and days with data",
+      "ok": true
+    },
+    {
+      "name": "E2 invalid scope -> 400",
+      "ok": true
+    },
+    {
+      "name": "E2 invalid calendar date -> 400",
+      "ok": true
+    },
+    {
+      "name": "E2 unauthenticated -> 401",
+      "ok": true
+    },
+    {
+      "name": "D3 disposition created 201",
+      "ok": true
+    },
+    {
+      "name": "D3 identical replay is idempotent 200",
+      "ok": true
+    },
+    {
+      "name": "D3 changed content conflicts 409",
+      "ok": true
+    },
+    {
+      "name": "D2 client-supplied serverTime/operator rejected 400",
+      "ok": true
+    },
+    {
+      "name": "D1 disposition did not create ACK command",
+      "ok": true
+    },
+    {
+      "name": "D1 disposition did not change alert status / ackPending",
+      "ok": true
+    },
+    {
+      "name": "D4 safety logs come from the ledger and contain the record",
+      "ok": true
+    },
+    {
+      "name": "E6 activity file uses its own version=1 and only whitelisted keys",
+      "ok": true
+    },
+    {
+      "name": "E6 main snapshot is schema v6 and has no activity state",
+      "ok": true
+    },
+    {
+      "name": "E7 activity report survives backend restart with identical count",
+      "ok": true
+    },
+    {
+      "name": "D5 safety logs survive backend restart",
+      "ok": true
+    },
+    {
+      "name": "E7 activity write failure keeps ingest 202 (natural 202 proves nothing about stats)",
+      "ok": true
+    },
+    {
+      "name": "E7 failed activity write rolls memory back (report stays null, no fake success)",
+      "ok": true
+    },
+    {
+      "name": "E7 activity file was never created because every write failed",
+      "ok": true
+    },
+    {
+      "name": "E7 corrupt activity file fails closed (no silent reset)",
+      "ok": true
+    }
+  ],
+  "passed": 39,
+  "failed": 0,
+  "report": {
+    "dayResponse": {
+      "generatedAt": 1792989743603,
+      "timezone": "Asia/Shanghai",
+      "scope": "day",
+      "today": "2026-10-26",
+      "selectedDate": "2026-10-26",
+      "range": {
+        "from": "2026-10-26",
+        "to": "2026-10-26",
+        "days": 1
+      },
+      "dataSince": 1792989743527,
+      "historyNote": "活动历史仅从 2026-10-26 起累计；更早日期与无样本日期一律显示为“无数据”，不会用 0 填充。",
+      "selected": {
+        "date": "2026-10-26",
+        "count": 6,
+        "status": "insufficient",
+        "samples": 4,
+        "invalidSamples": 0,
+        "firstTs": 1792989743527,
+        "lastTs": 1792989743566,
+        "maxGapMs": 16,
+        "coverageRatio": 0,
+        "hourly": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          6,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "previous": {
+        "date": "2026-10-25",
+        "count": null,
+        "status": "no_data"
+      },
+      "comparison": {
+        "state": "previous_missing",
+        "delta": null,
+        "pct": null,
+        "text": "前一天无活动数据，无法比较。"
+      },
+      "days": [
+        {
+          "date": "2026-10-20",
+          "count": null,
+          "status": "no_data",
+          "coverageRatio": 0
+        },
+        {
+          "date": "2026-10-21",
+          "count": null,
+          "status": "no_data",
+          "coverageRatio": 0
+        },
+        {
+          "date": "2026-10-22",
+          "count": null,
+          "status": "no_data",
+          "coverageRatio": 0
+        },
+        {
+          "date": "2026-10-23",
+          "count": null,
+          "status": "no_data",
+          "coverageRatio": 0
+        },
+        {
+          "date": "2026-10-24",
+          "count": null,
+          "status": "no_data",
+          "coverageRatio": 0
+        },
+        {
+          "date": "2026-10-25",
+          "count": null,
+          "status": "no_data",
+          "coverageRatio": 0
+        },
+        {
+          "date": "2026-10-26",
+          "count": 6,
+          "status": "insufficient",
+          "coverageRatio": 0
+        }
+      ],
+      "summary": {
+        "total": 6,
+        "days": 1,
+        "daysWithData": 1,
+        "coverageRatio": 0,
+        "coverageText": "1 天中有 1 天收到活动数据。平均数据覆盖率 0%。"
+      },
+      "hourly": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        6,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "devices": [
+        {
+          "deviceId": "isolated-fixture-kitchen",
+          "room": "厨房",
+          "hasMotionSensor": false,
+          "count": null,
+          "status": "no_data"
+        },
+        {
+          "deviceId": "isolated-fixture-living",
+          "room": "客厅",
+          "hasMotionSensor": false,
+          "count": null,
+          "status": "no_data"
+        },
+        {
+          "deviceId": "isolated-fixture-bath",
+          "room": "卫生间",
+          "hasMotionSensor": true,
+          "count": 6,
+          "status": "insufficient"
+        }
+      ],
+      "trend": {
+        "state": "insufficient",
+        "text": "活动数据不足，暂不判断趋势。",
+        "note": "连续有活动数据的日期不足 3 天，暂不判断趋势。"
+      },
+      "disclaimer": "PIR 活动计数是传感器触发次数，不等于人数或唯一动作次数；无数据不等于没有活动；历史仅从功能启用后开始积累。"
+    },
+    "weekRange": {
+      "from": "2026-10-20",
+      "to": "2026-10-26",
+      "days": 7
+    },
+    "monthRange": {
+      "from": "2026-09-27",
+      "to": "2026-10-26",
+      "days": 30
+    },
+    "alertBeforeDisposition": {
+      "alarmId": "isolated-alarm-de-1",
+      "ackPending": false
+    },
+    "activityFileTopLevelKeys": [
+      "version",
+      "savedAt",
+      "activity"
+    ],
+    "activityFileVersion": 1,
+    "mainSnapshotVersion": 6
+  }
+}

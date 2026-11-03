@@ -1,0 +1,11 @@
+﻿# cmd: SOCKETS
+# captured: 2026-10-27 22:32:40 +08:00
+----------------------------------------------------------------------
+
+LocalAddress   LocalPort RemoteAddress  RemotePort State       AppliedSetting OwningProcess
+------------   --------- -------------  ---------- -----       -------------- -------------
+10.127.130.179 55332     10.127.130.131 9000       Established Internet       61072        
+10.127.130.179 55331     10.127.130.131 9000       Established Internet       61072        
+
+
+

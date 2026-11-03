@@ -1,0 +1,12 @@
+﻿# 镜像身份与 docker save 归档
+tag        : eldercare-cloud-backend:door-v7-2026-10-27
+imageId    : sha256:5a02edcfaa42db6360068ceb6b09b9c0fa53a9128caa698a0e73521a3813ccb9
+sizeBytes  : 241955096
+created    : 2026-10-26T17:44:52.750949674Z
+nodeVersion: v24.21.0
+schemaVer  : 7
+repoDigests: ["eldercare-cloud-backend@sha256:5a02edcfaa42db6360068ceb6b09b9c0fa53a9128caa698a0e73521a3813ccb9"]
+# docker save
+tarPath    : D:\OpenHarmony\competition\evidence\2026-10-27-door-v7-e2e\_work\build\eldercare-cloud-backend-door-v7-2026-10-27.tar
+tarBytes   : 61754880
+tarSha256  : 79F6586F58428779CB090060F8762F5BFBF18D7F683DB276F6163601D55578CE

@@ -1,0 +1,11 @@
+{
+  "key": "remote_sos",
+  "text": "随身求助，请尽快查看。",
+  "ttsVoice": "Microsoft Huihui Desktop (SAPI), Rate=-1",
+  "speechSecRaw": 3.548,
+  "durationSec": 2.997,
+  "adpcmBytes": 23981,
+  "adpcmSha256": "6DEDFAFCBDA7454242F970BEB6C4F3CFD17B952F7897F6662DF8448F18060870",
+  "snrDb": 23.09,
+  "peakFs": 0.9802
+}

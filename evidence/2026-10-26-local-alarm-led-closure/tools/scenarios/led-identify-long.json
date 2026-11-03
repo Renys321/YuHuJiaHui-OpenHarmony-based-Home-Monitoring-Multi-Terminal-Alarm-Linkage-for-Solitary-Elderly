@@ -1,0 +1,409 @@
+{
+    "durationSec":  250,
+    "steps":  [
+                  {
+                      "atSec":  2,
+                      "send":  "resume"
+                  },
+                  {
+                      "atSec":  3,
+                      "send":  "inj reboot"
+                  },
+                  {
+                      "atSec":  6,
+                      "send":  "inj led on"
+                  },
+                  {
+                      "atSec":  7,
+                      "send":  "inj led off"
+                  },
+                  {
+                      "atSec":  8,
+                      "send":  "inj led on"
+                  },
+                  {
+                      "atSec":  9,
+                      "send":  "inj led off"
+                  },
+                  {
+                      "atSec":  10,
+                      "send":  "inj led pol low"
+                  },
+                  {
+                      "atSec":  11,
+                      "send":  "inj led id 8000"
+                  },
+                  {
+                      "atSec":  19,
+                      "send":  "inj led pol high"
+                  },
+                  {
+                      "atSec":  20,
+                      "send":  "inj led id 8000"
+                  },
+                  {
+                      "atSec":  28,
+                      "send":  "inj led auto"
+                  },
+                  {
+                      "atSec":  28,
+                      "send":  "inj led on"
+                  },
+                  {
+                      "atSec":  29,
+                      "send":  "inj led off"
+                  },
+                  {
+                      "atSec":  30,
+                      "send":  "inj led on"
+                  },
+                  {
+                      "atSec":  31,
+                      "send":  "inj led off"
+                  },
+                  {
+                      "atSec":  32,
+                      "send":  "inj led pol low"
+                  },
+                  {
+                      "atSec":  33,
+                      "send":  "inj led id 8000"
+                  },
+                  {
+                      "atSec":  41,
+                      "send":  "inj led pol high"
+                  },
+                  {
+                      "atSec":  42,
+                      "send":  "inj led id 8000"
+                  },
+                  {
+                      "atSec":  50,
+                      "send":  "inj led auto"
+                  },
+                  {
+                      "atSec":  50,
+                      "send":  "inj led on"
+                  },
+                  {
+                      "atSec":  51,
+                      "send":  "inj led off"
+                  },
+                  {
+                      "atSec":  52,
+                      "send":  "inj led on"
+                  },
+                  {
+                      "atSec":  53,
+                      "send":  "inj led off"
+                  },
+                  {
+                      "atSec":  54,
+                      "send":  "inj led pol low"
+                  },
+                  {
+                      "atSec":  55,
+                      "send":  "inj led id 8000"
+                  },
+                  {
+                      "atSec":  63,
+                      "send":  "inj led pol high"
+                  },
+                  {
+                      "atSec":  64,
+                      "send":  "inj led id 8000"
+                  },
+                  {
+                      "atSec":  72,
+                      "send":  "inj led auto"
+                  },
+                  {
+                      "atSec":  72,
+                      "send":  "inj led on"
+                  },
+                  {
+                      "atSec":  73,
+                      "send":  "inj led off"
+                  },
+                  {
+                      "atSec":  74,
+                      "send":  "inj led on"
+                  },
+                  {
+                      "atSec":  75,
+                      "send":  "inj led off"
+                  },
+                  {
+                      "atSec":  76,
+                      "send":  "inj led pol low"
+                  },
+                  {
+                      "atSec":  77,
+                      "send":  "inj led id 8000"
+                  },
+                  {
+                      "atSec":  85,
+                      "send":  "inj led pol high"
+                  },
+                  {
+                      "atSec":  86,
+                      "send":  "inj led id 8000"
+                  },
+                  {
+                      "atSec":  94,
+                      "send":  "inj led auto"
+                  },
+                  {
+                      "atSec":  94,
+                      "send":  "inj led on"
+                  },
+                  {
+                      "atSec":  95,
+                      "send":  "inj led off"
+                  },
+                  {
+                      "atSec":  96,
+                      "send":  "inj led on"
+                  },
+                  {
+                      "atSec":  97,
+                      "send":  "inj led off"
+                  },
+                  {
+                      "atSec":  98,
+                      "send":  "inj led pol low"
+                  },
+                  {
+                      "atSec":  99,
+                      "send":  "inj led id 8000"
+                  },
+                  {
+                      "atSec":  107,
+                      "send":  "inj led pol high"
+                  },
+                  {
+                      "atSec":  108,
+                      "send":  "inj led id 8000"
+                  },
+                  {
+                      "atSec":  116,
+                      "send":  "inj led auto"
+                  },
+                  {
+                      "atSec":  116,
+                      "send":  "inj led on"
+                  },
+                  {
+                      "atSec":  117,
+                      "send":  "inj led off"
+                  },
+                  {
+                      "atSec":  118,
+                      "send":  "inj led on"
+                  },
+                  {
+                      "atSec":  119,
+                      "send":  "inj led off"
+                  },
+                  {
+                      "atSec":  120,
+                      "send":  "inj led pol low"
+                  },
+                  {
+                      "atSec":  121,
+                      "send":  "inj led id 8000"
+                  },
+                  {
+                      "atSec":  129,
+                      "send":  "inj led pol high"
+                  },
+                  {
+                      "atSec":  130,
+                      "send":  "inj led id 8000"
+                  },
+                  {
+                      "atSec":  138,
+                      "send":  "inj led auto"
+                  },
+                  {
+                      "atSec":  138,
+                      "send":  "inj led on"
+                  },
+                  {
+                      "atSec":  139,
+                      "send":  "inj led off"
+                  },
+                  {
+                      "atSec":  140,
+                      "send":  "inj led on"
+                  },
+                  {
+                      "atSec":  141,
+                      "send":  "inj led off"
+                  },
+                  {
+                      "atSec":  142,
+                      "send":  "inj led pol low"
+                  },
+                  {
+                      "atSec":  143,
+                      "send":  "inj led id 8000"
+                  },
+                  {
+                      "atSec":  151,
+                      "send":  "inj led pol high"
+                  },
+                  {
+                      "atSec":  152,
+                      "send":  "inj led id 8000"
+                  },
+                  {
+                      "atSec":  160,
+                      "send":  "inj led auto"
+                  },
+                  {
+                      "atSec":  160,
+                      "send":  "inj led on"
+                  },
+                  {
+                      "atSec":  161,
+                      "send":  "inj led off"
+                  },
+                  {
+                      "atSec":  162,
+                      "send":  "inj led on"
+                  },
+                  {
+                      "atSec":  163,
+                      "send":  "inj led off"
+                  },
+                  {
+                      "atSec":  164,
+                      "send":  "inj led pol low"
+                  },
+                  {
+                      "atSec":  165,
+                      "send":  "inj led id 8000"
+                  },
+                  {
+                      "atSec":  173,
+                      "send":  "inj led pol high"
+                  },
+                  {
+                      "atSec":  174,
+                      "send":  "inj led id 8000"
+                  },
+                  {
+                      "atSec":  182,
+                      "send":  "inj led auto"
+                  },
+                  {
+                      "atSec":  182,
+                      "send":  "inj led on"
+                  },
+                  {
+                      "atSec":  183,
+                      "send":  "inj led off"
+                  },
+                  {
+                      "atSec":  184,
+                      "send":  "inj led on"
+                  },
+                  {
+                      "atSec":  185,
+                      "send":  "inj led off"
+                  },
+                  {
+                      "atSec":  186,
+                      "send":  "inj led pol low"
+                  },
+                  {
+                      "atSec":  187,
+                      "send":  "inj led id 8000"
+                  },
+                  {
+                      "atSec":  195,
+                      "send":  "inj led pol high"
+                  },
+                  {
+                      "atSec":  196,
+                      "send":  "inj led id 8000"
+                  },
+                  {
+                      "atSec":  204,
+                      "send":  "inj led auto"
+                  },
+                  {
+                      "atSec":  204,
+                      "send":  "inj led on"
+                  },
+                  {
+                      "atSec":  205,
+                      "send":  "inj led off"
+                  },
+                  {
+                      "atSec":  206,
+                      "send":  "inj led on"
+                  },
+                  {
+                      "atSec":  207,
+                      "send":  "inj led off"
+                  },
+                  {
+                      "atSec":  208,
+                      "send":  "inj led pol low"
+                  },
+                  {
+                      "atSec":  209,
+                      "send":  "inj led id 8000"
+                  },
+                  {
+                      "atSec":  217,
+                      "send":  "inj led pol high"
+                  },
+                  {
+                      "atSec":  218,
+                      "send":  "inj led id 8000"
+                  },
+                  {
+                      "atSec":  226,
+                      "send":  "inj led auto"
+                  },
+                  {
+                      "atSec":  226,
+                      "send":  "inj led on"
+                  },
+                  {
+                      "atSec":  227,
+                      "send":  "inj led off"
+                  },
+                  {
+                      "atSec":  228,
+                      "send":  "inj led on"
+                  },
+                  {
+                      "atSec":  229,
+                      "send":  "inj led off"
+                  },
+                  {
+                      "atSec":  230,
+                      "send":  "inj led pol low"
+                  },
+                  {
+                      "atSec":  231,
+                      "send":  "inj led id 8000"
+                  },
+                  {
+                      "atSec":  239,
+                      "send":  "inj led pol high"
+                  },
+                  {
+                      "atSec":  240,
+                      "send":  "inj led id 8000"
+                  },
+                  {
+                      "atSec":  248,
+                      "send":  "inj led auto"
+                  }
+              ]
+}

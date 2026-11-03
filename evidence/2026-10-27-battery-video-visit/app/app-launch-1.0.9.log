@@ -1,0 +1,9 @@
+﻿start ability successfully.
+fileType: 
+process: display 0, file type: jpeg, width: 1280, height: 2832
+fileType: jpeg
+snapshot: pixel format is: 3
+snapshot: convert rgba8888 to rgb888 successfully.
+
+success: snapshot display 0 , write to /data/local/tmp/app-1.0.9.jpeg as jpeg, width: 1280, height: 2832
+FileTransfer finish, Size:207920, File count = 1, time:63ms rate:3300.32kB/s

@@ -1,0 +1,159 @@
+{
+ "totalLines": 80,
+ "parsed": 80,
+ "badLines": 0,
+ "cameraActiveFromMs": 1792860950000,
+ "cameraActiveToMs": 1792861099760,
+ "cameraActiveSec": 149.8,
+ "received": 368,
+ "inferred": 80,
+ "dropped": 288,
+ "droppedRatio": 0.783,
+ "inferMsP50": 1862,
+ "inferMsP95": 1898,
+ "inferMsMin": 1819,
+ "inferMsMax": 2050,
+ "captureFps": 2.46,
+ "inferFps": 0.53,
+ "rssKbMin": 109204,
+ "rssKbMax": 122076,
+ "tempCMin": 56.7,
+ "tempCMax": 60,
+ "cpuSecondsStart": 2.14,
+ "cpuSecondsEnd": 148.23,
+ "cpuUtilPercent": 97.5,
+ "errors": 0,
+ "personCountGe2Events": 0,
+ "personCountDistribution": {
+  "0": 68,
+  "1": 12
+ },
+ "transitions": [
+  {
+   "eventTsMs": 1792860950000,
+   "from": null,
+   "to": 0,
+   "inferMs": 1909
+  },
+  {
+   "eventTsMs": 1792861018350,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1862
+  },
+  {
+   "eventTsMs": 1792861020269,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1888
+  },
+  {
+   "eventTsMs": 1792861027834,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1877
+  },
+  {
+   "eventTsMs": 1792861031608,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1862
+  },
+  {
+   "eventTsMs": 1792861035409,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1863
+  },
+  {
+   "eventTsMs": 1792861037318,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1875
+  },
+  {
+   "eventTsMs": 1792861046793,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1863
+  },
+  {
+   "eventTsMs": 1792861048687,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1861
+  },
+  {
+   "eventTsMs": 1792861052467,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1873
+  },
+  {
+   "eventTsMs": 1792861054365,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1863
+  },
+  {
+   "eventTsMs": 1792861056246,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1846
+  },
+  {
+   "eventTsMs": 1792861059985,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1819
+  },
+  {
+   "eventTsMs": 1792861061858,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1840
+  },
+  {
+   "eventTsMs": 1792861063759,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1869
+  },
+  {
+   "eventTsMs": 1792861076998,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1862
+  },
+  {
+   "eventTsMs": 1792861078883,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1852
+  },
+  {
+   "eventTsMs": 1792861080786,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1870
+  },
+  {
+   "eventTsMs": 1792861082690,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1867
+  },
+  {
+   "eventTsMs": 1792861094083,
+   "from": 0,
+   "to": 1,
+   "inferMs": 1884
+  },
+  {
+   "eventTsMs": 1792861095972,
+   "from": 1,
+   "to": 0,
+   "inferMs": 1851
+  }
+ ]
+}

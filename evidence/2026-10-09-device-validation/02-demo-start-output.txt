@@ -1,0 +1,25 @@
+﻿== 步骤 02：运行 materials\demo_start.ps1（不带 -WithWireless）==
+开始: 2026-10-09 22:40:59
+结束: 2026-10-09 22:41:08
+退出码: 1
+
+--- 完整 stdout+stderr ---
+==== 拉起演示环境 ====
+[0/5] 设备在线: 450100445634303332012847942eca00
+[1/5] 推送并启动 homemon（arm32）+ say.sh
+powershell.exe : Cannot convert value "System.String" to type "System.Management.Automation.SwitchParameter". Boolean p
+arameters accept 
+所在位置 行:4 字符: 8
++ $out = & $ps -NoProfile -ExecutionPolicy Bypass -File '<WORKSPACE> ...
++        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Cannot convert ...ameters accept :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+only Boolean values and numbers, such as $True, $False, 1 or 0.
+At <WORKSPACE>\competition\materials\demo_start.ps1:135 char:1
++ $stop = Sh "pkill homemon; sleep 2; echo ALIVE=`$(ps -ef | grep -c '[ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : MetadataError: (:) [], ArgumentTransformationMetadataException
+    + FullyQualifiedErrorId : RuntimeException
+ 
+X 无法确认 homemon 停止状态：False

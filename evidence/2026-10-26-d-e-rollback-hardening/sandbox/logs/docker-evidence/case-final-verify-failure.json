@@ -1,0 +1,107 @@
+{
+  "opId": "op-final-verify-failure-de-rb-69db87",
+  "mode": "rollback",
+  "state": "RECOVERED_TO_V6",
+  "exitCode": 20,
+  "startedAt": "2026-10-26T08:03:26.124Z",
+  "finishedAt": "2026-10-26T08:03:26.288Z",
+  "dataRoot": "/data",
+  "volumeName": "de-rb-69db87-vol-case-finalverifyf",
+  "backendStoppedAsserted": true,
+  "failPoints": [
+    "final-verify"
+  ],
+  "failAfterGlobal": 0,
+  "failAfterByPoint": {},
+  "expectedPreTreeHash": "E2218F85E09F0D24E0B711DFDD296253AF342EE27E218DB746B5EA6ED53E107B",
+  "expectedPostTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+  "expectedOriginalTreeHash": "",
+  "preArchive": {
+    "path": "/backup/pre-upgrade.tgz",
+    "bytes": 962,
+    "sha256": "9B6F78AA42FD9468A2C30394522B13A6AC359CB93E2DBB2593F543D0883054D1"
+  },
+  "postArchive": {
+    "path": "/backup/post-upgrade.tgz",
+    "bytes": 1430,
+    "sha256": "B67BFEDDAFC9E75BEE6BD3474AD946286A39646E3C3F59EA88C3DAC80C1CFAA1",
+    "extractedTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F"
+  },
+  "original": {
+    "treeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+    "entryCount": 6,
+    "topLevelEntries": [
+      "activity-state.json",
+      "backend-state.json",
+      "evidence"
+    ],
+    "asideTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F"
+  },
+  "staging": {
+    "treeHash": "E2218F85E09F0D24E0B711DFDD296253AF342EE27E218DB746B5EA6ED53E107B",
+    "entryCount": 4
+  },
+  "final": {
+    "treeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+    "state": "v6_recovered"
+  },
+  "recovery": {
+    "attempted": true,
+    "recovered": true,
+    "error": null,
+    "via": "journal-undo"
+  },
+  "mixedState": false,
+  "manualTakeover": false,
+  "serviceMustStayStopped": true,
+  "stages": [
+    {
+      "stage": "S0_PREFLIGHT",
+      "at": "2026-10-26T08:03:26.125Z"
+    },
+    {
+      "stage": "S1_PREFLIGHT_CHECKS",
+      "at": "2026-10-26T08:03:26.136Z"
+    },
+    {
+      "stage": "S2_VERIFY_POST_ARCHIVE",
+      "at": "2026-10-26T08:03:26.165Z"
+    },
+    {
+      "stage": "S3_COPY_ASIDE",
+      "at": "2026-10-26T08:03:26.189Z"
+    },
+    {
+      "stage": "S4_VERIFY_PRE_ARCHIVE",
+      "at": "2026-10-26T08:03:26.205Z"
+    },
+    {
+      "stage": "S5_LANDING",
+      "at": "2026-10-26T08:03:26.224Z"
+    },
+    {
+      "stage": "S6_FINAL_VERIFY",
+      "at": "2026-10-26T08:03:26.253Z"
+    },
+    {
+      "stage": "S6R_RECOVERY_DONE",
+      "at": "2026-10-26T08:03:26.281Z"
+    }
+  ],
+  "landingOpCount": 3,
+  "preservedExtras": [
+    "activity-state.json",
+    "evidence/fall-2-na.jpg"
+  ],
+  "error": {
+    "message": "restored entries mismatch: {\"missing\":[],\"differing\":[{\"path\":\"backend-state.json\",\"expected\":{\"type\":\"file\",\"size\":2765,\"mode\":384,\"sha256\":\"1EA6C11C9B0C7202626FB1DD42FBBE5F3BC0B8B967019B4EC3890B07A60FA02B\"},\"actual\":{\"type\":\"file\",\"size\":2765,\"mode\":384,\"sha256\":\"2648606A5AFF1453C54A67F64252ED65F00B212FFC326E1DC51B4CDFDBE855AD\"}}]}",
+    "code": "ASSERT",
+    "stage": "S6_FINAL_VERIFY"
+  },
+  "journalPath": "/data/.de-rollback/op-final-verify-failure-de-rb-69db87/journal.jsonl",
+  "spaceCheck": {
+    "dataBytes": 5343,
+    "freeBytes": 1023968288768,
+    "needBytes": 67114207
+  }
+}

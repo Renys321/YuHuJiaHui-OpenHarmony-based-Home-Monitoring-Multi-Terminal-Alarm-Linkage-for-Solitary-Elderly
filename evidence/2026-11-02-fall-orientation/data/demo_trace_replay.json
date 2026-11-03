@@ -1,0 +1,33 @@
+{
+  "source": "evidence/2026-10-28-fall-live-test/trace-live.log",
+  "trace_frames": 437,
+  "person_frames": 102,
+  "baseline": {
+    "events": [
+      {
+        "ts": 18127,
+        "state": "FALLEN",
+        "score": 0.58,
+        "torso": 68.1,
+        "aspect": 0.53,
+        "drop": 0.056
+      }
+    ],
+    "final_state": "NORMAL"
+  },
+  "patched": {
+    "events": [
+      {
+        "ts": 18127,
+        "state": "FALLEN",
+        "score": 0.58,
+        "torso": 68.1,
+        "aspect": 0.53,
+        "drop": 0.056
+      }
+    ],
+    "final_state": "NORMAL"
+  },
+  "same_event_timing": true,
+  "note": "特征级反推回放（非逐帧真机复现）；用于确认 180° 演示用例未被补丁破坏"
+}

@@ -1,0 +1,9 @@
+{
+  "durationSec": 16,
+  "steps": [
+    {"atSec": 1, "send": "resume"},
+    {"atSec": 2, "send": "inj reboot"},
+    {"atSec": 8, "send": "inj sos"},
+    {"atSec": 9.2, "send": "stop"}
+  ]
+}

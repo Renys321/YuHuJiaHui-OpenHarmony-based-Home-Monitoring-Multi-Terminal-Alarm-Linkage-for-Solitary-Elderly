@@ -1,0 +1,22 @@
+2026-10-26T08:02:41.015Z [file-level] temp root: C:\Users\LENOVO\AppData\Local\Temp\de-rb-file-Y4QyDb
+2026-10-26T08:02:41.019Z [file-level] pre archive  746 B 715F89596D1DA70A9C719ECB63C770F8295E7D77742AF1A50E3E8BBFD46C135B tree=C262CAB726000B8D918FA70BEE9B9B0EA95E42395FC32DA95D55E1B72B2FAB6F
+2026-10-26T08:02:41.019Z [file-level] post archive 1231 B 872886913AB45F72589BE80CE5D56C5C450ED085CCFAB5BD77A9CDCE3B147506 tree=6A72A62F39A177304252DE52D71E0BF98C71F1082928E11E9D8513AECFC9E6C5
+2026-10-26T08:02:41.019Z [file-level] expected rollback-complete tree (前 v5 + 保留的升级后项): 849A7E4C2E42ED425317373B40F7206A6336857CC0E2C2611A558C8ED639E47D
+2026-10-26T08:02:41.315Z [file-level] PASS normal-rollback :: exit=0 state=COMPLETED final=pre-v5-with-preserved-extras mixed=false manual=false
+2026-10-26T08:02:41.509Z [file-level] PASS preflight-only :: exit=0 state=PREFLIGHT_OK final=original-v6 mixed=false manual=false
+2026-10-26T08:02:41.704Z [file-level] PASS corrupt-pre-archive :: exit=10 state=PREFLIGHT_ABORT final=original-v6 mixed=false manual=false
+2026-10-26T08:02:41.951Z [file-level] PASS pre-archive-checksum-metadata-mismatch :: exit=10 state=PREFLIGHT_ABORT final=original-v6 mixed=false manual=false
+2026-10-26T08:02:42.049Z [file-level] PASS post-archive-missing :: exit=10 state=PREFLIGHT_ABORT final=original-v6 mixed=false manual=false
+2026-10-26T08:02:42.326Z [file-level] PASS staging-missing-backend-state :: exit=10 state=PREFLIGHT_ABORT final=original-v6 mixed=false manual=false
+2026-10-26T08:02:42.613Z [file-level] PASS staging-content-hash-mismatch :: exit=10 state=PREFLIGHT_ABORT final=original-v6 mixed=false manual=false
+2026-10-26T08:02:42.818Z [file-level] PASS partial-aside-copy-failure :: exit=10 state=PREFLIGHT_ABORT final=original-v6 mixed=false manual=false
+2026-10-26T08:02:43.068Z [file-level] PASS partial-staging-extract-failure :: exit=10 state=PREFLIGHT_ABORT final=original-v6 mixed=false manual=false
+2026-10-26T08:02:43.322Z [file-level] PASS partial-landing-copy-failure :: exit=20 state=RECOVERED_TO_V6 final=original-v6 mixed=false manual=false
+2026-10-26T08:02:43.594Z [file-level] PASS partial-landing-move-failure :: exit=20 state=RECOVERED_TO_V6 final=original-v6 mixed=false manual=false
+2026-10-26T08:02:43.889Z [file-level] PASS final-verify-failure :: exit=20 state=RECOVERED_TO_V6 final=original-v6 mixed=false manual=false
+2026-10-26T08:02:44.178Z [file-level] PASS recovery-before-undo-then-fallback :: exit=20 state=RECOVERED_TO_V6 final=original-v6 mixed=false manual=false
+2026-10-26T08:02:44.519Z [file-level] PASS recovery-mid-undo-then-fallback :: exit=20 state=RECOVERED_TO_V6 final=original-v6 mixed=false manual=false
+2026-10-26T08:02:44.823Z [file-level] PASS recovery-failure-secondary :: exit=30 state=MANUAL_TAKEOVER_REQUIRED final=not-original-not-pre mixed=true manual=true
+2026-10-26T08:02:45.230Z [file-level] PASS hard-exit-then-resume-recover :: exit=20 state=RECOVERED_TO_V6 final=original-v6 mixed=false manual=false
+2026-10-26T08:02:45.365Z [file-level] PASS post-archive-unreadable :: exit=10 state=PREFLIGHT_ABORT final=original-v6 mixed=false manual=false
+2026-10-26T08:02:45.482Z [file-level] PASS wrong-or-empty-volume-refused :: exit=10 state=PREFLIGHT_ABORT final=empty-volume mixed=false manual=false

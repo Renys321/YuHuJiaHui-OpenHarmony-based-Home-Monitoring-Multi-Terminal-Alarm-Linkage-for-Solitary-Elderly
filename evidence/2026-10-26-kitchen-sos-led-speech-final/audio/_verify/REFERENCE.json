@@ -1,0 +1,56 @@
+{
+  "climate_both.adpcm": {
+    "referenceBytes": 144756,
+    "referenceSamples": 72378,
+    "referenceSha256": "9FF9763F452C6D49D5C1195A7284C2A444731652F52FF216981224BB95238382",
+    "peakFs": 0.9937,
+    "referenceTool": "python audioop.adpcm2lin (stdlib IMA reference)",
+    "adpcmSha256": "FAB1E5B25271B51720665BA19F9CC71BF7B6601126114000F0F1A54B07DA89D5",
+    "adpcmBytes": 36193
+  },
+  "climate_generic.adpcm": {
+    "referenceBytes": 127980,
+    "referenceSamples": 63990,
+    "referenceSha256": "140F149083C89F06B2D9E2054CB050895D42E826898FDD7A08C03CCE493269EB",
+    "peakFs": 0.9935,
+    "referenceTool": "python audioop.adpcm2lin (stdlib IMA reference)",
+    "adpcmSha256": "66EF85131CC8F74EA6C662EE90E9130C4048648CD37AC3058B1318E67EA11BFA",
+    "adpcmBytes": 31999
+  },
+  "climate_rh.adpcm": {
+    "referenceBytes": 121236,
+    "referenceSamples": 60618,
+    "referenceSha256": "B6F91D746BAE09CA2AF821D1C04E867761825A184AC40BAE9AD8E8943451F2C6",
+    "peakFs": 0.9661,
+    "referenceTool": "python audioop.adpcm2lin (stdlib IMA reference)",
+    "adpcmSha256": "D73C6D14420272D037AF4F90796DB0046F4B0DC95C0B0BEF4749ECC17C60335D",
+    "adpcmBytes": 30313
+  },
+  "climate_temp.adpcm": {
+    "referenceBytes": 120540,
+    "referenceSamples": 60270,
+    "referenceSha256": "6DCEBA9571C21AB92C01EBD7B53A451296C6F02567CBFCCC8ED61901FBF62ED0",
+    "peakFs": 0.9368,
+    "referenceTool": "python audioop.adpcm2lin (stdlib IMA reference)",
+    "adpcmSha256": "079AD208B6066CF454695E9D0BC82C9C07B8234B8F53FDD13FABA607F2066941",
+    "adpcmBytes": 30139
+  },
+  "no_motion.adpcm": {
+    "referenceBytes": 159540,
+    "referenceSamples": 79770,
+    "referenceSha256": "2AA4F3AADD4741618CC644AFAA313892C8C9929D656DD1C903F6F083996A2F31",
+    "peakFs": 0.9398,
+    "referenceTool": "python audioop.adpcm2lin (stdlib IMA reference)",
+    "adpcmSha256": "51DFF9D9A4F7A2D96B490F9734B577A03609B0DDF4F91608798DC040FB4B3016",
+    "adpcmBytes": 39889
+  },
+  "sos.adpcm": {
+    "referenceBytes": 111148,
+    "referenceSamples": 55574,
+    "referenceSha256": "E804CD39ABFA54672BE94D03D551AD822D68F7BE98654269BAC47B9DF2926A76",
+    "peakFs": 0.9881,
+    "referenceTool": "python audioop.adpcm2lin (stdlib IMA reference)",
+    "adpcmSha256": "6358C55B5B4E0C160D851C1217FC15D8ED424ECCDBF0A31373CF796E1B847AC7",
+    "adpcmBytes": 27791
+  }
+}

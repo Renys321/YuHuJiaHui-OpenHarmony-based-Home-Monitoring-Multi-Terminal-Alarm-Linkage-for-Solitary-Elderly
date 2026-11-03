@@ -1,0 +1,34 @@
+﻿{
+    "version-name":  "2.0.0",
+    "version-code":  2,
+    "uuid":  "9c80d100-d908-48ea-a721-4cec9c5fddd1",
+    "validity":  {
+                     "not-before":  1793122233,
+                     "not-after":  2108485833
+                 },
+    "type":  "debug",
+    "bundle-info":  {
+                        "developer-id":  "OpenHarmony",
+                        "development-certificate":  "-----BEGIN CERTIFICATE-----\nMIICSTCCAc6gAwIBAgIEQ5ncAjAKBggqhkjOPQQDAjBjMQswCQYDVQQGEwJDTjEU\nMBIGA1UECgwLT3Blbkhhcm1vbnkxGTAXBgNVBAsMEE9wZW5IYXJtb255IFRlYW0x\nIzAhBgNVBAMMGk9wZW5IYXJtb255IEFwcGxpY2F0aW9uIENBMB4XDTI2MTAyNTEz\nMjAyN1oXDTI3MTAyNTEzMjAyN1owaDELMAkGA1UEBhMCQ04xFDASBgNVBAoMC09w\nZW5IYXJtb255MRkwFwYDVQQLDBBPcGVuSGFybW9ueSBUZWFtMSgwJgYDVQQDDB9P\ncGVuSGFybW9ueSBBcHBsaWNhdGlvbiBSZWxlYXNlMFkwEwYHKoZIzj0CAQYIKoZI\nzj0DAQcDQgAE3gVxiIJFtDY5QoSjOYYT6O4kNIjmevNLYWPZMzrFrTKsxNxDa+68\nfI1P/hghNLcRmfc5mvQUrPv7PC1/nnN0U6NrMGkwHQYDVR0OBBYEFMGj5p8nrvEB\nMur1YNqPA8iYnhlJMAkGA1UdEwQCMAAwDgYDVR0PAQH/BAQDAgeAMBMGA1UdJQQM\nMAoGCCsGAQUFBwMDMBgGDCsGAQQBj1sCgngBAwQIMAYCAQEKAQAwCgYIKoZIzj0E\nAwIDaQAwZgIxAJFIs64O5a2RZSXZ6mx6YPaoS5FZKpwAZRiSTMcKEgBv212SnHqN\n4n+gsAJ1yUaL4wIxAP2zpf8WzqspyGvdGmFU5ecsJB48lrWA45xL3FLYbDUGSuj+\nEeEizxwhITo5BZZ1zg==\n-----END CERTIFICATE-----\n",
+                        "bundle-name":  "com.example.program_04",
+                        "apl":  "normal",
+                        "app-feature":  "hos_normal_app"
+                    },
+    "acls":  {
+                 "allowed-acls":  [
+                                      ""
+                                  ]
+             },
+    "permissions":  {
+                        "restricted-permissions":  [
+                                                       ""
+                                                   ]
+                    },
+    "debug-info":  {
+                       "device-ids":  [
+                                          "DC3ABD0514880C60A274F7442EC3C068F4E3C2EE59F28D1BF2DD35CE49C0D54C"
+                                      ],
+                       "device-id-type":  "udid"
+                   },
+    "issuer":  "pki_internal"
+}

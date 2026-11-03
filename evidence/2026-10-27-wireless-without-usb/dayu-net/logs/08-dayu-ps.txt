@@ -1,0 +1,14 @@
+﻿$ hdc -t 450100445634303332012847942eca00 shell "ps -A -o PID,ARGS | grep -E 'eldercare|dayu_local_fall|homemon|wifi|wpa'"
+# captured: 2026-10-27 22:32:11 +08:00
+----------------------------------------------------------------------
+  512 wifi_host               -i 5 -n wifi_host
+  908 wifi_manager_service
+ 1403 wpa_host                -i 6 -n wpa_host
+ 2327 homemon homemon.conf
+ 2377 sh -c cd /data/local/tmp/dayu-demo-autostart-2026-10-26 && setsid sh -c './dayu_local_fall --serve 127.0.0.1:9200 --duration 86400 --threads 4 --size 320 --rotate 0 --conf 0.7 --param models/320/model.ncnn.param --bin models/320/model.ncnn.bin --events evidence/demo-events.jsonl --stats evidence/demo-stats.jsonl > evidence/demo-server.log 2>&1 < /dev/null' < /dev/null > /dev/null 2>&1 & echo SPAWNED
+ 2378 sh -c ./dayu_local_fall --serve 127.0.0.1:9200 --duration 86400 --threads 4 --size 320 --rotate 0 --conf 0.7 --param models/320/model.ncnn.param --bin models/320/model.ncnn.bin --events evidence/demo-events.jsonl --stats evidence/demo-stats.jsonl > evidence/demo-server.log 2>&1 < /dev/null
+ 2379 dayu_local_fall --serve 127.0.0.1:9200 --duration 86400 --threads 4 --size 320 --rotate 0 --conf 0.7 --param models/320/model.ncnn.param --bin models/320/model.ncnn.bin --events evidence/demo-events.jsonl --stats evidence/demo-stats.jsonl
+ 8411 com.dsh.eldercare
+12883 sh -c ps -A -o PID,ARGS | grep -E 'eldercare|dayu_local_fall|homemon|wifi|wpa'
+12886 grep -E eldercare|dayu_local_fall|homemon|wifi|wpa
+

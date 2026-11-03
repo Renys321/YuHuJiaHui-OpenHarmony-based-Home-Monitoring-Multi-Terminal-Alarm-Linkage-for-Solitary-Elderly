@@ -1,0 +1,23 @@
+<view class="page">
+  <view class="page-title">设备与位置</view>
+  <view class="page-subtitle">核对节点部署位置与连接状态</view>
+  <view class="connection-banner {{banner.bannerClass}}">
+    <view><view class="connection-title">{{banner.title}}</view><view class="connection-detail">{{banner.detail}}</view></view>
+    <view wx:if="{{mode === 'demo'}}" class="demo-badge">演示数据</view>
+  </view>
+  <view wx:if="{{loading}}" class="state-view"><view class="state-title">正在加载</view></view>
+  <view wx:elif="{{devices.length === 0}}" class="state-view"><view class="state-title">暂无设备数据</view><view class="state-message">配置云端后端或在总览中开启本地演示数据。</view></view>
+  <view wx:else>
+    <view wx:for="{{devices}}" wx:key="id" class="panel device-card">
+      <view class="device-header"><view class="device-name">{{item.name}}</view><view class="{{item.stateClass}}">{{item.stateText}}</view></view>
+      <view class="row"><text class="muted">设备编号</text><text class="device-value">{{item.id}}</text></view>
+      <view class="row"><text class="muted">房间</text><text>{{item.roomName || '未分配'}}</text></view>
+      <view class="row"><text class="muted">安装位置</text><text>{{item.location || '未设置'}}</text></view>
+      <view class="row"><text class="muted">PC 跌倒监护</text><text class="{{item.monitorClass}}">{{item.monitorText}}</text></view>
+      <view wx:for="{{item.sensorRows}}" wx:for-item="sensor" wx:key="key" class="row sensor-row">
+        <text class="muted">{{sensor.label}}</text><text class="{{sensor.alert ? 'sensor-alert' : ''}}">{{sensor.value}}</text>
+      </view>
+      <view class="row"><text class="muted">最后上报</text><text>{{item.lastSeenText}}</text></view>
+    </view>
+  </view>
+</view>

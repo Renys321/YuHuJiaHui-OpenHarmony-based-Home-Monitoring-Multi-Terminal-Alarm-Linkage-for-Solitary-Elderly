@@ -1,0 +1,19 @@
+{
+  "settings_version": "0.0.8",
+  "datasets_dir": "D:\\OpenHarmony\\competition\\vision\\datasets",
+  "weights_dir": "weights",
+  "runs_dir": "runs",
+  "uuid": "cbd8d492efe20f8e2c537b85b9f05549f54198f5f93ae49dd041333053081fa1",
+  "sync": true,
+  "api_key": "",
+  "openai_api_key": "",
+  "clearml": true,
+  "comet": true,
+  "dvc": true,
+  "mlflow": true,
+  "raytune": true,
+  "tensorboard": false,
+  "wandb": false,
+  "vscode_msg": true,
+  "openvino_msg": true
+}

@@ -1,0 +1,13 @@
+﻿homemon --selftest: sizeof(long)=4 sizeof(int64_t)=8
+  ok   int64_t is 8 bytes
+  ok   sec->ms 2026 (no 32-bit overflow)
+  ok   sec->ms 2100 boundary
+  ok   2017 ms is untrusted
+  ok   2017 seconds are untrusted too
+  ok   2026 ms is trusted
+  ok   seconds normalized to ms
+  ok   ms kept as ms
+  ok   epoch 0 is untrusted
+  ok   UTC is 2026-10-15T10:37:08Z (no +8h)
+  ok   hour is not shifted by +08:00
+homemon --selftest: PASS=11 FAIL=0

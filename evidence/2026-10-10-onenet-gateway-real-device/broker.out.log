@@ -1,0 +1,131 @@
+[broker] 监听 0.0.0.0:1883（自包含 MQTT broker，Ctrl+C 退出）
+[broker] + 连接来自 ::ffff:127.0.0.1:57279（当前 1 个）
+[broker] CONNACK → home-cloud-gateway-94416
+[broker] SUBSCRIBE home-cloud-gateway-94416 → home/+/status
+[broker] + 连接来自 ::ffff:127.0.0.1:57281（当前 2 个）
+[broker] CONNACK → tool-pub-96552
+[broker] PUBLISH home/dayu200-living/status (410B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-96552（当前 1 个）
+[broker] - 断开 tool-pub-96552（当前 1 个）
+[broker] + 连接来自 ::ffff:127.0.0.1:59338（当前 2 个）
+[broker] CONNACK → tool-pub-99253
+[broker] PUBLISH home/dayu200-living/status (410B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-99253（当前 1 个）
+[broker] - 断开 tool-pub-99253（当前 1 个）
+[broker] + 连接来自 ::ffff:127.0.0.1:59340（当前 2 个）
+[broker] CONNACK → tool-pub-1946
+[broker] PUBLISH home/dayu200-living/status (410B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-1946（当前 1 个）
+[broker] - 断开 tool-pub-1946（当前 1 个）
+[broker] + 连接来自 ::ffff:127.0.0.1:59342（当前 2 个）
+[broker] CONNACK → tool-pub-4638
+[broker] PUBLISH home/dayu200-living/status (410B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-4638（当前 1 个）
+[broker] - 断开 tool-pub-4638（当前 1 个）
+[broker] + 连接来自 ::ffff:127.0.0.1:59344（当前 2 个）
+[broker] CONNACK → tool-pub-7332
+[broker] PUBLISH home/dayu200-living/status (410B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-7332（当前 1 个）
+[broker] - 断开 tool-pub-7332（当前 1 个）
+[broker] + 连接来自 ::ffff:127.0.0.1:59346（当前 2 个）
+[broker] CONNACK → tool-pub-10010
+[broker] PUBLISH home/dayu200-living/status (410B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-10010（当前 1 个）
+[broker] - 断开 tool-pub-10010（当前 1 个）
+[broker] + 连接来自 ::ffff:127.0.0.1:59348（当前 2 个）
+[broker] CONNACK → tool-pub-12692
+[broker] PUBLISH home/dayu200-living/status (410B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-12692（当前 1 个）
+[broker] - 断开 tool-pub-12692（当前 1 个）
+[broker] + 连接来自 ::ffff:127.0.0.1:59354（当前 2 个）
+[broker] CONNACK → tool-pub-15391
+[broker] PUBLISH home/dayu200-living/status (410B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-15391（当前 1 个）
+[broker] - 断开 tool-pub-15391（当前 1 个）
+[broker] + 连接来自 ::ffff:127.0.0.1:59357（当前 2 个）
+[broker] CONNACK → tool-pub-18084
+[broker] PUBLISH home/dayu200-living/status (410B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-18084（当前 1 个）
+[broker] - 断开 tool-pub-18084（当前 1 个）
+[broker] + 连接来自 ::ffff:127.0.0.1:59360（当前 2 个）
+[broker] CONNACK → tool-pub-20791
+[broker] PUBLISH home/dayu200-living/status (410B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-20791（当前 1 个）
+[broker] - 断开 tool-pub-20791（当前 1 个）
+[broker] + 连接来自 ::ffff:127.0.0.1:59362（当前 2 个）
+[broker] CONNACK → tool-pub-23482
+[broker] PUBLISH home/dayu200-living/status (410B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-23482（当前 1 个）
+[broker] - 断开 tool-pub-23482（当前 1 个）
+[broker] + 连接来自 ::ffff:127.0.0.1:59364（当前 2 个）
+[broker] CONNACK → tool-pub-26173
+[broker] PUBLISH home/dayu200-living/status (410B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-26173（当前 1 个）
+[broker] - 断开 tool-pub-26173（当前 1 个）
+[broker] + 连接来自 ::ffff:127.0.0.1:59366（当前 2 个）
+[broker] CONNACK → tool-pub-28869
+[broker] PUBLISH home/dayu200-living/status (410B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-28869（当前 1 个）
+[broker] - 断开 tool-pub-28869（当前 1 个）
+[broker] + 连接来自 ::ffff:127.0.0.1:59368（当前 2 个）
+[broker] CONNACK → tool-pub-29606
+[broker] PUBLISH home/dayu200-living/status (410B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-29606（当前 1 个）
+[broker] - 断开 tool-pub-29606（当前 1 个）
+[broker] + 连接来自 ::ffff:127.0.0.1:59370（当前 2 个）
+[broker] CONNACK → tool-pub-30999
+[broker] PUBLISH home/dayu200-living/status (410B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-30999（当前 1 个）
+[broker] - 断开 tool-pub-30999（当前 1 个）
+[broker] + 连接来自 ::ffff:127.0.0.1:59373（当前 2 个）
+[broker] CONNACK → tool-pub-32381
+[broker] PUBLISH home/dayu200-living/status (410B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-32381（当前 1 个）
+[broker] - 断开 tool-pub-32381（当前 1 个）
+[broker] + 连接来自 ::ffff:127.0.0.1:59377（当前 2 个）
+[broker] CONNACK → tool-pub-33773
+[broker] PUBLISH home/dayu200-living/status (410B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-33773（当前 1 个）
+[broker] - 断开 tool-pub-33773（当前 1 个）
+[broker] + 连接来自 ::ffff:127.0.0.1:58633（当前 2 个）
+[broker] CONNACK → tool-pub-38494
+[broker] PUBLISH home/dayu200-living/status (410B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-38494（当前 1 个）
+[broker] - 断开 tool-pub-38494（当前 1 个）
+[broker] + 连接来自 ::ffff:127.0.0.1:58635（当前 2 个）
+[broker] CONNACK → tool-pub-41187
+[broker] PUBLISH home/dayu200-living/status (410B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-41187（当前 1 个）
+[broker] - 断开 tool-pub-41187（当前 1 个）
+[broker] + 连接来自 ::ffff:127.0.0.1:58637（当前 2 个）
+[broker] CONNACK → tool-pub-43882
+[broker] PUBLISH home/dayu200-living/status (409B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-43882（当前 1 个）
+[broker] - 断开 tool-pub-43882（当前 1 个）
+[broker] + 连接来自 ::ffff:127.0.0.1:58640（当前 2 个）
+[broker] CONNACK → tool-pub-44675
+[broker] PUBLISH home/dayu200-living/status (409B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-44675（当前 1 个）
+[broker] - 断开 tool-pub-44675（当前 1 个）
+[broker] + 连接来自 ::ffff:127.0.0.1:58642（当前 2 个）
+[broker] CONNACK → tool-pub-46173
+[broker] PUBLISH home/dayu200-living/status (409B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-46173（当前 1 个）
+[broker] - 断开 tool-pub-46173（当前 1 个）
+[broker] + 连接来自 ::ffff:127.0.0.1:58644（当前 2 个）
+[broker] CONNACK → tool-pub-47671
+[broker] PUBLISH home/dayu200-living/status (409B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-47671（当前 1 个）
+[broker] - 断开 tool-pub-47671（当前 1 个）
+[broker] + 连接来自 ::ffff:127.0.0.1:58646（当前 2 个）
+[broker] CONNACK → tool-pub-49168
+[broker] PUBLISH home/dayu200-living/status (409B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-49168（当前 1 个）
+[broker] - 断开 tool-pub-49168（当前 1 个）
+[broker] + 连接来自 ::ffff:127.0.0.1:58648（当前 2 个）
+[broker] CONNACK → tool-pub-50642
+[broker] PUBLISH home/dayu200-living/status (409B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-50642（当前 1 个）
+[broker] - 断开 tool-pub-50642（当前 1 个）
+[broker] - 断开 home-cloud-gateway-94416（当前 0 个）
+[broker] - 断开 home-cloud-gateway-94416（当前 0 个）

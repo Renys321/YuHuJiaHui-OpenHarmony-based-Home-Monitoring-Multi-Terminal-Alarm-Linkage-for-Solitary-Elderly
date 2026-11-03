@@ -1,0 +1,37 @@
+{
+  "start": {
+    "event": "capture-start",
+    "at": "2026-10-27T14:36:04.797Z",
+    "atLocal": "2026-10-27 22:36:04 +08:00",
+    "totalSec": 1800,
+    "intervalSec": 5,
+    "baselineNewestAlarmId": "sos-6-49732005",
+    "baselineSosAlertCount": 8,
+    "device": {
+      "online": true,
+      "state": "NORMAL",
+      "lastSeenTs": 1793111735673
+    }
+  },
+  "summary": {
+    "jsonlPath": "D:\\OpenHarmony\\competition\\evidence\\2026-10-27-wireless-without-usb\\sos-m100\\capture\\2026-10-27T14-36-01-822Z-acceptance-capture.jsonl",
+    "startedAtLocal": "2026-10-27 22:36:04 +08:00",
+    "baselineNewestAlarmId": "sos-6-49732005",
+    "captureDurationSec": 1800,
+    "samples": 171,
+    "targetAlarm": {
+      "alarmId": "sos-7-b941b638",
+      "type": "MANUAL_SOS",
+      "createdAt": 1793112752478,
+      "createdAtLocal": "2026-10-27 22:52:32 +08:00",
+      "firstSeenAt": "2026-10-27T14:52:33.163Z",
+      "acknowledgedAt": 1793112779268,
+      "acknowledgedAtLocal": "2026-10-27 22:52:59 +08:00",
+      "ackSeenAt": "2026-10-27T14:53:01.151Z",
+      "createToAckMs": 26790,
+      "state": "ACKED"
+    },
+    "deviceLastSeenMaxGapMs": 760358,
+    "verdict": "PASS_ALARM_AND_ACKED_SEEN"
+  }
+}

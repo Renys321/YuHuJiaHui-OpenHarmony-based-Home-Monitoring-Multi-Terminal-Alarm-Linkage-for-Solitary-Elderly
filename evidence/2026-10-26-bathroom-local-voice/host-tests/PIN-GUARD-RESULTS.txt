@@ -1,0 +1,6 @@
+﻿PASS bath-voice
+PASS kitchen-baseline
+PASS kitchen-voice-rewired
+PASS kitchen-voice-conflict
+PASS mq2-audio-pin-conflict
+PASS sos-audio-pin-conflict

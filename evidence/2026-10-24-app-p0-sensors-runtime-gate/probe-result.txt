@@ -1,0 +1,5 @@
+﻿probe=OK
+auth_http=200
+devices_http=200
+capturedAt=2026-10-24T01:19:51.4462876+08:00
+whitelist=<WORKSPACE>\competition\evidence\2026-10-24-app-p0-sensors-runtime-gate\authenticated-devices-whitelist.json

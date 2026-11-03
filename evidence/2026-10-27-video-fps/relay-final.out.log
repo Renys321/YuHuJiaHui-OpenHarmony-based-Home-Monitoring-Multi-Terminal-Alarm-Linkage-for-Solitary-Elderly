@@ -1,0 +1,43 @@
+[2026-10-27T16:19:55.975Z] INFO  video relay starting mode=local relay=0.0.0.0:9443 backendBase=https://api.luxunacc.xyz dayu=10.127.130.131:9301 maxViewers=2 idleStopMs=3000 ticketTtlMs=60000 heartbeatMs=5000 dayuDownGraceMs=30000 logLevel=info
+[2026-10-27T16:19:56.009Z] INFO  relay listening host=0.0.0.0 port=9443 mode=local
+[2026-10-27T16:19:56.014Z] INFO  video relay ready listen=0.0.0.0:9443 mode=local
+[2026-10-27T16:19:57.878Z] INFO  http method=GET path=/video/healthz status=200 ms=3
+[2026-10-27T16:20:06.433Z] INFO  http method=GET path=/video/healthz status=200 ms=1
+[2026-10-27T16:20:35.195Z] INFO  session ticket issued ticketPrefix=8061da ttlMs=60000 backendStatus=200
+[2026-10-27T16:20:35.201Z] INFO  http method=POST path=/video/session status=200 ms=385
+[2026-10-27T16:20:35.275Z] INFO  viewer joined viewer=v1 viewers=1 mode=local
+[2026-10-27T16:20:35.277Z] INFO  dayu connecting host=10.127.130.131 port=9301 attempt=1
+[2026-10-27T16:20:35.279Z] INFO  stream upgrade accepted ticketPrefix=8061da
+[2026-10-27T16:20:35.515Z] INFO  dayu hello proto=1 device=dayu200-living camera=320x240 cameraActive=true
+[2026-10-27T16:20:35.544Z] INFO  dayu streaming device=
+[2026-10-27T16:20:35.546Z] INFO  frame source up viewers=1
+[2026-10-27T16:20:35.852Z] INFO  viewer first frame viewer=v1 firstFrameAfterMs=576
+[2026-10-27T16:20:43.040Z] INFO  http method=GET path=/video/healthz status=200 ms=1
+[2026-10-27T16:20:56.304Z] INFO  session ticket issued ticketPrefix=73cdd9 ttlMs=60000 backendStatus=200
+[2026-10-27T16:20:56.305Z] INFO  http method=POST path=/video/session status=200 ms=317
+[2026-10-27T16:20:56.313Z] INFO  viewer joined viewer=v2 viewers=2 mode=local
+[2026-10-27T16:20:56.314Z] INFO  stream upgrade accepted ticketPrefix=73cdd9
+[2026-10-27T16:20:56.494Z] INFO  viewer first frame viewer=v2 firstFrameAfterMs=179
+[2026-10-27T16:22:57.693Z] INFO  viewer left viewer=v1 viewers=1 framesSent=567 dropped=0
+[2026-10-27T16:22:58.762Z] INFO  session end viewersClosed=0 ticketsRevoked=0 verified=true backendStatus=200
+[2026-10-27T16:22:58.764Z] INFO  http method=POST path=/video/session/end status=200 ms=1064
+[2026-10-27T16:23:46.961Z] WARN  dayu link lost reason=read ECONNRESET
+[2026-10-27T16:23:46.963Z] WARN  frame source down, keeping viewers reason=read ECONNRESET viewers=1 graceMs=30000
+[2026-10-27T16:23:46.963Z] INFO  dayu reconnect scheduled inMs=500 attempt=1
+[2026-10-27T16:23:47.472Z] INFO  dayu connecting host=10.127.130.131 port=9301 attempt=2
+[2026-10-27T16:23:50.491Z] WARN  dayu link not established reason=hello timeout
+[2026-10-27T16:23:50.492Z] INFO  dayu reconnect scheduled inMs=1000 attempt=2
+[2026-10-27T16:23:51.498Z] INFO  dayu connecting host=10.127.130.131 port=9301 attempt=3
+[2026-10-27T16:23:52.412Z] INFO  dayu hello proto=1 device=dayu200-living camera=320x240 cameraActive=true
+[2026-10-27T16:23:54.427Z] WARN  dayu link not established reason=started timeout
+[2026-10-27T16:23:54.428Z] INFO  dayu reconnect scheduled inMs=2000 attempt=3
+[2026-10-27T16:23:56.437Z] INFO  dayu connecting host=10.127.130.131 port=9301 attempt=4
+[2026-10-27T16:23:56.995Z] INFO  session ended by request viewers=1
+[2026-10-27T16:23:56.996Z] INFO  session end viewersClosed=1 ticketsRevoked=0 verified=true backendStatus=200
+[2026-10-27T16:23:56.997Z] INFO  http method=POST path=/video/session/end status=200 ms=667
+[2026-10-27T16:23:56.997Z] INFO  viewer left viewer=v2 viewers=0 framesSent=553 dropped=0
+[2026-10-27T16:23:57.647Z] INFO  dayu hello proto=1 device=dayu200-living camera=320x240 cameraActive=true
+[2026-10-27T16:23:57.927Z] INFO  dayu streaming device=
+[2026-10-27T16:23:57.928Z] INFO  frame source up viewers=0
+[2026-10-27T16:24:00.001Z] INFO  idle stop: no viewers idleStopMs=3000
+[2026-10-27T16:24:23.840Z] INFO  http method=GET path=/video/healthz status=200 ms=1

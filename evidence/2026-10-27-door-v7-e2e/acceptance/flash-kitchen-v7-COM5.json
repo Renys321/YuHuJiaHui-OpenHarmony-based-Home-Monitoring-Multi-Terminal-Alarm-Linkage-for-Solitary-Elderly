@@ -1,0 +1,17 @@
+{
+    "recordedAt":  "2026-10-27T02:02:34.6693090+08:00",
+    "com":  "COM5",
+    "mac":  "50:78:7d:16:ed:60",
+    "expectedMac":  "50:78:7d:16:ed:60",
+    "binPath":  "D:\\OpenHarmony\\competition\\evidence\\2026-10-27-door-v7-e2e\\firmware\\kitchen-v7-esp32_elder_node.bin",
+    "binSize":  1022480,
+    "binSha256":  "0AA8144D87D76DF3E946FA81A493E67C050CEC8C86DAFC4AA1D8C3A3170E179B",
+    "appFlashOffset":  "0x10000",
+    "esptoolExit":  0,
+    "esptoolReportedHashVerified":  true,
+    "fullErase":  false,
+    "wrotePartitions":  [
+                            "factory app only (0x10000)"
+                        ],
+    "note":  "App-partition-only update; bootloader/NVS/partition table untouched."
+}

@@ -1,0 +1,3 @@
+# Optional modest analog gain increase after the user heard volume 15.
+# Keep the playback PCM /2 limit; this is not a measured loudness guarantee.
+CONFIG_NODE_VOICE_VOLUME=20

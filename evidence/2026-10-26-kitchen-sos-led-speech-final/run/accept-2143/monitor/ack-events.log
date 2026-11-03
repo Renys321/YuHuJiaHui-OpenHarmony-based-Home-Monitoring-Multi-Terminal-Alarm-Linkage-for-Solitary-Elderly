@@ -1,0 +1,2 @@
+[2026-10-26T21:45:16.508+08:00] ALARM-ID-OBSERVED deviceId=esp32-bath alarm.id=e-1793022316-1 alarm.type=MANUAL_SOS state=ALARM
+[2026-10-26T21:45:45.870+08:00] ALARM-ID-OBSERVED deviceId=esp32-kitchen alarm.id=e-1793022345-1 alarm.type=MANUAL_SOS state=ALARM

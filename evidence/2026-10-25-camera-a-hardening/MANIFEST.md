@@ -1,0 +1,50 @@
+# MANIFEST
+
+## 候选制品
+
+| 文件 | 大小 | SHA-256 |
+| --- | ---: | --- |
+| `guardian-camera-a-hardening-2026-10-25.hap` | 2,156,555 B | `15126D26CD790780F90B88D405286F2038B6A61FD166329576D6EFDDB390BC35` |
+
+候选为 unsigned debug HAP，未安装，不替代原 CAMERA-A 或 P0 正式制品。
+
+## 修改文件
+
+```text
+393BB55304D7E0A84A486F54E920B475828477DCE1C51452B1F5AB4BE9862B65  6243   entry/src/main/ets/core/evidence/EvidenceCore.ts
+E9BE9ABCD2D7C8667F9A5C4183692E5C151230EE6CCF32DA0EA82BFA85C6AFD2  2617   entry/src/main/ets/core/api/HttpHeaders.ts
+5C71F7C3FF23E009D5F0D0CD1ED0E44DAC366A34E029F84566A92274BAAB9F33  2867   entry/src/main/ets/core/api/HttpTransport.ts
+2047685A17C605B8DCF1DBA2A74741F6C5ED30D2478E78388A313ECBFD8A1AB7  10225  entry/src/main/ets/core/api/ApiClient.ts
+4F625FC44793C75463047ABF06039904FE3841B4B6B64502F511028190193117  4649   entry/src/main/ets/net/HarmonyHttpTransport.ets
+C10AB3639E91655A6CC0B215E738C4E3D5098A2A0376B03E88F7D048773C95E4  38251  entry/src/main/ets/service/GuardianService.ets
+C8FD27AAD69F90109E28F94D770DBEB87BB74CC07A4423E7B5AD69B3D3B75BD1  15701  tests/evidence.test.mjs
+```
+
+backend 源码未修改。
+
+## 冻结制品复核
+
+| 制品 | 大小 | SHA-256 | 结果 |
+| --- | ---: | --- | --- |
+| 原 CAMERA-A 候选 | 2,143,369 B | `BCAA21B2452D545611E7198FB5CE8C58B27D7863BC799C1BB5D1DB2ADEA54F7C` | 未覆盖 |
+| P0 正式 HAP | 2,086,949 B | `9EEBEE9A5FC9EEC5A5993DC6923F16F0BFCCCD1CD4DE64BAF36FC7197ECAD25A` | 未覆盖 |
+| P0 回退 HAP | 2,077,912 B | `8A722EB6FDA7BB73EE58F3BDA3D95B5D238401DA8E3CC9179F1286FD5253A985` | 未覆盖 |
+
+## 交付内容
+
+```text
+guardian-camera-a-hardening-2026-10-25.hap
+CAMERA-A-HARDENING-REPORT.md
+TEST-RESULTS.md
+SECURITY-AND-PRIVACY.md
+REAL-ACCEPTANCE.md
+ROLLBACK.md
+MANIFEST.md
+SHA256SUMS.txt
+logs/app-node-test-summary.txt
+logs/app-hypium-test-summary.txt
+logs/app-build-summary.txt
+logs/backend-test-summary.txt
+```
+
+目录不包含凭据、Authorization、Cookie、设备密钥或真实个人身份图片。

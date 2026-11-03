@@ -1,0 +1,33 @@
+{
+  "label": "mqtt-1883",
+  "probedAt": "2026-10-27T14:24:22.904Z",
+  "probedAtLocal": "2026-10-27 22:24:22 +08:00",
+  "endpoint": "mqtt://47.76.70.118:1883",
+  "tcp": [
+    {
+      "ok": true,
+      "ms": 1111.9,
+      "detail": "TCP_ESTABLISHED"
+    },
+    {
+      "ok": true,
+      "ms": 105,
+      "detail": "TCP_ESTABLISHED"
+    },
+    {
+      "ok": true,
+      "ms": 94.1,
+      "detail": "TCP_ESTABLISHED"
+    }
+  ],
+  "mqttConnect": {
+    "clientIdHasUniqueSuffix": true,
+    "result": "CONNACK",
+    "returnCode": 5,
+    "returnCodeHex": "0x05",
+    "meaning": "NOT_AUTHORIZED",
+    "ms": 298.1,
+    "usedDeviceClientId": false,
+    "note": "clientId 使用唯一后缀；不应与在线设备相同。CONNACK 0x05 表示白名单拒绝唯一 ID，属 Broker 正常防护。"
+  }
+}

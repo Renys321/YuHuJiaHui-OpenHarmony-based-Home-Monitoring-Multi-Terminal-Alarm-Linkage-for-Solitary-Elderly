@@ -1,0 +1,7 @@
+﻿00:21:12 frames=142 fps=4
+00:21:29 frames=211 fps=4.1
+00:21:45 frames=276 fps=4.1
+00:22:04 frames=354 fps=4
+00:22:21 frames=420 fps=4
+00:22:37 frames=486 fps=3.9
+00:22:54 frames=554 fps=4

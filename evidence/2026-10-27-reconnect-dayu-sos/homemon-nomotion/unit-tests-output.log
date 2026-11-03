@@ -1,0 +1,118 @@
+﻿== Host test build ==  compiler=D:\MSYS2\ucrt64\bin\gcc.exe  test=time_util_test
+SUCCESS: D:\OpenHarmony\competition\southbound\out\time_util_test.exe
+time_util selftest: sizeof(long)=4 sizeof(int64_t)=8
+  ok   sec->ms 2026 不溢出
+  ok   sec->ms 2100 边界不溢出
+  ok   sec->ms 2017 换算正确
+  ok   64 位差值正确
+  ok   2017 毫秒判为不可信
+  ok   2017 秒归一化后仍不可信
+  ok   epoch=0 不可信
+  ok   负 epoch 不可信
+  ok   2026 毫秒判为可信
+  ok   可信下界闭区间
+  ok   可信上界闭区间
+  ok   下界之前不可信
+  ok   上界之后不可信
+  ok   10 位识别为秒
+  ok   13 位识别为毫秒
+  ok   秒归一化到毫秒
+  ok   毫秒保持不变
+  ok   0 不换算、保持 0
+  ok   两种形态的 2017 值都不会被误判为可信
+  ok   2026-10-15T10:37:08Z -> 2026-10-15T10:37:08Z
+  ok   2017-08-04T11:03:00Z -> 2017-08-04T11:03:00Z
+  ok   epoch 0 = 1970-01-01T00:00:00Z -> 1970-01-01T00:00:00Z
+  ok   可信下界 = 2025-01-01T00:00:00Z -> 2025-01-01T00:00:00Z
+  ok   小时数未被 +8 污染
+time_util selftest: PASS=24 FAIL=0
+== Host test build ==  compiler=D:\MSYS2\ucrt64\bin\gcc.exe  test=climate_valid_test
+SUCCESS: D:\OpenHarmony\competition\southbound\out\climate_valid_test.exe
+climate_valid_test: PASS
+== Host test build ==  compiler=D:\MSYS2\ucrt64\bin\gcc.exe  test=motion_gate_test
+SUCCESS: D:\OpenHarmony\competition\southbound\out\motion_gate_test.exe
+motion_gate_test: sizeof(int64_t)=8
+  ok   motion_cnt=0 → 无活动监测能力
+  ok   未配置(0)即使号称可读 2 路也不启用
+  ok   配置了 2 路但 0 路可读 → 不启用(NO_MOTION 关闭)
+  ok   配置 2 路、1 路可读 → 启用
+  ok   配置 1 路、可读 → 启用
+  ok   无能力 → 不判定
+  ok   无能力 → 即使有读数也不判定
+  ok   有 PIR 但本 tick 无有效读数 → 不判定
+  ok   有 PIR 且有读数 → 允许判定
+  ok   两路都有读数 → 允许判定
+  ok   无 PIR：idle 恰达 1800s 不产生 NO_MOTION
+  ok   无 PIR：idle=5h 不产生 NO_MOTION
+  ok   无 PIR：idle=9 年（时钟跳变量级）不产生 NO_MOTION
+  ok   无 PIR：idle=INT64_MAX 不产生 NO_MOTION
+  ok   无 PIR：idle 再大也不进活动间隔 WARN
+  ok   无 PIR：WARN 阈值处也不进 WARN
+  ok   PIR 配置了但 GPIO 全部不可读 → 不产生 NO_MOTION
+  ok   有 PIR：1799.999s 不触发
+  ok   有 PIR：恰 1800s 触发 NO_MOTION
+  ok   有 PIR：1800.001s 触发
+  ok   有 PIR：WARN 阈值前 1ms 不 WARN
+  ok   有 PIR：60% 阈值触发 WARN
+  ok   有 PIR：活动恢复后 idle≈0，不触发 NO_MOTION/WARN
+  ok   有 PIR 但本 tick 读取失败 → 不判定（无数据≠无活动）
+  ok   有 PIR 但本 tick 读取失败 → 不因活动间隔 WARN
+  ok   无 PIR 刚启动：不产生 NO_MOTION
+  ok   有 PIR 刚启动未采样：不产生 NO_MOTION
+  ok   有 PIR 重启后 idle 从 0 起算，不立即告警
+  ok   正常 1s tick 不算跳变
+  ok   慢 tick 3s 不算跳变
+  ok   tick+5s 边界不算跳变
+  ok   超过 tick+5s 判为跳变
+  ok   时间回退 1ms 判为跳变
+  ok   2017→2026 校时（9 年）判为跳变
+  ok   8 小时校时判为跳变
+  ok   跳变后 last_motion 平移到新时钟
+  ok   跳变前后 idle 不变（120s）
+  ok   “从未活动”(0) 平移后仍是 0
+  ok   无数据 tick：idle 基准前移，暂停计时
+  ok   从未活动：暂停仍保持 0
+  ok   100 个盲区 tick 不累计为 idle
+  ok   盲区恢复后 idle 从 0 继续，不立即告警
+  ok   reason: 未配置
+  ok   reason: GPIO 不可用
+  ok   reason: 本次无有效数据
+  ok   reason: 正常
+  ok   reason: 未配置优先于其它状态（不虚报能力）
+  ok   无 PIR：启动/超阈值/时钟跳变/负 idle 全组合均不产生 NO_MOTION/WARN
+motion_gate_test: PASS=48 FAIL=0
+== Host test build ==  compiler=D:\MSYS2\ucrt64\bin\gcc.exe  test=judge_logic_test
+SUCCESS: D:\OpenHarmony\competition\southbound\out\judge_logic_test.exe
+  ok   无 PIR：idle 恰 1800s → 不产生 NO_MOTION
+  ok   无 PIR：idle 100 倍阈值 → 不产生 NO_MOTION
+  ok   无 PIR：idle=INT64_MAX → 不产生 NO_MOTION
+  ok   无 PIR：不进入活动间隔 WARN
+  ok   无 PIR 不影响燃气告警
+  ok   无 PIR 不影响烟雾告警
+  ok   无 PIR 不影响 SOS 求助
+  ok   无 PIR 时温湿度越界仍照常 WARN（不因无 PIR 被吞）
+  ok   有 PIR：1799.999s 未触发 NO_MOTION（仍在 WARN 区间）
+  ok   有 PIR：1800s 触发 NO_MOTION
+  ok   有 PIR：1800.001s 触发 NO_MOTION
+  ok   已处于 NO_MOTION 告警：不重复 raise
+  ok   旧语义保持：其它类型告警中仍会 raise NO_MOTION
+  ok   有 PIR：WARN 阈值前不 WARN
+  ok   有 PIR：60% 阈值 → 活动间隔 WARN
+  ok   有 PIR：未到 1800s 仍在 WARN 区间
+  ok   非 NORMAL 状态不再进活动间隔 WARN
+  ok   温湿度越界 + NORMAL → CLIMATE WARN
+  ok   告警态下不再因温湿度 WARN
+  ok   温湿度越界优先于活动间隔 WARN
+  ok   优先级：GAS > SMOKE/SOS/NO_MOTION/CLIMATE
+  ok   优先级：SMOKE > SOS/NO_MOTION/CLIMATE
+  ok   优先级：SOS > NO_MOTION/CLIMATE
+  ok   优先级：NO_MOTION > CLIMATE WARN
+  ok   无 PIR 时 NO_MOTION 退位，CLIMATE WARN 正常
+  ok   已处于 GAS 告警：不重复 raise
+  ok   已有其它告警时 GAS 仍优先 raise
+  ok   ACKED 后按钮仍按住 → 重新 raise（旧语义保持）
+  ok   负 idle 不触发任何活动判定
+  ok   NULL 输入返回 NONE
+  ok   缺省 alarm_type 返回 NONE
+judge_logic_test: PASS=31 FAIL=0
+ALL HOST TESTS PASSED (4 binaries)

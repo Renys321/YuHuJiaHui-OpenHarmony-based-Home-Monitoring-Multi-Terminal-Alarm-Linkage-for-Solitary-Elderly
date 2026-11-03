@@ -1,0 +1,5 @@
+# Optional diagnostic overlay: speaks a test phrase, never creates an alarm.
+CONFIG_NODE_VOICE_ENABLED=y
+CONFIG_NODE_VOICE_VOLUME=15
+CONFIG_ESP_MAIN_TASK_STACK_SIZE=8192
+CONFIG_NODE_VOICE_BOOT_TEST=y

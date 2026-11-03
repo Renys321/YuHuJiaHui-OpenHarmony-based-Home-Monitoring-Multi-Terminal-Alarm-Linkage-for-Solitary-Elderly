@@ -1,0 +1,4 @@
+# 2026-11-02 13:17 冻结版刷写产物（kitchen/bathroom 均刷写并回读校验）
+# 旧固件备份：evidence/2026-11-02-firmware-refactor/ab/{kitchen,bathroom}-old.bin
+A3AD5DB912E5B9330418D0FC2E8A150A62ED5A9DD0EF0DEF625D0F199E165DA9  kitchen/build/esp32_elder_node.bin
+7035E25F34A6362CAA8456E26D678D8BD11A587A6736697DA0237F2980B9BA2E  bathroom/build/esp32_elder_node.bin

@@ -1,0 +1,34 @@
+﻿{
+    "capturedAt":  "2026-10-24T01:19:51.4024747+08:00",
+    "devices":  [
+                    {
+                        "deviceId":  "esp32-kitchen",
+                        "lastSeenTs":  1792775987231,
+                        "sensors":  {
+                                        "gas":  {
+                                                    "raw":  287,
+                                                    "valid":  true
+                                                },
+                                        "smoke":  {
+                                                      "raw":  366,
+                                                      "valid":  true
+                                                  }
+                                    }
+                    },
+                    {
+                        "deviceId":  "dayu200-living",
+                        "lastSeenTs":  1792775988601,
+                        "state":  "ALARM"
+                    },
+                    {
+                        "deviceId":  "esp32-bath",
+                        "lastSeenTs":  1792775988608,
+                        "sensors":  {
+                                        "motion":  {
+                                                       "lastActiveTs":  1792775891843,
+                                                       "countToday":  45
+                                                   }
+                                    }
+                    }
+                ]
+}

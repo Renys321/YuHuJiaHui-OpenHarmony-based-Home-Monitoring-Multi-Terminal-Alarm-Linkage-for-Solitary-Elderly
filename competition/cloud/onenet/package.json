@@ -1,0 +1,22 @@
+{
+  "name": "eldercare-onenet-transport",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Secure OneNET MQTTS transport for the eldercare DAYU200 gateway",
+  "type": "commonjs",
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check adapter.js && node --check token.js && node --check transport.js && node --check live-check.js && node --check downlink-check.js && node --check gateway.js && node --check tls-live-check.js && node --check cloud-sync.js && node --check command-sync.js && node --check public-sync.js && node --check command-sync-integration.js && node --check persistent-command-restart-integration.js",
+    "test:persistent-command": "node persistent-command-restart-integration.js",
+    "gateway": "node gateway.js",
+    "public-sync": "node public-sync.js",
+    "activate": "powershell -NoProfile -ExecutionPolicy Bypass -File ./activate-onenet.ps1",
+    "downlink": "powershell -NoProfile -ExecutionPolicy Bypass -File ./activate-onenet.ps1 -Mode downlink"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "mqtt": "5.16.0"
+  }
+}

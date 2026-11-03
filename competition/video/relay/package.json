@@ -1,0 +1,20 @@
+{
+  "name": "eldercare-video-relay",
+  "version": "1.0.0",
+  "private": true,
+  "description": "视频探望中继：DAYU200 TCP 帧源 -> Bearer 鉴权 -> WebSocket JPEG 帧分发（local / agent 双模式）",
+  "type": "commonjs",
+  "main": "server.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "agent": "node agent.js",
+    "test": "node --test --test-timeout=60000 \"test/**/*.test.js\"",
+    "smoke:local": "node test/tools/smoke-local.js"
+  },
+  "dependencies": {
+    "ws": "8.22.0"
+  }
+}

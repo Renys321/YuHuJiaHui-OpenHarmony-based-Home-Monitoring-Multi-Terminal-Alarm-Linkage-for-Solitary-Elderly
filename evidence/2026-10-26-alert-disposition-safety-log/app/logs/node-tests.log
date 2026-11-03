@@ -1,0 +1,435 @@
+﻿APP core 逻辑测试（本轮 D 类：处置结果 / 安全日志）
+时间: 2026-10-26 01:56:50 +08:00
+
+== 命令 1: TypeScript 4.9.5 编译实际 core 源码 ==
+node "D:\DevEcoStudio\DevEco Studio\tools\hvigor\hvigor\node_modules\typescript\bin\tsc" -p tests/tsconfig.json
+[tsc exit code: 0]
+
+== 命令 2: 逐文件 in-process 执行（node <file>） ==
+说明: node --test 需要 child_process spawn(stdout,pipe)，被 DSH Windows 沙箱以 EPERM 拒绝（本机已实测：spawnSync(stdio:'pipe')=EPERM，stdio:'inherit'=OK）。
+      逐文件直接运行同一批 node:test 断言（不 spawn 子进程），测试文件/断言不变。
+排除: activity-report.test.mjs（并行 E 类任务新增，非 task-3，当前 41 tests/4 fail，未纳入本轮验收）。
+
+----- ack-state.test.mjs (exit=0; tests=6 pass=6 fail=0) -----
+✔ ACK 全流程：202 PENDING → 等待设备确认 → 服务端 ACKED 才算确认 (3.8043ms)
+✔ ACK 404：错误语义为 not_found；随后 alerts 不含该告警 → Detail 语义“不存在/已失效” (1.4418ms)
+✔ ACK 400/409/网络失败/超时：不得本地归档为 ACKED，仍需服务端 ACKED 才确认 (0.6534ms)
+✔ ACK 等待期间 ackPending=true：状态是 waiting，不是 acked (0.1821ms)
+✔ ACK 202 后重复点击由调用方防抖：API 层本身不产生本地状态变更 (0.2436ms)
+✔ Outcomes 默认值：失败不会被当成成功 (0.1791ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14.6871
+
+----- api-client.test.mjs (exit=0; tests=23 pass=23 fail=0) -----
+✔ login 成功：解析 sessionToken/tokenType/expiresIn，并使用 POST /api/v1/auth/app (2.1555ms)
+✔ login 401：kind=unauthorized，不得把服务端文案当业务成功 (0.3886ms)
+✔ login 429：携带 Retry-After 秒数（SIMULATED 响应） (0.1385ms)
+✔ login 503：kind=service_unavailable（服务端登录未配置） (0.1583ms)
+✔ login 网络失败：kind=network，不伪造会话 (0.3595ms)
+✔ login 请求超时：kind=timeout（与网络失败区分） (0.2579ms)
+✔ login 返回 200 但不是合法 JSON：kind=malformed，不产生假 token (0.2439ms)
+✔ 业务 GET：overview/rooms/devices/alerts 携带传进来的 Bearer token (1.1089ms)
+✔ 业务请求 token 为空：直接 unauthorized，不发网络请求 (0.3927ms)
+✔ 业务 401：kind=unauthorized 供 service 清会话并跳登录 (0.4231ms)
+✔ 业务 403：kind=forbidden（账号停用） (0.2915ms)
+✔ ACK 202 PENDING：只代表命令入队，返回 serverStatus=PENDING (0.5507ms)
+✔ ACK 202 但 body 非法：仍按 PENDING 上抛，绝不视为 ACKED (0.1902ms)
+✔ ACK 404：kind=not_found（告警不存在或已失效），不产生成功结果 (0.2284ms)
+✔ ACK 400/409/网络失败：均不得本地成功 (0.2996ms)
+✔ ACK alarmId 会做 URL 编码，避免路径注入 (0.1336ms)
+✔ baseUrlOf: 去掉末尾斜杠，避免 //api/v1 双斜杠 (0.088ms)
+✔ activityReport 200：GET 带 Bearer 与 scope/date 查询参数，12s 超时，解析 count/status (1.0443ms)
+✔ activityReport 401：kind=unauthorized，不复用旧数据 (0.1745ms)
+✔ activityReport 400：kind=bad_request（服务端拒绝 scope/date） (0.1489ms)
+✔ activityReport 网络失败/超时：kind=network/timeout，不伪造报告 (0.28ms)
+✔ activityReport 200 但不是 JSON：kind=malformed，不产生空报告冒充成功 (0.3277ms)
+✔ activityReport 本地校验：非法 scope/date 直接 bad_request，不发请求；空 token 直接 unauthorized (0.2665ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 19.671
+
+----- capability.test.mjs (exit=0; tests=11 pass=11 fail=0) -----
+✔ kitchen: 已核实，具备温湿度 + MQ 原始 ADC，无 PIR/门磁/水漏/摄像头 (2.3112ms)
+✔ kitchen: gas/smoke 是原始 ADC 且明确“报警禁用/未启用”，不得当作告警能力 (0.4877ms)
+✔ kitchen: 温湿度 CLIMATE 告警已启用（能力表按 capability audit 更新） (0.143ms)
+✔ bath: 具备温湿度/PIR/SOS，无燃气/烟雾/门磁，水漏未启用 (0.1648ms)
+✔ bath PIR：支持 NO_MOTION 告警（1800s 无活动触发；不因“有活动”报警） (0.2894ms)
+✔ dayu200-living: 摄像头为本地能力，APP 无实时视频接口 (0.1686ms)
+✔ 未知 deviceId: 能力待确认，且不默认拥有任何传感器 (0.4576ms)
+✔ capabilitySummaryOf: kitchen 摘要只列已核实已启用能力 (0.2689ms)
+✔ capabilityNoteOf: 明确列出未安装/未启用能力 (0.2791ms)
+✔ formatRawAdc: 只输出原始 ADC，绝不冒充 ppm (0.3421ms)
+✔ stateTextOf: 无效/等待/未启用/未安装/待确认 文案不冒充“正常” (0.1284ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 17.9435
+
+----- contracts.test.mjs (exit=0; tests=14 pass=14 fail=0) -----
+✔ parseLogin: 解析 sessionToken/tokenType/expiresIn（SIMULATED 响应） (1.0171ms)
+✔ parseLogin: 缺 token 或非法 JSON / 非对象 返回 null，不抛异常 (0.5041ms)
+✔ parseLogin: 未知新增字段被忽略，缺失 tokenType/expiresIn 给安全默认值 (0.1846ms)
+✔ parseOverview: 解析统计字段与 latestAlert（SIMULATED 响应） (0.3824ms)
+✔ parseOverview: latestAlert 缺失/非法时保持 null（空首页不崩） (0.2949ms)
+✔ parseRooms / parseDevices / parseAlerts: 空列表返回空数组（空态，不 Mock） (1.1257ms)
+✔ parseRooms / parseDevices / parseAlerts: 缺列表字段或非法 JSON 返回 null (0.2097ms)
+✔ parseDevices: 未知 device 字段被忽略；缺失字段给默认值；类型错误不崩 (0.609ms)
+✔ parseDevices: csq 99 / 越界 / 字符串 归为 -1 未知 (0.223ms)
+✔ parseAlerts: ACKED 状态、ackPending 与 evidence 元数据 (1.3569ms)
+✔ parseAck: accepted=true 解析 status/commandId；false 或缺失返回 null (0.2719ms)
+✔ parseRooms: Room.devices 内嵌设备解析，roomId 与 room.id 可校验一致 (0.2292ms)
+✔ parseContacts: 列表解析与未知字段忽略 (0.2332ms)
+✔ parseErrorCode: 只作为安全排障短码，不参与业务判断 (0.1888ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14.9259
+
+----- defect-poller.test.mjs (exit=0; tests=6 pass=6 fail=0) -----
+✔ 在途任务期间 stop()/start()：任何时刻最大并发为 1，旧任务完成后新轮询继续 (64.3404ms)
+✔ 连续多次 stop()/start() 不累积调度、不叠加并发 (75.4117ms)
+✔ 旧任务 reject 后，新代轮询仍能继续（不永久卡住） (77.7466ms)
+✔ 旧任务结束不破坏当前代状态；旧 generation 不重复排定时器 (201.628ms)
+✔ 默认延迟模式：stop/start 期间旧 tick 未完成也不并发 (109.9021ms)
+✔ stop 后不再发起新 tick（在途任务可自然结束） (78.8524ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 614.8417
+
+----- defect-restore.test.mjs (exit=0; tests=12 pass=12 fail=0) -----
+✔ 401 后安全存储清除被延迟：restore 排在 clear 后，读不到旧会话且返回 blocked (6.8488ms)
+✔ logout 后安全存储清除被延迟：同样不得恢复已退出会话 (14.2437ms)
+✔ 旧 restore 已开始 → 新登录 B 开始/成功 → 旧读取完成：结果 stale，B 最终保留 (15.9876ms)
+✔ 旧 restore 读到过期记录与 B 登录保存交错：不得执行旧清理，B 记录保留 (15.6479ms)
+✔ 登录进行中调用 restore：blocked，不读取旧安全存储 (0.2708ms)
+✔ B 已保存后再 restore：返回 none，不删除 B 的安全存储记录 (0.1692ms)
+✔ restore 读到有效 token：ticket restored，提交后写入会话 (0.212ms)
+✔ restore 读到过期记录（无 epoch 变化）：返回 expired 并在串行回合内清除 (0.1245ms)
+✔ restore 读取失败：返回 error，队列与后续 save/clear 仍可执行 (0.3408ms)
+✔ 安全存储清除失败：异常被吞掉、队列不阻塞，restore 保持 blocked (1.2914ms)
+✔ 提交前生命周期复核：ticket restored 后发生失效则不得应用 (0.4199ms)
+✔ restore 期间失效：load 完成也返回 stale，不应用且不清 B 记录 (12.0726ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 75.114
+
+----- defect-restore-expiry.test.mjs (exit=0; tests=10 pass=10 fail=0) -----
+✔ 开始恢复时有效，排队/读取期间到期：提交失败，不 apply、不填账号状态 (13.9729ms)
+✔ 读取完成时仍有效，但提交前到期：按提交时间复验并拒绝 (0.6404ms)
+✔ 提交时剩余有效期不足 30 秒：拒绝恢复 (0.682ms)
+✔ 提交时剩余有效期恰好 30 秒：边界拒绝 (0.2853ms)
+✔ 提交时有效期明确大于 30 秒：正常恢复且实际会话有效 (0.3786ms)
+✔ expiresAt 为 NaN / Infinity / 0 / 负数：拒绝恢复 (0.3922ms)
+✔ restore 读到 NaN/Infinity expiresAt：返回 expired，不提交 (0.8113ms)
+✔ 服务级：restorer 恢复有效记录返回 true 且 SessionCore 实际有效、账号状态写入 (0.4796ms)
+✔ 旧恢复等待期间 B 登录成功：旧结果不覆盖 B，返回 true 依据 B 的真实状态 (6.5979ms)
+✔ SessionCore.setWithExpiry 保留绝对有效期且边界与 isActive 一致 (0.3612ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 34.2374
+
+----- defect-sensor.test.mjs (exit=0; tests=12 pass=12 fail=0) -----
+✔ 在线、有读数、valid 缺失：有效性未知，中性色，不显示“正常” (3.338ms)
+✔ 在线、明确 valid=false：读数无效，保留上次读数，warning 色而非绿色 (1.858ms)
+✔ 在线、读取失败 ok=false：读数无效且说明上次读数，不显示正常 (0.4904ms)
+✔ 在线、valid=true：只声明“读数有效”，不把读取有效当成环境正常 (0.2427ms)
+✔ 温度合法为 0（湿度非零）且 valid 缺失：不判为读取失败，不显示绿色正常 (0.2702ms)
+✔ 离线、有历史读数：显示“离线·上次读数”，中性色，不再显示实时正常 (0.294ms)
+✔ 离线、无读数：显示“离线·暂无数据”，不得补 0 或显示正常 (0.2685ms)
+✔ 离线但存在真实告警：告警事实保留，设备可达性与告警分开表达 (0.6256ms)
+✔ 离线 MQ 历史值：保留原始 ADC 语义与“报警未启用”，但显示离线·上次读数 (0.4294ms)
+✔ 颜色 token：仅 ok 为 success；unknown/offline/disabled 中性；invalid warning (0.2512ms)
+✔ 能力门控无回归：厨房无 PIR/门磁/水漏，卫生间无燃气/烟雾，未知不默认 (0.6695ms)
+✔ MQ 在线回归：原始 ADC、无 ppm、报警未启用、中性色 (0.1869ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 18.1763
+
+----- defect-session.test.mjs (exit=0; tests=9 pass=9 fail=0) -----
+✔ SessionCore：set/clear 递增会话代际，旧 ticket 立即失效 (1.4721ms)
+✔ 顺序：A 请求发出 → 登出 → A 成功返回，A 不得回填页面缓存 (0.2908ms)
+✔ 顺序：A 请求发出 → 登录 B → B 成功 → A 成功返回，页面保持 B 数据 (0.1725ms)
+✔ 顺序：A 请求发出 → 登录 B → A 返回 401/403，B 会话仍有效 (0.1104ms)
+✔ 顺序：A 刷新未结束 → 切换 B 并刷新，B 不重用 A 任务；A 结束不释放 B 锁 (0.2868ms)
+✔ 同一 scope 复用单飞任务；不同 scope 互不复用 (0.1441ms)
+✔ 旧任务 resolve/reject 后，新 scope 仍能启动并被正确释放 (0.4064ms)
+✔ Token 安全存储串行队列：慢的旧 save 不会越过 logout clear / 新 login save (0.8475ms)
+✔ Token 存储串行队列：前一个操作失败不阻塞后续操作 (0.2651ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12.7065
+
+----- defect-static.test.mjs (exit=0; tests=6 pass=6 fail=0) -----
+✔ GuardianService 使用会话恢复编排器与恢复结果器，load/save/clear 同队列且无过期兜底 (2.8019ms)
+✔ GuardianService 保留请求会话隔离与按代际单飞（上一轮修复不回退） (0.6955ms)
+✔ GuardianService 旧响应提交前校验：数据/网络/401 都受 ticket 保护 (1.5427ms)
+✔ SensorCard 使用 colorToken 语义选色，unknown/offline 不得落到绿色分支 (0.7361ms)
+✔ AlertDetailPage：页面销毁后 ACK 迟到回调不得更新页面/重启定时器 (1.6889ms)
+✔ Poller：stop 不得清 inFlight；旧代完成须接续新代 (0.6643ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14.4349
+
+----- demo-mode.test.mjs (exit=0; tests=7 pass=7 fail=0) -----
+✔ demo: 快照包含独立示例设备/房间/告警/联系人，不含真实 Token 字段 (3.966ms)
+✔ demo: Controller 仅进程内 enter/exit，退出后不残留快照、不自动恢复 (0.6685ms)
+✔ demo: 演示模块不依赖真实服务/API/传输层/TokenVault/Poller (1.2245ms)
+✔ demo: 仅 LoginPage 显式调用 DemoMode.enter，错误/失败路径不自动进入演示 (0.5624ms)
+✔ demo: Index 在演示模式跳过真实会话/刷新/轮询，并保留真实分支 (0.407ms)
+✔ demo: AlertDetail 在演示模式禁用 ACK，不展示假成功 (0.6104ms)
+✔ demo: 演示身份/数据在 Profile 明确标注且不冒充真实账号 (0.498ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14.0078
+
+----- disposition.test.mjs (exit=0; tests=22 pass=22 fail=0) -----
+✔ parseDispositions：完整 PublicDisposition 字段与 serverTime 有效性 (2.1481ms)
+✔ parseDispositions：缺字段不崩溃且 serverTime 缺失/0/负/字符串都不是有效时间 (0.3319ms)
+✔ parseDispositions：结构非法返回 null，空列表合法返回 [] (0.7116ms)
+✔ parseSafetyLogs：合法列表 / 空列表 / 非法结构 (0.22ms)
+✔ parseDispositionResult：201 created / 200 duplicate / 缺失 disposition 返回 null (0.3298ms)
+✔ note 归一化 / 客户端 ID / 告警 ID / outcome / limit 校验 (0.3563ms)
+✔ dispositionOutcomeLabel：五个合同枚举中文文案 + 未知枚举返回空串 (0.1376ms)
+✔ mapDisposition：缺字段回退 + serverTime=0 时间无效态 (0.3576ms)
+✔ mapDisposition：未知 outcome/空 outcomeLabel 不硬编码成功语义 (0.2287ms)
+✔ mapDispositions：保持服务端顺序（serverTime 降序由后端保证，不本地重排） (0.6152ms)
+✔ createDisposition 201：首次创建成功，请求体只含三个白名单字段 (1.3799ms)
+✔ createDisposition 200：幂等重放 duplicate=true，不视为新记录 (0.351ms)
+✔ createDisposition：202 一律 MALFORMED，绝不当作“已保存/待确认” (0.3428ms)
+✔ createDisposition：201 缺 created / 200 却 created=true 都是 MALFORMED (0.2577ms)
+✔ createDisposition：400/404/409/503 映射为失败，绝无本地成功 (0.5747ms)
+✔ createDisposition：网络失败/超时返回失败且没有请求体泄漏 (0.2909ms)
+✔ createDisposition：非法输入在发请求前拒绝（outcome/OTHER 空说明/超长/alarmId/clientId/空 token） (0.3238ms)
+✔ createDisposition：alarmId 按 URL 编码放入路径，不进入 query (0.2028ms)
+✔ dispositions GET：200 解析、Bearer 传递、404/非法 body/5xx 失败 (0.3316ms)
+✔ safetyLogs：默认/非法 limit 回退 50，合法 limit 透传，失败路径真实 (0.3311ms)
+✔ 处置/安全日志 Outcome 默认值全部为失败态 (0.147ms)
+✔ 静态守卫：处置面板独立于 ACK，演示模式禁用，真实接口调用 (1.7853ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 19.9126
+
+----- evidence.test.mjs (exit=0; tests=30 pass=30 fail=0) -----
+✔ 入口资格：仅 FALL + evidenceAvailable=true + 合法 alarmId 显示 (1.8069ms)
+✔ 成功 JPEG：Bearer 只在请求字段，路径无 Token，启用 binary + 2 MiB 上限 (1.6626ms)
+✔ 未登录不下载；非法 alarmId 不发请求 (0.2729ms)
+✔ 证据 HTTP 401：分类 unauthorized 且不自动重试 (0.2643ms)
+✔ 证据 HTTP 403：分类 forbidden 且不自动重试 (0.1468ms)
+✔ 证据 HTTP 404：分类 not_found 且不自动重试 (0.1086ms)
+✔ 证据 HTTP 500：分类 server 且不自动重试 (0.1578ms)
+✔ 证据超时：kind=timeout 且只发一次 (0.4277ms)
+✔ 非 image/jpeg 响应拒绝显示 (0.4619ms)
+✔ 响应头名称按实际键 ASCII 大小写不敏感匹配 (0.5619ms)
+✔ 字符串数组响应头：相同重复值可接受，冲突值保守拒绝 (0.1833ms)
+✔ image/jpeg 参数可接受；大小写兼容不放宽到其他 image 类型 (0.2997ms)
+✔ Content-Length 非法、负数、冲突或非安全整数均拒绝 (0.7331ms)
+✔ 响应头缺失的既定行为：缺 Content-Type 拒绝，缺 Content-Length 按实际 payload 接受 (0.2618ms)
+✔ 超过 2 MiB：Content-Length 或实际 payload 任一超限都拒绝 (0.1984ms)
+✔ JPEG 基本格式不合法时拒绝显示 (0.1161ms)
+✔ 页面退出取消令牌：只触发一次，迟到注册立即取消 (0.1648ms)
+✔ 失败后用户主动重试：第一次 500，第二次 JPEG 成功 (0.1287ms)
+✔ 内存缓存按账号和 alarmId 隔离，不跨告警串图、不跨账号复用 (0.2313ms)
+✔ 缓存默认上限固定为 6 条和 12 MiB (0.0558ms)
+✔ 达到最大条目数后按确定性 LRU 驱逐 (0.1184ms)
+✔ 达到最大总字节数后按 LRU 驱逐 (0.0925ms)
+✔ get 命中更新 LRU 顺序 (0.1217ms)
+✔ 同 key 替换正确更新字节数且成为最近使用 (0.1147ms)
+✔ 单条超过缓存总容量时拒绝写入 (0.0619ms)
+✔ 缓存 copy-in：put 后修改原 Uint8Array 不影响缓存 (0.073ms)
+✔ 缓存 copy-out：修改 get 返回值不影响缓存内部数据 (0.0654ms)
+✔ clearGuardian 只清指定 guardian 并正确扣减统计 (0.1479ms)
+✔ clearAll 后条目数与总字节数归零 (0.0741ms)
+✔ 平台接线：显示 PixelMap、退出取消/释放、登出清缓存、Authorization 不进 URL (1.7217ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 22.602
+
+----- home-metrics.test.mjs (exit=0; tests=6 pass=6 fail=0) -----
+✔ overview unavailable falls back to the same real device list (1.7228ms)
+✔ overview success keeps server counts and ranges (0.1699ms)
+✔ successful empty device response is a real zero, not a dash (0.1034ms)
+✔ failed/unknown empty device data is not treated as zero (0.2401ms)
+✔ pending count uses alert statusKey, not waiting or device alarm state (0.3446ms)
+✔ demo/real separation comes from separate AppStorage inputs (0.2445ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8.6569
+
+----- poller.test.mjs (exit=0; tests=5 pass=5 fail=0) -----
+✔ Poller: immediate=true 立即 tick 一次并进入运行态 (74.5975ms)
+✔ Poller: immediate=false 首次 tick 在一个 interval 之后 (57.3899ms)
+✔ Poller: tick 未完成时不重入（并发计数最多 1） (141.7483ms)
+✔ Poller: start 幂等，不会叠加定时器 (77.6935ms)
+✔ Poller: stop 后不再 tick 且可重新 start (91.8996ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 449.2055
+
+----- session.test.mjs (exit=0; tests=7 pass=7 fail=0) -----
+✔ SessionCore: set 后保存 token/guardianId/expiresAt/storageMode (2.2523ms)
+✔ SessionCore: 新实例未登录，isActive=false 且 token 为空 (0.2763ms)
+✔ SessionCore: 未过期 isActive=true；到期前 30s 安全余量内视为过期 (0.1796ms)
+✔ SessionCore: expiresIn 为 0 / 负数 / NaN 时立即过期，不产生假有效会话 (0.1918ms)
+✔ SessionCore: clear 清空 token/guardianId 并失效 (0.1478ms)
+✔ SessionCore: 覆盖 set 会替换旧会话（不残留旧 token） (0.1322ms)
+✔ SessionSnapshot: 默认值不包含任何凭据 (0.0864ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9.3465
+
+----- static-guard.test.mjs (exit=0; tests=30 pass=30 fail=0) -----
+✔ guard: entry/src/main/ets 源码存在且被扫描 (1.8342ms)
+✔ guard: 旧演示/账号基础设施文件已从最终树删除（Mock 回退源不得保留） (1.5043ms)
+✔ guard: 新演示数据只允许 DemoController 读取，页面不得直接 import DemoData (41.1354ms)
+✔ guard: DemoMode 只允许登录页/主框架/个人页接入，且演示模块不依赖真实认证链路 (26.6755ms)
+✔ guard: 登录页演示入口必须显式，失败/网络异常路径不得自动切换演示 (1.5469ms)
+✔ guard: Index 演示模式必须跳过真实轮询，且保留真实分支 (1.0575ms)
+✔ guard: 正式源码不 import MockData / 不使用 MockData 回退（REAL_API 铁律 1） (26.3272ms)
+✔ guard: 正式源码不含 mock-token / 伪造 token (25.0067ms)
+✔ guard: 正式源码不含 INGEST_KEY（APP 不得持有设备摄入凭据） (18.752ms)
+✔ guard: 正式源码不含 /internal/v1 设备内部接口 (20.2118ms)
+✔ guard: 不存在无条件假成功文案（SOS 已推送 / 声光报警器已启动 / 已联系全部联系人 / 处置已归档） (68.7075ms)
+✔ guard: “设备已确认”只在能核对服务端 ACKED 状态的源码中出现 (31.0387ms)
+✔ guard: LoginPage 不含旧账号体系 AccountStore / SmsService / Session (2.7258ms)
+✔ guard: Register/Forgot/ChangePwd/CancelAccount 页面不调用 AccountStore/SmsService（无后端能力=未开放） (1.96ms)
+✔ guard: 正式源码只使用 https://api.luxunacc.xyz（无 http:// 或其他域名） (20.8612ms)
+✔ guard: 正式源码不 import 纯演示数据文件 Elder / 旧 Sensor 模型（如已删除则跳过） (19.6109ms)
+✔ guard: LoginPage 走真实 GuardianService 登录，不自行拼 HTTP (1.1896ms)
+✔ guard: 页面层不直接 import ApiClient / HarmonyHttpTransport（唯一入口 GuardianService） (10.368ms)
+✔ guard: 关键错误/状态文案包含规范要求的诚实表述（静态存在性） (41.8293ms)
+✔ guard: 密码不落盘/不进日志/不进 AppStorage（LoginPage 只在内存使用） (2.4348ms)
+✔ guard: token 只走系统安全存储（AssetStoreKit），不用明文 Preferences/SQLite (0.7726ms)
+✔ guard: 全仓库只有 net/HarmonyHttpTransport 直接使用 @kit.NetworkKit (15.8907ms)
+✔ guard: 正式源码不打印 token/password/secret (18.8181ms)
+✔ guard: 正式源码不存在 dataSource=mock 之类的假数据源标记 (20.1523ms)
+✔ guard: AlertDetailPage 按 alarmId 从真实 gv.alerts 查找，ACKED 才确认（重写后启用） (1.7169ms)
+✔ guard: GuardianService 登录错误文案按规范映射（401/429/503/超时/网络） (2.0966ms)
+✔ guard: LoginPage 本地校验 guardianId(3–64 A-Za-z0-9._-) 与 password(32–256) (1.4627ms)
+✔ guard: Index 初始化/清理真实轮询与 401 跳转 (0.8296ms)
+✔ guard: SOS 浮钮/入口明确“未开放”，不宣称已推送 (0.7159ms)
+✔ guard: token 不出现在 URL 查询参数中 (18.1593ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 455.1715
+
+----- view-mapper.test.mjs (exit=0; tests=25 pass=25 fail=0) -----
+✔ climate 字段缺失：显示“等待数据”，不显示正常 (3.3684ms)
+✔ climate tempC/rh 同时为 0（占位）：无效/待确认，不得显示正常 (0.4468ms)
+✔ climate valid=false：无效，不显示正常 (0.2851ms)
+✔ climate valid 缺失：有效性未知，不得当成有效（云端当前剥离 valid） (0.236ms)
+✔ climate 只有 tempC 或只有 rh：仍展示已有读数，缺失项不编造 (0.414ms)
+✔ online=false：设备状态为离线，不显示正常 (0.2388ms)
+✔ monitorOnline=0：在线·监测异常；=1 正常；=-1 未知 (0.2298ms)
+✔ csq：0–31 保留；99 已在 DTO 归为未知 -1 (0.2051ms)
+✔ kitchen gas/smoke：valueText 只显示原始 ADC，不含 ppm；“报警未启用”可见 (0.3644ms)
+✔ kitchen 即使服务端下发 motion/door/water，也不展示未安装能力 (0.3135ms)
+✔ bath 即使服务端下发 gas/smoke，也不展示未安装能力；水漏显示未启用而非正常 (0.2162ms)
+✔ bath PIR：只显示活动时间/次数，并提示长时间无活动触发 NO_MOTION (0.4513ms)
+✔ 未知 deviceId：能力待确认，字段存在也不显示“正常” (0.4344ms)
+✔ 未知设备的新增 sensors 字段：只记录为未识别，不崩 (0.1844ms)
+✔ rooms/devices 按 roomId 关联，中文房间名不一致也正确绑定 (2.4547ms)
+✔ roomId 不匹配时不得按中文房间名误绑，设备进入“未分配房间” (0.5662ms)
+✔ rooms 为空但 devices 非空：生成未分配分组，不伪造房间名 (0.2692ms)
+✔ devices 为空：mapDevices/mapRooms 返回空数组（空态，不 Mock） (0.1775ms)
+✔ alert 状态映射：ALARM 待确认 / ackPending 等待设备确认 / ACKED 设备已确认 (0.7616ms)
+✔ ACK 202 之后的本地映射：同一 ALARM+ackPending=true 仍是“等待设备确认”，绝不本地变 ACKED (0.1511ms)
+✔ 未知 state：状态未知，不默认显示已确认/正常 (0.1872ms)
+✔ countNeedsAttention：待确认 + 等待设备确认计入，ACKED 不计 (0.1567ms)
+✔ findAlert：找不到返回 null（页面显示不存在/已失效，禁止取第一条 Mock） (0.2243ms)
+✔ mapOverview：hasData=true，latestAlert 可为 null，不编造统计 (0.3734ms)
+✔ dayu200-living：不产生实时视频/摄像头传感器瓦片，只保留监测状态 (0.3156ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 21.9414
+
+== TOTAL: files=241 聚合结果 ==
+TOTAL tests=241 pass=241 fail=0 nonzero_exits=0

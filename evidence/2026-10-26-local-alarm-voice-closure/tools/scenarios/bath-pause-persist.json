@@ -1,0 +1,45 @@
+{
+    "durationSec":  64,
+    "steps":  [
+                  {
+                      "atSec":  1,
+                      "send":  "resume"
+                  },
+                  {
+                      "atSec":  2,
+                      "send":  "inj reboot"
+                  },
+                  {
+                      "atSec":  8,
+                      "send":  "pause"
+                  },
+                  {
+                      "atSec":  12,
+                      "send":  "inj reboot"
+                  },
+                  {
+                      "atSec":  22,
+                      "send":  "inj motion"
+                  },
+                  {
+                      "atSec":  24,
+                      "send":  "inj pir 0"
+                  },
+                  {
+                      "atSec":  48,
+                      "send":  "resume"
+                  },
+                  {
+                      "atSec":  54,
+                      "send":  "stop"
+                  },
+                  {
+                      "atSec":  58,
+                      "send":  "inj pir 1"
+                  },
+                  {
+                      "atSec":  59,
+                      "send":  "inj pir 1"
+                  }
+              ]
+}

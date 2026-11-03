@@ -1,0 +1,1073 @@
+{
+  "version": "1.0",
+  "profile": {
+    "industryId": "2",
+    "sceneId": "19",
+    "categoryId": "37",
+    "productId": "I19NBBq4xe"
+  },
+  "properties": [
+    {
+      "identifier": "RFStrength",
+      "name": "传感器RF信号质量",
+      "functionType": "st",
+      "accessMode": "r",
+      "desc": "",
+      "dataType": {
+        "type": "struct",
+        "specs": [
+          {
+            "name": "传感器串码",
+            "identifier": "SensorSerialNumber",
+            "dataType": {
+              "type": "string",
+              "specs": {
+                "length": 255
+              }
+            }
+          },
+          {
+            "name": "信号强度",
+            "identifier": "RSSI",
+            "dataType": {
+              "type": "double",
+              "specs": {
+                "min": "-127",
+                "max": "-1",
+                "unit": "",
+                "step": "0.01"
+              }
+            }
+          }
+        ]
+      },
+      "functionMode": "property",
+      "required": false
+    },
+    {
+      "identifier": "RouterName",
+      "name": "网关名称",
+      "functionType": "st",
+      "accessMode": "rw",
+      "desc": "",
+      "dataType": {
+        "type": "string",
+        "specs": {
+          "length": 255
+        }
+      },
+      "functionMode": "property",
+      "required": false
+    },
+    {
+      "identifier": "RouterRSSI",
+      "name": "网关信号强度",
+      "functionType": "st",
+      "accessMode": "r",
+      "desc": "",
+      "dataType": {
+        "type": "double",
+        "specs": {
+          "max": "-1",
+          "min": "-127",
+          "step": "0.01",
+          "unit": ""
+        }
+      },
+      "functionMode": "property",
+      "required": false
+    },
+    {
+      "identifier": "RouterSerialNumber",
+      "name": "网关串码",
+      "functionType": "st",
+      "accessMode": "r",
+      "desc": "",
+      "dataType": {
+        "type": "string",
+        "specs": {
+          "length": 255
+        }
+      },
+      "functionMode": "property",
+      "required": false
+    },
+    {
+      "identifier": "RouterWorkMode",
+      "name": "网关工作模式",
+      "functionType": "st",
+      "accessMode": "rw",
+      "desc": "",
+      "dataType": {
+        "type": "enum",
+        "specs": {
+          "0": "睡眠模式",
+          "1": "在家模式",
+          "2": "外出模式"
+        }
+      },
+      "functionMode": "property",
+      "required": false
+    },
+    {
+      "identifier": "SensorClass",
+      "name": "传感器类别",
+      "functionType": "st",
+      "accessMode": "r",
+      "desc": "",
+      "dataType": {
+        "type": "enum",
+        "specs": {
+          "1": "探测器",
+          "2": "遥控器",
+          "3": "报警器",
+          "4": "键盘"
+        }
+      },
+      "functionMode": "property",
+      "required": false
+    },
+    {
+      "identifier": "SensorName",
+      "name": "传感器名称",
+      "functionType": "st",
+      "accessMode": "rw",
+      "desc": "",
+      "dataType": {
+        "type": "struct",
+        "specs": [
+          {
+            "name": "传感器名称",
+            "identifier": "SensorLocation",
+            "dataType": {
+              "type": "string",
+              "specs": {
+                "length": 255
+              }
+            }
+          },
+          {
+            "name": "传感器串码",
+            "identifier": "SensorSerialNumber",
+            "dataType": {
+              "type": "string",
+              "specs": {
+                "length": 255
+              }
+            }
+          }
+        ]
+      },
+      "functionMode": "property",
+      "required": false
+    },
+    {
+      "identifier": "SensorSerialNumber",
+      "name": "传感器串码",
+      "functionType": "st",
+      "accessMode": "r",
+      "desc": "",
+      "dataType": {
+        "type": "string",
+        "specs": {
+          "length": 255
+        }
+      },
+      "functionMode": "property",
+      "required": false
+    },
+    {
+      "identifier": "SensorType",
+      "name": "传感器型号",
+      "functionType": "st",
+      "accessMode": "r",
+      "desc": "",
+      "dataType": {
+        "type": "enum",
+        "specs": {
+          "1": "被动红外",
+          "2": "烟感",
+          "3": "门磁",
+          "4": "可燃气感",
+          "5": "水浸",
+          "6": "幕帘探测器",
+          "7": "紧急按钮",
+          "8": "单体门磁",
+          "9": "烟感B",
+          "10": "红外对射"
+        }
+      },
+      "functionMode": "property",
+      "required": false
+    },
+    {
+      "identifier": "SensorWorkMode",
+      "name": "传感器工作模式",
+      "functionType": "st",
+      "accessMode": "rw",
+      "desc": "",
+      "dataType": {
+        "type": "struct",
+        "specs": [
+          {
+            "name": "传感器串码",
+            "identifier": "SensorSerialNumber",
+            "dataType": {
+              "type": "string",
+              "specs": {
+                "length": 255
+              }
+            }
+          },
+          {
+            "name": "传感器布防模式",
+            "identifier": "SensorWorkMode",
+            "dataType": {
+              "type": "enum",
+              "specs": {
+                "1": "在家模式",
+                "2": "外出模式",
+                "3": "在家和外出模式",
+                "4": "睡眠模式",
+                "5": "在家和睡眠模式",
+                "6": "外出和睡眠模式",
+                "7": "在家外出和睡眠模式"
+              },
+              "stSpecs": {
+                "1": "在家模式",
+                "2": "外出模式",
+                "3": "在家和外出模式",
+                "4": "睡眠模式",
+                "5": "在家和睡眠模式",
+                "6": "外出和睡眠模式",
+                "7": "在家外出和睡眠模式"
+              }
+            }
+          }
+        ]
+      },
+      "functionMode": "property",
+      "required": false
+    },
+    {
+      "identifier": "TemplateEnableSwitch",
+      "name": "网关布防模板开关",
+      "functionType": "st",
+      "accessMode": "rw",
+      "desc": "",
+      "dataType": {
+        "type": "bool",
+        "specs": {
+          "true": "开启",
+          "false": "关闭"
+        }
+      },
+      "functionMode": "property",
+      "required": false
+    },
+    {
+      "identifier": "deviceId",
+      "name": "设备编号",
+      "functionType": "u",
+      "accessMode": "r",
+      "desc": "",
+      "dataType": {
+        "type": "string",
+        "specs": {
+          "length": 64
+        }
+      },
+      "functionMode": "property",
+      "required": false
+    },
+    {
+      "identifier": "room",
+      "name": "房间",
+      "functionType": "u",
+      "accessMode": "r",
+      "desc": "",
+      "dataType": {
+        "type": "string",
+        "specs": {
+          "length": 64
+        }
+      },
+      "functionMode": "property",
+      "required": false
+    },
+    {
+      "identifier": "online",
+      "name": "在线状态",
+      "functionType": "u",
+      "accessMode": "r",
+      "desc": "",
+      "dataType": {
+        "type": "bool",
+        "specs": {
+          "false": "离线",
+          "true": "在线"
+        }
+      },
+      "functionMode": "property",
+      "required": false
+    },
+    {
+      "identifier": "state",
+      "name": "安全状态",
+      "functionType": "u",
+      "accessMode": "r",
+      "desc": "NORMAL、WARN、ALARM、ACKED或OFFLINE",
+      "dataType": {
+        "type": "string",
+        "specs": {
+          "length": 16
+        }
+      },
+      "functionMode": "property",
+      "required": false
+    },
+    {
+      "identifier": "motion",
+      "name": "人体活动",
+      "functionType": "u",
+      "accessMode": "r",
+      "desc": "",
+      "dataType": {
+        "type": "struct",
+        "specs": [
+          {
+            "identifier": "lastActiveTs",
+            "name": "最后活动时间",
+            "dataType": {
+              "type": "int64",
+              "specs": {
+                "min": "0",
+                "max": "9007199254740991",
+                "step": "1",
+                "unit": "ms"
+              }
+            }
+          },
+          {
+            "identifier": "countToday",
+            "name": "今日活动次数",
+            "dataType": {
+              "type": "int32",
+              "specs": {
+                "min": "0",
+                "max": "1000000000",
+                "step": "1",
+                "unit": ""
+              }
+            }
+          }
+        ]
+      },
+      "functionMode": "property",
+      "required": false
+    },
+    {
+      "identifier": "door",
+      "name": "门磁",
+      "functionType": "u",
+      "accessMode": "r",
+      "desc": "",
+      "dataType": {
+        "type": "struct",
+        "specs": [
+          {
+            "identifier": "open",
+            "name": "是否开启",
+            "dataType": {
+              "type": "bool",
+              "specs": {
+                "false": "关闭",
+                "true": "开启"
+              }
+            }
+          },
+          {
+            "identifier": "lastOpenTs",
+            "name": "最后开启时间",
+            "dataType": {
+              "type": "int64",
+              "specs": {
+                "min": "0",
+                "max": "9007199254740991",
+                "step": "1",
+                "unit": "ms"
+              }
+            }
+          }
+        ]
+      },
+      "functionMode": "property",
+      "required": false
+    },
+    {
+      "identifier": "temperature",
+      "name": "温度",
+      "functionType": "u",
+      "accessMode": "r",
+      "desc": "",
+      "dataType": {
+        "type": "float",
+        "specs": {
+          "min": "-50",
+          "max": "100",
+          "step": "0.1",
+          "unit": "C"
+        }
+      },
+      "functionMode": "property",
+      "required": false
+    },
+    {
+      "identifier": "humidity",
+      "name": "湿度",
+      "functionType": "u",
+      "accessMode": "r",
+      "desc": "",
+      "dataType": {
+        "type": "float",
+        "specs": {
+          "min": "0",
+          "max": "100",
+          "step": "0.1",
+          "unit": "%RH"
+        }
+      },
+      "functionMode": "property",
+      "required": false
+    },
+    {
+      "identifier": "gas",
+      "name": "燃气",
+      "functionType": "u",
+      "accessMode": "r",
+      "desc": "",
+      "dataType": {
+        "type": "struct",
+        "specs": [
+          {
+            "identifier": "ok",
+            "name": "是否正常",
+            "dataType": {
+              "type": "bool",
+              "specs": {
+                "false": "异常",
+                "true": "正常"
+              }
+            }
+          },
+          {
+            "identifier": "raw",
+            "name": "原始值",
+            "dataType": {
+              "type": "float",
+              "specs": {
+                "min": "0",
+                "max": "1000000000",
+                "step": "0.01",
+                "unit": ""
+              }
+            }
+          }
+        ]
+      },
+      "functionMode": "property",
+      "required": false
+    },
+    {
+      "identifier": "smoke",
+      "name": "烟雾",
+      "functionType": "u",
+      "accessMode": "r",
+      "desc": "",
+      "dataType": {
+        "type": "struct",
+        "specs": [
+          {
+            "identifier": "ok",
+            "name": "是否正常",
+            "dataType": {
+              "type": "bool",
+              "specs": {
+                "false": "异常",
+                "true": "正常"
+              }
+            }
+          },
+          {
+            "identifier": "raw",
+            "name": "原始值",
+            "dataType": {
+              "type": "float",
+              "specs": {
+                "min": "0",
+                "max": "1000000000",
+                "step": "0.01",
+                "unit": ""
+              }
+            }
+          }
+        ]
+      },
+      "functionMode": "property",
+      "required": false
+    },
+    {
+      "identifier": "fall",
+      "name": "跌倒检测",
+      "functionType": "u",
+      "accessMode": "r",
+      "desc": "",
+      "dataType": {
+        "type": "struct",
+        "specs": [
+          {
+            "identifier": "detected",
+            "name": "是否跌倒",
+            "dataType": {
+              "type": "bool",
+              "specs": {
+                "false": "未检测到",
+                "true": "检测到"
+              }
+            }
+          },
+          {
+            "identifier": "confidence",
+            "name": "置信度",
+            "dataType": {
+              "type": "float",
+              "specs": {
+                "min": "0",
+                "max": "1",
+                "step": "0.001",
+                "unit": ""
+              }
+            }
+          },
+          {
+            "identifier": "detectedAt",
+            "name": "检测时间",
+            "dataType": {
+              "type": "int64",
+              "specs": {
+                "min": "0",
+                "max": "9007199254740991",
+                "step": "1",
+                "unit": "ms"
+              }
+            }
+          }
+        ]
+      },
+      "functionMode": "property",
+      "required": false
+    },
+    {
+      "identifier": "alarm",
+      "name": "当前告警",
+      "functionType": "u",
+      "accessMode": "r",
+      "desc": "",
+      "dataType": {
+        "type": "struct",
+        "specs": [
+          {
+            "identifier": "id",
+            "name": "告警编号",
+            "dataType": {
+              "type": "string",
+              "specs": {
+                "length": 96
+              }
+            }
+          },
+          {
+            "identifier": "type",
+            "name": "告警类型",
+            "dataType": {
+              "type": "string",
+              "specs": {
+                "length": 32
+              }
+            }
+          },
+          {
+            "identifier": "countToday",
+            "name": "今日告警数",
+            "dataType": {
+              "type": "int32",
+              "specs": {
+                "min": "0",
+                "max": "1000000",
+                "step": "1",
+                "unit": ""
+              }
+            }
+          },
+          {
+            "identifier": "detail",
+            "name": "告警说明",
+            "dataType": {
+              "type": "string",
+              "specs": {
+                "length": 256
+              }
+            }
+          }
+        ]
+      },
+      "functionMode": "property",
+      "required": false
+    },
+    {
+      "identifier": "gps",
+      "name": "定位",
+      "functionType": "u",
+      "accessMode": "r",
+      "desc": "",
+      "dataType": {
+        "type": "struct",
+        "specs": [
+          {
+            "identifier": "valid",
+            "name": "定位是否有效",
+            "dataType": {
+              "type": "bool",
+              "specs": {
+                "false": "无效",
+                "true": "有效"
+              }
+            }
+          },
+          {
+            "identifier": "latitude",
+            "name": "纬度",
+            "dataType": {
+              "type": "double",
+              "specs": {
+                "min": "-90",
+                "max": "90",
+                "step": "0.000001",
+                "unit": "deg"
+              }
+            }
+          },
+          {
+            "identifier": "longitude",
+            "name": "经度",
+            "dataType": {
+              "type": "double",
+              "specs": {
+                "min": "-180",
+                "max": "180",
+                "step": "0.000001",
+                "unit": "deg"
+              }
+            }
+          },
+          {
+            "identifier": "altitude",
+            "name": "海拔",
+            "dataType": {
+              "type": "float",
+              "specs": {
+                "min": "-1000",
+                "max": "100000",
+                "step": "0.1",
+                "unit": "m"
+              }
+            }
+          },
+          {
+            "identifier": "fixTime",
+            "name": "定位时间",
+            "dataType": {
+              "type": "int64",
+              "specs": {
+                "min": "0",
+                "max": "9007199254740991",
+                "step": "1",
+                "unit": "ms"
+              }
+            }
+          }
+        ]
+      },
+      "functionMode": "property",
+      "required": false
+    },
+    {
+      "identifier": "csq",
+      "name": "蜂窝信号质量",
+      "functionType": "u",
+      "accessMode": "r",
+      "desc": "",
+      "dataType": {
+        "type": "int32",
+        "specs": {
+          "min": "0",
+          "max": "99",
+          "step": "1",
+          "unit": ""
+        }
+      },
+      "functionMode": "property",
+      "required": false
+    },
+    {
+      "identifier": "control",
+      "name": "受限控制命令",
+      "functionType": "u",
+      "accessMode": "rw",
+      "desc": "命令仅允许ACK、RESET或SET_CONFIG；设备端必须继续执行白名单校验",
+      "dataType": {
+        "type": "struct",
+        "specs": [
+          {
+            "identifier": "command",
+            "name": "命令",
+            "dataType": {
+              "type": "string",
+              "specs": {
+                "length": 16
+              }
+            }
+          },
+          {
+            "identifier": "alarmId",
+            "name": "告警编号",
+            "dataType": {
+              "type": "string",
+              "specs": {
+                "length": 96
+              }
+            }
+          },
+          {
+            "identifier": "action",
+            "name": "处置说明",
+            "dataType": {
+              "type": "string",
+              "specs": {
+                "length": 120
+              }
+            }
+          },
+          {
+            "identifier": "noMotionSec",
+            "name": "无活动告警秒数",
+            "dataType": {
+              "type": "int32",
+              "specs": {
+                "min": "30",
+                "max": "86400",
+                "step": "1",
+                "unit": "s"
+              }
+            }
+          },
+          {
+            "identifier": "reportIntervalSec",
+            "name": "状态上报周期",
+            "dataType": {
+              "type": "int32",
+              "specs": {
+                "min": "1",
+                "max": "3600",
+                "step": "1",
+                "unit": "s"
+              }
+            }
+          }
+        ]
+      },
+      "functionMode": "property",
+      "required": false
+    }
+  ],
+  "events": [
+    {
+      "identifier": "SensorError",
+      "name": "传感器故障上报",
+      "functionType": "st",
+      "eventType": "info",
+      "desc": "",
+      "outputData": [
+        {
+          "identifier": "ErrorCode",
+          "name": "故障代码",
+          "dataType": {
+            "type": "enum",
+            "specs": {
+              "0": "无故障"
+            }
+          }
+        },
+        {
+          "identifier": "SensorSerialNumber",
+          "name": "传感器串码",
+          "dataType": {
+            "type": "string",
+            "specs": {
+              "length": 255
+            }
+          }
+        }
+      ],
+      "functionMode": "event",
+      "required": false
+    },
+    {
+      "identifier": "SensorNetstateAlarm",
+      "name": "传感器离线告警",
+      "functionType": "st",
+      "eventType": "info",
+      "desc": "",
+      "outputData": [
+        {
+          "identifier": "SensorState",
+          "name": "传感器状态",
+          "dataType": {
+            "type": "enum",
+            "specs": {
+              "0": "在线",
+              "1": "离线"
+            }
+          }
+        },
+        {
+          "identifier": "SensorSerialNumber",
+          "name": "传感器串码",
+          "dataType": {
+            "type": "string",
+            "specs": {
+              "length": 255
+            }
+          }
+        }
+      ],
+      "functionMode": "event",
+      "required": false
+    },
+    {
+      "identifier": "safetyAlarm",
+      "name": "安全告警事件",
+      "functionType": "u",
+      "eventType": "alert",
+      "desc": "无活动、紧急按钮、环境、燃气、烟雾或跌倒告警",
+      "outputData": [
+        {
+          "identifier": "deviceId",
+          "name": "设备编号",
+          "dataType": {
+            "type": "string",
+            "specs": {
+              "length": 64
+            }
+          }
+        },
+        {
+          "identifier": "room",
+          "name": "房间",
+          "dataType": {
+            "type": "string",
+            "specs": {
+              "length": 64
+            }
+          }
+        },
+        {
+          "identifier": "alarmId",
+          "name": "告警编号",
+          "dataType": {
+            "type": "string",
+            "specs": {
+              "length": 96
+            }
+          }
+        },
+        {
+          "identifier": "type",
+          "name": "告警类型",
+          "dataType": {
+            "type": "string",
+            "specs": {
+              "length": 32
+            }
+          }
+        },
+        {
+          "identifier": "countToday",
+          "name": "今日告警数",
+          "dataType": {
+            "type": "int32",
+            "specs": {
+              "min": "0",
+              "max": "1000000",
+              "step": "1",
+              "unit": ""
+            }
+          }
+        },
+        {
+          "identifier": "detail",
+          "name": "告警说明",
+          "dataType": {
+            "type": "string",
+            "specs": {
+              "length": 256
+            }
+          }
+        },
+        {
+          "identifier": "gps",
+          "name": "定位",
+          "dataType": {
+            "type": "struct",
+            "specs": [
+              {
+                "identifier": "valid",
+                "name": "定位是否有效",
+                "dataType": {
+                  "type": "bool",
+                  "specs": {
+                    "false": "无效",
+                    "true": "有效"
+                  }
+                }
+              },
+              {
+                "identifier": "latitude",
+                "name": "纬度",
+                "dataType": {
+                  "type": "double",
+                  "specs": {
+                    "min": "-90",
+                    "max": "90",
+                    "step": "0.000001",
+                    "unit": "deg"
+                  }
+                }
+              },
+              {
+                "identifier": "longitude",
+                "name": "经度",
+                "dataType": {
+                  "type": "double",
+                  "specs": {
+                    "min": "-180",
+                    "max": "180",
+                    "step": "0.000001",
+                    "unit": "deg"
+                  }
+                }
+              },
+              {
+                "identifier": "altitude",
+                "name": "海拔",
+                "dataType": {
+                  "type": "float",
+                  "specs": {
+                    "min": "-1000",
+                    "max": "100000",
+                    "step": "0.1",
+                    "unit": "m"
+                  }
+                }
+              },
+              {
+                "identifier": "fixTime",
+                "name": "定位时间",
+                "dataType": {
+                  "type": "int64",
+                  "specs": {
+                    "min": "0",
+                    "max": "9007199254740991",
+                    "step": "1",
+                    "unit": "ms"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "functionMode": "event",
+      "required": false
+    }
+  ],
+  "services": [
+    {
+      "identifier": "ClearAlarm",
+      "name": "一键消除报警",
+      "functionType": "st",
+      "desc": "",
+      "callType": "async",
+      "input": [],
+      "output": [],
+      "functionMode": "service",
+      "required": false
+    },
+    {
+      "identifier": "DeleteSensor",
+      "name": "删除传感器",
+      "functionType": "st",
+      "desc": "",
+      "callType": "async",
+      "input": [
+        {
+          "identifier": "SensorSerialNumber",
+          "name": "传感器串码",
+          "dataType": {
+            "type": "string",
+            "specs": {
+              "length": 255
+            }
+          }
+        }
+      ],
+      "output": [],
+      "functionMode": "service",
+      "required": false
+    },
+    {
+      "identifier": "Reboot",
+      "name": "重启",
+      "functionType": "st",
+      "desc": "",
+      "callType": "async",
+      "input": [],
+      "output": [],
+      "functionMode": "service",
+      "required": false
+    },
+    {
+      "identifier": "RouterUpgrade",
+      "name": "网关升级",
+      "functionType": "st",
+      "desc": "",
+      "callType": "async",
+      "input": [
+        {
+          "identifier": "RouterSerialNumber",
+          "name": "网关串码",
+          "dataType": {
+            "type": "string",
+            "specs": {
+              "length": 255
+            }
+          }
+        }
+      ],
+      "output": [],
+      "functionMode": "service",
+      "required": false
+    }
+  ],
+  "combs": []
+}

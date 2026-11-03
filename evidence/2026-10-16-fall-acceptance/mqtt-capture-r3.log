@@ -1,0 +1,120 @@
+CAPTURE_ERROR connect ECONNREFUSED 127.0.0.1:1883
+CAPTURE_ERROR connect ECONNREFUSED 127.0.0.1:1883
+CAPTURE_ERROR connect ECONNREFUSED 127.0.0.1:1883
+CAPTURE_ERROR connect ECONNREFUSED 127.0.0.1:1883
+CAPTURE_ERROR connect ECONNREFUSED 127.0.0.1:1883
+CAPTURE_ERROR connect ECONNREFUSED 127.0.0.1:1883
+CAPTURE_ERROR connect ECONNREFUSED 127.0.0.1:1883
+CAPTURE_ERROR connect ECONNREFUSED 127.0.0.1:1883
+CAPTURE_ERROR connect ECONNREFUSED 127.0.0.1:1883
+CAPTURE_ERROR connect ECONNREFUSED 127.0.0.1:1883
+CAPTURE_ERROR connect ECONNREFUSED 127.0.0.1:1883
+CAPTURE_ERROR connect ECONNREFUSED 127.0.0.1:1883
+CAPTURE_ERROR connect ECONNREFUSED 127.0.0.1:1883
+CAPTURE_ERROR connect ECONNREFUSED 127.0.0.1:1883
+CAPTURE_ERROR connect ECONNREFUSED 127.0.0.1:1883
+CAPTURE_READY utc=2026-10-16T15:48:21.552Z
+MQTT_STATUS utc=2026-10-16T15:48:25.267Z ts=1792165704639 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:48:28.268Z ts=1792165707641 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:48:31.271Z ts=1792165710644 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:48:34.276Z ts=1792165713648 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:48:37.279Z ts=1792165716650 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:48:40.282Z ts=1792165719654 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:48:43.286Z ts=1792165722658 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:48:46.289Z ts=1792165725660 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:48:49.293Z ts=1792165728664 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_CMD utc=2026-10-16T15:48:51.406Z payload={"cmd":"monitor","state":"online","reason":"first_frame","source":"yolo-pose"}
+MQTT_STATUS utc=2026-10-16T15:48:52.295Z ts=1792165731666 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:48:55.301Z ts=1792165734672 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:48:58.305Z ts=1792165737676 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:49:01.308Z ts=1792165740679 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:49:04.311Z ts=1792165743682 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:49:07.315Z ts=1792165746685 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:49:10.320Z ts=1792165749690 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:49:13.331Z ts=1792165752693 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:49:16.326Z ts=1792165755695 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:49:19.330Z ts=1792165758699 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:49:22.332Z ts=1792165761701 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:49:25.336Z ts=1792165764705 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:49:28.343Z ts=1792165767711 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:49:31.346Z ts=1792165770715 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:49:34.349Z ts=1792165773718 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:49:37.355Z ts=1792165776721 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:49:40.361Z ts=1792165779728 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:49:43.371Z ts=1792165782732 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:49:46.366Z ts=1792165785734 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:49:49.369Z ts=1792165788737 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_CMD utc=2026-10-16T15:49:51.508Z payload={"cmd":"monitor","state":"online","reason":"first_frame","source":"yolo-pose"}
+MQTT_STATUS utc=2026-10-16T15:49:52.372Z ts=1792165791740 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:49:55.375Z ts=1792165794743 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:49:58.379Z ts=1792165797747 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:50:01.382Z ts=1792165800749 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:50:04.386Z ts=1792165803753 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:50:07.388Z ts=1792165806756 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:50:10.391Z ts=1792165809759 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:50:13.414Z ts=1792165812762 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:50:16.398Z ts=1792165815765 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:50:19.402Z ts=1792165818769 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:50:22.404Z ts=1792165821771 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:50:25.413Z ts=1792165824779 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:50:28.420Z ts=1792165827782 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:50:31.423Z ts=1792165830788 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:50:34.427Z ts=1792165833792 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:50:37.429Z ts=1792165836795 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:50:40.434Z ts=1792165839798 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:50:43.437Z ts=1792165842801 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:50:46.441Z ts=1792165845805 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:50:49.444Z ts=1792165848808 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_CMD utc=2026-10-16T15:50:51.574Z payload={"cmd":"monitor","state":"online","reason":"first_frame","source":"yolo-pose"}
+MQTT_STATUS utc=2026-10-16T15:50:52.446Z ts=1792165851811 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:50:55.450Z ts=1792165854814 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:50:58.472Z ts=1792165857817 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:51:01.456Z ts=1792165860820 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:51:04.460Z ts=1792165863824 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:51:07.462Z ts=1792165866826 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:51:10.467Z ts=1792165869830 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:51:13.470Z ts=1792165872833 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:51:16.473Z ts=1792165875836 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:51:19.476Z ts=1792165878839 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:51:22.478Z ts=1792165881841 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:51:25.483Z ts=1792165884844 state=WARN alarmId= type= evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:51:28.489Z ts=1792165887848 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:51:31.492Z ts=1792165890854 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:51:34.494Z ts=1792165893857 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:51:37.504Z ts=1792165896866 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:51:40.507Z ts=1792165899869 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:51:43.514Z ts=1792165902875 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:51:46.519Z ts=1792165905879 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:51:49.521Z ts=1792165908882 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_CMD utc=2026-10-16T15:51:51.534Z payload={"cmd":"monitor","state":"online","reason":"first_frame","source":"yolo-pose"}
+MQTT_STATUS utc=2026-10-16T15:51:52.524Z ts=1792165911884 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:51:55.528Z ts=1792165914888 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:51:58.533Z ts=1792165917892 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:52:01.534Z ts=1792165920895 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:52:04.542Z ts=1792165923902 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:52:07.545Z ts=1792165926905 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:52:10.548Z ts=1792165929908 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:52:13.555Z ts=1792165932914 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:52:16.557Z ts=1792165935917 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:52:19.561Z ts=1792165938920 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:52:22.569Z ts=1792165941926 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:52:25.571Z ts=1792165944930 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:52:28.575Z ts=1792165947933 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:52:31.577Z ts=1792165950936 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:52:34.580Z ts=1792165953939 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:52:37.583Z ts=1792165956941 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:52:40.587Z ts=1792165959944 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:52:43.593Z ts=1792165962947 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:52:46.597Z ts=1792165965954 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:52:49.600Z ts=1792165968958 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_CMD utc=2026-10-16T15:52:51.678Z payload={"cmd":"monitor","state":"online","reason":"first_frame","source":"yolo-pose"}
+MQTT_STATUS utc=2026-10-16T15:52:52.603Z ts=1792165971960 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:52:55.608Z ts=1792165974963 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:52:58.615Z ts=1792165977968 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:53:01.619Z ts=1792165980975 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:53:04.621Z ts=1792165983978 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:53:07.624Z ts=1792165986980 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:53:10.628Z ts=1792165989984 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:53:13.632Z ts=1792165992987 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:53:16.634Z ts=1792165995990 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1
+MQTT_STATUS utc=2026-10-16T15:53:19.637Z ts=1792165998993 state=ALARM alarmId=a-1792165887-1 type=NO_MOTION evidenceId= monitor=1

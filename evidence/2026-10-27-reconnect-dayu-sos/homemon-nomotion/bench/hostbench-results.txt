@@ -1,0 +1,71 @@
+hostbench (本地 Windows 台架，非 DAYU 真机)  2026-10-27T22:47:01+08:00
+exe=<WORKSPACE>\competition\southbound\out\homemon-host.exe size=196900 sha256=5340E9EEE430171585DF22F8954103CEAC985110745C666E0103292CF7079BF5
+
+[A] 无 PIR：motion_gpio 未配置，no_motion_sec=60，运行 90s
+  PASS  A1 进程在 90s 内持续运行（未崩溃）
+  PASS  A2 stdout 持续上报状态行（19 行）
+  PASS  A3 全程 state=NORMAL（超过 no_motion_sec 也不进入 WARN/ALARM）
+  PASS  A4 全程 alarm.type 从未出现 NO_MOTION
+  PASS  A5 所有 stdout JSON 行均非 NO_MOTION
+  PASS  A6 homemon.log 无 NO_MOTION 告警记录
+  PASS  A7 启动日志明确记录 NO_MOTION=关闭（无有效 PIR）
+  PASS  A8 JSON motion.supported=false
+  PASS  A9 JSON motion.reported=false
+  PASS  A10 JSON motion.reason=not_configured
+  PASS  A11 JSON motion.lastActiveTs=0（不伪造启动时刻）
+  PASS  A12 monitorOnline=-1（监护链路从未上报，不冒充在线）
+  PASS  A13 每个采样点 motion 能力字段都保持 supported=false/reported=false
+  info: homemon.log=703 B；stdout 状态行 19 条
+
+  PASS  A14 重启后进程正常运行
+  PASS  A15 重启后 state=NORMAL、alarm.id 为空（内存旧告警不存在）
+  PASS  A16 重启后 motion.supported 仍为 false
+  PASS  A17 同一目录日志保留两次启动记录（历史不删）
+
+  PASS  B1 有 PIR：活动间隔达 50% → WARN
+  PASS  B2 有 PIR：JSON motion.supported=true/reported=true
+  PASS  B3 检测到活动 → WARN 恢复 NORMAL
+  PASS  B4 活动后 lastActiveTs 更新为当前时刻
+  PASS  B5 活动停止后按阈值触发 NO_MOTION（有 PIR 时规则不变）
+  PASS  B6 日志记录活动间隔 WARN
+  PASS  B7 日志记录活动恢复 NORMAL
+  PASS  B8 日志记录真实 ALARM（含 id/type/detail）
+[B] 有 PIR（假 gpio5）：20s 阈值/50% WARN，活动恢复 NORMAL，随后 NO_MOTION；日志与 JSON 一致
+
+  PASS  C1 重启后 state=NORMAL（内存中的 NO_MOTION 不跨重启）
+  PASS  C2 重启后 alarm.id 为空（没有伪造/恢复旧告警）
+  PASS  C3 历史 homemon.log 保留旧 ALARM 记录（未删除/未改写）
+[C] 重启后内存旧 NO_MOTION 消失（日志历史保留）：C1-C3
+
+  PASS  D1 日志记录校时跳变（时钟跳变被检测）
+  PASS  D2 校时命令通过（台架进程内偏移生效）
+  PASS  D3 跳变后立即仍为 NORMAL（历史时间戳被平移，无假 no_motion）
+  PASS  D4 上报 ts 已跳到目标时间（±5s）
+  PASS  D5 跳变后 alarm.type 非 NO_MOTION
+  PASS  D6 跳变后按真实观测到的 idle 继续判定（12s 后 WARN，而非立即 ALARM）
+  PASS  D7 跳变后仍未误报 NO_MOTION（idle 未满阈值）
+[D] 进程内模拟校时 +1h：跳变平移后 idle 语义保持，不产生假 NO_MOTION
+
+  PASS  E1 初始 monitorOnline=-1（从未上报，不冒充在线）
+  PASS  E2 monitor offline → monitorOnline=0/monitorReason=no_frame
+  PASS  E3 摄像头失联不产生告警、不影响 state
+  PASS  E4 monitor online → monitorOnline=1/frames_resumed
+  PASS  E5 摄像头在线不能被推导成 PIR 有活动（motion.supported=false）
+  PASS  E6 全程无 NO_MOTION 告警
+  PASS  E7 不可信时间被拒绝（999 不在可信区间）
+  PASS  E8 非法校时未改变状态（monitorOnline 保持 1）
+  PASS  E9 无 PIR 不影响主动求助：sos → MANUAL_SOS 告警
+  PASS  E10 SOS 告警时 motion.supported 仍为 false（没有伪造 PIR 活动）
+[E] 无 PIR + 摄像头监护字段独立：offline/online 只改 monitorOnline/Reason，不产生 NO_MOTION；SOS 不受影响
+
+  PASS  F1 门磁初始闭合（open=false）
+  PASS  F2 门磁打开 → JSON door.open=true
+  PASS  F3 门磁打开写入 lastOpenTs（真实事件时间）
+  PASS  F4 门磁重新闭合 → open=false
+  PASS  F5 求助按钮消抖后 → MANUAL_SOS 告警
+  PASS  F6 无 PIR：门磁/SOS 正常工作时 motion 能力仍为 false
+  PASS  F7 日志记录 MANUAL_SOS 告警
+  PASS  F8 无 PIR + 门磁/SOS 场景全程无 NO_MOTION
+[F] 门磁（假 gpio29）+ SOS（假 gpio30），无 PIR：门磁开合与 MANUAL_SOS 均正常，无 NO_MOTION
+
+hostbench: PASS=53 FAIL=0

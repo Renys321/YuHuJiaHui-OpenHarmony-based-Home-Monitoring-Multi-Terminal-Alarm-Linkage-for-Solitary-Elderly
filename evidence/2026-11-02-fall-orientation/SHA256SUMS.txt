@@ -1,0 +1,35 @@
+# 2026-11-02 fall-orientation deliverable SHA256 manifest (relative to competition/)
+# baseline snapshot of vision/fall_detector.py BEFORE patch: 6f3b382358cdc7bcb40ca3345abd3be6cea6f6ffb3f7d6ee91dc9868a6529733
+# real-machine live evidence frozen SHA: evidence/2026-11-02-fall-live-verification/SHA256SUMS.txt
+#
+2a43a02a40a56502b803d2d69a47a92e62d7d437d163f08953fa60df18fabf92 *evidence/2026-11-02-fall-orientation/README.md
+5951987f938f7d1b6f4c3aa072d1d49642d836136dd3999d0ef10f457f65fed8 *evidence/2026-11-02-fall-orientation/data/RESULTS.md
+7f3869d68ef97afee5ee21f113c2fd2546573e609d07dff403d57108eb06a573 *evidence/2026-11-02-fall-orientation/data/demo_trace_replay.json
+9eaa3146374c03d1327228c90483b12f9eee1e05f6980d23e9429acfc23feb21 *evidence/2026-11-02-fall-orientation/data/draft_host_selftest.log
+12ac33243e65352fb175442b8c7165f6034ea0262e3792a3c43d09fb8b522860 *evidence/2026-11-02-fall-orientation/data/real_features.csv
+116b3a2cc0bf8b32ee57e6d68e4248f46510437d7c92d6abe8389648cbbbc65d *evidence/2026-11-02-fall-orientation/data/real_machine_event_audit.json
+ca198852eed61aeeef330360f7e07a6fdbb306378946c516a53d800dbc73c64f *evidence/2026-11-02-fall-orientation/data/real_machine_event_audit.md
+ac3a630debb7b53410bb3371314334710afeed68fd475198c627f28af4f26b40 *evidence/2026-11-02-fall-orientation/data/real_replay_compare.json
+9c5298610cd4b4dc8619e0f490cc0dfbc18aab190438c1be193294f44121e14f *evidence/2026-11-02-fall-orientation/data/real_replay_summary.json
+2c2f955b7ade15ca184b16256939e78e8f5a48960aa8e9b9e90dd4ff9cba9672 *evidence/2026-11-02-fall-orientation/data/results_events.csv
+f57519414fe82563f33737c283e4cf00cb08ccd8d79d169e9edce8503e730f38 *evidence/2026-11-02-fall-orientation/data/results_frames.csv
+8ee9d839868d4ee456136b93a6a2de7dcf549a8b51f02d210cb9b234ae0c2df2 *evidence/2026-11-02-fall-orientation/data/unittest_baseline.log
+e9d903b42dd060f06b32d96855c982d45d8835ac3a98aa44c7d99ed3e471c9b7 *evidence/2026-11-02-fall-orientation/data/unittest_patched.log
+308777cdcbf9ee7aeecec5a8d5eee11c922f4ca81b0f5542de6f594ce35d3aa0 *evidence/2026-11-02-fall-orientation/repro/analyze_real.py
+2bf6a46952ca10f228985100b0583e1bf01b003dff402888dc60e387284bb7a0 *evidence/2026-11-02-fall-orientation/repro/audit_live_events.py
+075c18a1e253c239a9df228135f4620afc52c001f69a930b27304b743717f5e1 *evidence/2026-11-02-fall-orientation/repro/dayu-p1b-collapse-draft/README.md
+11c660ce492fa8cfebd9cebe6e78c7af754d8694c959b5e8a9c06f04369388e6 *evidence/2026-11-02-fall-orientation/repro/dayu-p1b-collapse-draft/fall_core.cpp
+ca132faa0c1da295f9dc0e1ec7a39fafeb4668d9180b6d7aade741e273951c79 *evidence/2026-11-02-fall-orientation/repro/dayu-p1b-collapse-draft/fall_core.h
+3a32184859fcbbdeabc4b131d6e79731a26de0e835fb94255fc62d0d7ae589b5 *evidence/2026-11-02-fall-orientation/repro/dayu-p1b-collapse-draft/host_selftest.cpp
+cf910e64d86e78161d320e9c1b54d07e2e93c41602f973ff778f714f366c5edf *evidence/2026-11-02-fall-orientation/repro/dayu-p1b-collapse-patch-proposal.md
+6f3b382358cdc7bcb40ca3345abd3be6cea6f6ffb3f7d6ee91dc9868a6529733 *evidence/2026-11-02-fall-orientation/repro/fall_detector_baseline.py
+6a997ce4d4e339e11a93d36324ddb809567aa03bfc4c71bf610c090ca2838328 *evidence/2026-11-02-fall-orientation/repro/make_draft.py
+bbea4389c3d3bbb2eb72298e3e71748f1f22efe2fe75c2024add5d6976302c94 *evidence/2026-11-02-fall-orientation/repro/replay_demo_trace.py
+d38f6828283992861100be4643c319372e114588363c1f2aab6e209e7a32c9f7 *evidence/2026-11-02-fall-orientation/repro/run_matrix.py
+09534887e0cfb99f32ad7681a789538cd41ec51ba13a865db2f705ee127e7e4d *evidence/2026-11-02-fall-orientation/repro/scenarios.py
+eb6fae2029478b43d34a880e6cfe2163c495a1132188679283dca4202972cb55 *vision/fall_detector.py
+af2d40fc2d7bde0a59e9e6c34d76b1dc0f9651c1586f2bff8f8ec5fbc1dd2e7f *vision/yolo_pose_service.py
+5f6be9cf580eaaf60c10ca9b686eb676b36ba0311bfddd003340b2bc6b8b613e *vision/test_fall_orientation.py
+d54707b246e6d2a102e5c87b3a16547e8acfd8b81601e152fcb4f90efa515069 *vision/README.md
+2229ee37f92c9c9aaf9aabe4731453db207fd36b42b3b666d6c9b3bee96a94b4 *docs/VALIDATION-MATRIX.md
+eef0b19c87c81f8f75198cfc75d42b750566565e22e7cca1e1615f55b8e1651d *docs/KNOWN-RISKS.md

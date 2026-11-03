@@ -1,0 +1,800 @@
+/**
+ * 监护人 APP 真实 API 接入的唯一服务入口。
+ *
+ * 职责：
+ * - 真实登录（POST /api/v1/auth/app）、会话恢复/过期、登出；
+ * - 统一刷新 overview/rooms/devices/alerts/contacts 并写入 AppStorage（gv.*）；
+ * - 30s 非重叠轮询、页面退出/登出清理；
+ * - 告警 ACK：202 后只进入“等待设备确认”，不会被本地改成 ACKED；
+ * - 安全存储 token（Asset Store），不可用时仅内存会话。
+ *
+ * 安全：不记录/持久化密码；不打印 token；不调用 /internal/v1；不包含 INGEST_KEY。
+ */
+import { common } from '@kit.AbilityKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+import { ApiError, ApiErrorKinds, ApiResult } from '../core/api/Errors';
+import { ApiClient } from '../core/api/ApiClient';
+import {
+  AckDto, AlertDto, ContactDto, DeviceDto, LoginDto, OverviewDto, RoomDto
+} from '../core/api/Contracts';
+import {
+  AckOutcome, LoginOutcome, RefreshOutcome
+} from '../core/service/Outcomes';
+import { Poller } from '../core/polling/Poller';
+import { SessionCore } from '../core/session/SessionCore';
+import { RequestGuard, SessionCommit, SessionTicket } from '../core/session/RequestGuard';
+import { ScopedSingleFlight } from '../core/session/ScopedSingleFlight';
+import {
+  SecureSession, SecureSessionVault, SessionRecoveryCoordinator
+} from '../core/session/SessionRecoveryCoordinator';
+import { MemorySessionPort, SessionRestorer } from '../core/session/SessionRestorer';
+import {
+  AppKeys, AlertView, ContactView, DeviceView, DataSource, NetworkState, OverviewView,
+  RoomView, RunMode
+} from '../core/view/Models';
+import {
+  countNeedsAttention, mapAlerts, mapContacts, mapDevices, mapOverview, mapRooms
+} from '../core/view/ViewMapper';
+import { HarmonyHttpTransport } from '../net/HarmonyHttpTransport';
+import { StoredSession, TokenVault } from '../auth/TokenVault';
+
+const API_BASE_URL: string = 'https://api.luxunacc.xyz';
+const POLL_INTERVAL_MS: number = 30 * 1000;
+const GUARDIAN_ID_RE: RegExp = /^[A-Za-z0-9._-]{3,64}$/;
+const PASSWORD_MIN: number = 32;
+const PASSWORD_MAX: number = 256;
+const NOTE_MAX: number = 120;
+
+class FetchReport {
+  ok: boolean = false;
+  /** 响应返回时会话已切换，本报告必须被丢弃（不提交、不触发 401）。 */
+  stale: boolean = false;
+  kind: string = '';
+  status: number = 0;
+  retryAfterSeconds: number = 0;
+  /** 仅本批请求持有的房间/设备 DTO，避免跨会话共享内部缓存。 */
+  rooms: RoomDto[] | null = null;
+  devices: DeviceView[] | null = null;
+}
+
+/** 生产安全存储端口：把 TokenVault/AssetStore 包装成核心恢复编排可用的接口。 */
+class TokenVaultAdapter implements SecureSessionVault {
+  async load(): Promise<SecureSession | null> {
+    const stored: StoredSession | null = await TokenVault.loadSecure();
+    if (stored === null) {
+      return null;
+    }
+    const session = new SecureSession();
+    session.token = stored.token;
+    session.guardianId = stored.guardianId;
+    session.expiresAt = stored.expiresAt;
+    return session;
+  }
+
+  async save(session: SecureSession): Promise<boolean> {
+    const stored = new StoredSession();
+    stored.token = session.token;
+    stored.guardianId = session.guardianId;
+    stored.expiresAt = session.expiresAt;
+    return await TokenVault.saveSecure(stored);
+  }
+
+  async clear(): Promise<void> {
+    await TokenVault.clearSecure();
+  }
+}
+
+/** 生产内存会话端口：复用 SessionCore 与 AppStorage 同步逻辑。 */
+class GuardianMemorySessionPort implements MemorySessionPort {
+  isActive(nowMs: number): boolean {
+    return GuardianService.memorySessionActive(nowMs);
+  }
+
+  applyRestored(token: string, guardianId: string, expiresAt: number, nowMs: number): void {
+    GuardianService.applyRestoredMemorySession(token, guardianId, expiresAt, nowMs);
+  }
+
+  syncSessionState(): void {
+    GuardianService.syncSessionAppState();
+  }
+}
+
+export class GuardianService {
+  static readonly BASE_URL: string = API_BASE_URL;
+  static readonly POLL_MS: number = POLL_INTERVAL_MS;
+
+  private static initialized: boolean = false;
+  private static api: ApiClient | null = null;
+  private static session: SessionCore = new SessionCore();
+  private static guard: RequestGuard | null = null;
+  private static commitGate: SessionCommit | null = null;
+  private static poller: Poller | null = null;
+  /** 刷新去重按“会话代际”隔离；旧任务的 finally 不得清掉新会话的锁。 */
+  private static refreshLock: ScopedSingleFlight<RefreshOutcome> = new ScopedSingleFlight<RefreshOutcome>();
+  private static alertsLock: ScopedSingleFlight<RefreshOutcome> = new ScopedSingleFlight<RefreshOutcome>();
+  /** 恢复/保存/清除安全存储的同一串行编排（含会话生命周期 epoch）。 */
+  private static recovery: SessionRecoveryCoordinator | null = null;
+  /** 恢复结果解析（提交前用当前时间复验有效期），页面恢复入口实际调用。 */
+  private static restorer: SessionRestorer | null = null;
+  private static hostContext: common.Context | null = null;
+
+  private static recoveryCoordinator(): SessionRecoveryCoordinator {
+    if (GuardianService.recovery === null) {
+      GuardianService.recovery = new SessionRecoveryCoordinator(new TokenVaultAdapter());
+    }
+    return GuardianService.recovery;
+  }
+
+  private static sessionRestorer(): SessionRestorer {
+    if (GuardianService.restorer === null) {
+      GuardianService.restorer = new SessionRestorer(
+        GuardianService.recoveryCoordinator(),
+        new GuardianMemorySessionPort(),
+        (): number => Date.now());
+    }
+    return GuardianService.restorer;
+  }
+
+  private static requestGuard(): RequestGuard {
+    if (GuardianService.guard === null) {
+      GuardianService.guard = new RequestGuard(GuardianService.session);
+    }
+    return GuardianService.guard;
+  }
+
+  private static sessionCommit(): SessionCommit {
+    if (GuardianService.commitGate === null) {
+      GuardianService.commitGate = new SessionCommit(GuardianService.requestGuard());
+    }
+    return GuardianService.commitGate;
+  }
+
+  // ---------------------------------------------------------------- init
+
+  static init(ctx: common.Context): void {
+    GuardianService.hostContext = ctx;
+    if (GuardianService.initialized) {
+      return;
+    }
+    GuardianService.initialized = true;
+    GuardianService.api = new ApiClient(API_BASE_URL, new HarmonyHttpTransport(API_BASE_URL));
+    GuardianService.writeDefaultState();
+  }
+
+  private static writeDefaultState(): void {
+    AppStorage.setOrCreate<DeviceView[]>(AppKeys.DEVICES, []);
+    AppStorage.setOrCreate<RoomView[]>(AppKeys.ROOMS, []);
+    AppStorage.setOrCreate<AlertView[]>(AppKeys.ALERTS, []);
+    AppStorage.setOrCreate<ContactView[]>(AppKeys.CONTACTS, []);
+    AppStorage.setOrCreate<OverviewView>(AppKeys.OVERVIEW, new OverviewView());
+    AppStorage.setOrCreate<string>(AppKeys.NET_STATUS, NetworkState.UNKNOWN);
+    AppStorage.setOrCreate<string>(AppKeys.NET_MESSAGE, '');
+    AppStorage.setOrCreate<number>(AppKeys.LAST_UPDATED_AT, 0);
+    AppStorage.setOrCreate<string>(AppKeys.DATA_SOURCE, DataSource.NONE);
+    AppStorage.setOrCreate<string>(AppKeys.GUARDIAN_ID, '');
+    AppStorage.setOrCreate<string>(AppKeys.TOKEN_STORAGE, 'memory');
+    AppStorage.setOrCreate<string>(AppKeys.MODE, RunMode.NONE);
+  }
+
+  private static apiClient(): ApiClient | null {
+    return GuardianService.api;
+  }
+
+  private static now(): number {
+    return Date.now();
+  }
+
+  private static setNet(status: string, message: string): void {
+    AppStorage.setOrCreate<string>(AppKeys.NET_STATUS, status);
+    AppStorage.setOrCreate<string>(AppKeys.NET_MESSAGE, message);
+  }
+
+  /** 清空账号相关业务缓存（避免下次登录短暂显示上一账号数据）。 */
+  private static clearBusinessData(): void {
+    AppStorage.setOrCreate<DeviceView[]>(AppKeys.DEVICES, []);
+    AppStorage.setOrCreate<RoomView[]>(AppKeys.ROOMS, []);
+    AppStorage.setOrCreate<AlertView[]>(AppKeys.ALERTS, []);
+    AppStorage.setOrCreate<ContactView[]>(AppKeys.CONTACTS, []);
+    AppStorage.setOrCreate<OverviewView>(AppKeys.OVERVIEW, new OverviewView());
+    AppStorage.setOrCreate<number>(AppKeys.LAST_UPDATED_AT, 0);
+    AppStorage.setOrCreate<string>(AppKeys.DATA_SOURCE, DataSource.NONE);
+    AppStorage.setOrCreate<string>(AppKeys.GUARDIAN_ID, '');
+    AppStorage.setOrCreate<string>(AppKeys.TOKEN_STORAGE, 'memory');
+    AppStorage.setOrCreate<string>(AppKeys.MODE, RunMode.NONE);
+  }
+
+  /** 仅用于“当前会话”的 401/403 或明确过期；调用方必须先确认 ticket 仍属当前会话。 */
+  private static setUnauthorized(message: string): void {
+    // 内存会话立即失效；restore 在用户重新登录前一律 blocked。
+    GuardianService.recoveryCoordinator().invalidate();
+    GuardianService.session.clear();
+    TokenVault.clearMemory();
+    void GuardianService.recoveryCoordinator().clearSecure();
+    GuardianService.stopAutoRefresh();
+    GuardianService.clearBusinessData();
+    GuardianService.setNet(NetworkState.UNAUTHORIZED, message);
+  }
+
+  // -------------------------------------------------------------- session
+
+  static isLoggedIn(): boolean {
+    return GuardianService.session.isActive(GuardianService.now());
+  }
+
+  static guardianId(): string {
+    return GuardianService.session.guardianId();
+  }
+
+  static tokenStorageMode(): string {
+    return GuardianService.session.storageMode();
+  }
+
+  static async restoreSession(): Promise<boolean> {
+    // 由核心 SessionRestorer 完成：load 与 clear 同队列；提交前用当前时间重新校验 expiresAt；
+    // 拒绝过期记录时不写入内存会话/AppStorage，返回真实登录状态。
+    return await GuardianService.sessionRestorer().restore();
+  }
+
+  /** 供内存会话端口使用：当前内存会话是否仍有效。 */
+  static memorySessionActive(nowMs: number): boolean {
+    return GuardianService.session.isActive(nowMs);
+  }
+
+  /** 供内存会话端口使用：用安全存储的绝对 expiresAt 恢复会话（不做过期兜底）。 */
+  static applyRestoredMemorySession(token: string, guardianId: string, expiresAt: number,
+    nowMs: number): void {
+    GuardianService.session.setWithExpiry(token, guardianId, expiresAt, nowMs, 'secure');
+  }
+
+  static syncSessionAppState(): void {
+    AppStorage.setOrCreate<string>(AppKeys.GUARDIAN_ID, GuardianService.session.guardianId());
+    AppStorage.setOrCreate<string>(AppKeys.TOKEN_STORAGE, GuardianService.session.storageMode());
+  }
+
+  private static validGuardianId(id: string): boolean {
+    return GUARDIAN_ID_RE.test(id);
+  }
+
+  static async login(guardianId: string, password: string, remember: boolean): Promise<LoginOutcome> {
+    const outcome = new LoginOutcome();
+    const cleanId: string = guardianId.trim();
+    if (!GuardianService.validGuardianId(cleanId)) {
+      outcome.kind = 'bad_request';
+      outcome.message = '监护人账号需为 3–64 位字母、数字或 . _ -';
+      return outcome;
+    }
+    if (password.length < PASSWORD_MIN || password.length > PASSWORD_MAX) {
+      outcome.kind = 'bad_request';
+      outcome.message = `登录口令长度需为 ${PASSWORD_MIN}–${PASSWORD_MAX} 位（由项目负责人提供）`;
+      return outcome;
+    }
+    const api: ApiClient | null = GuardianService.apiClient();
+    if (api === null) {
+      outcome.kind = 'unknown';
+      outcome.message = '服务未初始化，请重启 APP';
+      return outcome;
+    }
+    // 每次登录尝试都开启新 epoch；登出/新登录/鉴权失效会继续递增，旧响应与旧 restore 作废。
+    const coordinator: SessionRecoveryCoordinator = GuardianService.recoveryCoordinator();
+    const attempt: number = coordinator.beginLoginAttempt();
+    const result: ApiResult<LoginDto> = await api.login(cleanId, password);
+    if (!coordinator.isAttemptCurrent(attempt)) {
+      coordinator.endLoginAttempt(attempt);
+      outcome.kind = 'stale';
+      outcome.message = '登录已取消（会话已切换）';
+      return outcome;
+    }
+    if (!result.ok) {
+      coordinator.endLoginAttempt(attempt);
+      const error: ApiError = result.error as ApiError;
+      outcome.kind = error.kind;
+      outcome.retryAfterSeconds = error.retryAfterSeconds;
+      outcome.message = GuardianService.loginMessage(error);
+      return outcome;
+    }
+    const dto: LoginDto = result.value as LoginDto;
+    let storageMode: string = 'memory';
+    const secureSession = new SecureSession();
+    secureSession.token = dto.sessionToken;
+    secureSession.guardianId = cleanId;
+    const expiresIn: number = dto.expiresIn > 0 ? dto.expiresIn : 7200;
+    secureSession.expiresAt = GuardianService.now() + expiresIn * 1000;
+
+    // 保存/清除与 restore 的 load 共用同一串行队列；epoch 变化则本次不落盘。
+    const secureSaved: boolean = await coordinator.saveForLogin(secureSession, attempt, remember);
+    if (!coordinator.isAttemptCurrent(attempt)) {
+      coordinator.endLoginAttempt(attempt);
+      outcome.kind = 'stale';
+      outcome.message = '登录已取消（会话已切换）';
+      return outcome;
+    }
+    // 内存会话始终持有本次 token（安全存储只决定冷启动能否恢复）。
+    const stored = new StoredSession();
+    stored.token = secureSession.token;
+    stored.guardianId = secureSession.guardianId;
+    stored.expiresAt = secureSession.expiresAt;
+    TokenVault.setMemory(stored);
+    if (remember && secureSaved) {
+      storageMode = 'secure';
+    } else {
+      storageMode = 'memory';
+    }
+    // 新会话建立前清空上一账号业务缓存；随后 set 会递增会话代际，旧在途响应全部作废。
+    GuardianService.clearBusinessData();
+    // 先提交生命周期（epoch++、invalidated=false），旧 restore 的 submit 校验将失败。
+    coordinator.markLoginCommitted();
+    GuardianService.session.set(dto.sessionToken, cleanId, expiresIn,
+      GuardianService.now(), storageMode);
+    GuardianService.syncSessionAppState();
+    AppStorage.setOrCreate<string>(AppKeys.MODE, RunMode.REAL);
+    AppStorage.setOrCreate<string>(AppKeys.NET_STATUS, NetworkState.UNKNOWN);
+    AppStorage.setOrCreate<string>(AppKeys.NET_MESSAGE, '');
+    outcome.ok = true;
+    outcome.kind = 'ok';
+    outcome.message = '登录成功';
+    return outcome;
+  }
+
+  static async logout(): Promise<void> {
+    // 内存会话与生命周期立即失效；安全存储清除排在同一串行队列。
+    const coordinator: SessionRecoveryCoordinator = GuardianService.recoveryCoordinator();
+    coordinator.invalidate();
+    GuardianService.stopAutoRefresh();
+    GuardianService.session.clear();
+    TokenVault.clearMemory();
+    const clearTask: Promise<void> = coordinator.clearSecure();
+    GuardianService.writeDefaultState();
+    await clearTask;
+  }
+
+  private static loginMessage(error: ApiError): string {
+    if (error.kind === ApiErrorKinds.UNAUTHORIZED) return '账号或口令错误';
+    if (error.kind === ApiErrorKinds.FORBIDDEN) return '账号已被服务端停用';
+    if (error.kind === ApiErrorKinds.RATE_LIMITED) {
+      const seconds: number = error.retryAfterSeconds > 0 ? error.retryAfterSeconds : 60;
+      return `尝试过多，请 ${seconds} 秒后再试`;
+    }
+    if (error.kind === ApiErrorKinds.SERVICE_UNAVAILABLE) return '服务端登录未配置';
+    return GuardianService.businessMessage(error);
+  }
+
+  private static businessMessage(error: ApiError): string {
+    if (error.kind === ApiErrorKinds.TIMEOUT) return '请求超时，请检查网络后重试';
+    if (error.kind === ApiErrorKinds.NETWORK) return '网络不可用，请检查连接';
+    if (error.kind === ApiErrorKinds.RATE_LIMITED) {
+      const seconds: number = error.retryAfterSeconds > 0 ? error.retryAfterSeconds : 60;
+      return `操作过于频繁，请 ${seconds} 秒后再试`;
+    }
+    if (error.kind === ApiErrorKinds.SERVER) return '服务端错误，请稍后重试';
+    if (error.kind === ApiErrorKinds.SERVICE_UNAVAILABLE) return '服务暂不可用，请稍后重试';
+    if (error.kind === ApiErrorKinds.NOT_FOUND) return '对象不存在或已失效';
+    if (error.kind === ApiErrorKinds.CONFLICT) return '状态已变化，请刷新后重试';
+    if (error.kind === ApiErrorKinds.BAD_REQUEST) return '请求被拒绝，请检查输入';
+    if (error.kind === ApiErrorKinds.MALFORMED) return '服务端响应异常，请稍后重试';
+    if (error.kind === ApiErrorKinds.FORBIDDEN) return '账号已被服务端停用';
+    if (error.kind === ApiErrorKinds.UNAUTHORIZED) return '会话已过期，请重新登录';
+    return '操作失败，请稍后重试';
+  }
+
+  private static requiresRelogin(error: ApiError): boolean {
+    return error.kind === ApiErrorKinds.UNAUTHORIZED || error.kind === ApiErrorKinds.FORBIDDEN;
+  }
+
+  // -------------------------------------------------------------- refresh
+
+  static refreshAll(): Promise<RefreshOutcome> {
+    const scope: number = GuardianService.session.generationId();
+    return GuardianService.refreshLock.run(scope, (): Promise<RefreshOutcome> => {
+      return GuardianService.doRefreshAll();
+    });
+  }
+
+  private static staleOutcome(): RefreshOutcome {
+    const outcome = new RefreshOutcome();
+    outcome.stale = true;
+    return outcome;
+  }
+
+  /** 旧会话响应：不写页面、不写网络状态、不清新会话。 */
+  private static async doRefreshAll(): Promise<RefreshOutcome> {
+    const outcome = new RefreshOutcome();
+    const guard: RequestGuard = GuardianService.requestGuard();
+    const ticket: SessionTicket = guard.capture();
+    const startedAt: number = GuardianService.now();
+    if (ticket.token.length === 0) {
+      // 已登出：本次结果无意义，也不能清任何东西。
+      return GuardianService.staleOutcome();
+    }
+    if (!guard.isCurrent(ticket, startedAt)) {
+      if (ticket.version === GuardianService.session.generationId() &&
+        ticket.token === GuardianService.session.token()) {
+        GuardianService.setUnauthorized('会话已过期，请重新登录');
+        outcome.unauthorized = true;
+        outcome.message = '会话已过期，请重新登录';
+      } else {
+        outcome.stale = true;
+      }
+      return outcome;
+    }
+    GuardianService.setNet(NetworkState.LOADING, '正在刷新…');
+    const reports: FetchReport[] = await Promise.all([
+      GuardianService.fetchOverview(ticket),
+      GuardianService.fetchRooms(ticket),
+      GuardianService.fetchDevices(ticket),
+      GuardianService.fetchAlerts(ticket)
+    ]);
+    const now: number = GuardianService.now();
+    if (!guard.isCurrent(ticket, now)) {
+      // 会话在请求期间切换/失效：丢弃整批结果。
+      return GuardianService.staleOutcome();
+    }
+    let staleCount: number = 0;
+    let successCount: number = 0;
+    let relogin: boolean = false;
+    let firstError: FetchReport | null = null;
+    let roomsDto: RoomDto[] | null = null;
+    let devicesView: DeviceView[] | null = null;
+    for (let i = 0; i < reports.length; i++) {
+      const report: FetchReport = reports[i];
+      if (report.stale) {
+        staleCount += 1;
+        continue;
+      }
+      if (report.rooms !== null) roomsDto = report.rooms;
+      if (report.devices !== null) devicesView = report.devices;
+      if (report.ok) {
+        successCount += 1;
+      } else if (firstError === null) {
+        firstError = report;
+      }
+      if (report.kind === ApiErrorKinds.UNAUTHORIZED || report.kind === ApiErrorKinds.FORBIDDEN) {
+        relogin = true;
+      }
+    }
+    if (staleCount > 0) {
+      return GuardianService.staleOutcome();
+    }
+    if (relogin) {
+      GuardianService.setUnauthorized('会话已过期，请重新登录');
+      outcome.unauthorized = true;
+      outcome.message = '会话已过期，请重新登录';
+      return outcome;
+    }
+    // 所有写页面/网络状态的副作用都在二次会话校验之后。
+    if (!guard.isCurrent(ticket, now)) {
+      return GuardianService.staleOutcome();
+    }
+    if (!GuardianService.sessionCommit().commitIfCurrent(ticket, now, (): void => {})) {
+      return GuardianService.staleOutcome();
+    }
+    if (roomsDto !== null || devicesView !== null) {
+      const rooms: RoomDto[] = roomsDto !== null ? roomsDto : [];
+      const devices: DeviceView[] = devicesView !== null
+        ? devicesView
+        : (AppStorage.get<DeviceView[]>(AppKeys.DEVICES) ?? []);
+      AppStorage.setOrCreate<RoomView[]>(AppKeys.ROOMS, mapRooms(rooms, devices));
+    }
+    /* overview 聚合接口不可用时，首页不应显示 '--'：用同批真实 devices 派生
+       设备总数/在线数/监测异常数。只有 devices 确实返回（含空数组）才派生；
+       全部请求失败时保持 hasData=false，继续显示“暂无数据”，不补 0。 */
+    const currentOverview: OverviewView | null = AppStorage.get<OverviewView>(AppKeys.OVERVIEW) ?? null;
+    if ((currentOverview === null || !currentOverview.hasData) && devicesView !== null) {
+      const derived: OverviewView = new OverviewView();
+      derived.hasData = true;
+      derived.generatedAt = GuardianService.now();
+      derived.deviceCount = devicesView.length;
+      let derivedOnline: number = 0;
+      let derivedMonitorOffline: number = 0;
+      for (let i = 0; i < devicesView.length; i++) {
+        const d: DeviceView = devicesView[i];
+        if (d.online) {
+          derivedOnline += 1;
+          if (d.monitorOnline === 0) derivedMonitorOffline += 1;
+        }
+      }
+      derived.onlineCount = derivedOnline;
+      derived.monitorOfflineCount = derivedMonitorOffline;
+      derived.activeAlertCount = 0;
+      AppStorage.setOrCreate<OverviewView>(AppKeys.OVERVIEW, derived);
+    }
+    const total: number = reports.length;
+    if (successCount === total) {
+      AppStorage.setOrCreate<string>(AppKeys.NET_STATUS, NetworkState.OK);
+      AppStorage.setOrCreate<string>(AppKeys.NET_MESSAGE, '');
+      AppStorage.setOrCreate<number>(AppKeys.LAST_UPDATED_AT, GuardianService.now());
+      AppStorage.setOrCreate<string>(AppKeys.DATA_SOURCE, DataSource.API);
+      outcome.ok = true;
+      outcome.updatedAt = GuardianService.now();
+      return outcome;
+    }
+    if (successCount > 0) {
+      AppStorage.setOrCreate<string>(AppKeys.NET_STATUS, NetworkState.PARTIAL);
+      AppStorage.setOrCreate<string>(AppKeys.NET_MESSAGE,
+        '部分数据获取失败，已显示上次/部分数据');
+      AppStorage.setOrCreate<number>(AppKeys.LAST_UPDATED_AT, GuardianService.now());
+      AppStorage.setOrCreate<string>(AppKeys.DATA_SOURCE, DataSource.API);
+      outcome.partial = true;
+      outcome.ok = true;
+      outcome.updatedAt = GuardianService.now();
+      outcome.message = '部分数据获取失败，已显示上次/部分数据';
+      return outcome;
+    }
+    const error: FetchReport = firstError !== null ? firstError : new FetchReport();
+    const apiError = new ApiError(error.kind, error.status, '', error.retryAfterSeconds);
+    outcome.message = GuardianService.businessMessage(apiError);
+    if (error.kind === ApiErrorKinds.NETWORK || error.kind === ApiErrorKinds.TIMEOUT) {
+      AppStorage.setOrCreate<string>(AppKeys.NET_STATUS, NetworkState.OFFLINE);
+      AppStorage.setOrCreate<string>(AppKeys.NET_MESSAGE, '网络不可用，显示上次数据');
+    } else {
+      AppStorage.setOrCreate<string>(AppKeys.NET_STATUS, NetworkState.ERROR);
+      AppStorage.setOrCreate<string>(AppKeys.NET_MESSAGE, outcome.message);
+    }
+    return outcome;
+  }
+
+  private static reportFailure(report: FetchReport, error: ApiError): FetchReport {
+    report.kind = error.kind;
+    report.status = error.status;
+    report.retryAfterSeconds = error.retryAfterSeconds;
+    return report;
+  }
+
+  private static async fetchOverview(ticket: SessionTicket): Promise<FetchReport> {
+    const report = new FetchReport();
+    const api: ApiClient | null = GuardianService.apiClient();
+    if (api === null) return report;
+    const result: ApiResult<OverviewDto> = await api.overview(ticket.token);
+    if (!GuardianService.requestGuard().isCurrent(ticket, GuardianService.now())) {
+      report.stale = true;
+      return report;
+    }
+    if (!result.ok) {
+      return GuardianService.reportFailure(report, result.error as ApiError);
+    }
+    AppStorage.setOrCreate<OverviewView>(AppKeys.OVERVIEW,
+      mapOverview(result.value as OverviewDto));
+    report.ok = true;
+    return report;
+  }
+
+  private static async fetchRooms(ticket: SessionTicket): Promise<FetchReport> {
+    const report = new FetchReport();
+    const api: ApiClient | null = GuardianService.apiClient();
+    if (api === null) return report;
+    const result: ApiResult<RoomDto[]> = await api.rooms(ticket.token);
+    if (!GuardianService.requestGuard().isCurrent(ticket, GuardianService.now())) {
+      report.stale = true;
+      return report;
+    }
+    if (!result.ok) {
+      return GuardianService.reportFailure(report, result.error as ApiError);
+    }
+    report.rooms = result.value as RoomDto[];
+    report.ok = true;
+    return report;
+  }
+
+  private static async fetchDevices(ticket: SessionTicket): Promise<FetchReport> {
+    const report = new FetchReport();
+    const api: ApiClient | null = GuardianService.apiClient();
+    if (api === null) return report;
+    const result: ApiResult<DeviceDto[]> = await api.devices(ticket.token);
+    if (!GuardianService.requestGuard().isCurrent(ticket, GuardianService.now())) {
+      report.stale = true;
+      return report;
+    }
+    if (!result.ok) {
+      return GuardianService.reportFailure(report, result.error as ApiError);
+    }
+    const devices: DeviceView[] = mapDevices(result.value as DeviceDto[], GuardianService.now());
+    report.devices = devices;
+    AppStorage.setOrCreate<DeviceView[]>(AppKeys.DEVICES, devices);
+    report.ok = true;
+    return report;
+  }
+
+  private static async fetchAlerts(ticket: SessionTicket): Promise<FetchReport> {
+    const report = new FetchReport();
+    const api: ApiClient | null = GuardianService.apiClient();
+    if (api === null) return report;
+    const result: ApiResult<AlertDto[]> = await api.alerts(ticket.token);
+    if (!GuardianService.requestGuard().isCurrent(ticket, GuardianService.now())) {
+      report.stale = true;
+      return report;
+    }
+    if (!result.ok) {
+      return GuardianService.reportFailure(report, result.error as ApiError);
+    }
+    AppStorage.setOrCreate<AlertView[]>(AppKeys.ALERTS, mapAlerts(result.value as AlertDto[]));
+    report.ok = true;
+    return report;
+  }
+
+  private static async fetchContacts(ticket: SessionTicket): Promise<FetchReport> {
+    const report = new FetchReport();
+    const api: ApiClient | null = GuardianService.apiClient();
+    if (api === null) return report;
+    const result: ApiResult<ContactDto[]> = await api.contacts(ticket.token);
+    if (!GuardianService.requestGuard().isCurrent(ticket, GuardianService.now())) {
+      report.stale = true;
+      return report;
+    }
+    if (!result.ok) {
+      return GuardianService.reportFailure(report, result.error as ApiError);
+    }
+    AppStorage.setOrCreate<ContactView[]>(AppKeys.CONTACTS,
+      mapContacts(result.value as ContactDto[]));
+    report.ok = true;
+    return report;
+  }
+
+  /** 只刷新告警（ACK 后轮询用），同样按会话代际单飞。 */
+  static refreshAlerts(): Promise<RefreshOutcome> {
+    const scope: number = GuardianService.session.generationId();
+    return GuardianService.alertsLock.run(scope, (): Promise<RefreshOutcome> => {
+      return GuardianService.doRefreshAlerts();
+    });
+  }
+
+  private static async doRefreshAlerts(): Promise<RefreshOutcome> {
+    const outcome = new RefreshOutcome();
+    const guard: RequestGuard = GuardianService.requestGuard();
+    const ticket: SessionTicket = guard.capture();
+    if (ticket.token.length === 0) {
+      return GuardianService.staleOutcome();
+    }
+    if (!guard.isCurrent(ticket, GuardianService.now())) {
+      if (ticket.version === GuardianService.session.generationId() &&
+        ticket.token === GuardianService.session.token()) {
+        GuardianService.setUnauthorized('会话已过期，请重新登录');
+        outcome.unauthorized = true;
+        outcome.message = '会话已过期，请重新登录';
+      } else {
+        outcome.stale = true;
+      }
+      return outcome;
+    }
+    const report: FetchReport = await GuardianService.fetchAlerts(ticket);
+    if (report.stale) {
+      return GuardianService.staleOutcome();
+    }
+    if (report.ok) {
+      outcome.ok = true;
+      outcome.updatedAt = GuardianService.now();
+      return outcome;
+    }
+    if (report.kind === ApiErrorKinds.UNAUTHORIZED || report.kind === ApiErrorKinds.FORBIDDEN) {
+      GuardianService.setUnauthorized('会话已过期，请重新登录');
+      outcome.unauthorized = true;
+      outcome.message = '会话已过期，请重新登录';
+      return outcome;
+    }
+    const apiError = new ApiError(report.kind, report.status, '', report.retryAfterSeconds);
+    outcome.message = GuardianService.businessMessage(apiError);
+    return outcome;
+  }
+
+  static async loadContacts(): Promise<boolean> {
+    const guard: RequestGuard = GuardianService.requestGuard();
+    const ticket: SessionTicket = guard.capture();
+    if (ticket.token.length === 0) return false;
+    const report: FetchReport = await GuardianService.fetchContacts(ticket);
+    return report.ok && !report.stale;
+  }
+
+  // -------------------------------------------------------------- polling
+
+  static startAutoRefresh(): void {
+    if (GuardianService.poller === null) {
+      GuardianService.poller = new Poller(POLL_INTERVAL_MS, async (): Promise<void> => {
+        await GuardianService.refreshAll();
+      });
+    }
+    GuardianService.poller.start();
+  }
+
+  static stopAutoRefresh(): void {
+    if (GuardianService.poller !== null) {
+      GuardianService.poller.stop();
+    }
+  }
+
+  static isPolling(): boolean {
+    return GuardianService.poller !== null && GuardianService.poller.isRunning();
+  }
+
+  // ------------------------------------------------------------------ ack
+
+  /**
+   * 提交 ACK。202 只代表命令入队；本方法绝不修改本地告警为 ACKED。
+   * 调用方需轮询 refreshAlerts() 直到服务端返回 state=ACKED。
+   */
+  static async ackAlert(alarmId: string, note: string): Promise<AckOutcome> {
+    const outcome = new AckOutcome();
+    const guard: RequestGuard = GuardianService.requestGuard();
+    const ticket: SessionTicket = guard.capture();
+    const startedAt: number = GuardianService.now();
+    if (ticket.token.length === 0) {
+      outcome.kind = 'stale';
+      outcome.message = '会话已切换，本次操作结果已忽略';
+      return outcome;
+    }
+    if (!guard.isCurrent(ticket, startedAt)) {
+      if (ticket.version === GuardianService.session.generationId() &&
+        ticket.token === GuardianService.session.token()) {
+        GuardianService.setUnauthorized('会话已过期，请重新登录');
+        outcome.kind = 'unauthorized';
+        outcome.message = '会话已过期，请重新登录';
+      } else {
+        outcome.kind = 'stale';
+        outcome.message = '会话已切换，本次操作结果已忽略';
+      }
+      return outcome;
+    }
+    const api: ApiClient | null = GuardianService.apiClient();
+    if (api === null) {
+      outcome.kind = 'unknown';
+      outcome.message = '服务未初始化，请重启 APP';
+      return outcome;
+    }
+    let cleanNote: string = note.trim();
+    if (cleanNote.length > NOTE_MAX) {
+      cleanNote = cleanNote.substring(0, NOTE_MAX);
+    }
+    const result: ApiResult<AckDto> = await api.ack(ticket.token, alarmId, cleanNote);
+    if (!guard.isCurrent(ticket, GuardianService.now())) {
+      // 旧会话的 ACK 结果：不写页面、不清新会话、不触发新会话刷新。
+      outcome.kind = 'stale';
+      outcome.message = '会话已切换，本次操作结果已忽略';
+      return outcome;
+    }
+    if (!result.ok) {
+      const error: ApiError = result.error as ApiError;
+      outcome.kind = error.kind;
+      outcome.message = GuardianService.ackMessage(error);
+      if (GuardianService.requiresRelogin(error)) {
+        GuardianService.setUnauthorized('会话已过期，请重新登录');
+      } else if (error.kind === ApiErrorKinds.NOT_FOUND ||
+        error.kind === ApiErrorKinds.BAD_REQUEST ||
+        error.kind === ApiErrorKinds.CONFLICT) {
+        // 状态可能已变化：刷新真实状态，绝不在本地归档。
+        void GuardianService.refreshAlerts();
+      }
+      return outcome;
+    }
+    const dto: AckDto = result.value as AckDto;
+    outcome.accepted = true;
+    outcome.kind = 'ok';
+    outcome.serverStatus = dto.status.length > 0 ? dto.status : 'PENDING';
+    outcome.message = '命令已提交，等待设备确认';
+    // 立即拉一次真实状态；但仍只展示服务端返回的 ackPending/ACKED。
+    void GuardianService.refreshAlerts();
+    return outcome;
+  }
+
+  private static ackMessage(error: ApiError): string {
+    if (error.kind === ApiErrorKinds.NOT_FOUND) return '告警不存在或已失效';
+    if (error.kind === ApiErrorKinds.BAD_REQUEST) {
+      return '告警状态已变化，请刷新后查看真实状态';
+    }
+    if (error.kind === ApiErrorKinds.CONFLICT) return '设备状态冲突，请刷新后重试';
+    if (error.kind === ApiErrorKinds.UNAUTHORIZED) return '会话已过期，请重新登录';
+    if (error.kind === ApiErrorKinds.FORBIDDEN) return '账号已被服务端停用';
+    return GuardianService.businessMessage(error);
+  }
+
+  // ------------------------------------------------------------- helpers
+
+  static pendingAttentionCount(): number {
+    const alerts: AlertView[] = AppStorage.get<AlertView[]>(AppKeys.ALERTS) ?? [];
+    return countNeedsAttention(alerts);
+  }
+
+  static netStatus(): string {
+    return AppStorage.get<string>(AppKeys.NET_STATUS) ?? NetworkState.UNKNOWN;
+  }
+
+  static netMessage(): string {
+    return AppStorage.get<string>(AppKeys.NET_MESSAGE) ?? '';
+  }
+}

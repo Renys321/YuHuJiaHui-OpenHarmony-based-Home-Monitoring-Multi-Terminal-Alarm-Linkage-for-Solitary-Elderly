@@ -1,0 +1,17 @@
+PASS A1 kitchen 收到 notice :: ["notice e-1-1793030255102 esp32-sos"]
+PASS A2 bath 收到 notice :: ["notice e-1-1793030255102 esp32-sos"]
+PASS A3 两板 alarmId 完全一致 :: notice e-1-1793030255102 esp32-sos / notice e-1-1793030255102 esp32-sos
+PASS A4 重复上报不重复派发 :: kitchen=[] bath=[]
+PASS C1 kitchen 收到 noticeack :: ["noticeack e-1-1793030255102"]
+PASS C2 bath 收到 noticeack :: ["noticeack e-1-1793030255102"]
+PASS G1 ack 路由回来源节点 :: ["ack e-1-1793030255102 已确认"]
+PASS A5 ACK 后同一 id 重放不再派发 :: kitchen=[] bath=[]
+PASS B1 在线板仍播报 :: ["notice e-2-1793030258593 esp32-sos"]
+PASS B2 逐目标记录送达/失败 :: {"esp32-kitchen":"failed_offline","esp32-bath":"delivered"}
+PASS D1 重连不补发旧求助 :: []
+PASS C3 未送达目标跳过收口 :: {"esp32-kitchen":"skipped_not_playing","esp32-bath":"delivered"}
+PASS C4 bath 收到 noticeack 且 kitchen 没有 :: bath=["noticeack e-2-1793030258593"] kitchen=[]
+PASS E1 普通环境告警不跨房间广播 :: bath=[] sos=[]
+PASS F1 新求助产生新 alarmId :: e-1-1793030255102 / e-2-1793030258593 / e-3-1793030260851
+PASS F2 两块重新播报新事件 :: kitchen=["notice e-3-1793030260851 esp32-sos"] bath=["notice e-3-1793030260851 esp32-sos"]
+SOS_FANOUT_ISOLATED_TEST PASS 16/16 checks, workDir=verify\fanout-isolated

@@ -1,0 +1,28 @@
+# lib/fixtures/device-no-fix.fixture
+#
+# 用途：GPS 已开启但无定位；同时覆盖 SIM 未就绪（SSTA=1）与 CSQ 未知（99）。
+# 性质：根据厂家枚举与回包格式构造。真机曾观测 SSTA=2、CSQ=99，以及 GNSS NO_FIX。
+
+>>> config,get,firmwarever
+config,get,firmwarever
+config,firmwarever,ok,YED_DTU4_2.0.3
+
+>>> config,get,paramver
+config,get,paramver
+config,paramver,ok,0
+
+>>> config,get,csq
+config,get,csq
+config,csq,ok,99
+
+>>> config,get,ssta
+config,get,ssta
+config,ssta,ok,1
+
+>>> config,get,location,2
+config,get,location,2
+config,location,ok,1,30,1,0,0
+
+>>> config,get,gpsext
+config,get,gpsext
+config,gps,ok,0,E,0,N,0,0,0,0,0,2022-11-3 2:43:51

@@ -1,0 +1,206 @@
+[
+ {
+  "text": "居家安全监护",
+  "bounds": "[24,96][204,131]",
+  "type": "Text",
+  "clickable": "false"
+ },
+ {
+  "text": "客厅 · 已选设备在线 · dayu200-living",
+  "bounds": "[24,137][330,158]",
+  "type": "Text",
+  "clickable": "false"
+ },
+ {
+  "text": "客厅 · 全屋在线 4/4 台设备",
+  "bounds": "[24,161][224,180]",
+  "type": "Text",
+  "clickable": "false"
+ },
+ {
+  "text": "一切正常",
+  "bounds": "[576,120][696,157]",
+  "type": "Text",
+  "clickable": "false"
+ },
+ {
+  "text": "卫生间",
+  "bounds": "[24,192][125,233]",
+  "type": "Text",
+  "clickable": "true"
+ },
+ {
+  "text": "客厅",
+  "bounds": "[137,192][219,233]",
+  "type": "Text",
+  "clickable": "true"
+ },
+ {
+  "text": "厨房",
+  "bounds": "[231,192][313,233]",
+  "type": "Text",
+  "clickable": "true"
+ },
+ {
+  "text": "随身求助",
+  "bounds": "[325,192][446,233]",
+  "type": "Text",
+  "clickable": "true"
+ },
+ {
+  "text": "在线状态",
+  "bounds": "[48,250][132,275]",
+  "type": "Text",
+  "clickable": "false"
+ },
+ {
+  "text": "在线（本地 TCP 已连接）",
+  "bounds": "[434,250][672,275]",
+  "type": "Text",
+  "clickable": "false"
+ },
+ {
+  "text": "运行状态",
+  "bounds": "[48,287][132,312]",
+  "type": "Text",
+  "clickable": "false"
+ },
+ {
+  "text": "一切正常",
+  "bounds": "[588,287][672,312]",
+  "type": "Text",
+  "clickable": "false"
+ },
+ {
+  "text": "APP 版本",
+  "bounds": "[48,324][135,349]",
+  "type": "Text",
+  "clickable": "false"
+ },
+ {
+  "text": "1.0.5 · 2026-10-27 随身 SOS 显示 + PIR 能力契约",
+  "bounds": "[269,326][672,347]",
+  "type": "Text",
+  "clickable": "false"
+ },
+ {
+  "text": "客厅摄像头",
+  "bounds": "[48,415][161,441]",
+  "type": "Text",
+  "clickable": "false"
+ },
+ {
+  "text": "（固定归属 dayu200-living / 客厅）",
+  "bounds": "[161,419][425,438]",
+  "type": "Text",
+  "clickable": "false"
+ },
+ {
+  "text": "监护运行中 · FRONT · 640×480",
+  "bounds": "[425,418][683,439]",
+  "type": "Text",
+  "clickable": "false"
+ },
+ {
+  "text": "画面宽度 60% · 高度缩放 130%",
+  "bounds": "[48,453][300,474]",
+  "type": "Text",
+  "clickable": "false"
+ },
+ {
+  "text": "仅影响显示",
+  "bounds": "[596,455][672,473]",
+  "type": "Text",
+  "clickable": "false"
+ },
+ {
+  "text": "画面-10%",
+  "bounds": "[48,480][170,540]",
+  "type": "Button",
+  "clickable": "true"
+ },
+ {
+  "text": "画面+10%",
+  "bounds": "[179,480][302,540]",
+  "type": "Button",
+  "clickable": "true"
+ },
+ {
+  "text": "比例-5%",
+  "bounds": "[311,480][423,540]",
+  "type": "Button",
+  "clickable": "true"
+ },
+ {
+  "text": "比例+5%",
+  "bounds": "[432,480][546,540]",
+  "type": "Button",
+  "clickable": "true"
+ },
+ {
+  "text": "重置",
+  "bounds": "[555,480][636,540]",
+  "type": "Button",
+  "clickable": "true"
+ },
+ {
+  "text": "监护运行中",
+  "bounds": "[48,1069][194,1124]",
+  "type": "Button",
+  "clickable": "false"
+ },
+ {
+  "text": "拍照",
+  "bounds": "[206,1069][294,1124]",
+  "type": "Button",
+  "clickable": "true"
+ },
+ {
+  "text": "暂停监护",
+  "bounds": "[306,1069][433,1124]",
+  "type": "Button",
+  "clickable": "true"
+ },
+ {
+  "text": "实时状态",
+  "bounds": "[72,1152][168,1180]",
+  "type": "Text",
+  "clickable": "false"
+ },
+ {
+  "text": "预警处置",
+  "bounds": "[312,1152][408,1180]",
+  "type": "Text",
+  "clickable": "false"
+ },
+ {
+  "text": "统计报告",
+  "bounds": "[552,1152][648,1180]",
+  "type": "Text",
+  "clickable": "false"
+ },
+ {
+  "text": "没有 SIM 卡",
+  "bounds": "[44,32][171,50]",
+  "type": "Text",
+  "clickable": "false"
+ },
+ {
+  "text": "×",
+  "bounds": "[182,32][205,37]",
+  "type": "Text",
+  "clickable": "false"
+ },
+ {
+  "text": "11%",
+  "bounds": "[520,32][566,50]",
+  "type": "Text",
+  "clickable": "false"
+ },
+ {
+  "text": "11:00",
+  "bounds": "[622,32][678,49]",
+  "type": "Text",
+  "clickable": "false"
+ }
+]

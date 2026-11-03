@@ -1,0 +1,28 @@
+[broker] 监听 0.0.0.0:1883（自包含 MQTT broker，Ctrl+C 退出）
+[broker] + 连接来自 ::ffff:127.0.0.1:57064（当前 1 个）
+[broker] CONNACK → bridge-dayu200-01-60050
+[broker] SUBSCRIBE bridge-dayu200-01-60050 → home/+/cmd
+[broker] PUBLISH home/dayu200-living/status (406B) → 转发给 0 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:57067（当前 2 个）
+[broker] + 连接来自 ::ffff:127.0.0.1:57068（当前 3 个）
+[broker] CONNACK → home-cloud-gateway-63204
+[broker] CONNACK → harness-trigger-63275
+[broker] SUBSCRIBE home-cloud-gateway-63204 → home/+/status
+[broker] SUBSCRIBE harness-trigger-63275 → onenet/test/property-set
+[broker] PUBLISH home/dayu200-living/status (406B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (405B) → 转发给 1 个订阅者
+[broker] + 连接来自 ::ffff:127.0.0.1:57073（当前 4 个）
+[broker] CONNACK → tool-pub-66362
+[broker] PUBLISH onenet/test/property-set (19B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/cmd (15B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (406B) → 转发给 1 个订阅者
+[broker] - 断开 tool-pub-66362（当前 3 个）
+[broker] - 断开 tool-pub-66362（当前 3 个）
+[broker] PUBLISH home/dayu200-living/status (405B) → 转发给 1 个订阅者
+[broker] PUBLISH home/dayu200-living/status (406B) → 转发给 1 个订阅者
+[broker] - 断开 home-cloud-gateway-63204（当前 2 个）
+[broker] - 断开 home-cloud-gateway-63204（当前 2 个）
+[broker] - 断开 harness-trigger-63275（当前 1 个）
+[broker] - 断开 harness-trigger-63275（当前 1 个）
+[broker] - 断开 bridge-dayu200-01-60050（当前 0 个）
+[broker] - 断开 bridge-dayu200-01-60050（当前 0 个）

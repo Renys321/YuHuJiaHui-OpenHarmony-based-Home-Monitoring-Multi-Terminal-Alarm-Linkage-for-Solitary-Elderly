@@ -1,0 +1,642 @@
+{
+  "kind": "DOCKER_VOLUME_LEVEL_VALIDATION",
+  "generatedAt": "2026-10-26T08:02:45.778Z",
+  "sandboxId": "de-rb-69db87",
+  "evidenceLevel": "DOCKER: 真实容器 + 真实命名卷 + 独立网络；不代表生产主机",
+  "images": {
+    "new": {
+      "tag": "de-rb-69db87-new:20261026",
+      "id": "sha256:2f6b7ab65cd31260029a546b5898720b635661c254aead6728f6d3b8ab4b5186"
+    },
+    "old": {
+      "tag": "de-rb-69db87-old:20261026",
+      "id": "sha256:043de2997693cfb7a8c7d78791659bea9a71fe373cb501a6cc8081e0b0000077"
+    }
+  },
+  "volume": "de-rb-69db87-vol-data",
+  "network": "de-rb-69db87-net",
+  "guards": [],
+  "scenarios": [
+    {
+      "name": "docker daemon available",
+      "ok": true,
+      "detail": "server=29.9.2",
+      "at": "2026-10-26T08:02:45.935Z"
+    },
+    {
+      "name": "base image node:24-alpine present locally (no pull needed)",
+      "ok": true,
+      "detail": "sha256:ebfe2f904627",
+      "at": "2026-10-26T08:02:46.051Z"
+    },
+    {
+      "name": "built isolated new (v6) and old (v5-emulation) images",
+      "ok": true,
+      "detail": {
+        "new": "sha256:2f6b7ab65cd3",
+        "old": "sha256:043de2997693"
+      },
+      "at": "2026-10-26T08:02:48.131Z"
+    },
+    {
+      "name": "created isolated volume and network",
+      "ok": true,
+      "detail": {
+        "volume": "de-rb-69db87-vol-data",
+        "network": "de-rb-69db87-net"
+      },
+      "at": "2026-10-26T08:02:48.753Z"
+    },
+    {
+      "name": "volume guard: docker volume inspect rejects unknown volume and does not create it",
+      "ok": true,
+      "detail": {
+        "inspectExit": 1,
+        "created": false
+      },
+      "at": "2026-10-26T08:02:48.953Z"
+    },
+    {
+      "name": "seeded v5 synthetic state with the old (v5) image",
+      "ok": true,
+      "detail": {
+        "schemaVersion": 5,
+        "devices": 3,
+        "alerts": 2,
+        "hasSafetyLogs": false
+      },
+      "at": "2026-10-26T08:02:50.281Z"
+    },
+    {
+      "name": "v5 main snapshot is 0600 owned by container user (1000:1000)",
+      "ok": true,
+      "detail": "1000 1000 600 /data/backend-state.json",
+      "at": "2026-10-26T08:02:50.666Z"
+    },
+    {
+      "name": "root can read 0600 snapshot for backup",
+      "ok": true,
+      "detail": 0,
+      "at": "2026-10-26T08:02:51.039Z"
+    },
+    {
+      "name": "non-authorized UID 1001 cannot read 0600 snapshot",
+      "ok": true,
+      "detail": {
+        "exit": 1
+      },
+      "at": "2026-10-26T08:02:51.410Z"
+    },
+    {
+      "name": "pre-upgrade backup exported from stopped container: non-empty, listable, hash recorded",
+      "ok": true,
+      "detail": {
+        "path": "backup/pre-upgrade.tgz",
+        "bytes": 962,
+        "sha256": "9B6F78AA42FD9468A2C30394522B13A6AC359CB93E2DBB2593F543D0883054D1",
+        "entries": 5,
+        "treeHash": "E2218F85E09F0D24E0B711DFDD296253AF342EE27E218DB746B5EA6ED53E107B"
+      },
+      "at": "2026-10-26T08:02:51.793Z"
+    },
+    {
+      "name": "new (v6) backend starts on the v5 volume",
+      "ok": true,
+      "detail": "port=57919",
+      "at": "2026-10-26T08:02:52.535Z"
+    },
+    {
+      "name": "candidate upgrades v5 → v6 on first write (D + E persisted)",
+      "ok": true,
+      "detail": {
+        "ingest": 202,
+        "evidenceUpload": 201,
+        "dispositions": [
+          201,
+          201
+        ],
+        "v6": {
+          "schemaVersion": 6,
+          "safetyLogs": 2
+        },
+        "safetyLogs": 2,
+        "activity": "{\"version\":1}"
+      },
+      "at": "2026-10-26T08:02:53.507Z"
+    },
+    {
+      "name": "reference states computed in-container (pre / post / rollback-complete)",
+      "ok": true,
+      "detail": {
+        "preTreeHash": "E2218F85E09F0D24E0B711DFDD296253AF342EE27E218DB746B5EA6ED53E107B",
+        "postTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+        "rollbackCompleteTreeHash": "0A0416FF781E220CE90F10EE19A4A9DCB270BC382409AA0674751607534AA61D",
+        "preservedExtras": [
+          "activity-state.json",
+          "evidence/fall-2-na.jpg"
+        ]
+      },
+      "at": "2026-10-26T08:02:57.677Z"
+    },
+    {
+      "name": "normal rollback reaches the rollback-complete reference state",
+      "ok": true,
+      "detail": {
+        "exit": 0,
+        "state": "COMPLETED",
+        "finalHash": "0A0416FF781E220CE90F10EE19A4A9DCB270BC382409AA0674751607534AA61D",
+        "expected": "0A0416FF781E220CE90F10EE19A4A9DCB270BC382409AA0674751607534AA61D",
+        "diff": {
+          "missing": [],
+          "differing": [],
+          "unexpected": [],
+          "equal": true
+        }
+      },
+      "at": "2026-10-26T08:02:59.317Z"
+    },
+    {
+      "name": "restored v5 data serves the old service, allows a real atomic write and reloads",
+      "ok": true,
+      "detail": {
+        "alerts": 2,
+        "write": 202,
+        "reload": 200,
+        "doc": "{\"schemaVersion\":5,\"devices\":3}"
+      },
+      "at": "2026-10-26T08:03:01.546Z"
+    },
+    {
+      "name": "image pinning: docker save/load round-trip + compose --no-build starts the PINNED old image",
+      "ok": true,
+      "detail": {
+        "savedBytes": 61751296,
+        "savedSha256": "9855C1141BF3A97CE82D7A0E396A9B38E8D0F977380D58459D8067329C65D744",
+        "pinnedId": "sha256:043de2997693",
+        "loadedId": "sha256:043de2997693",
+        "composeExit": 0,
+        "composeImageId": "sha256:043de2997693",
+        "downExit": 0
+      },
+      "at": "2026-10-26T08:03:08.031Z"
+    },
+    {
+      "name": "fault injection (container/volume): corrupt-pre-archive",
+      "ok": true,
+      "detail": {
+        "injectionPoint": "corrupt-pre-archive",
+        "expectedState": "PREFLIGHT_ABORT",
+        "actualExitCode": 10,
+        "actualState": "PREFLIGHT_ABORT",
+        "serviceStayedStopped": true,
+        "serviceMustStayStopped": false,
+        "finalFileList": [
+          "file:activity-state.json",
+          "file:backend-state.json",
+          "dir:evidence",
+          "file:evidence/fall-1-na.jpg",
+          "file:evidence/fall-2-na.jpg",
+          "file:evidence/index.json"
+        ],
+        "beforeTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+        "afterTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+        "afterTreeHashKind": "post",
+        "postArchiveIntact": true,
+        "mixedState": false,
+        "manualTakeover": false
+      },
+      "at": "2026-10-26T08:03:10.069Z"
+    },
+    {
+      "name": "fault injection (container/volume): pre-archive-checksum-metadata-mismatch",
+      "ok": true,
+      "detail": {
+        "injectionPoint": "wrong-pre-hash",
+        "expectedState": "PREFLIGHT_ABORT",
+        "actualExitCode": 10,
+        "actualState": "PREFLIGHT_ABORT",
+        "serviceStayedStopped": true,
+        "serviceMustStayStopped": false,
+        "finalFileList": [
+          "file:activity-state.json",
+          "file:backend-state.json",
+          "dir:evidence",
+          "file:evidence/fall-1-na.jpg",
+          "file:evidence/fall-2-na.jpg",
+          "file:evidence/index.json"
+        ],
+        "beforeTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+        "afterTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+        "afterTreeHashKind": "post",
+        "postArchiveIntact": true,
+        "mixedState": false,
+        "manualTakeover": false
+      },
+      "at": "2026-10-26T08:03:11.566Z"
+    },
+    {
+      "name": "fault injection (container/volume): post-archive-missing",
+      "ok": true,
+      "detail": {
+        "injectionPoint": "missing-post-archive",
+        "expectedState": "PREFLIGHT_ABORT",
+        "actualExitCode": 10,
+        "actualState": "PREFLIGHT_ABORT",
+        "serviceStayedStopped": true,
+        "serviceMustStayStopped": false,
+        "finalFileList": [
+          "file:activity-state.json",
+          "file:backend-state.json",
+          "dir:evidence",
+          "file:evidence/fall-1-na.jpg",
+          "file:evidence/fall-2-na.jpg",
+          "file:evidence/index.json"
+        ],
+        "beforeTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+        "afterTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+        "afterTreeHashKind": "post",
+        "postArchiveIntact": true,
+        "mixedState": false,
+        "manualTakeover": false
+      },
+      "at": "2026-10-26T08:03:13.323Z"
+    },
+    {
+      "name": "fault injection (container/volume): staging-missing-backend-state",
+      "ok": true,
+      "detail": {
+        "injectionPoint": "staging-missing-state",
+        "expectedState": "PREFLIGHT_ABORT",
+        "actualExitCode": 10,
+        "actualState": "PREFLIGHT_ABORT",
+        "serviceStayedStopped": true,
+        "serviceMustStayStopped": false,
+        "finalFileList": [
+          "file:activity-state.json",
+          "file:backend-state.json",
+          "dir:evidence",
+          "file:evidence/fall-1-na.jpg",
+          "file:evidence/fall-2-na.jpg",
+          "file:evidence/index.json"
+        ],
+        "beforeTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+        "afterTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+        "afterTreeHashKind": "post",
+        "postArchiveIntact": true,
+        "mixedState": false,
+        "manualTakeover": false
+      },
+      "at": "2026-10-26T08:03:15.354Z"
+    },
+    {
+      "name": "fault injection (container/volume): staging-content-hash-mismatch",
+      "ok": true,
+      "detail": {
+        "injectionPoint": "staging-tamper",
+        "expectedState": "PREFLIGHT_ABORT",
+        "actualExitCode": 10,
+        "actualState": "PREFLIGHT_ABORT",
+        "serviceStayedStopped": true,
+        "serviceMustStayStopped": false,
+        "finalFileList": [
+          "file:activity-state.json",
+          "file:backend-state.json",
+          "dir:evidence",
+          "file:evidence/fall-1-na.jpg",
+          "file:evidence/fall-2-na.jpg",
+          "file:evidence/index.json"
+        ],
+        "beforeTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+        "afterTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+        "afterTreeHashKind": "post",
+        "postArchiveIntact": true,
+        "mixedState": false,
+        "manualTakeover": false
+      },
+      "at": "2026-10-26T08:03:17.292Z"
+    },
+    {
+      "name": "fault injection (container/volume): partial-aside-copy-failure",
+      "ok": true,
+      "detail": {
+        "injectionPoint": "partial-aside-copy",
+        "expectedState": "PREFLIGHT_ABORT",
+        "actualExitCode": 10,
+        "actualState": "PREFLIGHT_ABORT",
+        "serviceStayedStopped": true,
+        "serviceMustStayStopped": false,
+        "finalFileList": [
+          "file:activity-state.json",
+          "file:backend-state.json",
+          "dir:evidence",
+          "file:evidence/fall-1-na.jpg",
+          "file:evidence/fall-2-na.jpg",
+          "file:evidence/index.json"
+        ],
+        "beforeTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+        "afterTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+        "afterTreeHashKind": "post",
+        "postArchiveIntact": true,
+        "mixedState": false,
+        "manualTakeover": false
+      },
+      "at": "2026-10-26T08:03:19.011Z"
+    },
+    {
+      "name": "fault injection (container/volume): partial-staging-extract-failure",
+      "ok": true,
+      "detail": {
+        "injectionPoint": "partial-staging-extract",
+        "expectedState": "PREFLIGHT_ABORT",
+        "actualExitCode": 10,
+        "actualState": "PREFLIGHT_ABORT",
+        "serviceStayedStopped": true,
+        "serviceMustStayStopped": false,
+        "finalFileList": [
+          "file:activity-state.json",
+          "file:backend-state.json",
+          "dir:evidence",
+          "file:evidence/fall-1-na.jpg",
+          "file:evidence/fall-2-na.jpg",
+          "file:evidence/index.json"
+        ],
+        "beforeTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+        "afterTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+        "afterTreeHashKind": "post",
+        "postArchiveIntact": true,
+        "mixedState": false,
+        "manualTakeover": false
+      },
+      "at": "2026-10-26T08:03:21.007Z"
+    },
+    {
+      "name": "fault injection (container/volume): partial-landing-copy-failure",
+      "ok": true,
+      "detail": {
+        "injectionPoint": "partial-landing-copy",
+        "expectedState": "RECOVERED_TO_V6",
+        "actualExitCode": 20,
+        "actualState": "RECOVERED_TO_V6",
+        "serviceStayedStopped": true,
+        "serviceMustStayStopped": true,
+        "finalFileList": [
+          "file:activity-state.json",
+          "file:backend-state.json",
+          "dir:evidence",
+          "file:evidence/fall-1-na.jpg",
+          "file:evidence/fall-2-na.jpg",
+          "file:evidence/index.json"
+        ],
+        "beforeTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+        "afterTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+        "afterTreeHashKind": "post",
+        "postArchiveIntact": true,
+        "mixedState": false,
+        "manualTakeover": false
+      },
+      "at": "2026-10-26T08:03:23.049Z"
+    },
+    {
+      "name": "fault injection (container/volume): partial-landing-move-failure",
+      "ok": true,
+      "detail": {
+        "injectionPoint": "partial-landing",
+        "expectedState": "RECOVERED_TO_V6",
+        "actualExitCode": 20,
+        "actualState": "RECOVERED_TO_V6",
+        "serviceStayedStopped": true,
+        "serviceMustStayStopped": true,
+        "finalFileList": [
+          "file:activity-state.json",
+          "file:backend-state.json",
+          "dir:evidence",
+          "file:evidence/fall-1-na.jpg",
+          "file:evidence/fall-2-na.jpg",
+          "file:evidence/index.json"
+        ],
+        "beforeTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+        "afterTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+        "afterTreeHashKind": "post",
+        "postArchiveIntact": true,
+        "mixedState": false,
+        "manualTakeover": false
+      },
+      "at": "2026-10-26T08:03:25.017Z"
+    },
+    {
+      "name": "fault injection (container/volume): final-verify-failure",
+      "ok": true,
+      "detail": {
+        "injectionPoint": "final-verify",
+        "expectedState": "RECOVERED_TO_V6",
+        "actualExitCode": 20,
+        "actualState": "RECOVERED_TO_V6",
+        "serviceStayedStopped": true,
+        "serviceMustStayStopped": true,
+        "finalFileList": [
+          "file:activity-state.json",
+          "file:backend-state.json",
+          "dir:evidence",
+          "file:evidence/fall-1-na.jpg",
+          "file:evidence/fall-2-na.jpg",
+          "file:evidence/index.json"
+        ],
+        "beforeTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+        "afterTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+        "afterTreeHashKind": "post",
+        "postArchiveIntact": true,
+        "mixedState": false,
+        "manualTakeover": false
+      },
+      "at": "2026-10-26T08:03:26.892Z"
+    },
+    {
+      "name": "fault injection (container/volume): recovery-mid-undo-then-fallback",
+      "ok": true,
+      "detail": {
+        "injectionPoint": "partial-landing+recovery-fail",
+        "expectedState": "RECOVERED_TO_V6",
+        "actualExitCode": 20,
+        "actualState": "RECOVERED_TO_V6",
+        "serviceStayedStopped": true,
+        "serviceMustStayStopped": true,
+        "finalFileList": [
+          "file:activity-state.json",
+          "file:backend-state.json",
+          "dir:evidence",
+          "file:evidence/fall-1-na.jpg",
+          "file:evidence/fall-2-na.jpg",
+          "file:evidence/index.json"
+        ],
+        "beforeTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+        "afterTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+        "afterTreeHashKind": "post",
+        "postArchiveIntact": true,
+        "mixedState": false,
+        "manualTakeover": false
+      },
+      "at": "2026-10-26T08:03:28.625Z"
+    },
+    {
+      "name": "fault injection (container/volume): recovery-failure-secondary",
+      "ok": true,
+      "detail": {
+        "injectionPoint": "partial-landing+recovery-before-undo+corrupt-original-copy",
+        "expectedState": "MANUAL_TAKEOVER_REQUIRED",
+        "actualExitCode": 30,
+        "actualState": "MANUAL_TAKEOVER_REQUIRED",
+        "serviceStayedStopped": true,
+        "serviceMustStayStopped": true,
+        "finalFileList": [
+          "file:activity-state.json",
+          "file:backend-state.json",
+          "dir:evidence",
+          "file:evidence/fall-1-na.jpg",
+          "file:evidence/fall-2-na.jpg",
+          "file:evidence/index.json"
+        ],
+        "beforeTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+        "afterTreeHash": "52911925996D8BEE5F06A432395D255334B5B83B57BAF5948784F901D95FFE3F",
+        "afterTreeHashKind": "mixed",
+        "postArchiveIntact": true,
+        "mixedState": true,
+        "manualTakeover": true
+      },
+      "at": "2026-10-26T08:03:30.434Z"
+    },
+    {
+      "name": "fault injection (container/volume): post-archive-unreadable",
+      "ok": true,
+      "detail": {
+        "injectionPoint": "corrupt-post-archive",
+        "expectedState": "PREFLIGHT_ABORT",
+        "actualExitCode": 10,
+        "actualState": "PREFLIGHT_ABORT",
+        "serviceStayedStopped": true,
+        "serviceMustStayStopped": false,
+        "finalFileList": [
+          "file:activity-state.json",
+          "file:backend-state.json",
+          "dir:evidence",
+          "file:evidence/fall-1-na.jpg",
+          "file:evidence/fall-2-na.jpg",
+          "file:evidence/index.json"
+        ],
+        "beforeTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+        "afterTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+        "afterTreeHashKind": "post",
+        "postArchiveIntact": true,
+        "mixedState": false,
+        "manualTakeover": false
+      },
+      "at": "2026-10-26T08:03:32.091Z"
+    },
+    {
+      "name": "fault injection (container/volume): wrong-or-empty-volume-refused",
+      "ok": true,
+      "detail": {
+        "injectionPoint": "empty-volume",
+        "expectedState": "PREFLIGHT_ABORT",
+        "actualExitCode": 10,
+        "actualState": "PREFLIGHT_ABORT",
+        "serviceStayedStopped": true,
+        "serviceMustStayStopped": false,
+        "finalFileList": [],
+        "beforeTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+        "afterTreeHash": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "afterTreeHashKind": "empty",
+        "postArchiveIntact": true,
+        "mixedState": false,
+        "manualTakeover": false
+      },
+      "at": "2026-10-26T08:03:33.947Z"
+    },
+    {
+      "name": "old image/tag missing: start fails, restored data unchanged, state classified as old-image-not-running",
+      "ok": true,
+      "detail": {
+        "runExit": 125,
+        "dataState": "v5_restored_verified",
+        "oldImageStarted": false,
+        "dataUnchanged": true,
+        "classification": "ROLLED_BACK_V5_DATA_RESTORED_OLD_IMAGE_NOT_RUNNING"
+      },
+      "at": "2026-10-26T08:03:55.821Z"
+    },
+    {
+      "name": "old image start failure: service stays stopped, v5 data unchanged (separate terminal state)",
+      "ok": true,
+      "detail": {
+        "containerState": "exited 1",
+        "dataState": "v5_restored_verified",
+        "oldImageStarted": false,
+        "dataUnchanged": true,
+        "classification": "ROLLED_BACK_V5_DATA_RESTORED_OLD_IMAGE_NOT_RUNNING"
+      },
+      "at": "2026-10-26T08:04:00.808Z"
+    }
+  ],
+  "v5": {
+    "treeHash": "E2218F85E09F0D24E0B711DFDD296253AF342EE27E218DB746B5EA6ED53E107B",
+    "entryCount": 4,
+    "meta": {
+      "schemaVersion": 5,
+      "devices": 3,
+      "alerts": 2,
+      "hasSafetyLogs": false
+    }
+  },
+  "preArchive": {
+    "path": "backup/pre-upgrade.tgz",
+    "bytes": 962,
+    "sha256": "9B6F78AA42FD9468A2C30394522B13A6AC359CB93E2DBB2593F543D0883054D1",
+    "entries": 5,
+    "treeHash": "E2218F85E09F0D24E0B711DFDD296253AF342EE27E218DB746B5EA6ED53E107B"
+  },
+  "v6": {
+    "treeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+    "entryCount": 6,
+    "meta": {
+      "schemaVersion": 6,
+      "safetyLogs": 2
+    }
+  },
+  "postArchive": {
+    "path": "backup/post-upgrade.tgz",
+    "bytes": 1430,
+    "sha256": "B67BFEDDAFC9E75BEE6BD3474AD946286A39646E3C3F59EA88C3DAC80C1CFAA1",
+    "entries": 7,
+    "treeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F"
+  },
+  "reference": {
+    "preTreeHash": "E2218F85E09F0D24E0B711DFDD296253AF342EE27E218DB746B5EA6ED53E107B",
+    "postTreeHash": "D679C2BD1CF86472D3AF50FD8A20AB7313F478910D3615AC849D2CC499AA4A3F",
+    "rollbackCompleteTreeHash": "0A0416FF781E220CE90F10EE19A4A9DCB270BC382409AA0674751607534AA61D",
+    "preservedExtras": [
+      "activity-state.json",
+      "evidence/fall-2-na.jpg"
+    ]
+  },
+  "result": "DOCKER_VOLUME_VALIDATION_PASS",
+  "cleanup": [
+    "volume:de-rb-69db87-vol-data",
+    "volume:de-rb-69db87-vol-ref-empty",
+    "volume:de-rb-69db87-vol-ref-final",
+    "volume:de-rb-69db87-vol-ref-pre",
+    "volume:de-rb-69db87-vol-rollback",
+    "volume:de-rb-69db87_pinned-data",
+    "network:de-rb-69db87-net",
+    "image:de-rb-69db87-new:20261026",
+    "image:de-rb-69db87-old:20261026",
+    "image:de-rb-69db87-pinned:pre-d-e",
+    "verified out of scope: eldercare-public_* volumes / containers untouched"
+  ],
+  "evidencePersisted": {
+    "dir": "sandbox/logs/docker-evidence",
+    "files": 15
+  },
+  "finishedAt": "2026-10-26T08:04:02.216Z",
+  "total": 32,
+  "passed": 32,
+  "failed": 0
+}

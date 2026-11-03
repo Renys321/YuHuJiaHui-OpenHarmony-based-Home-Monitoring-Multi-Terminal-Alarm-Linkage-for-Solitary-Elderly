@@ -1,0 +1,56 @@
+ALERT-DISPOSITION-SAFETY-LOG — backend 源码 hash / 字节数
+================================================================
+任务：task-2 (backend-dev)
+快照时间：2026-10-26 01:56:49（本文件写入时的实际 Get-FileHash 结果）
+哈希算法：SHA-256（小写十六进制）；路径相对 <WORKSPACE>
+工作区不是 git 仓库，基线 hash 于本次改动前用 Get-FileHash 现场记录。
+
+一、D 类（task-2 合同 CONTRACT.md 范围内；backend-dev 编写/修改）
+---------------------------------------------------------------
+文件                                               基线 SHA-256                                                        基线字节  当前 SHA-256                                                        当前字节
+src/safety-log.js（新增）                          （改动前不存在）                                                    0         d34d376a59e5432f21000994b1231244bfbefe4c6f3164a201fd02c8a7473a3d    9350
+src/store.js                                       f097615763f2f82cd64ff13cd2d22ae394ba8f6000e0d454a6629a4a606e4523   12710     0594285bd8e7727ea06ddaf97b34d0b68971716b5391311becbdd4282b3ad8ac   18385
+src/persistent-store.js                            fa55606b7a0b36077685a435c890ce81f8e036747a48ae3ed82ce83d22b094b4   58781     11c7e46250f3d96f942f040d8e6bd52dd5bfe9c7d2698dfdf786d8149c467057   67044
+src/server.js（共享文件：D 路由 + 并发 E 路由，见第二节）  3b246310f41ea21e79abee2813d9238ff26eb836eb5a5afe4fedfab668c18537   30140     a7fad1e52979a045f844be390ef6f9892b228aa5d4e4b34a0e8c724a53e65443   37008
+test/safety-log.test.js（新增）                    （改动前不存在）                                                    0         d16b5f6a42ed5b12e0e4e8042629d192c51d2f36f2997339e1861e9cc65a0ac7    9869
+test/safety-log-api.test.js（新增）                （改动前不存在）                                                    0         21aeed7a3367cef0419e22c53e4eeb4d49d270ec1c6b989fa281e8fb11460cda   23304
+test/safety-log-persistent.test.js（新增）         （改动前不存在）                                                    0         5ccd033920d66a161fafd67cba5f836a6858168ed7b00dbb86e3b60a4bbf719b   17278
+test/safety-log-isolated.integration.js（新增）    （改动前不存在）                                                    0         7c4f6532954f002bbdb6c3bd0d348a6093d56935bf403ca0f7e799a3ea802cea   10053
+test/comms-store.test.js                          85bbd5fb119dc9b5e779dda19206bc0adf460db4c7c9816fe70eaeaa313418af   22191     d88a91e981e4ef10d4db920689bd35948cf6344123fa745e06e909f837195219   22357
+package.json（共享：D 加 safety-log.js 检查 + 并发 E 加 activity 检查）  e7bb15433bbcc1f5c44c03c89c02fdf5f752ee7f7f4d7e0ff42b2107e2e8fcb6   793       14c8355210c07e7fcaa48157b195d6451550f1a1c3e0ae29db0d6b1003091677    897
+README.md                                          74c9b3b2624bea549f8ca23eb89d8336eff5abdce1bb3c25b1bd7608439cae78   15381     89940399a56ad4edc7385595a8c82cc06e926926fc60159a399c6debe26b0163   20201
+docs/APP-API-v1.md                                  d35d4c42c97b034242447ecc43663677f0a2c5101cdc4837204f7d7753bf53f0   5606      1e8d94adf2b953b5914156d82504f38c5e37d85031c869645bfe0c80c24b9af8   10318
+
+说明：
+- src/store.js、src/persistent-store.js 当前版本仍只含 D 类改动（已核实无 activity 引用），
+  E 类改用独立 src/activity.js + src/activity-store.js，不侵入主快照 schema v6。
+- src/server.js 是 D/E 共享文件：D 部分为 safety-logs/dispositions 路由与 dispositionsSupported；
+  E 部分为 activityStore 注入、ingest 后 recordStatus、GET /api/v1/activity/report（见 D-E-SCOPE-SPLIT.md）。
+- package.json 的 check 脚本同时包含 D 的 src/safety-log.js 与并发 E 的 activity 文件检查。
+- docs/APP-API-v1.json 未修改（当前 hash 与基线完全相同：37244a59abe6ef13213220b8e0ea24b96403392f10a640a48c250a1e4b21e75e，1963 字节）；
+  合同 1.1.0 增量以 docs/APP-API-v1.md 4.1 节为准（JSON 机器可读清单保持 1.0.0 核心集合，留待 Lead 决定是否同步）。
+
+二、未修改证明（D 类不应触碰的文件）
+------------------------------------
+src/main.js     基线 f0ba2d13deae0746c3f7ee3f7f7bbc1a1a836c679fbd536325fb610112298f79（14216）
+                当前 d40c4365ec2fe57ff62726ab0ba91210edf007c4c8b3057435e32284e4898551（15127）
+                -> 已被并发 E 类修改（活动存储接线），不是 backend-dev 改动。
+src/auth.js              当前 e26f5da2fcd9117160a5d69fa2162ec0e3891194c8416f3096b9e9828e71548c（4150）= 基线，未改
+src/household-auth.js    当前 09d1fd14625c4e21f6d6919df69030d07fe089cb98bef79b436abd01020852b5（5813）= 基线，未改
+docs/APP-API-v1.json     当前 37244a59abe6ef13213220b8e0ea24b96403392f10a640a48c250a1e4b21e75e（1963）= 基线，未改
+
+三、E 类（并发他方变更；backend-dev 未编写、未修改、未声称）
+----------------------------------------------------------
+src/activity.js         9dfabfcdb294a88eb0efe3d3f25bd6f016635ef71844fd23649a51091b419e45  36831  （2026-10-26 01:53:34）
+src/activity-store.js   35ef7ba23dcb5b676533ce3c356896165c4931427cee3b6aa0c58e27e765fc71   9337  （2026-10-26 01:53:54）
+src/main.js（E 接线）   d40c4365ec2fe57ff62726ab0ba91210edf007c4c8b3057435e32284e4898551  15127  （2026-10-26 01:55:07）
+src/server.js（E 路由） 见第一节 a7fad1e5...；E 相关行由并发方添加（activityStore / recordStatus / /api/v1/activity/report）
+package.json（E 检查）  见第一节 14c8355...；E 的 node --check src/activity.js、src/activity-store.js 由并发方添加
+- 后端 E 类当前**没有**对应测试文件（test/ 下无 activity* 测试）；APP 侧存在 tests/activity-report.test.mjs 与 tests/build/activity/*。
+- E 类文件在 backend-dev 会话中被观察到的出现时间：activity.js 01:51:05 首次出现，01:53:34 更新；
+  activity-store.js 01:53:54 首次出现。均早于/接近本任务收尾，非 backend-dev 产出。
+
+四、证据文件本身的 hash（写入后可用同样方式复核）
+------------------------------------------------
+TEST-RESULTS.txt / SOURCE-HASHES.txt / ISOLATED-INTEGRATION.md / D-E-SCOPE-SPLIT.md 位于
+competition/evidence/2026-10-26-alert-disposition-safety-log/backend/，不参与源码 hash 计算。

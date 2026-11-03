@@ -1,0 +1,81 @@
+# public-sync supervisor 日志摘录（只读复制，源：competition/bridge/_test/current-runtime/supervisor/public-sync-supervisor.log）
+# 恢复段（2026-10-26T14:53Z = 22:53 +08:00）
+2026-10-26T14:53:09.435Z [supervisor] LOCK_ACQUIRED pid=32356
+2026-10-26T14:53:09.441Z [supervisor] STALE_LOCK_TAKEOVER dead_pid=29940
+2026-10-26T14:53:09.444Z [supervisor] WAITING_FOR_KEY
+2026-10-26T14:53:19.457Z [supervisor] KEY_READ ok=set
+2026-10-26T14:53:19.473Z [supervisor] WORKER_START pid=32788
+2026-10-26T14:53:19.682Z [worker:stdout] [public-sync] CONFIG backend=https://api.luxunacc.xyz
+2026-10-26T14:53:19.682Z [worker:stdout] [public-sync] CONFIG broker=mqtt://127.0.0.1:1883
+2026-10-26T14:53:19.682Z [worker:stdout] [public-sync] CONFIG ingestKey=set
+2026-10-26T14:53:19.703Z [supervisor] HEALTHY pid=32788
+2026-10-26T14:53:19.709Z [worker:stdout] [gateway] LOCAL_SUBSCRIBED topic=home/+/status
+2026-10-26T14:53:20.040Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-26T14:53:20.038Z
+2026-10-26T14:53:20.043Z [worker:stderr] [command-sync] COMMAND_IGNORED code=COMMAND_NOT_PENDING
+2026-10-26T14:53:20.043Z [worker:stderr] [command-sync] COMMAND_IGNORED code=COMMAND_NOT_PENDING
+2026-10-26T14:53:20.043Z [worker:stderr] [command-sync] COMMAND_IGNORED code=COMMAND_NOT_PENDING
+2026-10-26T14:53:20.043Z [worker:stderr] [command-sync] COMMAND_IGNORED code=COMMAND_NOT_PENDING
+2026-10-26T14:53:20.043Z [worker:stderr] [command-sync] COMMAND_IGNORED code=COMMAND_NOT_PENDING
+2026-10-26T14:53:20.043Z [worker:stderr] [command-sync] COMMAND_IGNORED code=COMMAND_NOT_PENDING
+2026-10-26T14:53:20.043Z [worker:stderr] [command-sync] COMMAND_IGNORED code=COMMAND_NOT_PENDING
+2026-10-26T14:53:20.043Z [worker:stderr] [command-sync] COMMAND_IGNORED code=COMMAND_NOT_PENDING
+2026-10-26T14:53:20.043Z [worker:stderr] [command-sync] COMMAND_IGNORED code=COMMAND_NOT_PENDING
+2026-10-26T14:53:20.123Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793026399823 deviceTs=1793026399842 path=/internal/v1/device-status status=202 at=2026-10-26T14:53:20.123Z
+2026-10-26T14:53:52.842Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793026432742 deviceTs=1793026432752 path=/internal/v1/device-status status=202 at=2026-10-26T14:53:52.842Z
+2026-10-26T14:54:20.546Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-26T14:54:20.545Z
+2026-10-26T14:54:25.680Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793026465560 deviceTs=1793026465651 path=/internal/v1/device-status status=202 at=2026-10-26T14:54:25.679Z
+2026-10-26T14:54:58.636Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793026498514 deviceTs=1793026498582 path=/internal/v1/device-status status=202 at=2026-10-26T14:54:58.634Z
+2026-10-26T14:55:21.204Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-26T14:55:21.203Z
+2026-10-26T14:55:24.841Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1793026524743 deviceTs=1793026522179 path=/internal/v1/device-status status=202 at=2026-10-26T14:55:24.841Z
+2026-10-26T14:55:31.713Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793026531445 deviceTs=1793026531482 path=/internal/v1/device-status status=202 at=2026-10-26T14:55:31.713Z
+2026-10-26T14:55:55.200Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1793026555089 deviceTs=1793026555080 path=/internal/v1/device-status status=202 at=2026-10-26T14:55:55.199Z
+2026-10-26T14:56:04.479Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793026564355 deviceTs=1793026564392 path=/internal/v1/device-status status=202 at=2026-10-26T14:56:04.479Z
+2026-10-26T14:56:21.246Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-26T14:56:21.245Z
+2026-10-26T14:56:28.079Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1793026587981 deviceTs=1793026587989 path=/internal/v1/device-status status=202 at=2026-10-26T14:56:28.078Z
+2026-10-26T14:56:37.586Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793026597405 deviceTs=1793026597302 path=/internal/v1/device-status status=202 at=2026-10-26T14:56:37.585Z
+2026-10-26T14:57:01.672Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1793026620921 deviceTs=1793026620979 path=/internal/v1/device-status status=202 at=2026-10-26T14:57:01.671Z
+2026-10-26T14:57:10.229Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793026630127 deviceTs=1793026630211 path=/internal/v1/device-status status=202 at=2026-10-26T14:57:10.228Z
+2026-10-26T14:57:22.077Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-26T14:57:22.077Z
+2026-10-26T14:57:33.961Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1793026653840 deviceTs=1793026653899 path=/internal/v1/device-status status=202 at=2026-10-26T14:57:33.960Z
+2026-10-26T14:57:43.192Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793026663058 deviceTs=1793026663122 path=/internal/v1/device-status status=202 at=2026-10-26T14:57:43.191Z
+2026-10-26T14:58:07.058Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1793026686765 deviceTs=1793026686799 path=/internal/v1/device-status status=202 at=2026-10-26T14:58:07.057Z
+2026-10-26T14:58:16.118Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793026696026 deviceTs=1793026696042 path=/internal/v1/device-status status=202 at=2026-10-26T14:58:16.117Z
+2026-10-26T14:58:22.235Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-26T14:58:22.235Z
+2026-10-26T14:58:39.827Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1793026719681 deviceTs=1793026719719 path=/internal/v1/device-status status=202 at=2026-10-26T14:58:39.826Z
+2026-10-26T14:58:49.030Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793026728914 deviceTs=1793026728942 path=/internal/v1/device-status status=202 at=2026-10-26T14:58:49.029Z
+2026-10-26T14:59:00.273Z [worker:stdout] [command-sync] ACK_SENT id=10 device=esp32-bath
+2026-10-26T14:59:00.499Z [worker:stdout] [command-sync] ACKED id=10 device=esp32-bath
+2026-10-26T14:59:12.804Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1793026752687 deviceTs=1793026752699 path=/internal/v1/device-status status=202 at=2026-10-26T14:59:12.803Z
+2026-10-26T14:59:21.943Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793026761838 deviceTs=1793026761852 path=/internal/v1/device-status status=202 at=2026-10-26T14:59:21.942Z
+2026-10-26T14:59:23.102Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-26T14:59:23.101Z
+2026-10-26T14:59:27.782Z [worker:stdout] [command-sync] ACK_SENT id=11 device=esp32-sos
+2026-10-26T14:59:38.115Z [worker:stdout] [command-sync] ACK_SENT id=11 device=esp32-sos
+2026-10-26T14:59:45.765Z [worker:stdout] [cloud-sync] OK device=esp32-bath ts=1793026785662 deviceTs=1793026785670 path=/internal/v1/device-status status=202 at=2026-10-26T14:59:45.765Z
+2026-10-26T14:59:48.312Z [worker:stdout] [command-sync] ACK_SENT id=11 device=esp32-sos
+2026-10-26T14:59:54.755Z [worker:stdout] [cloud-sync] OK device=esp32-kitchen ts=1793026794655 deviceTs=1793026794751 path=/internal/v1/device-status status=202 at=2026-10-26T14:59:54.754Z
+2026-10-26T14:59:56.320Z [worker:stderr] [command-sync] ACK_FAIL code=ACK_TIMEOUT id=11 device=esp32-sos
+2026-10-26T14:59:57.522Z [worker:stdout] [command-sync] ACK_SENT id=12 device=esp32-bath
+2026-10-26T14:59:57.768Z [worker:stdout] [command-sync] ACKED id=12 device=esp32-bath
+# ACK 段（15:19Z–15:27Z = 23:19–23:27 +08:00）
+2026-10-26T15:19:03.873Z [worker:stdout] [command-sync] ACK_SENT id=13 device=esp32-bath
+2026-10-26T15:19:14.102Z [worker:stdout] [command-sync] ACK_SENT id=13 device=esp32-bath
+2026-10-26T15:19:24.503Z [worker:stdout] [command-sync] ACK_SENT id=13 device=esp32-bath
+2026-10-26T15:19:32.513Z [worker:stderr] [command-sync] ACK_FAIL code=ACK_TIMEOUT id=13 device=esp32-bath
+2026-10-26T15:19:36.015Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-26T15:19:36.015Z
+2026-10-26T15:20:36.225Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-26T15:20:36.224Z
+2026-10-26T15:21:37.260Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-26T15:21:37.259Z
+2026-10-26T15:22:34.185Z [worker:stdout] [command-sync] ACK_SENT id=14 device=esp32-bath
+2026-10-26T15:22:43.338Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-26T15:22:43.308Z
+2026-10-26T15:22:44.611Z [worker:stdout] [command-sync] ACK_SENT id=14 device=esp32-bath
+2026-10-26T15:22:54.794Z [worker:stdout] [command-sync] ACK_SENT id=14 device=esp32-bath
+2026-10-26T15:23:02.821Z [worker:stderr] [command-sync] ACK_FAIL code=ACK_TIMEOUT id=14 device=esp32-bath
+2026-10-26T15:23:07.397Z [worker:stdout] [command-sync] ACK_SENT id=15 device=esp32-bath
+2026-10-26T15:23:17.672Z [worker:stdout] [command-sync] ACK_SENT id=15 device=esp32-bath
+2026-10-26T15:23:27.904Z [worker:stdout] [command-sync] ACK_SENT id=15 device=esp32-bath
+2026-10-26T15:23:35.927Z [worker:stderr] [command-sync] ACK_FAIL code=ACK_TIMEOUT id=15 device=esp32-bath
+2026-10-26T15:23:43.827Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-26T15:23:43.823Z
+2026-10-26T15:24:44.570Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-26T15:24:44.569Z
+2026-10-26T15:25:45.659Z [worker:stdout] [command-sync] POLL_OK path=/internal/v1/commands status=200 at=2026-10-26T15:25:45.658Z
+2026-10-26T15:26:17.314Z [worker:stdout] [command-sync] ACK_SENT id=16 device=esp32-bath
+2026-10-26T15:26:27.539Z [worker:stdout] [command-sync] ACK_SENT id=16 device=esp32-bath
+2026-10-26T15:26:38.132Z [worker:stdout] [command-sync] ACK_SENT id=16 device=esp32-bath

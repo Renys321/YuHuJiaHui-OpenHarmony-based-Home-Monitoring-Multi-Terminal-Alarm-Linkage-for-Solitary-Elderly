@@ -1,0 +1,13 @@
+# compose.pin.example.yaml — 把 backend 镜像“钉”到指定 tag 的覆盖文件示例（不含任何真实密钥）
+# 用法（回滚启动旧镜像时，绝不重新构建）：
+#   docker compose --env-file deploy/.env.deploy \
+#     -f deploy/compose.public.yaml -f deploy/compose.pin.example.yaml \
+#     up -d --no-build backend
+# 说明：
+#   - image 必须是**已 docker save/load 校验过**的版本标签，不能用 latest/local 漂移标签；
+#   - --no-build 是必须的：compose.public.yaml 里有 build: 段，缺了它可能在镜像缺失时重新构建；
+#   - 真实密钥只放在 deploy/.env.deploy（0600），不要写进本文件。
+name: eldercare-public
+services:
+  backend:
+    image: eldercare-cloud-backend:pre-d-e-20261026

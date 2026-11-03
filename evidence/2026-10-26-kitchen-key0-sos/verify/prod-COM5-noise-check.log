@@ -1,0 +1,32 @@
+# bench-serial.py start 2026-10-26T19:06:31.563+08:00
+# com=COM5 baud=115200 dtr=False rts=False log=D:\OpenHarmony\competition\evidence\2026-10-26-kitchen-key0-sos\verify\prod-COM5-noise-check.log
+[+00000000.688s] [2026-10-26T19:06:32.236+08:00] I (9741) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+[+00000000.688s] [2026-10-26T19:06:32.236+08:00] I (9741) wifi:state: init -> auth (b0)
+[+00000000.688s] [2026-10-26T19:06:32.236+08:00] I (9741) wifi:state: auth -> assoc (0)
+[+00000000.688s] [2026-10-26T19:06:32.236+08:00] I (9771) wifi:state: assoc -> run (10)
+[+00000000.688s] [2026-10-26T19:06:32.236+08:00] I (9801) wifi:connected with ElderCareLab, aid = 2, channel 1, BW20, bssid = 5a:fe:a0:a6:a3:d7
+[+00000000.688s] [2026-10-26T19:06:32.238+08:00] I (9801) wifi:security: WPA2-PSK, phy: bgn, rssi: -39
+[+00000000.688s] [2026-10-26T19:06:32.238+08:00] I (9801) wifi:pm start, type: 0
+[+00000000.688s] [2026-10-26T19:06:32.238+08:00] 
+[+00000000.688s] [2026-10-26T19:06:32.238+08:00] I (9801) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us
+[+00000000.688s] [2026-10-26T19:06:32.238+08:00] I (9811) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000
+[+00000000.688s] [2026-10-26T19:06:32.238+08:00] I (9841) wifi:<ba-add>idx:0 (ifx:0, 5a:fe:a0:a6:a3:d7), tid:0, ssn:0, winSize:64
+[+00000000.688s] [2026-10-26T19:06:32.238+08:00] I (9891) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us
+[+00000000.688s] [2026-10-26T19:06:32.238+08:00] I (9891) wifi:AP's beacon interval = 102400 us, DTIM period = 2
+[+00000001.625s] [2026-10-26T19:06:33.176+08:00] I (10821) esp_netif_handlers: sta ip: 10.127.130.168, mask: 255.255.255.0, gw: 10.127.130.217
+[+00000001.625s] [2026-10-26T19:06:33.176+08:00] I (10821) elder-node: 已获取 IP: 10.127.130.168
+[+00000002.250s] [2026-10-26T19:06:33.801+08:00] I (11451) elder-node: 已连接网关 10.127.130.179:9101
+[+00000002.250s] [2026-10-26T19:06:33.801+08:00] I (11451) elder-node: STACK_FREE task=gateway-net bytes=2900
+[+00000003.141s] [2026-10-26T19:06:34.690+08:00] I (12291) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":24.1,"rh":64.2,"ok":true,"valid":true},"gas":{"raw":229,"ok":true,"valid":true},"smoke":{"raw":315,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000003.141s] [2026-10-26T19:06:34.690+08:00] 
+[+00000003.141s] [2026-10-26T19:06:34.690+08:00] I (12311) elder-node: STACK_FREE task=main bytes=4052
+[+00000003.141s] [2026-10-26T19:06:34.690+08:00] I (12351) elder-node: STACK_FREE task=gateway-net bytes=2900
+[+00000008.625s] [2026-10-26T19:06:40.184+08:00] I (17771) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":24.1,"rh":64.2,"ok":true,"valid":true},"gas":{"raw":229,"ok":true,"valid":true},"smoke":{"raw":328,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000008.625s] [2026-10-26T19:06:40.184+08:00] 
+[+00000008.625s] [2026-10-26T19:06:40.184+08:00] I (17791) elder-node: STACK_FREE task=main bytes=4052
+[+00000008.625s] [2026-10-26T19:06:40.184+08:00] I (17851) elder-node: STACK_FREE task=gateway-net bytes=2900
+[+00000014.141s] [2026-10-26T19:06:45.692+08:00] I (23251) elder-node: → {"deviceId":"esp32-kitchen","room":"厨房","ts":0,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":0,"countToday":0},"door":{"open":false,"lastOpenTs":0},"climate":{"tempC":24.1,"rh":64.1,"ok":true,"valid":true},"gas":{"raw":224,"ok":true,"valid":true},"smoke":{"raw":326,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,0],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[+00000014.141s] [2026-10-26T19:06:45.692+08:00] 
+[+00000014.141s] [2026-10-26T19:06:45.692+08:00] I (23271) elder-node: STACK_FREE task=main bytes=4052
+[+00000014.141s] [2026-10-26T19:06:45.692+08:00] I (23351) elder-node: STACK_FREE task=gateway-net bytes=2900
+# BENCH_SERIAL SUMMARY lines=29 bytes=2818 sent=0 duration=18.000s markers={→ {=3}

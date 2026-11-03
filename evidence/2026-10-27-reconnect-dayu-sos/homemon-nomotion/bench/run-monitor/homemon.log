@@ -1,0 +1,25 @@
+[1793112586] homemon 启动（tick=1s, 无活动阈值=60s, 目录=D:\OpenHarmony\competition\evidence\2026-10-27-reconnect-dayu-sos\homemon-nomotion\bench\run-monitor）
+[1793112586] 活动监测能力：配置 0 路 PIR，启动自检可读 0 路 → NO_MOTION=关闭（无有效 PIR：不产生 NO_MOTION，也不因活动间隔进 WARN）
+[1793112586] 启动时系统时间可信： UTC=2026-10-27T14:49:46Z epoch_ms=1793112586062
+[1793112586] TCP 状态通道已监听 0.0.0.0:19093（最多 4 路客户端）
+[1793112586] 日统计已载入：今日 0 次，前 6 日 0/0/0/0/0/0
+[1793112586] 系统时间已可信（PC 网关校时生效）： UTC=2026-10-27T14:49:46Z epoch_ms=1793112586072
+[1793112589] TCP 客户端接入 127.0.0.1（第 1 路）
+[1793112589] MONITOR offline：no_frame
+[1793112590] TCP 异常断开: connection reset
+[1793112592] TCP 客户端接入 127.0.0.1（第 1 路）
+[1793112592] MONITOR online：frames_resumed
+[1793112593] TCP 异常断开: Input/output error
+[1793112594] TCP 客户端接入 127.0.0.1（第 1 路）
+[1793112594] TIME 被拒绝：epoch_ms=999000 不在可信区间 [2025-01-01, 2100-01-01]
+[1793112595] TCP 异常断开: Input/output error
+[1793112596] homemon 启动（tick=1s, 无活动阈值=60s, 目录=D:\OpenHarmony\competition\evidence\2026-10-27-reconnect-dayu-sos\homemon-nomotion\bench\run-monitor）
+[1793112596] 活动监测能力：配置 0 路 PIR，启动自检可读 0 路 → NO_MOTION=关闭（无有效 PIR：不产生 NO_MOTION，也不因活动间隔进 WARN）
+[1793112596] 启动时系统时间可信： UTC=2026-10-27T14:49:56Z epoch_ms=1793112596074
+[1793112596] TCP 状态通道已监听 0.0.0.0:19093（最多 4 路客户端）
+[1793112596] 日统计已载入：今日 0 次，前 6 日 0/0/0/0/0/0
+[1793112596] 系统时间已可信（PC 网关校时生效）： UTC=2026-10-27T14:49:56Z epoch_ms=1793112596079
+[1793112599] TCP 客户端接入 127.0.0.1（第 1 路）
+[1793112599] ALARM id=a-1793112599-1 type=MANUAL_SOS detail=老人主动按下随身求助按钮
+[1793112599] SAY: 我需要帮助，请尽快联系我（未配置播报命令）
+[1793112600] TCP 异常断开: connection reset

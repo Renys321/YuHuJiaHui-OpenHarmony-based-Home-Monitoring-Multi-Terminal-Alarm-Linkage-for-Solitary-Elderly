@@ -1,0 +1,50 @@
+# 源码状态与哈希记录（2026-10-24）
+
+本文件记录归档时的源码事实。**工作区不是 Git 仓库**，因此没有分支/HEAD/status 可记录。
+
+## 1. Git 事实
+
+```text
+git 版本            2.56.0.windows.2
+<WORKSPACE>                  NO-GIT（无 .git）
+<WORKSPACE>\competition      NO-GIT（无 .git）
+<WORKSPACE>\APP              NO-GIT（无 .git）
+APP\ElderlyCareGuardian         NO-GIT（无 .git）
+嵌套 .git（competition/APP，depth<=4） 无
+```
+
+结论：无法给出 branch / HEAD / git status / modified / untracked 清单；
+本次未执行任何 git 写操作，未回退、未提交、未推送。
+
+## 2. 本轮最终修改的业务源码（APP）
+
+| 文件 | 大小 | SHA-256 | 说明 |
+|---|---:|---|---|
+| `APP/ElderlyCareGuardian/entry/src/main/ets/pages/MonitorPage.ets` | 12,948 B | `AE4BB64468138519B3E8ECB972D0F0EB3E909B3596776418F3943721732F7B7A` | 自动刷新渲染修正（ForEach key 纳入显示文本） |
+| `APP/ElderlyCareGuardian/entry/src/main/ets/pages/DevicePage.ets` | 18,360 B | `1B50DDE3824368C8AE0A26A0FD688978B7830373A3D7B7D9C1AC5C5D768194A5` | 同上（传感器行/设备卡 key） |
+
+## 3. P0-B 业务源码（本轮之前已修改，归档时未再改）
+
+| 文件 | SHA-256 |
+|---|---|
+| `.../core/api/Contracts.ts` | `4CC10AAB040B0F04516C5D9EB2303D61EAA18E94643656709F2AD999FCA72428` |
+| `.../core/view/ViewMapper.ts` | `432EC89853AEFEE1EC582A38FADE991A984014DBC80F0994F25266B47FB76106` |
+| `.../pages/HomePage.ets` | `4AEC2E18329528C53883CC86AB0340FF5EB18225FE4E867ACF5D2A20DA2BBF85` |
+
+## 4. public-sync / 一键入口源码（正式目录）
+
+| 文件 | 大小 | SHA-256 |
+|---|---:|---|
+| `competition/cloud/onenet/public-sync-supervisor.js` | 16,312 B | `078553D4F7AA2CDCCE365F6B44C4616E6535F8F0C596B995A5A6F23AD20A1D47` |
+| `competition/cloud/onenet/public-sync-worker.js` | 1,953 B | `7C4138718CE4FDE259C85123A7DABF5E5C8F2A9C2A2B4022A11B93D401761164` |
+| `competition/materials/start-demo-supervisor.cmd` | 186 B | `85FD74D53E56232811D79FDE83FCFBADEF0BA48FEFAFADBDE846D5EFDFF82072` |
+| `competition/materials/start-demo-supervisor.ps1` | 15,335 B | `D83101EC90CAB977B2F4CC82D8FE8629C01430C6FDE13EBD8C543EF28F084FBE` |
+| `competition/materials/verify-supervisor-acceptance.ps1` | 8,696 B | `E2150FE01C193C924E32BEDAA18B20E6CF0127A18BC26E0D32A242C2222E9A16` |
+
+## 5. 说明
+
+- 本次归档复制文件时逐个校验了源文件与备份文件 SHA-256 一致（见 `_staging/copy-log.txt`，
+  该工作日志不进入 ZIP）。
+- 本次**未修改**任何业务源码；只做了读取、复制、清单与离线验证。
+- APP 构建环境：DevEco SDK `D:\DevEcoStudio\DevEco Studio\sdk`；构建需要
+  `DEVECO_SDK_HOME` 指向该目录（本任务不重新构建）。

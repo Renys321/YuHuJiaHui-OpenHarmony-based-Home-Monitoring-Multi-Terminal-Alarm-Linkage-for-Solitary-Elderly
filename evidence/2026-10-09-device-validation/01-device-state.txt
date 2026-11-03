@@ -1,0 +1,29 @@
+﻿== 步骤 01：设备与环境状态 ==
+执行时间: 2026-10-09 22:40:40
+hdc 路径: <WORKSPACE>\tools\hdc\hdc.exe
+
+--- 命令: hdc list targets ---
+450100445634303332012847942eca00
+
+UDID: 450100445634303332012847942eca00
+
+--- 命令: hdc shell "uname -m" ---
+aarch64
+
+--- 命令: hdc shell "uname -a" ---
+Linux localhost 6.6.101 #1 SMP Fri Aug 21 19:15:22 CST 2026 aarch64 Toybox
+
+--- 命令: hdc shell "param get const.ohos.apiversion" ---
+26
+
+--- 命令: hdc shell "param get const.product.software.version" ---
+OpenHarmony 7.0.0.38
+
+--- 命令: hdc shell "getconf LONG_BIT" ---
+32
+
+--- 命令: hdc shell "date" ---
+Sat Oct 10 06:40:41 CST 2026
+
+--- 汇总 ---
+UDID        : 450100445634303332012847942eca00

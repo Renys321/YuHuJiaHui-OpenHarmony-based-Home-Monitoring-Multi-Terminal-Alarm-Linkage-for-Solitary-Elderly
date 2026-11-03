@@ -1,0 +1,43 @@
+﻿# DAYU over Wi-Fi: internet (TCP/TLS) + AP-ICMP anomaly, captured: 2026-10-27 22:35:34 +08:00
+----------------------------------------------------------------------
+## DAYU -> 223.5.5.5:443 TCP/TLS, 3 attempts
+--- attempt 1 ---
+CONNECTION ESTABLISHED
+Protocol version: TLSv1.3
+Peer certificate: C = CN, ST = \E6\B5\99\E6\B1\9F\E7\9C\81, L = \E6\9D\AD\E5\B7\9E\E5\B8\82, O = \E9\98\BF\E9\87\8C\E5\B7\B4\E5\B7\B4\EF\BC\88\E4\B8\AD\E5\9B\BD\EF\BC\89\E7\BD\91\E7\BB\9C\E6\8A\80\E6\9C\AF\E6\9C\89\E9\99\90\E5\85\AC\E5\8F\B8, CN = *.alidns.com
+--- attempt 2 ---
+CONNECTION ESTABLISHED
+Protocol version: TLSv1.3
+Peer certificate: C = CN, ST = \E6\B5\99\E6\B1\9F\E7\9C\81, L = \E6\9D\AD\E5\B7\9E\E5\B8\82, O = \E9\98\BF\E9\87\8C\E5\B7\B4\E5\B7\B4\EF\BC\88\E4\B8\AD\E5\9B\BD\EF\BC\89\E7\BD\91\E7\BB\9C\E6\8A\80\E6\9C\AF\E6\9C\89\E9\99\90\E5\85\AC\E5\8F\B8, CN = *.alidns.com
+--- attempt 3 ---
+CONNECTION ESTABLISHED
+Protocol version: TLSv1.3
+Peer certificate: C = CN, ST = \E6\B5\99\E6\B1\9F\E7\9C\81, L = \E6\9D\AD\E5\B7\9E\E5\B8\82, O = \E9\98\BF\E9\87\8C\E5\B7\B4\E5\B7\B4\EF\BC\88\E4\B8\AD\E5\9B\BD\EF\BC\89\E7\BD\91\E7\BB\9C\E6\8A\80\E6\9C\AF\E6\9C\89\E9\99\90\E5\85\AC\E5\8F\B8, CN = *.alidns.com
+
+## DAYU -> AP 10.127.130.217:80 TCP (RST errno=111 => on-link reachable, port closed)
+8C99C2F7:error:8000006F:system library:BIO_connect:reason(111)::0:calling connect()
+8C99C2F7:error:10000067:BIO routines:BIO_connect:connect error::0:
+connect:errno=111
+
+## DAYU -> 10.127.130.179 (PC) ICMP: 100% loss (PC firewall blocks inbound echo on Public profile)
+Ping 10.127.130.179 (10.127.130.179): 56(84) bytes.
+--- 10.127.130.179 ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss
+
+## PC -> AP 10.127.130.217 ICMP (AP answers PC)
+Pinging 10.127.130.217 with 32 bytes of data:
+Reply from 10.127.130.217: bytes=32 time=398ms TTL=64
+Reply from 10.127.130.217: bytes=32 time=406ms TTL=64
+Ping statistics for 10.127.130.217:
+    Packets: Sent = 2, Received = 2, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 398ms, Maximum = 406ms, Average = 402ms
+
+## PC -> 223.5.5.5 ICMP (PC internet OK)
+Pinging 223.5.5.5 with 32 bytes of data:
+Reply from 223.5.5.5: bytes=32 time=66ms TTL=48
+Reply from 223.5.5.5: bytes=32 time=43ms TTL=48
+Ping statistics for 223.5.5.5:
+    Packets: Sent = 2, Received = 2, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 43ms, Maximum = 66ms, Average = 54ms

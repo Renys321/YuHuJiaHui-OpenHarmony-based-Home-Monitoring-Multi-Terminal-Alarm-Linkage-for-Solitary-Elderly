@@ -1,0 +1,29 @@
+﻿[0;32mI (805708) speaker-net: rx {"type":"ping"}[0m
+[0;32mI (806108) speaker-net: RX local clip=9 (key-parse)[0m
+[0;33mW (806108) local-voice: PLAY request clip=9 (requests=0x3fcb3a44)[0m
+[0;32mI (806178) local-voice: PLAY clip=9 bytes=93488 text=???????????????????????????????????????????????????120???[0m
+[0;32mI (807668) elder-node: ??? {"deviceId":"esp32-kitchen","room":"??????","ts":1793543496374,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1793542722913,"countToday":1},"door":{"open":true,"lastOpenTs":0,"lastCloseTs":0,"seq":23},"climate":{"tempC":23.8,"rh":61.4,"ok":true,"valid":true},"gas":{"raw":677,"ok":true,"valid":true},"smoke":{"raw":477,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,1],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[0m
+[0;32mI (807678) elder-node: STACK_FREE task=gateway-net bytes=2036[0m
+[0;32mI (807698) elder-node: STACK_FREE task=main bytes=1668[0m
+[0;32mI (813158) elder-node: ??? {"deviceId":"esp32-kitchen","room":"??????","ts":1793543501864,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1793542722912,"countToday":1},"door":{"open":true,"lastOpenTs":0,"lastCloseTs":0,"seq":23},"climate":{"tempC":23.8,"rh":61.3,"ok":true,"valid":true},"gas":{"raw":671,"ok":true,"valid":true},"smoke":{"raw":478,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,1],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[0m
+[0;32mI (813188) elder-node: STACK_FREE task=main bytes=1668[0m
+[0;32mI (813198) elder-node: STACK_FREE task=gateway-net bytes=2036[0m
+[0;32mI (815728) speaker-net: rx {"type":"ping"}[0m
+[0;32mI (817928) local-voice: STOP clip=9 result=ESP_OK cancelled=0[0m
+[0;32mI (817928) local-voice: STACK_FREE task=local-voice bytes=1060[0m
+[0;32mI (818638) elder-node: ADC raw: MQ2(CH5)=477 valid=1 danger=0 | MQ5(CH6)=669 valid=1 danger=0[0m
+[0;32mI (818638) elder-node: ??? {"deviceId":"esp32-kitchen","room":"??????","ts":1793543507344,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1793542722913,"countToday":1},"door":{"open":true,"lastOpenTs":0,"lastCloseTs":0,"seq":23},"climate":{"tempC":23.8,"rh":61.4,"ok":true,"valid":true},"gas":{"raw":669,"ok":true,"valid":true},"smoke":{"raw":477,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,1],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[0m
+[0;32mI (818678) elder-node: STACK_FREE task=main bytes=1668[0m
+[0;32mI (818698) elder-node: STACK_FREE task=gateway-net bytes=2036[0m
+[0;32mI (824128) elder-node: ??? {"deviceId":"esp32-kitchen","room":"??????","ts":1793543512835,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1793542722913,"countToday":1},"door":{"open":true,"lastOpenTs":0,"lastCloseTs":0,"seq":23},"climate":{"tempC":23.8,"rh":61.3,"ok":true,"valid":true},"gas":{"raw":672,"ok":true,"valid":true},"smoke":{"raw":477,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,1],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[0m
+[0;32mI (824158) elder-node: STACK_FREE task=main bytes=1668[0m
+[0;32mI (824198) elder-node: STACK_FREE task=gateway-net bytes=2036[0m
+[0;32mI (825738) speaker-net: rx {"type":"ping"}[0m
+[0;32mI (829608) elder-node: ??? {"deviceId":"esp32-kitchen","room":"??????","ts":1793543518314,"state":"NORMAL","sensors":{"motion":{"lastActiveTs":1793542722913,"countToday":1},"door":{"open":true,"lastOpenTs":0,"lastCloseTs":0,"seq":23},"climate":{"tempC":23.8,"rh":61.1,"ok":true,"valid":true},"gas":{"raw":665,"ok":true,"valid":true},"smoke":{"raw":477,"ok":true,"valid":true}},"history":[0,0,0,0,0,0,1],"slots":[0,0,0,0],"alarm":{"id":"","type":"","countToday":0}}
+[0m
+[0;32mI (829638) elder-node: STACK_FREE task=main bytes=1668[0m
+[0;32mI (829698) elder-node: STACK_FREE task=gateway-net bytes=2036[0m

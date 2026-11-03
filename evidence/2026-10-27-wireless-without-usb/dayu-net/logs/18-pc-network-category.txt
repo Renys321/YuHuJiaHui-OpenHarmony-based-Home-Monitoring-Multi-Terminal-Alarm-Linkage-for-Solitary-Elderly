@@ -1,0 +1,10 @@
+﻿# cmd: Get-NetConnectionProfile | Select-Object InterfaceAlias,NetworkCategory,Name | Format-Table -AutoSize
+# captured: 2026-10-27 22:32:35 +08:00
+----------------------------------------------------------------------
+
+InterfaceAlias NetworkCategory Name        
+-------------- --------------- ----        
+WLAN                    Public ElderCareLab
+
+
+

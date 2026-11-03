@@ -1,0 +1,29 @@
+PC_START_TIME=2026-10-10 10:14:55.334 +08:00
+PID=5672
+COMMAND=<USER_HOME>\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\node\bin\node.exe <WORKSPACE>\competition\bridge\sim_node.js --gw 127.0.0.1:9100 --id esp32-bath --room 卫生间
+HAS_EXITED=False
+--- RECOVERY SIM OUT ---
+[sim-node] 已连接网关 127.0.0.1:9100（作为 esp32-bath / 卫生间）
+[sim-node] → NORMAL 活动 0 次
+--- RECOVERY SIM ERR ---
+--- BRIDGE TAIL ---
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ACKED room=卫生间 countToday=0
+[MQTT] ← home/esp32-bath/cmd: {"cmd":"gas"}
+[bridge] 命令已发往节点 esp32-bath: gas
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] → home/esp32-bath/status  state=ALARM room=卫生间 countToday=0
+[bridge] 无线节点 esp32-bath 断开
+[bridge] 无线节点接入 ::ffff:127.0.0.1:52092
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=0

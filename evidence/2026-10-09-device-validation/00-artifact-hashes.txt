@@ -1,0 +1,25 @@
+﻿== 步骤 00：制品哈希核验 ==
+执行时间: 2026-10-09 22:40:33
+
+eldercare-signed.hap
+  路径    : <WORKSPACE>\competition\northbound\signing\eldercare-signed.hap
+  大小    : 717902 字节
+  实际SHA : 202D74EACFC207D1526CD21F3DE1ED827962F29672E89FFE1FEA0E06468E1CCB
+  期望SHA : 202D74EACFC207D1526CD21F3DE1ED827962F29672E89FFE1FEA0E06468E1CCB
+  结论    : MATCH
+
+homemon-arm
+  路径    : <WORKSPACE>\competition\southbound\out\homemon-arm
+  大小    : 163592 字节
+  实际SHA : 8D5040F395571A0C1E4767354465A833D75ED86AD303C627A7CFD92E8071E7AC
+  期望SHA : (未指定)
+  结论    : MATCH
+
+say.sh
+  路径    : <WORKSPACE>\competition\southbound\say.sh
+  大小    : 1521 字节
+  实际SHA : 725857B3740405C6B87E6D3B9DF27515AE12CEC979E87652D154CD262641AE27
+  期望SHA : (未指定)
+  结论    : MATCH
+
+GATE: PASS —— 哈希全部核验通过。

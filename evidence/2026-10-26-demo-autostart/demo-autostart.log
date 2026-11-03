@@ -1,0 +1,48 @@
+﻿[2026-10-26 00:14:09] Watcher start.
+[2026-10-26 00:14:13] Bringing formal app to foreground.
+[2026-10-26 00:14:14] Deploying D:\OpenHarmony\competition\materials\demo-autostart\dayu\dayu_local_fall -> /data/local/tmp/dayu-demo-autostart-2026-10-26/dayu_local_fall
+[2026-10-26 00:14:15] Deploying D:\OpenHarmony\competition\materials\demo-autostart\dayu\models\320\model.ncnn.param -> /data/local/tmp/dayu-demo-autostart-2026-10-26/models/320/model.ncnn.param
+[2026-10-26 00:14:15] Deploying D:\OpenHarmony\competition\materials\demo-autostart\dayu\models\320\model.ncnn.bin -> /data/local/tmp/dayu-demo-autostart-2026-10-26/models/320/model.ncnn.bin
+[2026-10-26 00:14:17] Starting DAYU P1-B inference (320, rotate=0, conf=0.7).
+[2026-10-26 00:15:36] Watcher start.
+[2026-10-26 00:15:41] Bringing formal app to foreground.
+[2026-10-26 00:16:45] Watcher start.
+[2026-10-26 00:16:50] Bringing formal app to foreground.
+[2026-10-26 00:17:33] Stop flag detected.
+[2026-10-26 00:17:34] Stopped owned inference PIDs: 12493
+[2026-10-26 00:17:50] Watcher start.
+[2026-10-26 00:17:54] Bringing formal app to foreground.
+[2026-10-26 00:17:56] Starting DAYU P1-B inference (320, rotate=0, conf=0.7).
+[2026-10-26 00:18:14] Inference did not reach listen/process state.
+[2026-10-26 00:18:22] Starting DAYU P1-B inference (320, rotate=0, conf=0.7).
+[2026-10-26 00:20:10] Watcher start.
+[2026-10-26 00:20:15] Bringing formal app to foreground.
+[2026-10-26 00:20:35] Starting DAYU P1-B inference (320, rotate=0, conf=0.7).
+[2026-10-26 00:21:05] Restoring hdc fport tcp:9001 -> tcp:9000.
+[2026-10-26 00:22:17] Bringing formal app to foreground.
+[2026-10-26 00:22:37] Bringing formal app to foreground.
+[2026-10-26 00:22:48] Watcher start.
+[2026-10-26 00:22:51] Stopped owned inference PIDs: 17179
+[2026-10-26 00:23:23] Bringing formal app to foreground.
+[2026-10-26 00:23:25] Starting DAYU P1-B inference (320, rotate=0, conf=0.7).
+[2026-10-26 00:25:04] Watcher start.
+[2026-10-26 00:25:07] Bringing formal app to foreground.
+[2026-10-26 00:25:16] Stopped owned inference PIDs: 19841
+[2026-10-26 00:27:39] Starting DAYU P1-B inference (320, rotate=0, conf=0.7).
+[2026-10-26 00:28:52] Watcher start.
+[2026-10-26 00:28:57] Starting DAYU P1-B inference (320, rotate=0, conf=0.7).
+[2026-10-26 00:29:00] Killed detached hdc launch process after spawn; service runs under setsid.
+[2026-10-26 00:29:37] Watcher start.
+[2026-10-26 00:31:10] Unknown inference process already exists; not killing: 1005,2026,10,26,0,31,9,755641747
+[2026-10-26 00:31:12] HDC target not connected; restarting hdc server once (no unknown process kill).
+[2026-10-26 00:31:31] Starting frozen DAYU homemon.
+[2026-10-26 00:31:36] Restoring hdc fport tcp:9001 -> tcp:9000.
+[2026-10-26 00:31:47] Starting formal app EntryAbility.
+[2026-10-26 00:31:52] Starting DAYU P1-B inference (320, rotate=0, conf=0.7).
+[2026-10-26 00:31:55] Killed detached hdc launch process after spawn; service runs under setsid.
+[2026-10-26 00:32:04] Bringing formal app to foreground.
+[2026-10-26 00:34:54] Watcher start.
+[2026-10-26 00:35:14] Starting formal app EntryAbility.
+[2026-10-26 00:53:56] Starting DAYU P1-B inference (320, rotate=0, conf=0.7).
+[2026-10-26 00:53:59] Killed detached hdc launch process after spawn; service runs under setsid.
+[2026-10-26 00:54:48] Watcher start.

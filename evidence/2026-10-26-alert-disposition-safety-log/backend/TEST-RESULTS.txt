@@ -1,0 +1,132 @@
+ALERT-DISPOSITION-SAFETY-LOG — backend 测试结果（2026-10-26）
+================================================================
+
+环境
+----
+- OS: Windows（本会话工作目录 <WORKSPACE>）
+- Node.js: v24.19.0
+- npm: 11.17.0
+- 网络：全程未访问公网；未连接 MQTT、未操作设备/串口、未向任何生产 ingest 发送数据
+- 测试凭据：全部在进程内用 crypto.randomBytes 随机生成，未打印、未落盘
+
+一、静态检查
+------------
+命令：cd competition\cloud\backend; npm run check
+结果：exit code 0
+说明：check 列表已加入 src/safety-log.js；其余 src 文件语法检查全部通过。
+
+二、全量测试（backend 全套）
+----------------------------
+沙箱说明（重要，仅本会话环境，与代码无关）：
+  本会话的受限沙箱禁止 Node 测试运行器为每个测试文件 spawn 子进程（默认 stdio=pipe），
+  因此裸 `npm test`（= `node --test`，默认进程隔离）会在 runner 的 spawn 阶段
+  以 EPERM 失败：24 个测试文件 0 assertions 运行，24/24 file-level 失败；
+  这不是任何测试断言失败，非沙箱 CI 直接 `npm test` 即可。
+  已验证同一批测试可在同进程内用官方 `--test-isolation=none` 跑完，且 `npm test` 本体可通
+  （通过 NODE_OPTIONS 传入该官方参数，不修改 package.json 的 test 脚本）：
+
+命令 A（推荐复现，字面意义上的 npm test）：
+  $env:NODE_OPTIONS='--test-isolation=none'; npm test
+结果 A：exit code 0
+         tests 253 | pass 253 | fail 0 | cancelled 0 | skipped 0 | todo 0 | duration ≈ 7008 ms
+
+命令 B（等价写法）：
+  npm test -- --test-isolation=none
+结果 B：exit code 0；tests 253 | pass 253 | fail 0（duration ≈ 6448 ms）
+
+命令 C（对照，记录环境限制）：
+  npm test
+结果 C：exit code 1；24 个测试文件全部 spawn EPERM（0 assertions，非代码失败）
+        errno -4048, code 'EPERM', syscall 'spawn'
+
+基线（改动前，同一沙箱、同进程模式）：
+  node --test --test-isolation=none -> tests 215 | pass 215 | fail 0
+本次新增 38 条用例 -> 253 条全绿。
+
+三、新增测试文件（单独运行）
+----------------------------
+1) node test/safety-log.test.js
+   exit code 0 | tests 14 | pass 14 | fail 0
+2) node test/safety-log-api.test.js
+   exit code 0 | tests 14 | pass 14 | fail 0
+3) node test/safety-log-persistent.test.js
+   exit code 0 | tests 9 | pass 9 | fail 0
+4) node test/safety-log-isolated.integration.js
+   exit code 0 | tests 1 | pass 1 | fail 0
+   输出：[isolated] endpoints=3 dispositions=2 safetyLogs=2 ackCommands=1 schema=6 restart=ok
+
+四、关键断言覆盖（均已在上述运行中通过）
+---------------------------------------
+纯模块（safety-log.test.js）：
+- 五个 outcome 与固定展示文案；DISPOSITION_ID_RE 语法（dsp-0 / dsp-01 / 17 位等拒绝）。
+- note：trim、CR/LF 归一为一个空格、200 字符接受 / 201 拒绝、C0/DEL/C1 控制字符拒绝、
+  非字符串拒绝；OTHER 空说明拒绝；note 可省略。
+- clientDispositionId：8-64 位字符集、拒绝 `..`、拒绝空格/斜杠/中文/非字符串。
+- 请求体字段白名单：alarmId/deviceId/operator/serverTime/openid/ownerRef/household/token 等一律拒绝。
+- publicDisposition 只含合同 12 个公开字段，不外泄 clientDispositionId/actor；
+  outcomeLabel/operator/operatorRole/alarmCreatedAt 映射正确；serverTime=0 不被伪造为有效时间。
+
+HTTP 合同（safety-log-api.test.js，createApiServer + MemoryStore + 随机 appAuth/tokenSecret）：
+- 未认证 401、非法 token 401、非允许名单身份 403。
+- 未知 alarmId 404（POST / GET / safety-logs 过滤）；非法 alarmId 格式 400。
+- 首次登记 201，PublicDisposition 字段/取值精确匹配合同；同 payload 重放 200 duplicate 且不新增；
+  同 clientDispositionId 改 outcome/note 409 且不覆盖；同一 clientDispositionId 在不同告警下是独立记录。
+- 非法字段/长度/控制字符/OTHER 空说明/非法 clientDispositionId/空 body -> 400 invalid disposition；
+  8 KiB 上限请求体 -> 400；所有失败请求不写台账、不生成命令。
+- 五个 outcome 全部可登记且 outcomeLabel 正确。
+- GET dispositions 按 serverTime 降序、同刻按 dispositionId 数值降序；无记录返回空数组。
+- GET safety-logs：排序、limit=2/1/200、非法 limit 回退 50、alarmId 过滤、空 alarmId 不过滤、
+  未知/非法 alarmId 404/400；日志均带告警展示上下文。
+- 处置后 alert.status/ackPending/devices/commands 逐字节不变（JSON 对比）；ACKED 告警仍可登记处置且保持 ACKED。
+- 既有 POST ack 仍返回 202 {accepted:true,status:"PENDING",commandId:"2"}，ACK 不写安全日志。
+- 存储失败（ENOSPC）返回脱敏 503 {error:"storage unavailable"}，不泄露路径、不生成命令。
+
+持久化（safety-log-persistent.test.js，临时目录 + 真实原子写）：
+- v5 快照 -> safetyLogs=[]，首次处置写 schemaVersion=6 且 safetyLogs 单条字段严格白名单；
+  v1..v4 同样可加载并升级到 v6。
+- 跨重启记录仍在、dispositionId 单调不复用；历史空洞（dsp-1,dsp-3）后分配 dsp-4；重放幂等。
+- 幂等重放 / 冲突都不写盘（atomicWriter 计数不变、文件内容不变）。
+- 写盘失败：内存台账与 _maxDispositionId 回滚、文件不变；恢复后重新分配 dsp-1 并落盘。
+- 损坏快照 fail-fast：重复 dispositionId / 乱序 ID / 未知 alarm / 设备不匹配 /
+  重复 clientDispositionId / 未知字段(openid) / 非法 outcome / OTHER 空说明 / 未归一化 note /
+  控制字符 / 超长 note / 非法 clientDispositionId / 非法 actor / 负 serverTime /
+  非安全整数 ID / 超长 room / 错误 type / 非数组 safetyLogs / 超过 2000 容量。
+- 容量上限 2000：第 2001 条淘汰 dsp-1，文件与重启后仍为 2000 条。
+- 处置两次后 commands 与 alert JSON 完全不变；重启后命令仍 PENDING、告警仍 ALARM/ackPending=true。
+
+隔离集成（safety-log-isolated.integration.js）：
+- 临时目录数据文件 + 127.0.0.1 随机端口 + 通过内部 ingest 路由写入 fixture 告警；
+- 3 个新接口真实 HTTP 调用（201/200 duplicate/GET 列表）；
+- 处置不生成 ACK 命令（命令数 0 -> 0），既有 POST ack 仍 202 PENDING（命令数 1）；
+- 同一数据文件重启后 GET safety-logs 仍返回 2 条、GET dispositions 仍 2 条、
+  命令仍只有 1 条 PENDING、告警仍 ALARM 且 ackPending=true、快照 schemaVersion=6；
+- 快照不包含 tokenSecret/ingestKey/口令/openid/access_token。
+
+五、既有测试改动（schema v5 -> v6 的合法升级，不削弱断言）
+---------------------------------------------------------
+- test/comms-store.test.js：v4 快照迁移测试原先硬编码断言 schemaVersion === 5，改为
+  assert.equal(document.schemaVersion, SCHEMA_VERSION)（SCHEMA_VERSION 现为 6），
+  并新增 assert.deepEqual(document.safetyLogs, [])；测试标题/注释同步为“当前 schema”。
+- persistent-store.test.js / persistent-store.notifications.test.js / notify-store-e2e.test.js
+  使用 SCHEMA_VERSION / SNAPSHOT_KEYS 常量或 "SCHEMA_VERSION + 1" 断言，随 v6 自动更新，无需改动。
+- 未删除、未跳过、未弱化任何既有断言；未改 APP、未改 cloud/onenet、bridge、deploy。
+
+六、证据与产物
+--------------
+- 本文件：TEST-RESULTS.txt
+- 源码 hash/字节数：SOURCE-HASHES.txt
+- 隔离集成说明：ISOLATED-INTEGRATION.md
+- D/E 范围分离（他方并发活动接口）+ 回退清单：D-E-SCOPE-SPLIT.md
+
+七、并发范围说明（D 合同 vs 并发 E 活动接口）与最终复跑
+----------------------------------------------------------
+- 本任务只交付 D 类（告警处置结果 / 安全日志）。会话期间 backend 出现并发他方变更
+  （src/activity.js、src/activity-store.js、GET /api/v1/activity/report，接入 src/main.js、
+  src/server.js、package.json），**不是 backend-dev 编写或扩展的**；D 的 store.js /
+  persistent-store.js 未被 E 侵入（E 使用独立 activity-store.js 文件）。
+- 最终复跑（已包含 server.js 中的并发 E 路由、main.js 的 E 接线）：
+  2026-10-26 01:55:19，`$env:NODE_OPTIONS='--test-isolation=none'; npm test`
+  -> exit code 0；tests 253 | pass 253 | fail 0。
+  `node test/safety-log-isolated.integration.js` -> exit 0（[isolated] ... restart=ok）。
+  `npm run check` -> exit 0。
+- D/E 文件清单、E 与 APP 的字段核对结论、各自回退方法见 D-E-SCOPE-SPLIT.md。

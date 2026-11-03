@@ -1,0 +1,20 @@
+[  1.41] [sim-node] 已连接网关 127.0.0.1:19100（作为 esp32-test / TestRoom）
+[  2.41] [sim-node] → NORMAL 活动 0 次
+[  2.88] [sim-node] ← 收到命令: gas
+[  3.41] [sim-node] → ALARM 活动 0 次
+[  3.46] [sim-node] ← 收到命令: ack wrong-id-123 测试错ID
+[  3.46] [sim-node] ACK 被拒绝：告警 ID 不匹配（当前=sim-1791555116237-1，收到=wrong-id-123）
+[  4.43] [sim-node] → ALARM 活动 0 次
+[  5.44] [sim-node] → ALARM 活动 0 次
+[  5.97] [sim-node] ← 收到命令: ack sim-1791555116237-1 已确认老人正常
+[  5.97] [sim-node] ACK 已接受：id=sim-1791555116237-1
+[  6.44] [sim-node] → ACKED 活动 0 次
+[  6.51] [sim-node] ← 收到命令: ack sim-1791555116237-1 重复确认
+[  6.51] [sim-node] ACK 被拒绝：当前没有待处理告警（state=ACKED，收到 id=sim-1791555116237-1）
+[  7.45] [sim-node] → ACKED 活动 0 次
+[  8.45] [sim-node] → ACKED 活动 0 次
+[  9.45] [sim-node] → ACKED 活动 0 次
+[ 10.46] [sim-node] → ACKED 活动 0 次
+[ 11.46] [sim-node] → ACKED 活动 0 次
+[ 12.47] [sim-node] → ACKED 活动 0 次
+[ 13.48] [sim-node] → ACKED 活动 0 次

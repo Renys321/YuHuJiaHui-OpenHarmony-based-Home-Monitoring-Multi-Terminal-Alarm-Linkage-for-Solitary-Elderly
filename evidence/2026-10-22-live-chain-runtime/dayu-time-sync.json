@@ -1,0 +1,21 @@
+{
+ "status": "SET",
+ "code": "SYNCED",
+ "toleranceMs": 5000,
+ "steps": [
+  "date -u -s @1792650435",
+  "hwclock -w -f /dev/rtc0",
+  "hwclock -w -f /dev/rtc1"
+ ],
+ "pcUtc": "2026-10-22T06:27:15.298Z",
+ "pcMs": 1792650435298,
+ "target": "4501…00",
+ "readPrecision": "ms",
+ "deviceMsBefore": 1501837279480,
+ "deviceUtcBefore": "2017-08-04T09:01:19.480Z",
+ "pcMidBeforeMs": 1792650435492.5,
+ "driftMsBefore": 290813156012.5,
+ "deviceMsAfter": 1792650435331,
+ "deviceUtcAfter": "2026-10-22T06:27:15.331Z",
+ "driftMsAfter": 604
+}

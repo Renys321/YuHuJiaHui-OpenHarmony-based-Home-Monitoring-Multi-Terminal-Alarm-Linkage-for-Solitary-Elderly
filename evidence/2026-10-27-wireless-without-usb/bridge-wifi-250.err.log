@@ -1,0 +1,234 @@
+[2026-10-27T15:00:55.420Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793113248924,"state":"NORMAL","onlin
+[2026-10-27T15:02:25.820Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793113338826,"state":"NORMAL","onlin
+[2026-10-27T15:03:56.632Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793113429771,"state":"NORMAL","onlin
+[2026-10-27T15:11:25.947Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793113878659,"state":"ALARM","online
+[2026-10-27T15:14:25.206Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793114058477,"state":"ACKED","online
+[2026-10-27T15:15:57.159Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793114149366,"state":"ACKED","online
+[2026-10-27T15:16:56.862Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793114209985,"state":"ACKED","online
+[2026-10-27T15:17:56.914Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793114269571,"state":"ACKED","online
+[2026-10-27T15:18:28.371Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793114300898,"state":"ACKED","online
+[2026-10-27T15:22:26.785Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793114539343,"state":"ACKED","online
+[2026-10-27T15:25:26.261Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793114719275,"state":"ACKED","online
+[2026-10-27T15:26:56.664Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793114809290,"state":"ACKED","online
+[2026-10-27T15:28:26.872Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793114900196,"state":"ACKED","online
+[2026-10-27T15:28:59.977Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793114931506,"state":"ACKED","online
+[2026-10-27T15:33:24.807Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793115197511,"state":"NORMAL","onlin
+[2026-10-27T15:34:28.001Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793115261157,"state":"NORMAL","onlin
+[2026-10-27T15:35:56.309Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793115349044,"state":"NORMAL","onlin
+[2026-10-27T15:36:28.443Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793115381375,"state":"NORMAL","onlin
+[2026-10-27T15:38:56.601Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793115528798,"state":"NORMAL","onlin
+[2026-10-27T15:39:57.001Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793115589417,"state":"NORMAL","onlin
+[2026-10-27T15:40:27.090Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793115620705,"state":"NORMAL","onlin
+[2026-10-27T15:41:27.271Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793115680335,"state":"NORMAL","onlin
+[2026-10-27T15:41:58.356Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793115711641,"state":"NORMAL","onlin
+[2026-10-27T15:45:52.097Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793115945438,"state":"ACKED","online
+[2026-10-27T15:47:08.364Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793116017794,"state":"ACKED","online
+[2026-10-27T15:47:55.503Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793116068298,"state":"ALARM","online
+[2026-10-27T15:49:29.794Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793116159024,"state":"ALARM","online
+[2026-10-27T15:49:52.116Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793116185315,"state":"ACKED","online
+[2026-10-27T15:52:03.240Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793116309588,"state":"ACKED","online
+[2026-10-27T15:52:16.340Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793116329786,"state":"ACKED","online
+[2026-10-27T15:52:28.781Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793116336882,"state":"ALARM","online
+[2026-10-27T15:53:08.525Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793116364142,"state":"ACKED","online
+[2026-10-27T15:54:51.830Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793116485450,"state":"ACKED","online
+[2026-10-27T15:55:03.502Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793116492508,"state":"ACKED","online
+[2026-10-27T15:55:54.832Z] [bridge] 转发目标错误: read ECONNRESET
+[2026-10-27T15:55:54.894Z] [bridge] 节点 10.127.130.250:9000 错误: read ECONNRESET
+[2026-10-27T15:55:57.349Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T15:56:35.762Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793116584504,"state":"ACKED","online
+[2026-10-27T15:56:49.703Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793116599647,"state":"ACKED","online
+[2026-10-27T15:58:37.990Z] [bridge] 状态行解析失败: {"deviceId":"esp32-sos","room":"随身求助","ts":1793116699674,"state":"ACKED","online
+[2026-10-27T16:00:06.414Z] [bridge] 转发目标错误: read ECONNRESET
+[2026-10-27T16:00:06.789Z] [bridge] 节点 10.127.130.250:9000 错误: read ECONNRESET
+[2026-10-27T16:00:07.065Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:00:30.471Z] [bridge] 转发目标错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:00:30.844Z] [bridge] 节点 10.127.130.250:9000 错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:00:31.620Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:00:57.525Z] [bridge] 转发目标错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:00:57.883Z] [bridge] 节点 10.127.130.250:9000 错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:00:59.042Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:01:04.541Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:01:30.589Z] [bridge] 转发目标错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:01:30.932Z] [bridge] 节点 10.127.130.250:9000 错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:01:31.962Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:01:37.471Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:01:42.864Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:01:48.382Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:01:53.884Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:02:15.644Z] [bridge] 转发目标错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:02:15.799Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:02:15.988Z] [bridge] 节点 10.127.130.250:9000 错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:02:21.299Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:02:26.802Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:02:32.302Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:02:37.799Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:02:43.232Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:03:06.692Z] [bridge] 转发目标错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:03:07.037Z] [bridge] 节点 10.127.130.250:9000 错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:03:07.303Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:03:12.803Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:03:18.307Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:03:25.181Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:03:32.640Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:03:57.739Z] [bridge] 转发目标错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:03:58.067Z] [bridge] 节点 10.127.130.250:9000 错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:04:00.160Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:04:05.567Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:04:10.962Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:04:16.479Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:04:21.978Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:04:27.480Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:04:48.784Z] [bridge] 转发目标错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:04:49.112Z] [bridge] 节点 10.127.130.250:9000 错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:04:49.397Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:04:54.899Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:05:00.399Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:05:05.820Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:05:11.329Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:05:16.819Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:05:39.839Z] [bridge] 转发目标错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:05:40.151Z] [bridge] 节点 10.127.130.250:9000 错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:05:41.091Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:05:46.565Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:05:52.065Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:05:57.583Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:06:03.076Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:06:08.567Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:06:30.894Z] [bridge] 转发目标错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:06:31.206Z] [bridge] 节点 10.127.130.250:9000 错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:06:33.562Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:06:39.080Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:06:44.581Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:06:50.078Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:06:55.613Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:07:21.950Z] [bridge] 转发目标错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:07:22.261Z] [bridge] 节点 10.127.130.250:9000 错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:07:22.997Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:07:28.509Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:07:33.902Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:07:39.416Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:07:44.922Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:07:50.416Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:08:13.010Z] [bridge] 转发目标错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:08:13.323Z] [bridge] 节点 10.127.130.250:9000 错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:08:14.942Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:08:23.341Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:08:28.843Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:08:34.242Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:08:39.757Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:09:04.055Z] [bridge] 转发目标错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:09:04.370Z] [bridge] 节点 10.127.130.250:9000 错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:09:07.181Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:09:12.687Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:09:18.179Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:09:23.683Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:09:29.074Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:09:55.113Z] [bridge] 转发目标错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:09:55.425Z] [bridge] 节点 10.127.130.250:9000 错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:09:56.594Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:10:02.025Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:10:07.526Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:10:13.015Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:10:18.513Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:10:24.022Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:10:46.168Z] [bridge] 转发目标错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:10:46.480Z] [bridge] 节点 10.127.130.250:9000 错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:10:48.689Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:10:54.090Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:11:02.355Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:11:07.860Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:11:13.356Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:11:37.207Z] [bridge] 转发目标错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:11:37.548Z] [bridge] 节点 10.127.130.250:9000 错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:11:38.112Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:11:43.614Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:11:49.110Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:11:54.572Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:12:00.040Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:12:05.540Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:12:28.263Z] [bridge] 转发目标错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:12:28.607Z] [bridge] 节点 10.127.130.250:9000 错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:12:30.121Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:12:35.659Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:12:41.113Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:12:46.614Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:12:52.114Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:12:57.513Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:13:19.301Z] [bridge] 转发目标错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:13:19.537Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:13:19.642Z] [bridge] 节点 10.127.130.250:9000 错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:13:24.936Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:13:30.456Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:13:35.952Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:13:41.453Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:13:46.953Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:14:10.342Z] [bridge] 转发目标错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:14:10.477Z] [bridge] 节点 10.127.130.250:9000 错误: connect ECONNABORTED 10.127.130.250:9000
+[2026-10-27T16:15:01.404Z] [bridge] 转发目标错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:15:01.545Z] [bridge] 节点 10.127.130.250:9000 错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:15:31.419Z] [bridge] 转发目标错误: connect ENETUNREACH 10.127.130.250:9000
+[2026-10-27T16:15:31.556Z] [bridge] 节点 10.127.130.250:9000 错误: connect ENETUNREACH 10.127.130.250:9000
+[2026-10-27T16:16:01.438Z] [bridge] 转发目标错误: connect ENETUNREACH 10.127.130.250:9000
+[2026-10-27T16:16:01.565Z] [bridge] 节点 10.127.130.250:9000 错误: connect ENETUNREACH 10.127.130.250:9000
+[2026-10-27T16:16:31.447Z] [bridge] 转发目标错误: connect EHOSTUNREACH 10.127.130.250:9000
+[2026-10-27T16:16:31.573Z] [bridge] 节点 10.127.130.250:9000 错误: connect EHOSTUNREACH 10.127.130.250:9000
+[2026-10-27T16:16:36.309Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:16:42.445Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:16:47.944Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:16:53.444Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:16:58.895Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:17:22.476Z] [bridge] 转发目标错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:17:22.599Z] [bridge] 节点 10.127.130.250:9000 错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:17:24.144Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:17:29.542Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:17:35.085Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:17:40.587Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:17:46.094Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:17:51.586Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:18:13.537Z] [bridge] 转发目标错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:18:13.662Z] [bridge] 节点 10.127.130.250:9000 错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:18:15.652Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:18:21.151Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:18:26.649Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:18:32.061Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:18:37.573Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:18:43.073Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:19:04.592Z] [bridge] 转发目标错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:19:04.715Z] [bridge] 节点 10.127.130.250:9000 错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:19:04.994Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:19:10.558Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:19:15.998Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:19:21.502Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:19:26.989Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:19:32.390Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-bath）
+[2026-10-27T16:19:55.649Z] [bridge] 转发目标错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:19:55.773Z] [bridge] 节点 10.127.130.250:9000 错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:19:57.899Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:20:46.688Z] [bridge] 转发目标错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:20:46.812Z] [bridge] 节点 10.127.130.250:9000 错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:21:37.730Z] [bridge] 转发目标错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:21:37.854Z] [bridge] 节点 10.127.130.250:9000 错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:21:40.993Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:21:46.497Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:21:52.000Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:21:57.415Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:22:02.915Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:22:28.797Z] [bridge] 转发目标错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:22:28.906Z] [bridge] 节点 10.127.130.250:9000 错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:22:30.347Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:22:46.789Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:22:57.285Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:23:19.844Z] [bridge] 转发目标错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:23:19.969Z] [bridge] 节点 10.127.130.250:9000 错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:23:24.690Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:23:30.198Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:23:35.694Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:23:41.094Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:23:46.614Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:24:10.892Z] [bridge] 转发目标错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:24:11.016Z] [bridge] 节点 10.127.130.250:9000 错误: connect ETIMEDOUT 10.127.130.250:9000
+[2026-10-27T16:24:14.014Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:24:19.535Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:24:25.030Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:24:30.530Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）
+[2026-10-27T16:24:36.031Z] [bridge] relay 通道未连接，状态已缓存待恢复后补发（deviceId=esp32-kitchen）

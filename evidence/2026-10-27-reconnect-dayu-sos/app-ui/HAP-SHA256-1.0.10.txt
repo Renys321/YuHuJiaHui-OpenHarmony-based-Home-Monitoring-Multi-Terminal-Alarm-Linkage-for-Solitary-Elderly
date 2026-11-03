@@ -1,0 +1,4 @@
+guardian-reconnect-stale-1.0.10-unsigned.hap
+bytes: 3608373
+SHA256: 643E323A5327C83C594119CCD9B9B961D1FC79443BC960CA0627124F7AB3F0D7
+signed: unsigned debug (no signingConfigs; simulate install)

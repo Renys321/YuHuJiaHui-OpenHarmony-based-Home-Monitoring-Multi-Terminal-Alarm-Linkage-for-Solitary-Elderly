@@ -1,0 +1,23 @@
+# lib/fixtures/device-registered.fixture
+#
+# 用途：正常已注册 + 有效信号的 DTU 回包。
+# 性质：**根据厂家公开命令格式构造**，不是真机录制原始日志。
+#       真机已观测到 firmwarever / paramver / csq / ssta 四项，
+#       但真实 IMEI/ICCID 等身份字段按隐私要求从不录制、不写入本仓库。
+# 命令全部为只读，不含任何 config,set。
+
+>>> config,get,firmwarever
+config,get,firmwarever
+config,firmwarever,ok,YED_DTU4_2.0.3
+
+>>> config,get,paramver
+config,get,paramver
+config,paramver,ok,0
+
+>>> config,get,csq
+config,get,csq
+config,csq,ok,26
+
+>>> config,get,ssta
+config,get,ssta
+config,ssta,ok,3

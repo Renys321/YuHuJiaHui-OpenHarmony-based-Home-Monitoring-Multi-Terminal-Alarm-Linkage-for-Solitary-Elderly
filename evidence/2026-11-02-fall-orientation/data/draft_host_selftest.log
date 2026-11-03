@@ -1,0 +1,7 @@
+  case vertical_collapse                  fall=yes first=2100ms
+  case forward_camera_fall                fall=yes first=2000ms
+  case sit_down                           fall=no first=-1ms
+  case fast_controlled_crouch             fall=no first=-1ms
+  case standing_only                      fall=no first=-1ms
+  case already_lying                      fall=no first=-1ms
+{"host_selftest":"p1b-collapse-draft","failures":0}

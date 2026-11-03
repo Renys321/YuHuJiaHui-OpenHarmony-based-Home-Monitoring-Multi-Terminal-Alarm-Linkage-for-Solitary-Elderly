@@ -1,0 +1,22 @@
+﻿$ hdc -t 450100445634303332012847942eca00 shell "toybox timeout 10 /system/bin/openssl s_client -connect 10.127.130.179:1883 2>&1 < /dev/null"
+# captured: 2026-10-27 22:32:11 +08:00
+----------------------------------------------------------------------
+CONNECTED(00000003)
+8C199BF7:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading::0:
+---
+no peer certificate available
+---
+No client certificate CA names sent
+---
+SSL handshake has read 0 bytes and written 310 bytes
+Verification: OK
+---
+New, (NONE), Cipher is (NONE)
+Secure Renegotiation IS NOT supported
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+Early data was not sent
+Verify return code: 0 (ok)
+---
+

@@ -1,0 +1,130 @@
+﻿[2026-10-28 00:34:34] [DRY-RUN] [INFO] === STEP 0 前置检查 ===
+[2026-10-28 00:34:34] [DRY-RUN] [INFO] experiments 最近写入: 2026-10-28 00:18:25 signing\profile-debug.json（距今 16.1 分钟）
+[2026-10-28 00:34:34] [DRY-RUN] [INFO] 停写检查通过
+[2026-10-28 00:34:34] [DRY-RUN] [INFO] === STEP 1 experiments 全量快照 ===
+[2026-10-28 00:34:34] [DRY-RUN] [INFO] [dry-run] robocopy D:\OpenHarmony\competition\experiments\dayu-eldercare-preview-integration-2026-10-25 -> D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\experiments-snapshot-1.0.10 /E（含 .hvigor/build，完整快照）
+[2026-10-28 00:34:35] [DRY-RUN] [INFO] [dry-run] 将复制 248 个文件、33,743,518 字节
+[2026-10-28 00:34:35] [DRY-RUN] [INFO] === STEP 2 归档旧 northbound 源码（signing/ 保持原地） ===
+[2026-10-28 00:34:35] [DRY-RUN] [INFO] [dry-run] robocopy D:\OpenHarmony\competition\northbound -> D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\northbound-1.0.0-archive /E /XD D:\OpenHarmony\competition\northbound\.hvigor（排除 .hvigor，包含 signing/ 之外的源码/构建产物）
+[2026-10-28 00:34:35] [DRY-RUN] [INFO] === STEP 3 快照源码同步进 northbound ===
+[2026-10-28 00:34:36] [DRY-RUN] [INFO] robocopy D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\experiments-snapshot-1.0.10 -> D:\OpenHarmony\competition\northbound D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\experiments-snapshot-1.0.10\.hvigor D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\experiments-snapshot-1.0.10\entry\build D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\experiments-snapshot-1.0.10\signing *.log
+[2026-10-28 00:34:36] [DRY-RUN] [ERROR] robocopy: 
+[2026-10-28 00:34:36] [DRY-RUN] [ERROR] robocopy: 2026/10/28 00:34:36 ERROR 2 (0x00000002) Accessing Source Directory D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\experiments-snapshot-1.0.10\
+[2026-10-28 00:34:36] [DRY-RUN] [ERROR] robocopy: The system cannot find the file specified.
+[2026-10-28 00:34:36] [DRY-RUN] [ERROR] robocopy: 
+[2026-10-28 00:34:55] [DRY-RUN] [INFO] === STEP 0 前置检查 ===
+[2026-10-28 00:34:55] [DRY-RUN] [INFO] experiments 最近写入: 2026-10-28 00:18:25 signing\profile-debug.json（距今 16.5 分钟）
+[2026-10-28 00:34:55] [DRY-RUN] [INFO] 停写检查通过
+[2026-10-28 00:34:55] [DRY-RUN] [INFO] === STEP 1 experiments 全量快照 ===
+[2026-10-28 00:34:55] [DRY-RUN] [INFO] [dry-run] robocopy D:\OpenHarmony\competition\experiments\dayu-eldercare-preview-integration-2026-10-25 -> D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\experiments-snapshot-1.0.10 /E（含 .hvigor/build，完整快照）
+[2026-10-28 00:34:56] [DRY-RUN] [INFO] [dry-run] 将复制 248 个文件、33,743,518 字节
+[2026-10-28 00:34:56] [DRY-RUN] [INFO] === STEP 2 归档旧 northbound 源码（signing/ 保持原地） ===
+[2026-10-28 00:34:56] [DRY-RUN] [INFO] [dry-run] robocopy D:\OpenHarmony\competition\northbound -> D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\northbound-1.0.0-archive /E /XD D:\OpenHarmony\competition\northbound\.hvigor（排除 .hvigor，包含 signing/ 之外的源码/构建产物）
+[2026-10-28 00:34:56] [DRY-RUN] [INFO] === STEP 3 快照源码同步进 northbound ===
+[2026-10-28 00:34:56] [DRY-RUN] [INFO] 快照尚不存在，dry-run 用实时树做列表演示: D:\OpenHarmony\competition\experiments\dayu-eldercare-preview-integration-2026-10-25
+[2026-10-28 00:34:56] [DRY-RUN] [INFO] robocopy D:\OpenHarmony\competition\experiments\dayu-eldercare-preview-integration-2026-10-25 -> D:\OpenHarmony\competition\northbound D:\OpenHarmony\competition\experiments\dayu-eldercare-preview-integration-2026-10-25\.hvigor D:\OpenHarmony\competition\experiments\dayu-eldercare-preview-integration-2026-10-25\entry\build D:\OpenHarmony\competition\experiments\dayu-eldercare-preview-integration-2026-10-25\signing *.log
+[2026-10-28 00:34:56] [DRY-RUN] [INFO] robocopy exit=1; 变更/列举行数=5
+[2026-10-28 00:34:57] [DRY-RUN] [INFO]   Newer     		     247	app.json5
+[2026-10-28 00:34:57] [DRY-RUN] [INFO]   Newer     		   17956	CameraModel.ets
+[2026-10-28 00:34:57] [DRY-RUN] [INFO]   Newer     		    2531	DeviceCapabilities.ts
+[2026-10-28 00:34:57] [DRY-RUN] [INFO]   Newer     		   10254	DeviceModel.ets
+[2026-10-28 00:34:57] [DRY-RUN] [INFO]   Newer     		  101908	Index.ets
+[2026-10-28 00:34:57] [DRY-RUN] [INFO] --- 同步作用域校验（northbound vs 快照） ---
+[2026-10-28 00:34:57] [DRY-RUN] [INFO] snapshot: 64 files; northbound: 64 files; 仅snapshot=0; 仅northbound=0; 内容不同=0
+[2026-10-28 00:34:57] [DRY-RUN] [INFO] [dry-run] 上述差异即 -Execute 将要写入 northbound 的变更
+[2026-10-28 00:34:57] [DRY-RUN] [INFO] --- signing/ 不变性校验 ---
+[2026-10-28 00:34:57] [DRY-RUN] [INFO] signing-before: 58 files; signing-after: 58 files; 仅signing-before=0; 仅signing-after=0; 内容不同=0
+[2026-10-28 00:34:57] [DRY-RUN] [INFO] signing/ 未改动
+[2026-10-28 00:34:57] [DRY-RUN] [INFO] northbound 同步作用域内没有快照之外的遗留源码文件
+[2026-10-28 00:34:57] [DRY-RUN] [INFO] === 完成 ===
+[2026-10-28 00:34:57] [DRY-RUN] [INFO] 模式=DRY-RUN；日志=D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\00-snapshot-archive-sync.log
+[2026-10-28 00:41:37] [DRY-RUN] [INFO] === STEP 0 前置检查 ===
+[2026-10-28 00:41:37] [DRY-RUN] [INFO] experiments 最近写入: 2026-10-28 00:18:25 signing\profile-debug.json（距今 23.2 分钟）
+[2026-10-28 00:41:37] [DRY-RUN] [INFO] 停写检查通过
+[2026-10-28 00:41:37] [DRY-RUN] [INFO] === STEP 1 experiments 全量快照 ===
+[2026-10-28 00:41:37] [DRY-RUN] [INFO] [dry-run] robocopy D:\OpenHarmony\competition\experiments\dayu-eldercare-preview-integration-2026-10-25 -> D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\experiments-snapshot-1.0.10 /E（含 .hvigor/build，完整快照）
+[2026-10-28 00:41:38] [DRY-RUN] [INFO] [dry-run] 将复制 248 个文件、33,743,518 字节
+[2026-10-28 00:41:38] [DRY-RUN] [INFO] === STEP 2 归档旧 northbound 源码（signing/ 保持原地） ===
+[2026-10-28 00:41:38] [DRY-RUN] [INFO] [dry-run] robocopy D:\OpenHarmony\competition\northbound -> D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\northbound-1.0.0-archive /E /XD D:\OpenHarmony\competition\northbound\.hvigor（排除 .hvigor，包含 signing/ 之外的源码/构建产物）
+[2026-10-28 00:41:38] [DRY-RUN] [INFO] === STEP 3 快照源码同步进 northbound ===
+[2026-10-28 00:41:38] [DRY-RUN] [INFO] 快照尚不存在，dry-run 用实时树做列表演示: D:\OpenHarmony\competition\experiments\dayu-eldercare-preview-integration-2026-10-25
+[2026-10-28 00:41:38] [DRY-RUN] [INFO] robocopy D:\OpenHarmony\competition\experiments\dayu-eldercare-preview-integration-2026-10-25 -> D:\OpenHarmony\competition\northbound D:\OpenHarmony\competition\experiments\dayu-eldercare-preview-integration-2026-10-25\.hvigor D:\OpenHarmony\competition\experiments\dayu-eldercare-preview-integration-2026-10-25\entry\build D:\OpenHarmony\competition\experiments\dayu-eldercare-preview-integration-2026-10-25\signing *.log
+[2026-10-28 00:41:38] [DRY-RUN] [INFO] robocopy exit=0; 变更/列举行数=0
+[2026-10-28 00:41:39] [DRY-RUN] [INFO] --- 同步作用域校验（northbound vs 快照） ---
+[2026-10-28 00:41:39] [DRY-RUN] [INFO] snapshot: 64 files; northbound: 64 files; 仅snapshot=0; 仅northbound=0; 内容不同=0
+[2026-10-28 00:41:39] [DRY-RUN] [INFO] [dry-run] 上述差异即 -Execute 将要写入 northbound 的变更
+[2026-10-28 00:41:39] [DRY-RUN] [INFO] --- signing/ 不变性校验 ---
+[2026-10-28 00:41:39] [DRY-RUN] [INFO] signing-before: 58 files; signing-after: 58 files; 仅signing-before=0; 仅signing-after=0; 内容不同=0
+[2026-10-28 00:41:39] [DRY-RUN] [INFO] signing/ 未改动
+[2026-10-28 00:41:39] [DRY-RUN] [INFO] northbound 同步作用域内没有快照之外的遗留源码文件
+[2026-10-28 00:41:39] [DRY-RUN] [INFO] === 完成 ===
+[2026-10-28 00:41:39] [DRY-RUN] [INFO] 模式=DRY-RUN；日志=D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\00-snapshot-archive-sync.log
+[2026-10-28 00:42:20] [EXECUTE] [INFO] === STEP 0 前置检查 ===
+[2026-10-28 00:42:21] [EXECUTE] [INFO] experiments 最近写入: 2026-10-28 00:18:25 signing\profile-debug.json（距今 23.9 分钟）
+[2026-10-28 00:42:21] [EXECUTE] [INFO] 停写检查通过
+[2026-10-28 00:42:21] [EXECUTE] [INFO] === STEP 1 experiments 全量快照 ===
+[2026-10-28 00:42:21] [EXECUTE] [INFO] robocopy D:\OpenHarmony\competition\experiments\dayu-eldercare-preview-integration-2026-10-25 -> D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\experiments-snapshot-1.0.10 
+[2026-10-28 00:42:22] [EXECUTE] [INFO] robocopy exit=1; 变更/列举行数=0
+[2026-10-28 00:42:22] [EXECUTE] [INFO] 已写清单 D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\experiments-snapshot-1.0.10.SHA256SUMS.txt（248 行）
+[2026-10-28 00:42:24] [EXECUTE] [INFO] live-experiments: 248 files; snapshot: 248 files; 仅live-experiments=0; 仅snapshot=0; 内容不同=0
+[2026-10-28 00:42:24] [EXECUTE] [INFO] 快照校验通过：与实时树逐文件 SHA-256 一致
+[2026-10-28 00:42:24] [EXECUTE] [INFO] === STEP 2 归档旧 northbound 源码（signing/ 保持原地） ===
+[2026-10-28 00:42:24] [EXECUTE] [INFO] 已跳过 STEP 2（-SkipArchive：旧 northbound 归档由 02-archive-old-northbound.ps1 生成，含事故恢复记录）
+[2026-10-28 00:42:24] [EXECUTE] [INFO] === STEP 3 快照源码同步进 northbound ===
+[2026-10-28 00:42:24] [EXECUTE] [INFO] robocopy D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\experiments-snapshot-1.0.10 -> D:\OpenHarmony\competition\northbound D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\experiments-snapshot-1.0.10\.hvigor D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\experiments-snapshot-1.0.10\entry\build D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\experiments-snapshot-1.0.10\signing *.log
+[2026-10-28 00:42:24] [EXECUTE] [INFO] robocopy exit=0; 变更/列举行数=0
+[2026-10-28 00:42:25] [EXECUTE] [INFO] --- 同步作用域校验（northbound vs 快照） ---
+[2026-10-28 00:42:25] [EXECUTE] [INFO] snapshot: 64 files; northbound: 64 files; 仅snapshot=0; 仅northbound=0; 内容不同=0
+[2026-10-28 00:42:25] [EXECUTE] [INFO] --- signing/ 不变性校验 ---
+[2026-10-28 00:42:25] [EXECUTE] [INFO] signing-before: 58 files; signing-after: 58 files; 仅signing-before=0; 仅signing-after=0; 内容不同=0
+[2026-10-28 00:42:25] [EXECUTE] [INFO] signing/ 未改动
+[2026-10-28 00:42:25] [EXECUTE] [INFO] northbound 同步作用域内没有快照之外的遗留源码文件
+[2026-10-28 00:42:25] [EXECUTE] [INFO] === 完成 ===
+[2026-10-28 00:42:25] [EXECUTE] [INFO] 模式=EXECUTE；日志=D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\00-snapshot-archive-sync.log
+[2026-10-28 00:46:16] [DRY-RUN] [INFO] === STEP 0 前置检查 ===
+[2026-10-28 00:46:16] [DRY-RUN] [INFO] experiments 最近写入: 2026-10-28 00:18:25 signing\profile-debug.json（距今 27.8 分钟）
+[2026-10-28 00:46:16] [DRY-RUN] [INFO] 停写检查通过
+[2026-10-28 00:46:16] [DRY-RUN] [INFO] === STEP 1 experiments 全量快照 ===
+[2026-10-28 00:46:16] [DRY-RUN] [INFO] [dry-run] robocopy D:\OpenHarmony\competition\experiments\dayu-eldercare-preview-integration-2026-10-25 -> D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\experiments-snapshot-1.0.10 /E（含 .hvigor/build，完整快照）
+[2026-10-28 00:46:17] [DRY-RUN] [INFO] [dry-run] 将复制 248 个文件、33,743,518 字节
+[2026-10-28 00:46:17] [DRY-RUN] [INFO] === STEP 2 归档旧 northbound 源码（signing/ 保持原地） ===
+[2026-10-28 00:46:17] [DRY-RUN] [INFO] [dry-run] robocopy D:\OpenHarmony\competition\northbound -> D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\northbound-1.0.0-archive /E /XD D:\OpenHarmony\competition\northbound\.hvigor（排除 .hvigor，包含 signing/ 之外的源码/构建产物）
+[2026-10-28 00:46:17] [DRY-RUN] [INFO] === STEP 3 快照源码同步进 northbound ===
+[2026-10-28 00:46:17] [DRY-RUN] [INFO] robocopy D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\experiments-snapshot-1.0.10 -> D:\OpenHarmony\competition\northbound D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\experiments-snapshot-1.0.10\.hvigor D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\experiments-snapshot-1.0.10\entry\build D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\experiments-snapshot-1.0.10\signing *.log README.md RELEASE.md
+[2026-10-28 00:46:18] [DRY-RUN] [INFO] robocopy exit=2; 变更/列举行数=0
+[2026-10-28 00:46:18] [DRY-RUN] [INFO] --- 同步作用域校验（northbound vs 快照） ---
+[2026-10-28 00:46:18] [DRY-RUN] [INFO] snapshot: 63 files; northbound: 63 files; 仅snapshot=0; 仅northbound=0; 内容不同=0
+[2026-10-28 00:46:18] [DRY-RUN] [INFO] [dry-run] 上述差异即 -Execute 将要写入 northbound 的变更
+[2026-10-28 00:46:18] [DRY-RUN] [INFO] --- signing/ 不变性校验 ---
+[2026-10-28 00:46:18] [DRY-RUN] [INFO] signing-before: 58 files; signing-after: 58 files; 仅signing-before=0; 仅signing-after=0; 内容不同=0
+[2026-10-28 00:46:18] [DRY-RUN] [INFO] signing/ 未改动
+[2026-10-28 00:46:18] [DRY-RUN] [INFO] northbound 同步作用域内没有快照之外的遗留源码文件
+[2026-10-28 00:46:18] [DRY-RUN] [INFO] === 完成 ===
+[2026-10-28 00:46:18] [DRY-RUN] [INFO] 模式=DRY-RUN；日志=D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\00-snapshot-archive-sync.log
+[2026-10-28 00:46:36] [EXECUTE] [INFO] === STEP 0 前置检查 ===
+[2026-10-28 00:46:36] [EXECUTE] [INFO] experiments 最近写入: 2026-10-28 00:18:25 signing\profile-debug.json（距今 28.2 分钟）
+[2026-10-28 00:46:36] [EXECUTE] [INFO] 停写检查通过
+[2026-10-28 00:46:43] [EXECUTE] [INFO] === STEP 0 前置检查 ===
+[2026-10-28 00:46:43] [EXECUTE] [INFO] experiments 最近写入: 2026-10-28 00:18:25 signing\profile-debug.json（距今 28.3 分钟）
+[2026-10-28 00:46:43] [EXECUTE] [INFO] 停写检查通过
+[2026-10-28 00:46:47] [EXECUTE] [INFO] === STEP 0 前置检查 ===
+[2026-10-28 00:46:47] [EXECUTE] [INFO] experiments 最近写入: 2026-10-28 00:18:25 signing\profile-debug.json（距今 28.4 分钟）
+[2026-10-28 00:46:47] [EXECUTE] [INFO] 停写检查通过
+[2026-10-28 00:47:08] [EXECUTE] [INFO] === STEP 0 前置检查 ===
+[2026-10-28 00:47:08] [EXECUTE] [INFO] experiments 最近写入: 2026-10-28 00:18:25 signing\profile-debug.json（距今 28.7 分钟）
+[2026-10-28 00:47:08] [EXECUTE] [INFO] 停写检查通过
+[2026-10-28 00:47:08] [EXECUTE] [INFO] === STEP 1 experiments 全量快照 ===
+[2026-10-28 00:47:08] [EXECUTE] [INFO] 已跳过 STEP 1（-SkipSnapshot）
+[2026-10-28 00:47:08] [EXECUTE] [INFO] === STEP 2 归档旧 northbound 源码（signing/ 保持原地） ===
+[2026-10-28 00:47:08] [EXECUTE] [INFO] 已跳过 STEP 2（-SkipArchive：旧 northbound 归档由 02-archive-old-northbound.ps1 生成，含事故恢复记录）
+[2026-10-28 00:47:08] [EXECUTE] [INFO] === STEP 3 快照源码同步进 northbound ===
+[2026-10-28 00:47:08] [EXECUTE] [INFO] robocopy D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\experiments-snapshot-1.0.10 -> D:\OpenHarmony\competition\northbound D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\experiments-snapshot-1.0.10\.hvigor D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\experiments-snapshot-1.0.10\entry\build D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\experiments-snapshot-1.0.10\signing *.log README.md RELEASE.md
+[2026-10-28 00:47:08] [EXECUTE] [INFO] robocopy exit=2; 变更/列举行数=0
+[2026-10-28 00:47:09] [EXECUTE] [INFO] --- 同步作用域校验（northbound vs 快照） ---
+[2026-10-28 00:47:09] [EXECUTE] [INFO] snapshot: 63 files; northbound: 63 files; 仅snapshot=0; 仅northbound=0; 内容不同=0
+[2026-10-28 00:47:09] [EXECUTE] [INFO] --- signing/ 不变性校验 ---
+[2026-10-28 00:47:09] [EXECUTE] [INFO] signing-before: 58 files; signing-after: 58 files; 仅signing-before=0; 仅signing-after=0; 内容不同=0
+[2026-10-28 00:47:09] [EXECUTE] [INFO] signing/ 未改动
+[2026-10-28 00:47:09] [EXECUTE] [INFO] northbound 同步作用域内没有快照之外的遗留源码文件
+[2026-10-28 00:47:09] [EXECUTE] [INFO] === 完成 ===
+[2026-10-28 00:47:09] [EXECUTE] [INFO] 模式=EXECUTE；日志=D:\OpenHarmony\competition\evidence\2026-10-28-three-legacy-closures\source-unify\00-snapshot-archive-sync.log

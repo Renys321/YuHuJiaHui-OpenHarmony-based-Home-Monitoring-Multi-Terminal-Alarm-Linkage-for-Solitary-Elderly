@@ -1,0 +1,10 @@
+﻿== Build ==  target=arm-linux-ohos
+   src = D:\OpenHarmony\competition\southbound\src\homemon.c
+   out = D:\OpenHarmony\competition\southbound\out\homemon-arm
+SUCCESS: homemon-arm  (177,704 bytes)
+
+  Class:                             ELF32
+  Machine:                           ARM
+      [Requesting program interpreter: /lib/ld-musl-arm.so.1]
+
+

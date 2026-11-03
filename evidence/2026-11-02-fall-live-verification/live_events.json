@@ -1,0 +1,550 @@
+{
+  "state_file": "state2.csv",
+  "samples": 1188,
+  "window": [
+    "18:21:21.995",
+    "18:25:53.493"
+  ],
+  "episodes": [
+    {
+      "state": "NORMAL",
+      "start": "18:21:21.995",
+      "end": "18:22:03.592",
+      "samples": 186
+    },
+    {
+      "state": "SUSPECTED",
+      "start": "18:22:04.065",
+      "end": "18:22:04.065",
+      "samples": 2
+    },
+    {
+      "state": "FALLEN",
+      "start": "18:22:04.540",
+      "end": "18:22:04.540",
+      "samples": 3
+    },
+    {
+      "state": "NORMAL",
+      "start": "18:22:05.725",
+      "end": "18:22:26.210",
+      "samples": 91
+    },
+    {
+      "state": "SUSPECTED",
+      "start": "18:22:26.686",
+      "end": "18:22:26.686",
+      "samples": 2
+    },
+    {
+      "state": "FALLEN",
+      "start": "18:22:27.165",
+      "end": "18:22:27.165",
+      "samples": 3
+    },
+    {
+      "state": "NORMAL",
+      "start": "18:22:28.352",
+      "end": "18:22:38.797",
+      "samples": 48
+    },
+    {
+      "state": "SUSPECTED",
+      "start": "18:22:39.262",
+      "end": "18:22:39.262",
+      "samples": 2
+    },
+    {
+      "state": "FALLEN",
+      "start": "18:22:39.744",
+      "end": "18:22:46.657",
+      "samples": 30
+    },
+    {
+      "state": "NORMAL",
+      "start": "18:22:47.120",
+      "end": "18:25:00.779",
+      "samples": 593
+    },
+    {
+      "state": "SUSPECTED",
+      "start": "18:25:01.258",
+      "end": "18:25:01.258",
+      "samples": 2
+    },
+    {
+      "state": "NORMAL",
+      "start": "18:25:01.733",
+      "end": "18:25:07.913",
+      "samples": 30
+    },
+    {
+      "state": "SUSPECTED",
+      "start": "18:25:08.391",
+      "end": "18:25:08.391",
+      "samples": 2
+    },
+    {
+      "state": "FALLEN",
+      "start": "18:25:08.855",
+      "end": "18:25:30.649",
+      "samples": 95
+    },
+    {
+      "state": "NORMAL",
+      "start": "18:25:31.129",
+      "end": "18:25:53.493",
+      "samples": 99
+    }
+  ],
+  "fallen_events": [
+    {
+      "index": 1,
+      "fallen_ts": 1793614924540,
+      "fallen_time": "18:22:04.540",
+      "fallen_end_time": "18:22:04.540",
+      "fallen_duration_s": 0.0,
+      "fallen_samples": 3,
+      "features_at_fallen": {
+        "hipY": 0.711,
+        "bottom": 0.865,
+        "torso": 0.7,
+        "aspect": 0.34,
+        "drop": 0.04,
+        "person": true
+      },
+      "suspected_samples": [
+        {
+          "ts": 1793614924065,
+          "time": "18:22:04.065",
+          "hipY": 0.692,
+          "bottom": 0.889,
+          "torso": 1.3,
+          "aspect": 0.32,
+          "drop": 0.281
+        },
+        {
+          "ts": 1793614924065,
+          "time": "18:22:04.065",
+          "hipY": 0.692,
+          "bottom": 0.889,
+          "torso": 1.3,
+          "aspect": 0.32,
+          "drop": 0.281
+        }
+      ],
+      "pre_frames": [
+        {
+          "time": "18:22:02.612",
+          "state": "NORMAL",
+          "hipY": 0.457,
+          "torso": 0.2,
+          "aspect": 0.31,
+          "drop": 0.02
+        },
+        {
+          "time": "18:22:03.079",
+          "state": "NORMAL",
+          "hipY": 0.455,
+          "torso": 3.4,
+          "aspect": 0.31,
+          "drop": 0.0
+        },
+        {
+          "time": "18:22:03.079",
+          "state": "NORMAL",
+          "hipY": 0.455,
+          "torso": 3.4,
+          "aspect": 0.31,
+          "drop": 0.0
+        },
+        {
+          "time": "18:22:03.079",
+          "state": "NORMAL",
+          "hipY": 0.455,
+          "torso": 3.4,
+          "aspect": 0.31,
+          "drop": 0.0
+        },
+        {
+          "time": "18:22:03.592",
+          "state": "NORMAL",
+          "hipY": 0.559,
+          "torso": 1.8,
+          "aspect": 0.31,
+          "drop": 0.202
+        },
+        {
+          "time": "18:22:03.592",
+          "state": "NORMAL",
+          "hipY": 0.559,
+          "torso": 1.8,
+          "aspect": 0.31,
+          "drop": 0.202
+        },
+        {
+          "time": "18:22:04.065",
+          "state": "SUSPECTED",
+          "hipY": 0.692,
+          "torso": 1.3,
+          "aspect": 0.32,
+          "drop": 0.281
+        },
+        {
+          "time": "18:22:04.065",
+          "state": "SUSPECTED",
+          "hipY": 0.692,
+          "torso": 1.3,
+          "aspect": 0.32,
+          "drop": 0.281
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "fallen_ts": 1793614947165,
+      "fallen_time": "18:22:27.165",
+      "fallen_end_time": "18:22:27.165",
+      "fallen_duration_s": 0.0,
+      "fallen_samples": 3,
+      "features_at_fallen": {
+        "hipY": 0.671,
+        "bottom": 0.884,
+        "torso": 13.5,
+        "aspect": 0.35,
+        "drop": 0.0,
+        "person": true
+      },
+      "suspected_samples": [
+        {
+          "ts": 1793614946686,
+          "time": "18:22:26.686",
+          "hipY": 0.702,
+          "bottom": 0.862,
+          "torso": 0.7,
+          "aspect": 0.34,
+          "drop": 0.328
+        },
+        {
+          "ts": 1793614946686,
+          "time": "18:22:26.686",
+          "hipY": 0.702,
+          "bottom": 0.862,
+          "torso": 0.7,
+          "aspect": 0.34,
+          "drop": 0.328
+        }
+      ],
+      "pre_frames": [
+        {
+          "time": "18:22:25.265",
+          "state": "NORMAL",
+          "hipY": 0.435,
+          "torso": 2.7,
+          "aspect": 0.32,
+          "drop": 0.0
+        },
+        {
+          "time": "18:22:25.265",
+          "state": "NORMAL",
+          "hipY": 0.435,
+          "torso": 2.7,
+          "aspect": 0.32,
+          "drop": 0.0
+        },
+        {
+          "time": "18:22:25.739",
+          "state": "NORMAL",
+          "hipY": 0.463,
+          "torso": 1.3,
+          "aspect": 0.31,
+          "drop": 0.059
+        },
+        {
+          "time": "18:22:25.739",
+          "state": "NORMAL",
+          "hipY": 0.463,
+          "torso": 1.3,
+          "aspect": 0.31,
+          "drop": 0.059
+        },
+        {
+          "time": "18:22:26.210",
+          "state": "NORMAL",
+          "hipY": 0.546,
+          "torso": 0.1,
+          "aspect": 0.31,
+          "drop": 0.175
+        },
+        {
+          "time": "18:22:26.210",
+          "state": "NORMAL",
+          "hipY": 0.546,
+          "torso": 0.1,
+          "aspect": 0.31,
+          "drop": 0.175
+        },
+        {
+          "time": "18:22:26.686",
+          "state": "SUSPECTED",
+          "hipY": 0.702,
+          "torso": 0.7,
+          "aspect": 0.34,
+          "drop": 0.328
+        },
+        {
+          "time": "18:22:26.686",
+          "state": "SUSPECTED",
+          "hipY": 0.702,
+          "torso": 0.7,
+          "aspect": 0.34,
+          "drop": 0.328
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "fallen_ts": 1793614959744,
+      "fallen_time": "18:22:39.744",
+      "fallen_end_time": "18:22:46.657",
+      "fallen_duration_s": 6.91,
+      "fallen_samples": 30,
+      "features_at_fallen": {
+        "hipY": 0.721,
+        "bottom": 0.927,
+        "torso": 0.1,
+        "aspect": 0.41,
+        "drop": 0.055,
+        "person": true
+      },
+      "suspected_samples": [
+        {
+          "ts": 1793614959262,
+          "time": "18:22:39.262",
+          "hipY": 0.695,
+          "bottom": 0.94,
+          "torso": 3.0,
+          "aspect": 0.41,
+          "drop": 0.461
+        },
+        {
+          "ts": 1793614959262,
+          "time": "18:22:39.262",
+          "hipY": 0.695,
+          "bottom": 0.94,
+          "torso": 3.0,
+          "aspect": 0.41,
+          "drop": 0.461
+        }
+      ],
+      "pre_frames": [
+        {
+          "time": "18:22:37.846",
+          "state": "NORMAL",
+          "hipY": 0.441,
+          "torso": 1.8,
+          "aspect": 0.44,
+          "drop": 0.0
+        },
+        {
+          "time": "18:22:37.846",
+          "state": "NORMAL",
+          "hipY": 0.441,
+          "torso": 1.8,
+          "aspect": 0.44,
+          "drop": 0.0
+        },
+        {
+          "time": "18:22:38.325",
+          "state": "NORMAL",
+          "hipY": 0.446,
+          "torso": 2.7,
+          "aspect": 0.42,
+          "drop": 0.009
+        },
+        {
+          "time": "18:22:38.325",
+          "state": "NORMAL",
+          "hipY": 0.446,
+          "torso": 2.7,
+          "aspect": 0.42,
+          "drop": 0.009
+        },
+        {
+          "time": "18:22:38.797",
+          "state": "NORMAL",
+          "hipY": 0.48,
+          "torso": 0.3,
+          "aspect": 0.4,
+          "drop": 0.074
+        },
+        {
+          "time": "18:22:38.797",
+          "state": "NORMAL",
+          "hipY": 0.48,
+          "torso": 0.3,
+          "aspect": 0.4,
+          "drop": 0.074
+        },
+        {
+          "time": "18:22:39.262",
+          "state": "SUSPECTED",
+          "hipY": 0.695,
+          "torso": 3.0,
+          "aspect": 0.41,
+          "drop": 0.461
+        },
+        {
+          "time": "18:22:39.262",
+          "state": "SUSPECTED",
+          "hipY": 0.695,
+          "torso": 3.0,
+          "aspect": 0.41,
+          "drop": 0.461
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "fallen_ts": 1793615108855,
+      "fallen_time": "18:25:08.855",
+      "fallen_end_time": "18:25:30.649",
+      "fallen_duration_s": 21.79,
+      "fallen_samples": 95,
+      "features_at_fallen": {
+        "hipY": 0.899,
+        "bottom": 1.0,
+        "torso": 10.1,
+        "aspect": 0.38,
+        "drop": 0.41,
+        "person": true
+      },
+      "suspected_samples": [
+        {
+          "ts": 1793615108391,
+          "time": "18:25:08.391",
+          "hipY": 0.708,
+          "bottom": 1.0,
+          "torso": 0.2,
+          "aspect": 0.35,
+          "drop": 0.397
+        },
+        {
+          "ts": 1793615108391,
+          "time": "18:25:08.391",
+          "hipY": 0.708,
+          "bottom": 1.0,
+          "torso": 0.2,
+          "aspect": 0.35,
+          "drop": 0.397
+        }
+      ],
+      "pre_frames": [
+        {
+          "time": "18:25:06.969",
+          "state": "NORMAL",
+          "hipY": 0.491,
+          "torso": 0.3,
+          "aspect": 0.36,
+          "drop": 0.106
+        },
+        {
+          "time": "18:25:06.969",
+          "state": "NORMAL",
+          "hipY": 0.491,
+          "torso": 0.3,
+          "aspect": 0.36,
+          "drop": 0.106
+        },
+        {
+          "time": "18:25:07.440",
+          "state": "NORMAL",
+          "hipY": 0.502,
+          "torso": 1.3,
+          "aspect": 0.35,
+          "drop": 0.023
+        },
+        {
+          "time": "18:25:07.440",
+          "state": "NORMAL",
+          "hipY": 0.502,
+          "torso": 1.3,
+          "aspect": 0.35,
+          "drop": 0.023
+        },
+        {
+          "time": "18:25:07.913",
+          "state": "NORMAL",
+          "hipY": 0.518,
+          "torso": 2.9,
+          "aspect": 0.34,
+          "drop": 0.035
+        },
+        {
+          "time": "18:25:07.913",
+          "state": "NORMAL",
+          "hipY": 0.518,
+          "torso": 2.9,
+          "aspect": 0.34,
+          "drop": 0.035
+        },
+        {
+          "time": "18:25:08.391",
+          "state": "SUSPECTED",
+          "hipY": 0.708,
+          "torso": 0.2,
+          "aspect": 0.35,
+          "drop": 0.397
+        },
+        {
+          "time": "18:25:08.391",
+          "state": "SUSPECTED",
+          "hipY": 0.708,
+          "torso": 0.2,
+          "aspect": 0.35,
+          "drop": 0.397
+        }
+      ]
+    }
+  ],
+  "negative_window": {
+    "start": "18:25:31.129",
+    "end": "18:25:53.493",
+    "samples": 99,
+    "max_drop": 0.237,
+    "states": [
+      "NORMAL"
+    ]
+  },
+  "mqtt_fall_commands": [
+    {
+      "time": "18:22:04.540",
+      "score": 0.466,
+      "evidenceId": "fall-1793614924540-30"
+    },
+    {
+      "time": "18:22:27.165",
+      "score": 0.479,
+      "evidenceId": "fall-1793614947165-30"
+    },
+    {
+      "time": "18:22:39.744",
+      "score": 0.537,
+      "evidenceId": "fall-1793614959744-29"
+    },
+    {
+      "time": "18:25:08.855",
+      "score": 0.582,
+      "evidenceId": "fall-1793615108855-61"
+    }
+  ],
+  "mqtt_alarm_events": [
+    {
+      "id": "a-1793614924-1",
+      "type": "FALL",
+      "evidenceId": "fall-1793614924540-30",
+      "countToday": 1
+    }
+  ],
+  "mqtt_ack_lines": []
+}

@@ -1,0 +1,534 @@
+{
+  "observedAt": "2026-10-23T15:14:29.213Z",
+  "node": "v24.19.0",
+  "evidenceClass": "SOURCE CHECK AND LOCAL SYNTHETIC REPLAY ONLY",
+  "writes": false,
+  "network": false,
+  "serial": false,
+  "hapBuild": false,
+  "installed": false,
+  "hashes": [
+    {
+      "path": "competition/evidence/2026-10-22-monitor-inline-summary-local/guardian-inline-summary-formal.hap",
+      "sha256": "8A722EB6FDA7BB73EE58F3BDA3D95B5D238401DA8E3CC9179F1286FD5253A985"
+    },
+    {
+      "path": "APP/ElderlyCareGuardian/entry/build/default/outputs/default/entry-default-unsigned.hap",
+      "sha256": "8A722EB6FDA7BB73EE58F3BDA3D95B5D238401DA8E3CC9179F1286FD5253A985"
+    },
+    {
+      "path": "APP/ElderlyCareGuardian/entry/src/main/ets/pages/MonitorPage.ets",
+      "sha256": "16338893F58BE582BA994E39DBD17910C37FF99485D2E06D9BCB1D2350BE7A83"
+    },
+    {
+      "path": "APP/ElderlyCareGuardian/entry/src/main/ets/pages/DevicePage.ets",
+      "sha256": "4BBF75F2E018ED2DBA31B1647EF52AF1E72DF3D513964557D447ED099C71765F"
+    },
+    {
+      "path": "APP/ElderlyCareGuardian/entry/src/main/ets/components/SensorCard.ets",
+      "sha256": "2F09943D5F93E1ABE9B4D6C55AA62E01EF2450B29E969D7CD2C32368B4F094B7"
+    },
+    {
+      "path": "APP/ElderlyCareGuardian/entry/src/main/ets/service/GuardianService.ets",
+      "sha256": "B341942E9BDB97DD92FE59B5F38BE7F1ED8DBEA1424E55C1E3C66C48E23133A7"
+    },
+    {
+      "path": "APP/ElderlyCareGuardian/entry/src/main/ets/core/api/Contracts.ts",
+      "sha256": "775121ACCF3EE5B528021A9A50A572022233BD85082BB12550A9EDC0A2F8D304"
+    },
+    {
+      "path": "APP/ElderlyCareGuardian/entry/src/main/ets/core/view/Models.ts",
+      "sha256": "6152444AEB337A0828AFFF2C8D98CB0925A7779C9FC22DBF741762C6CF3ADD4D"
+    },
+    {
+      "path": "APP/ElderlyCareGuardian/entry/src/main/ets/core/view/ViewMapper.ts",
+      "sha256": "249CF090BE4DC12FEA84B35E773343EA092922E69494981A072E8EDCA8ABBF3B"
+    },
+    {
+      "path": "APP/ElderlyCareGuardian/entry/src/main/ets/core/view/HomeMetrics.ts",
+      "sha256": "96D2F37F3B3583E8AA6E06254676D4528EFF6E22B35E71431500AB09C64A0AD0"
+    },
+    {
+      "path": "APP/ElderlyCareGuardian/entry/src/main/ets/core/capability/DeviceCapabilities.ts",
+      "sha256": "28918D31EE917AE7DFBA2DF7309346DE657655F438AB78CA4960C4EBA3A1961A"
+    },
+    {
+      "path": "competition/cloud/onenet/gateway.js",
+      "sha256": "64790E7C11DEDCA65EB072FC6FD888F66E3B0F6D1F2E1EB5E83F9AA4A02BC990"
+    },
+    {
+      "path": "competition/cloud/onenet/public-sync.js",
+      "sha256": "C4F38308EA4F864BC5FBF1166679F96FE3D41A924BB0BC29963DA87CD0703BED"
+    },
+    {
+      "path": "competition/cloud/onenet/cloud-sync.js",
+      "sha256": "371EDD97952117C565D8C76425589D192924CC66F42BCE0B7ED9700427679237"
+    },
+    {
+      "path": "competition/cloud/onenet/adapter.js",
+      "sha256": "8F03E56F7AA02BAC8A9B43C29A8873296AC2C1958C44E76BDE2CB69AC21B5AF8"
+    },
+    {
+      "path": "competition/cloud/backend/src/store.js",
+      "sha256": "F097615763F2F82CD64FF13CD2D22AE394BA8F6000E0D454A6629A4A606E4523"
+    },
+    {
+      "path": "competition/cloud/backend/src/server.js",
+      "sha256": "3B246310F41EA21E79ABEE2813D9238FF26EB836EB5A5AFE4FEDFAB668C18537"
+    },
+    {
+      "path": "competition/bridge/mqtt_bridge.js",
+      "sha256": "C2D2CE1F2E96C7B3436482060AC769882CAC243289F0A44AAC7A2990EB651EBA"
+    },
+    {
+      "path": "competition/esp32-node/main/node_main.c",
+      "sha256": "819A2112EFFDB1390442881A67D9BD42DF6D0533CD66E3DF9E88A0F1C1C62CF9"
+    },
+    {
+      "path": "competition/esp32-node/build-kitchen/config/sdkconfig.h",
+      "sha256": "BD6DDDBE0F2EDAF176A5F66C4A29C28F12DD01EEB06E0ED678FA29C6B3393324"
+    }
+  ],
+  "kitchenCapabilities": [
+    {
+      "kind": "gas",
+      "name": "燃气（MQ-5）",
+      "installed": true,
+      "enabled": true,
+      "alarmEnabled": false,
+      "note": "MQ-5 原始 ADC；GAS 报警未启用，未标定，不代表 ppm"
+    },
+    {
+      "kind": "smoke",
+      "name": "烟雾（MQ-2）",
+      "installed": true,
+      "enabled": true,
+      "alarmEnabled": false,
+      "note": "MQ-2 原始 ADC；SMOKE 报警未启用，未标定，不代表 ppm"
+    }
+  ],
+  "replays": [
+    {
+      "label": "valid true; raw ADC",
+      "evidenceClass": "LOCAL SYNTHETIC REPLAY, NOT REAL",
+      "input": {
+        "gas": {
+          "raw": 307,
+          "ok": true,
+          "valid": true
+        },
+        "smoke": {
+          "raw": 160,
+          "ok": true,
+          "valid": true
+        }
+      },
+      "gateway": {
+        "gas": {
+          "ok": true,
+          "raw": 307,
+          "valid": true
+        },
+        "smoke": {
+          "ok": true,
+          "raw": 160,
+          "valid": true
+        }
+      },
+      "cloudStatus": {
+        "gas": {
+          "ok": true,
+          "raw": 307,
+          "valid": true
+        },
+        "smoke": {
+          "ok": true,
+          "raw": 160,
+          "valid": true
+        }
+      },
+      "ingestBody": {
+        "gas": {
+          "ok": true,
+          "raw": 307,
+          "valid": true
+        },
+        "smoke": {
+          "ok": true,
+          "raw": 160,
+          "valid": true
+        }
+      },
+      "memoryBackendPublicDevice": {
+        "gas": {
+          "ok": true,
+          "raw": 307,
+          "valid": true
+        },
+        "smoke": {
+          "ok": true,
+          "raw": 160,
+          "valid": true
+        }
+      },
+      "dto": {
+        "gas": {
+          "raw": 307,
+          "ok": true,
+          "valid": true
+        },
+        "smoke": {
+          "raw": 160,
+          "ok": true,
+          "valid": true
+        }
+      },
+      "views": [
+        {
+          "kind": "gas",
+          "name": "燃气（MQ-5）",
+          "valueText": "原始 ADC 307",
+          "state": "disabled",
+          "stateText": "报警未启用",
+          "validity": "valid",
+          "alarmEnabled": false,
+          "colorToken": "neutral",
+          "detailText": "报警未启用 · 未标定，原始 ADC 不代表 ppm，也不代表安全"
+        },
+        {
+          "kind": "smoke",
+          "name": "烟雾（MQ-2）",
+          "valueText": "原始 ADC 160",
+          "state": "disabled",
+          "stateText": "报警未启用",
+          "validity": "valid",
+          "alarmEnabled": false,
+          "colorToken": "neutral",
+          "detailText": "报警未启用 · 未标定，原始 ADC 不代表 ppm，也不代表安全"
+        }
+      ]
+    },
+    {
+      "label": "valid false; retain invalid prior readout",
+      "evidenceClass": "LOCAL SYNTHETIC REPLAY, NOT REAL",
+      "input": {
+        "gas": {
+          "raw": 307,
+          "ok": true,
+          "valid": false
+        },
+        "smoke": {
+          "raw": 160,
+          "ok": true,
+          "valid": false
+        }
+      },
+      "gateway": {
+        "gas": {
+          "ok": true,
+          "raw": 307,
+          "valid": false
+        },
+        "smoke": {
+          "ok": true,
+          "raw": 160,
+          "valid": false
+        }
+      },
+      "cloudStatus": {
+        "gas": {
+          "ok": true,
+          "raw": 307,
+          "valid": false
+        },
+        "smoke": {
+          "ok": true,
+          "raw": 160,
+          "valid": false
+        }
+      },
+      "ingestBody": {
+        "gas": {
+          "ok": true,
+          "raw": 307,
+          "valid": false
+        },
+        "smoke": {
+          "ok": true,
+          "raw": 160,
+          "valid": false
+        }
+      },
+      "memoryBackendPublicDevice": {
+        "gas": {
+          "ok": true,
+          "raw": 307,
+          "valid": false
+        },
+        "smoke": {
+          "ok": true,
+          "raw": 160,
+          "valid": false
+        }
+      },
+      "dto": {
+        "gas": {
+          "raw": 307,
+          "ok": true,
+          "valid": false
+        },
+        "smoke": {
+          "raw": 160,
+          "ok": true,
+          "valid": false
+        }
+      },
+      "views": [
+        {
+          "kind": "gas",
+          "name": "燃气（MQ-5）",
+          "valueText": "上次读数 原始 ADC 307",
+          "state": "invalid",
+          "stateText": "读数无效",
+          "validity": "invalid",
+          "alarmEnabled": false,
+          "colorToken": "warning",
+          "detailText": "读取失败/读数无效；报警未启用、未标定；展示上次读数，不能视为正常"
+        },
+        {
+          "kind": "smoke",
+          "name": "烟雾（MQ-2）",
+          "valueText": "上次读数 原始 ADC 160",
+          "state": "invalid",
+          "stateText": "读数无效",
+          "validity": "invalid",
+          "alarmEnabled": false,
+          "colorToken": "warning",
+          "detailText": "读取失败/读数无效；报警未启用、未标定；展示上次读数，不能视为正常"
+        }
+      ]
+    },
+    {
+      "label": "valid absent; validity unknown",
+      "evidenceClass": "LOCAL SYNTHETIC REPLAY, NOT REAL",
+      "input": {
+        "gas": {
+          "raw": 307,
+          "ok": true
+        },
+        "smoke": {
+          "raw": 160,
+          "ok": true
+        }
+      },
+      "gateway": {
+        "gas": {
+          "ok": true,
+          "raw": 307
+        },
+        "smoke": {
+          "ok": true,
+          "raw": 160
+        }
+      },
+      "cloudStatus": {
+        "gas": {
+          "ok": true,
+          "raw": 307
+        },
+        "smoke": {
+          "ok": true,
+          "raw": 160
+        }
+      },
+      "ingestBody": {
+        "gas": {
+          "ok": true,
+          "raw": 307
+        },
+        "smoke": {
+          "ok": true,
+          "raw": 160
+        }
+      },
+      "memoryBackendPublicDevice": {
+        "gas": {
+          "ok": true,
+          "raw": 307
+        },
+        "smoke": {
+          "ok": true,
+          "raw": 160
+        }
+      },
+      "dto": {
+        "gas": {
+          "raw": 307,
+          "ok": true,
+          "valid": null
+        },
+        "smoke": {
+          "raw": 160,
+          "ok": true,
+          "valid": null
+        }
+      },
+      "views": [
+        {
+          "kind": "gas",
+          "name": "燃气（MQ-5）",
+          "valueText": "原始 ADC 307",
+          "state": "disabled",
+          "stateText": "报警未启用",
+          "validity": "unknown",
+          "alarmEnabled": false,
+          "colorToken": "neutral",
+          "detailText": "报警未启用 · 未标定，原始 ADC 不代表 ppm，也不代表安全"
+        },
+        {
+          "kind": "smoke",
+          "name": "烟雾（MQ-2）",
+          "valueText": "原始 ADC 160",
+          "state": "disabled",
+          "stateText": "报警未启用",
+          "validity": "unknown",
+          "alarmEnabled": false,
+          "colorToken": "neutral",
+          "detailText": "报警未启用 · 未标定，原始 ADC 不代表 ppm，也不代表安全"
+        }
+      ]
+    },
+    {
+      "label": "valid true; zero ADC remains visible, alarm disabled",
+      "evidenceClass": "LOCAL SYNTHETIC REPLAY, NOT REAL",
+      "input": {
+        "gas": {
+          "raw": 0,
+          "ok": true,
+          "valid": true
+        },
+        "smoke": {
+          "raw": 0,
+          "ok": true,
+          "valid": true
+        }
+      },
+      "gateway": {
+        "gas": {
+          "ok": true,
+          "raw": 0,
+          "valid": true
+        },
+        "smoke": {
+          "ok": true,
+          "raw": 0,
+          "valid": true
+        }
+      },
+      "cloudStatus": {
+        "gas": {
+          "ok": true,
+          "raw": 0,
+          "valid": true
+        },
+        "smoke": {
+          "ok": true,
+          "raw": 0,
+          "valid": true
+        }
+      },
+      "ingestBody": {
+        "gas": {
+          "ok": true,
+          "raw": 0,
+          "valid": true
+        },
+        "smoke": {
+          "ok": true,
+          "raw": 0,
+          "valid": true
+        }
+      },
+      "memoryBackendPublicDevice": {
+        "gas": {
+          "ok": true,
+          "raw": 0,
+          "valid": true
+        },
+        "smoke": {
+          "ok": true,
+          "raw": 0,
+          "valid": true
+        }
+      },
+      "dto": {
+        "gas": {
+          "raw": 0,
+          "ok": true,
+          "valid": true
+        },
+        "smoke": {
+          "raw": 0,
+          "ok": true,
+          "valid": true
+        }
+      },
+      "views": [
+        {
+          "kind": "gas",
+          "name": "燃气（MQ-5）",
+          "valueText": "原始 ADC 0",
+          "state": "disabled",
+          "stateText": "报警未启用",
+          "validity": "valid",
+          "alarmEnabled": false,
+          "colorToken": "neutral",
+          "detailText": "报警未启用 · 未标定，原始 ADC 不代表 ppm，也不代表安全"
+        },
+        {
+          "kind": "smoke",
+          "name": "烟雾（MQ-2）",
+          "valueText": "原始 ADC 0",
+          "state": "disabled",
+          "stateText": "报警未启用",
+          "validity": "valid",
+          "alarmEnabled": false,
+          "colorToken": "neutral",
+          "detailText": "报警未启用 · 未标定，原始 ADC 不代表 ppm，也不代表安全"
+        }
+      ]
+    }
+  ],
+  "historicalCapture": {
+    "path": "competition/evidence/2026-10-20-kitchen-esp32/mqtt-kitchen.log",
+    "sha256": "6B2E11A4860DD8730C5E3C1A0351B6AFE5936D3EFB429A7E200E56A0B30994E4",
+    "evidenceClass": "HISTORICAL ONLY; not current firmware or current readings",
+    "samples": 8,
+    "first": {
+      "ts": 1792500374324,
+      "sensors": {
+        "gas": {
+          "raw": 0,
+          "ok": true
+        },
+        "smoke": {
+          "raw": 0,
+          "ok": true
+        }
+      }
+    },
+    "last": {
+      "ts": 1792500412614,
+      "sensors": {
+        "gas": {
+          "raw": 0,
+          "ok": true
+        },
+        "smoke": {
+          "raw": 0,
+          "ok": true
+        }
+      }
+    }
+  }
+}

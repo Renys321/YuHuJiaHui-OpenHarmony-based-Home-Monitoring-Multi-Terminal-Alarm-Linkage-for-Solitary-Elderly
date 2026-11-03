@@ -1,0 +1,139 @@
+﻿{   
+    "trust-profile-path":[
+        {   
+            "mode":"developer",
+            "type":"",
+            "subject":"C=CN, O=Huawei, OU=HOS AppGallery, CN=HOS Profile Management",
+            "issuer":"C=CN, O=Huawei, OU=Huawei CBG, CN=Huawei CBG Software Signing Service CA",
+            "max-certs-path":3
+        },
+        {   
+            "mode":"developer",
+            "type":"",
+            "subject":"C=CN, O=Huawei CBG, OU=HOS Development Team, CN=HOS Application Provision Profile Release",
+            "issuer":"C=CN, O=Huawei, OU=Huawei CBG, CN=Huawei CBG Software Signing Service CA",
+            "max-certs-path":3
+        },
+        {   
+            "mode":"debug",
+            "type":"",
+            "subject":"C=CN, O=Huawei, OU=HOS AppGallery, CN=HOS Profile Management Debug",
+            "issuer":"C=CN, O=Huawei, OU=Huawei CBG, CN=Huawei CBG Software Signing Service CA",
+            "max-certs-path":3
+        },
+        {   
+            "mode":"debug",
+            "type":"",
+            "subject":"C=CN, O=OpenHarmony, OU=OpenHarmony Team, CN=OpenHarmony Application Profile Debug",
+            "issuer":"C=CN, O=OpenHarmony, OU=OpenHarmony Team, CN=OpenHarmony Application CA",
+            "max-certs-path":3
+        },
+        {   
+            "mode":"debug",
+            "type":"",
+            "subject":"C=CN, O=Huawei CBG, OU=HOS Development Team, CN=HOS Application Provision Profile Release_Debug",
+            "issuer":"C=CN, O=Huawei, OU=Huawei CBG, CN=Huawei CBG Software Signing Service CA",
+            "max-certs-path":3
+        }
+    ],
+    "trust-cert-path":[
+        {   
+            "mode":"Release",
+            "type":"Authed",
+            "subject":"C=CN, O=Huawei, OU=HOS AppGallery, CN=HOS AppGallery Application Release",
+            "issuer":"C=CN, O=Huawei, OU=Huawei CBG, CN=Huawei CBG Software Signing Service CA",
+            "max-certs-path":3
+        },
+        {   
+            "mode":"Release",
+            "type":"Platform",
+            "subject":"ALL",
+            "issuer":"C=CN, O=Huawei, OU=Huawei CBG, CN=Huawei CBG Software Signing Service CA",
+            "max-certs-path":3
+        },
+        {   
+            "mode":"Release",
+            "type":"Block",
+            "subject":"C=CN, O=Huawei, OU=Huawei CBG, CN=HOS Application Provision Debug V2",
+            "issuer":"C=CN, O=Huawei, OU=Huawei CBG, CN=Huawei CBG Software Signing Service CA",
+            "max-certs-path":3
+        },
+        {   
+            "mode":"Release",
+            "type":"Block",
+            "subject":"C=CN, O=Huawei, OU=Huawei CBG, CN=DevEcoTesting Release",
+            "issuer":"C=CN, O=Huawei, OU=Huawei CBG, CN=Huawei CBG Software Signing Service CA",
+            "max-certs-path":3
+        },
+        {
+            "mode":"Release",
+            "type":"Block",
+            "subject":"C=CN, O=Huawei, OU=Huawei CBG, CN=HarmonyOS SDK debug tools",
+            "issuer":"C=CN, O=Huawei, OU=Huawei CBG, CN=Huawei CBG Software Signing Service CA",
+            "max-certs-path":3
+        },
+        {
+            "mode":"Release",
+            "type":"Block",
+            "subject":"C=CN, O=Huawei CBG, OU=HOS Development Team, CN=HOS Application Provision Profile Release",
+            "issuer":"C=CN, O=Huawei, OU=Huawei CBG, CN=Huawei CBG Software Signing Service CA",
+            "max-certs-path":3
+        },
+        {
+            "mode":"Release",
+            "type":"Block",
+            "subject":"C=CN, O=Huawei, OU=HOS AppGallery, CN=HOS Profile Management",
+            "issuer":"C=CN, O=Huawei, OU=Huawei CBG, CN=Huawei CBG Software Signing Service CA",
+            "max-certs-path":3
+        },
+        {
+            "mode":"Release",
+            "type":"Block",
+            "subject":"C=CN, O=Huawei, OU=HOS AppGallery, CN=HOS Profile Management Debug",
+            "issuer":"C=CN, O=Huawei, OU=Huawei CBG, CN=Huawei CBG Software Signing Service CA",
+            "max-certs-path":3
+        },
+        {
+            "mode":"Release",
+            "type":"Block",
+            "subject":"C=CN, O=Huawei CBG, OU=HOS Development Team, CN=HOS Application Provision Profile Release_Debug",
+            "issuer":"C=CN, O=Huawei, OU=Huawei CBG, CN=Huawei CBG Software Signing Service CA",
+            "max-certs-path":3
+        },
+        {   
+            "mode":"Dev",
+            "type":"Developer",
+            "subject":"C=CN, O=Huawei, OU=Huawei CBG, CN=HOS Application Provision Debug V2",
+            "issuer":"C=CN, O=Huawei, OU=Huawei CBG, CN=Huawei CBG Software Signing Service CA",
+            "max-certs-path":3
+        },
+        {
+            "mode":"Dev",
+            "type":"Platform",
+            "subject":"C=CN, O=Huawei, OU=Huawei CBG, CN=DevEcoTesting Release",
+            "issuer":"C=CN, O=Huawei, OU=Huawei CBG, CN=Huawei CBG Software Signing Service CA",
+            "max-certs-path":3
+        },
+        {
+            "mode":"Dev",
+            "type":"Platform",
+            "subject":"C=CN, O=Huawei, OU=Huawei CBG, CN=HarmonyOS SDK debug tools",
+            "issuer":"C=CN, O=Huawei, OU=Huawei CBG, CN=Huawei CBG Software Signing Service CA",
+            "max-certs-path":3
+        },
+        {   
+            "mode":"Release",
+            "type":"Authed",
+            "subject":"C=CN, O=OpenHarmony, OU=OpenHarmony Team, CN=OpenHarmony Application Release",
+            "issuer":"C=CN, O=OpenHarmony, OU=OpenHarmony Team, CN=OpenHarmony Application CA",
+            "max-certs-path":3
+        },
+        {   
+            "mode":"Release",
+            "type":"Authed",
+            "subject":"C=CN, O=Organization, OU=Unit, CN=ide_demo_app",
+            "issuer":"C=CN, O=OpenHarmony, OU=OpenHarmony Team, CN=OpenHarmony Application CA",
+            "max-certs-path":3
+        }
+   ]
+}

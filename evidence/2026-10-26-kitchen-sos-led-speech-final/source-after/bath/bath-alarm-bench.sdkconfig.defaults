@@ -1,0 +1,26 @@
+# LOCAL-ALARM-VOICE-CLOSURE 隔离台架参数（仅验收用，禁止作为现场固件）
+# 测试参数与正式参数明确区分：缩短时序、启用注入、命令走 UART0（115200 8N1）。
+# 台架固件不启动 WiFi/网关/NTP，不产生云端事件。
+CONFIG_NODE_ALARM_BENCH_INJECT=y
+# 无活动阈值从正式 1800 秒缩短为 20 秒，用于验证触发/恢复/再次触发时序。
+CONFIG_NODE_NO_MOTION_SEC=20
+# 温湿度确认次数从正式 3/5 缩短为 2/2，用于验证持续确认与回差解除。
+CONFIG_NODE_CLIMATE_CONFIRM_COUNT=2
+CONFIG_NODE_CLIMATE_CLEAR_COUNT=2
+# 限频提醒从正式 300 秒缩短为 10 秒。
+CONFIG_NODE_ALARM_REPEAT_SEC=10
+CONFIG_NODE_ALARM_BEEP_SEC=5
+CONFIG_NODE_NO_MOTION_REQUIRE_ARM=y
+# 台架启用板载 LED，便于现场观察真实亮灭/闪烁；正式参数见 alarm-closure 叠加层。
+CONFIG_NODE_LED_GPIO=1
+# 初始按低电平点亮；用 `led pol low|high` + `led id` 现场确认后固化。
+CONFIG_NODE_LED_ACTIVE_LOW=y
+
+# 告警声音编排（2026-10-26 LOCAL-ALARM-SPEECH-FINAL）：先短提示音，蜂鸣停止后再播
+# 完整中文语音，二者不重叠。旧行为是蜂鸣器连续响 10 秒并把语音完全遮盖。
+CONFIG_NODE_ALARM_CHIRP_ON_MS=200
+CONFIG_NODE_ALARM_CHIRP_GAP_MS=100
+CONFIG_NODE_ALARM_CHIRP_COUNT=2
+CONFIG_NODE_ALARM_CHIRP_COUNT_SOS=3
+CONFIG_NODE_ALARM_VOICE_GAP_MS=150
+CONFIG_NODE_VOICE_AMP_SETTLE_MS=60

@@ -1,0 +1,85 @@
+{
+    "generatedAt":  "2026-10-26T01:08:41.8436942+08:00",
+    "classification":  "LOCAL_BUILD_PASS_REAL_PLAYBACK_NOT_TESTED",
+    "archivedArtifactsUsePlaceholderNetworkConfiguration":  true,
+    "flashed":  false,
+    "realPlaybackVerified":  false,
+    "artifacts":  [
+                      {
+                          "Name":  "bathroom-NOT-FOR-PRODUCTION.bin",
+                          "Bytes":  932672,
+                          "SHA256":  "54C6A90896737E65031885ABABD04EBCE59CDADBF2645885EE23ADE363AE66CB"
+                      },
+                      {
+                          "Name":  "bathroomlistening-NOT-FOR-PRODUCTION.bin",
+                          "Bytes":  1039728,
+                          "SHA256":  "5050081213F3E4A3045757EC02146BE2CE1C991070A2A1241EEC236B45C1E1AC"
+                      },
+                      {
+                          "Name":  "kitchenbaseline-NOT-FOR-PRODUCTION.bin",
+                          "Bytes":  782592,
+                          "SHA256":  "6A140D8982B905172B0D336F0A5E6767413B71C77F94CDBDDAEB8E2E30E0FE4B"
+                      },
+                      {
+                          "Name":  "kitchenvoice-NOT-FOR-PRODUCTION.bin",
+                          "Bytes":  939552,
+                          "SHA256":  "A2EB928616125F7119E693B4E75B267A04F3D8C5031738056505A24966FFB69C"
+                      }
+                  ],
+    "privateCandidates":  [
+                              {
+                                  "Variant":  "bathroom",
+                                  "RelativePath":  "esp32-node/build-voice-bathroom-private/esp32_elder_node.bin",
+                                  "Bytes":  932672,
+                                  "SHA256":  "E2A3E726F0618CB41CDCF3DEB0ADA268E1A35661EE307E567590C68802C7B756",
+                                  "ConfigurationSource":  "existing-private-bathroom-defaults",
+                                  "CurrentDeviceConfigurationVerified":  false,
+                                  "CopiedToEvidence":  false,
+                                  "Flashed":  false
+                              },
+                              {
+                                  "Variant":  "bathroomlistening",
+                                  "RelativePath":  "esp32-node/build-voice-bathroomlistening-private/esp32_elder_node.bin",
+                                  "Bytes":  1039728,
+                                  "SHA256":  "B53394A99758D52741A70EB7230F6740D7FF4759F4DF8B718EFDC7B7EC117486",
+                                  "ConfigurationSource":  "existing-private-bathroom-defaults",
+                                  "CurrentDeviceConfigurationVerified":  false,
+                                  "CopiedToEvidence":  false,
+                                  "Flashed":  false
+                              },
+                              {
+                                  "Variant":  "kitchenvoice",
+                                  "RelativePath":  "esp32-node/build-voice-kitchenvoice-private/esp32_elder_node.bin",
+                                  "Bytes":  939552,
+                                  "SHA256":  "5753D3D40C21B4C6FDD865FF3079AC454FAAC28E1F9119A249402A753B80F7C5",
+                                  "ConfigurationSource":  "existing-private-kitchen-defaults",
+                                  "CurrentDeviceConfigurationVerified":  false,
+                                  "CopiedToEvidence":  false,
+                                  "Flashed":  false
+                              },
+                              {
+                                  "Variant":  "kitchenlistening",
+                                  "RelativePath":  "esp32-node/build-voice-kitchenlistening-private/esp32_elder_node.bin",
+                                  "Bytes":  1046608,
+                                  "SHA256":  "E602AFBD14729153108E34A1AEB1126C392F0ED26654324B9F8C4D103038AF77",
+                                  "ConfigurationSource":  "existing-private-kitchen-defaults",
+                                  "CurrentDeviceConfigurationVerified":  false,
+                                  "CopiedToEvidence":  false,
+                                  "Flashed":  false
+                              }
+                          ],
+    "rollbackChecks":  [
+                           {
+                               "Name":  "bathroom-8D4E9A26.bin",
+                               "Bytes":  775616,
+                               "SHA256":  "8D4E9A266950B364F1AC714194D4AD9FAA6BD70B447C72EBCA377AE863E902CE",
+                               "Copied":  false
+                           },
+                           {
+                               "Name":  "kitchen-330D9CA6.bin",
+                               "Bytes":  782496,
+                               "SHA256":  "330D9CA6EF858B0A4043607CA2EB7E92125A9030F2D06B05DA1218B8CCE62938",
+                               "Copied":  false
+                           }
+                       ]
+}

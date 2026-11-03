@@ -1,0 +1,45 @@
+# homemon deployed vs source (2026-10-28 00:41:43, read-only)
+## board deployed homemon startup log (still 4 clients)
+[1793113056] homemon 启动（tick=1s, 无活动阈值=1800s, 目录=/data/homemon）
+[1793113056] 活动监测能力：配置 0 路 PIR，启动自检可读 0 路 → NO_MOTION=关闭（无有效 PIR：不产生 NO_MOTION，也不因活动间隔进 WARN）
+[1793113056] 启动时系统时间可信： UTC=2026-10-27T14:57:36Z epoch_ms=1793113056382
+[1793113056] TCP 状态通道已监听 0.0.0.0:9000（最多 4 路客户端）
+[1793113056] 日统计已载入：今日 0 次，前 6 日 0/0/0/0/0/0
+[1793113056] 系统时间已可信（PC 网关校时生效）： UTC=2026-10-27T14:57:36Z epoch_ms=1793113056388
+## board homemon process
+root         16594   720 0 00:33:12 ?     00:00:00 sh -c grep -i -E client|max|accept /data/homemon/homemon.stdout 2>/dev/null | tail -20
+root         23450     1 0 22:57:36 ?     00:00:08 homemon homemon.conf
+## board homemon sha256 (compare with P0 entry frozen hash f6f4497c...)
+f6f4497c57492ca00f9ac70bf9a00330ebd5c658e2c134eae006cb5f0de2899b  /data/homemon/homemon
+## source state (Lead source fix: MAX_CLIENTS 4->8 + TCP keepalive)
+  file: D:\OpenHarmony\competition\southbound\src\homemon.c  mtime=2026/10/28 0:39:59  sha256=af4960066aca359dece55a6f355499b5ad69ff5bf28ccb8a8fe43495e48b7e01
+homemon.c:678: #define MAX_CLIENTS 8
+homemon.c:686: static tcp_client_t g_cli[MAX_CLIENTS];
+homemon.c:691: for (int i = 0; i < MAX_CLIENTS; i++) {
+homemon.c:705: for (int i = 0; i < MAX_CLIENTS; i++) {
+homemon.c:719: if (bind(g_lfd, (struct sockaddr *)&a, sizeof(a)) < 0 || listen(g_lfd, MAX_CLIENTS) < 0) {
+homemon.c:724: logmsg("TCP 鐘舵€侀€氶亾宸茬洃鍚?0.0.0.0:%d锛堟渶澶?%d 璺鎴风锛?, g_cfg.tcp_port, MAX_CLIENTS);
+homemon.c:738: for (int i = 0; i < MAX_CLIENTS; i++) {
+homemon.c:743: /* 姝诲鎴风鑷姩鍥炴敹锛歬eepalive 30s 绌洪棽 + 5s*3 鎺㈡祴锛垀45s 鍒ゅ畾姝昏繛鎺ワ級銆?               鏃х増鏈病鏈?keepalive锛孭C 涓?bridge/mirror 琚己鏉€鍚?socket 浼氭案涔?ESTABLISHED锛?               鍗犳弧 MAX_CLIENTS 瀵艰嚧 2026-10-28 00:40 鐜板満 DAYU 閾捐矾鏂摼銆?*/
+homemon.c:745: setsockopt(fd, SOL_SOCKET, SO_KEEPALIVE, &ka, sizeof(ka));
+homemon.c:746: #ifdef TCP_KEEPIDLE
+homemon.c:748: setsockopt(fd, IPPROTO_TCP, TCP_KEEPIDLE, &idle, sizeof(idle));
+homemon.c:750: #ifdef TCP_KEEPINTVL
+homemon.c:752: setsockopt(fd, IPPROTO_TCP, TCP_KEEPINTVL, &intvl, sizeof(intvl));
+homemon.c:754: #ifdef TCP_KEEPCNT
+## board port 9000 connections (PC .179 zombie ESTABLISHED + local loopback clients; new SYN_RECV)
+tcp        0      0 0.0.0.0:9000            0.0.0.0:*               LISTEN      23450/homemon
+tcp        0      0 127.0.0.1:9000          127.0.0.1:42788         ESTABLISHED 23450/homemon
+tcp        0 149227 10.127.130.131:9000     10.127.130.179:55852    ESTABLISHED 23450/homemon
+tcp        0 127485 10.127.130.131:9000     10.127.130.179:55853    ESTABLISHED 23450/homemon
+tcp        0 122818 10.127.130.131:9000     10.127.130.179:57067    ESTABLISHED 23450/homemon
+tcp        0      0 127.0.0.1:42788         127.0.0.1:9000          ESTABLISHED 27321/com.dsh.eldercare
+tcp        0      1 10.127.130.131:9000     10.127.130.179:57839    FIN_WAIT1   -
+## PC side processes for the zombie local ports (expected empty = old bridge/mirror exited)
+
+## conclusion
+- deployed homemon (started 00:17:36) still logs "max 4 clients": old binary with MAX_CLIENTS=4
+- 3 stale PC connections hold slots; board Send-Q grows ~988B/3s => homemon keeps broadcasting to dead sockets
+- new connections (bridge status/relay, mirror relay) queue/are closed => dayu200-living 202 stop, mirror relay flap
+- source already has 8 clients + keepalive fix, but arm32 binary must be rebuilt/replaced and homemon restarted
+- after replacement, P0 entry $HomemonSha must be updated (currently f6f4497c...)

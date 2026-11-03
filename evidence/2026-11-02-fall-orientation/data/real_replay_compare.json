@@ -1,0 +1,64 @@
+{
+  "2026-10-25-dayu-formal-camera-inference-regression/formal-pose-events.jsonl": {
+    "frames": 436,
+    "baseline_fall_events": 2,
+    "patched_fall_events": 0,
+    "baseline_samples": [
+      {
+        "ts": 1792941438620,
+        "torso": 0.5,
+        "aspect": 1.0,
+        "drop": 0.134
+      },
+      {
+        "ts": 1792941476813,
+        "torso": 2.0,
+        "aspect": 1.02,
+        "drop": 0.077
+      }
+    ],
+    "patched_samples": []
+  },
+  "2026-10-25-dayu-formal-camera-inference-regression/formal-live-events.jsonl": {
+    "frames": 1288,
+    "baseline_fall_events": 0,
+    "patched_fall_events": 0,
+    "baseline_samples": [],
+    "patched_samples": []
+  },
+  "2026-10-25-dayu-formal-camera-inference-regression/formal-redo-events.jsonl": {
+    "frames": 495,
+    "baseline_fall_events": 0,
+    "patched_fall_events": 0,
+    "baseline_samples": [],
+    "patched_samples": []
+  },
+  "2026-10-25-dayu-formal-camera-inference-regression/formal-redo3-events.jsonl": {
+    "frames": 646,
+    "baseline_fall_events": 1,
+    "patched_fall_events": 0,
+    "baseline_samples": [
+      {
+        "ts": 1792943490039,
+        "torso": 9.8,
+        "aspect": 0.96,
+        "drop": 0.055
+      }
+    ],
+    "patched_samples": []
+  },
+  "2026-10-25-dayu-formal-camera-inference-regression/formal-capture-events.jsonl": {
+    "frames": 142,
+    "baseline_fall_events": 0,
+    "patched_fall_events": 0,
+    "baseline_samples": [],
+    "patched_samples": []
+  },
+  "2026-10-26-demo-autostart/demo-events-mid.jsonl": {
+    "frames": 1396,
+    "baseline_fall_events": 0,
+    "patched_fall_events": 0,
+    "baseline_samples": [],
+    "patched_samples": []
+  }
+}

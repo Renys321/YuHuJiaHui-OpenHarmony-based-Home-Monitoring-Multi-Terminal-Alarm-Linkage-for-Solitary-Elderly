@@ -1,0 +1,212 @@
+{
+ "sizes": {
+  "320": {
+   "stats": {
+    "inferMsP50": 399,
+    "inferMsP95": 411,
+    "inferMsAvg": 401.1,
+    "inferMsMin": 394,
+    "inferMsMax": 415,
+    "inferFps": 2.23,
+    "elapsedSec": 13.4,
+    "rssKb": 62940,
+    "tempC": 50,
+    "errors": 0
+   },
+   "images": {
+    "no_person_camera_check.jpeg": {
+     "frames": 10,
+     "personCounts": [
+      0
+     ],
+     "validKptsAvg": 0,
+     "kptConfAvg": 0,
+     "kptConfMin": 0,
+     "bboxSample": null,
+     "inferMsAvg": 402.6
+    },
+    "no_person_living_room.jpeg": {
+     "frames": 10,
+     "personCounts": [
+      0
+     ],
+     "validKptsAvg": 0,
+     "kptConfAvg": 0,
+     "kptConfMin": 0,
+     "bboxSample": null,
+     "inferMsAvg": 399.6
+    },
+    "person_camera_preview.jpeg": {
+     "frames": 10,
+     "personCounts": [
+      1
+     ],
+     "validKptsAvg": 2,
+     "kptConfAvg": 0.10800000000000001,
+     "kptConfMin": 0.010999999999999998,
+     "bboxSample": [
+      49.1,
+      774.1,
+      360.4,
+      294.7
+     ],
+     "inferMsAvg": 401.1
+    }
+   },
+   "consistency": {
+    "no_person_camera_check.jpeg": {
+     "bboxIoUAvg": 0,
+     "bboxIoUMin": null,
+     "kptMeanDistAvg": 0,
+     "kptMeanDistMax": null,
+     "matchedFrames": 0
+    },
+    "no_person_living_room.jpeg": {
+     "bboxIoUAvg": 0,
+     "bboxIoUMin": null,
+     "kptMeanDistAvg": 0,
+     "kptMeanDistMax": null,
+     "matchedFrames": 0
+    },
+    "person_camera_preview.jpeg": {
+     "bboxIoUAvg": 0.5157371636123491,
+     "bboxIoUMin": 0.5157371636123491,
+     "kptMeanDistAvg": 340.5752395615987,
+     "kptMeanDistMax": 340.5752395615987,
+     "matchedFrames": 10
+    }
+   }
+  },
+  "416": {
+   "stats": {
+    "inferMsP50": 694,
+    "inferMsP95": 704,
+    "inferMsAvg": 693.5,
+    "inferMsMin": 683,
+    "inferMsMax": 715,
+    "inferFps": 1.34,
+    "elapsedSec": 22.3,
+    "rssKb": 81908,
+    "tempC": 50,
+    "errors": 0
+   },
+   "images": {
+    "no_person_camera_check.jpeg": {
+     "frames": 10,
+     "personCounts": [
+      0
+     ],
+     "validKptsAvg": 0,
+     "kptConfAvg": 0,
+     "kptConfMin": 0,
+     "bboxSample": null,
+     "inferMsAvg": 694.6
+    },
+    "no_person_living_room.jpeg": {
+     "frames": 10,
+     "personCounts": [
+      0
+     ],
+     "validKptsAvg": 0,
+     "kptConfAvg": 0,
+     "kptConfMin": 0,
+     "bboxSample": null,
+     "inferMsAvg": 692.7
+    },
+    "person_camera_preview.jpeg": {
+     "frames": 10,
+     "personCounts": [
+      1
+     ],
+     "validKptsAvg": 6,
+     "kptConfAvg": 0.21200000000000002,
+     "kptConfMin": 0.017000000000000005,
+     "bboxSample": [
+      46.7,
+      775.9,
+      374.9,
+      283.8
+     ],
+     "inferMsAvg": 693.2
+    }
+   },
+   "consistency": {
+    "no_person_camera_check.jpeg": {
+     "bboxIoUAvg": 0,
+     "bboxIoUMin": null,
+     "kptMeanDistAvg": 0,
+     "kptMeanDistMax": null,
+     "matchedFrames": 0
+    },
+    "no_person_living_room.jpeg": {
+     "bboxIoUAvg": 0,
+     "bboxIoUMin": null,
+     "kptMeanDistAvg": 0,
+     "kptMeanDistMax": null,
+     "matchedFrames": 0
+    },
+    "person_camera_preview.jpeg": {
+     "bboxIoUAvg": 0.5151823067279738,
+     "bboxIoUMin": 0.5151823067279737,
+     "kptMeanDistAvg": 207.26276897808935,
+     "kptMeanDistMax": 207.26276897808938,
+     "matchedFrames": 10
+    }
+   }
+  },
+  "640": {
+   "stats": {
+    "inferMsP50": 1641,
+    "inferMsP95": 1653,
+    "inferMsAvg": 1642.73,
+    "inferMsMin": 1627,
+    "inferMsMax": 1689,
+    "inferFps": 0.59,
+    "elapsedSec": 51.2,
+    "rssKb": 122092,
+    "tempC": 48.9,
+    "errors": 0
+   },
+   "images": {
+    "no_person_camera_check.jpeg": {
+     "frames": 10,
+     "personCounts": [
+      0
+     ],
+     "validKptsAvg": 0,
+     "kptConfAvg": 0,
+     "kptConfMin": 0,
+     "bboxSample": null,
+     "inferMsAvg": 1642.8
+    },
+    "no_person_living_room.jpeg": {
+     "frames": 10,
+     "personCounts": [
+      0
+     ],
+     "validKptsAvg": 0,
+     "kptConfAvg": 0,
+     "kptConfMin": 0,
+     "bboxSample": null,
+     "inferMsAvg": 1644.9
+    },
+    "person_camera_preview.jpeg": {
+     "frames": 10,
+     "personCounts": [
+      1
+     ],
+     "validKptsAvg": 4,
+     "kptConfAvg": 0.21200000000000002,
+     "kptConfMin": 0.031000000000000007,
+     "bboxSample": [
+      47.4,
+      763.1,
+      612,
+      336.5
+     ],
+     "inferMsAvg": 1640.5
+    }
+   }
+  }
+ }
+}

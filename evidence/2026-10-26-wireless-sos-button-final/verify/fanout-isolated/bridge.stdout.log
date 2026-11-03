@@ -1,0 +1,58 @@
+=== mqtt_bridge 启动 ===
+  Broker    : 127.0.0.1:18830
+  上行主题  : home/<deviceId>/status   （设备编号由报文决定）
+  下行主题  : home/<deviceId>/cmd      （按编号路由到对应节点）
+  命令兜底  : control
+  求助播报  : source=esp32-sos targets=esp32-kitchen,esp32-bath（受控逐台路由，同一 alarmId 只派发一次，无 MQTT 广播）
+  监听端口  : 9111（等待无线节点接入）
+  监听端口  : 9111（等待无线节点接入）
+[MQTT] 已连接 127.0.0.1:18830（clientId=bridge-dayu200-living-53799）
+[MQTT] 订阅成功: home/+/cmd
+[bridge] 无线节点接入 ::ffff:127.0.0.1:56630
+[bridge] 无线节点接入 ::ffff:127.0.0.1:56631
+[bridge] 无线节点接入 ::ffff:127.0.0.1:56632
+[bridge] → home/esp32-sos/status  state=NORMAL room=随身求助 countToday=0
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] → home/esp32-bath/status  state=NORMAL room=卫生间 countToday=0
+[bridge] → home/esp32-sos/status  state=ALARM room=随身求助 countToday=0
+[bridge] 命令已写入节点 esp32-kitchen 的活动连接: notice e-1-1793030255102 esp32-sos
+[bridge] 求助定向播报 target=esp32-kitchen alarmId=e-1-1793030255102 source=esp32-sos → delivered
+[bridge] 命令已写入节点 esp32-bath 的活动连接: notice e-1-1793030255102 esp32-sos
+[bridge] 求助定向播报 target=esp32-bath alarmId=e-1-1793030255102 source=esp32-sos → delivered
+[bridge] → home/esp32-sos/status  state=ALARM room=随身求助 countToday=0
+[bridge] 求助播报已派发过，本轮不重复发（alarmId=e-1-1793030255102，重试/重连/重复上报均不新建）
+[bridge] → home/esp32-sos/status  state=ALARM room=随身求助 countToday=0
+[bridge] 求助播报已派发过，本轮不重复发（alarmId=e-1-1793030255102，重试/重连/重复上报均不新建）
+[bridge] → home/esp32-sos/status  state=ALARM room=随身求助 countToday=0
+[bridge] 求助播报已派发过，本轮不重复发（alarmId=e-1-1793030255102，重试/重连/重复上报均不新建）
+[bridge] → home/esp32-sos/status  state=ACKED room=随身求助 countToday=0
+[bridge] 命令已写入节点 esp32-kitchen 的活动连接: noticeack e-1-1793030255102
+[bridge] 求助播报收口 target=esp32-kitchen alarmId=e-1-1793030255102 → delivered
+[bridge] 命令已写入节点 esp32-bath 的活动连接: noticeack e-1-1793030255102
+[bridge] 求助播报收口 target=esp32-bath alarmId=e-1-1793030255102 → delivered
+[MQTT] ← home/esp32-sos/cmd: {"cmd":"ack","alarmId":"e-1-1793030255102","action":"已确认"}
+[bridge] 命令已写入节点 esp32-sos 的活动连接: ack e-1-1793030255102 已确认
+[bridge] → home/esp32-sos/status  state=ALARM room=随身求助 countToday=0
+[bridge] 求助播报已派发过，本轮不重复发（alarmId=e-1-1793030255102，重试/重连/重复上报均不新建）
+[bridge] → home/esp32-sos/status  state=ACKED room=随身求助 countToday=0
+[bridge] 无线节点 esp32-kitchen 断开
+[bridge] → home/esp32-sos/status  state=ALARM room=随身求助 countToday=0
+[bridge] 求助定向播报 target=esp32-kitchen alarmId=e-2-1793030258593 source=esp32-sos → failed_offline
+[bridge] 命令已写入节点 esp32-bath 的活动连接: notice e-2-1793030258593 esp32-sos
+[bridge] 求助定向播报 target=esp32-bath alarmId=e-2-1793030258593 source=esp32-sos → delivered
+[bridge] 无线节点接入 ::ffff:127.0.0.1:50067
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] → home/esp32-sos/status  state=ACKED room=随身求助 countToday=0
+[bridge] 求助播报收口 target=esp32-kitchen alarmId=e-2-1793030258593 → 派发时未送达，跳过（无声音可停）
+[bridge] 命令已写入节点 esp32-bath 的活动连接: noticeack e-2-1793030258593
+[bridge] 求助播报收口 target=esp32-bath alarmId=e-2-1793030258593 → delivered
+[bridge] → home/esp32-kitchen/status  state=ALARM room=厨房 countToday=0
+[bridge] → home/esp32-kitchen/status  state=NORMAL room=厨房 countToday=0
+[bridge] → home/esp32-sos/status  state=ALARM room=随身求助 countToday=0
+[bridge] 命令已写入节点 esp32-kitchen 的活动连接: notice e-3-1793030260851 esp32-sos
+[bridge] 求助定向播报 target=esp32-kitchen alarmId=e-3-1793030260851 source=esp32-sos → delivered
+[bridge] 命令已写入节点 esp32-bath 的活动连接: notice e-3-1793030260851 esp32-sos
+[bridge] 求助定向播报 target=esp32-bath alarmId=e-3-1793030260851 source=esp32-sos → delivered
+[bridge] 无线节点 esp32-sos 断开
+[bridge] 无线节点 esp32-bath 断开
+[bridge] 无线节点 esp32-kitchen 断开

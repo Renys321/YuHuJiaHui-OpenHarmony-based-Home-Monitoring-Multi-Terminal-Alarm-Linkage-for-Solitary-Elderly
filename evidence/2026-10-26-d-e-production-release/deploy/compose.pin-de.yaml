@@ -1,0 +1,22 @@
+# 把 backend 镜像“钉死”到本次 D/E 正式镜像（覆盖文件）
+#
+# 用途：在公网主机上，除了 deploy/compose.public.yaml 之外再叠加本文件，
+#       启动时用 --no-build，确保不会因为 build: context 重新构建出别的版本。
+#
+# 现场执行（维护窗口内、备份成功之后）：
+#   docker load -i /path/to/eldercare-cloud-backend-de-2026-10-26.tar
+#   docker tag eldercare-cloud-backend:de-2026-10-26 eldercare-cloud-backend:local
+#   docker compose --env-file deploy/.env.deploy \
+#     -f deploy/compose.public.yaml -f deploy/compose.pin-de.yaml \
+#     up -d --no-build backend
+#
+# 期望镜像：
+#   tag = eldercare-cloud-backend:de-2026-10-26
+#   Image ID = sha256:ed481503ff4883e83cd7f485d07768f7a29b69282f67d81439c9d79238fdada0
+#   归档 tar sha256 = A9CBB12F2C9A9E71A0097123B9BCA7F90B94DDCED6AFF1F9CBB2AD0B06E86C62
+#
+# 回滚：见 BACKEND-ROLLBACK.md（用 compose.pin-pre-d-e.yaml 钉住旧镜像 + 备份数据）
+name: eldercare-public
+services:
+  backend:
+    image: eldercare-cloud-backend:de-2026-10-26

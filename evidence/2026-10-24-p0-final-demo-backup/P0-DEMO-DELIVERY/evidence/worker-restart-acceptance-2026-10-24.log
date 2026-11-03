@@ -1,0 +1,17 @@
+﻿=== worker restart acceptance 2026-10-24T22:35:49.5597230+08:00 ===
+before: state=HEALTHY supervisorPid=11872 workerPid=45928 restartCount=0
+before: status202=6 keyReads=1 waitingForKey=1
+action: Stop-Process -Id 45928 -Force (only the worker; supervisor untouched)
+after: state=HEALTHY supervisorPid=11872 workerPid=50580 restartCount=1 (recovered in 1282ms)
+processes: supervisorCount=1 workerCount=1 supervisorPid=11872 workerPid=50580
+worker parent is supervisor: True
+supervisor PID unchanged: True
+after 35s: status202=8 (before=6) keyReads=1 (before=1) waitingForKey=1 (before=1)
+log evidence:
+  2026-10-24T14:35:49.609Z [supervisor] WORKER_EXIT code=4294967295 signal=null durationMs=180644
+  2026-10-24T14:35:49.610Z [supervisor] RESTART_IN 1000ms restartCount=1
+  2026-10-24T14:32:48.965Z [supervisor] WORKER_START pid=45928
+  2026-10-24T14:35:50.631Z [supervisor] WORKER_START pid=50580
+  2026-10-24T14:32:49.154Z [supervisor] HEALTHY pid=45928
+  2026-10-24T14:35:50.850Z [supervisor] HEALTHY pid=50580
+RESULT: PASS

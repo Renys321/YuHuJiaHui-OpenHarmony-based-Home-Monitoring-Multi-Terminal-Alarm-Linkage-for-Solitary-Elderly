@@ -1,0 +1,6 @@
+﻿10-28 00:09:54.131 21193 21193 I A03d00/JSAPP: [VideoStreamServer] frame#41 cap=141ms scale=0ms pack=18ms send=8ms size=480x360 q=60 bytes=13226 fps=5 interval=0
+10-28 00:09:58.139 21193 21193 I A03d00/JSAPP: [VideoStreamServer] frame#61 cap=134ms scale=0ms pack=22ms send=2ms size=480x360 q=60 bytes=13952 fps=4 interval=0
+10-28 00:10:02.317 21193 21193 I A03d00/JSAPP: [VideoStreamServer] frame#81 cap=156ms scale=0ms pack=21ms send=2ms size=480x360 q=60 bytes=14198 fps=5 interval=0
+10-28 00:10:06.089 21193 21193 I A03d00/JSAPP: [VideoStreamServer] frame#101 cap=169ms scale=0ms pack=18ms send=10ms size=480x360 q=60 bytes=14118 fps=6 interval=0
+10-28 00:10:10.226 21193 21193 I A03d00/JSAPP: [VideoStreamServer] frame#121 cap=139ms scale=0ms pack=23ms send=4ms size=480x360 q=60 bytes=10862 fps=4 interval=0
+10-28 00:10:14.329 21193 21193 I A03d00/JSAPP: [VideoStreamServer] frame#141 cap=171ms scale=0ms pack=17ms send=4ms size=480x360 q=60 bytes=11142 fps=5 interval=0
